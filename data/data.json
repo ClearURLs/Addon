@@ -10,7 +10,9 @@
                 "srs=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
                 ".*(amazon-adsystem\\.com)\\/.*",
                 ".*(adsensecustomsearchads\\.com)\\/.*",
-                "pd_rd_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?"
+                "pd_rd_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "__mk_[a-zA-Z]{1,3}_[a-zA-Z]{1,3}=.*[\\?|&]?",
+                "url=.*[\\?|&]?"
             ],
             "exceptions": [
                 ".*(amazon\\.)\\w{2,}(\\/gp\\/).*"

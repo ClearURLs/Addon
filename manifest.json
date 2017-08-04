@@ -1,9 +1,10 @@
 {
   "manifest_version": 2,
-  "name": "ClearUrls",
+  "name": "ClearURLs",
   "version": "0.4",
   "author": "Kevin R., Arne S.",
-  "description": "Remove tracking elements form urls.",
+  "description": "Remove tracking elements form URLs. ",
+  "homepage_url": "https://github.com/KevinRoebert/ClearUrls",
   "icons": {
     "32": "icon32.png",
     "48": "icon48.png",
