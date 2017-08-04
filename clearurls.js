@@ -3,18 +3,67 @@
  * # Fetch Rules & Exception from URL                               #
  * ##################################################################
  */
-function fetchFromURL(url)
+var data = [];
+var providers = [];
+var prvKeys = [];
+
+/**
+ * Initialize the JSON provider object keys.
+ *
+ * @param {JSON Object} obj
+ */
+function getKeys(obj){
+   for(var key in obj){
+      prvKeys.push(key);
+   }
+};
+
+/**
+ * Initialize the providers form the JSON object.
+ * 
+ */
+function createProviders()
 {
-    fetch(url)
+    for(var p = 0; p < prvKeys.length; p++)
+    {
+        //Create new provider
+        providers.push(new Provider(prvKeys[p],data.providers[prvKeys[p]].completeProvider));
+
+        //Add URL Pattern
+        providers[p].setURLPattern(data.providers[prvKeys[p]].urlPattern);
+
+        //Add rules to provider
+        for(var r = 0; r < data.providers[prvKeys[p]].rules.length; r++)
+        {
+            providers[p].addRule(data.providers[prvKeys[p]].rules[r]);
+        }
+
+        //Add exceptions to provider
+        for(var e = 0; e < data.providers[prvKeys[p]].exceptions.length; e++)
+        {
+            providers[p].addException(data.providers[prvKeys[p]].exceptions[e]);
+        }
+    }
+};
+
+/**
+ * Fetch the Rules & Exception github.
+ * 
+ */
+function fetchFromURL()
+{
+
+    fetch("https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json")
     .then((response) => response.text().then(toJSON));
 
     function toJSON(retrievedText) { 
-        return JSON.parse(retrievedText);
+        data = JSON.parse(retrievedText);
+        getKeys(data.providers);
+        createProviders();
     }
 }
-
-var data = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json') || [];
-var providers = [];
+//Execute the command
+fetchFromURL();
 // ##################################################################
 
 /*
@@ -131,38 +180,38 @@ function Provider(_name,_completeProvider=false){
  * # Google Provider                                                #
  * ##################################################################
  */
-var google = new Provider("Google");
-  google.setURLPattern('(https:\\/\\/||http:\\/\\/).*(\\.google\\.)\\w{2,}\\/.*');
-  google.addException('.*(accounts).*');
-  google.addException('(https:\\/\\/||http:\\/\\/).*(googlevideo\\.com)\\/.*');
-  google.addException('(https:\\/\\/||http:\\/\\/).*(youtube\\.)\\w{2,}\\/.*');
+// var google = new Provider("Google");
+//   google.setURLPattern('(https:\\/\\/||http:\\/\\/).*(\\.google\\.)\\w{2,}\\/.*');
+//   google.addException('.*(accounts).*');
+//   google.addException('(https:\\/\\/||http:\\/\\/).*(googlevideo\\.com)\\/.*');
+//   google.addException('(https:\\/\\/||http:\\/\\/).*(youtube\\.)\\w{2,}\\/.*');
 
-  google.addRule('utm_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  // google.addRule('sa=[a-zA-Z0-9\\-]*[\\?|&]?'); //Must stay in, otherwise links can not be automatically open
-  google.addRule('ved=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('bi[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  // google.addRule('client=[a-zA-Z0-9\\-]*[\\?|&]?'); //Must stay in, otherwise translate.google.* do not work
-  google.addRule('gfe_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('ei=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('source=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('gs_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('site=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('&\\.[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('oq=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('esrc=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('uact=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('cd=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('cad=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('gws_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('im[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('atyp=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  // google.addRule('ct=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?'); //Must stay in, otherwise links can not be automatically open
-  google.addRule('vet=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('zx=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('_u=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  // google.addRule('v=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?'); //Must stay in, otherwise youtube do not work
-  google.addRule('je=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  google.addRule('[a-zA-Z\\_]*id=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('utm_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   // google.addRule('sa=[a-zA-Z0-9\\-]*[\\?|&]?'); //Must stay in, otherwise links can not be automatically open
+//   google.addRule('ved=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('bi[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   // google.addRule('client=[a-zA-Z0-9\\-]*[\\?|&]?'); //Must stay in, otherwise translate.google.* do not work
+//   google.addRule('gfe_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('ei=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('source=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('gs_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('site=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('&\\.[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('oq=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('esrc=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('uact=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('cd=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('cad=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('gws_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('im[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('atyp=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   // google.addRule('ct=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?'); //Must stay in, otherwise links can not be automatically open
+//   google.addRule('vet=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('zx=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('_u=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   // google.addRule('v=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?'); //Must stay in, otherwise youtube do not work
+//   google.addRule('je=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+//   google.addRule('[a-zA-Z\\_]*id=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
 // ##################################################################
 
 /*
@@ -170,8 +219,8 @@ var google = new Provider("Google");
  * # Googlesyndication Provider                                     #
  * ##################################################################
  */
-var googlesyndication = new Provider("Googlesyndication",true);
-  googlesyndication.setURLPattern('.*(\\.googlesyndication\\.)\\w{2,}\\/.*');
+// var googlesyndication = new Provider("Googlesyndication",true);
+//   googlesyndication.setURLPattern('.*(\\.googlesyndication\\.)\\w{2,}\\/.*');
 // ##################################################################
 
 /*
@@ -179,8 +228,8 @@ var googlesyndication = new Provider("Googlesyndication",true);
  * # Doubleclick Provider                                           #
  * ##################################################################
  */
-var doubleclick = new Provider("Doubleclick", true);
-  doubleclick.setURLPattern('.*(doubleclick\\.net)\\/.*');
+// var doubleclick = new Provider("Doubleclick", true);
+//   doubleclick.setURLPattern('.*(doubleclick\\.net)\\/.*');
 // ##################################################################
 
 /*
@@ -188,34 +237,10 @@ var doubleclick = new Provider("Doubleclick", true);
  * # Urchin Tracking Module Provider                                #
  * ##################################################################
  */
-var utm = new Provider("UTM", false);
-  utm.setURLPattern('.*');
-  utm.addRule('utm_[a-zA-Z]*=.*[\\?|&]?');
+// var utm = new Provider("UTM", false);
+//   utm.setURLPattern('.*');
+//   utm.addRule('utm_[a-zA-Z]*=.*[\\?|&]?');
 // ##################################################################
-
-function createProviders()
-{
-    for(var p = 0; p < data.providers.length; p++)
-    {
-        //Create new provider
-        providers.push(new Provider(data.providers[p],data.providers[p].completeProvider));
-
-        //Add URL Pattern
-        providers[p].setURLPattern(data.providers[p].urlPattern);
-
-        //Add rules to provider
-        for(var r = 0; r < data.providers[p].rules.length; r++)
-        {
-            providers[p].addRule(data.providers[p].rules[r]);
-        }
-
-        //Add exceptions to provider
-        for(var e = 0; e < data.providers[p].exceptions.length; e++)
-        {
-            providers[p].addException(data.providers[p].exceptions[e]);
-        }
-    }
-};
 
 /**
  * Helper function which remove the tracking fields
@@ -268,7 +293,7 @@ function clearUrl(request)
         "url": ""
     };
     // var providers = [amazon, google, googlesyndication, doubleclick, utm];
-    createProviders();
+    
     /*
      * Call for every provider the removeFieldsFormURL method.
      */

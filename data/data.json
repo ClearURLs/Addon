@@ -2,7 +2,7 @@
     "providers": {
         "amazon": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.amazon\\.)\\w{2,}\\/.*",
-            "completeProvider": true,
+            "completeProvider": false,
             "rules": [
                 "pf_rd_[a-zA-Z]=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
                 "qid=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
@@ -15,6 +15,58 @@
             "exceptions": [
                 ".*(amazon\\.)\\w{2,}(\\/gp\\/).*"
             ]
+        },
+        "google": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.google\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "ved=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "bi[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "gfe_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "ei=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "source=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "gs_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "site=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "&\\.[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "oq=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "esrc=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "uact=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "cd=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "cad=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "gws_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "im[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "atyp=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "vet=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "zx=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "_u=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "je=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
+                "[a-zA-Z\\_]*id=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?"
+            ],
+            "exceptions": [
+                ".*(accounts).*",
+                "(https:\\/\\/||http:\\/\\/).*(googlevideo\\.com)\\/.*",
+                "(https:\\/\\/||http:\\/\\/).*(youtube\\.)\\w{2,}\\/.*"
+            ]
+        },
+        "googlesyndication": {
+            "urlPattern": ".*(\\.googlesyndication\\.)\\w{2,}\\/.*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": []
+        },
+        "doubleclick": {
+            "urlPattern": ".*(doubleclick\\.net)\\/.*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": []
+        },
+        "utm": {
+            "urlPattern": ".*",
+            "completeProvider": false,
+            "rules": [
+                "utm_[a-zA-Z]*=.*[\\?|&]?"
+            ],
+            "exceptions": []
         }
     }  
 }
