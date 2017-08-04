@@ -13,7 +13,7 @@ function fetchFromURL(url)
     }
 }
 
-var data = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json');
+var data = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json') || [];
 var providers = [];
 // ##################################################################
 
@@ -199,6 +199,9 @@ function createProviders()
     {
         //Create new provider
         providers.push(new Provider(data.providers[p],data.providers[p].completeProvider));
+
+        //Add URL Pattern
+        providers[p].setURLPattern(data.providers[p].urlPattern);
 
         //Add rules to provider
         for(var r = 0; r < data.providers[p].rules.length; r++)
