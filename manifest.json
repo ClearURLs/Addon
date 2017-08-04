@@ -11,13 +11,18 @@
     "64": "icon64.png",
     "96": "icon96.png"
   },
+  "default_popup": "popup.html",
   "permissions": [
     "*://*/*",
     "webRequest",
-    "webRequestBlocking"
+    "webRequestBlocking",
+    "management"
   ],
   "background": {
-    "scripts": ["clearurls.js"]
+    "scripts": [
+      "clearurls.js",
+      "popup.js"
+    ]
   },
   "content_scripts": [
     {
