@@ -55,7 +55,7 @@
             "exceptions": []
         },
         "doubleclick": {
-            "urlPattern": ".*(doubleclick\\.net)\\/.*",
+            "urlPattern": ".*(doubleclick).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []

@@ -77,7 +77,7 @@ fetchFromURL();
  * @param {String} _name                Provider name
  * @param {boolean} completeProvider    Set URL Pattern as rule
  */
-function Provider(_name,_completeProvider=false){
+function Provider(_name,_completeProvider){
     var name = name;
     var urlPattern;
     var rules = new Array();
@@ -90,7 +90,7 @@ function Provider(_name,_completeProvider=false){
      */
     this.setURLPattern = function(urlPatterns) {
         if(_completeProvider){
-            rules.push(urlPattern);
+            rules.push(urlPatterns);
         }
 
         urlPattern = new RegExp(urlPatterns, "mgi");
