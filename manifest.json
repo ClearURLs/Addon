@@ -1,0 +1,39 @@
+{
+
+  "manifest_version": 2,
+  "name": "ClearUrls",
+  "version": "1.0.4.4",
+  "author": "Kevin R., Arne S.",
+
+  "description": "Remove tracking elements form urls.",
+
+  "icons": {
+    "32": "icons/32x32.png",
+    "64": "icons/64x64.png",
+    "128": "icons/128x128.png",
+    "256": "icons/256x256.png",
+    "512": "icons/512x512.png"
+  },
+
+  "permissions": [
+    "webRequest",
+    "<all_urls>",
+    "webRequestBlocking"
+  ],
+
+  "background": {
+    "scripts": ["clearurls.js"]
+  },
+
+  "incognito": "spanning",
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+          "default.js"
+      ]
+    }
+  ]
+
+}
