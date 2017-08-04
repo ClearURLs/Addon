@@ -8,7 +8,7 @@
     "32": "icon32.png",
     "48": "icon48.png",
     "64": "icon64.png",
-    "96": "icon96.png",
+    "96": "icon96.png"
   },
   "permissions": [
     "*://*/*",
