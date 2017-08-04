@@ -4,6 +4,12 @@
   "version": "0.4",
   "author": "Kevin R., Arne S.",
   "description": "Remove tracking elements form urls.",
+  "icons": {
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "64": "icon64.png",
+    "96": "icon96.png",
+  },
   "permissions": [
     "*://*/*",
     "webRequest",
