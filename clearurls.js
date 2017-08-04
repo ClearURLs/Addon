@@ -83,16 +83,16 @@ function Provider(_name,_completeProvider){
     var rules = new Array();
     var exceptions = new Array();
 
+    if(_completeProvider){
+        rules.push(".*");
+    }
+
     /**
      * Add URL pattern.
      * 
      * @require urlPatterns as RegExp
      */
     this.setURLPattern = function(urlPatterns) {
-        if(_completeProvider){
-            rules.push(urlPatterns);
-        }
-
         urlPattern = new RegExp(urlPatterns, "mgi");
     };
 
@@ -101,7 +101,7 @@ function Provider(_name,_completeProvider){
      * 
      * @return {String}    ProviderURL as RegExp
      */    
-    this.matchURL = function(url) {    
+    this.matchURL = function(url) {  
         return !(matchException(url)) && (url.match(urlPattern) != null) && (url.match(urlPattern).length > 0);
     };
 
@@ -204,7 +204,6 @@ function clearUrl(request)
         "changes": false,
         "url": ""
     };
-    // var providers = [amazon, google, googlesyndication, doubleclick, utm];
     
     /*
      * Call for every provider the removeFieldsFormURL method.

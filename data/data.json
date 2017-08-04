@@ -49,7 +49,7 @@
             ]
         },
         "googlesyndication": {
-            "urlPattern": ".*(\\.googlesyndication\\.)\\w{2,}\\/.*",
+            "urlPattern": ".*(googlesyndication).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
