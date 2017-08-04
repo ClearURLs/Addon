@@ -1,5 +1,24 @@
 /*
  * ##################################################################
+ * # Fetch Rules & Exception from URL                               #
+ * ##################################################################
+ */
+function fetchFromURL(url)
+{
+    fetch(url)
+    .then((response) => response.text().then(toJSON));
+
+    function toJSON(retrievedText) { 
+        return JSON.parse(retrievedText);
+    }
+}
+
+var globalRules = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/rules/rules.json');
+var globalExceptions = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/rules/exceptions.json');
+// ##################################################################
+
+/*
+ * ##################################################################
  * # Supertyp Provider                                              #
  * ##################################################################
  */
@@ -44,6 +63,10 @@ function Provider(_name,_completeProvider=false){
      */
     this.addRule = function(rule) {
         rules.push(rule);
+    };
+
+    this.setRules = function(_rules) {
+        rules = _rules;
     };
 
     /**
@@ -92,14 +115,15 @@ function Provider(_name,_completeProvider=false){
  */
 var amazon = new Provider("Amazon");
   amazon.setURLPattern('(https:\\/\\/||http:\\/\\/).*(\\.amazon\\.)\\w{2,}\\/.*');
-  amazon.addException('.*(amazon\\.)\\w{2,}(\\/gp\\/).*');
-  amazon.addRule('pf_rd_[a-zA-Z]=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  amazon.addRule('qid=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  amazon.addRule('sr=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  amazon.addRule('srs=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
-  amazon.addRule('.*(amazon-adsystem\\.com)\\/.*');
-  amazon.addRule('.*(adsensecustomsearchads\\.com)\\/.*');
-  amazon.addRule('pd_rd_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+  amazon.setRules(globalRules);
+  // amazon.addException('.*(amazon\\.)\\w{2,}(\\/gp\\/).*');
+  // amazon.addRule('pf_rd_[a-zA-Z]=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+  // amazon.addRule('qid=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+  // amazon.addRule('sr=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+  // amazon.addRule('srs=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
+  // amazon.addRule('.*(amazon-adsystem\\.com)\\/.*');
+  // amazon.addRule('.*(adsensecustomsearchads\\.com)\\/.*');
+  // amazon.addRule('pd_rd_[a-zA-Z]*=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
 // ##################################################################
 
 /*
@@ -239,14 +263,6 @@ function clearUrl(request)
     }
        
 };
-
-function fetchFromURL()
-{
-    fetch('https://fiddle.jshell.net/robots.txt')
-    .then((response) => response.text().then(yourCallback));
-
-    function yourCallback( retrievedText ) { /* . . . */ }
-}
 
 /**
  * Call by each Request and checking the url.
