@@ -11,7 +11,15 @@
     "64": "icon64.png",
     "96": "icon96.png"
   },
-  "default_popup": "popup.html",
+  "page_action": {
+    "browser_style": true,
+    "default_icon": {
+      "19": "icon19.png",
+      "38": "icon38.png"
+    },
+    "default_title": "ClearURLs Add-on",
+    "default_popup": "popup.html"
+  },
   "permissions": [
     "*://*/*",
     "webRequest",
