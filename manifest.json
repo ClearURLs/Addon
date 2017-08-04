@@ -11,7 +11,7 @@
     "64": "icon64.png",
     "96": "icon96.png"
   },
-  "page_action": {
+  "browser_action": {
     "browser_style": true,
     "default_icon": {
       "19": "icon19.png",
@@ -28,8 +28,7 @@
   ],
   "background": {
     "scripts": [
-      "clearurls.js",
-      "popup.js"
+      "clearurls.js"
     ]
   },
   "content_scripts": [
