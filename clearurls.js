@@ -13,8 +13,8 @@ function fetchFromURL(url)
     }
 }
 
-var globalRules = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/rules/rules.json');
-var globalExceptions = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/rules/exceptions.json');
+var data = fetchFromURL('https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json');
+var providers = [];
 // ##################################################################
 
 /*
@@ -113,9 +113,9 @@ function Provider(_name,_completeProvider=false){
  * # Amazon Provider                                                #
  * ##################################################################
  */
-var amazon = new Provider("Amazon");
-  amazon.setURLPattern('(https:\\/\\/||http:\\/\\/).*(\\.amazon\\.)\\w{2,}\\/.*');
-  amazon.setRules(globalRules);
+// var amazon = new Provider("Amazon");
+//   amazon.setURLPattern('(https:\\/\\/||http:\\/\\/).*(\\.amazon\\.)\\w{2,}\\/.*');
+//   amazon.setRules(globalRules);
   // amazon.addException('.*(amazon\\.)\\w{2,}(\\/gp\\/).*');
   // amazon.addRule('pf_rd_[a-zA-Z]=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
   // amazon.addRule('qid=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?');
@@ -193,6 +193,27 @@ var utm = new Provider("UTM", false);
   utm.addRule('utm_[a-zA-Z]*=.*[\\?|&]?');
 // ##################################################################
 
+function createProviders()
+{
+    for(var p = 0; p < data.providers.length; p++)
+    {
+        //Create new provider
+        providers.push(new Provider(data.providers[p],data.providers[p].completeProvider));
+
+        //Add rules to provider
+        for(var r = 0; r < data.providers[p].rules.length; r++)
+        {
+            providers[p].addRule(data.providers[p].rules[r]);
+        }
+
+        //Add exceptions to provider
+        for(var e = 0; e < data.providers[p].exceptions.length; e++)
+        {
+            providers[p].addException(data.providers[p].exceptions[e]);
+        }
+    }
+};
+
 /**
  * Helper function which remove the tracking fields
  * for each provider given as parameter.
@@ -243,8 +264,8 @@ function clearUrl(request)
         "changes": false,
         "url": ""
     };
-    var providers = [amazon, google, googlesyndication, doubleclick, utm];
-
+    // var providers = [amazon, google, googlesyndication, doubleclick, utm];
+    createProviders();
     /*
      * Call for every provider the removeFieldsFormURL method.
      */
