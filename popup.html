@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ClearURLs Add-on</title>
+    <link rel="stylesheet" type="text/css" href="popup_style.css">
+    <script src="popup.js"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div class="header">ClearURLs 0.4</div>
+      <div id="content">
+        <div id="default">
+          <div id="global">
+            Enable globally:<br>
+            <button id="statusBtn" class="enable" onclick="changeStatus()"><img src="icon96.png"></button>
+          </div>
+          <div id="individual">
+            Enable individually:<br>
+            <div id="presets">
+              ---placeholder---
+    <!--      <button id="exception" class="enable" onclick="handleException()">Enable on page</button><br> -->
+            </div>
+          </div>
+        </div>
+        <div id="custom">
+          My rules:<br>
+          <div id="rules">
+            ---placeholder---<br>
+          </div>
+          <div id="addRuleOuter">
+            Add new rule (advanced):<br>
+            <div id="addRuleInner">
+              <div id="addRuleField"><input type="text"></div><div id="addRuleBtn"><img src="plus.png"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

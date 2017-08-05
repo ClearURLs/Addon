@@ -2,7 +2,7 @@ var status = "on";
 var exception = "off";
 
   function changeStatus(){
-    var element = $("#status");
+    var element = $("#statusBtn");
     var val = "Global Enable";
 
     if(status == "on"){

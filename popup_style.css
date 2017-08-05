@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  margin-bottom: 5px;
+  background: #fff;
+  min-width: 400px;
+  max-width: 500px;
+  font-family: "Arial";
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+input[type="text"] {
+    width: auto;
+}
+
+#main {
+  max-width: 500px;
+  max-height: 400px;
+  overflow: auto;
+}
+
+#content {
+  font-size: 14pt;
+  padding: 10px;
+}
+
+.header {
+  display: block;
+  background-color: #4a4a4a;
+  color: #dedede;
+  font-size: 11pt;
+  text-align: center;
+  padding: 2px 0px 2px 0px;
+  margin: 5px 0px 5px 0px;
+}
+
+#default::after, #addRuleOuter::after, #addRuleInner::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#global {
+  width: 50%;
+  float: left;
+}
+
+.enable {
+  border: none;
+  background: none;
+}
+.enable:hover {
+  filter: brightness(90%);
+}
+
+.disable {
+  color: #fcf9fa;
+  background: #b2aeaf;
+}
+.disable:hover {
+  background: #4c4b4c;
+}
+
+#statusBtn {
+  display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+  padding: 0;
+}
+
+#individual {
+  width: 50%;
+  float: right;
+}
+
+#presets, #rules, #addRuleOuter {
+  margin: 10px 0px 0px 10px;
+}
+
+#custom {
+  margin-top: 20px;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+#addRuleInner {
+  margin-top: 5px;
+}
+
+#addRuleField {
+  overflow: hidden;
+  float: left;
+  width: calc(100% - 55px);
+  height: 25px;
+}
+
+#addRuleField input {
+  width: 100%;
+  height: 100%;
+}
+
+#addRuleBtn {
+  width: 45px;
+  padding: 3px 0px 3px 0px;
+  float: right;
+  background-color: #b5e61d;
+  border: none;
+  border-radius: 5px;
+}
+
+#addRuleBtn:hover {
+  background-color: #96d160;
+}
