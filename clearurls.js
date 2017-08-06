@@ -6,6 +6,7 @@
 var data = [];
 var providers = [];
 var prvKeys = [];
+var globalStatus;
 
 /**
  * Initialize the JSON provider object keys.
@@ -200,28 +201,40 @@ function removeFieldsFormURL(provider, request)
  */
 function clearUrl(request)
 {
-    var result = {
-        "changes": false,
-        "url": ""
-    };
-    
-    /*
-     * Call for every provider the removeFieldsFormURL method.
-     */
-    for (var i = 0; i < providers.length; i++) {
-        result = removeFieldsFormURL(providers[i], request);
+    browser.storage.local.get('globalStatus', clear);
 
-        /*
-         * Ensure that the function go not into
-         * an loop.
-         */
-        if(result["changes"]){
-            return {
-                redirectUrl: result["url"]
-            }; 
-        }         
+    function clear(data){
+        globalStatus = data.globalStatus;
+
+        if(globalStatus == null){
+            globalStatus = true;
+        }
     }
-       
+
+    if(globalStatus){
+            console.log(data);
+            var result = {
+            "changes": false,
+            "url": ""
+            };
+            
+            /*
+             * Call for every provider the removeFieldsFormURL method.
+             */
+            for (var i = 0; i < providers.length; i++) {
+                result = removeFieldsFormURL(providers[i], request);
+
+                /*
+                 * Ensure that the function go not into
+                 * an loop.
+                 */
+                if(result["changes"]){
+                    return {
+                        redirectUrl: result["url"]
+                    };
+                }         
+            }
+            }     
 };
 
 /**
