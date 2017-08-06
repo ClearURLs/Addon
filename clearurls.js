@@ -212,7 +212,7 @@ function clearUrl(request)
     }
 
     if(globalStatus){
-            console.log(data);
+
             var result = {
             "changes": false,
             "url": ""
