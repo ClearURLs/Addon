@@ -1,9 +1,8 @@
 body {
   margin: 0;
-  margin-bottom: 5px;
   background: #fff;
-  min-width: 400px;
-  max-width: 500px;
+  min-width: 500px;
+  max-width: 600px;
   font-family: "Arial";
 }
 
@@ -12,19 +11,23 @@ img {
   margin: auto;
 }
 
-input[type="text"] {
-    width: auto;
-}
+
+
+
 
 #main {
   max-width: 500px;
   max-height: 400px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  white-space: nowrap;
 }
 
 #content {
+  display: inline-block;
+  padding: 10px 10px 20px 10px;
+  width: calc(100% - 20px);
   font-size: 14pt;
-  padding: 10px;
 }
 
 .header {
@@ -37,8 +40,12 @@ input[type="text"] {
   margin: 5px 0px 5px 0px;
 }
 
-#default::after, #addRuleOuter::after, #addRuleInner::after {
-    content: "";
+
+
+
+
+#default::after, #presets::after, .element::after, #rules::after, #addRuleOuter::after, #addRuleInner::after {
+    content: " ";
     clear: both;
     display: table;
 }
@@ -48,28 +55,27 @@ input[type="text"] {
   float: left;
 }
 
-.enable {
-  border: none;
-  background: none;
-}
-.enable:hover {
-  filter: brightness(90%);
-}
-
-.disable {
-  color: #fcf9fa;
-  background: #b2aeaf;
-}
-.disable:hover {
-  background: #4c4b4c;
-}
-
-#statusBtn {
+.status {
   display: block;
+  width: 145px;
+  height: 145px;
   margin-top: 10px;
   margin-left: 10px;
   padding: 0;
+  background: none;
+  border: none;
 }
+.status:hover {
+  filter: brightness(90%);
+}
+.statusEnabled {
+  background-image: url("icon128_o.png");
+}
+.statusDisabled {
+  background-image: url("icon128_g.png");
+}
+
+
 
 #individual {
   width: 50%;
@@ -79,6 +85,10 @@ input[type="text"] {
 #presets, #rules, #addRuleOuter {
   margin: 10px 0px 0px 10px;
 }
+
+
+
+
 
 #custom {
   margin-top: 20px;
@@ -111,7 +121,30 @@ input[type="text"] {
   border: none;
   border-radius: 5px;
 }
-
 #addRuleBtn:hover {
   background-color: #96d160;
+}
+
+
+
+
+
+.switch {
+  margin-right: 10px;
+  width: 50px;
+  height: 26px;
+  float: left;
+  background: none;
+  border: none;
+}
+.switchEnabled {
+  background-image: url("switchEnabled.png");
+}
+.switchDisabled {
+  background-image: url("switchDisabled.png");
+}
+
+.textElement {
+  clear: right;
+  text-overflow: ellipsis;
 }

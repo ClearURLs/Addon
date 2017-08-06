@@ -13,25 +13,25 @@
         <div id="default">
           <div id="global">
             Enable globally:<br>
-            <button id="statusBtn" class="enable" onclick="changeStatus()"><img src="icon96.png"></button>
+            <button class="status statusEnabled"></button>
           </div>
           <div id="individual">
             Enable individually:<br>
             <div id="presets">
-              ---placeholder---
+              <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---</div><br></div>
     <!--      <button id="exception" class="enable" onclick="handleException()">Enable on page</button><br> -->
             </div>
           </div>
         </div>
         <div id="custom">
-          My rules:<br>
+          My rules (advanced):<br>
           <div id="rules">
             ---placeholder---<br>
           </div>
           <div id="addRuleOuter">
-            Add new rule (advanced):<br>
+            Add new rule:<br>
             <div id="addRuleInner">
-              <div id="addRuleField"><input type="text"></div><div id="addRuleBtn"><img src="plus.png"></div>
+              <div id="addRuleField"><input type="text"></div><button id="addRuleBtn"><img src="plus.png"></button>
             </div>
           </div>
         </div>
