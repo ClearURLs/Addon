@@ -3,8 +3,9 @@
   <head>
     <title>ClearURLs Add-on</title>
     <link rel="stylesheet" type="text/css" href="popup_style.css">
-    <script src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="switchButtons.css">
     <script src="jquery-3.2.1.min.js"></script>
+    <script src="popup.js"></script>
   </head>
   <body>
     <div id="main">
@@ -13,12 +14,17 @@
         <div id="default">
           <div id="global">
             Enable globally:<br>
-            <button class="status statusEnabled"></button>
+            <button id="globalStatus" class="status statusEnabled"></button>
           </div>
           <div id="individual">
             Enable individually:<br>
             <div id="presets">
-              <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---</div><br></div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                <label>Google</label>
+              </label>
+              <!--<div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---</div><br></div>-->
     <!--      <button id="exception" class="enable" onclick="handleException()">Enable on page</button><br> -->
             </div>
           </div>

@@ -24,7 +24,8 @@
     "*://*/*",
     "webRequest",
     "webRequestBlocking",
-    "management"
+    "management",
+    "storage"
   ],
   "background": {
     "scripts": [
