@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>ClearURLs Add-on</title>
-    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="popup_style.css">
-    <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="switchButtons.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="popup.js"></script>
   </head>
   <body>
     <div id="main">
@@ -13,18 +13,18 @@
       <div id="content">
         <div id="default">
           <div id="global">
-            <span id="statusText">En</span>able globally:<br>
-            <button id="statusBtn" class="status statusEnabled"></button>
+            Enable globally:<br>
+            <button id="globalStatus" class="status statusEnabled"></button>
           </div>
           <div id="individual">
             Enable individually:<br>
             <div id="presets">
-              <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
-              <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
-              <div class="element"><button class="switch switchDisabled"></button><div class="textElement">---placeholder---<br></div></div>
-              <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr---<br></div></div>
-              <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
-              <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
+              <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+                <label>Google</label>
+              </label>
+              <!--<div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---</div><br></div>-->
     <!--      <button id="exception" class="enable" onclick="handleException()">Enable on page</button><br> -->
             </div>
           </div>
@@ -32,17 +32,12 @@
         <div id="custom">
           My rules (advanced):<br>
           <div id="rules">
-            <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
-            <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
-            <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholdeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeer---<br></div></div>
-            <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
-            <div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---<br></div></div>
-            <div class="element"><button class="switch switchDisabled"></button><div class="textElement">---placeholder---<br></div></div>
+            ---placeholder---<br>
           </div>
           <div id="addRuleOuter">
             Add new rule:<br>
             <div id="addRuleInner">
-              <div id="addRuleField"><input id="inputField" type="text"></div><button id="addRuleBtn"><img src="plus.png"></button>
+              <div id="addRuleField"><input type="text"></div><button id="addRuleBtn"><img src="plus.png"></button>
             </div>
           </div>
         </div>

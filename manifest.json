@@ -14,18 +14,18 @@
   "browser_action": {
     "browser_style": true,
     "default_icon": {
-      "16": "icon16.png",
       "19": "icon19.png",
       "38": "icon38.png"
     },
-    "default_title": "ClearURLs",
+    "default_title": "ClearURLs Add-on",
     "default_popup": "popup.html"
   },
   "permissions": [
     "*://*/*",
     "webRequest",
     "webRequestBlocking",
-    "management"
+    "management",
+    "storage"
   ],
   "background": {
     "scripts": [
