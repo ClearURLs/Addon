@@ -78,11 +78,12 @@ fetchFromURL();
  * @param {String} _name                Provider name
  * @param {boolean} completeProvider    Set URL Pattern as rule
  */
-function Provider(_name,_completeProvider){
-    var name = name;
+function Provider(_name,_completeProvider = false){
+    var name = _name;
     var urlPattern;
     var rules = new Array();
     var exceptions = new Array();
+    var canceling = _completeProvider;
 
     if(_completeProvider){
         rules.push(".*");
@@ -95,6 +96,14 @@ function Provider(_name,_completeProvider){
      */
     this.setURLPattern = function(urlPatterns) {
         urlPattern = new RegExp(urlPatterns, "mgi");
+    };
+
+    /**
+     * Return if the Provider Request is canceled
+     * @return {Boolean} isCanceled
+     */
+    this.isCaneling = function() {
+        return canceling;
     };
 
     /**
@@ -171,6 +180,7 @@ function removeFieldsFormURL(provider, request)
     var url = request.url;
     var rules = provider.getRules();
     var changes = false;
+    var cancel = false;
 
     if(provider.matchURL(url))
     {
@@ -184,11 +194,16 @@ function removeFieldsFormURL(provider, request)
                 changes = true;
             }
         }
+
+        if(provider.isCaneling()){
+            cancel = true;
+        }
     }
 
     return {
         "changes": changes,
-        "url": url
+        "url": url,
+        "cancel": cancel
     }
 };
 
@@ -223,6 +238,15 @@ function clearUrl(request)
              */
             for (var i = 0; i < providers.length; i++) {
                 result = removeFieldsFormURL(providers[i], request);
+
+                /*
+                 * Cancel the Request
+                 */
+                if(result["cancel"]){
+                    return {
+                        cancel: true
+                    }
+                }
 
                 /*
                  * Ensure that the function go not into
