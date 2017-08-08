@@ -69,6 +69,30 @@
                 "utm_[a-zA-Z]*=.*[\\?|&]?"
             ],
             "exceptions": []
+        },
+        "adtech": {
+            "urlPattern": ".*(adtech).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": []
+        },
+        "contentpass.net": {
+            "urlPattern": ".*(contentpass\\.net).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": []
+        },
+        "bf-ad": {
+            "urlPattern": ".*(bf-ad).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": []
+        },
+        "amazon-adsystem": {
+            "urlPattern": ".*(amazon-adsystem).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": []
         }
     }  
 }
