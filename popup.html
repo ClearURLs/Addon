@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>ClearURLs Add-on</title>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="popup_style.css">
     <link rel="stylesheet" type="text/css" href="switchButtons.css">
     <script src="jquery-3.2.1.min.js"></script>
@@ -9,36 +10,12 @@
   </head>
   <body>
     <div id="main">
-      <div class="header">ClearURLs 0.4</div>
+      <div class="header">ClearURLs 0.5</div>
       <div id="content">
         <div id="default">
           <div id="global">
             Enable globally:<br>
             <button id="globalStatus" class="status statusEnabled"></button>
-          </div>
-          <div id="individual">
-            Enable individually:<br>
-            <div id="presets">
-              <label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-                <label>Google</label>
-              </label>
-              <!--<div class="element"><button class="switch switchEnabled"></button><div class="textElement">---placeholder---</div><br></div>-->
-    <!--      <button id="exception" class="enable" onclick="handleException()">Enable on page</button><br> -->
-            </div>
-          </div>
-        </div>
-        <div id="custom">
-          My rules (advanced):<br>
-          <div id="rules">
-            ---placeholder---<br>
-          </div>
-          <div id="addRuleOuter">
-            Add new rule:<br>
-            <div id="addRuleInner">
-              <div id="addRuleField"><input type="text"></div><button id="addRuleBtn"><img src="plus.png"></button>
-            </div>
           </div>
         </div>
       </div>

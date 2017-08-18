@@ -7,6 +7,8 @@ var data = [];
 var providers = [];
 var prvKeys = [];
 var globalStatus;
+var badges = [];
+var tabid = 0;
 
 /**
  * Initialize the JSON provider object keys.
@@ -124,6 +126,10 @@ function Provider(_name,_completeProvider = false){
         rules.push(rule);
     };
 
+    /**
+     * Set the rules for the provider
+     * @param String _rules RegEx as string
+     */
     this.setRules = function(_rules) {
         rules = _rules;
     };
@@ -191,6 +197,12 @@ function removeFieldsFormURL(provider, request)
 
             if(bevorReplace != url)
             {
+                if(badges[tabid] == null)
+                {
+                    badges[tabid] = 0;
+                }
+                
+                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
                 changes = true;
             }
         }
@@ -260,6 +272,30 @@ function clearUrl(request)
             }
             }     
 };
+
+/**
+ * Call by each tab is closed.
+ */
+function handleRemoved(tabId, removeInfo) {
+    delete badges[tabId];
+}
+
+/**
+ * Call by each tab is closed.
+ */
+browser.tabs.onRemoved.addListener(handleRemoved);
+
+/**
+ * Call by each tab change to set the actual tab id
+ */
+function handleActivated(activeInfo) {
+    tabid = activeInfo.tabId;
+}
+
+/**
+ * Call by each tab change.
+ */
+browser.tabs.onActivated.addListener(handleActivated);
 
 /**
  * Call by each Request and checking the url.

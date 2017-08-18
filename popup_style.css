@@ -1,8 +1,9 @@
 body {
   margin: 0;
+  top: 0;
   background: #fff;
-  min-width: 500px;
-  max-width: 600px;
+  min-width: 180px;
+  max-width: 180px;
   font-family: "Arial";
 }
 
@@ -11,13 +12,8 @@ img {
   margin: auto;
 }
 
-
-
-
-
 #main {
-  max-width: 500px;
-  max-height: 400px;
+  top: 0;
   overflow-y: auto;
   overflow-x: hidden;
   white-space: nowrap;
@@ -36,15 +32,12 @@ img {
   color: #dedede;
   font-size: 11pt;
   text-align: center;
+  top: 0;
   padding: 2px 0px 2px 0px;
   margin: 5px 0px 5px 0px;
 }
 
-
-
-
-
-#default::after, #presets::after, .element::after, #rules::after, #addRuleOuter::after, #addRuleInner::after {
+#default::after {
     content: " ";
     clear: both;
     display: table;
@@ -52,7 +45,6 @@ img {
 
 #global {
   width: 50%;
-  float: left;
 }
 
 .status {
@@ -75,76 +67,6 @@ img {
   background-image: url("icon128_g.png");
 }
 
-
-
-#individual {
-  width: 50%;
-  float: right;
-}
-
-#presets, #rules, #addRuleOuter {
-  margin: 10px 0px 0px 10px;
-}
-
-
-
-
-
-#custom {
-  margin-top: 20px;
-  width: 100%;
-  display: block;
-  float: left;
-}
-
-#addRuleInner {
-  margin-top: 5px;
-}
-
-#addRuleField {
-  overflow: hidden;
-  float: left;
-  width: calc(100% - 55px);
-  height: 25px;
-  border-radius: 3px;
-  height: 30px;
-}
-
-#addRuleField input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: #d7d6db;
-  -webkit-transition: .4s;
-  transition: .4s;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-#addRuleField input:focus {
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-#addRuleBtn {
-  width: 45px;
-  padding: 3px 0px 3px 0px;
-  float: right;
-  background-color: #b5e61d;
-  border: none;
-  border-radius: 3px;
-  height: 30px;
-}
-
-#addRuleBtn:active {
-  background-color:  #96d160;
-}
-
-
-
-
-
 .switch {
   margin-right: 10px;
   width: 50px;
@@ -152,15 +74,4 @@ img {
   float: left;
   background: none;
   border: none;
-}/*
-.switchEnabled {
-  background-image: url("switchEnabled.png");
-}
-.switchDisabled {
-  background-image: url("switchDisabled.png");
-}*/
-
-.textElement {
-  clear: right;
-  text-overflow: ellipsis;
 }
