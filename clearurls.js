@@ -58,7 +58,7 @@ function createProviders()
 function fetchFromURL()
 {
 
-    fetch("https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json")
+    fetch("https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true")
     .then((response) => response.text().then(toJSON));
 
     function toJSON(retrievedText) { 
