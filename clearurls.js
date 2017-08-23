@@ -9,6 +9,8 @@ var prvKeys = [];
 var globalStatus;
 var badges = [];
 var tabid = 0;
+var globalCounter;
+var globalURLCounter;
 
 /**
  * Initialize the JSON provider object keys.
@@ -203,6 +205,7 @@ function removeFieldsFormURL(provider, request)
                 }
                 
                 browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                browser.storage.local.set({"globalCounter": ++globalCounter});
                 changes = true;
             }
         }
@@ -228,6 +231,7 @@ function removeFieldsFormURL(provider, request)
  */
 function clearUrl(request)
 {
+    browser.storage.local.set({"globalURLCounter": ++globalURLCounter});
     browser.storage.local.get('globalStatus', clear);
 
     function clear(data){
@@ -279,6 +283,36 @@ function clearUrl(request)
 function handleRemoved(tabId, removeInfo) {
     delete badges[tabId];
 }
+
+/**
+ * Get the globalCounter value from the browser storage
+ * @param  {(data){}    Return value form browser.storage.local.get
+ */
+function setGlobalCounter() {
+   browser.storage.local.get('globalCounter', function(data){
+        if(data.globalCounter){
+            globalCounter = data.globalCounter;
+        }
+        else {
+            globalCounter = 0;
+        }
+    });
+    browser.storage.local.get('globalURLCounter', function(data){
+        if(data.globalURLCounter){
+            globalURLCounter = data.globalURLCounter;
+        }
+        else {
+            globalURLCounter = 0;
+        }
+    }); 
+}
+
+setGlobalCounter();
+
+/**
+ * Call by each change in the browser storage.
+ */
+browser.storage.onChanged.addListener(setGlobalCounter);
 
 /**
  * Call by each tab is closed.
