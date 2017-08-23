@@ -18,7 +18,8 @@
                 "ref=[a-zA-Z0-9\\-\\.\\_\\%]*[\\?|&]?"
             ],
             "exceptions": [
-                ".*(amazon\\.)\\w{2,}(\\/gp\\/).*"
+                ".*(amazon\\.)\\w{2,}(\\/gp\\/).*",
+                ".*(amazon\\.)\\w{2,}(\/gp\/).*\\/redirector.html\\/.*"
             ]
         },
         "google": {
