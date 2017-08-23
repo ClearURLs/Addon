@@ -70,7 +70,7 @@ function changeStatistics(){
       globalURLCounter = 0;
     }
 
-    globalPercentage.text((globalCounter/globalURLCounter).toFixed(3)+"%");
+    globalPercentage.text((globalCounter/globalURLCounter).toFixed(3)*100+"%");
   });
 };
 
