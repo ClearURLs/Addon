@@ -13,7 +13,8 @@
                 "__mk_[a-zA-Z]{1,3}_[a-zA-Z]{1,3}=[^&]*(\\?|&(amp;)?)?",
                 "url=[^&]*(\\?|&(amp;)?)?",
                 "spIA=[^&]*(\\?|&(amp;)?)?",
-                "rh=[^&]*(\\?|&(amp;)?)?"
+                "rh=[^&]*(\\?|&(amp;)?)?",
+                "ms3_c=[^&]*(\\?|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(amazon\\.)\\w{2,}(\/gp\/).*\\/redirector.html\\/.*"
@@ -78,7 +79,8 @@
                 "fb_source=[^&]*(\\?|&(amp;)?)?",
                 "action_object_map=[^&]*(\\?|&(amp;)?)?",
                 "action_type_map=[^&]*(\\?|&(amp;)?)?",
-                "action_ref_map=[^&]*(\\?|&(amp;)?)?"
+                "action_ref_map=[^&]*(\\?|&(amp;)?)?",
+                "gs_l=[^&]*(\\?|&(amp;)?)?"
             ],
             "exceptions": []
         },
