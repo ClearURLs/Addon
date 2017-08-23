@@ -18,7 +18,6 @@
                 "ref=[a-zA-Z0-9\\-\\.\\_\\%]*[\\?|&]?"
             ],
             "exceptions": [
-                ".*(amazon\\.)\\w{2,}(\\/gp\\/).*",
                 ".*(amazon\\.)\\w{2,}(\/gp\/).*\\/redirector.html\\/.*"
             ]
         },
@@ -48,11 +47,7 @@
                 "je=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?",
                 "[a-zA-Z\\_]+id=[a-zA-Z0-9\\-\\.\\_]*[\\?|&]?"
             ],
-            "exceptions": [
-                ".*(accounts).*",
-                "(https:\\/\\/||http:\\/\\/).*(googlevideo\\.com)\\/.*",
-                "(https:\\/\\/||http:\\/\\/).*(youtube\\.)\\w{2,}\\/.*"
-            ]
+            "exceptions": []
         },
         "googlesyndication": {
             "urlPattern": ".*(googlesyndication).*",
