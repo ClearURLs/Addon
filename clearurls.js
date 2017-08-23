@@ -116,7 +116,7 @@ function Provider(_name,_completeProvider = false){
      * @return {String}    ProviderURL as RegExp
      */    
     this.matchURL = function(url) {  
-        return !(matchException(url)) && (url.match(urlPattern) != null) && (url.match(urlPattern).length > 0);
+        return !(this.matchException(url)) && (url.match(urlPattern) != null) && (url.match(urlPattern).length > 0);
     };
 
     /**
@@ -161,15 +161,15 @@ function Provider(_name,_completeProvider = false){
      * @param  {String} url     RegExp as string
      * @return {boolean}        if matching? true: false
      */
-    matchException = function(url) {
+    this.matchException = function(url) {
         var result = false;
 
         for (var i = 0; i < exceptions.length; i++) {
             if(result) { break; }
-            
-            result = (url.match(new RegExp(exceptions[i], "gmi")) != null) && (url.match(new RegExp(exceptions[i], "gmi")).length > 0);          
-        }
 
+            result = (url.match(new RegExp(exceptions[i], "gi"))) && (url.match(new RegExp(exceptions[i], "gi")).length > 0);        
+        }
+        
         return result;
     };
 }
