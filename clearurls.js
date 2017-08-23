@@ -203,14 +203,22 @@ function removeFieldsFormURL(provider, request)
                 {
                     badges[tabid] = 0;
                 }
-                
-                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+
                 browser.storage.local.set({"globalCounter": ++globalCounter});
+                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
                 changes = true;
             }
         }
 
         if(provider.isCaneling()){
+            if(badges[tabid] == null)
+            {
+                badges[tabid] = 0;
+            }
+
+            browser.storage.local.set({"globalCounter": ++globalCounter});
+            browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+
             cancel = true;
         }
     }
@@ -223,6 +231,19 @@ function removeFieldsFormURL(provider, request)
 };
 
 /**
+ * Return the number of parameters query strings.
+ * @param  {String}     url URL as String
+ * @return {int}        Number of Parameters
+ */
+function countFields(url)
+{
+    var matches = url.match(/[a-z\d]+=[a-z\d]+/gi);
+    var count = matches? matches.length : 0;
+
+    return count;
+}
+
+/**
  * Function which called from the webRequest to
  * remove the tracking fields from the url.
  * 
@@ -231,7 +252,11 @@ function removeFieldsFormURL(provider, request)
  */
 function clearUrl(request)
 {
-    browser.storage.local.set({"globalURLCounter": ++globalURLCounter});
+    var URLbeforeReplaceCount = countFields(request.url);
+    //Add Fields form Request to global url counter
+    globalURLCounter += URLbeforeReplaceCount;
+    browser.storage.local.set({"globalURLCounter": globalURLCounter});
+
     browser.storage.local.get('globalStatus', clear);
 
     function clear(data){
@@ -244,37 +269,37 @@ function clearUrl(request)
 
     if(globalStatus){
 
-            var result = {
+        var result = {
             "changes": false,
             "url": ""
-            };
-            
+        };
+        
+        /*
+         * Call for every provider the removeFieldsFormURL method.
+         */
+        for (var i = 0; i < providers.length; i++) {
+            result = removeFieldsFormURL(providers[i], request);
+
             /*
-             * Call for every provider the removeFieldsFormURL method.
+             * Cancel the Request
              */
-            for (var i = 0; i < providers.length; i++) {
-                result = removeFieldsFormURL(providers[i], request);
-
-                /*
-                 * Cancel the Request
-                 */
-                if(result["cancel"]){
-                    return {
-                        cancel: true
-                    }
+            if(result["cancel"]){               
+                return {
+                    cancel: true
                 }
-
-                /*
-                 * Ensure that the function go not into
-                 * an loop.
-                 */
-                if(result["changes"]){
-                    return {
-                        redirectUrl: result["url"]
-                    };
-                }         
             }
-            }     
+
+            /*
+             * Ensure that the function go not into
+             * an loop.
+             */
+            if(result["changes"]){
+                return {
+                    redirectUrl: result["url"]
+                };
+            }         
+        }
+    }     
 };
 
 /**
