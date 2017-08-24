@@ -18,8 +18,8 @@
                 "ref[\\_]?=[^&]*(\\?|&(amp;)?)?"
             ],
             "exceptions": [
-                ".*(amazon\\.)\\w{2,}(\/gp\/).*\\/redirector.html\\/.*",
-                ".*(amazon\\.)\\w{2,}(\/gp\/).*\\/b\\/.*"
+                ".*(amazon\\.)\\w{2,}(\\/gp\\/).*\\/redirector.html\\/.*",
+                ".*(amazon\\.)\\w{2,}\\/b\\/.*"
             ]
         },
         "google": {
