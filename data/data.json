@@ -20,7 +20,7 @@
             "exceptions": [
                 ".*(amazon\\.)\\w{2,}(\\/gp).*\\/redirector.html\\/.*",
                 ".*(amazon\\.)\\w{2,}(\\/.*)*\\/b\\/.*",
-                ".*(amazon\\.)\\w{2,}(\\/.*)*\\/s\\/.*"
+                ".*(amazon\\.)\\w{2,}(\\/.*)*\\/s\\/field-keywords=.*"
             ]
         },
         "google": {
