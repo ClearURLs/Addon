@@ -8,6 +8,7 @@ var providers = [];
 var prvKeys = [];
 var globalStatus;
 var badges = [];
+var badgedStatus;
 var tabid = 0;
 var globalCounter;
 var globalURLCounter;
@@ -205,7 +206,14 @@ function removeFieldsFormURL(provider, request)
                 }
 
                 browser.storage.local.set({"globalCounter": ++globalCounter});
-                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                if(badgedStatus) {
+                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                }
+                else 
+                {
+                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                }
+
                 changes = true;
             }
         }
@@ -217,7 +225,13 @@ function removeFieldsFormURL(provider, request)
             }
 
             browser.storage.local.set({"globalCounter": ++globalCounter});
-            browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+            if(badgedStatus) {
+                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+            }
+            else 
+            {
+                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+            }            
 
             cancel = true;
         }
@@ -237,8 +251,8 @@ function removeFieldsFormURL(provider, request)
  */
 function countFields(url)
 {
-    var matches = url.match(/[a-z\d]+=[a-z\d]+/gi);
-    var count = matches? matches.length : 0;
+    var matches = (url.match(/[^\/|\?|&]+=[^\/|\?|&]+/gi) || []);
+    var count = matches.length;
 
     return count;
 }
@@ -332,12 +346,36 @@ function setGlobalCounter() {
     }); 
 }
 
+/**
+ * Get the badged status from the browser storage and put the value
+ * into a local variable.
+ *
+ */
+function setBadgedStatus() {
+    browser.storage.local.get('badgedStatus', function(data) {
+        if(data.badgedStatus) {
+            badgedStatus = data.badgedStatus;
+            browser.browserAction.setBadgeBackgroundColor({
+                'color': 'orange'
+            });
+        }
+        else if(data.badgedStatus === null || typeof(data.badgedStatus) == "undefined"){
+            badgedStatus = false;
+        }
+        else {
+            badgedStatus = false;
+        }
+    });
+}
+
+setBadgedStatus();
 setGlobalCounter();
 
 /**
  * Call by each change in the browser storage.
  */
 browser.storage.onChanged.addListener(setGlobalCounter);
+browser.storage.onChanged.addListener(setBadgedStatus);
 
 /**
  * Call by each tab is closed.

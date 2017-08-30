@@ -2,6 +2,7 @@ function init()
 {
   setStatus();
   changeStatistics();
+  setTabcounter();
 }
 
 function setStatus()
@@ -74,6 +75,30 @@ function changeStatistics(){
   });
 };
 
+function changeTabcounter() {
+  var element = $('#tabcounter').is(':checked');
+
+  browser.storage.local.set({'badgedStatus': element});
+};
+
+function setTabcounter() {
+  var element = $('#tabcounter');
+
+  browser.storage.local.get('badgedStatus', function(data) {
+    if(data.badgedStatus)
+    {
+      element.prop('checked', true);
+    }
+    else if(data.badgedStatus === null || typeof(data.badgedStatus) == "undefined"){
+      element.prop('checked', true);
+      browser.storage.local.set({'badgedStatus': true});
+    }
+    else {
+      element.prop('checked', false);
+    }
+  });
+}
+
 function resetGlobalCounter(){
   browser.storage.local.set({"globalCounter": 0});
   browser.storage.local.set({"globalURLCounter": 0});
@@ -84,6 +109,7 @@ $(document).ready(function(){
   //Hier neue ID des Mülleimers
   $("#globalStatus").on("click", changeStatus);
   $('.reset_counter_btn').on("click", resetGlobalCounter);
+  $('#tabcounter').on('change', changeTabcounter);
 
   browser.storage.onChanged.addListener(changeStatistics);
 });
