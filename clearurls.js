@@ -53,23 +53,63 @@ function createProviders()
 };
 
 /**
+ * Convert the external data to JSON Objects and 
+ * call the create provider function.
+ * 
+ * @param  {String} retrievedText - pure data form github
+ */
+function toJSON(retrievedText) {     
+    data = JSON.parse(retrievedText);
+    getKeys(data.providers);
+    createProviders();
+}
+
+/**
+ * Load local saved data, if the browser is offline or
+ * some other network trouble.
+ * 
+ */
+function loadOldDataFromStore()
+{
+    browser.storage.local.get('ClearURLsData', function(data){   
+        if(data.ClearURLsData){
+            data = data.ClearURLsData;
+        }
+        else {
+            data = "";
+        }
+
+        toJSON(data);
+    });
+}
+
+/**
  * Fetch the Rules & Exception github.
  * 
  */
 function fetchFromURL()
 {
-
     fetch("https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true")
-    .then((response) => response.text().then(toJSON));
+    .then(checkResponse)
+    .catch(function(error){
+        loadOldDataFromStore();
+    });
 
-    function toJSON(retrievedText) { 
-        data = JSON.parse(retrievedText);
-        getKeys(data.providers);
-        createProviders();
-    }
+    function checkResponse(response)
+    {
+        var responseText = response.clone().text().then(function(responseText){
+            if(response.ok)
+            {                
+                browser.storage.local.set({"ClearURLsData": responseText});
+                toJSON(responseText);
+            }
+            else {
+                 loadOldDataFromStore();           
+            }
+        });
+    };
 }
-//Execute the command
-fetchFromURL();
+
 // ##################################################################
 
 /*
@@ -368,6 +408,10 @@ function setBadgedStatus() {
     });
 }
 
+/**
+ * Call the fetch, counter and status functions
+ */
+fetchFromURL();
 setBadgedStatus();
 setGlobalCounter();
 
