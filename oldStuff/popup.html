@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>ClearURLs Add-on</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="popup_style.css">
+    <link rel="stylesheet" type="text/css" href="switchButtons.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div id="main">
+      <div class="header">ClearURLs 1.1.1.4</div>
+      <div id="content">
+        <div id="default">
+          <div id="global">
+            Enable globally:<br>
+            <button id="globalStatus" class="status statusEnabled"></button>
+          </div><br>
+          <hr>
+          <div id="statistics">
+            Totally blocked elements:<br>
+            <span id="statistics_value" class="statistics_value"></span><br>
+            Percentage of total traffic:<br>
+            <span id="statistics_value_global_percentage" class="statistics_value"></span><br>
+            <div class="center">
+              <button class="reset_counter_btn">Reset counter</button>
+            </div><br>
+            <hr><br>
+            <label class="switch">
+                <input type="checkbox" id="tabcounter">
+                <span class="slider round"></span>
+                <label>Tabcounter</label>
+            </label>             
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
