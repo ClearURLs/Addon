@@ -8,7 +8,7 @@ This add-on protects your privacy and block the request from advertising service
 
 > **Application:**
 > 
-> - Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL
+> Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL
 
 If have any suggestions or complaints, please create an issue request. 
 
