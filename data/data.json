@@ -1,7 +1,7 @@
 {
     "providers": {
         "amazon": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.amazon\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?amazon\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
                 "pf_rd_[a-zA-Z]=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -23,7 +23,7 @@
             ]
         },
         "google": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.google\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?google\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
                 "ved=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -117,7 +117,7 @@
             "exceptions": []
         },
         "youtube": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.youtube\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?youtube\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
                 "feature=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
@@ -125,7 +125,7 @@
             "exceptions": []
         },
         "facebook": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.facebook\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?facebook\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
                 "[a-zA-Z]*ref=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -134,7 +134,7 @@
             "exceptions": []
         },
         "imdb": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.imdb\\.com)\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?imdb\\.com)\\/.*",
             "completeProvider": false,
             "rules": [
                 "ref_=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
@@ -142,7 +142,7 @@
             "exceptions": []
         },
         "twitter": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.twitter\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitter\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
                 "src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
