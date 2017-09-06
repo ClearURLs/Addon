@@ -140,6 +140,14 @@
                 "ref_=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": []
+        },
+        "twitter": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(\\.twitter\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": []
         }
     }  
 }
