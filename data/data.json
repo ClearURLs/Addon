@@ -56,13 +56,13 @@
             "exceptions": []
         },
         "googlesyndication": {
-            "urlPattern": ".*(googlesyndication).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(googlesyndication).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
         },
         "doubleclick": {
-            "urlPattern": ".*(doubleclick).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(doubleclick).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
@@ -92,31 +92,31 @@
             "exceptions": []
         },
         "adtech": {
-            "urlPattern": ".*(adtech).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adtech).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
         },
         "contentpass.net": {
-            "urlPattern": ".*(contentpass\\.net).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(contentpass\\.net).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
         },
         "bf-ad": {
-            "urlPattern": ".*(bf-ad).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(bf-ad).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
         },
         "amazon-adsystem": {
-            "urlPattern": ".*(amazon-adsystem).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(amazon-adsystem).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
         },
         "adsensecustomsearchads": {
-            "urlPattern": ".*(adsensecustomsearchads).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adsensecustomsearchads).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": []
@@ -154,5 +154,5 @@
             ],
             "exceptions": []
         }
-    }  
+    }
 }
