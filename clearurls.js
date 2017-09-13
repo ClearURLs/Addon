@@ -12,6 +12,7 @@ var badgedStatus;
 var tabid = 0;
 var globalCounter;
 var globalURLCounter;
+var siteBlockedAlert = browser.extension.getURL ('./siteBlockedAlert.html');
 
 /**
  * Initialize the JSON provider object keys.
@@ -26,7 +27,7 @@ function getKeys(obj){
 
 /**
  * Initialize the providers form the JSON object.
- * 
+ *
  */
 function createProviders()
 {
@@ -53,12 +54,12 @@ function createProviders()
 };
 
 /**
- * Convert the external data to JSON Objects and 
+ * Convert the external data to JSON Objects and
  * call the create provider function.
- * 
+ *
  * @param  {String} retrievedText - pure data form github
  */
-function toJSON(retrievedText) {     
+function toJSON(retrievedText) {
     data = JSON.parse(retrievedText);
     getKeys(data.providers);
     createProviders();
@@ -67,11 +68,11 @@ function toJSON(retrievedText) {
 /**
  * Load local saved data, if the browser is offline or
  * some other network trouble.
- * 
+ *
  */
 function loadOldDataFromStore()
 {
-    browser.storage.local.get('ClearURLsData', function(data){   
+    browser.storage.local.get('ClearURLsData', function(data){
         if(data.ClearURLsData){
             data = data.ClearURLsData;
         }
@@ -85,7 +86,7 @@ function loadOldDataFromStore()
 
 /**
  * Fetch the Rules & Exception github.
- * 
+ *
  */
 function fetchFromURL()
 {
@@ -99,12 +100,12 @@ function fetchFromURL()
     {
         var responseText = response.clone().text().then(function(responseText){
             if(response.ok)
-            {                
+            {
                 browser.storage.local.set({"ClearURLsData": responseText});
                 toJSON(responseText);
             }
             else {
-                 loadOldDataFromStore();           
+                 loadOldDataFromStore();
             }
         });
     };
@@ -136,7 +137,7 @@ function Provider(_name,_completeProvider = false){
 
     /**
      * Add URL pattern.
-     * 
+     *
      * @require urlPatterns as RegExp
      */
     this.setURLPattern = function(urlPatterns) {
@@ -153,16 +154,16 @@ function Provider(_name,_completeProvider = false){
 
     /**
      * Check the url is matching the ProviderURL.
-     * 
+     *
      * @return {String}    ProviderURL as RegExp
-     */    
-    this.matchURL = function(url) {  
+     */
+    this.matchURL = function(url) {
         return !(this.matchException(url)) && (url.match(urlPattern) != null) && (url.match(urlPattern).length > 0);
     };
 
     /**
      * Add a rule to the rule array.
-     * 
+     *
      * @param String rule   RegExp as string
      */
     this.addRule = function(rule) {
@@ -179,7 +180,7 @@ function Provider(_name,_completeProvider = false){
 
     /**
      * Return all rules as an array.
-     * 
+     *
      * @return Array RegExp strings
      */
     this.getRules = function() {
@@ -188,7 +189,7 @@ function Provider(_name,_completeProvider = false){
 
     /**
      * Add a exception to the exceptions array.
-     * 
+     *
      * @param String exception   RegExp as string
      */
     this.addException = function(exception) {
@@ -198,19 +199,22 @@ function Provider(_name,_completeProvider = false){
     /**
      * Private helper method to check if the url
      * an exception.
-     * 
+     *
      * @param  {String} url     RegExp as string
      * @return {boolean}        if matching? true: false
      */
     this.matchException = function(url) {
         var result = false;
 
+        //Add the site blocked alert to every exception
+        if(url == siteBlockedAlert) return true;
+
         for (var i = 0; i < exceptions.length; i++) {
             if(result) { break; }
 
-            result = (url.match(new RegExp(exceptions[i], "gi"))) && (url.match(new RegExp(exceptions[i], "gi")).length > 0);        
+            result = (url.match(new RegExp(exceptions[i], "gi"))) && (url.match(new RegExp(exceptions[i], "gi")).length > 0);
         }
-        
+
         return result;
     };
 }
@@ -219,7 +223,7 @@ function Provider(_name,_completeProvider = false){
 /**
  * Helper function which remove the tracking fields
  * for each provider given as parameter.
- * 
+ *
  * @param  {Provider} provider      Provider-Object
  * @param  {webRequest} request     webRequest-Object
  * @return {Array}                  Array with changes and url fields
@@ -235,7 +239,7 @@ function removeFieldsFormURL(provider, request)
     {
         for (var i = 0; i < rules.length; i++) {
             var bevorReplace = url;
-            
+
             url = url.replace(new RegExp(rules[i], "gi"), "");
 
             if(bevorReplace != url)
@@ -249,7 +253,7 @@ function removeFieldsFormURL(provider, request)
                 if(badgedStatus) {
                     browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
                 }
-                else 
+                else
                 {
                     browser.browserAction.setBadgeText({text: "", tabId: tabid});
                 }
@@ -268,10 +272,10 @@ function removeFieldsFormURL(provider, request)
             if(badgedStatus) {
                 browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
             }
-            else 
+            else
             {
                 browser.browserAction.setBadgeText({text: "", tabId: tabid});
-            }            
+            }
 
             cancel = true;
         }
@@ -300,7 +304,7 @@ function countFields(url)
 /**
  * Function which called from the webRequest to
  * remove the tracking fields from the url.
- * 
+ *
  * @param  {webRequest} request     webRequest-Object
  * @return {Array}                  redirectUrl or none
  */
@@ -327,7 +331,7 @@ function clearUrl(request)
             "changes": false,
             "url": ""
         };
-        
+
         /*
          * Call for every provider the removeFieldsFormURL method.
          */
@@ -335,12 +339,13 @@ function clearUrl(request)
             result = removeFieldsFormURL(providers[i], request);
 
             /*
-             * Cancel the Request
+             * Cancel the Request and redirect to the site blocked alert page,
+             * to inform the user about the full url blocking.
              */
-            if(result["cancel"]){               
+            if(result["cancel"]){
                 return {
-                    cancel: true
-                }
+                    redirectUrl: siteBlockedAlert
+                };
             }
 
             /*
@@ -351,9 +356,9 @@ function clearUrl(request)
                 return {
                     redirectUrl: result["url"]
                 };
-            }         
+            }
         }
-    }     
+    }
 };
 
 /**
@@ -383,7 +388,7 @@ function setGlobalCounter() {
         else {
             globalURLCounter = 0;
         }
-    }); 
+    });
 }
 
 /**
@@ -440,7 +445,7 @@ browser.tabs.onActivated.addListener(handleActivated);
 
 /**
  * Call by each Request and checking the url.
- * 
+ *
  * @type {Array}
  */
 browser.webRequest.onBeforeRequest.addListener(
