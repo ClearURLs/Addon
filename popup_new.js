@@ -1,6 +1,6 @@
 /**
  * Initialize the UI.
- * 
+ *
  */
 function init()
 {
@@ -21,9 +21,9 @@ function changeStatistics(){
   var elTotal = $('#statistics_total_elements');
   var globalPercentage = 0;
   var globalCounter;
-  var globalURLCounter;
+  var globalurlcounter;
 
-  browser.storage.local.get('globalCounter', function(data){   
+  browser.storage.local.get('globalCounter', function(data){
     if(data.globalCounter){
       globalCounter = data.globalCounter;
     }
@@ -34,29 +34,29 @@ function changeStatistics(){
     element.text(globalCounter.toLocaleString());
   });
 
-  browser.storage.local.get('globalURLCounter', function(data){   
-    if(data.globalURLCounter){
-      globalURLCounter = data.globalURLCounter;
+  browser.storage.local.get('globalurlcounter', function(data){
+    if(data.globalurlcounter){
+      globalurlcounter = data.globalurlcounter;
     }
     else {
-      globalURLCounter = 0;
+      globalurlcounter = 0;
     }
 
-    globalPercentage = ((globalCounter/globalURLCounter)*100).toFixed(3);
+    globalPercentage = ((globalCounter/globalurlcounter)*100).toFixed(3);
 
     if(isNaN(Number(globalPercentage))) globalPercentage = 0;
 
     elGlobalPercentage.text(globalPercentage+"%");
     elProgressbar_blocked.css('width', globalPercentage+'%');
     elProgressbar_non_blocked.css('width', (100-globalPercentage)+'%');
-    elTotal.text(globalURLCounter);
+    elTotal.text(globalurlcounter.toLocaleString());
   });
 };
 
 /**
  * Change the value of the globalStatus.
  * Call by onChange()
- * 
+ *
  */
 function changeGlobalStatus() {
   var element = $('#globalStatus').is(':checked');
@@ -87,7 +87,7 @@ function setGlobalStatus() {
 /**
  * Change the value of the badgedStatus.
  * Call by onChange()
- * 
+ *
  */
 function changeTabcounter() {
   var element = $('#tabcounter').is(':checked');
@@ -118,11 +118,11 @@ function setTabcounter() {
 
 /**
  * Reset the global statistic
- * 
+ *
  */
 function resetGlobalCounter(){
   browser.storage.local.set({"globalCounter": 0});
-  browser.storage.local.set({"globalURLCounter": 0});
+  browser.storage.local.set({"globalurlcounter": 0});
 };
 
 $(document).ready(function(){
