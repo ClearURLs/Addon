@@ -23,7 +23,7 @@ function getKeys(obj){
     for(var key in obj){
         prvKeys.push(key);
     }
-};
+}
 
 /**
 * Initialize the providers form the JSON object.
@@ -50,8 +50,14 @@ function createProviders()
         {
             providers[p].addException(data.providers[prvKeys[p]].exceptions[e]);
         }
+
+        //Add redirections to provider
+        for(var re = 0; re < data.providers[prvKeys[p]].redirections.length; re++)
+        {
+            providers[p].addRedirection(data.providers[prvKeys[p]].redirections[re]);
+        }
     }
-};
+}
 
 /**
 * Convert the external data to JSON Objects and
@@ -108,7 +114,7 @@ function fetchFromURL()
                 loadOldDataFromStore();
             }
         });
-    };
+    }
 }
 
 // ##################################################################
@@ -127,9 +133,10 @@ function fetchFromURL()
 function Provider(_name,_completeProvider = false){
     var name = _name;
     var urlPattern;
-    var rules = new Array();
-    var exceptions = new Array();
+    var rules = [];
+    var exceptions = [];
     var canceling = _completeProvider;
+    var redirections = [];
 
     if(_completeProvider){
         rules.push(".*");
@@ -171,14 +178,6 @@ function Provider(_name,_completeProvider = false){
     };
 
     /**
-    * Set the rules for the provider
-    * @param String _rules RegEx as string
-    */
-    this.setRules = function(_rules) {
-        rules = _rules;
-    };
-
-    /**
     * Return all rules as an array.
     *
     * @return Array RegExp strings
@@ -217,6 +216,38 @@ function Provider(_name,_completeProvider = false){
 
         return result;
     };
+
+    /**
+    * Add a redirection to the redirections array.
+    *
+    * @param String redirection   RegExp as string
+    */
+    this.addRedirection = function(redirection) {
+        redirections.push(redirection);
+    };
+
+    /**
+    * Return all redirection.
+    *
+    * @return url
+    */
+    this.getRedirection = function(url) {
+        var re = null;
+
+        for(var i = 0; i < redirections.length; i++)
+        {
+            result = (url.match(new RegExp(redirections[i], "gi")));
+
+            if (result && result.length > 0)
+            {
+                re = (new RegExp(redirections[i], "gi")).exec(url)[1];
+
+                break;
+            }
+        }
+
+        return re;
+    };
 }
 // ##################################################################
 
@@ -237,6 +268,21 @@ function removeFieldsFormURL(provider, request)
 
     if(provider.matchURL(url))
     {
+        /*
+         * Expand the url by provider redirections. So no tracking on
+         * url redirections form sites to sites.
+         */
+        var re = provider.getRedirection(url);
+        if(re !== null)
+        {
+            url = decodeURIComponent(re);
+
+            return {
+                "redirect": true,
+                "url": url
+            };
+        }
+
         for (var i = 0; i < rules.length; i++) {
             var bevorReplace = url;
 
@@ -285,8 +331,8 @@ function removeFieldsFormURL(provider, request)
         "changes": changes,
         "url": url,
         "cancel": cancel
-    }
-};
+    };
+}
 
 /**
 * Return the number of parameters query strings.
@@ -365,7 +411,9 @@ function clearUrl(request)
 
             var result = {
                 "changes": false,
-                "url": ""
+                "url": "",
+                "redirect": false,
+                "cancel": false
             };
 
             /*
@@ -375,10 +423,20 @@ function clearUrl(request)
                 result = removeFieldsFormURL(providers[i], request);
 
                 /*
+                 * Expand urls and bypass tracking.
+                 * Cancel the active request.
+                 */
+                if(result.redirect)
+                {
+                    browser.tabs.update(request.tabId, {url: result.url});
+                    return {cancel: true};
+                }
+
+                /*
                 * Cancel the Request and redirect to the site blocked alert page,
                 * to inform the user about the full url blocking.
                 */
-                if(result["cancel"]){
+                if(result.cancel){
                     return {
                         redirectUrl: siteBlockedAlert
                     };
@@ -388,15 +446,15 @@ function clearUrl(request)
                 * Ensure that the function go not into
                 * an loop.
                 */
-                if(result["changes"]){
+                if(result.changes){
                     return {
-                        redirectUrl: result["url"]
+                        redirectUrl: result.url
                     };
                 }
             }
         }
     }
-};
+}
 
 /**
 * Call by each tab is closed.
