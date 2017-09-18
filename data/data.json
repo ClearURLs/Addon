@@ -24,7 +24,8 @@
             ],
             "exceptions": [
                 ".*(amazon\\.)\\w{2,}(\\/gp).*\\/redirector.html\\/.*"
-            ]
+            ],
+            "redirections": []
         },
         "google": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?google\\.)\\w{2,}\\/.*",
@@ -53,19 +54,24 @@
                 "[a-zA-Z\\_]+id=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "dcr=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": [
+                "url=([^\\/|\\?|&]*)"
+            ]
         },
         "googlesyndication": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(googlesyndication).*",
             "completeProvider": true,
             "rules": [],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "doubleclick": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(doubleclick).*",
             "completeProvider": true,
             "rules": [],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "globalRules": {
             "urlPattern": ".*",
@@ -89,37 +95,43 @@
                 "action_ref_map=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "gs_l=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "adtech": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adtech).*",
             "completeProvider": true,
             "rules": [],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "contentpass.net": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(contentpass\\.net).*",
             "completeProvider": true,
             "rules": [],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "bf-ad": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(bf-ad).*",
             "completeProvider": true,
             "rules": [],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "amazon-adsystem": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(amazon-adsystem).*",
             "completeProvider": true,
             "rules": [],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "adsensecustomsearchads": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adsensecustomsearchads).*",
             "completeProvider": true,
             "rules": [],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "youtube": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?youtube\\.)\\w{2,}\\/.*",
@@ -127,7 +139,8 @@
             "rules": [
                 "feature=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "facebook": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?facebook\\.)\\w{2,}\\/.*",
@@ -136,7 +149,8 @@
                 "[a-zA-Z]*ref=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "hc_location=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "imdb": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?imdb\\.com)\\/.*",
@@ -144,7 +158,8 @@
             "rules": [
                 "ref_=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         },
         "twitter": {
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitter\\.)\\w{2,}\\/.*",
@@ -152,7 +167,8 @@
             "rules": [
                 "src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
-            "exceptions": []
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
