@@ -169,6 +169,15 @@
             ],
             "exceptions": [],
             "redirections": []
+        },
+        "reddit": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?reddit\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [],
+            "exceptions": [],
+            "redirections": [
+                "url=([^\\/|\\?|&]*)"
+            ]
         }
     }
 }
