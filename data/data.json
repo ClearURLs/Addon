@@ -54,7 +54,9 @@
                 "dcr=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
-                ".*(mail\\.google\\.)\\w{2,}(\\/mail\\/u\\/0)\\/.*"
+                ".*(mail\\.google\\.)\\w{2,}(\\/mail\\/u\\/0)\\/.*",
+                ".*(google\\.)\\w{2,}(\\/upload)?(\\/drive)\\/.*",
+                ".*(docs\\.google\\.)w{2,}\\/.*"
             ],
             "redirections": [
                 "url=([^\\/|\\?|&]*)"
