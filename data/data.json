@@ -168,7 +168,7 @@
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitter\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
-                "src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "(ref_)?src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
