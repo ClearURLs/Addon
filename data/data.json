@@ -57,6 +57,9 @@
             ],
             "exceptions": [
                 ".*(mail\\.google\\.)\\w{2,}(\\/mail\\/u\\/0)\\/.*",
+                ".*(mail\\.google\\.)\\w{2,}(\\/mail\\/u\\/0)\\/.*",
+                ".*(google\\.)\\w{2,}(\\/upload)?(\\/drive)\\/.*",
+                ".*(docs\\.google\\.)\\w{2,}\\/.*",
                 ".*(accounts\\.google\\.)\\w{2,}.*",
                 ".*(google\\.)\\w{2,}\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
@@ -170,7 +173,7 @@
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitter\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
-                "src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "(ref_)?src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
