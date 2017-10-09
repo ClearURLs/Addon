@@ -187,5 +187,16 @@
                 "url=([^\\/|\\?|&]*)"
             ]
         }
+        ,
+        "netflix": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?netflix\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "trackId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "tctx=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        }
     }
 }
