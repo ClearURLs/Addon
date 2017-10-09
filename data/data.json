@@ -197,6 +197,17 @@
             ],
             "exceptions": [],
             "redirections": []
+        },
+        "techcrunch": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?techcrunch\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "ncid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sr=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sr_share=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
