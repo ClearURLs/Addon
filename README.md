@@ -10,6 +10,11 @@ This add-on protects your privacy and block the request from advertising service
 > 
 > Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL
 
-If have any suggestions or complaints, please create an issue request. 
+If have any suggestions or complaints, please create an issue request.
+
+Screens:
+
+![Interface (version 1.1.2.0)](https://addons.cdn.mozilla.net/user-media/previews/full/187/187625.png?modified=1505340066)
+
 
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
