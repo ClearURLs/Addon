@@ -8,11 +8,16 @@ var providers = [];
 var prvKeys = [];
 var globalStatus;
 var badges = [];
+var log = [];
+var logging = false;
 var badgedStatus;
 var tabid = 0;
 var globalCounter;
 var globalurlcounter;
-var siteBlockedAlert = browser.extension.getURL ('./siteBlockedAlert.html');
+var siteBlockedAlert = browser.extension.getURL('./siteBlockedAlert.html');
+var dataHash;
+var localDataHash;
+
 
 /**
 * Initialize the JSON provider object keys.
@@ -74,44 +79,102 @@ function toJSON(retrievedText) {
 /**
 * Load local saved data, if the browser is offline or
 * some other network trouble.
-*
 */
 function loadOldDataFromStore()
 {
-    browser.storage.local.get('ClearURLsData', function(data){
-        if(data.ClearURLsData){
-            data = data.ClearURLsData;
+    browser.storage.local.get('ClearURLsData', function(localData){
+        if(localData.ClearURLsData){
+            data = localData.ClearURLsData;
         }
         else {
             data = "";
         }
 
-        toJSON(data);
+        localDataHash = $.sha256(data);
+
     });
 }
 
 /**
-* Fetch the Rules & Exception github.
-*
+ * Save the hash status to the local storage.
+ * The status can have the following values:
+ *  1 "unchanged"
+ *  2 "authorized, changed"
+ *  3 "unauthorized, changed"
+ *  @param status_code the number for the status
+ */
+function storeHashStatus(status_code)
+{
+    switch(status_code)
+    {
+        case 1: status_code = "unchanged";
+                break;
+        case 2: status_code = "authorized, changed";
+                break;
+        case 3: status_code = "unauthorized, changed";
+                break;
+        default: status_code = "error";
+    }
+    browser.storage.local.set({"hashStatus": status_code});
+}
+
+/**
+ * Get the hash for the rule file on github.
+ * Check the hash with the hash form the local file.
+ * If the hash has changed, then download the new rule file.
+ * Else do nothing.
+ */
+function getHash()
+{
+    //Get the target hash from github
+    fetch("https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true")
+    .then(function(response){
+        var responseTextHash = response.clone().text().then(function(responseTextHash){
+            if(response.ok)
+            {
+                dataHash = responseTextHash;
+
+                if($.trim(dataHash) !== $.trim(localDataHash))
+                {
+                    fetchFromURL();
+                }
+                else {
+                    toJSON(data);
+                    storeHashStatus(1);
+                }
+            }
+            else {
+                dataHash = false;
+            }
+        });
+    });
+}
+
+/**
+* Fetch the Rules & Exception from github.
 */
 function fetchFromURL()
 {
     fetch("https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true")
-    .then(checkResponse)
-    .catch(function(error){
-        loadOldDataFromStore();
-    });
+    .then(checkResponse);
 
     function checkResponse(response)
     {
         var responseText = response.clone().text().then(function(responseText){
             if(response.ok)
             {
-                browser.storage.local.set({"ClearURLsData": responseText});
-                toJSON(responseText);
-            }
-            else {
-                loadOldDataFromStore();
+                var downloadedFileHash = $.sha256(responseText);
+
+                if($.trim(downloadedFileHash) === $.trim(dataHash))
+                {
+                    data = responseText;
+                    browser.storage.local.set({"ClearURLsData": responseText});
+                    storeHashStatus(2);
+                }
+                else {
+                    storeHashStatus(3);
+                }
+                toJSON(data);
             }
         });
     }
@@ -269,13 +332,15 @@ function removeFieldsFormURL(provider, request)
     if(provider.matchURL(url))
     {
         /*
-         * Expand the url by provider redirections. So no tracking on
-         * url redirections form sites to sites.
-         */
+        * Expand the url by provider redirections. So no tracking on
+        * url redirections form sites to sites.
+        */
         var re = provider.getRedirection(url);
         if(re !== null)
         {
             url = decodeURIComponent(re);
+            //Log the action
+            pushToLog(request.url, re, "This url is redirected.");
 
             return {
                 "redirect": true,
@@ -284,12 +349,15 @@ function removeFieldsFormURL(provider, request)
         }
 
         for (var i = 0; i < rules.length; i++) {
-            var bevorReplace = url;
+            var beforReplace = url;
 
             url = url.replace(new RegExp(rules[i], "gi"), "");
 
-            if(bevorReplace != url)
+            if(beforReplace != url)
             {
+                //Log the action
+                pushToLog(beforReplace, url, rules[i]);
+
                 if(badges[tabid] == null)
                 {
                     badges[tabid] = 0;
@@ -309,6 +377,7 @@ function removeFieldsFormURL(provider, request)
         }
 
         if(provider.isCaneling()){
+            pushToLog(request.url, request.url, "This domain is blocked.");
             if(badges[tabid] == null)
             {
                 badges[tabid] = 0;
@@ -423,9 +492,9 @@ function clearUrl(request)
                 result = removeFieldsFormURL(providers[i], request);
 
                 /*
-                 * Expand urls and bypass tracking.
-                 * Cancel the active request.
-                 */
+                * Expand urls and bypass tracking.
+                * Cancel the active request.
+                */
                 if(result.redirect)
                 {
                     browser.tabs.update(request.tabId, {url: result.url});
@@ -457,10 +526,113 @@ function clearUrl(request)
 }
 
 /**
+* This function get the log on start and load the
+* json data in to the log variable.
+* If no log in the local storage, this function
+* create a foundation json variable.
+*/
+function getLogOnStart()
+{
+    browser.storage.local.get('log', function(data) {
+        if(data.log)
+        {
+            log = JSON.parse(data.log);
+        }
+        else{
+            //Create foundation for log variable
+            log = {"log": []};
+        }
+    });
+}
+
+/**
+* Function to log all activities from ClearUrls.
+* Only logging when activated.
+* The log is only temporary saved in the cache and will
+* permanently saved with the saveLogOnClose function.
+*
+* @param beforeProcessing  the url before the clear process
+* @param afterProcessing   the url after the clear process
+* @param rule              the rule that triggered the process
+*/
+function pushToLog(beforeProcessing, afterProcessing, rule)
+{
+    if(logging)
+    {
+        log.log.push(
+            {
+                "before": beforeProcessing,
+                "after": afterProcessing,
+                "rule": rule,
+                "timestamp": Date.now()
+            }
+        );
+    }
+}
+
+/**
+* This function is triggered by the event windows.onRemoved and tabs.onCreated
+* and will save the log permanently to the local storage.
+* We only save the log anticyclically based on performance.
+*/
+function saveLog()
+{
+    if(logging)
+    {
+        browser.storage.local.get('resetLog', function(data) {
+            if(data.resetLog)
+            {
+                log = {"log": []}; // Delete the old log
+                browser.storage.local.set({"resetLog": false});
+            }
+            else
+            {
+                browser.storage.local.set({"log": JSON.stringify(log)});
+            }
+        });
+    }
+}
+
+/**
+* Check if the status from logging has changed.
+*
+* The default value is false (off).
+*/
+function getLoggingStatus()
+{
+    browser.storage.local.get('loggingStatus', function(data) {
+        if(data.loggingStatus) {
+            logging = data.loggingStatus;
+        }
+        else if(data.loggingStatus === null || typeof(data.loggingStatus) == "undefined"){
+            logging = false;
+        }
+        else {
+            logging = false;
+        }
+    });
+}
+
+/**
+* Call by each windows is closed or created.
+*/
+browser.windows.onRemoved.addListener(saveLog);
+browser.tabs.onCreated.addListener(saveLog);
+
+/**
 * Call by each tab is closed.
 */
 function handleRemoved(tabId, removeInfo) {
     delete badges[tabId];
+}
+
+/**
+* Function that calls some function on storage change.
+*/
+function reactToStorageChange()
+{
+    setBadgedStatus();
+    getLoggingStatus();
 }
 
 /**
@@ -486,15 +658,18 @@ function setBadgedStatus() {
 }
 
 /**
-* Call the fetch, counter and status functions
+* Call loadOldDataFromStore, getHash, counter, status and log functions
 */
-fetchFromURL();
+
+loadOldDataFromStore();
+getHash();
 setBadgedStatus();
+getLogOnStart();
 
 /**
 * Call by each change in the browser storage.
 */
-browser.storage.onChanged.addListener(setBadgedStatus);
+browser.storage.onChanged.addListener(reactToStorageChange);
 
 /**
 * Call by each tab is closed.

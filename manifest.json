@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ClearURLs",
-  "version": "1.1.2.4",
+  "version": "1.1.2.5",
   "author": "Kevin R.",
   "description": "Remove tracking elements form URLs. ",
   "homepage_url": "https://github.com/KevinRoebert/ClearUrls",
@@ -28,6 +28,8 @@
   ],
   "background": {
     "scripts": [
+      "jquery-3.2.1.min.js",
+      "sha256.jquery.js",
       "clearurls.js"
     ]
   },
@@ -37,6 +39,7 @@
     }
   ],
   "web_accessible_resources": [
-      "siteBlockedAlert.html"
+      "siteBlockedAlert.html",
+      "log.html"
   ]
 }

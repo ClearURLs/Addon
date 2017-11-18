@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,70 +8,79 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="switchButtons.css">
-  </head>
-  <body>
-  <div class="container-fluid" style="background: url('img-noise-361x370.png');background-size: auto;">
-    <div class="row">
-      <nav class="col-sm-1 navbar navbar-inverse">
-        <div class="container">
-          <div class="navbar-header">
-            <span class="navbar-brand">
-              <span><img src="icon38.png" width="30" height="30" alt=""></span>
-              ClearURLs
-            </span>
-          </div>
+</head>
+<body>
+    <div class="container-fluid" style="background: url('img-noise-361x370.png');background-size: auto;">
+        <div class="row">
+            <nav class="col-sm-1 navbar navbar-inverse">
+                <div class="container">
+                    <div class="navbar-header">
+                        <span class="navbar-brand">
+                            <span><img src="icon38.png" width="30" height="30" alt=""></span>
+                            <a href="" id="loggingPage" target="_blank" style="text-decoration: none;">ClearURLs</a>
+                        </span>
+                    </div>
+                </div>
+            </nav>
         </div>
-      </nav>
-    </div>
 
-    <div class="row">
-      <div class="col-sm-1">
-        <h5>Configs</h5>
-        <label class="switch">
-          <input type="checkbox" id="globalStatus">
-          <span class="slider round"></span>
-          <label>Filters</label>
-        </label>
+        <div class="row">
+            <div class="col-sm-1">
+                <h5>Configs</h5>
+                <label class="switch">
+                    <input type="checkbox" id="globalStatus">
+                    <span class="slider round"></span>
+                    <label>Filters</label>
+                </label>
+                <br>
+                <label class="switch">
+                    <input type="checkbox" id="logging">
+                    <span class="slider round"></span>
+                    <label title="The log is saved only locally. We advise against this feature if you do not need it.">Logging</label>
+                </label>
+                <br>
+                <label class="switch">
+                    <input type="checkbox" id="tabcounter">
+                    <span class="slider round"></span>
+                    <label>Toolbar counter</label>
+                </label>
+            </div>
+        </div>
         <br>
-        <label class="switch">
-          <input type="checkbox" id="tabcounter">
-          <span class="slider round"></span>
-          <label>Toolbar counter</label>
-        </label>
-      </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-sm-1">
-        <h5>Statistics</h5>
+        <div class="row">
+            <div class="col-sm-1">
+                <h5>Statistics</h5>
 
-        <div class="progress">
-          <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width: 0%" id="progress_blocked"></div>
-          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: 100%" id="progress_non_blocked"></div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width: 0%" id="progress_blocked"></div>
+                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" style="width: 100%" id="progress_non_blocked"></div>
+                </div>
+
+                <h6>Total elements</h6>
+                <p class="text-info text-right" id="statistics_total_elements"></p>
+
+                <h6>Total blocked elements</h6>
+                <p class="text-danger text-right" id="statistics_value"></p>
+
+                <h6>Percentage of total traffic</h6>
+                <p class="text-right" id="statistics_value_global_percentage"></p>
+
+                <h6>Rule-&amp;Hash-Status</h6>
+                <p class="text-right"><a href="https://github.com/KevinRoebert/ClearUrls/commits/master/data/data.json" style="color: grey;" id="hashStatus"></a></p>
+
+                <p class="text-center">
+                    <button type="button" id="reset_counter_btn" class="btn btn-danger" title="Reset the global statistics">Reset counter</button>
+                </p>
+            </div>
         </div>
-
-        <h6>Total elements</h6>
-        <p class="text-info text-right" id="statistics_total_elements"></p>
-
-        <h6>Total blocked elements</h6>
-        <p class="text-danger text-right" id="statistics_value"></p>
-
-        <h6>Percentage of total traffic</h6>
-        <p class="text-right" id="statistics_value_global_percentage"></p>
-
-        <p class="text-center">
-          <button type="button" id="reset_counter_btn" class="btn btn-danger" title="Reset the global statistics">Reset counter</button>
-        </p>
-      </div>
+        <footer>
+            <div class="row">
+                <div class="col-sm-1 navbar-inverse text-center">
+                    <small class="text-muted">Version 1.1.2.5</small>
+                </div>
+            </div>
+        </footer>
     </div>
-    <footer>
-      <div class="row">
-        <div class="col-sm-1 navbar-inverse text-center">
-          <small class="text-muted">Version 1.1.2.4</small>
-        </div>
-      </div>
-    </footer>
-  </div>
 
 
     <!-- Optional JavaScript -->
@@ -79,5 +88,5 @@
     <script src="jquery-3.2.1.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="popup_new.js"></script>
-  </body>
+</body>
 </html>
