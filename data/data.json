@@ -154,7 +154,9 @@
                 "[a-zA-Z]*ref=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "hc_location=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
-            "exceptions": [],
+            "exceptions": [
+                ".*(facebook\\.)\\w{2,}.*(\\/plugins\\/share_button.php).*"
+            ],
             "redirections": []
         },
         "imdb": {
@@ -181,7 +183,7 @@
             "rules": [],
             "exceptions": [],
             "redirections": [
-                "url=([^\\/|\\?|&]*)"
+                "(https:\\/\\/||http:\\/\\/).*(out\\.reddit\\.)\\w{2,}\\/.*url=([^\\/|\\?|&]*)"
             ]
         }
         ,
