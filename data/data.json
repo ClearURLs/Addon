@@ -184,7 +184,7 @@
             "rules": [],
             "exceptions": [],
             "redirections": [
-                "(https:\\/\\/||http:\\/\\/).*(out\\.reddit\\.)\\w{2,}\\/.*url=([^\\/|\\?|&]*)"
+                "out\\.reddit\\.\\w{2,}\\/.*url=([^\\/|\\?|&]*)"
             ]
         }
         ,
