@@ -14,7 +14,7 @@ If have any suggestions or complaints, please create an issue request.
 
 Screens:
 
-![Interface (version 1.1.2.0)](https://addons.cdn.mozilla.net/user-media/previews/full/187/187625.png?modified=1505340066)
+![Interface (version 1.1.2.0)](https://addons.cdn.mozilla.net/user-media/previews/full/193/193579.png)
 
 
 Copyright notes third persons:
