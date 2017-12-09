@@ -20,7 +20,8 @@
                 "colid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "coliid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "adId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "qualifier=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "qualifier=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "_encoding=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(amazon\\.)\\w{2,}(\\/gp).*\\/redirector.html\\/.*"
@@ -51,7 +52,8 @@
                 "_u=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "je=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "dcr=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "ie=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "ie=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sei=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(mail\\.google\\.)\\w{2,}(\\/mail\\/u\\/0)\\/.*",
@@ -99,7 +101,11 @@
                 "action_object_map=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "action_type_map=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "action_ref_map=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "gs_l=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "gs_l=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "mkt_tok=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "hmb_campaign=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "hmb_medium=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "hmb_source=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
@@ -143,7 +149,9 @@
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?youtube\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
-                "feature=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "feature=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "gclid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "kw=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
@@ -205,6 +213,51 @@
                 "ncid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "sr=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "sr_share=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "bing": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?bing\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "cvid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "form=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sk=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sp=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sc=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "qs=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "qp=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "tweakers": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?tweakers\\.net)\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "nb=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "u=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "twitch": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitch\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "tt_medium=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "tt_content=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "vivaldi": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?vivaldi\\.com)\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "pk_campaign=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "pk_kwd=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
