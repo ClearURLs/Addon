@@ -61,7 +61,9 @@
                 ".*(google\\.)\\w{2,}(\\/upload)?(\\/drive)\\/.*",
                 ".*(docs\\.google\\.)\\w{2,}\\/.*",
                 ".*(accounts\\.google\\.)\\w{2,}.*",
-                ".*(google\\.)\\w{2,}\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                ".*(google\\.)\\w{2,}\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(hangouts\\.google\\.)\\w{2,}\\/webchat.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(client-channel\\.google\\.)\\w{2,}\\/client-channel.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "redirections": [
                 "url\\?.*url=([^\\/|\\?|&]*)"
