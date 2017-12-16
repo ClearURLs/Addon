@@ -14,7 +14,7 @@ If have any suggestions or complaints, please create an issue request.
 
 Screens:
 
-![Interface (version 1.1.2.0)](https://addons.cdn.mozilla.net/user-media/previews/full/193/193579.png)
+![Interface (version 1.1.2.0)](https://github.com/KevinRoebert/ClearUrls/blob/master/promotion/screens/Popup_v_1.2.png?raw=true)
 
 
 Copyright notes third persons:
