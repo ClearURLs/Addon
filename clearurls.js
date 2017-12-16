@@ -14,7 +14,7 @@ var badgedStatus;
 var tabid = 0;
 var globalCounter;
 var globalurlcounter;
-var siteBlockedAlert = browser.extension.getURL('./siteBlockedAlert.html');
+var siteBlockedAlert = browser.extension.getURL('./');
 var dataHash;
 var localDataHash;
 
@@ -98,20 +98,20 @@ function loadOldDataFromStore()
 /**
  * Save the hash status to the local storage.
  * The status can have the following values:
- *  1 "unchanged"
- *  2 "authorized, changed"
- *  3 "unauthorized, changed"
+ *  1 "up to date"
+ *  2 "updated"
+ *  3 "update available"
  *  @param status_code the number for the status
  */
 function storeHashStatus(status_code)
 {
     switch(status_code)
     {
-        case 1: status_code = "unchanged";
+        case 1: status_code = "up to date";
                 break;
-        case 2: status_code = "authorized, changed";
+        case 2: status_code = "updated";
                 break;
-        case 3: status_code = "unauthorized, changed";
+        case 3: status_code = "update available";
                 break;
         default: status_code = "error";
     }
@@ -620,13 +620,6 @@ browser.windows.onRemoved.addListener(saveLog);
 browser.tabs.onCreated.addListener(saveLog);
 
 /**
-* Call by each tab is closed.
-*/
-function handleRemoved(tabId, removeInfo) {
-    delete badges[tabId];
-}
-
-/**
 * Function that calls some function on storage change.
 */
 function reactToStorageChange()
@@ -672,9 +665,20 @@ getLogOnStart();
 browser.storage.onChanged.addListener(reactToStorageChange);
 
 /**
-* Call by each tab is closed.
+* Call by each tab is updated.
+* And if url has changed.
 */
-browser.tabs.onRemoved.addListener(handleRemoved);
+function handleUpdated(tabId, changeInfo, tabInfo) {
+    if(changeInfo.url)
+    {
+        delete badges[tabId];
+    }
+}
+
+/**
+* Call by each tab is updated.
+*/
+browser.tabs.onUpdated.addListener(handleUpdated);
 
 /**
 * Call by each tab change to set the actual tab id

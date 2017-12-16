@@ -65,3 +65,7 @@ input:checked + .slider:before {
     position: absolute;
     left: 60px;
 }
+
+label {
+    font-weight: normal;
+}

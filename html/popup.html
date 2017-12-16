@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ClearURLs</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/switchButtons.css">
+    <link rel="stylesheet" type="text/css" href="../css/core.css">
+</head>
+<body>
+    <div class="container-fluid"
+    style="background: url('../img/img-noise-361x370.png');background-size: auto;">
+    <div class="row">
+        <nav class="col-sm-1 navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <span class="navbar-brand">
+                        <span class="pull-left"><img src="../img/icon38.png"
+                            width="30" height="30" alt=""></span>
+                            <span style="color: #FF7800;" class="pull-right">
+                                ClearURLs
+                            </span><br />
+                            <span class="label label-warning pull-left small-version"
+                            id="version"></span>
+                        </span>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-1">
+                <h5><b>Configs</b></h5>
+                <label class="switch">
+                    <input type="checkbox" id="globalStatus">
+                    <span class="slider round"></span>
+                    <label>Filters</label>
+                </label>
+                <br>
+                <label class="switch">
+                    <input type="checkbox" id="logging">
+                    <span class="slider round"></span>
+                    <label title="The log is saved only locally. We advise against this feature if you do not need it.">
+                    Logging
+                </label>
+            </label>
+            <br>
+            <label class="switch">
+                <input type="checkbox" id="tabcounter">
+                <span class="slider round"></span>
+                <label>Badges</label>
+            </label>
+            <div class="clearfix"></div>
+            <br />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1">
+            <h5><b>Statistics</b></h5>
+
+            <div class="progress">
+                <div class="progress-bar progress-bar-danger progress-bar-striped"
+                role="progressbar" style="width: 0%" id="progress_blocked"></div>
+                <div class="progress-bar progress-bar-info progress-bar-striped"
+                role="progressbar" style="width: 100%" id="progress_non_blocked"></div>
+            </div>
+
+            <div>
+                <span class="pull-left">Elements</span>
+                <span class="pull-right text-info"
+                id="statistics_total_elements"></span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div>
+                <span class="pull-left">Blocked</span>
+                <span class="pull-right text-danger"
+                id="statistics_value"></span>
+                <div class="clearfix"></div>
+            </div>
+
+            <div>
+                <span class="pull-left">Percentage</span>
+                <span class="pull-right text-success"
+                id="statistics_value_global_percentage"></span>
+                <div class="clearfix"></div>
+            </div>
+            <br />
+            <div class="text-center">
+                <button type="button" id="reset_counter_btn"
+                class="btn btn-danger btn-xs"
+                title="Reset the global statistics">Reset</button>
+                <div class="clearfix"></div>
+                <br />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-1">
+            <h5><b>Rules-Status</b></h5>
+            <a href="https://github.com/KevinRoebert/ClearUrls/commits/master/data/data.json"
+            id="hashStatus" class="btn btn-primary btn-xs pull-right"></a>
+            <div class="clearfix"></div>
+            <br />
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-sm-1">
+            <div class="text-center">
+                <a type="button" id="loggingPage" target="_blank"
+                class="btn btn-default btn-sm btn-block"
+                title="Open the log">Log</a>
+            </div>
+        </div>
+    </div>
+    <br />
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../external_js/jquery-3.2.1.min.js"></script>
+<script src="../external_js/bootstrap.min.js"></script>
+<script src="../core_js/popup_new.js"></script>
+<script src="../core_js/write_version.js"></script>
+</body>
+</html>

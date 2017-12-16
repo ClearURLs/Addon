@@ -1,35 +1,36 @@
 {
   "manifest_version": 2,
   "name": "ClearURLs",
-  "version": "1.1.2.5",
+  "version": "1.2",
   "author": "Kevin R.",
-  "description": "Remove tracking elements form URLs. ",
+  "description": "Remove tracking elements form URLs.",
   "homepage_url": "https://github.com/KevinRoebert/ClearUrls",
   "icons": {
-    "32": "icon32.png",
-    "48": "icon48.png",
-    "64": "icon64.png",
-    "96": "icon96.png"
+    "32": "img/icon32.png",
+    "48": "img/icon48.png",
+    "64": "img/icon64.png",
+    "96": "img/icon96.png"
   },
   "browser_action": {
     "browser_style": true,
     "default_icon": {
-      "19": "icon19.png",
-      "38": "icon38.png"
+      "19": "img/icon19.png",
+      "38": "img/icon38.png"
     },
     "default_title": "ClearURLs Add-on",
-    "default_popup": "popup_new.html"
+    "default_popup": "html/popup.html"
   },
   "permissions": [
     "*://*/*",
     "webRequest",
     "webRequestBlocking",
-    "storage"
+    "storage",
+    "tabs"
   ],
   "background": {
     "scripts": [
-      "jquery-3.2.1.min.js",
-      "sha256.jquery.js",
+      "external_js/jquery-3.2.1.min.js",
+      "external_js/sha256.jquery.js",
       "clearurls.js"
     ]
   },
@@ -37,9 +38,5 @@
     {
       "matches": ["<all_urls>"]
     }
-  ],
-  "web_accessible_resources": [
-      "siteBlockedAlert.html",
-      "log.html"
   ]
 }

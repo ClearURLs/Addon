@@ -183,7 +183,7 @@ $(document).ready(function(){
     $('#reset_counter_btn').on("click", resetGlobalCounter);
     $('#tabcounter').on('change', changeTabcounter);
     $('#logging').on('change', changeLogging);
-    $('#loggingPage').attr('href', browser.extension.getURL('./log.html'));
+    $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
 
     browser.storage.onChanged.addListener(changeStatistics);
 });
