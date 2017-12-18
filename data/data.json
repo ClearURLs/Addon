@@ -64,7 +64,7 @@
                 ".*(google\\.)\\w{2,}\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(hangouts\\.google\\.)\\w{2,}\\/webchat.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(client-channel\\.google\\.)\\w{2,}\\/client-channel.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(.google\\.)\\w{2,}\\/complete\\/search?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                ".*(.google\\.)\\w{2,}\\/complete\\/search\\?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "redirections": [
                 "url\\?.*url=([^\\/|\\?|&]*)"
