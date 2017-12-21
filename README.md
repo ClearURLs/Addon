@@ -6,9 +6,8 @@ This add-on will remove the tracking fields form all URLs which are visited by t
 
 This add-on protects your privacy and block the request from advertising services like *doubleclick.net*.
 
-> **Application:**
->
-> Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL.
+## Application
+Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL.
 
 ## Installation
 Install on [Firefox AMO.](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
