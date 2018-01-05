@@ -14,7 +14,7 @@ var badgedStatus;
 var tabid = 0;
 var globalCounter;
 var globalurlcounter;
-var siteBlockedAlert = browser.extension.getURL('./');
+var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
 var localDataHash;
 
@@ -96,34 +96,34 @@ function loadOldDataFromStore()
 }
 
 /**
- * Save the hash status to the local storage.
- * The status can have the following values:
- *  1 "up to date"
- *  2 "updated"
- *  3 "update available"
- *  @param status_code the number for the status
- */
+* Save the hash status to the local storage.
+* The status can have the following values:
+*  1 "up to date"
+*  2 "updated"
+*  3 "update available"
+*  @param status_code the number for the status
+*/
 function storeHashStatus(status_code)
 {
     switch(status_code)
     {
         case 1: status_code = "up to date";
-                break;
+        break;
         case 2: status_code = "updated";
-                break;
+        break;
         case 3: status_code = "update available";
-                break;
+        break;
         default: status_code = "error";
     }
     browser.storage.local.set({"hashStatus": status_code});
 }
 
 /**
- * Get the hash for the rule file on github.
- * Check the hash with the hash form the local file.
- * If the hash has changed, then download the new rule file.
- * Else do nothing.
- */
+* Get the hash for the rule file on github.
+* Check the hash with the hash form the local file.
+* If the hash has changed, then download the new rule file.
+* Else do nothing.
+*/
 function getHash()
 {
     //Get the target hash from github
@@ -206,6 +206,14 @@ function Provider(_name,_completeProvider = false){
     }
 
     /**
+    * Returns the provider name.
+    * @return {String}
+    */
+    this.getName = function() {
+        return name;
+    };
+
+    /**
     * Add URL pattern.
     *
     * @require urlPatterns as RegExp
@@ -225,10 +233,10 @@ function Provider(_name,_completeProvider = false){
     /**
     * Check the url is matching the ProviderURL.
     *
-    * @return {String}    ProviderURL as RegExp
+    * @return {boolean}    ProviderURL as RegExp
     */
     this.matchURL = function(url) {
-        return !(this.matchException(url)) && (url.match(urlPattern) != null) && (url.match(urlPattern).length > 0);
+        return !(this.matchException(url)) && urlPattern.test(url);
     };
 
     /**
@@ -274,7 +282,8 @@ function Provider(_name,_completeProvider = false){
         for (var i = 0; i < exceptions.length; i++) {
             if(result) { break; }
 
-            result = (url.match(new RegExp(exceptions[i], "gi"))) && (url.match(new RegExp(exceptions[i], "gi")).length > 0);
+            exception_regex = new RegExp(exceptions[i], "gi");
+            result = exception_regex.test(url);
         }
 
         return result;
@@ -394,13 +403,18 @@ function removeFieldsFormURL(provider, request)
 
             cancel = true;
         }
-    }
 
-    return {
-        "changes": changes,
-        "url": url,
-        "cancel": cancel
-    };
+        return {
+            "changes": changes,
+            "url": url,
+            "cancel": cancel
+        };
+    }
+    else {
+        return {
+            "changes": false
+        };
+    }
 }
 
 /**
@@ -465,7 +479,6 @@ function clearUrl(request)
         globalurlcounter += URLbeforeReplaceCount;
 
         browser.storage.local.set({"globalurlcounter": globalurlcounter});
-
         browser.storage.local.get('globalStatus', clear);
 
         function clear(data){
@@ -513,7 +526,7 @@ function clearUrl(request)
 
                 /*
                 * Ensure that the function go not into
-                * an loop.
+                * a loop.
                 */
                 if(result.changes){
                     return {
@@ -523,6 +536,9 @@ function clearUrl(request)
             }
         }
     }
+
+    // Default case
+    return {};
 }
 
 /**
@@ -693,12 +709,46 @@ function handleActivated(activeInfo) {
 browser.tabs.onActivated.addListener(handleActivated);
 
 /**
+* Handle everything asynchronously.
+* @type {Promise}
+*/
+function promise(requestDetails)
+{
+    var timeout = 1000;
+    return new Promise((resolve,reject) => {
+        window.setTimeout(() => {
+            if(isDataURL(requestDetails))
+            {
+                resolve({});
+            }
+            else {
+                var ret = clearUrl(requestDetails);
+                resolve(ret);
+            }
+        },timeout);
+    });
+}
+
+/**
+* To prevent long loading on data urls
+* we will check here for data urls.
+*
+* @type {requestDetails}
+* @return {boolean}
+*/
+function isDataURL(requestDetails) {
+    var s = requestDetails.url;
+
+    return s.substring(0,4) == "data";
+}
+
+/**
 * Call by each Request and checking the url.
 *
 * @type {Array}
 */
 browser.webRequest.onBeforeRequest.addListener(
-    clearUrl,
+    promise,
     {urls: ["<all_urls>"]},
     ["blocking"]
 );
