@@ -709,24 +709,19 @@ function handleActivated(activeInfo) {
 browser.tabs.onActivated.addListener(handleActivated);
 
 /**
-* Handle everything asynchronously.
-* @type {Promise}
+* Check the request.
 */
 function promise(requestDetails)
 {
-    var timeout = 1000;
-    return new Promise((resolve,reject) => {
-        window.setTimeout(() => {
-            if(isDataURL(requestDetails))
-            {
-                resolve({});
-            }
-            else {
-                var ret = clearUrl(requestDetails);
-                resolve(ret);
-            }
-        },timeout);
-    });
+    if(isDataURL(requestDetails))
+    {
+        return {};
+    }
+    else {
+        var ret = clearUrl(requestDetails);
+        return ret;
+    }
+
 }
 
 /**
