@@ -17,7 +17,14 @@ var globalurlcounter;
 var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
 var localDataHash;
+var os;
 
+/**
+ * Save OS Version
+ */
+browser.runtime.getPlatformInfo(function(info) {
+    os = info.os;
+});
 
 /**
 * Initialize the JSON provider object keys.
@@ -632,7 +639,11 @@ function getLoggingStatus()
 /**
 * Call by each windows is closed or created.
 */
-browser.windows.onRemoved.addListener(saveLog);
+if(!checkOSAndroid())
+{
+    console.log("ClearURLs: Log listener is added.")
+    browser.windows.onRemoved.addListener(saveLog);
+}
 browser.tabs.onCreated.addListener(saveLog);
 
 /**
@@ -665,6 +676,21 @@ function setBadgedStatus() {
         }
     });
 }
+
+/**
+ * Check if it is an android device.
+ * @return bool
+ */
+ function checkOSAndroid()
+ {
+     if(os == "android")
+     {
+         return true;
+     }
+     else{
+         return false;
+     }
+ }
 
 /**
 * Call loadOldDataFromStore, getHash, counter, status and log functions
