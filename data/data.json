@@ -168,7 +168,7 @@
                 "hc_location=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
-                ".*(facebook\\.)\\w{2,}.*(\\/plugins\\/share_button.php).*"
+                ".*(facebook\\.)\\w{2,}.*(\\/plugins\\/).*"
             ],
             "redirections": []
         },
