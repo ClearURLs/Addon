@@ -380,12 +380,15 @@ browser.runtime.getPlatformInfo(function(info) {
                     }
 
                     browser.storage.local.set({"globalCounter": ++globalCounter});
-                    if(badgedStatus) {
-                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                    }
-                    else
+                    if(!checkOSAndroid())
                     {
-                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                        if(badgedStatus) {
+                            browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                        }
+                        else
+                        {
+                            browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                        }
                     }
 
                     changes = true;
@@ -400,12 +403,15 @@ browser.runtime.getPlatformInfo(function(info) {
                 }
 
                 browser.storage.local.set({"globalCounter": ++globalCounter});
-                if(badgedStatus) {
-                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                }
-                else
+                if(!checkOSAndroid())
                 {
-                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                    if(badgedStatus) {
+                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                    }
+                    else
+                    {
+                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                    }
                 }
 
                 cancel = true;
@@ -661,20 +667,22 @@ browser.runtime.getPlatformInfo(function(info) {
     *
     */
     function setBadgedStatus() {
-        browser.storage.local.get('badgedStatus', function(data) {
-            if(data.badgedStatus) {
-                badgedStatus = data.badgedStatus;
-                browser.browserAction.setBadgeBackgroundColor({
-                    'color': 'orange'
-                });
-            }
-            else if(data.badgedStatus === null || typeof(data.badgedStatus) == "undefined"){
-                badgedStatus = false;
-            }
-            else {
-                badgedStatus = false;
-            }
-        });
+        if(!checkOSAndroid()){
+            browser.storage.local.get('badgedStatus', function(data) {
+                if(data.badgedStatus) {
+                    badgedStatus = data.badgedStatus;
+                    browser.browserAction.setBadgeBackgroundColor({
+                        'color': 'orange'
+                    });
+                }
+                else if(data.badgedStatus === null || typeof(data.badgedStatus) == "undefined"){
+                    badgedStatus = false;
+                }
+                else {
+                    badgedStatus = false;
+                }
+            });
+        }
     }
 
     /**
