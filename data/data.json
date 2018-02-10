@@ -115,7 +115,7 @@
             "redirections": []
         },
         "adtech": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adtech).*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adtech\\.).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
