@@ -265,6 +265,33 @@
             ],
             "exceptions": [],
             "redirections": []
+        },
+        "indeed": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?indeed\\.com)\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "from=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "alid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "[a-zA-Z]*tk=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "hhdotru": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?hh\\.ru)\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "vss=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "t=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "swnt=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "grpos=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ptl=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "stl=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "exp=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "plim=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
