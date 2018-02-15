@@ -1,7 +1,7 @@
 {
     "providers": {
         "amazon": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?amazon\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?amazon\\.).*\\/.*",
             "completeProvider": false,
             "rules": [
                 "pf_rd_[a-zA-Z]=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -24,12 +24,12 @@
                 "_encoding=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
-                ".*(amazon\\.)\\w{2,}(\\/gp).*\\/redirector.html\\/.*"
+                ".*(amazon\\.).*(\\/gp).*\\/redirector.html\\/.*"
             ],
             "redirections": []
         },
         "google": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?google\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?google\\.).*\\/.*",
             "completeProvider": false,
             "rules": [
                 "ved=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -56,19 +56,19 @@
                 "sei=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
-                ".*(mail\\.google\\.)\\w{2,}(\\/mail\\/u\\/0)\\/.*",
-                ".*(mail\\.google\\.)\\w{2,}(\\/mail\\/u\\/0)\\/.*",
-                ".*(google\\.)\\w{2,}(\\/upload)?(\\/drive)\\/.*",
-                ".*(docs\\.google\\.)\\w{2,}\\/.*",
-                ".*(accounts\\.google\\.)\\w{2,}.*",
-                ".*(google\\.)\\w{2,}\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(hangouts\\.google\\.)\\w{2,}\\/webchat.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(client-channel\\.google\\.)\\w{2,}\\/client-channel.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(.google\\.)\\w{2,}\\/complete\\/search\\?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(.google\\.)\\w{2,}\\/s\\?tbm=map.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                ".*(mail\\.google\\.).*(\\/mail\\/u\\/0)\\/.*",
+                ".*(mail\\.google\\.).*(\\/mail\\/u\\/0)\\/.*",
+                ".*(google\\.).*(\\/upload)?(\\/drive)\\/.*",
+                ".*(docs\\.google\\.).*\\/.*",
+                ".*(accounts\\.google\\.).*",
+                ".*(google\\.).*\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(hangouts\\.google\\.).*\\/webchat.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(client-channel\\.google\\.).*\\/client-channel.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(.google\\.).*\\/complete\\/search\\?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(.google\\.).*\\/s\\?tbm=map.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "redirections": [
-                "url\\?.*url=([^\\/|\\?|&]*)"
+                ".*google\\..*\\/.*url\\?.*url=([^\\/|\\?|&]*)"
             ]
         },
         "googlesyndication": {
@@ -150,7 +150,7 @@
             "redirections": []
         },
         "youtube": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?youtube\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?youtube\\.).*\\/.*",
             "completeProvider": false,
             "rules": [
                 "feature=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -161,7 +161,7 @@
             "redirections": []
         },
         "facebook": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?facebook\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?facebook\\.).*\\/.*",
             "completeProvider": false,
             "rules": [
                 "[a-zA-Z]*ref=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -182,7 +182,7 @@
             "redirections": []
         },
         "twitter": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitter\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitter\\.).*\\/.*",
             "completeProvider": false,
             "rules": [
                 "(ref_)?src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
@@ -222,7 +222,7 @@
             "redirections": []
         },
         "bing": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?bing\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?bing\\.).*\\/.*",
             "completeProvider": false,
             "rules": [
                 "cvid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
