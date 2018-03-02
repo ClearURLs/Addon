@@ -110,7 +110,9 @@
                 "\\?$",
                 "\\&$"
             ],
-            "exceptions": [],
+            "exceptions": [
+                "(https:\\/\\/||http:\\/\\/).*(github\\.com)\\/.*\\/traffic.*"
+            ],
             "redirections": []
         },
         "adtech": {
