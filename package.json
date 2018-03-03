@@ -22,10 +22,10 @@
     }
   ],
   "dependencies": {
-    "bootstrap": "twbs/bootstrap#v3.3.7",
-    "jquery": "jquery/jquery#v3.2.1",
+    "bootstrap": "twbs/bootstrap",
+    "jquery": "jquery/jquery",
     "sha256.jquery.plugin": "orsozed/sha256.jquery.plugin",
-    "DataTables": "DataTables/DataTables#v1.10.16"
+    "DataTables": "DataTables/DataTables"
   },
   "bugs": {
     "web": "https://github.com/KevinRoebert/ClearUrls/issues/new"
