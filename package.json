@@ -1,0 +1,39 @@
+{
+  "name": "ClearURLs",
+  "description": "ClearURLs is an add-on based on the new WebExtensions technology and is optimized for Firefox. This add-on will remove the tracking fields form all URLs which are visited by the browser and use a rule file, namely data.json. This add-on protects your privacy and block the request from advertising services like doubleclick.net.",
+  "version": "1.2.1.4",
+  "contributors": [
+    {
+      "name": "Kevin R.",
+      "email": "clearurls@kevinroebert.de",
+      "web": "https://github.com/KevinRoebert"
+    },
+    {
+      "name": "Arne",
+      "email": "",
+      "web": "https://github.com/astaar"
+    }
+  ],
+  "maintainers": [
+    {
+      "name": "Kevin R.",
+      "email": "clearurls@kevinroebert.de",
+      "web": "https://github.com/KevinRoebert/"
+    }
+  ],
+  "dependencies": {
+    "https://github.com/twbs/bootstrap": "3.3.7",
+    "https://github.com/jquery/jquery": "3.2.1",
+    "https://github.com/orsozed/sha256.jquery.plugin": "",
+    "https://github.com/DataTables/DataTables": ""
+  },
+  "bugs": {
+    "web": "https://github.com/KevinRoebert/ClearUrls/issues/new"
+  },
+  "licenses": [
+    {
+      "name": "MPL 2.0",
+      "url": "https://opensource.org/licenses/MPL-2.0"
+    }
+  ]
+}
