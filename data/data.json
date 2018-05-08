@@ -15,7 +15,6 @@
                 "ms3_c=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "[a-zA-Z%0-9]*ie=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "refRID=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "psc=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "colid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "coliid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "adId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -25,6 +24,13 @@
             "exceptions": [
                 ".*(amazon\\.).*(\\/gp).*\\/redirector.html\\/.*"
             ],
+            "redirections": []
+        },
+        "fls-na.amazon": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(fls-na\\.amazon\\.).*\\/.*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
             "redirections": []
         },
         "google": {
@@ -113,7 +119,9 @@
                 "\\?$",
                 "\\&$"
             ],
-            "exceptions": [],
+            "exceptions": [
+                ".*([\\.]?matrix\\.org)(\\/_matrix)\\/.*"
+            ],
             "redirections": []
         },
         "adtech": {
@@ -281,6 +289,15 @@
                 "stl=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "exp=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "plim=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "ebay": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?ebay\\.)\\w{2,}\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "_trkparms=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
