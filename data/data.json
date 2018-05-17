@@ -88,7 +88,9 @@
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
-            "redirections": []
+            "redirections": [
+                ".*doubleclick\\..*\\/.*tag_for_child_directed_treatment=;%3F(.*)"
+            ]
         },
         "globalRules": {
             "urlPattern": ".*",
