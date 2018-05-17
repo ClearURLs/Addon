@@ -1,14 +1,21 @@
 /**
 * Get the log and display the data as table.
 */
-var log = [];
+var log = {};
+
+var core = function (func) {
+        return browser.runtime.getBackgroundPage().then(func);
+};
 
 /**
 * Reset the global log
 */
 function resetGlobalLog(){
-    browser.storage.local.remove("log");
-    browser.storage.local.set({"resetLog": true});
+    core(function (ref){
+        obj = {"log": []};
+        ref.setData('log', JSON.stringify(obj));
+    });
+    getLog();
     location.reload();
 }
 
@@ -17,15 +24,8 @@ function resetGlobalLog(){
 */
 function getLog()
 {
-    browser.storage.local.get('log', function(data) {
-        if(data.log)
-        {
-            log = JSON.parse(data.log);
-        }
-        else{
-            //Create foundation for log variable
-            log = {"log": []};
-        }
+    core(function (ref){
+        log = ref.getData('log');
 
         var length = Object.keys(log.log).length;
         var row;
@@ -42,7 +42,7 @@ function getLog()
             }
         }
         $('#logTable').DataTable({
-            "pageLength": 5
+            "pageLength": 10
         } ).order([3, 'desc']).draw();
     });
 }
