@@ -66,6 +66,7 @@ function changeGlobalStatus() {
 
     core(function (ref){
         ref.setData('globalStatus', element);
+        ref.saveOnExit();
     });
 }
 
@@ -87,6 +88,7 @@ function changeTabcounter() {
 
     core(function (ref){
         ref.setData('badgedStatus', element);
+        ref.saveOnExit();
     });
 }
 
@@ -106,6 +108,7 @@ function changeLogging()
     var element = $('#logging').is(':checked');
     core(function (ref){
         ref.setData('loggingStatus', element);
+        ref.saveOnExit();
     });
 }
 
@@ -118,10 +121,10 @@ function setHashStatus()
 
     if(hashStatus)
     {
-        element.text(hashStatus);
+        element.text(translate(hashStatus));
     }
     else {
-        element.text('Oops something went wrong!');
+        element.text(translate('hash_status_code_5'));
     }
 
 }
@@ -156,5 +159,38 @@ $(document).ready(function(){
     $('#logging').on('change', changeLogging);
     $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
 
+    setText();
+
     browser.storage.onChanged.addListener(changeStatistics);
 });
+
+/**
+ * Set the text for the UI.
+ */
+function setText()
+{
+    $('#loggingPage').text(translate('popup_html_log_head'));
+    $('#loggingPage').prop('title', translate('popup_html_log_head_title'));
+    $('#reset_counter_btn').text(translate('popup_html_statistics_reset_button'));
+    $('#reset_counter_btn').prop('title', translate('popup_html_statistics_reset_button_title'));
+    $('#rules_status_head').text(translate('popup_html_rules_status_head'));
+    $('#statistics_percentage').text(translate('popup_html_statistics_percentage'));
+    $('#statistics_blocked').text(translate('popup_html_statistics_blocked'));
+    $('#statistics_elements').text(translate('popup_html_statistics_elements'));
+    $('#statistics_head').text(translate('popup_html_statistics_head'));
+    $('#configs_switch_badges').text(translate('popup_html_configs_switch_badges'));
+    $('#configs_switch_log').text(translate('popup_html_configs_switch_log'));
+    $('#configs_switch_log').prop('title', translate('popup_html_configs_switch_log_title'));
+    $('#configs_switch_filter').text(translate('popup_html_configs_switch_filter'));
+    $('#configs_head').text(translate('popup_html_configs_head'));
+}
+
+/**
+* Translate a string with the i18n API.
+*
+* @param {string} string Name of the attribute used for localization
+*/
+function translate(string)
+{
+    return browser.i18n.getMessage(string);
+}

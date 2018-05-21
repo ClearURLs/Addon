@@ -59,6 +59,31 @@ function toDate(time)
 * Load only when document is ready
 */
 $(document).ready(function(){
+    setText();
     getLog();
     $('#reset_log_btn').on("click", resetGlobalLog);
 });
+
+/**
+* Translate a string with the i18n API.
+*
+* @param {string} string Name of the attribute used for localization
+*/
+function translate(string)
+{
+    return browser.i18n.getMessage(string);
+}
+
+/**
+ * Set the text for the UI.
+ */
+function setText()
+{
+    document.title = translate('log_html_page_title');
+    $('#page_title').text(translate('log_html_page_title'));
+    $('#reset_log_btn').text(translate('log_html_reset_button'));
+    $('#head_1').text(translate('log_html_table_head_1'));
+    $('#head_2').text(translate('log_html_table_head_2'));
+    $('#head_3').text(translate('log_html_table_head_3'));
+    $('#head_4').text(translate('log_html_table_head_4'));
+}

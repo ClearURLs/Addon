@@ -34,67 +34,65 @@
 
         <div class="row">
             <div class="col-sm-1">
-                <h5><b>Configs</b></h5>
+                <h5><b id="configs_head"></b></h5>
                 <label class="switch">
                     <input type="checkbox" id="globalStatus">
                     <span class="slider round"></span>
-                    <label>Filters</label>
+                    <label id="configs_switch_filter"></label>
                 </label>
                 <br>
                 <label class="switch">
                     <input type="checkbox" id="logging">
                     <span class="slider round"></span>
-                    <label title="The log is saved only locally. We advise against this feature if you do not need it.">
-                    Logging
+                    <label id="configs_switch_log"></label>
                 </label>
-            </label>
-            <br>
-            <label class="switch">
-                <input type="checkbox" id="tabcounter">
-                <span class="slider round"></span>
-                <label>Badges</label>
-            </label>
-            <div class="clearfix"></div>
-            <br />
+                <br>
+                <label class="switch">
+                    <input type="checkbox" id="tabcounter">
+                    <span class="slider round"></span>
+                    <label id="configs_switch_badges"></label>
+                </label>
+                <div class="clearfix"></div>
+                <br />
+            </div>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-1">
-            <h5><b>Statistics</b></h5>
+        <div class="row">
+            <div class="col-sm-1">
+                <h5><b id="statistics_head"></b></h5>
 
-            <div class="progress">
-                <div class="progress-bar progress-bar-danger progress-bar-striped"
-                role="progressbar" style="width: 0%" id="progress_blocked"></div>
-                <div class="progress-bar progress-bar-info progress-bar-striped"
-                role="progressbar" style="width: 100%" id="progress_non_blocked"></div>
-            </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger progress-bar-striped"
+                    role="progressbar" style="width: 0%" id="progress_blocked"></div>
+                    <div class="progress-bar progress-bar-info progress-bar-striped"
+                    role="progressbar" style="width: 100%" id="progress_non_blocked"></div>
+                </div>
 
-            <div>
-                <span class="pull-left">Elements</span>
-                <span class="pull-right text-info"
-                id="statistics_total_elements"></span>
-                <div class="clearfix"></div>
-            </div>
+                <div>
+                    <span class="pull-left" id="statistics_elements"></span>
+                    <span class="pull-right text-info"
+                    id="statistics_total_elements"></span>
+                    <div class="clearfix"></div>
+                </div>
 
-            <div>
-                <span class="pull-left">Blocked</span>
-                <span class="pull-right text-danger"
-                id="statistics_value"></span>
-                <div class="clearfix"></div>
-            </div>
+                <div>
+                    <span class="pull-left" id="statistics_blocked"></span>
+                    <span class="pull-right text-danger"
+                    id="statistics_value"></span>
+                    <div class="clearfix"></div>
+                </div>
 
-            <div>
-                <span class="pull-left">Percentage</span>
-                <span class="pull-right text-success"
-                id="statistics_value_global_percentage"></span>
-                <div class="clearfix"></div>
-            </div>
-            <br />
-            <div class="text-center">
-                <button type="button" id="reset_counter_btn"
-                class="btn btn-danger btn-xs"
-                title="Reset the global statistics">Reset</button>
+                <div>
+                    <span class="pull-left" id="statistics_percentage"></span>
+                    <span class="pull-right text-success"
+                    id="statistics_value_global_percentage"></span>
+                    <div class="clearfix"></div>
+                </div>
+                <br />
+                <div class="text-center">
+                    <button type="button" id="reset_counter_btn"
+                    class="btn btn-danger btn-xs">
+                </button>
                 <div class="clearfix"></div>
                 <br />
             </div>
@@ -103,7 +101,7 @@
 
     <div class="row">
         <div class="col-sm-1">
-            <h5><b>Rules-Status</b></h5>
+            <h5><b id="rules_status_head"></b></h5>
             <div class="text-center">
                 <a href="https://github.com/KevinRoebert/ClearUrls/commits/master/data/data.json"
                 id="hashStatus" class="btn btn-primary btn-xs"></a>
@@ -117,12 +115,12 @@
         <div class="col-sm-1">
             <div class="text-center">
                 <a type="button" id="loggingPage" target="_blank"
-                class="btn btn-default btn-sm btn-block"
-                title="Open the log">Log</a>
-            </div>
+                class="btn btn-default btn-sm btn-block">
+            </a>
         </div>
     </div>
-    <br />
+</div>
+<br />
 </div>
 
 

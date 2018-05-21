@@ -1,0 +1,151 @@
+{
+    "hash_status_code_1": {
+        "message": "up to date",
+        "description": ""
+    },
+
+    "hash_status_code_2": {
+        "message": "updated",
+        "description": ""
+    },
+
+    "hash_status_code_3": {
+        "message": "update available",
+        "description": ""
+    },
+
+    "hash_status_code_4": {
+        "message": "error",
+        "description": ""
+    },
+
+    "hash_status_code_5": {
+        "message": "Oops something went wrong!",
+        "description": ""
+    },
+
+    "log_redirect": {
+        "message": "This url is redirected",
+        "description": ""
+    },
+
+    "log_domain_blocked": {
+        "message": "This domain is blocked",
+        "description": ""
+    },
+
+    "check_os_log": {
+        "message": "ClearURLs: Log listener is added.",
+        "description": ""
+    },
+
+    "log_html_page_title": {
+        "message": "Log from ClearURLs",
+        "description": ""
+    },
+
+    "log_html_table_head_1": {
+        "message": "Before processing",
+        "description": ""
+    },
+
+    "log_html_table_head_2": {
+        "message": "After processing",
+        "description": ""
+    },
+
+    "log_html_table_head_3": {
+        "message": "Rule",
+        "description": ""
+    },
+
+    "log_html_table_head_4": {
+        "message": "Time",
+        "description": ""
+    },
+
+    "log_html_reset_button": {
+        "message": "Reset",
+        "description": ""
+    },
+
+    "popup_html_configs_head": {
+        "message": "Configs",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter": {
+        "message": "Filter",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log": {
+        "message": "Logging",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "message": "The log is saved only locally. We advise against this feature if you do not need it.",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges": {
+        "message": "Badges",
+        "description": ""
+    },
+
+    "popup_html_statistics_head": {
+        "message": "Statistics",
+        "description": ""
+    },
+
+    "popup_html_statistics_elements": {
+        "message": "Elements",
+        "description": ""
+    },
+
+    "popup_html_statistics_blocked": {
+        "message": "Blocked",
+        "description": ""
+    },
+
+    "popup_html_statistics_percentage": {
+        "message": "Percentage",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button": {
+        "message": "Reset",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "message": "Reset the global statistics",
+        "description": ""
+    },
+
+    "popup_html_rules_status_head": {
+        "message": "Rules-Status",
+        "description": ""
+    },
+
+    "popup_html_log_head": {
+        "message": "Log",
+        "description": ""
+    },
+
+    "popup_html_log_head_title": {
+        "message": "Open the log",
+        "description": ""
+    },
+
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Save on disk.",
+        "description": ""
+    },
+
+    "core_error": {
+        "message": "[ClearURLs]: The addon could not started.",
+        "description": ""
+    }
+}

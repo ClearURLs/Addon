@@ -1,0 +1,151 @@
+{
+    "hash_status_code_1": {
+        "message": "Aktuell",
+        "description": ""
+    },
+
+    "hash_status_code_2": {
+        "message": "Aktuallisiert",
+        "description": ""
+    },
+
+    "hash_status_code_3": {
+        "message": "Aktuallisierung verfügbar",
+        "description": ""
+    },
+
+    "hash_status_code_4": {
+        "message": "Fehler",
+        "description": ""
+    },
+
+    "hash_status_code_5": {
+        "message": "Da ist etwas schiefgelaufen!",
+        "description": ""
+    },
+
+    "log_redirect": {
+        "message": "Diese Url wurde weiter geleitet",
+        "description": ""
+    },
+
+    "log_domain_blocked": {
+        "message": "Diese Domain wurde blockiert",
+        "description": ""
+    },
+
+    "check_os_log": {
+        "message": "ClearURLs: Protokoll-Listener wurde hinzugefügt.",
+        "description": ""
+    },
+
+    "log_html_page_title": {
+        "message": "Protokoll von ClearURLs",
+        "description": ""
+    },
+
+    "log_html_table_head_1": {
+        "message": "Vor der Verarbeitung",
+        "description": ""
+    },
+
+    "log_html_table_head_2": {
+        "message": "Nach der Verarbeitung",
+        "description": ""
+    },
+
+    "log_html_table_head_3": {
+        "message": "Regel",
+        "description": ""
+    },
+
+    "log_html_table_head_4": {
+        "message": "Zeit",
+        "description": ""
+    },
+
+    "log_html_reset_button": {
+        "message": "Zurücksetzen",
+        "description": ""
+    },
+
+    "popup_html_configs_head": {
+        "message": "Einstellungen",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter": {
+        "message": "Filter",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log": {
+        "message": "Protokoll",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "message": "Das Protokoll wird nur lokal gespeichert. Wir empfehlen diese Funktion deaktiviert zulassen, wenn Sie sie nicht benötigen.",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges": {
+        "message": "Zähler",
+        "description": ""
+    },
+
+    "popup_html_statistics_head": {
+        "message": "Statistik",
+        "description": ""
+    },
+
+    "popup_html_statistics_elements": {
+        "message": "Elemente",
+        "description": ""
+    },
+
+    "popup_html_statistics_blocked": {
+        "message": "Blockiert",
+        "description": ""
+    },
+
+    "popup_html_statistics_percentage": {
+        "message": "Prozentualer Anteil",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button": {
+        "message": "Zurücksetzen",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "message": "Setzt die globale Statistik zurück",
+        "description": ""
+    },
+
+    "popup_html_rules_status_head": {
+        "message": "Regel Status",
+        "description": ""
+    },
+
+    "popup_html_log_head": {
+        "message": "Protokoll",
+        "description": ""
+    },
+
+    "popup_html_log_head_title": {
+        "message": "Öffnet das Protokoll",
+        "description": ""
+    },
+
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Auf Festplatte gespeichert.",
+        "description": ""
+    },
+
+    "core_error": {
+        "message": "[ClearURLs]: Das Addon konnte nicht gestartet werden.",
+        "description": ""
+    }
+}

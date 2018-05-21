@@ -11,6 +11,8 @@ var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
 var localDataHash;
 var os;
+var rule_url = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true";
+var hash_url = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true";
 
 var storage = [];
 
@@ -108,13 +110,13 @@ function start(items)
         {
             switch(status_code)
             {
-                case 1: status_code = "up to date";
+                case 1: status_code = "hash_status_code_1";
                 break;
-                case 2: status_code = "updated";
+                case 2: status_code = "hash_status_code_2";
                 break;
-                case 3: status_code = "update available";
+                case 3: status_code = "hash_status_code_3";
                 break;
-                default: status_code = "error";
+                default: status_code = "hash_status_code_4";
             }
 
             storage.hashStatus = status_code;
@@ -129,7 +131,7 @@ function start(items)
         function getHash()
         {
             //Get the target hash from github
-            fetch("http://127.0.0.1/clearurls/rules.hash")
+            fetch(hash_url)
             .then(function(response){
                 var responseTextHash = response.clone().text().then(function(responseTextHash){
                     if(response.ok)
@@ -157,7 +159,7 @@ function start(items)
         */
         function fetchFromURL()
         {
-            fetch("http://127.0.0.1/clearurls/data.json")
+            fetch(rule_url)
             .then(checkResponse);
 
             function checkResponse(response)
@@ -350,7 +352,7 @@ function start(items)
                 {
                     url = decodeURIComponent(re);
                     //Log the action
-                    pushToLog(request.url, re, "This url is redirected.");
+                    pushToLog(request.url, re, translate('log_redirect'));
 
                     return {
                         "redirect": true,
@@ -390,7 +392,7 @@ function start(items)
                 }
 
                 if(provider.isCaneling()){
-                    pushToLog(request.url, request.url, "This domain is blocked.");
+                    pushToLog(request.url, request.url, translate('log_domain_blocked'));
                     if(badges[tabid] == null)
                     {
                         badges[tabid] = 0;
@@ -636,10 +638,13 @@ function start(items)
 }
 
 /**
+ * Save every minute the temporary data to the disk.
+ */
+setInterval(saveOnExit, 60000);
+
+/**
 * Writes the storage variable to the disk.
 */
-window.onbeforeunload = saveOnExit();
-
 function saveOnExit()
 {
     var json = {};
@@ -654,7 +659,7 @@ function saveOnExit()
             json[key] = value;
         }
     });
-    console.log("[ClearURLs]: Save on disk.");
+    console.log(translate('core_save_on_disk'));
     browser.storage.local.set(json);
 }
 
@@ -704,11 +709,22 @@ function setData(key, value)
 }
 
 /**
+* Translate a string with the i18n API.
+*
+* @param {string} string Name of the attribute used for localization
+*/
+function translate(string)
+{
+    return browser.i18n.getMessage(string);
+}
+
+
+/**
 * Write error on console.
 */
 function error()
 {
-    console.log("The addon could not started.");
+    console.log(translate('core_error'));
 }
 
 /**
