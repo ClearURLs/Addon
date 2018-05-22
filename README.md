@@ -31,6 +31,8 @@ We use some third-party scripts in our add-on. The authors and licenses are list
     [MIT](https://raw.github.com/orsozed/JQuery-Plugins/master/license/MIT-LICENSE.txt) |
     [GPLv2](https://raw.github.com/orsozed/JQuery-Plugins/master/license/GPL-LICENSE.txt)
 -   [DataTables](https://datatables.net/) |  Copyright 2011-2015 SpryMedia Ltd | [MIT](https://datatables.net/license/)
+-   [Pick-a-Color v1.2.3](https://github.com/lauren/pick-a-color) | Copyright (c) 2013 Lauren Sperber and Broadstreet Ads |
+    [MIT](https://github.com/lauren/pick-a-color/blob/master/LICENSE)
 
 ## Licence
 [![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
