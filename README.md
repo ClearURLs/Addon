@@ -16,7 +16,7 @@ Install on [Firefox AMO.](https://addons.mozilla.org/en-US/firefox/addon/clearur
 If you have any suggestions or complaints, please [create an issue.](https://github.com/KevinRoebert/ClearUrls/issues/new)
 
 ## Screenshot
-![Interface (version 1.2.x.x)](https://github.com/KevinRoebert/ClearUrls/blob/master/promotion/screens/Popup_v_1.2.1.4.png?raw=true)
+![Interface (version 1.2.2.x)](https://github.com/KevinRoebert/ClearUrls/blob/master/promotion/screens/Popup_v_1.2.2.8.png?raw=true)
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
