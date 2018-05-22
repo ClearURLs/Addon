@@ -122,7 +122,8 @@
                 "\\&$"
             ],
             "exceptions": [
-                ".*([\\.]?matrix\\.org)(\\/_matrix)\\/.*"
+                ".*([\\.]?matrix\\.org)(\\/_matrix)\\/.*",
+                ".*([\\.]?prismic\\.io).*"
             ],
             "redirections": []
         },
