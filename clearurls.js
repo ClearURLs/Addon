@@ -11,8 +11,6 @@ var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
 var localDataHash;
 var os;
-var rule_url = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true";
-var hash_url = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true";
 
 var storage = [];
 
@@ -78,13 +76,12 @@ function start(items)
         }
 
         /**
-        * Convert the external data to JSON Objects and
+        * Convert the external data to Objects and
         * call the create provider function.
         *
         * @param  {String} retrievedText - pure data form github
         */
-        function toJSON(retrievedText) {
-            storage.ClearURLsData = JSON.parse(retrievedText);
+        function toObject(retrievedText) {
             getKeys(storage.ClearURLsData.providers);
             createProviders();
         }
@@ -95,7 +92,7 @@ function start(items)
         */
         function loadOldDataFromStore()
         {
-            localDataHash = $.sha256(storage.ClearURLsData);
+            localDataHash = storage.dataHash;
         }
 
         /**
@@ -131,7 +128,7 @@ function start(items)
         function getHash()
         {
             //Get the target hash from github
-            fetch(hash_url)
+            fetch(storage.hashURL)
             .then(function(response){
                 var responseTextHash = response.clone().text().then(function(responseTextHash){
                     if(response.ok)
@@ -143,7 +140,7 @@ function start(items)
                             fetchFromURL();
                         }
                         else {
-                            toJSON(storage.ClearURLsData);
+                            toObject(storage.ClearURLsData);
                             storeHashStatus(1);
                         }
                     }
@@ -159,7 +156,7 @@ function start(items)
         */
         function fetchFromURL()
         {
-            fetch(rule_url)
+            fetch(storage.ruleURL)
             .then(checkResponse);
 
             function checkResponse(response)
@@ -172,12 +169,14 @@ function start(items)
                         if($.trim(downloadedFileHash) === $.trim(dataHash))
                         {
                             storage.ClearURLsData = responseText;
+                            storage.dataHash = downloadedFileHash;
                             storeHashStatus(2);
                         }
                         else {
                             storeHashStatus(3);
                         }
-                        toJSON(storage.ClearURLsData);
+                        storage.ClearURLsData = JSON.parse(storage.ClearURLsData);
+                        toObject(storage.ClearURLsData);
                     }
                 });
             }
@@ -374,7 +373,8 @@ function start(items)
                         {
                             badges[tabid] = 0;
                         }
-                        storage.globalCounter++;
+
+                        increaseURLCounter();
 
                         if(!checkOSAndroid())
                         {
@@ -398,7 +398,7 @@ function start(items)
                         badges[tabid] = 0;
                     }
 
-                    storage.globalCounter++;
+                    increaseURLCounter();
 
                     if(!checkOSAndroid())
                     {
@@ -452,8 +452,7 @@ function start(items)
             var URLbeforeReplaceCount = countFields(request.url);
 
             //Add Fields form Request to global url counter
-
-            storage.globalurlcounter += URLbeforeReplaceCount;
+            increaseGlobalURLCounter(URLbeforeReplaceCount);
 
             if(storage.globalStatus){
 
@@ -528,34 +527,6 @@ function start(items)
                         "timestamp": Date.now()
                     }
                 );
-            }
-        }
-
-        /**
-        * Get the badged status from the browser storage and put the value
-        * into a local variable.
-        *
-        */
-        function setBadgedStatus() {
-            if(!checkOSAndroid() && storage.badgedStatus){
-                browser.browserAction.setBadgeBackgroundColor({
-                    'color': 'orange'
-                });
-            }
-        }
-
-        /**
-        * Check if it is an android device.
-        * @return bool
-        */
-        function checkOSAndroid()
-        {
-            if(os == "android")
-            {
-                return true;
-            }
-            else{
-                return false;
             }
         }
 
@@ -641,6 +612,71 @@ function start(items)
  * Save every minute the temporary data to the disk.
  */
 setInterval(saveOnExit, 60000);
+
+/**
+* Get the badged status from the browser storage and put the value
+* into a local variable.
+*
+*/
+function setBadgedStatus()
+{
+    if(!checkOSAndroid() && storage.badgedStatus){
+        browser.browserAction.setBadgeBackgroundColor({
+            'color': '#'+storage.badged_color
+        });
+    }
+}
+
+/**
+ * Change the icon.
+ */
+function changeIcon()
+{
+    if(storage.globalStatus){
+        browser.browserAction.setIcon({path: "img/icon128.png"});
+    } else{
+        browser.browserAction.setIcon({path: "img/icon128_g.png"});
+    }
+}
+
+/**
+* Check if it is an android device.
+* @return bool
+*/
+function checkOSAndroid()
+{
+    if(os == "android")
+    {
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
+/**
+ * Increase by {number} the GlobalURLCounter
+ * @param  {int} number
+ */
+function increaseGlobalURLCounter(number)
+{
+    if(storage.statisticsStatus)
+    {
+        storage.globalurlcounter += number;
+    }
+}
+
+/**
+ * Increase by one the URLCounter
+ */
+function increaseURLCounter()
+{
+    if(storage.statisticsStatus)
+    {
+        storage.globalCounter++;
+    }
+}
+
 
 /**
 * Writes the storage variable to the disk.
@@ -733,7 +769,22 @@ function error()
 */
 function initStorage(items)
 {
+    initSettings();
+
+    if(!isEmpty(items)) {
+        Object.entries(items).forEach(([key, value]) => {
+            setData(key, value);
+        });
+    }
+}
+
+/**
+ * Set default values for the settings.
+ */
+function initSettings()
+{
     storage.ClearURLsData = [];
+    storage.dataHash = "";
     storage.badgedStatus = true;
     storage.globalStatus = true;
     storage.globalurlcounter = 0;
@@ -741,12 +792,18 @@ function initStorage(items)
     storage.hashStatus = "error";
     storage.loggingStatus = false;
     storage.log = {"log": []};
+    storage.statisticsStatus = true;
+    storage.badged_color = "ffa500";
+    storage.hashURL = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true";
+    storage.ruleURL = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true";
+}
 
-    if(!isEmpty(items)) {
-        Object.entries(items).forEach(([key, value]) => {
-            setData(key, value);
-        });
-    }
+/**
+ * Reloads the extension.
+ */
+function reload()
+{
+    browser.runtime.reload();
 }
 
 /**

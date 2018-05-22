@@ -35,7 +35,7 @@
     },
 
     "check_os_log": {
-        "message": "ClearURLs: Protokoll-Listener wurde hinzugefügt.",
+        "message": "[ClearURLs]: Protokoll-Listener wurde hinzugefügt.",
         "description": ""
     },
 
@@ -69,6 +69,11 @@
         "description": ""
     },
 
+    "log_html_reset_button_title": {
+        "message": "Setzt das globale Protokoll zurück",
+        "description": ""
+    },
+
     "popup_html_configs_head": {
         "message": "Einstellungen",
         "description": ""
@@ -85,7 +90,7 @@
     },
 
     "popup_html_configs_switch_log_title": {
-        "message": "Das Protokoll wird nur lokal gespeichert. Wir empfehlen diese Funktion deaktiviert zulassen, wenn Sie sie nicht benötigen.",
+        "message": "Das Protokoll wird nur lokal gespeichert. Wir empfehlen diese Funktion deaktiviert zulassen, wenn Sie sie nicht benötigen",
         "description": ""
     },
 
@@ -110,7 +115,7 @@
     },
 
     "popup_html_statistics_percentage": {
-        "message": "Prozentualer Anteil",
+        "message": "Anteil",
         "description": ""
     },
 
@@ -146,6 +151,56 @@
 
     "core_error": {
         "message": "[ClearURLs]: Das Addon konnte nicht gestartet werden.",
+        "description": ""
+    },
+
+    "configs_switch_statistics": {
+        "message": "Statistiken",
+        "description": ""
+    },
+
+    "configs_switch_statistics_title": {
+        "message": "Aktiviert oder deaktiviert die Statistikfunktion",
+        "description": ""
+    },
+
+    "settings_html_page_title": {
+        "message": "Einstellungen von ClearURLs",
+        "description": ""
+    },
+
+    "badged_color_label": {
+        "message": "Zählerfarbe",
+        "description": ""
+    },
+
+    "setting_html_reset_button": {
+        "message": "Zurücksetzen",
+        "description": ""
+    },
+
+    "setting_html_reset_button_title": {
+        "message": "Setzt alle Einstellungen zurück",
+        "description": ""
+    },
+
+    "setting_rule_url_label": {
+        "message": "Die Url zu der data.json Datei (Regeln)",
+        "description": ""
+    },
+
+    "settings_html_save_button": {
+        "message": "Speichern & Addon neustarten",
+        "description": ""
+    },
+
+    "settings_html_save_button_title": {
+        "message": "Speichert die Einstellungen",
+        "description": ""
+    },
+
+    "setting_hash_url_label": {
+        "message": "Die Url zu der rules.hash Datei (Hash)",
         "description": ""
     }
 }

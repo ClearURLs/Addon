@@ -10,9 +10,10 @@ var globalStatus;
 var badgedStatus;
 var hashStatus;
 var loggingStatus;
+var statisticsStatus;
 
 var core = function (func) {
-        return browser.runtime.getBackgroundPage().then(func);
+    return browser.runtime.getBackgroundPage().then(func);
 };
 
 function getData()
@@ -24,6 +25,7 @@ function getData()
         badgedStatus = ref.getData('badgedStatus');
         hashStatus = ref.getData('hashStatus');
         loggingStatus = ref.getData('loggingStatus');
+        statisticsStatus = ref.getData('statisticsStatus');
     });
 }
 
@@ -33,18 +35,20 @@ function getData()
 */
 function init()
 {
+    setSwitchButton("globalStatus", "globalStatus");
+    setSwitchButton("tabcounter", "badgedStatus");
+    setSwitchButton("logging", "loggingStatus");
+    setSwitchButton("statistics", "statisticsStatus");
     setHashStatus();
-    setGlobalStatus();
     changeStatistics();
-    setTabcounter();
-    setLogging();
 }
 
 /**
 * Get the globalCounter value from the browser storage
 * @param  {(data){}    Return value form browser.storage.local.get
 */
-function changeStatistics(){
+function changeStatistics()
+{
     globalPercentage = ((globalCounter/globalurlcounter)*100).toFixed(3);
 
     if(isNaN(Number(globalPercentage))) globalPercentage = 0;
@@ -57,64 +61,8 @@ function changeStatistics(){
 }
 
 /**
-* Change the value of the globalStatus.
-* Call by onChange()
-*
+* Set the value for the hashStatus on startUp.
 */
-function changeGlobalStatus() {
-    var element = $('#globalStatus').is(':checked');
-
-    core(function (ref){
-        ref.setData('globalStatus', element);
-        ref.saveOnExit();
-    });
-}
-
-/**
-* Set the values for the global status switch
-*/
-function setGlobalStatus() {
-    var element = $('#globalStatus');
-    element.prop('checked', globalStatus);
-}
-
-/**
-* Change the value of the badgedStatus.
-* Call by onChange()
-*
-*/
-function changeTabcounter() {
-    var element = $('#tabcounter').is(':checked');
-
-    core(function (ref){
-        ref.setData('badgedStatus', element);
-        ref.saveOnExit();
-    });
-}
-
-/**
-* Set the values for the tabcounter switch
-*/
-function setTabcounter() {
-    var element = $('#tabcounter');
-    element.prop('checked', badgedStatus);
-}
-
-/**
-* Change the value of the logging switch
-*/
-function changeLogging()
-{
-    var element = $('#logging').is(':checked');
-    core(function (ref){
-        ref.setData('loggingStatus', element);
-        ref.saveOnExit();
-    });
-}
-
-/**
- * Set the value for the hashStatus on startUp.
- */
 function setHashStatus()
 {
     var element = $('#hashStatus');
@@ -130,12 +78,33 @@ function setHashStatus()
 }
 
 /**
-* Set the value for the logging switch
+* Change the value of a switch button.
+* @param  {string} id        HTML id
+* @param  {string} storageID storage internal id
 */
-function setLogging()
+function changeSwitchButton(id, storageID)
 {
-    var element = $('#logging');
-    element.prop('checked', loggingStatus);
+    var element = $('#'+id);
+
+    element.on('change', function(){
+        core(function (ref){
+            ref.setData(storageID, element.is(':checked'));
+            if(storageID == "globalStatus") ref.changeIcon();
+
+            ref.saveOnExit();
+        });
+    });
+}
+
+/**
+ * Set the value of a switch button.
+ * @param {string} id      HTML id
+ * @param {string} varname js internal variable name
+ */
+function setSwitchButton(id, varname)
+{
+    var element = $('#'+id);
+    element.prop('checked', this[varname]);
 }
 
 /**
@@ -147,26 +116,28 @@ function resetGlobalCounter(){
         globalCounter = 0;
         ref.setData('globalCounter', 0);
         ref.setData('globalurlcounter', 0);
+        ref.saveOnExit();
+
+        changeStatistics();
     });
 }
 
 getData();
 $(document).ready(function(){
     init();
-    $("#globalStatus").on("change", changeGlobalStatus);
     $('#reset_counter_btn').on("click", resetGlobalCounter);
-    $('#tabcounter').on('change', changeTabcounter);
-    $('#logging').on('change', changeLogging);
+    changeSwitchButton("globalStatus", "globalStatus");
+    changeSwitchButton("tabcounter", "badgedStatus");
+    changeSwitchButton("logging", "loggingStatus");
+    changeSwitchButton("statistics", "statisticsStatus");
     $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
-
+    $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
     setText();
-
-    browser.storage.onChanged.addListener(changeStatistics);
 });
 
 /**
- * Set the text for the UI.
- */
+* Set the text for the UI.
+*/
 function setText()
 {
     $('#loggingPage').text(translate('popup_html_log_head'));
@@ -183,6 +154,8 @@ function setText()
     $('#configs_switch_log').prop('title', translate('popup_html_configs_switch_log_title'));
     $('#configs_switch_filter').text(translate('popup_html_configs_switch_filter'));
     $('#configs_head').text(translate('popup_html_configs_head'));
+    $('#configs_switch_statistics').text(translate('configs_switch_statistics'));
+    $('#configs_switch_statistics').prop('title', translate('configs_switch_statistics_title'));
 }
 
 /**

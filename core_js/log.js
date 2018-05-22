@@ -82,6 +82,7 @@ function setText()
     document.title = translate('log_html_page_title');
     $('#page_title').text(translate('log_html_page_title'));
     $('#reset_log_btn').text(translate('log_html_reset_button'));
+    $('#log_html_reset_button').prop('title', translate('log_html_reset_button_title'));
     $('#head_1').text(translate('log_html_table_head_1'));
     $('#head_2').text(translate('log_html_table_head_2'));
     $('#head_3').text(translate('log_html_table_head_3'));

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings from ClearURLs</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/core.css">
+    <link rel="stylesheet" href="../css/pick-a-color-1.2.3.min.css">
+    <style>
+    td {
+        word-wrap: break-word;
+        max-width: 200px;
+    }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <span class="navbar-brand">
+                    <span class="pull-left"><img src="../img/icon38.png"
+                        width="30" height="30" alt=""></span>
+                    <span style="color: #FF7800;" class="pull-right" id="page_title"></span><br />
+                    <span class="label label-warning pull-left small-version"
+                    id="version"></span>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <p class="text-center">
+                <button type="button" id="reset_settings_btn"
+                class="btn btn-danger" title="Reset everything settings"></button>
+            </p>
+            <br />
+            <p>
+                <label id="badged_color_label"></label><br />
+                <input type="text" id="badged_color" value="" name="badged_color" class="pick-a-color form-control">
+            </p>
+            <br />
+            <p>
+                <label id="rule_url_label"></label><br />
+                <input type="url" id="rule_url" value="" name="rule_url" class="form-control" />
+            </p>
+            <br />
+            <p>
+                <label id="hash_url_label"></label><br />
+                <input type="url" id="hash_url" value="" name="hash_url" class="form-control" />
+            </p>
+            <br />
+            <p class="text-center">
+                <button type="button" id="save_settings_btn"
+                class="btn btn-success" title="Save the settings"></button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script src="../external_js/jquery-3.2.1.min.js"></script>
+    <script src="../external_js/bootstrap.min.js"></script>
+    <script src="../external_js/tinycolor-0.9.15.min.js"></script>
+    <script src="../external_js/pick-a-color-1.2.3.min.js"></script>
+    <script src="../core_js/settings.js"></script>
+    <script src="../core_js/write_version.js"></script>
+</body>
+</html>

@@ -1,42 +1,48 @@
 {
-  "manifest_version": 2,
-  "name": "ClearURLs",
-  "version": "1.2.2.0",
-  "author": "Kevin R.",
-  "description": "Remove tracking elements form URLs.",
-  "homepage_url": "https://github.com/KevinRoebert/ClearUrls",
-  "icons": {
-    "32": "img/icon32.png",
-    "48": "img/icon48.png",
-    "64": "img/icon64.png",
-    "96": "img/icon96.png"
-  },
-  "browser_action": {
-    "browser_style": true,
-    "default_icon": {
-      "19": "img/icon19.png",
-      "38": "img/icon38.png"
+    "manifest_version": 2,
+    "name": "ClearURLs",
+    "version": "1.2.2.8",
+    "author": "Kevin R.",
+    "description": "Remove tracking elements form URLs.",
+    "homepage_url": "https://github.com/KevinRoebert/ClearUrls",
+    "default_locale": "en",
+    "applications": {
+        "gecko": {
+            "id":   "{74145f27-f039-47ce-a470-a662b129930a}"
+        }
     },
-    "default_title": "ClearURLs Add-on",
-    "default_popup": "html/popup.html"
-  },
-  "permissions": [
-    "*://*/*",
-    "webRequest",
-    "webRequestBlocking",
-    "storage",
-    "tabs"
-  ],
-  "background": {
-    "scripts": [
-      "external_js/jquery-3.2.1.min.js",
-      "external_js/sha256.jquery.js",
-      "clearurls.js"
+    "icons": {
+        "32": "img/icon32.png",
+        "48": "img/icon48.png",
+        "64": "img/icon64.png",
+        "96": "img/icon96.png"
+    },
+    "browser_action": {
+        "browser_style": true,
+        "default_icon": {
+            "19": "img/icon19.png",
+            "38": "img/icon38.png"
+        },
+        "default_title": "ClearURLs Add-on",
+        "default_popup": "html/popup.html"
+    },
+    "permissions": [
+        "*://*/*",
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "tabs"
+    ],
+    "background": {
+        "scripts": [
+            "external_js/jquery-3.2.1.min.js",
+            "external_js/sha256.jquery.js",
+            "clearurls.js"
+        ]
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"]
+        }
     ]
-  },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"]
-    }
-  ]
 }

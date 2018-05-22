@@ -35,7 +35,7 @@
     },
 
     "check_os_log": {
-        "message": "ClearURLs: Log listener is added.",
+        "message": "[ClearURLs]: Log listener is added.",
         "description": ""
     },
 
@@ -69,6 +69,11 @@
         "description": ""
     },
 
+    "log_html_reset_button_title": {
+        "message": "Reset the global log",
+        "description": ""
+    },
+
     "popup_html_configs_head": {
         "message": "Configs",
         "description": ""
@@ -85,7 +90,7 @@
     },
 
     "popup_html_configs_switch_log_title": {
-        "message": "The log is saved only locally. We advise against this feature if you do not need it.",
+        "message": "The log is saved only locally. We advise against this feature if you do not need it",
         "description": ""
     },
 
@@ -146,6 +151,56 @@
 
     "core_error": {
         "message": "[ClearURLs]: The addon could not started.",
+        "description": ""
+    },
+
+    "configs_switch_statistics": {
+        "message": "Statistics",
+        "description": ""
+    },
+
+    "configs_switch_statistics_title": {
+        "message": "Activate or deactivate the statistics function",
+        "description": ""
+    },
+
+    "settings_html_page_title": {
+        "message": "Settings from ClearURLs",
+        "description": ""
+    },
+
+    "badged_color_label": {
+        "message": "Badged color",
+        "description": ""
+    },
+
+    "setting_html_reset_button": {
+        "message": "Reset",
+        "description": ""
+    },
+
+    "setting_html_reset_button_title": {
+        "message": "Reset everything",
+        "description": ""
+    },
+
+    "setting_rule_url_label": {
+        "message": "The url to the data.json file (rules)",
+        "description": ""
+    },
+
+    "settings_html_save_button": {
+        "message": "Save & reload addon",
+        "description": ""
+    },
+
+    "settings_html_save_button_title": {
+        "message": "Saves the settings",
+        "description": ""
+    },
+
+    "setting_hash_url_label": {
+        "message": "The url to the rules.hash file (hash)",
         "description": ""
     }
 }
