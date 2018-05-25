@@ -304,6 +304,15 @@
             ],
             "exceptions": [],
             "redirections": []
+        },
+        "cnet": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?cnet\\.com)\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "ftag=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
