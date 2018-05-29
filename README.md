@@ -35,4 +35,4 @@ We use some third-party scripts in our add-on. The authors and licenses are list
     [MIT](https://github.com/lauren/pick-a-color/blob/master/LICENSE)
 
 ## Licence
-[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)
+[![License: QaPL v0.2](https://img.shields.io/badge/License-QaPL%20v0.2-brightgreen.svg)](https://github.com/KevinRoebert/ClearUrls/blob/master/LICENSE.md)
