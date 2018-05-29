@@ -1,4 +1,9 @@
 # ClearURLs
+[![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/)
+
+[![Mozilla Add-on](https://img.shields.io/amo/stars/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/reviews/)
+
+[![Mozilla Add-on](https://img.shields.io/amo/users/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/statistics/?last=30)
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox*.
 
@@ -10,7 +15,7 @@ This add-on protects your privacy and block the request from advertising service
 Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL.
 
 ## Installation
-Install on [Firefox AMO.](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
+[![Mozilla Add-on](https://img.shields.io/amo/d/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
 
 ## Contribute
 If you have any suggestions or complaints, please [create an issue.](https://github.com/KevinRoebert/ClearUrls/issues/new)
