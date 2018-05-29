@@ -1,373 +1,98 @@
-Mozilla Public License Version 2.0
-==================================
-
-1. Definitions
---------------
-
-1.1. "Contributor"
-    means each individual or legal entity that creates, contributes to
-    the creation of, or owns Covered Software.
-
-1.2. "Contributor Version"
-    means the combination of the Contributions of others (if any) used
-    by a Contributor and that particular Contributor's Contribution.
-
-1.3. "Contribution"
-    means Covered Software of a particular Contributor.
-
-1.4. "Covered Software"
-    means Source Code Form to which the initial Contributor has attached
-    the notice in Exhibit A, the Executable Form of such Source Code
-    Form, and Modifications of such Source Code Form, in each case
-    including portions thereof.
-
-1.5. "Incompatible With Secondary Licenses"
-    means
-
-    (a) that the initial Contributor has attached the notice described
-        in Exhibit B to the Covered Software; or
-
-    (b) that the Covered Software was made available under the terms of
-        version 1.1 or earlier of the License, but not also under the
-        terms of a Secondary License.
-
-1.6. "Executable Form"
-    means any form of the work other than Source Code Form.
-
-1.7. "Larger Work"
-    means a work that combines Covered Software with other material, in
-    a separate file or files, that is not Covered Software.
-
-1.8. "License"
-    means this document.
-
-1.9. "Licensable"
-    means having the right to grant, to the maximum extent possible,
-    whether at the time of the initial grant or subsequently, any and
-    all of the rights conveyed by this License.
-
-1.10. "Modifications"
-    means any of the following:
-
-    (a) any file in Source Code Form that results from an addition to,
-        deletion from, or modification of the contents of Covered
-        Software; or
-
-    (b) any new file in Source Code Form that contains any Covered
-        Software.
-
-1.11. "Patent Claims" of a Contributor
-    means any patent claim(s), including without limitation, method,
-    process, and apparatus claims, in any patent Licensable by such
-    Contributor that would be infringed, but for the grant of the
-    License, by the making, using, selling, offering for sale, having
-    made, import, or transfer of either its Contributions or its
-    Contributor Version.
-
-1.12. "Secondary License"
-    means either the GNU General Public License, Version 2.0, the GNU
-    Lesser General Public License, Version 2.1, the GNU Affero General
-    Public License, Version 3.0, or any later versions of those
-    licenses.
-
-1.13. "Source Code Form"
-    means the form of the work preferred for making modifications.
-
-1.14. "You" (or "Your")
-    means an individual or a legal entity exercising rights under this
-    License. For legal entities, "You" includes any entity that
-    controls, is controlled by, or is under common control with You. For
-    purposes of this definition, "control" means (a) the power, direct
-    or indirect, to cause the direction or management of such entity,
-    whether by contract or otherwise, or (b) ownership of more than
-    fifty percent (50%) of the outstanding shares or beneficial
-    ownership of such entity.
-
-2. License Grants and Conditions
---------------------------------
-
-2.1. Grants
-
-Each Contributor hereby grants You a world-wide, royalty-free,
-non-exclusive license:
-
-(a) under intellectual property rights (other than patent or trademark)
-    Licensable by such Contributor to use, reproduce, make available,
-    modify, display, perform, distribute, and otherwise exploit its
-    Contributions, either on an unmodified basis, with Modifications, or
-    as part of a Larger Work; and
-
-(b) under Patent Claims of such Contributor to make, use, sell, offer
-    for sale, have made, import, and otherwise transfer either its
-    Contributions or its Contributor Version.
-
-2.2. Effective Date
-
-The licenses granted in Section 2.1 with respect to any Contribution
-become effective for each Contribution on the date the Contributor first
-distributes such Contribution.
-
-2.3. Limitations on Grant Scope
-
-The licenses granted in this Section 2 are the only rights granted under
-this License. No additional rights or licenses will be implied from the
-distribution or licensing of Covered Software under this License.
-Notwithstanding Section 2.1(b) above, no patent license is granted by a
-Contributor:
-
-(a) for any code that a Contributor has removed from Covered Software;
-    or
-
-(b) for infringements caused by: (i) Your and any other third party's
-    modifications of Covered Software, or (ii) the combination of its
-    Contributions with other software (except as part of its Contributor
-    Version); or
-
-(c) under Patent Claims infringed by Covered Software in the absence of
-    its Contributions.
-
-This License does not grant any rights in the trademarks, service marks,
-or logos of any Contributor (except as may be necessary to comply with
-the notice requirements in Section 3.4).
-
-2.4. Subsequent Licenses
-
-No Contributor makes additional grants as a result of Your choice to
-distribute the Covered Software under a subsequent version of this
-License (see Section 10.2) or under the terms of a Secondary License (if
-permitted under the terms of Section 3.3).
-
-2.5. Representation
-
-Each Contributor represents that the Contributor believes its
-Contributions are its original creation(s) or it has sufficient rights
-to grant the rights to its Contributions conveyed by this License.
-
-2.6. Fair Use
-
-This License is not intended to limit any rights You have under
-applicable copyright doctrines of fair use, fair dealing, or other
-equivalents.
-
-2.7. Conditions
-
-Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
-in Section 2.1.
-
-3. Responsibilities
--------------------
-
-3.1. Distribution of Source Form
-
-All distribution of Covered Software in Source Code Form, including any
-Modifications that You create or to which You contribute, must be under
-the terms of this License. You must inform recipients that the Source
-Code Form of the Covered Software is governed by the terms of this
-License, and how they can obtain a copy of this License. You may not
-attempt to alter or restrict the recipients' rights in the Source Code
-Form.
-
-3.2. Distribution of Executable Form
-
-If You distribute Covered Software in Executable Form then:
-
-(a) such Covered Software must also be made available in Source Code
-    Form, as described in Section 3.1, and You must inform recipients of
-    the Executable Form how they can obtain a copy of such Source Code
-    Form by reasonable means in a timely manner, at a charge no more
-    than the cost of distribution to the recipient; and
-
-(b) You may distribute such Executable Form under the terms of this
-    License, or sublicense it under different terms, provided that the
-    license for the Executable Form does not attempt to limit or alter
-    the recipients' rights in the Source Code Form under this License.
-
-3.3. Distribution of a Larger Work
-
-You may create and distribute a Larger Work under terms of Your choice,
-provided that You also comply with the requirements of this License for
-the Covered Software. If the Larger Work is a combination of Covered
-Software with a work governed by one or more Secondary Licenses, and the
-Covered Software is not Incompatible With Secondary Licenses, this
-License permits You to additionally distribute such Covered Software
-under the terms of such Secondary License(s), so that the recipient of
-the Larger Work may, at their option, further distribute the Covered
-Software under the terms of either this License or such Secondary
-License(s).
-
-3.4. Notices
-
-You may not remove or alter the substance of any license notices
-(including copyright notices, patent notices, disclaimers of warranty,
-or limitations of liability) contained within the Source Code Form of
-the Covered Software, except that You may alter any license notices to
-the extent required to remedy known factual inaccuracies.
-
-3.5. Application of Additional Terms
-
-You may choose to offer, and to charge a fee for, warranty, support,
-indemnity or liability obligations to one or more recipients of Covered
-Software. However, You may do so only on Your own behalf, and not on
-behalf of any Contributor. You must make it absolutely clear that any
-such warranty, support, indemnity, or liability obligation is offered by
-You alone, and You hereby agree to indemnify every Contributor for any
-liability incurred by such Contributor as a result of warranty, support,
-indemnity or liability terms You offer. You may include additional
-disclaimers of warranty and limitations of liability specific to any
-jurisdiction.
-
-4. Inability to Comply Due to Statute or Regulation
----------------------------------------------------
-
-If it is impossible for You to comply with any of the terms of this
-License with respect to some or all of the Covered Software due to
-statute, judicial order, or regulation then You must: (a) comply with
-the terms of this License to the maximum extent possible; and (b)
-describe the limitations and the code they affect. Such description must
-be placed in a text file included with all distributions of the Covered
-Software under this License. Except to the extent prohibited by statute
-or regulation, such description must be sufficiently detailed for a
-recipient of ordinary skill to be able to understand it.
-
-5. Termination
---------------
-
-5.1. The rights granted under this License will terminate automatically
-if You fail to comply with any of its terms. However, if You become
-compliant, then the rights granted under this License from a particular
-Contributor are reinstated (a) provisionally, unless and until such
-Contributor explicitly and finally terminates Your grants, and (b) on an
-ongoing basis, if such Contributor fails to notify You of the
-non-compliance by some reasonable means prior to 60 days after You have
-come back into compliance. Moreover, Your grants from a particular
-Contributor are reinstated on an ongoing basis if such Contributor
-notifies You of the non-compliance by some reasonable means, this is the
-first time You have received notice of non-compliance with this License
-from such Contributor, and You become compliant prior to 30 days after
-Your receipt of the notice.
-
-5.2. If You initiate litigation against any entity by asserting a patent
-infringement claim (excluding declaratory judgment actions,
-counter-claims, and cross-claims) alleging that a Contributor Version
-directly or indirectly infringes any patent, then the rights granted to
-You by any and all Contributors for the Covered Software under Section
-2.1 of this License shall terminate.
-
-5.3. In the event of termination under Sections 5.1 or 5.2 above, all
-end user license agreements (excluding distributors and resellers) which
-have been validly granted by You or Your distributors under this License
-prior to termination shall survive termination.
-
-************************************************************************
-*                                                                      *
-*  6. Disclaimer of Warranty                                           *
-*  -------------------------                                           *
-*                                                                      *
-*  Covered Software is provided under this License on an "as is"       *
-*  basis, without warranty of any kind, either expressed, implied, or  *
-*  statutory, including, without limitation, warranties that the       *
-*  Covered Software is free of defects, merchantable, fit for a        *
-*  particular purpose or non-infringing. The entire risk as to the     *
-*  quality and performance of the Covered Software is with You.        *
-*  Should any Covered Software prove defective in any respect, You     *
-*  (not any Contributor) assume the cost of any necessary servicing,   *
-*  repair, or correction. This disclaimer of warranty constitutes an   *
-*  essential part of this License. No use of any Covered Software is   *
-*  authorized under this License except under this disclaimer.         *
-*                                                                      *
-************************************************************************
-
-************************************************************************
-*                                                                      *
-*  7. Limitation of Liability                                          *
-*  --------------------------                                          *
-*                                                                      *
-*  Under no circumstances and under no legal theory, whether tort      *
-*  (including negligence), contract, or otherwise, shall any           *
-*  Contributor, or anyone who distributes Covered Software as          *
-*  permitted above, be liable to You for any direct, indirect,         *
-*  special, incidental, or consequential damages of any character      *
-*  including, without limitation, damages for lost profits, loss of    *
-*  goodwill, work stoppage, computer failure or malfunction, or any    *
-*  and all other commercial damages or losses, even if such party      *
-*  shall have been informed of the possibility of such damages. This   *
-*  limitation of liability shall not apply to liability for death or   *
-*  personal injury resulting from such party's negligence to the       *
-*  extent applicable law prohibits such limitation. Some               *
-*  jurisdictions do not allow the exclusion or limitation of           *
-*  incidental or consequential damages, so this exclusion and          *
-*  limitation may not apply to You.                                    *
-*                                                                      *
-************************************************************************
-
-8. Litigation
--------------
-
-Any litigation relating to this License may be brought only in the
-courts of a jurisdiction where the defendant maintains its principal
-place of business and such litigation shall be governed by laws of that
-jurisdiction, without reference to its conflict-of-law provisions.
-Nothing in this Section shall prevent a party's ability to bring
-cross-claims or counter-claims.
-
-9. Miscellaneous
-----------------
-
-This License represents the complete agreement concerning the subject
-matter hereof. If any provision of this License is held to be
-unenforceable, such provision shall be reformed only to the extent
-necessary to make it enforceable. Any law or regulation which provides
-that the language of a contract shall be construed against the drafter
-shall not be used to construe this License against a Contributor.
-
-10. Versions of the License
----------------------------
-
-10.1. New Versions
-
-Mozilla Foundation is the license steward. Except as provided in Section
-10.3, no one other than the license steward has the right to modify or
-publish new versions of this License. Each version will be given a
-distinguishing version number.
-
-10.2. Effect of New Versions
-
-You may distribute the Covered Software under the terms of the version
-of the License under which You originally received the Covered Software,
-or under the terms of any subsequent version published by the license
-steward.
-
-10.3. Modified Versions
-
-If you create software not governed by this License, and you want to
-create a new license for such software, you may create and use a
-modified version of this License if you rename the license and remove
-any references to the name of the license steward (except to note that
-such modified license differs from this License).
-
-10.4. Distributing Source Code Form that is Incompatible With Secondary
-Licenses
-
-If You choose to distribute Source Code Form that is Incompatible With
-Secondary Licenses under the terms of this version of the License, the
-notice described in Exhibit B of this License must be attached.
-
-Exhibit A - Source Code Form License Notice
--------------------------------------------
-
-  This Source Code Form is subject to the terms of the Mozilla Public
-  License, v. 2.0. If a copy of the MPL was not distributed with this
-  file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
-If it is not possible or desirable to put the notice in a particular
-file, then You may include the notice in a location (such as a LICENSE
-file in a relevant directory) where a recipient would be likely to look
-for such a notice.
-
-You may add additional accurate notices of copyright ownership.
-
-Exhibit B - "Incompatible With Secondary Licenses" Notice
----------------------------------------------------------
-
-  This Source Code Form is "Incompatible With Secondary Licenses", as
-  defined by the Mozilla Public License, v. 2.0.
+Qabel Public License Version 0.2 (QaPL v0.2) (c) Qabel GmbH, Hannover
+=====================================================================
+ 
+
+You may copy and distribute verbatim copies of this license agreement. You may also use content from it for your own license agreement. Unless not expressly stated, you may not use the name Qabel Public License ("QaPL") in connection with any license agreement that is not a verbatim copy of This License.
+
+ 
+PREAMBLE
+--------
+
+Today Software is the undisputed centerpiece of the information society and access to software and information society services became a public commodity. Yet traditional software is made available in object code only, where the software user is not entitled to study or even modify the source code. We believe that this is a salient shortcoming in particular when it comes to software which is designed to help the user protect his privacy in a virtual world. A proprietary software developer who refuses to unveil the source code of its security software, requires users to place a great deal of faith into the computer program and its ability to protect personal data. Not only because trust in conventional software security was all too often disappointed, we have decided to replace "trust" with "transparency" and everybody is welcome to study, modify and improve the source code of this software. Furthermore, and although we believe in the idea of free software, we have decided to make two important exceptions, to wit, QaPL-licensed software should neither be used commercially without our consent, nor for military, intelligence or related purposes. By that we hope to make it a powerful, self sustaining and constantly evolving tool that helps to reinforce data security and the protection of personal data. However, it shall be up to the user to decide whether he finds this software fit for the purpose.
+
+ 
+[0] Definitions
+---------------
+
+[a] "Application" means any software that may be, directly or indirectly, linked to the Library by using its interface.  
+[b] "Commercial use" means utilizing the Library or other software licensed under the QaPL or parts thereof to, directly or indirectly, establish a source of income, including but not limited to, embedding the Library or other software licensed under the QaPL or parts thereof into Proprietary Software, executable software, or consulting services utilizing the Library or other software licensed under the QaPL or parts thereof. It is not considered Commercial Use if the Licensee, including a commercial enterprise, uses the Library or other software licensed under the QaPL or parts thereof for academic, study and/or research purposes, or if a software project is solely based on donations.  
+[c] "Original Copyright Holder" means Kevin Röbert.  
+[d] "Contributor" means any person or entity that creates or contributes to the creation of modifications to the Library or other software licensed under the QaPL.  
+[e] "Library" means a collection of software functions, subroutines and/or data prepared so as to be conveniently linked with Applications (which use some of those functions and data) to form executables including associated documentation.  
+[f] "Licensee" means any individual or legal entity exercising rights under the QaPL.  
+[g] "Make Publicly Available" refers to the public distribution of the Library or other software licensed under the QaPL in an immaterial form, including but not limited to, making it available for download in data networks and Software as a Service (SaaS).  
+[h] "Modification" means any change to the Library or other software licensed under the QaPL in a way that would, under the applicable law, require the copyright holder's permission, including but not limited to the extension, deletion, alteration, translation into other programming languages or combination with other software.  
+[i] "Modification of the Library" means the Library or its derivatives containing the Library as a whole or in parts and Applications or any other software that are linked to the Library.  
+[j] "Object Code" means any machine-readable form of the Library or other software licensed under the QaPL, excluding the Source Code.  
+[k] "Proprietary Software" means software that is not licensed under an open source license as defined by the open source definition (Version 1.9).  
+[l] "Source Code" means the preferred form of the Library or other software licensed under the QaPL for making Modifications to it.
+[m] "This License" means the Qabel Public License regardless of its version.
+ 
+
+[1] Scope of Application
+-------------------------------
+
+The QaPL applies to any software library or other software that contains a notice placed by the copyright holder or another authorised party stating that the Library or other software is governed by the
+terms of the QaPL. This license shall also apply to remote network interaction.
+
+ 
+[2] License Grant and Conditions
+------------------------------------------
+
+[a] As far as This License is not restricted according to sec. [3], Licensee may free of charge and in any medium modify, reproduce, distribute, and Make Publicly Available the Library or other software licensed under the QaPL.
+[b] Licensee may distribute, and Make Publicly Available unmodified versions, of the Library or other software licensed under the QaPL provided that the following condition is met: A conspicuous reference to the text of This License
+that allows any recipient to easily access the text of This License must be provided.
+[c] Licensee may distribute, and Make Publicly Available modified versions, of the Library or other software licensed under the QaPL provided that, in addition to the conditions stated in sec. [2][b], the following conditions are met: The files modified must bear notices which state that the files were changed, the date of change and the author of the Modification.  The Library or
+other software licensed under the QaPL must in its entirety be licensed free of charge to all third parties under the terms of This License.
+[d] If you wish to distribute or Make the Library or other software licensed under the QaPL, modified or unmodified, Publicly Available in Object Code form only, you must in addition to the forgoing make the complete Source Code publicly available or ensure that the Original Copyright Holder does so and make a conspicuous reference to the internet address from which the Source Code
+may be downloaded.
+
+ 
+[3] Restrictions
+--------------------
+
+[a] No license is granted by the Original Copyright Holder for the Commercial Use of the Library or other software licensed under the QaPL. In particular, no license is granted for linking Applications to the Library which shall be used commercially. If you would like to use the Library or other software licensed under the QaPL for commercial purposes or link to an Application that shall be used commercially, including selling an Application that shall be linked to the Library or other software licensed under the QaPL, please inquire with the Original Copyright Holder.
+[b] No license is granted by the Original Copyright Holder for military, intelligence or related purposes, including but not limited to intelligence and military research.
+
+ 
+[4] Contributor's License Grant
+----------------------------------------
+
+[a] A Contributor, who distributes or makes publicly available a Modification, hereby grants the Original Copyright Holder a perpetual, irrevocable, worldwide, free of charge, royalty-free, non-exclusive, unrestricted license that may be subject to third party property claims, to use, reproduce, modify, display, perform, sublicense, distribute, Make Publicly Available, commercially exploit and exercise all ownership rights in the Contributors contribution. Contributor hereby agrees that he will not assert any moral rights in his contribution against the Original Copyright Holder.
+[b] A contributor, who distributes or makes publicly available a Modification, hereby grants to the Original Copyright Holder a perpetual, worldwide, non-exclusive, free-of-charge, royalty-free patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Library or other software licensed under the QaPL. Where such license applies it shall only apply to those patent claims licensable by the Contributor that are necessarily infringed by their contributions alone or by combination of their contributions with the Library or other software licensed under the QaPL with which such contribution was combined.
+[c] Contributor represents and warrants that his contribution is his own original creation and to the best of his knowledge he can legally grant the rights in his contribution set out in This License and, where applicable, is authorised by his employer and that the Original Copyright Holder exercising the rights granted under this license does, to the best of the Contributors knowledge, not infringe any third party rights. Contributor further represents that he is not aware of any claims, suits or court actions in relation to his contribution. Contributor agrees that he will immediately notify the Original Copyright Holder if he becomes aware of any third party claims and, if the Contributor after having submitted or otherwise distributed his contribution, becomes aware of a third party claim in relation to his contribution, shall promptly take all reasonable measures to mitigate damages resulting from the infringement of third party claims, including but not limited to informing those who may have received software containing the contribution.
+
+ 
+[5] Conclusion of Contract
+----------------------------------
+
+[a] This License constitutes the offer to conclude a contract to use the Library or other software licensed under the QaPL in compliance with the conditions of This License. Acceptance may be declared by exercising the right granted under sec. [2] of This License.
+[b] All Licensees obtain the rights granted by This License directly from the Original Copyright Holder. Without having to accept This License the Library or other software may still be used in accordance with the applicable statutory provisions.
+
+ 
+[6] Termination
+--------------------
+
+The rights granted under This License will terminate
+automatically if the Licensee fails to comply with its terms.
+
+ 
+[7] Warranty and Liability
+---------------------------------
+
+[a] The copyright holders are not liable for contradictory third-party rights, unless they were aware of such rights without informing the Licensee.
+[b] Liability for damages arising out of the use or inability to use the Library or other software licensed under the QaPL, including but not limited to software failure, data loss, data being rendered inaccurate, a failure of the software to operate with any other program and any other defects in the Library or other software licensed under the QaPL, shall be governed by separate agreements, or, if no such agreement exists, by the applicable statutory provisions.
+
+ 
+[8] License Updates
+-------------------------
+
+Qabel GmbH or its legal successors may, from time to time, revise and update the QaPL in order to address new developments and concerns. These revisions and updates will reflect the spirit of the current license version and will not impose on any Licensee or copyright holder additional obligations. QaPL license updates shall replace all older license versions in existing agreements. This does not apply to original copyright holders other than Qabel GmbH, who have chosen to submit their program to the QaPL, unless they have designated their program as licensed under "QaPL 0.2 or any later version".
+
+ 
+[9] Miscellaneous
+----------------------
+
+[a] This License shall be governed by German Law. The application of the UN Convention on the International Sale of Goods (CISG) and the principles of conflict of laws shall be excluded.
+[b] If you wish to incorporate parts of the Library or other software licensed under the QaPL into other software whose license terms contradict with the provisions of this license, you may inquire with either the Original Copyright Holder or the copyright holder of the other software on possible exceptions.
+[c] If, under the applicable law, any provision of This License is or becomes invalid or unenforceable, it shall not affect the validity or enforceability of the remainder of the terms of This License, and without further action by the parties to This License, such provision shall be reformed to the minimum extent necessary to make such provision valid and enforceable.
