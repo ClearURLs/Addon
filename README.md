@@ -1,4 +1,7 @@
 # ClearURLs
+
+# The offical repository is on GitLab. This repository is for archival purposes only. [Offical Repo](https://gitlab.com/KevinRoebert/ClearUrls)
+
 [![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/)
 
 [![Mozilla Add-on](https://img.shields.io/amo/stars/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/reviews/)
@@ -18,10 +21,10 @@ Large (and small) webpages use elements in the URL, e.g.: https://example.com?so
 [![Mozilla Add-on](https://img.shields.io/amo/d/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
 
 ## Contribute
-If you have any suggestions or complaints, please [create an issue.](https://github.com/KevinRoebert/ClearUrls/issues/new)
+If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
 
 ## Screenshot
-![Interface (version 1.2.2.x)](https://github.com/KevinRoebert/ClearUrls/blob/master/promotion/screens/Popup_v_1.2.2.8.png?raw=true)
+![Interface (version 1.2.2.x)](https://gitlab.com/KevinRoebert/ClearUrls/raw/48b8b9e994eb2535b11106dcd766097d55b493dd/promotion/screens/Popup_v_1.2.2.8.png)
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
@@ -40,4 +43,4 @@ We use some third-party scripts in our add-on. The authors and licenses are list
     [MIT](https://github.com/lauren/pick-a-color/blob/master/LICENSE)
 
 ## Licence
-[![License: QaPL v0.2](https://img.shields.io/badge/License-QaPL%20v0.2-brightgreen.svg)](https://github.com/KevinRoebert/ClearUrls/blob/master/LICENSE.md)
+[![License: QaPL v0.2](https://img.shields.io/badge/License-QaPL%20v0.2-brightgreen.svg)](https://gitlab.com/KevinRoebert/ClearUrls/blob/master/LICENSE.md)
