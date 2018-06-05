@@ -6,7 +6,7 @@
     {
       "name": "Kevin R.",
       "email": "clearurls@kevinroebert.de",
-      "web": "https://github.com/KevinRoebert"
+      "web": "https://gitlab.com/KevinRoebert"
     },
     {
       "name": "Arne",
@@ -18,7 +18,7 @@
     {
       "name": "Kevin R.",
       "email": "clearurls@kevinroebert.de",
-      "web": "https://github.com/KevinRoebert/"
+      "web": "https://gitlab.com/KevinRoebert"
     }
   ],
   "dependencies": {
@@ -32,8 +32,8 @@
   },
   "licenses": [
     {
-      "name": "MPL 2.0",
-      "url": "https://opensource.org/licenses/MPL-2.0"
+      "name": "QaPL v0.2",
+      "url": "https://gitlab.com/KevinRoebert/ClearUrls/blob/master/LICENSE.md"
     }
   ]
 }
