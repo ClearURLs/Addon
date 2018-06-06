@@ -320,7 +320,7 @@
             "completeProvider": false,
             "rules": [
                 "ref_=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "pd_rd_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "pf_rd_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
