@@ -1,10 +1,10 @@
 {
     "manifest_version": 2,
     "name": "ClearURLs",
-    "version": "1.2.2.8",
+    "version": "1.2.2.9",
     "author": "Kevin R.",
     "description": "Remove tracking elements form URLs.",
-    "homepage_url": "https://github.com/KevinRoebert/ClearUrls",
+    "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
     "default_locale": "en",
     "applications": {
         "gecko": {

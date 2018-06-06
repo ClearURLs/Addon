@@ -794,8 +794,8 @@ function initSettings()
     storage.log = {"log": []};
     storage.statisticsStatus = true;
     storage.badged_color = "ffa500";
-    storage.hashURL = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true";
-    storage.ruleURL = "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true";
+    storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
+    storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
 }
 
 /**
