@@ -300,7 +300,8 @@
             "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?ebay\\.)\\w{2,}\\/.*",
             "completeProvider": false,
             "rules": [
-                "_trkparms=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "_trkparms=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "_trksid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
@@ -310,6 +311,16 @@
             "completeProvider": false,
             "rules": [
                 "ftag=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "imdb.com": {
+            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?imdb\\.com)\\/.*",
+            "completeProvider": false,
+            "rules": [
+                "ref_=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "pd_rd_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
