@@ -1,5 +1,5 @@
-# ClearURLs
-[![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/)
+# ClearURLs [![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/)
+[![Donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/KevinRoebert)
 
 [![Mozilla Add-on](https://img.shields.io/amo/stars/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/reviews/)
 
