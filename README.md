@@ -2,6 +2,14 @@
 
 # The offical repository is on GitLab. This repository is for archival purposes only. [Offical Repo](https://gitlab.com/KevinRoebert/ClearUrls)
 
+# Important notice
+**Since we moved to GitLab, all new ClearURLs versions are pointing to the new repository. If you still have old settings that show the rule and hash files on GitHub, I recommend that you change them to GitLab so you can continue with the latest version of the rule.**
+
+**Please change your settings as shown in the screenshot (the red area).**
+![change_to_gitlab](https://user-images.githubusercontent.com/28713602/41054757-8f0be06c-69bf-11e8-9830-0adbbcc808a2.PNG)
+
+
+
 [![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/)
 
 [![Mozilla Add-on](https://img.shields.io/amo/stars/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/reviews/)
