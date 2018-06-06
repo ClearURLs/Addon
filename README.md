@@ -8,7 +8,13 @@
 **Please change your settings as shown in the screenshot (the red area).**
 ![change_to_gitlab](https://user-images.githubusercontent.com/28713602/41054757-8f0be06c-69bf-11e8-9830-0adbbcc808a2.PNG)
 
+For data.json:
+`https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json`
 
+For rules.hash:
+`https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash`
+
+--------------------------------------------------------------------------------------------------------------------------------
 
 [![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/)
 
