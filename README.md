@@ -7,7 +7,7 @@
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox*.
 
-This add-on will remove the tracking fields form all URLs which are visited by the browser and use a rule file, namely `data.json`.
+This add-on will remove the tracking fields from all URLs which are visited by the browser and use a rule file, namely `data.json`.
 
 This add-on protects your privacy and block the request from advertising services like *doubleclick.net*.
 
