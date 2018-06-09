@@ -1,0 +1,206 @@
+{
+    "hash_status_code_1": {
+        "message": "已是最新的",
+        "description": ""
+    },
+
+    "hash_status_code_2": {
+        "message": "已更新",
+        "description": ""
+    },
+
+    "hash_status_code_3": {
+        "message": "有可用的更新",
+        "description": ""
+    },
+
+    "hash_status_code_4": {
+        "message": "錯誤",
+        "description": ""
+    },
+
+    "hash_status_code_5": {
+        "message": "糟糕! 有東西不對勁",
+        "description": ""
+    },
+
+    "log_redirect": {
+        "message": "此網址已被轉址",
+        "description": ""
+    },
+
+    "log_domain_blocked": {
+        "message": "此網址已被封鎖",
+        "description": ""
+    },
+
+    "check_os_log": {
+        "message": "[ClearURLs]: 已新增記錄聆聽者",
+        "description": ""
+    },
+
+    "log_html_page_title": {
+        "message": "ClearURLs記錄檔",
+        "description": ""
+    },
+
+    "log_html_table_head_1": {
+        "message": "處理前",
+        "description": ""
+    },
+
+    "log_html_table_head_2": {
+        "message": "處理後",
+        "description": ""
+    },
+
+    "log_html_table_head_3": {
+        "message": "規則",
+        "description": ""
+    },
+
+    "log_html_table_head_4": {
+        "message": "時間",
+        "description": ""
+    },
+
+    "log_html_reset_button": {
+        "message": "重設",
+        "description": ""
+    },
+
+    "log_html_reset_button_title": {
+        "message": "重設全域記錄檔",
+        "description": ""
+    },
+
+    "popup_html_configs_head": {
+        "message": "配置",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter": {
+        "message": "過濾器",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log": {
+        "message": "記錄",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "message": "記錄檔會被儲存於本機. 若不需要此功能, 建議不要使用.",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges": {
+        "message": "徽章",
+        "description": ""
+    },
+
+    "popup_html_statistics_head": {
+        "message": "統計",
+        "description": ""
+    },
+
+    "popup_html_statistics_elements": {
+        "message": "元件",
+        "description": ""
+    },
+
+    "popup_html_statistics_blocked": {
+        "message": "已阻擋",
+        "description": ""
+    },
+
+    "popup_html_statistics_percentage": {
+        "message": "比例",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button": {
+        "message": "重設",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "message": "重設全域統計",
+        "description": ""
+    },
+
+    "popup_html_rules_status_head": {
+        "message": "規則狀態",
+        "description": ""
+    },
+
+    "popup_html_log_head": {
+        "message": "記錄檔",
+        "description": ""
+    },
+
+    "popup_html_log_head_title": {
+        "message": "開啟記錄檔",
+        "description": ""
+    },
+
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: 儲存於磁碟",
+        "description": ""
+    },
+
+    "core_error": {
+        "message": "[ClearURLs]: 此附加元件無法啟動",
+        "description": ""
+    },
+
+    "configs_switch_statistics": {
+        "message": "統計",
+        "description": ""
+    },
+
+    "configs_switch_statistics_title": {
+        "message": "開啟或關閉統計功能",
+        "description": ""
+    },
+
+    "settings_html_page_title": {
+        "message": "ClearURLs設定",
+        "description": ""
+    },
+
+    "badged_color_label": {
+        "message": "徽章顏色",
+        "description": ""
+    },
+
+    "setting_html_reset_button": {
+        "message": "重設",
+        "description": ""
+    },
+
+    "setting_html_reset_button_title": {
+        "message": "重設所有設定",
+        "description": ""
+    },
+
+    "setting_rule_url_label": {
+        "message": "data.json的網址 (規則)",
+        "description": ""
+    },
+
+    "settings_html_save_button": {
+        "message": "儲存並重啟附加元件",
+        "description": ""
+    },
+
+    "settings_html_save_button_title": {
+        "message": "儲存設定",
+        "description": ""
+    },
+
+    "setting_hash_url_label": {
+        "message": "rules.hash的網址 (校驗)",
+        "description": ""
+    }
+}
