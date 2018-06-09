@@ -1,0 +1,207 @@
+{
+    "hash_status_code_1": {
+        "message": "已是最新的",
+        "description": ""
+    },
+
+    "hash_status_code_2": {
+        "message": "已更新",
+        "description": ""
+    },
+
+    "hash_status_code_3": {
+        "message": "有可用的更新",
+        "description": ""
+    },
+
+    "hash_status_code_4": {
+        "message": "错误",
+        "description": ""
+    },
+
+    "hash_status_code_5": {
+        "message": "糟糕! 有东西不对劲",
+        "description": ""
+    },
+
+    "log_redirect": {
+        "message": "此网址已被转址",
+        "description": ""
+    },
+
+    "log_domain_blocked": {
+        "message": "此网址已被封锁",
+        "description": ""
+    },
+
+    "check_os_log": {
+        "message": "[ClearURLs]: 已新增日志聆听者",
+        "description": ""
+    },
+
+    "log_html_page_title": {
+        "message": "ClearURLs日志",
+        "description": ""
+    },
+
+    "log_html_table_head_1": {
+        "message": "处理前",
+        "description": ""
+    },
+
+    "log_html_table_head_2": {
+        "message": "处理后",
+        "description": ""
+    },
+
+    "log_html_table_head_3": {
+        "message": "规则",
+        "description": ""
+    },
+
+    "log_html_table_head_4": {
+        "message": "时间",
+        "description": ""
+    },
+
+    "log_html_reset_button": {
+        "message": "重设",
+        "description": ""
+    },
+
+    "log_html_reset_button_title": {
+        "message": "重设全域日志",
+        "description": ""
+    },
+
+    "popup_html_configs_head": {
+        "message": "配置",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter": {
+        "message": "过滤器",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log": {
+        "message": "日志",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "message": "日志会被储存于本地. 若不需要此功能, 建议不要使用.",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges": {
+        "message": "徽章",
+        "description": ""
+    },
+
+    "popup_html_statistics_head": {
+        "message": "统计",
+        "description": ""
+    },
+
+    "popup_html_statistics_elements": {
+        "message": "元件",
+        "description": ""
+    },
+
+    "popup_html_statistics_blocked": {
+        "message": "已阻挡",
+        "description": ""
+    },
+
+    "popup_html_statistics_percentage": {
+        "message": "比例",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button": {
+        "message": "重设",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "message": "重设全域统计",
+        "description": ""
+    },
+
+    "popup_html_rules_status_head": {
+        "message": "规则状态",
+        "description": ""
+    },
+
+    "popup_html_log_head": {
+        "message": "日志",
+        "description": ""
+    },
+
+    "popup_html_log_head_title": {
+        "message": "开启日志",
+        "description": ""
+    },
+
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: 储存于硬盘",
+        "description": ""
+    },
+
+    "core_error": {
+        "message": "[ClearURLs]: 此插件无法启动",
+        "description": ""
+    },
+
+    "configs_switch_statistics": {
+        "message": "统计",
+        "description": ""
+    },
+
+    "configs_switch_statistics_title": {
+        "message": "开启或关闭统计功能",
+        "description": ""
+    },
+
+    "settings_html_page_title": {
+        "message": "ClearURLs设置",
+        "description": ""
+    },
+
+    "badged_color_label": {
+        "message": "徽章颜色",
+        "description": ""
+    },
+
+    "setting_html_reset_button": {
+        "message": "重设",
+        "description": ""
+    },
+
+    "setting_html_reset_button_title": {
+        "message": "重设所有设置",
+        "description": ""
+    },
+
+    "setting_rule_url_label": {
+        "message": "data.json的网址 (规则)",
+        "description": ""
+    },
+
+    "settings_html_save_button": {
+        "message": "储存并重启插件",
+        "description": ""
+    },
+
+    "settings_html_save_button_title": {
+        "message": "储存设置",
+        "description": ""
+    },
+
+    "setting_hash_url_label": {
+        "message": "rules.hash的网址 (校验)",
+        "description": ""
+    }
+}
+
