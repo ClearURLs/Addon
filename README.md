@@ -1,6 +1,6 @@
 # ClearURLs
 
-# The official repository is on GitLab. This repository is for archival purposes only. [Offical Repo](https://gitlab.com/KevinRoebert/ClearUrls)
+# The official repository is on GitLab. This repository is for archival purposes only. [Official Repo](https://gitlab.com/KevinRoebert/ClearUrls)
 
 # Important notice
 **Since we moved to GitLab, all new ClearURLs versions are pointing to the new repository. If you still have old settings that show the rule and hash files on GitHub, I recommend that you change them to GitLab so you can continue with the latest version of the rule.**
