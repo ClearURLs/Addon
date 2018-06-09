@@ -1,6 +1,6 @@
 # ClearURLs
 
-# The offical repository is on GitLab. This repository is for archival purposes only. [Offical Repo](https://gitlab.com/KevinRoebert/ClearUrls)
+# The official repository is on GitLab. This repository is for archival purposes only. [Offical Repo](https://gitlab.com/KevinRoebert/ClearUrls)
 
 # Important notice
 **Since we moved to GitLab, all new ClearURLs versions are pointing to the new repository. If you still have old settings that show the rule and hash files on GitHub, I recommend that you change them to GitLab so you can continue with the latest version of the rule.**
@@ -24,7 +24,7 @@ For rules.hash:
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox*.
 
-This add-on will remove the tracking fields form all URLs which are visited by the browser and use a rule file, namely `data.json`.
+This add-on will remove the tracking fields from all URLs which are visited by the browser and use a rule file, namely `data.json`.
 
 This add-on protects your privacy and block the request from advertising services like *doubleclick.net*.
 
