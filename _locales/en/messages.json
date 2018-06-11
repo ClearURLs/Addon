@@ -84,6 +84,11 @@
         "description": ""
     },
 
+    "popup_html_configs_switch_filter_title": {
+        "message": "The filters switch activates the cleaning functionality of ClearURLs. If you disable this option, the whole addon is disabled",
+        "description": ""
+    },
+
     "popup_html_configs_switch_log": {
         "message": "Logging",
         "description": ""
@@ -96,6 +101,11 @@
 
     "popup_html_configs_switch_badges": {
         "message": "Badges",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "message": "Show number of cleaned urls",
         "description": ""
     },
 

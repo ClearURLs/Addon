@@ -84,6 +84,11 @@
         "description": ""
     },
 
+    "popup_html_configs_switch_filter_title": {
+        "message": "Der Filter-Schalter aktiviert die Reinigungsfunktion von ClearURLs, wenn sie die Funktion ausschalten, dann deaktivieren sie das gesamte Addon",
+        "description": ""
+    },
+
     "popup_html_configs_switch_log": {
         "message": "Protokoll",
         "description": ""
@@ -96,6 +101,11 @@
 
     "popup_html_configs_switch_badges": {
         "message": "Zähler",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "message": "Zeigt die Anzahl der gereinigten URLs an",
         "description": ""
     },
 

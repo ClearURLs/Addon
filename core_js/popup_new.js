@@ -140,22 +140,42 @@ $(document).ready(function(){
 */
 function setText()
 {
-    $('#loggingPage').text(translate('popup_html_log_head'));
-    $('#loggingPage').prop('title', translate('popup_html_log_head_title'));
-    $('#reset_counter_btn').text(translate('popup_html_statistics_reset_button'));
-    $('#reset_counter_btn').prop('title', translate('popup_html_statistics_reset_button_title'));
-    $('#rules_status_head').text(translate('popup_html_rules_status_head'));
-    $('#statistics_percentage').text(translate('popup_html_statistics_percentage'));
-    $('#statistics_blocked').text(translate('popup_html_statistics_blocked'));
-    $('#statistics_elements').text(translate('popup_html_statistics_elements'));
-    $('#statistics_head').text(translate('popup_html_statistics_head'));
-    $('#configs_switch_badges').text(translate('popup_html_configs_switch_badges'));
-    $('#configs_switch_log').text(translate('popup_html_configs_switch_log'));
-    $('#configs_switch_log').prop('title', translate('popup_html_configs_switch_log_title'));
-    $('#configs_switch_filter').text(translate('popup_html_configs_switch_filter'));
-    $('#configs_head').text(translate('popup_html_configs_head'));
-    $('#configs_switch_statistics').text(translate('configs_switch_statistics'));
-    $('#configs_switch_statistics').prop('title', translate('configs_switch_statistics_title'));
+    injectText('loggingPage','popup_html_log_head');
+    injectText('reset_counter_btn','popup_html_statistics_reset_button');
+    injectText('rules_status_head','popup_html_rules_status_head');
+    injectText('statistics_percentage','popup_html_statistics_percentage');
+    injectText('statistics_blocked','popup_html_statistics_blocked');
+    injectText('statistics_elements','popup_html_statistics_elements');
+    injectText('statistics_head','popup_html_statistics_head');
+    injectText('configs_switch_badges','popup_html_configs_switch_badges');
+    injectText('configs_switch_log','popup_html_configs_switch_log');
+    injectText('configs_switch_filter','popup_html_configs_switch_filter');
+    injectText('configs_head','popup_html_configs_head');
+    injectText('configs_switch_statistics','configs_switch_statistics');
+}
+
+/**
+ * Helper function to inject the translated text and tooltip.
+ *
+ * @param   {string}    id ID of the HTML element
+ * @param   {string}    attribute Name of the attribute used for localization
+ * @param   {boolean}   tooltip
+ */
+function injectText(id, attribute, tooltip)
+{
+    object = $('#'+id);
+    object.text(translate(attribute));
+
+    /*
+        This function will throw an error if no translation
+        is found for the tooltip. This is a planned error.
+     */
+    tooltip = translate(attribute+"_title");
+
+    if(tooltip != "")
+    {
+        object.prop('title', tooltip);
+    }
 }
 
 /**
