@@ -1,0 +1,206 @@
+{
+    "hash_status_code_1": {
+        "message": "Actual",
+        "description": ""
+    },
+
+    "hash_status_code_2": {
+        "message": "Actualizado",
+        "description": ""
+    },
+
+    "hash_status_code_3": {
+        "message": "Actualizacion Disponible",
+        "description": ""
+    },
+
+    "hash_status_code_4": {
+        "message": "Error",
+        "description": ""
+    },
+
+    "hash_status_code_5": {
+        "message": "¡Algo salió mal!",
+        "description": ""
+    },
+
+    "log_redirect": {
+        "message": "Esta url esta redireccionada",
+        "description": ""
+    },
+
+    "log_domain_blocked": {
+        "message": "Este dominio se encuentra bloqueado",
+        "description": ""
+    },
+
+    "check_os_log": {
+        "message": "[ClearURLs]: Examinador de registro ha sido añadido.",
+        "description": ""
+    },
+
+    "log_html_page_title": {
+        "message": "Registro de ClearURLs",
+        "description": ""
+    },
+
+    "log_html_table_head_1": {
+        "message": "Antes de procesar",
+        "description": ""
+    },
+
+    "log_html_table_head_2": {
+        "message": "Despúes de procesar",
+        "description": ""
+    },
+
+    "log_html_table_head_3": {
+        "message": "Regla",
+        "description": ""
+    },
+
+    "log_html_table_head_4": {
+        "message": "Tiempo",
+        "description": ""
+    },
+
+    "log_html_reset_button": {
+        "message": "Reiniciar",
+        "description": ""
+    },
+
+    "log_html_reset_button_title": {
+        "message": "Reiniciar el registro global",
+        "description": ""
+    },
+
+    "popup_html_configs_head": {
+        "message": "Configuración",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter": {
+        "message": "Filtro",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log": {
+        "message": "Registro",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "message": "El registro sólo es guardado localmente. Recomendamos se desactive a menos que le sea necesario",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges": {
+        "message": "Contador",
+        "description": ""
+    },
+
+    "popup_html_statistics_head": {
+        "message": "Estadísticas",
+        "description": ""
+    },
+
+    "popup_html_statistics_elements": {
+        "message": "Elementos",
+        "description": ""
+    },
+
+    "popup_html_statistics_blocked": {
+        "message": "Bloqueados",
+        "description": ""
+    },
+
+    "popup_html_statistics_percentage": {
+        "message": "Porcentaje",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button": {
+        "message": "Reiniciar",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "message": "Reiniciar las estadísticas globales",
+        "description": ""
+    },
+
+    "popup_html_rules_status_head": {
+        "message": "Estado de las Reglas",
+        "description": ""
+    },
+
+    "popup_html_log_head": {
+        "message": "Registro",
+        "description": ""
+    },
+
+    "popup_html_log_head_title": {
+        "message": "Abrir el registro",
+        "description": ""
+    },
+
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Guardar en el disco.",
+        "description": ""
+    },
+
+    "core_error": {
+        "message": "[ClearURLs]: El addon no pudo iniciar.",
+        "description": ""
+    },
+
+    "configs_switch_statistics": {
+        "message": "Estadísticas",
+        "description": ""
+    },
+
+    "configs_switch_statistics_title": {
+        "message": "Activar o desactivar estadísticas",
+        "description": ""
+    },
+
+    "settings_html_page_title": {
+        "message": "Configuracíon de ClearURLs",
+        "description": ""
+    },
+
+    "badged_color_label": {
+        "message": "Color del contador",
+        "description": ""
+    },
+
+    "setting_html_reset_button": {
+        "message": "Reiniciar",
+        "description": ""
+    },
+
+    "setting_html_reset_button_title": {
+        "message": "Reiniciar todo",
+        "description": ""
+    },
+
+    "setting_rule_url_label": {
+        "message": "Url del archivo data.json (reglas)",
+        "description": ""
+    },
+
+    "settings_html_save_button": {
+        "message": "Guardar y reiniciar",
+        "description": ""
+    },
+
+    "settings_html_save_button_title": {
+        "message": "Guardar preferencias",
+        "description": ""
+    },
+
+    "setting_hash_url_label": {
+        "message": "Url del archivo rules.hash (hash)",
+        "description": ""
+    }
+}
