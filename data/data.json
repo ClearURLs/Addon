@@ -123,7 +123,8 @@
             ],
             "exceptions": [
                 ".*([\\.]?matrix\\.org)(\\/_matrix)\\/.*",
-                ".*([\\.]?prismic\\.io).*"
+                ".*([\\.]?prismic\\.io).*",
+                ".*([\\.]?gitlab\\.com).*"
             ],
             "redirections": []
         },
