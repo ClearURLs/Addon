@@ -84,6 +84,11 @@
         "description": ""
     },
 
+    "popup_html_configs_switch_filter_title": {
+        "message": "Activa o desactiva la limpieza de URLs. Si desactivas esta opción, el addon quedará deshabilitado",
+        "description": ""
+    },
+
     "popup_html_configs_switch_log": {
         "message": "Registro",
         "description": ""
@@ -96,6 +101,11 @@
 
     "popup_html_configs_switch_badges": {
         "message": "Contador",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "message": "Mostrar número de URLs limpiadas.",
         "description": ""
     },
 
