@@ -42,9 +42,24 @@ function getLog()
             }
         }
         $('#logTable').DataTable({
-            "pageLength": 10
+            "pageLength": 10,
+            "language": {
+                "url": getDataTableTranslation()
+            }
         } ).order([3, 'desc']).draw();
     });
+}
+
+/**
+ * Get the translation file for the DataTable
+ */
+function getDataTableTranslation()
+{
+    var lang = browser.i18n.getUILanguage();
+    lang = lang.substring(0,2);
+    var file = browser.extension.getURL('./external_js/dataTables/i18n/'+lang+'.lang');
+
+    return file;
 }
 
 /**
