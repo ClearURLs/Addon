@@ -739,6 +739,10 @@ function setData(key, value)
         case "log":
         storage[key] = JSON.parse(value);
         break;
+        case "hashURL":
+        case "ruleURL":
+          storage[key] = replaceOldGithubURLs(value);
+          break;
         default:
         storage[key] = value;
     }
@@ -804,6 +808,22 @@ function initSettings()
 function reload()
 {
     browser.runtime.reload();
+}
+
+/**
+ * Replace the old GitHub URLs with the
+ * new GitLab URLs.
+ */
+function replaceOldGithubURLs(url)
+{
+    switch (url) {
+      case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":
+        return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
+      case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true":
+        return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
+      default:
+        return url;
+    }
 }
 
 /**
