@@ -161,7 +161,7 @@
 
     "core_error": {
         "message": "[ClearURLs]: Не удалось запустить аддон.",
-        "description": "
+        "description": ""
     },
 
     "configs_switch_statistics": {
