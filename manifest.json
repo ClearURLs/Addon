@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "ClearURLs",
-    "version": "1.2.2.22",
+    "version": "1.3.0.0",
     "author": "Kevin R.",
     "description": "Remove tracking elements form URLs.",
     "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
@@ -12,16 +12,16 @@
         }
     },
     "icons": {
-        "32": "img/icon32.png",
-        "48": "img/icon48.png",
-        "64": "img/icon64.png",
-        "96": "img/icon96.png"
+        "32": "img/clearurls.svg",
+        "48": "img/clearurls.svg",
+        "64": "img/clearurls.svg",
+        "96": "img/clearurls.svg"
     },
     "browser_action": {
         "browser_style": true,
         "default_icon": {
-            "19": "img/icon19.png",
-            "38": "img/icon38.png"
+            "19": "img/clearurls.svg",
+            "38": "img/clearurls.svg"
         },
         "default_title": "ClearURLs Add-on",
         "default_popup": "html/popup.html"

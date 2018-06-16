@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="268 268 64 64"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="cleaurls_empty.svg"
+   inkscape:version="0.92.1 r15371">
+  <metadata
+     id="metadata14">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs12" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="14.75"
+     inkscape:cx="42.059243"
+     inkscape:cy="34.313231"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
+  <path
+     d="M290 276v-4c0-2 2-4 4-4h12c2 0 4 2 4 4v4h12c2 0 4 2 4 4v8h-4l-2.5 37.5c-.5 3.5-3.5 6.5-7 6.5h-24.9c-4 0-7-3-7-6.5L278 288h-4v-8c0-2.6 2-4 4-4h12z"
+     id="path2" />
+  <path
+     fill="#B9B9B9"
+     d="M313 327.5h-26c-1.5 0-2.5-.5-2.5-2l-2-37.5h35l-2 37.5c-.4 1.5-1.5 2-2.5 2zm-19-56h12v4h-12v-4zm-16 8.5h44v4h-44v-4z"
+     id="path4" />
+  <path
+     d="m 298.09588,293.93145 h 3.85618 L 302,319.5 h -4 z M 293,319.7 l -4,0.3 -1.5,-26 h 4 z m 14.3,0 3.7,0.3 1.5,-26 h -4 z"
+     id="path6"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="ccccccccccccccc" />
+</svg>

@@ -631,9 +631,9 @@ function setBadgedStatus()
 function changeIcon()
 {
     if(storage.globalStatus){
-        browser.browserAction.setIcon({path: "img/icon128.png"});
+        browser.browserAction.setIcon({path: "img/clearurls.svg"});
     } else{
-        browser.browserAction.setIcon({path: "img/icon128_g.png"});
+        browser.browserAction.setIcon({path: "img/clearurls_gray.svg"});
     }
 }
 
