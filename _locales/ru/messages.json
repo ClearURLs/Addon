@@ -1,0 +1,216 @@
+{
+    "hash_status_code_1": {
+        "message": "не требует обновления",
+        "description": ""
+    },
+
+    "hash_status_code_2": {
+        "message": "обновлено",
+        "description": ""
+    },
+
+    "hash_status_code_3": {
+        "message": "есть обновление",
+        "description": ""
+    },
+
+    "hash_status_code_4": {
+        "message": "ошибка",
+        "description": ""
+    },
+
+    "hash_status_code_5": {
+        "message": "Ой, что-то не так!",
+        "description": ""
+    },
+
+    "log_redirect": {
+        "message": "Этот URL перенаправляется",
+        "description": ""
+    },
+
+    "log_domain_blocked": {
+        "message": "Этот домен заблокирован",
+        "description": ""
+    },
+
+    "check_os_log": {
+        "message": "[ClearURLs]: Лог listener добавлен.",
+        "description": ""
+    },
+
+    "log_html_page_title": {
+        "message": "Лог ClearURLs",
+        "description": ""
+    },
+
+    "log_html_table_head_1": {
+        "message": "До обработки",
+        "description": ""
+    },
+
+    "log_html_table_head_2": {
+        "message": "После обработки",
+        "description": ""
+    },
+
+    "log_html_table_head_3": {
+        "message": "Правило",
+        "description": ""
+    },
+
+    "log_html_table_head_4": {
+        "message": "Время",
+        "description": ""
+    },
+
+    "log_html_reset_button": {
+        "message": "Сброс",
+        "description": ""
+    },
+
+    "log_html_reset_button_title": {
+        "message": "Сброс глобального лога",
+        "description": ""
+    },
+
+    "popup_html_configs_head": {
+        "message": "Конфигурации",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter": {
+        "message": "Фильтр",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter_title": {
+        "message": "Этот переключатель активирует функцию очистки ClearURLs. Если выключить эту функцию, весь аддон будет выключен.",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log": {
+        "message": "Логирование",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "message": "Лог сохраняется только локально. Мы советуем не использовать эту функцию, если она вам не нужна.",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges": {
+        "message": "Значки",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "message": "Показать количество очищенных URL",
+        "description": ""
+    },
+
+    "popup_html_statistics_head": {
+        "message": "Статистика",
+        "description": ""
+    },
+
+    "popup_html_statistics_elements": {
+        "message": "Элементы",
+        "description": ""
+    },
+
+    "popup_html_statistics_blocked": {
+        "message": "Заблокировано",
+        "description": ""
+    },
+
+    "popup_html_statistics_percentage": {
+        "message": "Процент",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button": {
+        "message": "Сброс",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "message": "Сброс глобальной статистики",
+        "description": ""
+    },
+
+    "popup_html_rules_status_head": {
+        "message": "Актуальность правил",
+        "description": ""
+    },
+
+    "popup_html_log_head": {
+        "message": "Лог",
+        "description": ""
+    },
+
+    "popup_html_log_head_title": {
+        "message": "Открыть лог",
+        "description": ""
+    },
+
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Сохранить на диск.",
+        "description": ""
+    },
+
+    "core_error": {
+        "message": "[ClearURLs]: Не удалось запустить аддон.",
+        "description": "
+    },
+
+    "configs_switch_statistics": {
+        "message": "Статистика",
+        "description": ""
+    },
+
+    "configs_switch_statistics_title": {
+        "message": "Вкл. или выкл. статистику",
+        "description": ""
+    },
+
+    "settings_html_page_title": {
+        "message": "Настройки ClearURLs",
+        "description": ""
+    },
+
+    "badged_color_label": {
+        "message": "Цвет значка",
+        "description": ""
+    },
+
+    "setting_html_reset_button": {
+        "message": "Сброс",
+        "description": ""
+    },
+
+    "setting_html_reset_button_title": {
+        "message": "Сбросить всё",
+        "description": ""
+    },
+
+    "setting_rule_url_label": {
+        "message": "Ссылка на файл data.json (правила)",
+        "description": ""
+    },
+
+    "settings_html_save_button": {
+        "message": "Сохранить и перезагрузить аддон",
+        "description": ""
+    },
+
+    "settings_html_save_button_title": {
+        "message": "Сохранение настроек",
+        "description": ""
+    },
+
+    "setting_hash_url_label": {
+        "message": ""Ссылка на файл rules.hash (хэш)",
+        "description": ""
+    }
+}
