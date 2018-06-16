@@ -340,59 +340,33 @@ function start(items)
             var changes = false;
             var cancel = false;
 
-            if(provider.matchURL(url))
+            /*
+            * Expand the url by provider redirections. So no tracking on
+            * url redirections form sites to sites.
+            */
+            var re = provider.getRedirection(url);
+            if(re !== null)
             {
-                /*
-                * Expand the url by provider redirections. So no tracking on
-                * url redirections form sites to sites.
-                */
-                var re = provider.getRedirection(url);
-                if(re !== null)
+                url = decodeURIComponent(re);
+                //Log the action
+                pushToLog(request.url, re, translate('log_redirect'));
+
+                return {
+                    "redirect": true,
+                    "url": url
+                };
+            }
+
+            for (var i = 0; i < rules.length; i++) {
+                var beforReplace = url;
+
+                url = url.replace(new RegExp(rules[i], "gi"), "");
+
+                if(beforReplace != url)
                 {
-                    url = decodeURIComponent(re);
                     //Log the action
-                    pushToLog(request.url, re, translate('log_redirect'));
+                    pushToLog(beforReplace, url, rules[i]);
 
-                    return {
-                        "redirect": true,
-                        "url": url
-                    };
-                }
-
-                for (var i = 0; i < rules.length; i++) {
-                    var beforReplace = url;
-
-                    url = url.replace(new RegExp(rules[i], "gi"), "");
-
-                    if(beforReplace != url)
-                    {
-                        //Log the action
-                        pushToLog(beforReplace, url, rules[i]);
-
-                        if(badges[tabid] == null)
-                        {
-                            badges[tabid] = 0;
-                        }
-
-                        increaseURLCounter();
-
-                        if(!checkOSAndroid())
-                        {
-                            if(storage.badgedStatus) {
-                                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                            }
-                            else
-                            {
-                                browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                            }
-                        }
-
-                        changes = true;
-                    }
-                }
-
-                if(provider.isCaneling()){
-                    pushToLog(request.url, request.url, translate('log_domain_blocked'));
                     if(badges[tabid] == null)
                     {
                         badges[tabid] = 0;
@@ -411,20 +385,40 @@ function start(items)
                         }
                     }
 
-                    cancel = true;
+                    changes = true;
+                }
+            }
+
+            if(provider.isCaneling()){
+                pushToLog(request.url, request.url, translate('log_domain_blocked'));
+                if(badges[tabid] == null)
+                {
+                    badges[tabid] = 0;
                 }
 
-                return {
-                    "changes": changes,
-                    "url": url,
-                    "cancel": cancel
-                };
+                increaseURLCounter();
+
+                if(!checkOSAndroid())
+                {
+                    if(storage.badgedStatus) {
+                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                    }
+                    else
+                    {
+                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                    }
+                }
+
+                cancel = true;
             }
-            else {
-                return {
-                    "changes": false
-                };
-            }
+
+            return {
+                "changes": changes,
+                "url": url,
+                "cancel": cancel
+            };
+
+
         }
 
         /**
@@ -467,7 +461,14 @@ function start(items)
                 * Call for every provider the removeFieldsFormURL method.
                 */
                 for (var i = 0; i < providers.length; i++) {
-                    result = removeFieldsFormURL(providers[i], request);
+                    let match = providers[i].matchURL(request.url);
+
+                    if(match == providers[i].matchURL(request.url));
+
+                    if(match)
+                    {
+                        result = removeFieldsFormURL(providers[i], request);
+                    }
 
                     /*
                     * Expand urls and bypass tracking.
@@ -609,8 +610,8 @@ function start(items)
 }
 
 /**
- * Save every minute the temporary data to the disk.
- */
+* Save every minute the temporary data to the disk.
+*/
 setInterval(saveOnExit, 60000);
 
 /**
@@ -628,8 +629,8 @@ function setBadgedStatus()
 }
 
 /**
- * Change the icon.
- */
+* Change the icon.
+*/
 function changeIcon()
 {
     if(storage.globalStatus){
@@ -655,9 +656,9 @@ function checkOSAndroid()
 }
 
 /**
- * Increase by {number} the GlobalURLCounter
- * @param  {int} number
- */
+* Increase by {number} the GlobalURLCounter
+* @param  {int} number
+*/
 function increaseGlobalURLCounter(number)
 {
     if(storage.statisticsStatus)
@@ -667,8 +668,8 @@ function increaseGlobalURLCounter(number)
 }
 
 /**
- * Increase by one the URLCounter
- */
+* Increase by one the URLCounter
+*/
 function increaseURLCounter()
 {
     if(storage.statisticsStatus)
@@ -741,8 +742,8 @@ function setData(key, value)
         break;
         case "hashURL":
         case "ruleURL":
-          storage[key] = replaceOldGithubURLs(value);
-          break;
+        storage[key] = replaceOldGithubURLs(value);
+        break;
         default:
         storage[key] = value;
     }
@@ -783,8 +784,8 @@ function initStorage(items)
 }
 
 /**
- * Set default values for the settings.
- */
+* Set default values for the settings.
+*/
 function initSettings()
 {
     storage.ClearURLsData = [];
@@ -803,25 +804,25 @@ function initSettings()
 }
 
 /**
- * Reloads the extension.
- */
+* Reloads the extension.
+*/
 function reload()
 {
     browser.runtime.reload();
 }
 
 /**
- * Replace the old GitHub URLs with the
- * new GitLab URLs.
- */
+* Replace the old GitHub URLs with the
+* new GitLab URLs.
+*/
 function replaceOldGithubURLs(url)
 {
     switch (url) {
-      case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":
+        case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":
         return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
-      case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true":
+        case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true":
         return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
-      default:
+        default:
         return url;
     }
 }
