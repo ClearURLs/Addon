@@ -221,7 +221,7 @@ function start(items)
             * @require urlPatterns as RegExp
             */
             this.setURLPattern = function(urlPatterns) {
-                urlPattern = new RegExp(urlPatterns, "mgi");
+                urlPattern = new RegExp(urlPatterns, "i");
             };
 
             /**
@@ -284,7 +284,7 @@ function start(items)
                 for (var i = 0; i < exceptions.length; i++) {
                     if(result) { break; }
 
-                    exception_regex = new RegExp(exceptions[i], "gi");
+                    exception_regex = new RegExp(exceptions[i], "i");
                     result = exception_regex.test(url);
                 }
 
@@ -310,11 +310,11 @@ function start(items)
 
                 for(var i = 0; i < redirections.length; i++)
                 {
-                    result = (url.match(new RegExp(redirections[i], "gi")));
+                    result = (url.match(new RegExp(redirections[i], "i")));
 
                     if (result && result.length > 0)
                     {
-                        re = (new RegExp(redirections[i], "gi")).exec(url)[1];
+                        re = (new RegExp(redirections[i], "i")).exec(url)[1];
 
                         break;
                     }
@@ -360,7 +360,7 @@ function start(items)
             for (var i = 0; i < rules.length; i++) {
                 var beforReplace = url;
 
-                url = url.replace(new RegExp(rules[i], "gi"), "");
+                url = url.replace(new RegExp(rules[i], "i"), "");
 
                 if(beforReplace != url)
                 {
@@ -461,11 +461,8 @@ function start(items)
                 * Call for every provider the removeFieldsFormURL method.
                 */
                 for (var i = 0; i < providers.length; i++) {
-                    let match = providers[i].matchURL(request.url);
 
-                    if(match == providers[i].matchURL(request.url));
-
-                    if(match)
+                    if(providers[i].matchURL(request.url))
                     {
                         result = removeFieldsFormURL(providers[i], request);
                     }
