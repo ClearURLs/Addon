@@ -210,7 +210,7 @@
     },
 
     "setting_hash_url_label": {
-        "message": ""Ссылка на файл rules.hash (хэш)",
+        "message": "Ссылка на файл rules.hash (хэш)",
         "description": ""
     }
 }
