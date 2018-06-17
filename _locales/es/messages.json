@@ -1,91 +1,91 @@
 {
     "hash_status_code_1": {
-        "message": "Al dia",
+        "message": "atualizado",
         "description": ""
     },
 
     "hash_status_code_2": {
-        "message": "Actualizado",
+        "message": "atualizado",
         "description": ""
     },
 
     "hash_status_code_3": {
-        "message": "Actualizacion Disponible",
+        "message": "atualização disponivel",
         "description": ""
     },
 
     "hash_status_code_4": {
-        "message": "Error",
+        "message": "erro",
         "description": ""
     },
 
     "hash_status_code_5": {
-        "message": "¡Algo salió mal!",
+        "message": "Oops, algo deu errado!",
         "description": ""
     },
 
     "log_redirect": {
-        "message": "Esta url esta redireccionada",
+        "message": "Esta url foi redirecionada",
         "description": ""
     },
 
     "log_domain_blocked": {
-        "message": "Este dominio se encuentra bloqueado",
+        "message": "Este domínio foi bloqueado",
         "description": ""
     },
 
     "check_os_log": {
-        "message": "[ClearURLs]: Examinador de registro ha sido añadido.",
+        "message": "[ClearURLs]: Examinador de registro foi adicionado",
         "description": ""
     },
 
     "log_html_page_title": {
-        "message": "Registro de ClearURLs",
+        "message": "Registro do ClearURLs",
         "description": ""
     },
 
     "log_html_table_head_1": {
-        "message": "Antes de procesar",
+        "message": "Antes de processar",
         "description": ""
     },
 
     "log_html_table_head_2": {
-        "message": "Despúes de procesar",
+        "message": "Depois de processar",
         "description": ""
     },
 
     "log_html_table_head_3": {
-        "message": "Regla",
+        "message": "Regra",
         "description": ""
     },
 
     "log_html_table_head_4": {
-        "message": "Tiempo",
+        "message": "Tempo",
         "description": ""
     },
 
     "log_html_reset_button": {
-        "message": "Reiniciar",
+        "message": "Resetar",
         "description": ""
     },
 
     "log_html_reset_button_title": {
-        "message": "Reiniciar el registro global",
+        "message": "Resetar o registro global",
         "description": ""
     },
 
     "popup_html_configs_head": {
-        "message": "Configuración",
+        "message": "Configurações",
         "description": ""
     },
 
     "popup_html_configs_switch_filter": {
-        "message": "Filtro",
+        "message": "Filtrar",
         "description": ""
     },
 
     "popup_html_configs_switch_filter_title": {
-        "message": "Activa o desactiva la limpieza de URLs. Si desactivas esta opción, el addon quedará deshabilitado",
+        "message": "O botão filtrar ativa a funcionalidade de limpeza do ClearURLs. Se você desativar essa opção toda a extensão é desativada",
         "description": ""
     },
 
@@ -95,7 +95,7 @@
     },
 
     "popup_html_configs_switch_log_title": {
-        "message": "El registro sólo es guardado localmente. Recomendamos se desactive a menos que le sea necesario",
+        "message": "O registro é salvo localmente apenas. Aconselhamos contra este recurso se você não precisa dele",
         "description": ""
     },
 
@@ -105,12 +105,12 @@
     },
 
     "popup_html_configs_switch_badges_title": {
-        "message": "Mostrar número de URLs limpiadas.",
+        "message": "Mostrar número de urls limpas",
         "description": ""
     },
 
     "popup_html_statistics_head": {
-        "message": "Estadísticas",
+        "message": "Estatísticas",
         "description": ""
     },
 
@@ -120,27 +120,27 @@
     },
 
     "popup_html_statistics_blocked": {
-        "message": "Bloqueados",
+        "message": "Bloqueado",
         "description": ""
     },
 
     "popup_html_statistics_percentage": {
-        "message": "Porcentaje",
+        "message": "Porcentagem",
         "description": ""
     },
 
     "popup_html_statistics_reset_button": {
-        "message": "Reiniciar",
+        "message": "Resetar",
         "description": ""
     },
 
     "popup_html_statistics_reset_button_title": {
-        "message": "Reiniciar las estadísticas globales",
+        "message": "Resetar as estatísticas globais",
         "description": ""
     },
 
     "popup_html_rules_status_head": {
-        "message": "Estado de las Reglas",
+        "message": "Estado das regras",
         "description": ""
     },
 
@@ -150,67 +150,67 @@
     },
 
     "popup_html_log_head_title": {
-        "message": "Abrir el registro",
+        "message": "Abrir o registro",
         "description": ""
     },
 
     "core_save_on_disk": {
-        "message": "[ClearURLs]: Guardar en el disco.",
+        "message": "[ClearURLs]: Salvar no disco.",
         "description": ""
     },
 
     "core_error": {
-        "message": "[ClearURLs]: El addon no pudo iniciar.",
+        "message": "[ClearURLs]: A extensão não pode ser inicializada.",
         "description": ""
     },
 
     "configs_switch_statistics": {
-        "message": "Estadísticas",
+        "message": "Estatísticas",
         "description": ""
     },
 
     "configs_switch_statistics_title": {
-        "message": "Activar o desactivar estadísticas",
+        "message": "Ativar ou desativar função de estatísticas",
         "description": ""
     },
 
     "settings_html_page_title": {
-        "message": "Configuracíon de ClearURLs",
+        "message": "Configurações do ClearURLs",
         "description": ""
     },
 
     "badged_color_label": {
-        "message": "Color del contador",
+        "message": "Cor do contador",
         "description": ""
     },
 
     "setting_html_reset_button": {
-        "message": "Reiniciar",
+        "message": "Resetar",
         "description": ""
     },
 
     "setting_html_reset_button_title": {
-        "message": "Reiniciar todo",
+        "message": "Resetar tudo",
         "description": ""
     },
 
     "setting_rule_url_label": {
-        "message": "Url del archivo data.json (reglas)",
+        "message": "Url do arquivo data.json (regras)",
         "description": ""
     },
 
     "settings_html_save_button": {
-        "message": "Guardar y reiniciar",
+        "message": "Salvar e recarregar extensão",
         "description": ""
     },
 
     "settings_html_save_button_title": {
-        "message": "Guardar preferencias",
+        "message": "Salvar configurações",
         "description": ""
     },
 
     "setting_hash_url_label": {
-        "message": "Url del archivo rules.hash (hash)",
+        "message": "Url do arquivo rules.hash (hash)",
         "description": ""
     }
 }
