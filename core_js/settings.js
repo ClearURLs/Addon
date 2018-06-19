@@ -45,6 +45,8 @@ function save()
 {
 
     core(function (ref){
+        ref.setData('badged_color', $('input[name=badged_color]').val());
+        ref.setBadgedStatus();
         ref.setData('ruleURL', $('input[name=rule_url]').val());
         ref.setData('hashURL', $('input[name=hash_url]').val());
         ref.saveOnExit();

@@ -86,14 +86,50 @@ function changeSwitchButton(id, storageID)
 {
     var element = $('#'+id);
 
+    changeVisibility(id, storageID);
+
     element.on('change', function(){
         core(function (ref){
             ref.setData(storageID, element.is(':checked'));
             if(storageID == "globalStatus") ref.changeIcon();
+            changeVisibility(id, storageID);
 
             ref.saveOnExit();
         });
     });
+}
+
+/**
+ * Change the visibility of sections.
+ */
+function changeVisibility(id, storageID)
+{
+    var element;
+
+    switch(storageID)
+    {
+        case "loggingStatus":
+            element = $('#log_section');
+            break;
+        case "statisticsStatus":
+            element = $('#statistic_section');
+            break;
+        default:
+            element = "undefine";
+    }
+
+    if(element != "undefine")
+    {
+        if($('#'+id).is(':checked'))
+        {
+            element.css('display', '');
+            element.css('display', '');
+        }
+        else {
+            element.css('display', 'none');
+            element.css('display', 'none');
+        }
+    }
 }
 
 /**
@@ -122,17 +158,31 @@ function resetGlobalCounter(){
     });
 }
 
-getData();
+if(!browser.extension.inIncognitoContext)
+{
+    getData();
+}
+
 $(document).ready(function(){
-    init();
-    $('#reset_counter_btn').on("click", resetGlobalCounter);
-    changeSwitchButton("globalStatus", "globalStatus");
-    changeSwitchButton("tabcounter", "badgedStatus");
-    changeSwitchButton("logging", "loggingStatus");
-    changeSwitchButton("statistics", "statisticsStatus");
-    $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
-    $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
-    setText();
+    if(!browser.extension.inIncognitoContext)
+    {
+        init();
+        $('#reset_counter_btn').on("click", resetGlobalCounter);
+        changeSwitchButton("globalStatus", "globalStatus");
+        changeSwitchButton("tabcounter", "badgedStatus");
+        changeSwitchButton("logging", "loggingStatus");
+        changeSwitchButton("statistics", "statisticsStatus");
+        $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
+        $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
+        setText();
+    } else {
+        $('#config_section').remove();
+        $('#statistic_section').remove();
+        $('#status_section').remove();
+        $('#log_section').remove();
+        $('#incognito').css('display', '');
+    }
+
 });
 
 /**

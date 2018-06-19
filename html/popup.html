@@ -32,7 +32,18 @@
             </nav>
         </div>
 
-        <div class="row">
+        <div class="row" id="incognito" style="display:none;">
+            <div class="col-sm-1">
+                <b class="text-justify word-wrap" style="color: #FF7800;">
+                    The graphical elements of ClearURLs do not work in Incognito mode.<br />
+                    ClearURLs still cleans all URLs.<br />
+                    If you want to change settings, you must do so in a non-private tab.<br />
+                    These changes will then be taken over here.
+                </b>
+            </div>
+        </div>
+
+        <div class="row" id="config_section">
             <div class="col-sm-1">
                 <a id="settings" target="_blank"><span class="pull-right glyphicon glyphicon-cog"></span></a>
                 <h5><b id="configs_head"></b></h5>
@@ -64,7 +75,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" id="statistic_section">
             <div class="col-sm-1">
                 <h5><b id="statistics_head"></b></h5>
 
@@ -106,7 +117,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="status_section">
         <div class="col-sm-1">
             <h5><b id="rules_status_head"></b></h5>
             <div class="text-center">
@@ -118,7 +129,7 @@
         </div>
     </div>
     <br />
-    <div class="row">
+    <div class="row" id="log_section">
         <div class="col-sm-1">
             <div class="text-center">
                 <a type="button" id="loggingPage" target="_blank"
