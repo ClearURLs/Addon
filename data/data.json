@@ -1,7 +1,7 @@
 {
     "providers": {
         "amazon": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?amazon\\.).*\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(amazon)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "pf_rd_[a-zA-Z]=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -28,14 +28,14 @@
             "redirections": []
         },
         "fls-na.amazon": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(fls-na\\.amazon\\.).*\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(fls-na\\.amazon)(\\.[a-zA-Z]{2,}).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
             "redirections": []
         },
         "google": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?google\\.).*\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(google)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "ved=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -80,14 +80,14 @@
             ]
         },
         "googlesyndication": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(googlesyndication).*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(googlesyndication)(\\.[a-zA-Z]{2,}).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
             "redirections": []
         },
         "doubleclick": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(doubleclick).*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(doubleclick)(\\.[a-zA-Z]{2,}).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
@@ -132,42 +132,42 @@
             "redirections": []
         },
         "adtech": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adtech\\.).*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(adtech)(\\.[a-zA-Z]{2,}).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
             "redirections": []
         },
         "contentpass.net": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(contentpass\\.net).*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(contentpass\\.net).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
             "redirections": []
         },
         "bf-ad": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(bf-ad).*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(bf-ad)(\\.[a-zA-Z]{2,}).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
             "redirections": []
         },
         "amazon-adsystem": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(amazon-adsystem).*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(amazon-adsystem)(\\.[a-zA-Z]{2,}).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
             "redirections": []
         },
         "adsensecustomsearchads": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*(adsensecustomsearchads).*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(adsensecustomsearchads)(\\.[a-zA-Z]{2,}).*",
             "completeProvider": true,
             "rules": [],
             "exceptions": [],
             "redirections": []
         },
         "youtube": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?youtube\\.).*\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(youtube)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "feature=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -178,7 +178,7 @@
             "redirections": []
         },
         "facebook": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?facebook\\.).*\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(facebook)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "hc_location=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
@@ -189,7 +189,7 @@
             "redirections": []
         },
         "twitter": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitter\\.).*\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(twitter)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "(ref_)?src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
@@ -198,7 +198,7 @@
             "redirections": []
         },
         "reddit": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?reddit\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(reddit)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [],
             "exceptions": [],
@@ -208,7 +208,7 @@
         }
         ,
         "netflix": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?netflix\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(netflix)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "trackId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -218,7 +218,7 @@
             "redirections": []
         },
         "techcrunch": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?techcrunch\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?([\\.]?techcrunch\\.com)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "ncid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -229,7 +229,7 @@
             "redirections": []
         },
         "bing": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?bing\\.).*\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(bing)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "cvid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -244,17 +244,17 @@
             "redirections": []
         },
         "tweakers": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?tweakers\\.net)\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(tweakers\\.net)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "nb=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "\\?.*u=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "u=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
         },
         "twitch": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?twitch\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(twitch)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "tt_medium=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -264,7 +264,7 @@
             "redirections": []
         },
         "vivaldi": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?vivaldi\\.com)\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(vivaldi\\.com)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "pk_campaign=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -274,7 +274,7 @@
             "redirections": []
         },
         "indeed": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?indeed\\.com)\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(indeed\\.com)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "from=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -285,7 +285,7 @@
             "redirections": []
         },
         "hhdotru": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?hh\\.ru)\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(hh\\.ru)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "vss=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -301,7 +301,7 @@
             "redirections": []
         },
         "ebay": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?ebay\\.)\\w{2,}\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(ebay)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "_trkparms=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
@@ -311,7 +311,7 @@
             "redirections": []
         },
         "cnet": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?cnet\\.com)\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(cnet\\.com)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "ftag=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
@@ -320,7 +320,7 @@
             "redirections": []
         },
         "imdb.com": {
-            "urlPattern": "(https:\\/\\/||http:\\/\\/).*([\\.]?imdb\\.com)\\/.*",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(imdb\\.com)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "ref_=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
