@@ -248,7 +248,7 @@
             "completeProvider": false,
             "rules": [
                 "nb=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "u=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "\\?.*u=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
