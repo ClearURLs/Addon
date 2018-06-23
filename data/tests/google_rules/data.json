@@ -1,0 +1,333 @@
+{
+    "providers": {
+        "amazon": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(amazon)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "pf_rd_[a-zA-Z]=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "qid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sr=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "srs=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(adsensecustomsearchads\\.com)\\/.*",
+                "pd_rd_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "__mk_[a-zA-Z]{1,3}_[a-zA-Z]{1,3}=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "spIA=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ms3_c=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "[a-zA-Z%0-9]*ie=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "refRID=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "colid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "coliid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "[^a-zA-Z%0-9]adId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "qualifier=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "_encoding=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "smid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [
+                ".*(amazon\\.).*(\\/gp).*\\/redirector.html\\/.*"
+            ],
+            "redirections": []
+        },
+        "fls-na.amazon": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(fls-na\\.amazon)(\\.[a-zA-Z]{2,}).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": []
+        },
+        "google": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(google)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "ved=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "bi[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "gfe_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ei=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "source=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "site=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "&\\.[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "oq=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "esrc=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "uact=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "cd=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "cad=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "gws_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "atyp=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "vet=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "_u=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "je=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "dcr=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ie=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sei=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sa=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "dpr=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [
+                ".*(mail\\.google\\.).*(\\/mail\\/u\\/0)\\/.*",
+                ".*(mail\\.google\\.).*(\\/mail\\/u\\/0)\\/.*",
+                ".*(google\\.).*(\\/upload)?(\\/drive)\\/.*",
+                ".*(docs\\.google\\.).*\\/.*",
+                ".*(accounts\\.google\\.).*",
+                ".*(google\\.).*\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(hangouts\\.google\\.).*\\/webchat.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(client-channel\\.google\\.).*\\/client-channel.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(.google\\.).*\\/complete\\/search\\?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(.google\\.).*\\/s\\?tbm=map.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "redirections": [
+                ".*google\\..*\\/.*url\\?.*url=([^\\/|\\?|&]*)"
+            ]
+        },
+        "googlesyndication": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(googlesyndication)(\\.[a-zA-Z]{2,}).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": []
+        },
+        "doubleclick": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(doubleclick)(\\.[a-zA-Z]{2,}).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": [
+                ".*doubleclick\\..*\\/.*tag_for_child_directed_treatment=;%3F(.*)"
+            ]
+        },
+        "globalRules": {
+            "urlPattern": ".*",
+            "completeProvider": false,
+            "rules": [
+                "utm_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ga_source=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ga_medium=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ga_term=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ga_content=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ga_campaign=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ga_place=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "yclid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "_openstat=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "fb_action_ids=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "fb_action_types=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "fb_source=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "fb_ref=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "action_object_map=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "action_type_map=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "action_ref_map=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "gs_l=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "mkt_tok=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "hmb_campaign=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "hmb_medium=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "hmb_source=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "[\\?|&]ref[\\_]?=[^\\/|\\?|&]*",
+                "\\?$",
+                "\\&$"
+            ],
+            "exceptions": [
+                ".*([\\.]?matrix\\.org)(\\/_matrix)\\/.*",
+                ".*([\\.]?prismic\\.io).*",
+                ".*([\\.]?gitlab\\.com).*"
+            ],
+            "redirections": []
+        },
+        "adtech": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(adtech)(\\.[a-zA-Z]{2,}).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": []
+        },
+        "contentpass.net": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(contentpass\\.net).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": []
+        },
+        "bf-ad": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(bf-ad)(\\.[a-zA-Z]{2,}).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": []
+        },
+        "amazon-adsystem": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(amazon-adsystem)(\\.[a-zA-Z]{2,}).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": []
+        },
+        "adsensecustomsearchads": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(adsensecustomsearchads)(\\.[a-zA-Z]{2,}).*",
+            "completeProvider": true,
+            "rules": [],
+            "exceptions": [],
+            "redirections": []
+        },
+        "youtube": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(youtube)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "feature=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "gclid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "kw=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "facebook": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(facebook)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "hc_location=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [
+                ".*(facebook\\.)\\w{2,}.*(\\/plugins\\/).*"
+            ],
+            "redirections": []
+        },
+        "twitter": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(twitter)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "(ref_)?src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "reddit": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(reddit)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [],
+            "exceptions": [],
+            "redirections": [
+                "out\\.reddit\\.\\w{2,}\\/.*url=([^\\/|\\?|&]*)"
+            ]
+        }
+        ,
+        "netflix": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(netflix)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "trackId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "tctx=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "techcrunch": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?([\\.]?techcrunch\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "ncid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sr=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sr_share=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "bing": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(bing)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "cvid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "form=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sk=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sp=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "sc=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "qs=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "qp=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "tweakers": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(tweakers\\.net)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "nb=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "u=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "twitch": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(twitch)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "tt_medium=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "tt_content=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "vivaldi": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(vivaldi\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "pk_campaign=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "pk_kwd=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "indeed": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(indeed\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "from=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "alid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "[a-zA-Z]*tk=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "hhdotru": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(hh\\.ru)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "vss=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "t=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "swnt=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "grpos=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ptl=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "stl=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "exp=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "plim=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "ebay": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(ebay)(\\.[a-zA-Z]{2,})(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "_trkparms=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "_trksid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "cnet": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(cnet\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "ftag=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "imdb.com": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(imdb\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "ref_=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "pf_rd_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        }
+    }
+}
