@@ -521,7 +521,6 @@ function start(items)
                     * a loop.
                     */
                     if(result.changes){
-                        console.log(result.url);
                         return {
                             redirectUrl: result.url
                         };
