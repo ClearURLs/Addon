@@ -336,6 +336,8 @@ function start(items)
         function removeFieldsFormURL(provider, request)
         {
             var url = request.url;
+            var domain = url.replace(new RegExp("\\?.*", "i"), "");
+            var fields = "";
             var rules = provider.getRules();
             var changes = false;
             var cancel = false;
@@ -357,34 +359,50 @@ function start(items)
                 };
             }
 
-            for (var i = 0; i < rules.length; i++) {
-                var beforReplace = url;
+            /**
+             * Only test for matches, if there are fields that can be cleaned.
+             */
+            if(existsFields(url))
+            {
+                fields = url.replace(new RegExp(".*\\?", "i"), "");
 
-                url = url.replace(new RegExp(rules[i], "i"), "");
+                for (var i = 0; i < rules.length; i++) {
+                    var beforReplace = fields;
 
-                if(beforReplace != url)
-                {
-                    //Log the action
-                    pushToLog(beforReplace, url, rules[i]);
+                    fields = fields.replace(new RegExp(rules[i], "i"), "");
 
-                    if(badges[tabid] == null)
+                    if(beforReplace != fields)
                     {
-                        badges[tabid] = 0;
-                    }
+                        //Log the action
+                        pushToLog(domain+"?"+beforReplace, domain+"?"+fields, rules[i]);
 
-                    increaseURLCounter();
-
-                    if(!checkOSAndroid())
-                    {
-                        if(storage.badgedStatus) {
-                            browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                        }
-                        else
+                        if(badges[tabid] == null)
                         {
-                            browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                            badges[tabid] = 0;
                         }
-                    }
 
+                        increaseURLCounter();
+
+                        if(!checkOSAndroid())
+                        {
+                            if(storage.badgedStatus) {
+                                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                            }
+                            else
+                            {
+                                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                            }
+                        }
+
+                        changes = true;
+                    }
+                }
+                url = domain+"?"+fields;
+            }
+            else {
+                if(domain != url)
+                {
+                    url = domain;
                     changes = true;
                 }
             }
@@ -417,8 +435,6 @@ function start(items)
                 "url": url,
                 "cancel": cancel
             };
-
-
         }
 
         /**
@@ -432,6 +448,19 @@ function start(items)
             var count = matches.length;
 
             return count;
+        }
+
+        /**
+        * Returns true if fields exists.
+        * @param  {String}     url URL as String
+        * @return {boolean}
+        */
+        function existsFields(url)
+        {
+            var matches = (url.match(/\?.+/i) || []);
+            var count = matches.length;
+
+            return (count > 0);
         }
 
         /**
@@ -492,6 +521,7 @@ function start(items)
                     * a loop.
                     */
                     if(result.changes){
+                        console.log(result.url);
                         return {
                             redirectUrl: result.url
                         };
