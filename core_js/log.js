@@ -27,6 +27,11 @@ function getLog()
     core(function (ref){
         log = ref.getData('log');
 
+        // Sort the log | issue #70
+        log.log.sort(function(a,b) {
+            return b.timestamp - a.timestamp;
+        });
+
         var length = Object.keys(log.log).length;
         var row;
         if(length != 0)
