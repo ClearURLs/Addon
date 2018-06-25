@@ -364,7 +364,13 @@ function start(items)
              */
             if(existsFields(url))
             {
-                fields = url.replace(new RegExp(".*\\?", "i"), "");
+                /**
+                 * It must be non-greedy, because by default .* will match
+                 * all ? chars. So the replace function delete everything
+                 * before the last ?. With adding a ? on the quantifier *,
+                 * we fixed this problem.
+                 */
+                fields = url.replace(new RegExp(".*?\\?", "i"), "");
 
                 for (var i = 0; i < rules.length; i++) {
                     var beforReplace = fields;
