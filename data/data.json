@@ -74,8 +74,9 @@
                 ".*(google\\.).*\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(hangouts\\.google\\.).*\\/webchat.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(client-channel\\.google\\.).*\\/client-channel.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(.google\\.).*\\/complete\\/search\\?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(.google\\.).*\\/s\\?tbm=map.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                ".*(google\\.).*\\/complete\\/search\\?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(google\\.).*\\/s\\?tbm=map.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(news\\.google\\.).*\\/\\?hl=.*"
             ],
             "redirections": [
                 ".*google\\..*\\/.*url\\?.*url=([^\\/|\\?|&]*)"
@@ -330,6 +331,16 @@
             ],
             "exceptions": [],
             "redirections": []
+        },
+        "govdelivery.com": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(govdelivery\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [],
+            "exceptions": [],
+            "redirections": [
+                ".*links\\.govdelivery\\.com.*\\/track\\?.*(http:\\/\\/.*)",
+                ".*links\\.govdelivery\\.com.*\\/track\\?.*(https:\\/\\/.*)"
+            ]
         }
     }
 }
