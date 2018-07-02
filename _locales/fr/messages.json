@@ -1,0 +1,216 @@
+{
+    "hash_status_code_1": {
+        "message": "Mise à jour",
+        "description": ""
+    },
+
+    "hash_status_code_2": {
+        "message": "Mis à jour",
+        "description": ""
+    },
+
+    "hash_status_code_3": {
+        "message": "Mise à jour disponible",
+        "description": ""
+    },
+
+    "hash_status_code_4": {
+        "message": "erreur",
+        "description": ""
+    },
+
+    "hash_status_code_5": {
+        "message": "Quelque chose a dysfonctionné, mais quoi ...",
+        "description": ""
+    },
+
+    "log_redirect": {
+        "message": "Ce lien Internet a été redirigé",
+        "description": ""
+    },
+
+    "log_domain_blocked": {
+        "message": "Ce domaine est bloqué",
+        "description": ""
+    },
+
+    "check_os_log": {
+        "message": "[ClearURLs]: Une base de données pour les URL a été ajoutée",
+        "description": ""
+    },
+
+    "log_html_page_title": {
+        "message": "Connexion à partir de ClearURLS",
+        "description": ""
+    },
+
+    "log_html_table_head_1": {
+        "message": "Avant le processus de traitement",
+        "description": ""
+    },
+
+    "log_html_table_head_2": {
+        "message": "Après le processus de traitement. ",
+        "description": ""
+    },
+
+    "log_html_table_head_3": {
+        "message": "Règle",
+        "description": ""
+    },
+
+    "log_html_table_head_4": {
+        "message": "Temps",
+        "description": ""
+    },
+
+    "log_html_reset_button": {
+        "message": "Remise à l’état initial",
+        "description": ""
+    },
+
+    "log_html_reset_button_title": {
+        "message": "Réinitialiser la base de données",
+        "description": ""
+    },
+
+    "popup_html_configs_head": {
+        "message": "Paramétrages",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter": {
+        "message": "Filtre",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_filter_title": {
+        "message": "Le commutateur de l'extension active ou désactive la fonction de nettoyage de ClearURLs",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log": {
+        "message": "Historique",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "message": "L'historique est enregistré localement. Si vous n’avez pas besoin de le consulter, nous déconseillons de l’activer",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges": {
+        "message": "Compteur",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "message": "Nombre de liens Internet nettoyés",
+        "description": ""
+    },
+
+    "popup_html_statistics_head": {
+        "message": "Statistiques",
+        "description": ""
+    },
+
+    "popup_html_statistics_elements": {
+        "message": "Liens Internet",
+        "description": ""
+    },
+
+    "popup_html_statistics_blocked": {
+        "message": "Nb. de bloqué",
+        "description": ""
+    },
+
+    "popup_html_statistics_percentage": {
+        "message": "Pourcentage",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button": {
+        "message": "Remettre à zéro",
+        "description": ""
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "message": "Remettre à zéro le décompte, les statistiques",
+        "description": ""
+    },
+
+    "popup_html_rules_status_head": {
+        "message": "Règles de la base de données",
+        "description": ""
+    },
+
+    "popup_html_log_head": {
+        "message": "Compte-rendu",
+        "description": ""
+    },
+
+    "popup_html_log_head_title": {
+        "message": "Ouvrir le compte-rendu",
+        "description": ""
+    },
+
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Sauvegarder sur le disque",
+        "description": ""
+    },
+
+    "core_error": {
+        "message": "[ClearURLs]: L’extension n’a pu être démarrée",
+        "description": ""
+    },
+
+    "configs_switch_statistics": {
+        "message": "Statistiques",
+        "description": ""
+    },
+
+    "configs_switch_statistics_title": {
+        "message": "Activer ou désactiver les statistiques",
+        "description": ""
+    },
+
+    "settings_html_page_title": {
+        "message": "Paramétrages de ClearURLs",
+        "description": ""
+    },
+
+    "badged_color_label": {
+        "message": "Couleur du compteur",
+        "description": ""
+    },
+
+    "setting_html_reset_button": {
+        "message": "Remettre à l’état initial",
+        "description": ""
+    },
+
+    "setting_html_reset_button_title": {
+        "message": "Réinitialisation de tous les paramètres",
+        "description": ""
+    },
+
+    "setting_rule_url_label": {
+        "message": "Lien Internet du fichier Data (basse de données)",
+        "description": ""
+    },
+
+    "settings_html_save_button": {
+        "message": "Sauvegarder et redémarrer l’extension",
+        "description": ""
+    },
+
+    "settings_html_save_button_title": {
+        "message": "Sauvegarder les paramétrages",
+        "description": ""
+    },
+
+    "setting_hash_url_label": {
+        "message": "Lien Internet du fichier Hash (signature de contrôle)",
+        "description": ""
+    }
+}
