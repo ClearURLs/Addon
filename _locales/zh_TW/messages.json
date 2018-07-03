@@ -84,6 +84,11 @@
         "description": ""
     },
 
+    "popup_html_configs_switch_filter_title": {
+        "message": "此過濾器開關為ClearURLs的主開關, 若此項不打勾, 則本附加元件失效.",
+        "description": ""
+    },
+
     "popup_html_configs_switch_log": {
         "message": "記錄",
         "description": ""
@@ -96,6 +101,11 @@
 
     "popup_html_configs_switch_badges": {
         "message": "徽章",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "message": "顯示已清理數量",
         "description": ""
     },
 
