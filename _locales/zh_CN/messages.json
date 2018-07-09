@@ -84,6 +84,11 @@
         "description": ""
     },
 
+    "popup_html_configs_switch_filter_title": {
+        "message": "此过滤器开关为ClearURLs的主开关, 若此项不勾选, 则本插件失效.",
+        "description": ""
+    },
+
     "popup_html_configs_switch_log": {
         "message": "日志",
         "description": ""
@@ -96,6 +101,11 @@
 
     "popup_html_configs_switch_badges": {
         "message": "徽章",
+        "description": ""
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "message": "显示已清理数量",
         "description": ""
     },
 
@@ -204,4 +214,3 @@
         "description": ""
     }
 }
-
