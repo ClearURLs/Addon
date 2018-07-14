@@ -79,7 +79,7 @@
                 ".*(news\\.google\\.).*\\?hl=.*"
             ],
             "redirections": [
-                ".*google\\..*\\/.*url\\?.*url=([^\\/|\\?|&]*)"
+                ".*google\\..*\\/.*url\\?.*url=(.*)"
             ]
         },
         "googlesyndication": {
@@ -130,7 +130,8 @@
             "exceptions": [
                 ".*([\\.]?matrix\\.org)(\\/_matrix)\\/.*",
                 ".*([\\.]?prismic\\.io).*",
-                ".*([\\.]?gitlab\\.com).*"
+                ".*([\\.]?gitlab\\.com).*",
+                ".*([\\.]?gcsip\\.com).*[\\?|&]ref[\\_]?=[^\\/|\\?|&]*.*"
             ],
             "redirections": []
         },
@@ -206,7 +207,7 @@
             "rules": [],
             "exceptions": [],
             "redirections": [
-                "out\\.reddit\\.\\w{2,}\\/.*url=([^\\/|\\?|&]*)"
+                "out\\.reddit\\.\\w{2,}\\/.*url=(.*)"
             ]
         }
         ,
