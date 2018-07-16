@@ -79,7 +79,7 @@
                 ".*(news\\.google\\.).*\\?hl=.*"
             ],
             "redirections": [
-                ".*google\\..*\\/.*url\\?.*url=(.*)"
+                ".*google\\..*\\/.*url\\?.*url=([^&]*)"
             ]
         },
         "googlesyndication": {
@@ -207,7 +207,7 @@
             "rules": [],
             "exceptions": [],
             "redirections": [
-                "out\\.reddit\\.\\w{2,}\\/.*url=(.*)"
+                "out\\.reddit\\.\\w{2,}\\/.*url=([^&]*)"
             ]
         }
         ,
