@@ -212,5 +212,10 @@
     "setting_hash_url_label": {
         "message": "The url to the rules.hash file (hash)",
         "description": ""
+    },
+
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
+        "description": ""
     }
 }

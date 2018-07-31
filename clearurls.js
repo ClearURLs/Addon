@@ -635,7 +635,7 @@ function start(items)
         */
         browser.webRequest.onBeforeRequest.addListener(
             promise,
-            {urls: ["<all_urls>"]},
+            {urls: ["<all_urls>"], types: getData("types")},
             ["blocking"]
         );
     });
@@ -724,6 +724,9 @@ function saveOnExit()
             case "log":
             json[key] = JSON.stringify(value);
             break;
+            case "types":
+            json[key] = value.toString();
+            break;
             default:
             json[key] = value;
         }
@@ -775,6 +778,9 @@ function setData(key, value)
         case "hashURL":
         case "ruleURL":
         storage[key] = replaceOldGithubURLs(value);
+        break;
+        case "types":
+        storage[key] = value.split(',');
         break;
         default:
         storage[key] = value;
@@ -833,6 +839,7 @@ function initSettings()
     storage.badged_color = "ffa500";
     storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
     storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
+    storage.types = ["main_frame", "sub_frame", "xmlhttprequest"];
 }
 
 /**

@@ -43,12 +43,12 @@ function reset()
  */
 function save()
 {
-
     core(function (ref){
         ref.setData('badged_color', $('input[name=badged_color]').val());
         ref.setBadgedStatus();
         ref.setData('ruleURL', $('input[name=rule_url]').val());
         ref.setData('hashURL', $('input[name=hash_url]').val());
+        ref.setData('types', $('input[name=types]').val());
         ref.saveOnExit();
         ref.reload();
     });
@@ -75,6 +75,7 @@ function getData()
         settings.badged_color = ref.getData('badged_color');
         settings.rule_url = ref.getData('ruleURL');
         settings.hash_url = ref.getData('hashURL');
+        settings.types = ref.getData('types');
     });
 }
 
@@ -93,6 +94,8 @@ function setText()
     $('input[name=rule_url]').val(settings.rule_url);
     $('#hash_url_label').text(translate('setting_hash_url_label'));
     $('input[name=hash_url]').val(settings.hash_url);
+    $('#types_label').html(translate('setting_types_label'));
+    $('input[name=types]').val(settings.types);
     $('#save_settings_btn').text(translate('settings_html_save_button'));
     $('#save_settings_btn').prop('title', translate('settings_html_save_button_title'));
 }
