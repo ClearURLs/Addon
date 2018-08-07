@@ -120,7 +120,7 @@
     },
 
     "popup_html_statistics_blocked": {
-        "message": "Nb. de bloqué",
+        "message": "Nb. de bloqués",
         "description": ""
     },
 
@@ -211,6 +211,11 @@
 
     "setting_hash_url_label": {
         "message": "Lien Internet du fichier Hash (signature de contrôle)",
+        "description": ""
+    },
+
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Demande de données (webRequest)</a> (Uniquement si vous maitrisez la programmation)",
         "description": ""
     }
 }
