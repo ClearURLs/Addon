@@ -252,10 +252,14 @@ function reportURL()
     $.ajax({
         url: reportServer+'/report_url.php?url='+encodeURI(currentURL),
         success: function(result) {
-            window.alert(translate('success_report_url'));
+            BootstrapDialog.show({
+                message: translate('success_report_url')
+            });
         },
         error: function(result) {
-            window.alert(translate('error_report_url'));
+            BootstrapDialog.show({
+                message: translate('error_report_url')
+            });
         }
     });
 }

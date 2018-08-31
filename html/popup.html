@@ -8,6 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-dialog.min.css">
     <link rel="stylesheet" type="text/css" href="../css/switchButtons.css">
     <link rel="stylesheet" type="text/css" href="../css/core.css">
 </head>
@@ -42,7 +43,7 @@
                 </b>
             </div>
         </div>
-
+        <div id="dialog"></div>
         <div class="row" id="config_section">
             <div class="col-sm-1">
                 <a id="settings" target="_blank"><span class="pull-right glyphicon glyphicon-cog"></span></a>
@@ -122,7 +123,7 @@
             <h5><b id="rules_status_head"></b></h5>
             <div class="text-center">
                 <a href="https://gitlab.com/KevinRoebert/ClearUrls/commits/master/data/data.json"
-                id="hashStatus" class="btn btn-primary btn-xs"></a>
+                id="hashStatus" class="btn btn-primary btn-xs" target="_blank"></a>
             </div>
             <div class="clearfix"></div>
             <br />
@@ -151,8 +152,10 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script type="application/javascript" src="../browser-polyfill.js"></script>
 <script src="../external_js/jquery-3.2.1.min.js"></script>
 <script src="../external_js/bootstrap.min.js"></script>
+<script src="../external_js/bootstrap-dialog.min.js"></script>
 <script src="../core_js/popup_new.js"></script>
 <script src="../core_js/write_version.js"></script>
 </body>

@@ -1,44 +1,39 @@
 {
     "manifest_version": 2,
     "name": "ClearURLs",
-    "version": "1.3.3.12",
+    "version": "1.3.3.13",
     "author": "Kevin R.",
     "description": "Remove tracking elements form URLs.",
     "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
     "default_locale": "en",
-    "applications": {
-        "gecko": {
-            "id":   "{74145f27-f039-47ce-a470-a662b129930a}"
-        }
-    },
     "icons": {
-        "16": "img/clearurls.svg",
-        "19": "img/clearurls.svg",
-        "20": "img/clearurls.svg",
-        "24": "img/clearurls.svg",
-        "30": "img/clearurls.svg",
-        "32": "img/clearurls.svg",
-        "38": "img/clearurls.svg",
-        "48": "img/clearurls.svg",
-        "64": "img/clearurls.svg",
-        "96": "img/clearurls.svg",
-        "128": "img/clearurls.svg"
+        "16": "img/clearurls.png",
+        "19": "img/clearurls.png",
+        "20": "img/clearurls.png",
+        "24": "img/clearurls.png",
+        "30": "img/clearurls.png",
+        "32": "img/clearurls.png",
+        "38": "img/clearurls.png",
+        "48": "img/clearurls.png",
+        "64": "img/clearurls.png",
+        "96": "img/clearurls.png",
+        "128": "img/clearurls.png"
 
     },
     "browser_action": {
         "browser_style": true,
         "default_icon": {
-            "16": "img/clearurls.svg",
-			"19": "img/clearurls.svg",
-			"20": "img/clearurls.svg",
-			"24": "img/clearurls.svg",
-			"30": "img/clearurls.svg",
-			"32": "img/clearurls.svg",
-			"38": "img/clearurls.svg",
-			"48": "img/clearurls.svg",
-			"64": "img/clearurls.svg",
-			"96": "img/clearurls.svg",
-			"128": "img/clearurls.svg"
+            "16": "img/clearurls.png",
+			"19": "img/clearurls.png",
+			"20": "img/clearurls.png",
+			"24": "img/clearurls.png",
+			"30": "img/clearurls.png",
+			"32": "img/clearurls.png",
+			"38": "img/clearurls.png",
+			"48": "img/clearurls.png",
+			"64": "img/clearurls.png",
+			"96": "img/clearurls.png",
+			"128": "img/clearurls.png"
 
         },
         "default_title": "ClearURLs Add-on",
