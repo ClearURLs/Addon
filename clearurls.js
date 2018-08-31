@@ -11,6 +11,7 @@ var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
 var localDataHash;
 var os;
+var currentURL;
 
 var storage = [];
 
@@ -580,6 +581,7 @@ function start(items)
             {
                 delete badges[tabId];
             }
+            currentURL = tabInfo.url;
         }
 
         /**
@@ -592,6 +594,9 @@ function start(items)
         */
         function handleActivated(activeInfo) {
             tabid = activeInfo.tabId;
+            browser.tabs.get(tabid).then(function (tab) {
+                currentURL = tab.url;
+            });
         }
 
         /**
@@ -840,6 +845,7 @@ function initSettings()
     storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
     storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
     storage.types = ["main_frame", "sub_frame", "xmlhttprequest"];
+    storage.reportServer = "https://clearurls.xn--rb-fka.it";
 }
 
 /**
@@ -874,4 +880,13 @@ function replaceOldGithubURLs(url)
 function isEmpty(obj)
 {
     return (Object.getOwnPropertyNames(obj).length === 0);
+}
+
+/**
+ * Returns the current URL.
+ * @return {String} [description]
+ */
+function getCurrentURL()
+{
+    return currentURL;
 }

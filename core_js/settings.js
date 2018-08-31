@@ -49,6 +49,7 @@ function save()
         ref.setData('ruleURL', $('input[name=rule_url]').val());
         ref.setData('hashURL', $('input[name=hash_url]').val());
         ref.setData('types', $('input[name=types]').val());
+        ref.setData('reportServer', $('input[name=report_server]').val());
         ref.saveOnExit();
         ref.reload();
     });
@@ -76,6 +77,7 @@ function getData()
         settings.rule_url = ref.getData('ruleURL');
         settings.hash_url = ref.getData('hashURL');
         settings.types = ref.getData('types');
+        settings.reportServer = ref.getData('reportServer');
     });
 }
 
@@ -98,4 +100,6 @@ function setText()
     $('input[name=types]').val(settings.types);
     $('#save_settings_btn').text(translate('settings_html_save_button'));
     $('#save_settings_btn').prop('title', translate('settings_html_save_button_title'));
+    $('#report_server_label').html(translate('setting_report_server_label'));
+    $('input[name=report_server]').val(settings.reportServer);
 }

@@ -154,6 +154,16 @@
         "description": ""
     },
 
+    "popup_html_report_button": {
+        "message": "Aktuelle URL melden",
+        "description": ""
+    },
+
+    "popup_html_report_button_title": {
+        "message": "Meldet die aktuelle URL aus diesem Tab.",
+        "description": ""
+    },
+
     "core_save_on_disk": {
         "message": "[ClearURLs]: Auf Festplatte gespeichert.",
         "description": ""
@@ -216,6 +226,21 @@
 
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (Expertenniveau)",
+        "description": ""
+    },
+
+    "setting_report_server_label": {
+        "message": "Meldungsserver für URLs",
+        "description": ""
+    },
+
+    "success_report_url": {
+        "message": "Die URL wurde erfolgreich gemeldet. Wir werden sie in Kürze prüfen.",
+        "description": ""
+    },
+
+    "error_report_url": {
+        "message": "Es schaut so aus, als ob diese URL schon gemeldet wurde.",
         "description": ""
     }
 }

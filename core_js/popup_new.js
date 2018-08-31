@@ -11,6 +11,8 @@ var badgedStatus;
 var hashStatus;
 var loggingStatus;
 var statisticsStatus;
+var currentURL;
+var reportServer;
 
 var core = function (func) {
     return browser.runtime.getBackgroundPage().then(func);
@@ -26,6 +28,8 @@ function getData()
         hashStatus = ref.getData('hashStatus');
         loggingStatus = ref.getData('loggingStatus');
         statisticsStatus = ref.getData('statisticsStatus');
+        currentURL = ref.getCurrentURL();
+        reportServer = ref.getData('reportServer');
     });
 }
 
@@ -174,6 +178,7 @@ $(document).ready(function(){
         changeSwitchButton("statistics", "statisticsStatus");
         $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
         $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
+        $('#reportButton').on("click", reportURL);
         setText();
     } else {
         $('#config_section').remove();
@@ -202,6 +207,7 @@ function setText()
     injectText('configs_switch_filter','popup_html_configs_switch_filter');
     injectText('configs_head','popup_html_configs_head');
     injectText('configs_switch_statistics','configs_switch_statistics');
+    injectText('reportButton', 'popup_html_report_button', true);
 }
 
 /**
@@ -236,4 +242,20 @@ function injectText(id, attribute, tooltip)
 function translate(string)
 {
     return browser.i18n.getMessage(string);
+}
+
+/**
+ * Send the url to the DB on clearurls.röb.it to checked for tracking fields.
+ */
+function reportURL()
+{
+    $.ajax({
+        url: reportServer+'/report_url.php?url='+encodeURI(currentURL),
+        success: function(result) {
+            window.alert(translate('success_report_url'));
+        },
+        error: function(result) {
+            window.alert(translate('error_report_url'));
+        }
+    });
 }

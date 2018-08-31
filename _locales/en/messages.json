@@ -154,6 +154,16 @@
         "description": ""
     },
 
+    "popup_html_report_button": {
+        "message": "Report current URL",
+        "description": ""
+    },
+
+    "popup_html_report_button_title": {
+        "message": "Report the current URL from this tab.",
+        "description": ""
+    },
+
     "core_save_on_disk": {
         "message": "[ClearURLs]: Save on disk.",
         "description": ""
@@ -216,6 +226,21 @@
 
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
+        "description": ""
+    },
+
+    "setting_report_server_label": {
+        "message": "Report server for URLs",
+        "description": ""
+    },
+
+    "success_report_url": {
+        "message": "The URL was successfully reported. We will check this URL soon.",
+        "description": ""
+    },
+
+    "error_report_url": {
+        "message": "It seems like this URL has already been reported.",
         "description": ""
     }
 }
