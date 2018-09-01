@@ -345,7 +345,7 @@
             ]
         },
         "walmart.com": {
-            "urlPattern": "",
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(walmart\\.com)(.*\\?.*)",
             "completeProvider": false,
             "rules": [
                 "u1=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
