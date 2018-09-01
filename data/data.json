@@ -343,6 +343,16 @@
                 ".*links\\.govdelivery\\.com.*\\/track\\?.*(http:\\/\\/.*)",
                 ".*links\\.govdelivery\\.com.*\\/track\\?.*(https:\\/\\/.*)"
             ]
+        },
+        "walmart.com": {
+            "urlPattern": "",
+            "completeProvider": false,
+            "rules": [
+                "u1=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ath[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
