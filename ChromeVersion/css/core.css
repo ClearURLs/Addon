@@ -1,6 +1,5 @@
 body {
     font-size: 13px;
-    width: 200px;
 }
 
 .small-version {
@@ -14,4 +13,8 @@ body {
 
 .col-sm-1 {
     margin-top: -10px;
+}
+
+#body-popup {
+    width: 200px;
 }
