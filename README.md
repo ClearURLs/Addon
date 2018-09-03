@@ -5,7 +5,7 @@
 
 [![Mozilla Add-on](https://img.shields.io/amo/users/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/statistics/?last=30)
 
-**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox*.
+**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and now also available for *Chrome* based browsers.
 
 This add-on will remove the tracking fields from all URLs which are visited by the browser and use a rule file, namely `data.json`.
 
@@ -15,7 +15,9 @@ This add-on protects your privacy and block the request from advertising service
 Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL.
 
 ## Installation
-[![Mozilla Add-on](https://img.shields.io/amo/d/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
+Mozilla Add-on: [![Mozilla Add-on](https://img.shields.io/amo/d/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
+
+[Chrome Add-on](https://gitlab.com/KevinRoebert/ClearUrls/tags?utf8=%E2%9C%93&search=_cv)
 
 ## Contribute
 If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
@@ -25,6 +27,9 @@ If you have any suggestions or complaints, please [create an issue.](https://git
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
+-   [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill) |
+    Copyright by Mozilla |
+    [MPL-2.0](https://github.com/mozilla/webextension-polyfill/blob/master/LICENSE)
 -   [Bootstrap v3.3.7 ](http://getbootstrap.com) |
     Copyright 2011-2016 Twitter, Inc. |
     [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
