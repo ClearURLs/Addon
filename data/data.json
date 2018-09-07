@@ -354,6 +354,24 @@
             ],
             "exceptions": [],
             "redirections": []
+        },
+        "net-parade.it": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(net\\-parade\\.it)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "pl=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "prvnizpravy.cz": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(prvnizpravy\\.cz)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "xid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
