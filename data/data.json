@@ -186,7 +186,8 @@
             "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(facebook)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
-                "hc_location=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "hc_location=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "ref=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(facebook\\.)\\w{2,}.*(\\/plugins\\/).*"
