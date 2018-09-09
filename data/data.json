@@ -218,7 +218,8 @@
             "completeProvider": false,
             "rules": [
                 "trackId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "tctx=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "tctx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "jb[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
