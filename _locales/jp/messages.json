@@ -1,0 +1,246 @@
+{
+    "hash_status_code_1": {
+        "description": "up to date",
+        "message": "最新の"
+    },
+
+    "hash_status_code_2": {
+        "description": "updated",
+        "message": "更新する"
+    },
+
+    "hash_status_code_3": {
+        "description": "update available",
+        "message": "利用可能な更新"
+    },
+
+    "hash_status_code_4": {
+        "description": "error",
+        "message": "エラー"
+    },
+
+    "hash_status_code_5": {
+        "description": "Oops something went wrong!",
+        "message": "おっと！何かが間違っていた！"
+    },
+
+    "log_redirect": {
+        "description": "This url is redirected",
+        "message": "この URL はリダイレクトされます"
+    },
+
+    "log_domain_blocked": {
+        "description": "This domain is blocked",
+        "message": "このドメインはブロックされています"
+    },
+
+    "check_os_log": {
+        "description": "[ClearURLs]: Log listener is added.",
+        "message": "[ClearURLs]：ログリスナーが追加されました。"
+    },
+
+    "log_html_page_title": {
+        "description": "Log from ClearURLs",
+        "message": "ClearURLs からのログ"
+    },
+
+    "log_html_table_head_1": {
+        "description": "Before processing",
+        "message": "処理する前に"
+    },
+
+    "log_html_table_head_2": {
+        "description": "After processing",
+        "message": "処理後"
+    },
+
+    "log_html_table_head_3": {
+        "description": "Rule",
+        "message": "規則"
+    },
+
+    "log_html_table_head_4": {
+        "description": "Time",
+        "message": "時間"
+    },
+
+    "log_html_reset_button": {
+        "description": "Reset",
+        "message": "リセットする"
+    },
+
+    "log_html_reset_button_title": {
+        "description": "Reset the global log",
+        "message": "グローバルログをリセットする"
+    },
+
+    "popup_html_configs_head": {
+        "description": "Configs",
+        "message": "設定"
+    },
+
+    "popup_html_configs_switch_filter": {
+        "description": "Filter",
+        "message": "フィルター"
+    },
+
+    "popup_html_configs_switch_filter_title": {
+        "description": "The filters switch activates the cleaning functionality of ClearURLs. If you disable this option, the whole addon is disabled",
+        "message": "フィルタースイッチは、ClearURL のクリーニング機能を有効にします。 このオプションを無効にすると、アドオン全体が無効になります。"
+    },
+
+    "popup_html_configs_switch_log": {
+        "description": "Logging",
+        "message": "追跡記録"
+    },
+
+    "popup_html_configs_switch_log_title": {
+        "description": "The log is saved only locally. We advise against this feature if you do not need it",
+        "message": "ログはローカルにのみ保存されます。この機能が必要ない場合は、この機能を無効にすることをおすすめします。"
+    },
+
+    "popup_html_configs_switch_badges": {
+        "description": "Badges",
+        "message": "バッジ"
+    },
+
+    "popup_html_configs_switch_badges_title": {
+        "description": "Show number of cleaned urls",
+        "message": "消去された URL の数を表示する"
+    },
+
+    "popup_html_statistics_head": {
+        "description": "Statistics",
+        "message": "統計"
+    },
+
+    "popup_html_statistics_elements": {
+        "description": "Elements",
+        "message": "要素"
+    },
+
+    "popup_html_statistics_blocked": {
+        "description": "Blocked",
+        "message": "ブロックされた"
+    },
+
+    "popup_html_statistics_percentage": {
+        "description": "Percentage",
+        "message": "パーセンテージ"
+    },
+
+    "popup_html_statistics_reset_button": {
+        "description": "Reset",
+        "message": "リセットする"
+    },
+
+    "popup_html_statistics_reset_button_title": {
+        "description": "Reset the global statistics",
+        "message": "グローバル統計をリセットする"
+    },
+
+    "popup_html_rules_status_head": {
+        "description": "Rules-Status",
+        "message": "ルール・ステータス"
+    },
+
+    "popup_html_log_head": {
+        "description": "Log",
+        "message": "記録を取る"
+    },
+
+    "popup_html_log_head_title": {
+        "description": "Open the log",
+        "message": "記録を開く"
+    },
+
+    "popup_html_report_button": {
+        "description": "Report current URL",
+        "message": "現在の URL を報告する"
+    },
+
+    "popup_html_report_button_title": {
+        "description": "Report the current URL from this tab.",
+        "message": "このタブから現在の URL を報告してください。"
+    },
+
+    "core_save_on_disk": {
+        "description": "[ClearURLs]: Save on disk.",
+        "message": "[ClearURLs]：ディスクに保存します。"
+    },
+
+    "core_error": {
+        "description": "[ClearURLs]: The addon could not started.",
+        "message": "[ClearURLs]：アドオンを開始できませんでした。"
+    },
+
+    "configs_switch_statistics": {
+        "description": "Statistics",
+        "message": "統計"
+    },
+
+    "configs_switch_statistics_title": {
+        "description": "Activate or deactivate the statistics function",
+        "message": "統計機能を有効または無効にする"
+    },
+
+    "settings_html_page_title": {
+        "description": "Settings from ClearURLs",
+        "message": "ClearURL からの設定"
+    },
+
+    "badged_color_label": {
+        "description": "Badged color",
+        "message": "バッジの色"
+    },
+
+    "setting_html_reset_button": {
+        "description": "Reset",
+        "message": "リセットする"
+    },
+
+    "setting_html_reset_button_title": {
+        "description": "Reset everything",
+        "message": "すべてをリセットする"
+    },
+
+    "setting_rule_url_label": {
+        "description": "The url to the data.json file (rules)",
+        "message": "data.json ファイルへの URL（ルール）"
+    },
+
+    "settings_html_save_button": {
+        "description": "Save & reload addon",
+        "message": "アドオンの保存と再読み込み"
+    },
+
+    "settings_html_save_button_title": {
+        "description": "Saves the settings",
+        "message": "設定を保存します。"
+    },
+
+    "setting_hash_url_label": {
+        "description": "The url to the rules.hash file (hash)",
+        "message": "rules.hash ファイル（ハッシュ）への URL"
+    },
+
+    "setting_types_label": {
+        "description": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'> リクエストタイプ</a> （エキスパートレベル）"
+    },
+
+    "setting_report_server_label": {
+        "description": "Report server for URLs",
+        "message": "URL のサーバーを報告する"
+    },
+
+    "success_report_url": {
+        "description": "The URL was successfully reported. We will check this URL soon.",
+        "message": "URL は正常に報告されました。 我々はすぐに、この URL をチェックします。"
+    },
+
+    "error_report_url": {
+        "description": "It seems like this URL has already been reported.",
+        "message": "この URL は既に報告されているようです。"
+    }
+}
