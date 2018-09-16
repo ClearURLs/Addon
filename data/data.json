@@ -66,8 +66,7 @@
                 "btnG=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
-                ".*(mail\\.google\\.).*(\\/mail\\/u\\/0)\\/.*",
-                ".*(mail\\.google\\.).*(\\/mail\\/u\\/0)\\/.*",
+                ".*(mail\\.google\\.).*(\\/mail\\/u\\/0).*",
                 ".*(google\\.).*(\\/upload)?(\\/drive)\\/.*",
                 ".*(docs\\.google\\.).*\\/.*",
                 ".*(accounts\\.google\\.).*",
