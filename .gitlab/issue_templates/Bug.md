@@ -36,6 +36,7 @@ You do not have to reinstall Firefox or disable all addons. You can just create 
 * **Version**: [compulsory. you must provide your version]
 * **Platform**: [either `uname -a` output, or if Windows, version and 32-bit or
   64-bit]
+* **Country**: [The country from which you called the page. You can found your country here: http://ip-api.com/json/?fields=country]
 
 ### Log
 <!-- Please enable the log functionality of ClearURLs and copy your log into this table. -->
