@@ -63,7 +63,7 @@
                 "sa=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "dpr=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "hl=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "btnG=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "btn[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(mail\\.google\\.).*(\\/mail\\/u\\/0).*",
@@ -73,9 +73,10 @@
                 ".*(google\\.).*\\/searchbyimage\\?image_url=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(hangouts\\.google\\.).*\\/webchat.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(client-channel\\.google\\.).*\\/client-channel.*zx=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(google\\.).*\\/complete\\/search\\?client=youtube.*gs_gbg=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(google\\.).*\\/complete\\/search\\?.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(google\\.).*\\/s\\?tbm=map.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                ".*(news\\.google\\.).*\\?hl=.*"
+                ".*(news\\.google\\.).*\\?hl=.*",
+                ".*(google\\.).*\\/setprefs\\?.*hl=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "redirections": [
                 ".*google\\..*\\/.*url\\?.*url=([^&]*)"
