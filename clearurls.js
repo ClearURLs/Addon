@@ -20,6 +20,7 @@ getDataFromDisk();
 function start(items)
 {
     initStorage(items);
+    changeIcon();
 
     /**
     * Save OS Version
