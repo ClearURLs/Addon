@@ -208,6 +208,7 @@ function setText()
     injectText('configs_head','popup_html_configs_head');
     injectText('configs_switch_statistics','configs_switch_statistics');
     injectText('reportButton', 'popup_html_report_button', true);
+    $('#donate').prop('title', translate('donate_button'));
 }
 
 /**

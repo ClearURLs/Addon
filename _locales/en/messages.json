@@ -242,5 +242,10 @@
     "error_report_url": {
         "message": "It seems like this URL has already been reported.",
         "description": ""
+    },
+
+    "donate_button": {
+        "message": "A donation for the ClearURLs creator.",
+        "description": ""
     }
 }

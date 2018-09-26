@@ -242,5 +242,10 @@
     "error_report_url": {
         "message": "Es schaut so aus, als ob diese URL schon gemeldet wurde.",
         "description": ""
+    },
+
+    "donate_button": {
+        "message": "Eine Spende (Schenkung) für den ClearURLs Urheber.",
+        "description": ""
     }
 }

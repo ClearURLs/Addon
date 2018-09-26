@@ -14,3 +14,13 @@ body {
 .col-sm-1 {
     margin-top: -10px;
 }
+
+#donate {
+    transition: 0.3s;
+    opacity: 0.8;
+    color: red;
+}
+
+#donate:hover {
+    opacity: 1;
+}
