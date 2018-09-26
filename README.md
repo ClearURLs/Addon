@@ -25,7 +25,7 @@ If you have any suggestions or complaints, please [create an issue.](https://git
 ## Screenshot
 ![Interface (version 1.2.2.x)](https://gitlab.com/KevinRoebert/ClearUrls/raw/48b8b9e994eb2535b11106dcd766097d55b493dd/promotion/screens/Popup_v_1.2.2.8.png)
 
-![> 10k downloads](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/ClearURLs%2010k%20downloads.jpg)
+![> 10k downloads](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/ClearURLs%2010k%20downloads.jpg =500x700)
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
