@@ -20,7 +20,8 @@
                 "[^a-zA-Z%0-9]adId=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "qualifier=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "_encoding=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "smid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "smid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "field-lbr_brands_browse-bin=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(amazon\\.).*(\\/gp).*\\/redirector.html\\/.*"
@@ -186,8 +187,9 @@
             "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(facebook)(\\.[a-zA-Z]{2,})(.*\\?.*)",
             "completeProvider": false,
             "rules": [
-                "hc_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "[a-zA-Z]*ref[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "hc_[a-zA-Z_\\[\\]0-9]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "[a-zA-Z]*ref[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "__tn__=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(facebook\\.)\\w{2,}.*(\\/plugins\\/).*"
@@ -312,7 +314,8 @@
             "completeProvider": false,
             "rules": [
                 "_trkparms=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "_trksid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "_trksid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "_from=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
@@ -370,6 +373,34 @@
             "completeProvider": false,
             "rules": [
                 "xid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "youku.com": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(youku\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "spm=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "tpa=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "nytimes.com": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(nytimes\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "smid=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
+        },
+        "tchibo.de": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(tchibo\\.de)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "wbdcd=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [],
             "redirections": []
