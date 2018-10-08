@@ -845,7 +845,7 @@ function initSettings()
     storage.badged_color = "ffa500";
     storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
     storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
-    storage.types = ["main_frame", "sub_frame", "xmlhttprequest"];
+    storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
     storage.reportServer = "https://clearurls.xn--rb-fka.it";
 }
 

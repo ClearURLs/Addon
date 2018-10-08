@@ -40,7 +40,7 @@
     },
 
     "log_html_page_title": {
-        "message": "Connexion à partir de ClearURLS",
+        "message": "Connexion à partir de ClearURLs",
         "description": ""
     },
 
@@ -154,6 +154,16 @@
         "description": ""
     },
 
+    "popup_html_report_button": {
+        "message": "Signaler cette URL",
+        "description": ""
+    },
+
+    "popup_html_report_button_title": {
+        "message": "Signaler le dysfonctionnement sur cette URL",
+        "description": ""
+    },
+
     "core_save_on_disk": {
         "message": "[ClearURLs]: Sauvegarder sur le disque",
         "description": ""
@@ -216,6 +226,26 @@
 
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Demande de données (webRequest)</a> (Uniquement si vous maitrisez la programmation)",
+        "description": ""
+    },
+
+    "setting_report_server_label": {
+        "message": "Serveur pour signaler des URLs",
+        "description": ""
+    },
+
+    "success_report_url": {
+        "message": "Nous avons reçu votre signalement. Nous allons vérifier cette URL",
+        "description": ""
+    },
+
+    "error_report_url": {
+        "message": "Il semble que cette URL a déjà été signalée",
+        "description": ""
+    },
+
+    "donate_button": {
+        "message": "Subventionner le développeur de ClearURLs",
         "description": ""
     }
 }
