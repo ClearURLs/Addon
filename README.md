@@ -23,7 +23,7 @@ Mozilla Add-on: [![Mozilla Add-on](https://img.shields.io/amo/d/clearurls.svg)](
 If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
 
 ## Screenshot
-![Interface (version 1.2.2.x)](https://gitlab.com/KevinRoebert/ClearUrls/raw/48b8b9e994eb2535b11106dcd766097d55b493dd/promotion/screens/Popup_v_1.2.2.8.png)
+![Interface (version 1.3.4.x)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_v_1.3.4.0.png)
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
