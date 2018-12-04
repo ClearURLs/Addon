@@ -82,7 +82,8 @@
                 ".*(google\\.).*\\/complete\\/search\\?.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(google\\.).*\\/s\\?tbm=map.*gs_[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 ".*(news\\.google\\.).*\\?hl=.*",
-                ".*(google\\.).*\\/setprefs\\?.*hl=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                ".*(google\\.).*\\/setprefs\\?.*hl=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                ".*(google\\.).*\\/appsactivity\\/.*"
             ],
             "redirections": [
                 ".*google\\..*\\/.*url\\?.*url=((https%3A%2F%2F|http%3A%2F%2F)[^&]*)"
