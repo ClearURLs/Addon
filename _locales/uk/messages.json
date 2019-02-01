@@ -3,214 +3,200 @@
         "message": "не потребує оновлення",
         "description": ""
     },
-
     "hash_status_code_2": {
         "message": "оновлено",
         "description": ""
     },
-
     "hash_status_code_3": {
         "message": "наявне оновлення",
         "description": ""
     },
-
     "hash_status_code_4": {
         "message": "помилка",
         "description": ""
     },
-
     "hash_status_code_5": {
         "message": "Ой, щось не так!",
         "description": ""
     },
-
     "log_redirect": {
-        "message": "Цей URL перенаправляється",
+        "message": "Ця URL-адреса перенаправляється",
         "description": ""
     },
-
     "log_domain_blocked": {
         "message": "Цей домен заблоковано",
         "description": ""
     },
-
     "check_os_log": {
-        "message": "[ClearURLs]: Лог listener додано.",
+        "message": "[ClearURLs]: listener журналу додано.",
         "description": ""
     },
-
     "log_html_page_title": {
-        "message": "Лог ClearURLs",
+        "message": "Журнал ClearURLs",
         "description": ""
     },
-
     "log_html_table_head_1": {
         "message": "Перед обробкою",
         "description": ""
     },
-
     "log_html_table_head_2": {
         "message": "Після обробки",
         "description": ""
     },
-
     "log_html_table_head_3": {
         "message": "Правило",
         "description": ""
     },
-
     "log_html_table_head_4": {
         "message": "Час",
         "description": ""
     },
-
     "log_html_reset_button": {
-        "message": "Скидання",
+        "message": "Скинути",
         "description": ""
     },
-
     "log_html_reset_button_title": {
-        "message": "Скидання глобального логу",
+        "message": "Скидання глобального журналу",
         "description": ""
     },
-
     "popup_html_configs_head": {
         "message": "Налаштування",
         "description": ""
     },
-
     "popup_html_configs_switch_filter": {
         "message": "Фільтр",
         "description": ""
     },
-
     "popup_html_configs_switch_filter_title": {
-        "message": "Активує функцію очищення URL. Якщо вимкнути - аддон не працюватиме",
+        "message": "Активує функцію очищення ClearURLs. Якщо вимкнути - додаток не працюватиме",
         "description": ""
     },
-
     "popup_html_configs_switch_log": {
-        "message": "Логування",
+        "message": "Журнал",
         "description": ""
     },
-
     "popup_html_configs_switch_log_title": {
-        "message": "Лог зберігається лише локально. Не активуйте цю функцію, якщо вона вам не потрібна.",
+        "message": "Журнал зберігається лише локально. Не активуйте цю функцію, якщо вона вам не потрібна",
         "description": ""
     },
-
     "popup_html_configs_switch_badges": {
-        "message": "Значки",
+        "message": "Позначки",
         "description": ""
     },
-
     "popup_html_configs_switch_badges_title": {
         "message": "Показати кількість очищених URL",
         "description": ""
     },
-
     "popup_html_statistics_head": {
         "message": "Статистика",
         "description": ""
     },
-
     "popup_html_statistics_elements": {
         "message": "Елементи",
         "description": ""
     },
-
     "popup_html_statistics_blocked": {
         "message": "Заблоковано",
         "description": ""
     },
-
     "popup_html_statistics_percentage": {
         "message": "Відсоток",
         "description": ""
     },
-
     "popup_html_statistics_reset_button": {
         "message": "Скинути",
         "description": ""
     },
-
     "popup_html_statistics_reset_button_title": {
         "message": "Скидання глобальної статистики",
         "description": ""
     },
-
     "popup_html_rules_status_head": {
         "message": "Актуальність правил",
         "description": ""
     },
-
     "popup_html_log_head": {
-        "message": "Лог",
+        "message": "Журнал",
         "description": ""
     },
-
     "popup_html_log_head_title": {
-        "message": "Відкрити лог",
+        "message": "Відкрити журнал",
         "description": ""
     },
-
+    "popup_html_report_button": {
+        "message": "Повідомити про URL",
+        "description": ""
+    },
+    "popup_html_report_button_title": {
+        "message": "Повідомити про URL з цієї вкладки.",
+        "description": ""
+    },
     "core_save_on_disk": {
         "message": "[ClearURLs]: Зберегти на диск.",
         "description": ""
     },
-
     "core_error": {
-        "message": "[ClearURLs]: Не вдалося запустити аддон.",
+        "message": "[ClearURLs]: Не вдалося запустити додаток.",
         "description": ""
     },
-
     "configs_switch_statistics": {
         "message": "Статистика",
         "description": ""
     },
-
     "configs_switch_statistics_title": {
-        "message": "Увімк. чи вимк. статистику",
+        "message": "Увімкнення чи вимкнення статистики",
         "description": ""
     },
-
     "settings_html_page_title": {
         "message": "Налаштування ClearURLs",
         "description": ""
     },
-
     "badged_color_label": {
-        "message": "Колір значка",
+        "message": "Колір піктограми",
         "description": ""
     },
-
     "setting_html_reset_button": {
         "message": "Скинути",
         "description": ""
     },
-
     "setting_html_reset_button_title": {
         "message": "Скинути все",
         "description": ""
     },
-
     "setting_rule_url_label": {
         "message": "Посилання на файл data.json (правила)",
         "description": ""
     },
-
     "settings_html_save_button": {
-        "message": "Зберегти і перезавантажити аддон",
+        "message": "Зберегти і перезавантажити додаток",
         "description": ""
     },
-
     "settings_html_save_button_title": {
         "message": "Збереження налаштувань",
         "description": ""
     },
-
     "setting_hash_url_label": {
         "message": "Посилання на файл rules.hash (хеш)",
+        "description": ""
+    },
+    "setting_types_label": {
+        "message": "<a href='https:\/\/developer.mozilla.org\/en-US\/docs\/Mozilla\/Add-ons\/WebExtensions\/API\/webRequest\/ResourceType' target='_blank'>Типи запитів<\/a> (експертний рівень)",
+        "description": ""
+    },
+    "setting_report_server_label": {
+        "message": "Звіт про сервер URL",
+        "description": ""
+    },
+    "success_report_url": {
+        "message": "Успішно повідомлено про URL-адресу. Ми невдовзі це перевіримо.",
+        "description": ""
+    },
+    "error_report_url": {
+        "message": "Схоже, про цю URL-адресу вже повідомлено.",
+        "description": ""
+    },
+    "donate_button": {
+        "message": "Внесок для розробників ClearURLs.",
         "description": ""
     }
 }
