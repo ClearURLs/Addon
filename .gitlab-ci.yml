@@ -11,23 +11,23 @@ stages:
 build firefox:  
   stage: build
   script:
-    - zip ClearUrls_firefox_$CI_BUILD_ID -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
+    - zip ClearUrls_firefox -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
 
   only:
     - master
 
   artifacts:
     paths:
-      - ClearUrls_firefox_$CI_BUILD_ID.zip
+      - ClearUrls_firefox.zip
 
 build chrome:  
   stage: build
   script:
-    - zip ClearUrls_chrome_$CI_BUILD_ID -r -FS ChromeVersion/clearurls.js browser-polyfill.js ChromeVersion/manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/* ChromeVersion/css/core.css
+    - zip ClearUrls_chrome -r -FS ChromeVersion/clearurls.js browser-polyfill.js ChromeVersion/manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/* ChromeVersion/css/core.css
 
   only:
     - master
 
   artifacts:
     paths:
-      - ClearUrls_chrome_$CI_BUILD_ID.zip
+      - ClearUrls_chrome.zip
