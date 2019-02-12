@@ -2,6 +2,9 @@ image: debian:latest
 
 before_script:  
   - export COMMIT_TIME=$(git show -s --format=%ct $CI_COMMIT_SHA)
+  - export DEBIAN_FRONTEND= noninteractive
+  - apt-get update -y
+  - apt-get install -y zip unzip
 
 stages:  
   - build
@@ -9,7 +12,6 @@ stages:
 build firefox:  
   stage: build
   script:
-    - apt-get install -y zip
     - zip ClearUrls_firefox_$COMMIT_TIME -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
 
   only:
@@ -22,7 +24,6 @@ build firefox:
 build chrome:  
   stage: build
   script:
-    - apt-get install -y zip
     - zip ClearUrls_chrome_$COMMIT_TIME -r -FS ChromeVersion/clearurls.js browser-polyfill.js ChromeVersion/manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/* ChromeVersion/css/core.css
 
   only:
