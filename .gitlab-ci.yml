@@ -17,9 +17,8 @@ build firefox:
     - master
 
   artifacts:
-	name: "ClearUrls_chrome_$CI_BUILD_ID"
     paths:
-      - bin/Firefox/*.zip
+      - bin/Firefox/ClearUrls_chrome_$CI_BUILD_ID.zip
 
 build chrome:  
   stage: build
@@ -30,6 +29,5 @@ build chrome:
     - master
 
   artifacts:
-    name: "ClearUrls_chrome_$CI_BUILD_ID"
     paths:
-      - bin/Chrome/*.zip
+      - bin/Chrome/ClearUrls_chrome_$CI_BUILD_ID.zip
