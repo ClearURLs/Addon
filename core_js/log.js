@@ -1,20 +1,20 @@
+/*jshint esversion: 6 */
 /**
 * Get the log and display the data as table.
 */
 var log = {};
 
-var core = function (func) {
-        return browser.runtime.getBackgroundPage().then(func);
-};
-
 /**
 * Reset the global log
 */
 function resetGlobalLog(){
-    core(function (ref){
-        obj = {"log": []};
-        ref.setData('log', JSON.stringify(obj));
+    obj = {"log": []};
+
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ['log', JSON.stringify(obj)]
     });
+
     getLog();
     location.reload();
 }
@@ -24,8 +24,11 @@ function resetGlobalLog(){
 */
 function getLog()
 {
-    core(function (ref){
-        log = ref.getData('log');
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ['log']
+    }).then((data) => {
+        log = data.response;
 
         // Sort the log | issue #70
         log.log.sort(function(a,b) {
@@ -107,4 +110,8 @@ function setText()
     $('#head_2').text(translate('log_html_table_head_2'));
     $('#head_3').text(translate('log_html_table_head_3'));
     $('#head_4').text(translate('log_html_table_head_4'));
+}
+
+function handleError(error) {
+    console.log(`Error: ${error}`);
 }

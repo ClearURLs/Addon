@@ -1,9 +1,5 @@
 var settings = [];
 
-var core = function (func) {
-        return browser.runtime.getBackgroundPage().then(func);
-};
-
 getData();
 
 /**
@@ -17,11 +13,21 @@ $(document).ready(function(){
 
     $("#badged_color input").on("change", function () {
         settings.badged_color = $(this).val();
-        core(function (ref){
-            ref.setData('badged_color', settings.badged_color);
-            ref.setBadgedStatus();
-            ref.saveOnExit();
-        });
+
+        browser.runtime.sendMessage({
+            function: "setData",
+            params: ["badged_color", settings.badged_color]
+        }).then(handleResponse, handleError);
+
+        browser.runtime.sendMessage({
+            function: "setBadgedStatus",
+            params: []
+        }).then(handleResponse, handleError);
+
+        browser.runtime.sendMessage({
+            function: "saveOnExit",
+            params: []
+        }).then(handleResponse, handleError);
     });
 });
 
@@ -31,11 +37,20 @@ $(document).ready(function(){
  */
 function reset()
 {
-    core(function (ref){
-        ref.initSettings();
-        ref.saveOnExit();
-        ref.reload();
-    });
+    browser.runtime.sendMessage({
+        function: "initSettings",
+        params: []
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "saveOnExit",
+        params: []
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "reload",
+        params: []
+    }).then(handleResponse, handleError);
 }
 
 /**
@@ -43,18 +58,47 @@ function reset()
  */
 function save()
 {
-    core(function (ref){
-        ref.setData('badged_color', $('input[name=badged_color]').val());
-        ref.setBadgedStatus();
-        ref.setData('ruleURL', $('input[name=rule_url]').val());
-        ref.setData('hashURL', $('input[name=hash_url]').val());
-        ref.setData('types', $('input[name=types]').val());
-        ref.setData('reportServer', $('input[name=report_server]').val());
-        ref.saveOnExit();
-        ref.reload();
-    });
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ["badged_color", $('input[name=badged_color]').val()]
+    }).then(handleResponse, handleError);
 
-    location.reload();
+    browser.runtime.sendMessage({
+        function: "setBadgedStatus",
+        params: []
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ["ruleURL", $('input[name=rule_url]').val()]
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ["hashURL", $('input[name=hash_url]').val()]
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ["types", $('input[name=types]').val()]
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ["reportServer", $('input[name=report_server]').val()]
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "saveOnExit",
+        params: []
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
+        function: "reload",
+        params: []
+    }).then(handleResponse, handleError);
+
+    //location.reload();
 }
 
 /**
@@ -72,13 +116,30 @@ function translate(string)
  */
 function getData()
 {
-    core(function (ref){
-        settings.badged_color = ref.getData('badged_color');
-        settings.rule_url = ref.getData('ruleURL');
-        settings.hash_url = ref.getData('hashURL');
-        settings.types = ref.getData('types');
-        settings.reportServer = ref.getData('reportServer');
-    });
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ["badged_color"]
+    }).then((data) => handleResponseData(data, "badged_color", "badged_color"), handleError);
+
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ["ruleURL"]
+    }).then((data) => handleResponseData(data, "rule_url", "rule_url"), handleError);
+
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ["hashURL"]
+    }).then((data) => handleResponseData(data, "hash_url", "hash_url"), handleError);
+
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ["types"]
+    }).then((data) => handleResponseData(data, "types", "types"), handleError);
+
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ["reportServer"]
+    }).then((data) => handleResponseData(data, "reportServer", "report_server"), handleError);
 }
 
 /**
@@ -89,17 +150,30 @@ function setText()
     document.title = translate('settings_html_page_title');
     $('#page_title').text(translate('settings_html_page_title'));
     $('#badged_color_label').text(translate('badged_color_label'));
-    $('input[name=badged_color]').val(settings.badged_color);
     $('#reset_settings_btn').text(translate('setting_html_reset_button'));
     $('#reset_settings_btn').prop('title', translate('setting_html_reset_button_title'));
     $('#rule_url_label').text(translate('setting_rule_url_label'));
-    $('input[name=rule_url]').val(settings.rule_url);
     $('#hash_url_label').text(translate('setting_hash_url_label'));
-    $('input[name=hash_url]').val(settings.hash_url);
     $('#types_label').html(translate('setting_types_label'));
-    $('input[name=types]').val(settings.types);
     $('#save_settings_btn').text(translate('settings_html_save_button'));
     $('#save_settings_btn').prop('title', translate('settings_html_save_button_title'));
     $('#report_server_label').html(translate('setting_report_server_label'));
-    $('input[name=report_server]').val(settings.reportServer);
+}
+
+/**
+ * Handle the response from the storage and saves the data.
+ * @param  {JSON-Object} data Data JSON-Object
+ */
+function handleResponseData(data, varName, inputID)
+{
+    settings[varName] = data.response;
+    $('input[name='+inputID+']').val(data.response);
+}
+
+function handleResponse(message) {
+  console.log(`Message from the background script:  ${message.response}`);
+}
+
+function handleError(error) {
+  console.log(`Error: ${error}`);
 }
