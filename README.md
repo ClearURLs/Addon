@@ -1,4 +1,4 @@
-# ClearURLs [![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/)
+# ClearURLs [![Mozilla Add-on](https://img.shields.io/amo/v/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/versions/) [![pipeline status](https://gitlab.com/KevinRoebert/ClearUrls/badges/master/pipeline.svg)](https://gitlab.com/KevinRoebert/ClearUrls/commits/master)
 [![Donate](https://img.shields.io/badge/donate-PayPal-blue.svg)](https://www.paypal.me/KevinRoebert)
 
 [![Mozilla Add-on](https://img.shields.io/amo/stars/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/reviews/)
@@ -17,7 +17,12 @@ Large (and small) webpages use elements in the URL, e.g.: https://example.com?so
 ## Installation
 Mozilla Add-on: [![Mozilla Add-on](https://img.shields.io/amo/d/clearurls.svg)](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
 
-[Chrome Add-on](https://gitlab.com/KevinRoebert/ClearUrls/tags?utf8=%E2%9C%93&search=_cv)
+
+### Packed files
+Or download the packed files here for the Firefox- and Chrome-Dev:
+
+[Firefox](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls_firefox.zip?job=build%20firefox)
+[Chrome](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls_chrome.zip?job=build%20chrome)
 
 ## Contribute
 If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
