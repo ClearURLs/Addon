@@ -415,6 +415,15 @@
             ],
             "exceptions": [],
             "redirections": []
+        },
+        "steam": {
+            "urlPattern": "(https:\\/\\/|http:\\/\\/)([a-zA-Z0-9-]*\\.)?(steampowered\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "snr=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
