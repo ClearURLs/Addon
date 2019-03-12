@@ -1,7 +1,6 @@
+/*jshint esversion: 6 */
 /*
-* ##################################################################
-* # Fetch Rules & Exception from URL                               #
-* ##################################################################
+* This script is responsible for the core functionalities.
 */
 var providers = [];
 var prvKeys = [];
@@ -13,13 +12,8 @@ var localDataHash;
 var os;
 var currentURL;
 
-var storage = [];
-
-getDataFromDisk();
-
-function start(items)
+function start()
 {
-    initStorage(items);
     changeIcon();
 
     /**
@@ -89,39 +83,6 @@ function start(items)
         }
 
         /**
-        * Load local saved data, if the browser is offline or
-        * some other network trouble.
-        */
-        function loadOldDataFromStore()
-        {
-            localDataHash = storage.dataHash;
-        }
-
-        /**
-        * Save the hash status to the local storage.
-        * The status can have the following values:
-        *  1 "up to date"
-        *  2 "updated"
-        *  3 "update available"
-        *  @param status_code the number for the status
-        */
-        function storeHashStatus(status_code)
-        {
-            switch(status_code)
-            {
-                case 1: status_code = "hash_status_code_1";
-                break;
-                case 2: status_code = "hash_status_code_2";
-                break;
-                case 3: status_code = "hash_status_code_3";
-                break;
-                default: status_code = "hash_status_code_4";
-            }
-
-            storage.hashStatus = status_code;
-        }
-
-        /**
         * Get the hash for the rule file on github.
         * Check the hash with the hash form the local file.
         * If the hash has changed, then download the new rule file.
@@ -133,7 +94,7 @@ function start(items)
             fetch(storage.hashURL)
             .then(function(response){
                 var responseTextHash = response.clone().text().then(function(responseTextHash){
-                    if(response.ok)
+                    if(response.ok && $.trim(responseTextHash))
                     {
                         dataHash = responseTextHash;
 
@@ -153,8 +114,10 @@ function start(items)
             });
         }
 
-        /**
-        * Fetch the Rules & Exception from github.
+        /*
+        * ##################################################################
+        * # Fetch Rules & Exception from URL                               #
+        * ##################################################################
         */
         function fetchFromURL()
         {
@@ -164,7 +127,7 @@ function start(items)
             function checkResponse(response)
             {
                 var responseText = response.clone().text().then(function(responseText){
-                    if(response.ok)
+                    if(response.ok && $.trim(responseText))
                     {
                         var downloadedFileHash = $.sha256(responseText);
 
@@ -195,18 +158,23 @@ function start(items)
         * Declare constructor
         *
         * @param {String} _name                Provider name
-        * @param {boolean} completeProvider    Set URL Pattern as rule
+        * @param {boolean} _completeProvider    Set URL Pattern as rule
+        * @param {boolean} _isActive            Is the provider active?
         */
-        function Provider(_name,_completeProvider = false){
+        function Provider(_name, _completeProvider = false, _isActive = true){
             var name = _name;
             var urlPattern;
-            var rules = [];
-            var exceptions = [];
+            var enabled_rules = {};
+            var disabled_rules = {};
+            var enabled_exceptions = {};
+            var disabled_exceptions = {};
             var canceling = _completeProvider;
-            var redirections = [];
+            var enabled_redirections = {};
+            var disabled_redirections = {};
+            var active = _isActive;
 
             if(_completeProvider){
-                rules.push(".*");
+                enabled_rules[".*"] = true;
             }
 
             /**
@@ -240,34 +208,73 @@ function start(items)
             * @return {boolean}    ProviderURL as RegExp
             */
             this.matchURL = function(url) {
-                return !(this.matchException(url)) && urlPattern.test(url);
+                return urlPattern.test(url) && !(this.matchException(url));
             };
 
             /**
-            * Add a rule to the rule array.
+            * Add a rule to the rule array
+            * and replace old rule with new rule.
             *
-            * @param String rule   RegExp as string
+            * @param {String} rule        RegExp as string
+            * @param {boolean} isActive   Is this rule active?
             */
-            this.addRule = function(rule) {
-                rules.push(rule);
+            this.addRule = function(rule, isActive = true) {
+                // Add start and end delimiters to rule
+                rule = "^"+rule+"=[^\\/|\\?|&]*(\\/|&(amp;)?)?$";
+
+                if(isActive)
+                {
+                    enabled_rules[rule] = true;
+
+                    if(disabled_rules[rule] !== undefined)
+                    {
+                        delete disabled_rules[rule];
+                    }
+                }
+                else {
+                    disabled_rules[rule] = true;
+
+                    if(enabled_rules[rule] !== undefined)
+                    {
+                        delete enabled_rules[rule];
+                    }
+                }
             };
 
             /**
-            * Return all rules as an array.
+            * Return all active rules as an array.
             *
             * @return Array RegExp strings
             */
             this.getRules = function() {
-                return rules;
+                return Object.keys(enabled_rules);
             };
 
             /**
-            * Add a exception to the exceptions array.
+            * Add a exception to the exceptions array
+            * and replace old with new exception.
             *
-            * @param String exception   RegExp as string
+            * @param {String} exception   RegExp as string
+            * @param {Boolean} isActive   Is this exception acitve?
             */
-            this.addException = function(exception) {
-                exceptions.push(exception);
+            this.addException = function(exception, isActive = true) {
+                if(isActive)
+                {
+                    enabled_exceptions[exception] = true;
+
+                    if(disabled_exceptions[exception] !== undefined)
+                    {
+                        delete disabled_exceptions[exception];
+                    }
+                }
+                else {
+                    disabled_exceptions[exception] = true;
+
+                    if(enabled_exceptions[exception] !== undefined)
+                    {
+                        delete enabled_exceptions[exception];
+                    }
+                }
             };
 
             /**
@@ -283,10 +290,10 @@ function start(items)
                 //Add the site blocked alert to every exception
                 if(url == siteBlockedAlert) return true;
 
-                for (var i = 0; i < exceptions.length; i++) {
-                    if(result) { break; }
+                for(var exception in enabled_exceptions) {
+                    if(result) break;
 
-                    exception_regex = new RegExp(exceptions[i], "i");
+                    exception_regex = new RegExp(exception, "i");
                     result = exception_regex.test(url);
                 }
 
@@ -294,12 +301,30 @@ function start(items)
             };
 
             /**
-            * Add a redirection to the redirections array.
+            * Add a redirection to the redirections array
+            * and replace old with new redirection.
             *
-            * @param String redirection   RegExp as string
+            * @param {String} redirection   RegExp as string
+            * @param {Boolean} isActive     Is this redirection active?
             */
-            this.addRedirection = function(redirection) {
-                redirections.push(redirection);
+            this.addRedirection = function(redirection, isActive = true) {
+                if(isActive)
+                {
+                    enabled_redirections[redirection] = true;
+
+                    if(disabled_redirections[redirection] !== undefined)
+                    {
+                        delete disabled_redirections[redirection];
+                    }
+                }
+                else {
+                    disabled_redirections[redirection] = true;
+
+                    if(enabled_redirections[redirection] !== undefined)
+                    {
+                        delete enabled_redirections[redirection];
+                    }
+                }
             };
 
             /**
@@ -310,13 +335,12 @@ function start(items)
             this.getRedirection = function(url) {
                 var re = null;
 
-                for(var i = 0; i < redirections.length; i++)
-                {
-                    result = (url.match(new RegExp(redirections[i], "i")));
+                for(var redirection in enabled_redirections) {
+                    result = (url.match(new RegExp(redirection, "i")));
 
-                    if (result && result.length > 0)
+                    if (result && result.length > 0 && redirection)
                     {
-                        re = (new RegExp(redirections[i], "i")).exec(url)[1];
+                        re = (new RegExp(redirection, "i")).exec(url)[1];
 
                         break;
                     }
@@ -353,7 +377,7 @@ function start(items)
             {
                 url = decodeURIComponent(re);
                 //Log the action
-                pushToLog(request.url, re, translate('log_redirect'));
+                pushToLog(request.url, url, translate('log_redirect'));
 
                 return {
                     "redirect": true,
@@ -362,50 +386,55 @@ function start(items)
             }
 
             /**
-             * Only test for matches, if there are fields that can be cleaned.
-             */
+            * Only test for matches, if there are fields that can be cleaned.
+            */
             if(existsFields(url))
             {
                 /**
-                 * It must be non-greedy, because by default .* will match
-                 * all ? chars. So the replace function delete everything
-                 * before the last ?. With adding a ? on the quantifier *,
-                 * we fixed this problem.
-                 */
-                fields = url.replace(new RegExp(".*?\\?", "i"), "");
+                * It must be non-greedy, because by default .* will match
+                * all ? chars. So the replace function delete everything
+                * before the last ?. With adding a ? on the quantifier *,
+                * we fixed this problem.
+                */
+                fields = extractFileds(url.replace(new RegExp(".*?\\?", "i"), ""));
 
-                for (var i = 0; i < rules.length; i++) {
-                    var beforReplace = fields;
+                fields.forEach(function(field, index) {
+                    rules.forEach(function(rule) {
+                        var beforReplace = fields.flat().join("&");
+                        var match = new RegExp(rule, "i").test(field);
 
-                    fields = fields.replace(new RegExp(rules[i], "i"), "");
+                        if(match) {
+                            delete fields[index];
 
-                    if(beforReplace != fields)
-                    {
-                        //Log the action
-                        pushToLog(domain+"?"+beforReplace, domain+"?"+fields, rules[i]);
+                            //Log the action
+                            pushToLog(domain+"?"+beforReplace, domain+"?"+fields.flat().join("&"), rule);
 
-                        if(badges[tabid] == null)
-                        {
-                            badges[tabid] = 0;
-                        }
+                            if(badges[tabid] == null) badges[tabid] = 0;
 
-                        increaseURLCounter();
+                            increaseURLCounter();
 
-                        if(!checkOSAndroid())
-                        {
-                            if(storage.badgedStatus) {
-                                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                            }
-                            else
+                            if(!checkOSAndroid())
                             {
-                                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                                if(storage.badgedStatus) {
+                                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                                }
+                                else
+                                {
+                                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                                }
                             }
+                            changes = true;
                         }
+                    });
+                });
 
-                        changes = true;
-                    }
+                if(fields.flat().length > 0)
+                {
+                    url = domain+"?"+fields.flat().join("&");
                 }
-                url = domain+"?"+fields;
+                else{
+                    url = domain;
+                }
             }
             else {
                 if(domain != url)
@@ -443,32 +472,6 @@ function start(items)
                 "url": url,
                 "cancel": cancel
             };
-        }
-
-        /**
-        * Return the number of parameters query strings.
-        * @param  {String}     url URL as String
-        * @return {int}        Number of Parameters
-        */
-        function countFields(url)
-        {
-            var matches = (url.match(/[^\/|\?|&]+=[^\/|\?|&]+/gi) || []);
-            var count = matches.length;
-
-            return count;
-        }
-
-        /**
-        * Returns true if fields exists.
-        * @param  {String}     url URL as String
-        * @return {boolean}
-        */
-        function existsFields(url)
-        {
-            var matches = (url.match(/\?.+/i) || []);
-            var count = matches.length;
-
-            return (count > 0);
         }
 
         /**
@@ -618,7 +621,6 @@ function start(items)
                 var ret = clearUrl(requestDetails);
                 return ret;
             }
-
         }
 
         /**
@@ -645,249 +647,4 @@ function start(items)
             ["blocking"]
         );
     });
-}
-
-/**
-* Save every minute the temporary data to the disk.
-*/
-setInterval(saveOnExit, 60000);
-
-/**
-* Get the badged status from the browser storage and put the value
-* into a local variable.
-*
-*/
-function setBadgedStatus()
-{
-    if(!checkOSAndroid() && storage.badgedStatus){
-        browser.browserAction.setBadgeBackgroundColor({
-            'color': '#'+storage.badged_color
-        });
-    }
-}
-
-/**
-* Change the icon.
-*/
-function changeIcon()
-{
-    if(storage.globalStatus){
-        browser.browserAction.setIcon({path: "img/clearurls.svg"});
-    } else{
-        browser.browserAction.setIcon({path: "img/clearurls_gray.svg"});
-    }
-}
-
-/**
-* Check if it is an android device.
-* @return bool
-*/
-function checkOSAndroid()
-{
-    if(os == "android")
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
-/**
-* Increase by {number} the GlobalURLCounter
-* @param  {int} number
-*/
-function increaseGlobalURLCounter(number)
-{
-    if(storage.statisticsStatus)
-    {
-        storage.globalurlcounter += number;
-    }
-}
-
-/**
-* Increase by one the URLCounter
-*/
-function increaseURLCounter()
-{
-    if(storage.statisticsStatus)
-    {
-        storage.globalCounter++;
-    }
-}
-
-
-/**
-* Writes the storage variable to the disk.
-*/
-function saveOnExit()
-{
-    var json = {};
-
-    Object.entries(storage).forEach(([key, value]) => {
-        switch (key) {
-            case "ClearURLsData":
-            case "log":
-            json[key] = JSON.stringify(value);
-            break;
-            case "types":
-            json[key] = value.toString();
-            break;
-            default:
-            json[key] = value;
-        }
-    });
-    console.log(translate('core_save_on_disk'));
-    browser.storage.local.set(json);
-}
-
-/**
-* Save the value under the key on the disk.
-* @param  {String} key
-* @param  {Object} value
-*/
-function saveOnDisk(key, value)
-{
-    browser.storage.local.set({key: value});
-}
-
-/**
-* Retrieve everything and save on the RAM.
-*/
-function getDataFromDisk()
-{
-    browser.storage.local.get().then(start, error);
-}
-
-/**
-* Get the value under the key.
-* @param  {String} key
-* @return {Object}
-*/
-function getData(key)
-{
-    return storage[key];
-}
-
-/**
-* Save the value under the key on the RAM.
-* @param {String} key
-* @param {Object} value
-*/
-function setData(key, value)
-{
-    switch (key) {
-        case "ClearURLsData":
-        case "log":
-        storage[key] = JSON.parse(value);
-        break;
-        case "hashURL":
-        case "ruleURL":
-        storage[key] = replaceOldGithubURLs(value);
-        break;
-        case "types":
-        storage[key] = value.split(',');
-        break;
-        default:
-        storage[key] = value;
-    }
-}
-
-/**
-* Translate a string with the i18n API.
-*
-* @param {string} string Name of the attribute used for localization
-*/
-function translate(string)
-{
-    return browser.i18n.getMessage(string);
-}
-
-
-/**
-* Write error on console.
-*/
-function error()
-{
-    console.log(translate('core_error'));
-}
-
-/**
-* Set default values, if the storage is empty.
-* @param  {Object} items
-*/
-function initStorage(items)
-{
-    initSettings();
-
-    if(!isEmpty(items)) {
-        Object.entries(items).forEach(([key, value]) => {
-            setData(key, value);
-        });
-    }
-}
-
-/**
-* Set default values for the settings.
-*/
-function initSettings()
-{
-    storage.ClearURLsData = [];
-    storage.dataHash = "";
-    storage.badgedStatus = true;
-    storage.globalStatus = true;
-    storage.globalurlcounter = 0;
-    storage.globalCounter = 0;
-    storage.hashStatus = "error";
-    storage.loggingStatus = false;
-    storage.log = {"log": []};
-    storage.statisticsStatus = true;
-    storage.badged_color = "ffa500";
-    storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
-    storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
-    storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
-    storage.reportServer = "https://clearurls.xn--rb-fka.it";
-}
-
-/**
-* Reloads the extension.
-*/
-function reload()
-{
-    browser.runtime.reload();
-}
-
-/**
-* Replace the old GitHub URLs with the
-* new GitLab URLs.
-*/
-function replaceOldGithubURLs(url)
-{
-    switch (url) {
-        case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":
-        return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
-        case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true":
-        return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
-        default:
-        return url;
-    }
-}
-
-/**
-* Check if an object is empty.
-* @param  {Object}  obj
-* @return {Boolean}
-*/
-function isEmpty(obj)
-{
-    return (Object.getOwnPropertyNames(obj).length === 0);
-}
-
-/**
- * Returns the current URL.
- * @return {String} [description]
- */
-function getCurrentURL()
-{
-    return currentURL;
 }

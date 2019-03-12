@@ -1,14 +1,22 @@
 image: debian:latest
 
-before_script:  
+before_script:
   - export DEBIAN_FRONTEND= noninteractive
   - apt-get update -y
   - apt-get install -y zip unzip
 
-stages:  
+stages:
   - build
 
-build firefox:  
+hash rules:
+    stage: build
+    script:
+        - sha256sum data/data.min.json | awk '{print $1}' > rules.min.hash
+    artifacts:
+        paths:
+            - rules.min.hash
+
+build firefox:
   stage: build
   script:
     - zip ClearUrls_firefox -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
@@ -20,7 +28,7 @@ build firefox:
     paths:
       - ClearUrls_firefox.zip
 
-build chrome:  
+build chrome:
   stage: build
   script:
     - zip ClearUrls_chrome -r -FS ChromeVersion/clearurls.js browser-polyfill.js ChromeVersion/manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/* ChromeVersion/css/core.css

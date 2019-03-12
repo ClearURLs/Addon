@@ -782,7 +782,7 @@ function setData(key, value)
         break;
         case "hashURL":
         case "ruleURL":
-        storage[key] = replaceOldGithubURLs(value);
+        storage[key] = replaceOldURLs(value);
         break;
         case "types":
         storage[key] = value.split(',');
@@ -860,7 +860,7 @@ function reload()
 * Replace the old GitHub URLs with the
 * new GitLab URLs.
 */
-function replaceOldGithubURLs(url)
+function replaceOldURLs(url)
 {
     switch (url) {
         case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":

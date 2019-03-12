@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 var element = $("#statistics_value");
 var elGlobalPercentage = $("#statistics_value_global_percentage");
 var elProgressbar_blocked = $('#progress_blocked');
@@ -12,25 +13,31 @@ var hashStatus;
 var loggingStatus;
 var statisticsStatus;
 var currentURL;
-var reportServer;
 
-var core = function (func) {
-    return browser.runtime.getBackgroundPage().then(func);
-};
-
-function getData()
+async function getData()
 {
-    core(function (ref){
-        globalCounter = ref.getData('globalCounter');
-        globalurlcounter = ref.getData('globalurlcounter');
-        globalStatus = ref.getData('globalStatus');
-        badgedStatus = ref.getData('badgedStatus');
-        hashStatus = ref.getData('hashStatus');
-        loggingStatus = ref.getData('loggingStatus');
-        statisticsStatus = ref.getData('statisticsStatus');
-        currentURL = ref.getCurrentURL();
-        reportServer = ref.getData('reportServer');
-    });
+    await browser.runtime.sendMessage({
+        function: "getEntireData",
+        params: []
+    }).then((data) => {
+        data = data.response;
+        globalCounter = data.globalCounter;
+        globalurlcounter = data.globalurlcounter;
+        globalStatus = data.globalStatus;
+        badgedStatus = data.badgedStatus;
+        hashStatus = data.hashStatus;
+        loggingStatus = data.loggingStatus;
+        statisticsStatus = data.statisticsStatus;
+
+        browser.runtime.sendMessage({
+            function: "getCurrentURL",
+            params: []
+        }).then((data) => {
+            currentURL = data.response;
+
+            return null;
+        }, handleError);
+    }, handleError);
 }
 
 /**
@@ -48,8 +55,8 @@ function init()
 }
 
 /**
-* Get the globalCounter value from the browser storage
-* @param  {(data){}    Return value form browser.storage.local.get
+* Get the globalCounter and globalurlcounter value from the storage
+* @param  {(data){}    Return value form storage
 */
 function changeStatistics()
 {
@@ -93,19 +100,29 @@ function changeSwitchButton(id, storageID)
     changeVisibility(id, storageID);
 
     element.on('change', function(){
-        core(function (ref){
-            ref.setData(storageID, element.is(':checked'));
-            if(storageID == "globalStatus") ref.changeIcon();
+        browser.runtime.sendMessage({
+            function: "setData",
+            params: [storageID, element.is(':checked')]
+        }).then((data) => {
+            if(storageID == "globalStatus"){
+                browser.runtime.sendMessage({
+                    function: "changeIcon",
+                    params: []
+                });
+            }
             changeVisibility(id, storageID);
 
-            ref.saveOnExit();
+            browser.runtime.sendMessage({
+                function: "saveOnExit",
+                params: []
+            });
         });
     });
 }
 
 /**
- * Change the visibility of sections.
- */
+* Change the visibility of sections.
+*/
 function changeVisibility(id, storageID)
 {
     var element;
@@ -113,13 +130,13 @@ function changeVisibility(id, storageID)
     switch(storageID)
     {
         case "loggingStatus":
-            element = $('#log_section');
-            break;
+        element = $('#log_section');
+        break;
         case "statisticsStatus":
-            element = $('#statistic_section');
-            break;
+        element = $('#statistic_section');
+        break;
         default:
-            element = "undefine";
+        element = "undefine";
     }
 
     if(element != "undefine")
@@ -137,10 +154,10 @@ function changeVisibility(id, storageID)
 }
 
 /**
- * Set the value of a switch button.
- * @param {string} id      HTML id
- * @param {string} varname js internal variable name
- */
+* Set the value of a switch button.
+* @param {string} id      HTML id
+* @param {string} varname js internal variable name
+*/
 function setSwitchButton(id, varname)
 {
     var element = $('#'+id);
@@ -151,25 +168,29 @@ function setSwitchButton(id, varname)
 * Reset the global statistic
 */
 function resetGlobalCounter(){
-    core(function (ref){
-        globalurlcounter = 0;
-        globalCounter = 0;
-        ref.setData('globalCounter', 0);
-        ref.setData('globalurlcounter', 0);
-        ref.saveOnExit();
-
-        changeStatistics();
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ['globalCounter', 0]
     });
-}
 
-if(!browser.extension.inIncognitoContext)
-{
-    getData();
+    browser.runtime.sendMessage({
+        function: "setData",
+        params: ['globalurlcounter', 0]
+    });
+
+    browser.runtime.sendMessage({
+        function: "saveOnExit",
+        params: []
+    });
+
+    globalCounter = 0;
+    globalurlcounter = 0;
+
+    changeStatistics();
 }
 
 $(document).ready(function(){
-    if(!browser.extension.inIncognitoContext)
-    {
+    getData().then(() => {
         init();
         $('#reset_counter_btn').on("click", resetGlobalCounter);
         changeSwitchButton("globalStatus", "globalStatus");
@@ -178,15 +199,8 @@ $(document).ready(function(){
         changeSwitchButton("statistics", "statisticsStatus");
         $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
         $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
-        $('#reportButton').on("click", reportURL);
         setText();
-    } else {
-        $('#config_section').remove();
-        $('#statistic_section').remove();
-        $('#status_section').remove();
-        $('#log_section').remove();
-        $('#incognito').css('display', '');
-    }
+    });
 
 });
 
@@ -212,21 +226,21 @@ function setText()
 }
 
 /**
- * Helper function to inject the translated text and tooltip.
- *
- * @param   {string}    id ID of the HTML element
- * @param   {string}    attribute Name of the attribute used for localization
- * @param   {boolean}   tooltip
- */
+* Helper function to inject the translated text and tooltip.
+*
+* @param   {string}    id ID of the HTML element
+* @param   {string}    attribute Name of the attribute used for localization
+* @param   {boolean}   tooltip
+*/
 function injectText(id, attribute, tooltip)
 {
     object = $('#'+id);
     object.text(translate(attribute));
 
     /*
-        This function will throw an error if no translation
-        is found for the tooltip. This is a planned error.
-     */
+    This function will throw an error if no translation
+    is found for the tooltip. This is a planned error.
+    */
     tooltip = translate(attribute+"_title");
 
     if(tooltip != "")
@@ -245,22 +259,6 @@ function translate(string)
     return browser.i18n.getMessage(string);
 }
 
-/**
- * Send the url to the DB on clearurls.röb.it to checked for tracking fields.
- */
-function reportURL()
-{
-    $.ajax({
-        url: reportServer+'/report_url.php?url='+encodeURI(currentURL),
-        success: function(result) {
-            BootstrapDialog.show({
-                message: translate('success_report_url')
-            });
-        },
-        error: function(result) {
-            BootstrapDialog.show({
-                message: translate('error_report_url')
-            });
-        }
-    });
+function handleError(error) {
+    console.log(`Error: ${error}`);
 }
