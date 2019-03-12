@@ -11,7 +11,7 @@ stages:
 hash rules:
     stage: build
     script:
-        - sha256sum data/data.min.json | awk 'print $1' > rules.min.hash
+        - sha256sum data/data.min.json | awk '{print $1}' > rules.min.hash
     artifacts:
         paths:
             - rules.min.hash
