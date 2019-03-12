@@ -164,14 +164,17 @@ function start()
         function Provider(_name, _completeProvider = false, _isActive = true){
             var name = _name;
             var urlPattern;
-            var rules = [];
-            var exceptions = [];
+            var enabled_rules = {};
+            var disabled_rules = {};
+            var enabled_exceptions = {};
+            var disabled_exceptions = {};
             var canceling = _completeProvider;
-            var redirections = [];
+            var enabled_redirections = {};
+            var disabled_redirections = {};
             var active = _isActive;
 
             if(_completeProvider){
-                rules.push(".*");
+                enabled_rules[".*"] = true;
             }
 
             /**
@@ -205,7 +208,7 @@ function start()
             * @return {boolean}    ProviderURL as RegExp
             */
             this.matchURL = function(url) {
-                return !(this.matchException(url)) && urlPattern.test(url);
+                return urlPattern.test(url) && !(this.matchException(url));
             };
 
             /**
@@ -216,17 +219,26 @@ function start()
             * @param {boolean} isActive   Is this rule active?
             */
             this.addRule = function(rule, isActive = true) {
-                for(var i=0; i < rules.length; i++)
-                {
-                    if(rules[i][0] === rule)
-                    {
-                        rules[i] = [rule, isActive];
+                // Add start and end delimiters to rule
+                rule = "^"+rule+"=[^\\/|\\?|&]*(\\/|&(amp;)?)?$";
 
-                        return;
+                if(isActive)
+                {
+                    enabled_rules[rule] = true;
+
+                    if(disabled_rules[rule] !== undefined)
+                    {
+                        delete disabled_rules[rule];
                     }
                 }
+                else {
+                    disabled_rules[rule] = true;
 
-                rules.push([rule, isActive]);
+                    if(enabled_rules[rule] !== undefined)
+                    {
+                        delete enabled_rules[rule];
+                    }
+                }
             };
 
             /**
@@ -235,16 +247,7 @@ function start()
             * @return Array RegExp strings
             */
             this.getRules = function() {
-                var rawRules = [];
-
-                rules.forEach(rule => {
-                    if(rule[1] === true)
-                    {
-                        rawRules.push(rule[0]);
-                    }
-                });
-
-                return rawRules;
+                return Object.keys(enabled_rules);
             };
 
             /**
@@ -255,16 +258,23 @@ function start()
             * @param {Boolean} isActive   Is this exception acitve?
             */
             this.addException = function(exception, isActive = true) {
-                for(var i=0; i < exceptions.length; i++)
+                if(isActive)
                 {
-                    if(exceptions[i][0] === exception)
+                    enabled_exceptions[exception] = true;
+
+                    if(disabled_exceptions[exception] !== undefined)
                     {
-                        exceptions[i] = [exception, isActive];
-                        return;
+                        delete disabled_exceptions[exception];
                     }
                 }
+                else {
+                    disabled_exceptions[exception] = true;
 
-                exceptions.push([exception, isActive]);
+                    if(enabled_exceptions[exception] !== undefined)
+                    {
+                        delete enabled_exceptions[exception];
+                    }
+                }
             };
 
             /**
@@ -280,14 +290,11 @@ function start()
                 //Add the site blocked alert to every exception
                 if(url == siteBlockedAlert) return true;
 
-                for (var i = 0; i < exceptions.length; i++) {
-                    if(result) { break; }
+                for(var exception in enabled_exceptions) {
+                    if(result) break;
 
-                    if(exceptions[i][1])
-                    {
-                        exception_regex = new RegExp(exceptions[i][0], "i");
-                        result = exception_regex.test(url);
-                    }
+                    exception_regex = new RegExp(exception, "i");
+                    result = exception_regex.test(url);
                 }
 
                 return result;
@@ -301,15 +308,23 @@ function start()
             * @param {Boolean} isActive     Is this redirection active?
             */
             this.addRedirection = function(redirection, isActive = true) {
-                for(var i=0; i < redirections.length; i++)
+                if(isActive)
                 {
-                    if(redirections[i][0] === redirection) {
-                        redirections[i] = [redirection, isActive];
-                        return;
+                    enabled_redirections[redirection] = true;
+
+                    if(disabled_redirections[redirection] !== undefined)
+                    {
+                        delete disabled_redirections[redirection];
                     }
                 }
+                else {
+                    disabled_redirections[redirection] = true;
 
-                redirections.push([redirection, isActive]);
+                    if(enabled_redirections[redirection] !== undefined)
+                    {
+                        delete enabled_redirections[redirection];
+                    }
+                }
             };
 
             /**
@@ -320,13 +335,12 @@ function start()
             this.getRedirection = function(url) {
                 var re = null;
 
-                for(var i = 0; i < redirections.length; i++)
-                {
-                    result = (url.match(new RegExp(redirections[i][0], "i")));
+                for(var redirection in enabled_redirections) {
+                    result = (url.match(new RegExp(redirection, "i")));
 
-                    if (result && result.length > 0 && redirections[i][1])
+                    if (result && result.length > 0 && redirection)
                     {
-                        re = (new RegExp(redirections[i][0], "i")).exec(url)[1];
+                        re = (new RegExp(redirection, "i")).exec(url)[1];
 
                         break;
                     }
@@ -363,7 +377,7 @@ function start()
             {
                 url = decodeURIComponent(re);
                 //Log the action
-                pushToLog(request.url, re, translate('log_redirect'));
+                pushToLog(request.url, url, translate('log_redirect'));
 
                 return {
                     "redirect": true,
@@ -382,40 +396,45 @@ function start()
                 * before the last ?. With adding a ? on the quantifier *,
                 * we fixed this problem.
                 */
-                fields = url.replace(new RegExp(".*?\\?", "i"), "");
+                fields = extractFileds(url.replace(new RegExp(".*?\\?", "i"), ""));
 
-                for (var i = 0; i < rules.length; i++) {
-                    var beforReplace = fields;
+                fields.forEach(function(field, index) {
+                    rules.forEach(function(rule) {
+                        var beforReplace = fields.flat().join("&");
+                        var match = new RegExp(rule, "i").test(field);
 
-                    fields = fields.replace(new RegExp(rules[i], "i"), "");
+                        if(match) {
+                            delete fields[index];
 
-                    if(beforReplace != fields)
-                    {
-                        //Log the action
-                        pushToLog(domain+"?"+beforReplace, domain+"?"+fields, rules[i]);
+                            //Log the action
+                            pushToLog(domain+"?"+beforReplace, domain+"?"+fields.flat().join("&"), rule);
 
-                        if(badges[tabid] == null)
-                        {
-                            badges[tabid] = 0;
-                        }
+                            if(badges[tabid] == null) badges[tabid] = 0;
 
-                        increaseURLCounter();
+                            increaseURLCounter();
 
-                        if(!checkOSAndroid())
-                        {
-                            if(storage.badgedStatus) {
-                                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                            }
-                            else
+                            if(!checkOSAndroid())
                             {
-                                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                                if(storage.badgedStatus) {
+                                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                                }
+                                else
+                                {
+                                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                                }
                             }
+                            changes = true;
                         }
+                    });
+                });
 
-                        changes = true;
-                    }
+                if(fields.flat().length > 0)
+                {
+                    url = domain+"?"+fields.flat().join("&");
                 }
-                url = domain+"?"+fields;
+                else{
+                    url = domain;
+                }
             }
             else {
                 if(domain != url)
@@ -602,7 +621,6 @@ function start()
                 var ret = clearUrl(requestDetails);
                 return ret;
             }
-
         }
 
         /**

@@ -53,10 +53,17 @@ function checkOSAndroid()
 */
 function countFields(url)
 {
-    var matches = (url.match(/[^\/|\?|&]+=[^\/|\?|&]+/gi) || []);
-    var count = matches.length;
+    return extractFileds(url).length;
+}
 
-    return count;
+/**
+ * Extract the fields from an url.
+ * @param  {String} url URL as String
+ * @return {Array}     Fields as array
+ */
+function extractFileds(url)
+{
+    return (url.match(/[^\/|\?|&]+=[^\/|\?|&]+/gi) || []);
 }
 
 /**

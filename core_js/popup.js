@@ -13,7 +13,6 @@ var hashStatus;
 var loggingStatus;
 var statisticsStatus;
 var currentURL;
-var reportServer;
 
 async function getData()
 {
@@ -29,7 +28,6 @@ async function getData()
         hashStatus = data.hashStatus;
         loggingStatus = data.loggingStatus;
         statisticsStatus = data.statisticsStatus;
-        reportServer = data.reportServer;
 
         browser.runtime.sendMessage({
             function: "getCurrentURL",
@@ -201,7 +199,6 @@ $(document).ready(function(){
         changeSwitchButton("statistics", "statisticsStatus");
         $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
         $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
-        $('#reportButton').on("click", reportURL);
         setText();
     });
 
@@ -260,26 +257,6 @@ function injectText(id, attribute, tooltip)
 function translate(string)
 {
     return browser.i18n.getMessage(string);
-}
-
-/**
-* Send the url to the DB on clearurls.röb.it to checked for tracking fields.
-*/
-function reportURL()
-{
-    $.ajax({
-        url: reportServer+'/report_url.php?url='+encodeURI(currentURL),
-        success: function(result) {
-            BootstrapDialog.show({
-                message: translate('success_report_url')
-            });
-        },
-        error: function(result) {
-            BootstrapDialog.show({
-                message: translate('error_report_url')
-            });
-        }
-    });
 }
 
 function handleError(error) {

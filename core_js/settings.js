@@ -84,11 +84,6 @@ function save()
     }).then(handleResponse, handleError);
 
     browser.runtime.sendMessage({
-        function: "setData",
-        params: ["reportServer", $('input[name=report_server]').val()]
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
         function: "saveOnExit",
         params: []
     }).then(handleResponse, handleError);
@@ -135,11 +130,6 @@ function getData()
         function: "getData",
         params: ["types"]
     }).then((data) => handleResponseData(data, "types", "types"), handleError);
-
-    browser.runtime.sendMessage({
-        function: "getData",
-        params: ["reportServer"]
-    }).then((data) => handleResponseData(data, "reportServer", "report_server"), handleError);
 }
 
 /**
@@ -157,7 +147,6 @@ function setText()
     $('#types_label').html(translate('setting_types_label'));
     $('#save_settings_btn').text(translate('settings_html_save_button'));
     $('#save_settings_btn').prop('title', translate('settings_html_save_button_title'));
-    $('#report_server_label').html(translate('setting_report_server_label'));
 }
 
 /**

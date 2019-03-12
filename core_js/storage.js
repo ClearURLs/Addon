@@ -79,7 +79,7 @@ function setData(key, value)
         break;
         case "hashURL":
         case "ruleURL":
-        storage[key] = replaceOldGithubURLs(value);
+        storage[key] = replaceOldURLs(value);
         break;
         case "types":
         storage[key] = value.split(',');
@@ -132,23 +132,27 @@ function initSettings()
     storage.log = {"log": []};
     storage.statisticsStatus = true;
     storage.badged_color = "ffa500";
-    storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
-    storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
+    storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
+    storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
     storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
     storage.reportServer = "https://clearurls.xn--rb-fka.it";
 }
 
 /**
-* Replace the old GitHub URLs with the
+* Replace the old URLs with the
 * new GitLab URLs.
 */
-function replaceOldGithubURLs(url)
+function replaceOldURLs(url)
 {
     switch (url) {
         case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":
         return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash";
         case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true":
         return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json";
+        case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash":
+        return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
+        case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json":
+        return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
         default:
         return url;
     }
