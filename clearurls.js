@@ -1,20 +1,20 @@
 /*
- * ClearURLs
- * Copyright (c) 2017-2019 Kevin Röbert
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+* ClearURLs
+* Copyright (c) 2017-2019 Kevin Röbert
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Lesser General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 /*jshint esversion: 6 */
 /*
@@ -29,6 +29,7 @@ var dataHash;
 var localDataHash;
 var os;
 var currentURL;
+var lastVisited = "";
 
 function start()
 {
@@ -237,8 +238,7 @@ function start()
             * @param {boolean} isActive   Is this rule active?
             */
             this.addRule = function(rule, isActive = true) {
-                // Add start and end delimiters to rule
-                rule = "^"+rule+"=[^\\/|\\?|&]*(\\/|&(amp;)?)?$";
+                rule = "([\\/|\\?]|(&|&amp;))("+rule+"=[^\\/|\\?|&]*)";
 
                 if(isActive)
                 {
@@ -414,41 +414,42 @@ function start()
                 * before the last ?. With adding a ? on the quantifier *,
                 * we fixed this problem.
                 */
-                fields = extractFileds(url.replace(new RegExp(".*?\\?", "i"), ""));
+                fields = "?"+url.replace(new RegExp(".*?\\?", "i"), "");
 
-                fields.forEach(function(field, index) {
-                    rules.forEach(function(rule) {
-                        var beforReplace = fields.flat().join("&");
-                        var match = new RegExp(rule, "i").test(field);
+                rules.forEach(function(rule) {
+                    var beforReplace = fields;
+                    fields = fields.replace(new RegExp(rule, "gi"), "");
 
-                        if(match) {
-                            delete fields[index];
-
-                            //Log the action
-                            pushToLog(domain+"?"+beforReplace, domain+"?"+fields.flat().join("&"), rule);
-
-                            if(badges[tabid] == null) badges[tabid] = 0;
-
-                            increaseURLCounter();
-
-                            if(!checkOSAndroid())
-                            {
-                                if(storage.badgedStatus) {
-                                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                                }
-                                else
-                                {
-                                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                                }
-                            }
-                            changes = true;
+                    if(beforReplace !== fields)
+                    {
+                        //Log the action
+                        if(storage.loggingStatus)
+                        {
+                            pushToLog(domain+beforReplace, domain+"?"+extractFileds(fields).flat().join("&"), rule);
                         }
-                    });
+
+                        if(badges[tabid] == null) badges[tabid] = 0;
+
+                        increaseURLCounter();
+
+                        if(!checkOSAndroid())
+                        {
+                            if(storage.badgedStatus) {
+                                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                            }
+                            else
+                            {
+                                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                            }
+                        }
+                        changes = true;
+                    }
                 });
 
-                if(fields.flat().length > 0)
+                var finalFields = extractFileds(fields).flat();
+                if(finalFields.length > 0)
                 {
-                    url = domain+"?"+fields.flat().join("&");
+                    url = domain+"?"+finalFields.join("&");
                 }
                 else{
                     url = domain;
@@ -507,6 +508,10 @@ function start()
             increaseGlobalURLCounter(URLbeforeReplaceCount);
 
             if(storage.globalStatus){
+                // The URL is already cleaned
+                if(lastVisited === request.url) {
+                    return {};
+                }
 
                 var result = {
                     "changes": false,
@@ -550,6 +555,8 @@ function start()
                     * a loop.
                     */
                     if(result.changes){
+                        lastVisited = result.url;
+
                         return {
                             redirectUrl: result.url
                         };
