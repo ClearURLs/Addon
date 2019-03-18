@@ -1,24 +1,24 @@
 /*
- * ClearURLs
- * Copyright (c) 2017-2019 Kevin Röbert
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+* ClearURLs
+* Copyright (c) 2017-2019 Kevin Röbert
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Lesser General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 /*jshint esversion: 6 */
 /*
- * This script is responsible for some tools.
+* This script is responsible for some tools.
 */
 
 /**
@@ -55,6 +55,10 @@ function reload()
 */
 function checkOSAndroid()
 {
+    browser.runtime.getPlatformInfo().then(function(info) {
+        os = info.os;
+    });
+
     if(os == "android")
     {
         return true;
@@ -75,10 +79,10 @@ function countFields(url)
 }
 
 /**
- * Extract the fields from an url.
- * @param  {String} url URL as String
- * @return {Array}     Fields as array
- */
+* Extract the fields from an url.
+* @param  {String} url URL as String
+* @return {Array}     Fields as array
+*/
 function extractFileds(url)
 {
     return (url.match(/[^\/|\?|&]+=[^\/|\?|&]+/gi) || []);
@@ -158,10 +162,12 @@ function increaseURLCounter()
 */
 function changeIcon()
 {
-    if(storage.globalStatus){
-        browser.browserAction.setIcon({path: "img/clearurls.svg"});
-    } else{
-        browser.browserAction.setIcon({path: "img/clearurls_gray.svg"});
+    if(!checkOSAndroid()) {
+        if(storage.globalStatus){
+            browser.browserAction.setIcon({path: "img/clearurls.svg"});
+        } else{
+            browser.browserAction.setIcon({path: "img/clearurls_gray.svg"});
+        }
     }
 }
 

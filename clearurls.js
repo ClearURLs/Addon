@@ -33,14 +33,12 @@ var lastVisited = "";
 
 function start()
 {
-    changeIcon();
-
     /**
     * Save OS Version
     */
     browser.runtime.getPlatformInfo(function(info) {
-
         os = info.os;
+        changeIcon();
 
 
         /**
