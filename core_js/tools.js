@@ -21,6 +21,20 @@
 * This script is responsible for some tools.
 */
 
+/*
+ * To support Waterfox.
+ */
+Array.prototype.rmEmpty = function() {
+    return this.filter(v => v);
+};
+
+/*
+ * To support Waterfox.
+ */
+Array.prototype.flatten = function() {
+    return this.reduce((a, b) => a.concat(b), []);
+};
+
 /**
 * Check if an object is empty.
 * @param  {Object}  obj

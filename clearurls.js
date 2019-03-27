@@ -423,7 +423,7 @@ function start()
                         //Log the action
                         if(storage.loggingStatus)
                         {
-                            pushToLog(domain+beforReplace, domain+"?"+extractFileds(fields).flat().join("&"), rule);
+                            pushToLog(domain+beforReplace, domain+"?"+extractFileds(fields).rmEmpty().join("&"), rule);
                         }
 
                         if(badges[tabid] == null) badges[tabid] = 0;
@@ -444,7 +444,7 @@ function start()
                     }
                 });
 
-                var finalFields = extractFileds(fields).flat();
+                var finalFields = extractFileds(fields).rmEmpty();
                 if(finalFields.length > 0)
                 {
                     url = domain+"?"+finalFields.join("&");
