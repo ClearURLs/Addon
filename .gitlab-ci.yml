@@ -3,7 +3,7 @@ image: debian:latest
 before_script:
   - export DEBIAN_FRONTEND= noninteractive
   - apt-get update -y
-  - apt-get install -y zip unzip
+  - apt-get install -y zip unzip jq
 
 stages:
   - build
@@ -31,7 +31,8 @@ build firefox:
 build chrome:
   stage: build
   script:
-    - zip ClearUrls_chrome -r -FS clearurls.js browser-polyfill.js ChromeVersion/manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
+    - jq 'del(.applications) | .description=""' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
+    - zip ClearUrls_chrome -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
 
   only:
     - master
