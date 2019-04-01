@@ -35,7 +35,7 @@ function handleMessage(request, sender, sendResponse)
     {
         var response = fn.apply(null, request.params);
 
-        sendResponse({response});
+        return Promise.resolve({response});
     }
 }
 

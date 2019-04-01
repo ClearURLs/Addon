@@ -36,7 +36,7 @@ function start()
     /**
     * Save OS Version
     */
-    browser.runtime.getPlatformInfo(function(info) {
+    chrome.runtime.getPlatformInfo(function(info) {
         os = info.os;
         changeIcon();
 

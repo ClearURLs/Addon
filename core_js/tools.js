@@ -69,7 +69,7 @@ function reload()
 */
 function checkOSAndroid()
 {
-    browser.runtime.getPlatformInfo().then(function(info) {
+    chrome.runtime.getPlatformInfo(function(info) {
         os = info.os;
     });
 
@@ -206,4 +206,15 @@ function setBadgedStatus()
 function getCurrentURL()
 {
     return currentURL;
+}
+
+/**
+ * Check for browser.
+ */
+function getBrowser() {
+    if(typeof InstallTrigger !== 'undefined') {
+        return "Firefox";
+    } else {
+        return "Chrome";
+    }
 }

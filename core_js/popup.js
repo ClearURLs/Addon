@@ -35,27 +35,60 @@ var currentURL;
 async function getData()
 {
     await browser.runtime.sendMessage({
-        function: "getEntireData",
+        function: "getData",
+        params: ["globalCounter"]
+    }).then((data) => {
+        globalCounter = data.response;
+    });
+
+    await browser.runtime.sendMessage({
+        function: "getData",
+        params: ["globalurlcounter"]
+    }).then((data) => {
+        globalurlcounter = data.response;
+    });
+
+    await browser.runtime.sendMessage({
+        function: "getData",
+        params: ["globalStatus"]
+    }).then((data) => {
+        globalStatus = data.response;
+    });
+
+    await browser.runtime.sendMessage({
+        function: "getData",
+        params: ["badgedStatus"]
+    }).then((data) => {
+        badgedStatus = data.response;
+    });
+
+    await browser.runtime.sendMessage({
+        function: "getData",
+        params: ["hashStatus"]
+    }).then((data) => {
+        hashStatus = data.response;
+    });
+
+    await browser.runtime.sendMessage({
+        function: "getData",
+        params: ["loggingStatus"]
+    }).then((data) => {
+        loggingStatus = data.response;
+    });
+
+    await browser.runtime.sendMessage({
+        function: "getData",
+        params: ["statisticsStatus"]
+    }).then((data) => {
+        statisticsStatus = data.response;
+    });
+
+    await browser.runtime.sendMessage({
+        function: "getCurrentURL",
         params: []
     }).then((data) => {
-        data = data.response;
-        globalCounter = data.globalCounter;
-        globalurlcounter = data.globalurlcounter;
-        globalStatus = data.globalStatus;
-        badgedStatus = data.badgedStatus;
-        hashStatus = data.hashStatus;
-        loggingStatus = data.loggingStatus;
-        statisticsStatus = data.statisticsStatus;
-
-        browser.runtime.sendMessage({
-            function: "getCurrentURL",
-            params: []
-        }).then((data) => {
-            currentURL = data.response;
-
-            return null;
-        }, handleError);
-    }, handleError);
+        currentURL = data.response;
+    });
 }
 
 /**

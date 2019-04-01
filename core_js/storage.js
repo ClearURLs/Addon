@@ -1,24 +1,24 @@
 /*
- * ClearURLs
- * Copyright (c) 2017-2019 Kevin Röbert
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+* ClearURLs
+* Copyright (c) 2017-2019 Kevin Röbert
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Lesser General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 /*jshint esversion: 6 */
 /*
- * This script is responsible for the storage.
+* This script is responsible for the storage.
 */
 var storage = [];
 
@@ -61,7 +61,7 @@ function saveOnDisk(key, value)
 */
 function getDataFromDisk()
 {
-    browser.storage.local.get().then(initStorage, error);
+    browser.storage.local.get(null).then(initStorage, error);
 }
 
 /**
@@ -75,9 +75,9 @@ function getData(key)
 }
 
 /**
- * Return the entire storage object.
- * @return {Object}
- */
+* Return the entire storage object.
+* @return {Object}
+*/
 function getEntireData()
 {
     return storage;
@@ -152,8 +152,13 @@ function initSettings()
     storage.badged_color = "ffa500";
     storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
     storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
-    storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
     storage.reportServer = "https://clearurls.xn--rb-fka.it";
+
+    if(getBrowser() === "Firefox") {
+        storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
+    } else if (getBrowser() === "Chrome") {
+        storage.types = ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "other"];
+    }
 }
 
 /**

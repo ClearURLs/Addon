@@ -1,39 +1,39 @@
 {
     "manifest_version": 2,
     "name": "ClearURLs",
-    "version": "1.3.3.14",
+    "version": "1.5.2",
     "author": "Kevin R.",
     "description": "Remove tracking elements form URLs.",
     "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
     "default_locale": "en",
     "icons": {
-        "16": "img/clearurls.png",
-        "19": "img/clearurls.png",
-        "20": "img/clearurls.png",
-        "24": "img/clearurls.png",
-        "30": "img/clearurls.png",
-        "32": "img/clearurls.png",
-        "38": "img/clearurls.png",
-        "48": "img/clearurls.png",
-        "64": "img/clearurls.png",
-        "96": "img/clearurls.png",
-        "128": "img/clearurls.png"
+        "16": "img/clearurls.svg",
+        "19": "img/clearurls.svg",
+        "20": "img/clearurls.svg",
+        "24": "img/clearurls.svg",
+        "30": "img/clearurls.svg",
+        "32": "img/clearurls.svg",
+        "38": "img/clearurls.svg",
+        "48": "img/clearurls.svg",
+        "64": "img/clearurls.svg",
+        "96": "img/clearurls.svg",
+        "128": "img/clearurls.svg"
 
     },
     "browser_action": {
         "browser_style": true,
         "default_icon": {
-            "16": "img/clearurls.png",
-			"19": "img/clearurls.png",
-			"20": "img/clearurls.png",
-			"24": "img/clearurls.png",
-			"30": "img/clearurls.png",
-			"32": "img/clearurls.png",
-			"38": "img/clearurls.png",
-			"48": "img/clearurls.png",
-			"64": "img/clearurls.png",
-			"96": "img/clearurls.png",
-			"128": "img/clearurls.png"
+            "16": "img/clearurls.svg",
+			"19": "img/clearurls.svg",
+			"20": "img/clearurls.svg",
+			"24": "img/clearurls.svg",
+			"30": "img/clearurls.svg",
+			"32": "img/clearurls.svg",
+			"38": "img/clearurls.svg",
+			"48": "img/clearurls.svg",
+			"64": "img/clearurls.svg",
+			"96": "img/clearurls.svg",
+			"128": "img/clearurls.svg"
 
         },
         "default_title": "ClearURLs Add-on",
@@ -45,13 +45,17 @@
         "webRequest",
         "webRequestBlocking",
         "storage",
-        "tabs"
+        "tabs",
+        "unlimitedStorage"
     ],
     "background": {
         "scripts": [
             "browser-polyfill.js",
             "external_js/jquery-3.2.1.min.js",
             "external_js/sha256.jquery.js",
+			"core_js/message_handler.js",
+			"core_js/tools.js",
+			"core_js/storage.js",
             "clearurls.js"
         ]
     },

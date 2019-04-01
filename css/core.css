@@ -33,6 +33,10 @@ body {
     margin-top: -10px;
 }
 
+#body-popup {
+    width: 200px;
+}
+
 #donate {
     transition: 0.3s;
     opacity: 0.8;
