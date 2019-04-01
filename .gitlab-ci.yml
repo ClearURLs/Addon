@@ -31,7 +31,7 @@ build firefox:
 build chrome:
   stage: build
   script:
-    - zip ClearUrls_chrome -r -FS ChromeVersion/clearurls.js browser-polyfill.js ChromeVersion/manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/* ChromeVersion/css/core.css
+    - zip ClearUrls_chrome -r -FS clearurls.js browser-polyfill.js ChromeVersion/manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
 
   only:
     - master
