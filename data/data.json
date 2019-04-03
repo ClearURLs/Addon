@@ -436,6 +436,15 @@
             "redirections": [
                 ".*disq\\.us.*\\/.*url\\?.*url=((https%3A%2F%2F|http%3A%2F%2F).*)%3A"
             ]
+        },
+        "mozaws.net": {
+            "urlPattern": "https?://outgoing\\.prod\\.mozaws\\.net/.*",
+            "completeProvider": false,
+            "rules": [],
+            "exceptions": [],
+            "redirections": [
+                "https?://[^/]+/v1/[0-9a-f]{64}/(.*)"
+            ]
         }
     }
 }
