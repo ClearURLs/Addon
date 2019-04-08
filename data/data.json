@@ -199,7 +199,9 @@
             "rules": [
                 "hc_[a-zA-Z_\\[\\]0-9]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
                 "[a-zA-Z]*ref[a-zA-Z]*=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
-                "__tn__=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+                "__tn__=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "eid=[^\\/|\\?|&]*(\\/|&(amp;)?)?",
+                "__xts__%5B[0-9]%5D=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
             ],
             "exceptions": [
                 ".*(facebook\\.)\\w{2,}.*(\\/plugins\\/).*"
@@ -445,6 +447,15 @@
             "redirections": [
                 "https?://[^/]+/v1/[0-9a-f]{64}/(.*)"
             ]
+        },
+        "shutterstock.com": {
+            "urlPattern": "https?://([a-zA-Z0-9-]*\\.)?(shutterstock\\.com)(.*\\?.*)",
+            "completeProvider": false,
+            "rules": [
+                "src=[^\\/|\\?|&]*(\\/|&(amp;)?)?"
+            ],
+            "exceptions": [],
+            "redirections": []
         }
     }
 }
