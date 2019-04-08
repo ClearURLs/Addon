@@ -178,9 +178,9 @@ function changeIcon()
 {
     if(!checkOSAndroid()) {
         if(storage.globalStatus){
-            browser.browserAction.setIcon({path: "img/clearurls.svg"});
+            browser.browserAction.setIcon({path: "img/clearurls_128x128.png"});
         } else{
-            browser.browserAction.setIcon({path: "img/clearurls_gray.svg"});
+            browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"});
         }
     }
 }
