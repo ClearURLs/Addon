@@ -248,7 +248,7 @@
         "message": "A donation for the ClearURLs creator.",
         "description": ""
     },
-    "clipboard_copy-link": {
+    "clipboard_copy_link": {
         "message": "Copy Link Location",
         "description": ""
     }

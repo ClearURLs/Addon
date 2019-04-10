@@ -23,7 +23,7 @@
 
 browser.contextMenus.create({
     id: "copy-link-to-clipboard",
-    title: translate("clipboard_copy-link"),
+    title: translate("clipboard_copy_link"),
     contexts: ["link"],
     icons: {
         "16": "img/clearurls_16x16.png",

@@ -248,7 +248,7 @@
         "message": "Eine Spende (Schenkung) für den ClearURLs Urheber.",
         "description": ""
     },
-    "clipboard_copy-link": {
+    "clipboard_copy_link": {
         "message": "Link-Adresse kopieren",
         "description": ""
     }
