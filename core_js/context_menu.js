@@ -24,20 +24,7 @@
 browser.contextMenus.create({
     id: "copy-link-to-clipboard",
     title: translate("clipboard_copy_link"),
-    contexts: ["link"],
-    icons: {
-        "16": "img/clearurls_16x16.png",
-        "19": "img/clearurls_19x19.png",
-        "20": "img/clearurls_20x20.png",
-        "24": "img/clearurls_24x24.png",
-        "30": "img/clearurls_30x30.png",
-        "32": "img/clearurls_32x32.png",
-        "38": "img/clearurls_38x38.png",
-        "48": "img/clearurls_48x48.png",
-        "64": "img/clearurls_64x64.png",
-        "96": "img/clearurls_96x96.png",
-        "128": "img/clearurls_128x128.png"
-    }
+    contexts: ["link"]
 });
 
 browser.contextMenus.onClicked.addListener((info, tab) => {
