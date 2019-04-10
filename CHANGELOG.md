@@ -1,0 +1,92 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [[1.5.8] - 2019-04-10](https://gitlab.com/KevinRoebert/ClearUrls/commit/1b6cc37bdd23011d006bf7ef6824463e7c96067a)
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 28
+
+### Added
+- Added context menu entry, to clean and copy links into clipboard
+
+## [[1.5.4] - 2019-04-08](https://gitlab.com/KevinRoebert/ClearUrls/commit/0a948968b309f418ec4175dd23fedb0b88c97086)
+
+### Fixed
+- Changed icon format from svg into png to support Chrome
+
+## [[1.5.3] - 2019-04-03](https://gitlab.com/KevinRoebert/ClearUrls/commit/304cbe2e6bf3756f4bcb675ec4b8b7403158ea5c)
+
+### Removed
+- Removed the *tab permission*, because it is not required for all used methods on the tabs api
+
+## [[1.5.2] - 2019-04-01](https://gitlab.com/KevinRoebert/ClearUrls/commit/03e0580b202fc0a77f442f284dd5470cddbbd5c0)
+
+### Added
+- Added new screenshots of the ClearURLs popup
+
+### Changed
+- Replaced *webextension-polyfill* v.0.3.1 with the new version v0.4.0
+- Updated the Chrome version of ClearURLs to the newest version
+- Changed ClearURLs to support both Firefox and Chrome, without generating every time to different source codes
+- Changed the GitLab-CI to build the Chrome version automatically from the Firefox version
+- Replaced the old screenshots in the README with new ones
+
+### Removed
+- Removed the old ClearURLs Chrome version
+
+## [[1.5.1.6a] - 2019-03-27](https://gitlab.com/KevinRoebert/ClearUrls/commit/869cd63e645e2cacaf26017366fa4eaa3fb97411)
+
+### Fixed
+- Added own flat function and a function that removes empty fields from arrays to support Waterfox
+
+## [[1.5.1.5a] - 2019-03-18](https://gitlab.com/KevinRoebert/ClearUrls/commit/d87d88250dccd07570c10b37f41054ed44a0ee97)
+
+### Fixed
+- Bugfix to support Android devices again
+
+## [[1.5.1a] - 2019-03-14](https://gitlab.com/KevinRoebert/ClearUrls/commit/80af6f6feac086490f841adad5fe769d71be86f8)
+
+### Added
+- Added *unlimitedStorage* permissions to prevent storage restrictions (which will come in future versions of firefox) and to have enough space for user generated rules
+
+### Changed
+- Changed the regex interpretation for better performance
+
+## [[1.5a] - 2019-03-14](https://gitlab.com/KevinRoebert/ClearUrls/commit/80af6f6feac086490f841adad5fe769d71be86f8)
+
+### Added
+- New rules file *data.min.json* that is a minimized version of the old one
+- New technique to get data from the local storage
+- The command pattern has been implemented so that ClearURLs also works in private mode
+- Automatically generating hash for *data.min.json* file with GitLab-CI
+- Add start and end delimiters to rules
+- Preparations for costume rules
+
+### Changed
+- Storage improvements, better performance
+- Splitted core file into multiple pieces for better overview
+- Minimize rules length
+
+### Fixed
+- [#124](https://gitlab.com/KevinRoebert/ClearUrls/issues/124)
+
+### Removed
+- Warning in private mode (no longer necessary)
+- Removed *Report URL* function
+
+## [[1.3.4.2] - 2019-02-01](https://gitlab.com/KevinRoebert/ClearUrls/commit/23e7fa406436c40c561c1e0108c5e9c8c7e9e0d8)
+
+### Changed
+- Updated Ukrainian translation from [@a-polivanchuk](https://gitlab.com/a-polivanchuk)
+
+## [[1.3.4.0] - 2018-10-08](https://gitlab.com/KevinRoebert/ClearUrls/commit/06b84d749084997e3d759ebd916772b446adfe9c)
+
+## Added
+- Added more request types, as proposed in [#106](https://gitlab.com/KevinRoebert/ClearUrls/issues/106)
+
+## Updated
+- Updated french translation
