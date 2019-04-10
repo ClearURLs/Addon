@@ -247,5 +247,9 @@
     "donate_button": {
         "message": "Eine Spende (Schenkung) für den ClearURLs Urheber.",
         "description": ""
+    },
+    "clipboard.copy-link": {
+        "message": "Link-Adresse kopieren",
+        "description": ""
     }
 }

@@ -31,6 +31,129 @@ var os;
 var currentURL;
 var lastVisited = "";
 
+/**
+* Helper function which remove the tracking fields
+* for each provider given as parameter.
+*
+* @param  {Provider} provider      Provider-Object
+* @return {Array}                  Array with changes and url fields
+*/
+function removeFieldsFormURL(provider, pureUrl)
+{
+    var url = pureUrl;
+    var domain = url.replace(new RegExp("\\?.*", "i"), "");
+    var fields = "";
+    var rules = provider.getRules();
+    var changes = false;
+    var cancel = false;
+
+    /*
+    * Expand the url by provider redirections. So no tracking on
+    * url redirections form sites to sites.
+    */
+    var re = provider.getRedirection(url);
+    if(re !== null)
+    {
+        url = decodeURIComponent(re);
+        //Log the action
+        pushToLog(pureUrl, url, translate('log_redirect'));
+
+        return {
+            "redirect": true,
+            "url": url
+        };
+    }
+
+    /**
+    * Only test for matches, if there are fields that can be cleaned.
+    */
+    if(existsFields(url))
+    {
+        /**
+        * It must be non-greedy, because by default .* will match
+        * all ? chars. So the replace function delete everything
+        * before the last ?. With adding a ? on the quantifier *,
+        * we fixed this problem.
+        */
+        fields = "?"+url.replace(new RegExp(".*?\\?", "i"), "");
+
+        rules.forEach(function(rule) {
+            var beforReplace = fields;
+            fields = fields.replace(new RegExp(rule, "gi"), "");
+
+            if(beforReplace !== fields)
+            {
+                //Log the action
+                if(storage.loggingStatus)
+                {
+                    pushToLog(domain+beforReplace, domain+"?"+extractFileds(fields).rmEmpty().join("&"), rule);
+                }
+
+                if(badges[tabid] == null) badges[tabid] = 0;
+
+                increaseURLCounter();
+
+                if(!checkOSAndroid())
+                {
+                    if(storage.badgedStatus) {
+                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                    }
+                    else
+                    {
+                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                    }
+                }
+                changes = true;
+            }
+        });
+
+        var finalFields = extractFileds(fields).rmEmpty();
+        if(finalFields.length > 0)
+        {
+            url = domain+"?"+finalFields.join("&");
+        }
+        else{
+            url = domain;
+        }
+    }
+    else {
+        if(domain != url)
+        {
+            url = domain;
+            changes = true;
+        }
+    }
+
+    if(provider.isCaneling()){
+        pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
+        if(badges[tabid] == null)
+        {
+            badges[tabid] = 0;
+        }
+
+        increaseURLCounter();
+
+        if(!checkOSAndroid())
+        {
+            if(storage.badgedStatus) {
+                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+            }
+            else
+            {
+                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+            }
+        }
+
+        cancel = true;
+    }
+
+    return {
+        "changes": changes,
+        "url": url,
+        "cancel": cancel
+    };
+}
+
 function start()
 {
     /**
@@ -368,130 +491,6 @@ function start()
         // ##################################################################
 
         /**
-        * Helper function which remove the tracking fields
-        * for each provider given as parameter.
-        *
-        * @param  {Provider} provider      Provider-Object
-        * @param  {webRequest} request     webRequest-Object
-        * @return {Array}                  Array with changes and url fields
-        */
-        function removeFieldsFormURL(provider, request)
-        {
-            var url = request.url;
-            var domain = url.replace(new RegExp("\\?.*", "i"), "");
-            var fields = "";
-            var rules = provider.getRules();
-            var changes = false;
-            var cancel = false;
-
-            /*
-            * Expand the url by provider redirections. So no tracking on
-            * url redirections form sites to sites.
-            */
-            var re = provider.getRedirection(url);
-            if(re !== null)
-            {
-                url = decodeURIComponent(re);
-                //Log the action
-                pushToLog(request.url, url, translate('log_redirect'));
-
-                return {
-                    "redirect": true,
-                    "url": url
-                };
-            }
-
-            /**
-            * Only test for matches, if there are fields that can be cleaned.
-            */
-            if(existsFields(url))
-            {
-                /**
-                * It must be non-greedy, because by default .* will match
-                * all ? chars. So the replace function delete everything
-                * before the last ?. With adding a ? on the quantifier *,
-                * we fixed this problem.
-                */
-                fields = "?"+url.replace(new RegExp(".*?\\?", "i"), "");
-
-                rules.forEach(function(rule) {
-                    var beforReplace = fields;
-                    fields = fields.replace(new RegExp(rule, "gi"), "");
-
-                    if(beforReplace !== fields)
-                    {
-                        //Log the action
-                        if(storage.loggingStatus)
-                        {
-                            pushToLog(domain+beforReplace, domain+"?"+extractFileds(fields).rmEmpty().join("&"), rule);
-                        }
-
-                        if(badges[tabid] == null) badges[tabid] = 0;
-
-                        increaseURLCounter();
-
-                        if(!checkOSAndroid())
-                        {
-                            if(storage.badgedStatus) {
-                                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                            }
-                            else
-                            {
-                                browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                            }
-                        }
-                        changes = true;
-                    }
-                });
-
-                var finalFields = extractFileds(fields).rmEmpty();
-                if(finalFields.length > 0)
-                {
-                    url = domain+"?"+finalFields.join("&");
-                }
-                else{
-                    url = domain;
-                }
-            }
-            else {
-                if(domain != url)
-                {
-                    url = domain;
-                    changes = true;
-                }
-            }
-
-            if(provider.isCaneling()){
-                pushToLog(request.url, request.url, translate('log_domain_blocked'));
-                if(badges[tabid] == null)
-                {
-                    badges[tabid] = 0;
-                }
-
-                increaseURLCounter();
-
-                if(!checkOSAndroid())
-                {
-                    if(storage.badgedStatus) {
-                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                    }
-                    else
-                    {
-                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                    }
-                }
-
-                cancel = true;
-            }
-
-            return {
-                "changes": changes,
-                "url": url,
-                "cancel": cancel
-            };
-        }
-
-        /**
         * Function which called from the webRequest to
         * remove the tracking fields from the url.
         *
@@ -525,7 +524,7 @@ function start()
 
                     if(providers[i].matchURL(request.url))
                     {
-                        result = removeFieldsFormURL(providers[i], request);
+                        result = removeFieldsFormURL(providers[i], request.url);
                     }
 
                     /*
@@ -564,31 +563,6 @@ function start()
 
             // Default case
             return {};
-        }
-
-        /**
-        * Function to log all activities from ClearUrls.
-        * Only logging when activated.
-        * The log is only temporary saved in the cache and will
-        * permanently saved with the saveLogOnClose function.
-        *
-        * @param beforeProcessing  the url before the clear process
-        * @param afterProcessing   the url after the clear process
-        * @param rule              the rule that triggered the process
-        */
-        function pushToLog(beforeProcessing, afterProcessing, rule)
-        {
-            if(storage.loggingStatus)
-            {
-                storage.log.log.push(
-                    {
-                        "before": beforeProcessing,
-                        "after": afterProcessing,
-                        "rule": rule,
-                        "timestamp": Date.now()
-                    }
-                );
-            }
         }
 
         /**
@@ -670,4 +644,29 @@ function start()
             ["blocking"]
         );
     });
+}
+
+/**
+* Function to log all activities from ClearUrls.
+* Only logging when activated.
+* The log is only temporary saved in the cache and will
+* permanently saved with the saveLogOnClose function.
+*
+* @param beforeProcessing  the url before the clear process
+* @param afterProcessing   the url after the clear process
+* @param rule              the rule that triggered the process
+*/
+function pushToLog(beforeProcessing, afterProcessing, rule)
+{
+    if(storage.loggingStatus)
+    {
+        storage.log.log.push(
+            {
+                "before": beforeProcessing,
+                "after": afterProcessing,
+                "rule": rule,
+                "timestamp": Date.now()
+            }
+        );
+    }
 }
