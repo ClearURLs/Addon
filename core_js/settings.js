@@ -1,20 +1,20 @@
 /*
- * ClearURLs
- * Copyright (c) 2017-2019 Kevin Röbert
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+* ClearURLs
+* Copyright (c) 2017-2019 Kevin Röbert
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU Lesser General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU Lesser General Public License for more details.
+*
+* You should have received a copy of the GNU Lesser General Public License
+* along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 var settings = [];
 
@@ -50,9 +50,9 @@ $(document).ready(function(){
 });
 
 /**
- * Reset everything.
- * Set everthing to the default values.
- */
+* Reset everything.
+* Set everthing to the default values.
+*/
 function reset()
 {
     browser.runtime.sendMessage({
@@ -72,8 +72,8 @@ function reset()
 }
 
 /**
- * Saves the settings.
- */
+* Saves the settings.
+*/
 function save()
 {
     browser.runtime.sendMessage({
@@ -125,8 +125,8 @@ function translate(string)
 }
 
 /**
- * Get the data.
- */
+* Get the data.
+*/
 function getData()
 {
     browser.runtime.sendMessage({
@@ -148,11 +148,28 @@ function getData()
         function: "getData",
         params: ["types"]
     }).then((data) => handleResponseData(data, "types", "types"), handleError);
+
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ["contextMenuEnabled"]
+    }).then((data) => {
+        handleResponseData(data, "contextMenuEnabled", "contextMenuEnabled");
+        browser.runtime.sendMessage({
+            function: "getData",
+            params: ["historyListenerEnabled"]
+        }).then((data) => {
+            handleResponseData(data, "historyListenerEnabled", "historyListenerEnabled");
+            changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
+            changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
+        }, handleError);
+    }, handleError);
+
+
 }
 
 /**
- * Set the text for the UI.
- */
+* Set the text for the UI.
+*/
 function setText()
 {
     document.title = translate('settings_html_page_title');
@@ -165,12 +182,14 @@ function setText()
     $('#types_label').html(translate('setting_types_label'));
     $('#save_settings_btn').text(translate('settings_html_save_button'));
     $('#save_settings_btn').prop('title', translate('settings_html_save_button_title'));
+    injectText("context_menu_enabled", "context_menu_enabled");
+    $('#history_listener_enabled').html(translate('history_listener_enabled'));
 }
 
 /**
- * Handle the response from the storage and saves the data.
- * @param  {JSON-Object} data Data JSON-Object
- */
+* Handle the response from the storage and saves the data.
+* @param  {JSON-Object} data Data JSON-Object
+*/
 function handleResponseData(data, varName, inputID)
 {
     settings[varName] = data.response;
@@ -178,9 +197,74 @@ function handleResponseData(data, varName, inputID)
 }
 
 function handleResponse(message) {
-  console.log(`Message from the background script:  ${message.response}`);
+    console.log(`Message from the background script:  ${message.response}`);
 }
 
 function handleError(error) {
-  console.log(`Error: ${error}`);
+    console.log(`Error: ${error}`);
+}
+
+/**
+* Change the value of a switch button.
+* @param  {string} id        HTML id
+* @param  {string} storageID storage internal id
+*/
+function changeSwitchButton(id, storageID)
+{
+    var element = $('#'+id);
+
+    element.on('change', function(){
+        browser.runtime.sendMessage({
+            function: "setData",
+            params: [storageID, element.is(':checked')]
+        }).then((data) => {
+            if(storageID == "globalStatus"){
+                browser.runtime.sendMessage({
+                    function: "changeIcon",
+                    params: []
+                });
+            }
+
+            browser.runtime.sendMessage({
+                function: "saveOnExit",
+                params: []
+            });
+        });
+    });
+    setSwitchButton(id, storageID);
+}
+
+/**
+* Helper function to inject the translated text and tooltip.
+*
+* @param   {string}    id ID of the HTML element
+* @param   {string}    attribute Name of the attribute used for localization
+* @param   {boolean}   tooltip
+*/
+function injectText(id, attribute, tooltip)
+{
+    object = $('#'+id);
+    object.text(translate(attribute));
+
+    /*
+    This function will throw an error if no translation
+    is found for the tooltip. This is a planned error.
+    */
+    tooltip = translate(attribute+"_title");
+
+    if(tooltip != "")
+    {
+        object.prop('title', tooltip);
+    }
+}
+
+/**
+* Set the value of a switch button.
+* @param {string} id      HTML id
+* @param {string} varname js internal variable name
+*/
+function setSwitchButton(id, varname)
+{
+    var element = $('#'+id);
+    element.prop('checked', settings[varname]);
 }

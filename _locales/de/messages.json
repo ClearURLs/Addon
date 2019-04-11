@@ -249,7 +249,35 @@
         "description": ""
     },
     "clipboard_copy_link": {
-        "message": "Link-Adresse kopieren",
+        "message": "Gesäuberte Link-Adresse kopieren",
+        "description": ""
+    },
+    "context_menu_enabled": {
+        "message": "Kontextmenü-Eintrag anzeigen",
+        "description": ""
+    },
+    "history_listener_enabled": {
+        "message": "Verhindere Tracking über die History-API (Siehe auch: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method' target='_blank'>The pushState() method</a>)",
+        "description": ""
+    },
+    "cleaning_tool_page_title": {
+        "message": "Säuberungswerkzeug von ClearURLs",
+        "description": ""
+    },
+    "cleaning_tool_description": {
+        "message": "Mit diesem Werkzeug können Sie URLs in die Textbox einfügen. Nach einem klick auf den grünen Button reinigt ClearURLs die Links. Sie können mehrer URLs auf einmal einfügen, jede URL muss aber in einer eigenen Zeile stehen.",
+        "description": ""
+    },
+    "cleaning_tool_btn": {
+        "message": "URLs säubern",
+        "description": ""
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Hier können Sie die ungesäuberten URLs einfügen:",
+        "description": ""
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Hier finden Sie die gesäuberten URLs:",
         "description": ""
     }
 }

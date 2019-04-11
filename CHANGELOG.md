@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6] - 2019-04-11
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 28
+
+### Added
+- Added listener to the browser history to prevent tracking with the [history.pushState method](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
+- Added webNavigation and tabs permissions, for the new feature
+- Added switches in settings to enable and disable the context menu entry and the history listener
+- Added tool to clean URLs, that was pasted into a textbox
+- Added icon for new tool to clean URLs
+
+### Fixed
+- [#40](https://gitlab.com/KevinRoebert/ClearUrls/issues/40), see also https://curl.kevinroebert.de
+- [#103](https://gitlab.com/KevinRoebert/ClearUrls/issues/103), see also https://curl.kevinroebert.de
+
+### Changed
+- Changed clipboard-helper.js path to be absolute to prevent problems
+- Changed rewrite of old GitHub links to the new data.min.json and rules.min.hash
+- Config icon is now bigger and above the config label
+- Update Traditional Chinese Translation by [@yipinghuang](https://gitlab.com/yipinghuang)
+
 ## [[1.5.8] - 2019-04-10](https://gitlab.com/KevinRoebert/ClearUrls/commit/1b6cc37bdd23011d006bf7ef6824463e7c96067a)
 
 ### Compatibility note

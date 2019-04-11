@@ -249,7 +249,35 @@
         "description": ""
     },
     "clipboard_copy_link": {
-        "message": "Copy Link Location",
+        "message": "Copy Clean Link Location",
+        "description": ""
+    },
+    "context_menu_enabled": {
+        "message": "Display context menu entry",
+        "description": ""
+    },
+    "history_listener_enabled": {
+        "message": "Prevent tracking injection over history API (See also: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method' target='_blank'>The pushState() method</a>)",
+        "description": ""
+    },
+    "cleaning_tool_page_title": {
+        "message": "Cleaning tool from ClearURLs",
+        "description": ""
+    },
+    "cleaning_tool_description": {
+        "message": "With this tool you can paste in URLs and ClearURLs will cleaned the URLs after a click on the green button. You can paste in multiple URLs at once, but every URL must be in a separate line.",
+        "description": ""
+    },
+    "cleaning_tool_btn": {
+        "message": "Clean URLs",
+        "description": ""
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Here you can paste in the dirty URLs:",
+        "description": ""
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Here you can find the cleaned URLs:",
         "description": ""
     }
 }

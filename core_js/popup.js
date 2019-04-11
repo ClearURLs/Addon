@@ -250,6 +250,7 @@ $(document).ready(function(){
         changeSwitchButton("statistics", "statisticsStatus");
         $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
         $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
+        $('#cleaning_tools').attr('href', browser.extension.getURL('./html/cleaningTool.html'));
         setText();
     });
 
@@ -272,7 +273,6 @@ function setText()
     injectText('configs_switch_filter','popup_html_configs_switch_filter');
     injectText('configs_head','popup_html_configs_head');
     injectText('configs_switch_statistics','configs_switch_statistics');
-    injectText('reportButton', 'popup_html_report_button', true);
     $('#donate').prop('title', translate('donate_button'));
 }
 
