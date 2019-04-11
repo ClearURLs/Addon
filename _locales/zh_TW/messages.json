@@ -20,7 +20,7 @@
     },
 
     "hash_status_code_5": {
-        "message": "糟糕! 有東西不對勁",
+        "message": "發生錯誤",
         "description": ""
     },
 
@@ -30,12 +30,12 @@
     },
 
     "log_domain_blocked": {
-        "message": "此網址已被封鎖",
+        "message": "此網域已被封鎖",
         "description": ""
     },
 
     "check_os_log": {
-        "message": "[ClearURLs]: 已新增記錄聆聽者",
+        "message": "[ClearURLs]: 已新增記錄監聽器",
         "description": ""
     },
 
@@ -85,7 +85,7 @@
     },
 
     "popup_html_configs_switch_filter_title": {
-        "message": "此過濾器開關為ClearURLs的主開關, 若此項不打勾, 則本附加元件失效.",
+        "message": "此開關為ClearURLs的主開關. 若關閉則本附加元件失效.",
         "description": ""
     },
 
@@ -150,17 +150,27 @@
     },
 
     "popup_html_log_head_title": {
-        "message": "開啟記錄檔",
+        "message": "打開記錄檔",
+        "description": ""
+    },
+
+    "popup_html_report_button": {
+        "message": "回報目前網址",
+        "description": ""
+    },
+
+    "popup_html_report_button_title": {
+        "message": "回報該分頁網址",
         "description": ""
     },
 
     "core_save_on_disk": {
-        "message": "[ClearURLs]: 儲存於磁碟",
+        "message": "[ClearURLs]: 儲存於本機",
         "description": ""
     },
 
     "core_error": {
-        "message": "[ClearURLs]: 此附加元件無法啟動",
+        "message": "[ClearURLs]: 附加元件無法啟動",
         "description": ""
     },
 
@@ -195,7 +205,7 @@
     },
 
     "setting_rule_url_label": {
-        "message": "data.json的網址 (規則)",
+        "message": "data.json的網址(規則)",
         "description": ""
     },
 
@@ -210,7 +220,36 @@
     },
 
     "setting_hash_url_label": {
-        "message": "rules.hash的網址 (校驗)",
+        "message": "rules.hash的網址(校驗)",
+        "description": ""
+    },
+
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
+        "description": ""
+    },
+
+    "setting_report_server_label": {
+        "message": "回報網址給作者",
+        "description": ""
+    },
+
+    "success_report_url": {
+        "message": "該網址已回報",
+        "description": ""
+    },
+
+    "error_report_url": {
+        "message": "該網址已被回報過",
+        "description": ""
+    },
+
+    "donate_button": {
+        "message": "贊助ClearURLs作者",
+        "description": ""
+    },
+    "clipboard_copy_link": {
+        "message": "複製連結網址",
         "description": ""
     }
 }
