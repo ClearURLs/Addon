@@ -20,7 +20,7 @@
     },
 
     "hash_status_code_5": {
-        "message": "糟糕! 有东西不对劲",
+        "message": "发生错误",
         "description": ""
     },
 
@@ -30,7 +30,7 @@
     },
 
     "log_domain_blocked": {
-        "message": "此网址已被封锁",
+        "message": "此网域已被封锁",
         "description": ""
     },
 
@@ -65,17 +65,17 @@
     },
 
     "log_html_reset_button": {
-        "message": "重设",
+        "message": "重置",
         "description": ""
     },
 
     "log_html_reset_button_title": {
-        "message": "重设全域日志",
+        "message": "重置全局日志",
         "description": ""
     },
 
     "popup_html_configs_head": {
-        "message": "配置",
+        "message": "设定",
         "description": ""
     },
 
@@ -85,7 +85,7 @@
     },
 
     "popup_html_configs_switch_filter_title": {
-        "message": "此过滤器开关为ClearURLs的主开关, 若此项不勾选, 则本插件失效.",
+        "message": "此为ClearURLs的主开关. 若关闭则此插件失效.",
         "description": ""
     },
 
@@ -95,7 +95,7 @@
     },
 
     "popup_html_configs_switch_log_title": {
-        "message": "日志会被储存于本地. 若不需要此功能, 建议不要使用.",
+        "message": "日志会被储存于本地. 若不需要此功能建议关闭.",
         "description": ""
     },
 
@@ -130,17 +130,17 @@
     },
 
     "popup_html_statistics_reset_button": {
-        "message": "重设",
+        "message": "重置",
         "description": ""
     },
 
     "popup_html_statistics_reset_button_title": {
-        "message": "重设全域统计",
+        "message": "重置全局统计",
         "description": ""
     },
 
     "popup_html_rules_status_head": {
-        "message": "规则状态",
+        "message": "规则-状态",
         "description": ""
     },
 
@@ -154,13 +154,23 @@
         "description": ""
     },
 
+    "popup_html_report_button": {
+        "message": "回报目前网址",
+        "description": ""
+    },
+
+    "popup_html_report_button_title": {
+        "message": "回报该分页目前网址",
+        "description": ""
+    },
+
     "core_save_on_disk": {
-        "message": "[ClearURLs]: 储存于硬盘",
+        "message": "[ClearURLs]: 储存于本地",
         "description": ""
     },
 
     "core_error": {
-        "message": "[ClearURLs]: 此插件无法启动",
+        "message": "[ClearURLs]: 插件无法启动",
         "description": ""
     },
 
@@ -175,7 +185,7 @@
     },
 
     "settings_html_page_title": {
-        "message": "ClearURLs设置",
+        "message": "ClearURLs设定",
         "description": ""
     },
 
@@ -185,17 +195,17 @@
     },
 
     "setting_html_reset_button": {
-        "message": "重设",
+        "message": "重置",
         "description": ""
     },
 
     "setting_html_reset_button_title": {
-        "message": "重设所有设置",
+        "message": "重置所有设定",
         "description": ""
     },
 
     "setting_rule_url_label": {
-        "message": "data.json的网址 (规则)",
+        "message": "data.json档的网址 (规则)",
         "description": ""
     },
 
@@ -205,12 +215,78 @@
     },
 
     "settings_html_save_button_title": {
-        "message": "储存设置",
+        "message": "储存设定",
         "description": ""
     },
 
     "setting_hash_url_label": {
-        "message": "rules.hash的网址 (校验)",
+        "message": "rules.hash档的网址 (校验)",
+        "description": ""
+    },
+
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>请求类型</a> (进阶设定)",
+        "description": ""
+    },
+
+    "setting_report_server_label": {
+        "message": "回报网址",
+        "description": ""
+    },
+
+    "success_report_url": {
+        "message": "该网址已成功回报",
+        "description": ""
+    },
+
+    "error_report_url": {
+        "message": "该网址已被回报过",
+        "description": ""
+    },
+
+    "donate_button": {
+        "message": "给ClearURLs的作者一点贊助",
+        "description": ""
+    },
+
+    "clipboard_copy_link": {
+        "message": "複製清理过的网址",
+        "description": ""
+    },
+
+    "context_menu_enabled": {
+        "message": "显示右键选单条目",
+        "description": ""
+    },
+
+    "history_listener_enabled": {
+        "message": "Prevent tracking injection over history API (详见: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method' target='_blank'>The pushState() method</a>)",
+        "description": ""
+    },
+
+    "cleaning_tool_page_title": {
+        "message": "ClearURLs的网址清理工具",
+        "description": ""
+    },
+
+    "cleaning_tool_description": {
+        "message": "此工具提供手动清理网址的功能. 在下方贴上网址并按下绿色按钮, ClearURLs将会输出清理后的网址. 若要同时清理多个网址, 请将每个置于不同行.",
+        "description": ""
+    },
+
+    "cleaning_tool_btn": {
+        "message": "网址清理工具",
+        "description": ""
+    },
+
+    "cleaning_tool_dirty_urls_label": {
+        "message": "清理前的网址:",
+        "description": ""
+    },
+
+    "cleaning_tool_clean_urls_label": {
+        "message": "清理后的网址:",
         "description": ""
     }
 }
+
