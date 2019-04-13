@@ -35,6 +35,10 @@ If you have any suggestions or complaints, please [create an issue.](https://git
 ## Recommended by...
 *  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)
 *  [Awesome Humane Tech List](https://github.com/humanetech-community/awesome-humane-tech#tracking)
+  
+## Permissions
+
+Reasoning for needed permissions you can find under [this discussion](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
