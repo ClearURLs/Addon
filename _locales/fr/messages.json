@@ -245,7 +245,39 @@
     },
 
     "donate_button": {
-        "message": "Subventionner le développeur de ClearURLs",
+        "message": "A le développeur de ClearURLs",
+        "description": ""
+    },
+    "clipboard_copy_link": {
+        "message": "Copier l’adresse Internet sans le traqueur",
+        "description": ""
+    },
+    "context_menu_enabled": {
+        "message": "Activer ClearUrls dans le menu contextuel (clic droit sur une page), nécessite de redémarrer",
+        "description": ""
+    },
+    "history_listener_enabled": {
+        "message": "Empêcher le suivi par l’historique de communication entre API (<a href='https://developer.mozilla.org/fr/docs/Web/Guide/DOM/Manipuler_historique_du_navigateur#La_m%C3%A9thode_pushState()' target='_blank'>La méthode pushState</a>)",
+        "description": ""
+    },
+    "cleaning_tool_page_title": {
+        "message": "Outils de nettoyage pour ClearURLs",
+        "description": ""
+    },
+    "cleaning_tool_description": {
+        "message": "Ici, vous pouvez déposer des adresses Internet et ClearURLs les nettoiera par un clic sur 'Nettoyer'. Vous pouvez mettre plusieurs adresses Internet ; chacune d’elles devra être mise sur une ligne distincte.",
+        "description": ""
+    },
+    "cleaning_tool_btn": {
+        "message": "Nettoyer",
+        "description": ""
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Mettre les adresses Internet (URL) à nettoyer ici :",
+        "description": ""
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Adresses Internet (URL) nettoyées :",
         "description": ""
     }
 }
