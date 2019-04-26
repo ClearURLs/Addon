@@ -99,7 +99,7 @@ function countFields(url)
 */
 function extractFileds(url)
 {
-    return (url.match(/[^\/|\?|&]+=[^\/|\?|&]+/gi) || []);
+    return (url.match(/[^\/|\?|&]+=*[^\/|\?|&]+/gi) || []);
 }
 
 /**

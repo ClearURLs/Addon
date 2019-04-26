@@ -257,7 +257,7 @@
         "description": ""
     },
     "history_listener_enabled": {
-        "message": "Prevent tracking injection over history API (See also: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_pushState()_method' target='_blank'>The pushState() method</a>)",
+        "message": "Prevent tracking injection over history API (See also: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
         "description": ""
     },
     "cleaning_tool_page_title": {

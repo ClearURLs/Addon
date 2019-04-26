@@ -25,16 +25,16 @@
 
 function historyListenerStart() {
     if(storage.historyListenerEnabled) {
-            browser.webNavigation.onHistoryStateUpdated.addListener(historyCleaner);
+        browser.webNavigation.onHistoryStateUpdated.addListener(historyCleaner);
     }
 }
 
 /**
 * Function that is triggered on history changes. Injects script into page
 * to clean links that were pushed to the history stack with the
-* history.pushState method.
+* history.replaceState method.
 * @param  {state object} details The state object is a JavaScript object
-* which is associated with the new history entry created by pushState()
+* which is associated with the new history entry created by replaceState()
 */
 function historyCleaner(details) {
     var urlBefore = details.url;
@@ -43,7 +43,7 @@ function historyCleaner(details) {
     if(urlBefore != urlAfter) {
         browser.tabs.executeScript(details.tabId, {
             frameId: details.frameId,
-            code: 'history.pushState({state: "cleaned_history"},"",'+JSON.stringify(urlAfter)+');'
+            code: 'history.replaceState({state: "cleaned_history"},"",'+JSON.stringify(urlAfter)+');'
         }).then(() => {}, onError);
     }
 }

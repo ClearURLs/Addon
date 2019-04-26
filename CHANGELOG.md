@@ -4,7 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.6.1] - 2019-04-14
+## [1.6.2] - 2019-04-26
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Added
+- Added rules from [#172](https://gitlab.com/KevinRoebert/ClearUrls/issues/172)
+- Added rules from [#176](https://gitlab.com/KevinRoebert/ClearUrls/issues/176)
+- Added rules from [#178](https://gitlab.com/KevinRoebert/ClearUrls/issues/178)
+
+### Fixed
+- [#170](https://gitlab.com/KevinRoebert/ClearUrls/issues/170)
+- [#162](https://gitlab.com/KevinRoebert/ClearUrls/issues/162)
+- [#163](https://gitlab.com/KevinRoebert/ClearUrls/issues/163)
+
+## [[1.6.1] - 2019-04-14](https://gitlab.com/KevinRoebert/ClearUrls/commit/a8a5f7e311300ae7f186d4b581e805bdf3f9f5d9)
 
 ### Compatibility note
 - Require Firefox >= 55
