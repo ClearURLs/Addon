@@ -1,16 +1,16 @@
 {
     "hash_status_code_1": {
-        "message": "Mise à jour",
+        "message": "à jour",
         "description": ""
     },
 
     "hash_status_code_2": {
-        "message": "Mis à jour",
+        "message": "mis à jour",
         "description": ""
     },
 
     "hash_status_code_3": {
-        "message": "Mise à jour disponible",
+        "message": "mise à jour disponible",
         "description": ""
     },
 
@@ -20,12 +20,12 @@
     },
 
     "hash_status_code_5": {
-        "message": "Quelque chose a dysfonctionné, mais quoi ...",
+        "message": "Quelque chose a dysfonctionné",
         "description": ""
     },
 
     "log_redirect": {
-        "message": "Ce lien Internet a été redirigé",
+        "message": "Cette URL a été redirigée",
         "description": ""
     },
 
@@ -40,17 +40,17 @@
     },
 
     "log_html_page_title": {
-        "message": "Connexion à partir de ClearURLs",
+        "message": "Journaux de ClearURLs",
         "description": ""
     },
 
     "log_html_table_head_1": {
-        "message": "Avant le processus de traitement",
+        "message": "Avant traitement",
         "description": ""
     },
 
     "log_html_table_head_2": {
-        "message": "Après le processus de traitement. ",
+        "message": "Après traitement. ",
         "description": ""
     },
 
@@ -65,12 +65,12 @@
     },
 
     "log_html_reset_button": {
-        "message": "Remise à l’état initial",
+        "message": "Remise à zéro",
         "description": ""
     },
 
     "log_html_reset_button_title": {
-        "message": "Réinitialiser la base de données",
+        "message": "Réinitialiser les journaux globaux",
         "description": ""
     },
 
@@ -90,12 +90,12 @@
     },
 
     "popup_html_configs_switch_log": {
-        "message": "Historique",
+        "message": "Journalisation",
         "description": ""
     },
 
     "popup_html_configs_switch_log_title": {
-        "message": "L'historique est enregistré localement. Si vous n’avez pas besoin de le consulter, nous déconseillons de l’activer",
+        "message": "Les journaux sont enregistrés localement. Si vous n’avez pas besoin de les consulter, nous déconseillons de les activer",
         "description": ""
     },
 
@@ -105,7 +105,7 @@
     },
 
     "popup_html_configs_switch_badges_title": {
-        "message": "Nombre de liens Internet nettoyés",
+        "message": "Afficher le nombre d'URL nettoyées",
         "description": ""
     },
 
@@ -115,7 +115,7 @@
     },
 
     "popup_html_statistics_elements": {
-        "message": "Liens Internet",
+        "message": "Éléments",
         "description": ""
     },
 
@@ -135,7 +135,7 @@
     },
 
     "popup_html_statistics_reset_button_title": {
-        "message": "Remettre à zéro le décompte, les statistiques",
+        "message": "Remettre à zéro les statistiques globales",
         "description": ""
     },
 
@@ -145,12 +145,12 @@
     },
 
     "popup_html_log_head": {
-        "message": "Compte-rendu",
+        "message": "Journaux",
         "description": ""
     },
 
     "popup_html_log_head_title": {
-        "message": "Ouvrir le compte-rendu",
+        "message": "Ouvrir les journaux",
         "description": ""
     },
 
@@ -160,17 +160,17 @@
     },
 
     "popup_html_report_button_title": {
-        "message": "Signaler le dysfonctionnement sur cette URL",
+        "message": "Signaler un dysfonctionnement sur cette URL",
         "description": ""
     },
 
     "core_save_on_disk": {
-        "message": "[ClearURLs]: Sauvegarder sur le disque",
+        "message": "[ClearURLs]: Sauvegarder sur le disque.",
         "description": ""
     },
 
     "core_error": {
-        "message": "[ClearURLs]: L’extension n’a pu être démarrée",
+        "message": "[ClearURLs]: L’extension n’a pu être démarrée.",
         "description": ""
     },
 
@@ -205,7 +205,7 @@
     },
 
     "setting_rule_url_label": {
-        "message": "Lien Internet du fichier Data (basse de données)",
+        "message": "L'URL du fichier data.json (règles)",
         "description": ""
     },
 
@@ -215,69 +215,69 @@
     },
 
     "settings_html_save_button_title": {
-        "message": "Sauvegarder les paramétrages",
+        "message": "Sauvegarde les paramétrages",
         "description": ""
     },
 
     "setting_hash_url_label": {
-        "message": "Lien Internet du fichier Hash (signature de contrôle)",
+        "message": "L'URL du fichier rules.hash (signature de contrôle)",
         "description": ""
     },
 
     "setting_types_label": {
-        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Demande de données (webRequest)</a> (Uniquement si vous maitrisez la programmation)",
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Types de requête (webRequest)</a> (niveau expert)",
         "description": ""
     },
 
     "setting_report_server_label": {
-        "message": "Serveur pour signaler des URLs",
+        "message": "Serveur pour signaler des URL",
         "description": ""
     },
 
     "success_report_url": {
-        "message": "Nous avons reçu votre signalement. Nous allons vérifier cette URL",
+        "message": "Nous avons reçu votre signalement. Nous allons vérifier cette URL.",
         "description": ""
     },
 
     "error_report_url": {
-        "message": "Il semble que cette URL a déjà été signalée",
+        "message": "Il semble que cette URL a déjà été signalée.",
         "description": ""
     },
 
     "donate_button": {
-        "message": "Subventionner le développeur de ClearURLs",
+        "message": "Subventionner le créateur de ClearURLs.",
         "description": ""
     },
     "clipboard_copy_link": {
-        "message": "Copier l’adresse Internet sans le traqueur",
+        "message": "Copier l’URL sans le traqueur",
         "description": ""
     },
     "context_menu_enabled": {
-        "message": "Activer ClearUrls dans le menu contextuel (clic droit sur une page), nécessite de redémarrer",
+        "message": "Activer ClearUrls dans le menu contextuel",
         "description": ""
     },
     "history_listener_enabled": {
-        "message": "Empêcher le suivi par l’historique de communication entre API (<a href='https://developer.mozilla.org/fr/docs/Web/Guide/DOM/Manipuler_historique_du_navigateur#La_m%C3%A9thode_pushState()' target='_blank'>La méthode pushState</a>)",
+        "message": "Empêcher le suivi par l’API d'historique (<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>La méthode replaceState()</a>)",
         "description": ""
     },
     "cleaning_tool_page_title": {
-        "message": "Outils de nettoyage pour ClearURLs",
+        "message": "Outil de nettoyage pour ClearURLs",
         "description": ""
     },
     "cleaning_tool_description": {
-        "message": "Ici, vous pouvez déposer des adresses Internet et ClearURLs les nettoiera par un clic sur 'Nettoyer'. Vous pouvez mettre plusieurs adresses Internet ; chacune d’elles devra être mise sur une ligne distincte.",
+        "message": "Ici, vous pouvez déposer des URL et ClearURLs les nettoiera par un clic sur le bouton vert. Vous pouvez mettre plusieurs URL mais chaque URL devra être mise sur une ligne séparée.",
         "description": ""
     },
     "cleaning_tool_btn": {
-        "message": "Nettoyer",
+        "message": "Nettoyer les URL",
         "description": ""
     },
     "cleaning_tool_dirty_urls_label": {
-        "message": "Mettre les adresses Internet (URL) à nettoyer ici :",
+        "message": "Coller ici les URL à nettoyer :",
         "description": ""
     },
     "cleaning_tool_clean_urls_label": {
-        "message": "Adresses Internet (URL) nettoyées :",
+        "message": "Vous trouverez ici les URL nettoyées :",
         "description": ""
     }
 }
