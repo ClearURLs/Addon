@@ -46,7 +46,6 @@ function cleanURLs() {
         }).then((data) => {
             cleanedURLs.push(data.response);
             if(i >= length-1) {
-                console.log("End of loop.");
                 cleanTArea.val(cleanedURLs.join('\n'));
             }
         }, handleError);

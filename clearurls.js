@@ -41,11 +41,19 @@ var lastVisited = "";
 function removeFieldsFormURL(provider, pureUrl)
 {
     var url = pureUrl;
-    var domain = url.replace(new RegExp("\\?.*", "i"), "");
+    var domain = "";
+    var fragments = "";
     var fields = "";
     var rules = provider.getRules();
     var changes = false;
     var cancel = false;
+
+    if(existsFragments(url)) {
+        domain = url.replace(new RegExp("#.*", "i"), "");
+    }
+    if(existsFields(url)) {
+        domain = url.replace(new RegExp("\\?.*", "i"), "");
+    }
 
     /*
     * Expand the url by provider redirections. So no tracking on
@@ -65,28 +73,33 @@ function removeFieldsFormURL(provider, pureUrl)
     }
 
     /**
-    * Only test for matches, if there are fields that can be cleaned.
+    * Only test for matches, if there are fields or fragments that can be cleaned.
     */
-    if(existsFields(url))
+    if(existsFields(url) || existsFragments(url))
     {
-        /**
-        * It must be non-greedy, because by default .* will match
-        * all ? chars. So the replace function delete everything
-        * before the last ?. With adding a ? on the quantifier *,
-        * we fixed this problem.
-        */
-        fields = "?"+url.replace(new RegExp(".*?\\?", "i"), "");
+        fields = extractFileds(url).rmEmpty().join("&");
+        fragments = extractFragments(url).rmEmpty().join("&");
 
         rules.forEach(function(rule) {
             var beforReplace = fields;
+            var beforReplaceFragments = fragments;
             fields = fields.replace(new RegExp(rule, "gi"), "");
+            fragments = fragments.replace(new RegExp(rule, "gi"), "");
 
-            if(beforReplace !== fields)
+            if(beforReplace !== fields || beforReplaceFragments !== fragments)
             {
                 //Log the action
                 if(storage.loggingStatus)
                 {
-                    pushToLog(domain+beforReplace, domain+"?"+extractFileds(fields).rmEmpty().join("&"), rule);
+                    var tempURL = domain;
+                    var tempBeforeURL = domain;
+
+                    if(fields !== "") tempURL += "?"+fields;
+                    if(fragments !== "") tempURL += "#"+fragments;
+                    if(beforReplace !== "") tempBeforeURL += "?"+beforReplace;
+                    if(beforReplaceFragments !== "") tempBeforeURL += "#"+beforReplaceFragments;
+
+                    pushToLog(tempBeforeURL, tempURL, rule);
                 }
 
                 if(badges[tabid] == null) badges[tabid] = 0;
@@ -107,21 +120,12 @@ function removeFieldsFormURL(provider, pureUrl)
             }
         });
 
-        var finalFields = extractFileds(fields).rmEmpty();
-        if(finalFields.length > 0)
-        {
-            url = domain+"?"+finalFields.join("&");
-        }
-        else{
-            url = domain;
-        }
-    }
-    else {
-        if(domain != url)
-        {
-            url = domain;
-            changes = true;
-        }
+        var finalURL = domain;
+
+        if(fields !== "") finalURL += "?"+fields;
+        if(fragments !== "") finalURL += "#"+fragments;
+
+        url = finalURL;
     }
 
     if(provider.isCaneling()){
@@ -359,7 +363,7 @@ function start()
             * @param {boolean} isActive   Is this rule active?
             */
             this.addRule = function(rule, isActive = true) {
-                rule = "([\\/|\\?]|(&|&amp;))("+rule+"=[^\\/|\\?|&]*)";
+                rule = "([\\/]|(&|&amp;))*("+rule+"=[^\\/|\\?|&]*)";
 
                 if(isActive)
                 {

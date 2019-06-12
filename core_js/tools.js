@@ -22,15 +22,15 @@
 */
 
 /*
- * To support Waterfox.
- */
+* To support Waterfox.
+*/
 Array.prototype.rmEmpty = function() {
     return this.filter(v => v);
 };
 
 /*
- * To support Waterfox.
- */
+* To support Waterfox.
+*/
 Array.prototype.flatten = function() {
     return this.reduce((a, b) => a.concat(b), []);
 };
@@ -93,16 +93,6 @@ function countFields(url)
 }
 
 /**
-* Extract the fields from an url.
-* @param  {String} url URL as String
-* @return {Array}     Fields as array
-*/
-function extractFileds(url)
-{
-    return (url.match(/[^\/|\?|&]+=*[^\/|\?|&]+/gi) || []);
-}
-
-/**
 * Returns true if fields exists.
 * @param  {String}     url URL as String
 * @return {boolean}
@@ -110,6 +100,63 @@ function extractFileds(url)
 function existsFields(url)
 {
     var matches = (url.match(/\?.+/i) || []);
+    var count = matches.length;
+
+    return (count > 0);
+}
+
+/**
+* Extract the fields from an url.
+* @param  {String} url URL as String
+* @return {Array}     Fields as array
+*/
+function extractFileds(url)
+{
+    if(existsFields(url)) {
+        var fields = url.replace(new RegExp(".*?\\?", "i"), "");
+        if(existsFragments(url)) {
+            fields = fields.replace(new RegExp("#.*", "i"), "");
+        }
+
+        return (fields.match(/[^\/|\?|&]+=?[^\/|\?|&]?/gi) || []);
+    }
+
+    return [];
+}
+
+/**
+* Return the number of fragments query strings.
+* @param  {String}     url URL as String
+* @return {int}        Number of fragments
+*/
+function countFragments(url)
+{
+    return extractFragments(url).length;
+}
+
+/**
+* Extract the fragments from an url.
+* @param  {String} url URL as String
+* @return {Array}     fragments as array
+*/
+function extractFragments(url)
+{
+    if(existsFragments(url)) {
+        var fragments = url.replace(new RegExp(".*?#", "i"), "");
+        return (fragments.match(/[^&]+=?[^&]*/gi) || []);
+    }
+
+    return [];
+}
+
+/**
+* Returns true if fragments exists.
+* @param  {String}     url URL as String
+* @return {boolean}
+*/
+function existsFragments(url)
+{
+    var matches = (url.match(/\#.+/i) || []);
     var count = matches.length;
 
     return (count > 0);
@@ -209,8 +256,8 @@ function getCurrentURL()
 }
 
 /**
- * Check for browser.
- */
+* Check for browser.
+*/
 function getBrowser() {
     if(typeof InstallTrigger !== 'undefined') {
         return "Firefox";
