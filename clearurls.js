@@ -72,14 +72,20 @@ function removeFieldsFormURL(provider, pureUrl)
         };
     }
 
+
+    if(existsFields(url)) {
+        fields = "?"+extractFileds(url).rmEmpty().join("&");
+    }
+
+    if(existsFragments(url)) {
+        fragments = "#"+extractFragments(url).rmEmpty().join("&");
+    }
+
     /**
     * Only test for matches, if there are fields or fragments that can be cleaned.
     */
-    if(existsFields(url) || existsFragments(url))
+    if(fields !== "" || fragments !== "")
     {
-        fields = extractFileds(url).rmEmpty().join("&");
-        fragments = extractFragments(url).rmEmpty().join("&");
-
         rules.forEach(function(rule) {
             var beforReplace = fields;
             var beforReplaceFragments = fragments;
@@ -94,10 +100,10 @@ function removeFieldsFormURL(provider, pureUrl)
                     var tempURL = domain;
                     var tempBeforeURL = domain;
 
-                    if(fields !== "") tempURL += "?"+fields;
-                    if(fragments !== "") tempURL += "#"+fragments;
-                    if(beforReplace !== "") tempBeforeURL += "?"+beforReplace;
-                    if(beforReplaceFragments !== "") tempBeforeURL += "#"+beforReplaceFragments;
+                    if(fields !== "") tempURL += "?"+fields.replace("?&", "?").replace("?", "");
+                    if(fragments !== "") tempURL += "#"+fragments.replace("#&","#").replace("#", "");
+                    if(beforReplace !== "") tempBeforeURL += "?"+beforReplace.replace("?&", "?").replace("?", "");
+                    if(beforReplaceFragments !== "") tempBeforeURL += "#"+beforReplaceFragments.replace("#&","#").replace("#", "");
 
                     pushToLog(tempBeforeURL, tempURL, rule);
                 }
@@ -122,10 +128,10 @@ function removeFieldsFormURL(provider, pureUrl)
 
         var finalURL = domain;
 
-        if(fields !== "") finalURL += "?"+fields;
-        if(fragments !== "") finalURL += "#"+fragments;
+        if(fields !== "") finalURL += "?"+fields.replace("?", "");
+        if(fragments !== "") finalURL += "#"+fragments.replace("#", "");
 
-        url = finalURL;
+        url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
     }
 
     if(provider.isCaneling()){
@@ -363,7 +369,7 @@ function start()
             * @param {boolean} isActive   Is this rule active?
             */
             this.addRule = function(rule, isActive = true) {
-                rule = "([\\/]|(&|&amp;))*("+rule+"=[^\\/|\\?|&]*)";
+                rule = "([\\/|\\?|#]|(&|&amp;))+("+rule+"=[^\\/|\\?|&]*)";
 
                 if(isActive)
                 {
