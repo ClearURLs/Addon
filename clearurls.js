@@ -29,7 +29,6 @@ var dataHash;
 var localDataHash;
 var os;
 var currentURL;
-var lastVisited = "";
 
 /**
 * Helper function which remove the tracking fields
@@ -515,11 +514,6 @@ function start()
             increaseGlobalURLCounter(URLbeforeReplaceCount);
 
             if(storage.globalStatus){
-                // The URL is already cleaned
-                if(lastVisited === request.url) {
-                    return {};
-                }
-
                 var result = {
                     "changes": false,
                     "url": "",
@@ -562,8 +556,6 @@ function start()
                     * a loop.
                     */
                     if(result.changes){
-                        lastVisited = result.url;
-
                         return {
                             redirectUrl: result.url
                         };
