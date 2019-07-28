@@ -25,11 +25,6 @@
 * @return {Array}     redirectUrl or none
 */
 function pureCleaning(url) {
-    // The URL is already cleaned
-    if(lastVisited === url) {
-        return url;
-    }
-
     var cleanURL = url;
 
     for (var i = 0; i < providers.length; i++) {

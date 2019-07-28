@@ -158,7 +158,6 @@ function initSettings()
     storage.badged_color = "ffa500";
     storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
     storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
-    storage.reportServer = "https://clearurls.xn--rb-fka.it";
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
 

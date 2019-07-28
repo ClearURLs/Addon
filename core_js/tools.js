@@ -69,9 +69,11 @@ function reload()
 */
 function checkOSAndroid()
 {
-    chrome.runtime.getPlatformInfo(function(info) {
-        os = info.os;
-    });
+    if(os === undefined || os === null || os === "") {
+        chrome.runtime.getPlatformInfo(function(info) {
+            os = info.os;
+        });
+    }
 
     if(os == "android")
     {
