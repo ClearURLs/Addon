@@ -120,7 +120,7 @@ function extractFileds(url)
             fields = fields.replace(new RegExp("#.*", "i"), "");
         }
 
-        return (fields.match(/[^\/|\?|&]+=?[^|&]*/gi) || []);
+        return (fields.match(/[^\/|\?|&]+=?[^&]*/gi) || []);
     }
 
     return [];
