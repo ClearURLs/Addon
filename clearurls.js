@@ -46,6 +46,40 @@ function removeFieldsFormURL(provider, pureUrl)
     var rules = provider.getRules();
     var changes = false;
     var cancel = false;
+    var rawRules = provider.getRawRules();
+
+    /*
+    * Apply raw rules to the URL.
+    */
+    rawRules.forEach(function(rawRule) {
+        var beforReplace = url;
+        url = url.replace(new RegExp(rawRule, "gi"), "");
+
+        if(beforReplace !== url) {
+            //Log the action
+            if(storage.loggingStatus)
+            {
+                pushToLog(beforReplace, url, rawRule);
+            }
+
+            if(badges[tabid] == null) badges[tabid] = 0;
+
+            increaseURLCounter();
+
+            if(!checkOSAndroid())
+            {
+                if(storage.badgedStatus) {
+                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                }
+                else
+                {
+                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                }
+            }
+
+            changes = true;
+        }
+    });
 
     if(existsFragments(url)) {
         domain = url.replace(new RegExp("#.*", "i"), "");
@@ -70,7 +104,6 @@ function removeFieldsFormURL(provider, pureUrl)
             "url": url
         };
     }
-
 
     if(existsFields(url)) {
         fields = "?"+extractFileds(url).rmEmpty().join("&");
@@ -206,6 +239,12 @@ function start()
                     providers[p].addRule(data.providers[prvKeys[p]].rules[r]);
                 }
 
+                //Add raw rules to provider
+                for(var raw = 0; raw < data.providers[prvKeys[p]].rawRules.length; raw++)
+                {
+                    providers[p].addRawRule(data.providers[prvKeys[p]].rawRules[raw]);
+                }
+
                 //Add exceptions to provider
                 for(var e = 0; e < data.providers[prvKeys[p]].exceptions.length; e++)
                 {
@@ -321,6 +360,8 @@ function start()
             var enabled_redirections = {};
             var disabled_redirections = {};
             var active = _isActive;
+            var enabled_rawRules = {};
+            var disabled_rawRules = {};
 
             if(_completeProvider){
                 enabled_rules[".*"] = true;
@@ -396,6 +437,42 @@ function start()
             */
             this.getRules = function() {
                 return Object.keys(enabled_rules);
+            };
+
+            /**
+            * Add a raw rule to the raw rule array
+            * and replace old raw rule with new raw rule.
+            *
+            * @param {String} rule        RegExp as string
+            * @param {boolean} isActive   Is this rule active?
+            */
+            this.addRawRule = function(rule, isActive = true) {
+                if(isActive)
+                {
+                    enabled_rawRules[rule] = true;
+
+                    if(disabled_rawRules[rule] !== undefined)
+                    {
+                        delete disabled_rawRules[rule];
+                    }
+                }
+                else {
+                    disabled_rawRules[rule] = true;
+
+                    if(enabled_rawRules[rule] !== undefined)
+                    {
+                        delete enabled_rawRules[rule];
+                    }
+                }
+            };
+
+            /**
+            * Return all active raw rules as an array.
+            *
+            * @return Array RegExp strings
+            */
+            this.getRawRules = function() {
+                return Object.keys(enabled_rawRules);
             };
 
             /**
