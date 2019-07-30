@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added support for raw rules to cleaning also parts from URL-path
 
+### Fixed
+- Fixed misspelling in german translation
+
 ## [1.6.9] - 2019-07-29
 
 ### Compatibility note
