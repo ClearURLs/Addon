@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.7.1] - 2019-08-04
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Added
+- Added new setting to data.min.json to set if redirects should be enforced via a "tabs.update" ([#221](https://gitlab.com/KevinRoebert/ClearUrls/issues/221))
+- Added [#220](https://gitlab.com/KevinRoebert/ClearUrls/issues/220)
+- Added [#218](https://gitlab.com/KevinRoebert/ClearUrls/issues/218)
+
+### Fixed
+- Fixed YouTube ad redirection bug ([#221](https://gitlab.com/KevinRoebert/ClearUrls/issues/221))
+- Fixed [#217](https://gitlab.com/KevinRoebert/ClearUrls/issues/217)
+
 ## [1.7.0] - 2019-07-30
 
 ### Compatibility note
