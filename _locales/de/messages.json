@@ -1,283 +1,234 @@
 {
     "hash_status_code_1": {
         "message": "Aktuell",
-        "description": ""
+        "description": "Dieser Statuscode besagt, dass kein Update für die ClearURLs-Regeln verfügbar ist und alles auf dem neuesten Stand ist."
     },
-
     "hash_status_code_2": {
         "message": "Aktualisiert",
-        "description": ""
+        "description": "Dieser Statuscode besagt, dass die ClearURLs-Regeln erfolgreich aktualisiert wurden."
     },
-
     "hash_status_code_3": {
         "message": "Aktualisierung verfügbar",
-        "description": ""
+        "description": "Dieser Statuscode besagt, dass ein Update für die ClearURLs-Regeln verfügbar ist."
     },
-
     "hash_status_code_4": {
         "message": "Fehler",
-        "description": ""
+        "description": "Dieser Statuscode besagt, dass ClearURLs nicht korrekt gestartet werden konnten."
     },
-
     "hash_status_code_5": {
         "message": "Da ist etwas schiefgelaufen!",
-        "description": ""
+        "description": "Dieser Statuscode besagt, dass beim Aktualisieren der ClearURLs-Regeln ein Fehler aufgetreten ist."
     },
-
     "log_redirect": {
         "message": "Diese Url wurde weiter geleitet",
-        "description": ""
+        "description": "Diese Zeichenfolge wird für Umleitungen im ClearURL-Protokoll verwendet."
     },
-
     "log_domain_blocked": {
         "message": "Diese Domain wurde blockiert",
-        "description": ""
+        "description": "Diese Zeichenfolge wird für blockierte Domäns im ClearURL-Protokoll verwendet."
     },
-
     "check_os_log": {
         "message": "[ClearURLs]: Protokoll-Listener wurde hinzugefügt.",
-        "description": ""
+        "description": "Diese Zeichenfolge wird beim Start des ClearURL-Protokolls verwendet."
     },
-
     "log_html_page_title": {
         "message": "Protokoll von ClearURLs",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Überschrift auf der Protokollseite verwendet."
     },
-
     "log_html_table_head_1": {
         "message": "Vor der Verarbeitung",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Tabellentitel auf der Protokollseite verwendet."
     },
-
     "log_html_table_head_2": {
         "message": "Nach der Verarbeitung",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Tabellentitel auf der Protokollseite verwendet."
     },
-
     "log_html_table_head_3": {
         "message": "Regel",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Tabellentitel auf der Protokollseite verwendet."
     },
-
     "log_html_table_head_4": {
         "message": "Zeit",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Tabellentitel auf der Protokollseite verwendet."
     },
-
     "log_html_reset_button": {
         "message": "Zurücksetzen",
-        "description": ""
+        "description": "Diese Zeichenfolge wird für die Schaltfläche zum Zurücksetzen auf der Protokollseite verwendet."
     },
-
     "log_html_reset_button_title": {
         "message": "Setzt das globale Protokoll zurück",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen auf der Protokollseite verwendet."
     },
-
     "popup_html_configs_head": {
         "message": "Einstellungen",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Konfigurationen auf der Popup-Seite verwendet."
     },
-
     "popup_html_configs_switch_filter": {
         "message": "Filter",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Filterschaltfläche auf der Popup-Seite verwendet."
     },
-
     "popup_html_configs_switch_filter_title": {
         "message": "Der Filter-Schalter aktiviert die Reinigungsfunktion von ClearURLs, wenn sie die Funktion ausschalten, dann deaktivieren sie das gesamte Addon",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Filterschaltfläche auf der Popup-Seite verwendet."
     },
-
     "popup_html_configs_switch_log": {
         "message": "Protokoll",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Umschalten der Protokollierung auf der Popup-Seite verwendet."
     },
-
     "popup_html_configs_switch_log_title": {
         "message": "Das Protokoll wird nur lokal gespeichert. Wir empfehlen diese Funktion deaktiviert zulassen, wenn Sie sie nicht benötigen",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Umschalten der Protokollierung auf der Popup-Seite verwendet."
     },
-
     "popup_html_configs_switch_badges": {
         "message": "Zähler",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Wechseln der Abzeichen auf der Popup-Seite verwendet."
     },
-
     "popup_html_configs_switch_badges_title": {
         "message": "Zeigt die Anzahl der gereinigten URLs an",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Wechseln der Abzeichen auf der Popup-Seite verwendet."
     },
-
     "popup_html_statistics_head": {
         "message": "Statistik",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Statistiken auf der Popup-Seite verwendet."
     },
-
     "popup_html_statistics_elements": {
         "message": "Elemente",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Elemente auf der Popup-Seite verwendet."
     },
-
     "popup_html_statistics_blocked": {
         "message": "Blockiert",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die blockierten Elemente auf der Popup-Seite verwendet."
     },
-
     "popup_html_statistics_percentage": {
         "message": "Anteil",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für den Prozentsatz der blockierten Elemente auf der Popup-Seite verwendet."
     },
-
     "popup_html_statistics_reset_button": {
         "message": "Zurücksetzen",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Zurücksetzen der Statistik auf der Popup-Seite verwendet."
     },
-
     "popup_html_statistics_reset_button_title": {
         "message": "Setzt die globale Statistik zurück",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen der Statistik auf der Popup-Seite verwendet."
     },
-
     "popup_html_rules_status_head": {
         "message": "Regel Status",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für den Abschnitt \"Regelstatus\" auf der Popup-Seite verwendet."
     },
-
     "popup_html_log_head": {
         "message": "Protokoll",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Protokollschaltfläche auf der Popup-Seite verwendet."
     },
-
     "popup_html_log_head_title": {
         "message": "Öffnet das Protokoll",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Protokollschaltfläche auf der Popup-Seite verwendet."
     },
-
     "popup_html_report_button": {
         "message": "Aktuelle URL melden",
-        "description": ""
+        "description": "Hinweis: Wird derzeit nicht verwendet."
     },
-
     "popup_html_report_button_title": {
         "message": "Meldet die aktuelle URL aus diesem Tab.",
-        "description": ""
+        "description": "Wird derzeit nicht verwendet."
     },
-
     "core_save_on_disk": {
         "message": "[ClearURLs]: Auf Festplatte gespeichert.",
-        "description": ""
+        "description": "Diese Zeichenfolge teilt dem Benutzer mit, dass ClearURLs die Einstellungen auf der Festplatte gespeichert hat."
     },
-
     "core_error": {
         "message": "[ClearURLs]: Das Addon konnte nicht gestartet werden.",
-        "description": ""
+        "description": "Diese Zeichenfolge teilt dem Benutzer mit, dass ClearURLs nicht gestartet werden konnten."
     },
-
     "configs_switch_statistics": {
         "message": "Statistiken",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Statistikschaltfläche auf der Popup-Seite verwendet."
     },
-
     "configs_switch_statistics_title": {
         "message": "Aktiviert oder deaktiviert die Statistikfunktion",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Statistikschaltfläche auf der Popup-Seite verwendet."
     },
-
     "settings_html_page_title": {
         "message": "Einstellungen von ClearURLs",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel auf der Einstellungsseite verwendet."
     },
-
     "badged_color_label": {
         "message": "Zählerfarbe",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für das Etikett mit den abgebildeten Farben verwendet."
     },
-
     "setting_html_reset_button": {
         "message": "Zurücksetzen",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Zurücksetzen auf der Einstellungsseite verwendet."
     },
-
     "setting_html_reset_button_title": {
         "message": "Setzt alle Einstellungen zurück",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen auf der Einstellungsseite verwendet."
     },
-
     "setting_rule_url_label": {
         "message": "Die Url zu der data.json Datei (Regeln)",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Regel-URL-Bezeichnung verwendet."
     },
-
     "settings_html_save_button": {
         "message": "Speichern & Addon neustarten",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Speichern und erneuten Laden auf der Einstellungsseite verwendet."
     },
-
     "settings_html_save_button_title": {
         "message": "Speichert die Einstellungen",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Speichern und erneuten Laden auf der Einstellungsseite verwendet."
     },
-
     "setting_hash_url_label": {
         "message": "Die Url zu der rules.hash Datei (Hash)",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die rule.hash URL verwendet."
     },
-
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (Expertenniveau)",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Typenbezeichnung verwendet."
     },
-
     "setting_report_server_label": {
         "message": "Meldungsserver für URLs",
-        "description": ""
+        "description": "Hinweis: Wird derzeit nicht verwendet."
     },
-
     "success_report_url": {
         "message": "Die URL wurde erfolgreich gemeldet. Wir werden sie in Kürze prüfen.",
-        "description": ""
+        "description": "Hinweis: Wird derzeit nicht verwendet."
     },
-
     "error_report_url": {
         "message": "Es schaut so aus, als ob diese URL schon gemeldet wurde.",
-        "description": ""
+        "description": "Hinweis: Wird derzeit nicht verwendet."
     },
-
     "donate_button": {
         "message": "Eine Spende (Schenkung) für den ClearURLs Urheber.",
-        "description": ""
+        "description": "Diese Zeichenfolge wird verwendet, um auf eine Spendenseite zu verweisen."
     },
     "clipboard_copy_link": {
         "message": "Gesäuberte Link-Adresse kopieren",
-        "description": ""
+        "description": "Diese Zeichenfolge wird im Kontextmenü zum Kopieren sauberer Links verwendet."
     },
     "context_menu_enabled": {
         "message": "Kontextmenü-Eintrag anzeigen",
-        "description": ""
+        "description": "Mit dieser Zeichenfolge wird der Kontextmenüeintrag ein- und ausgeschaltet, um saubere Links zu kopieren."
     },
     "history_listener_enabled": {
         "message": "Verhindere Tracking über die History-API (Siehe auch: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für das History-API-Listener-Label verwendet."
     },
     "cleaning_tool_page_title": {
         "message": "Säuberungswerkzeug von ClearURLs",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel auf der Reinigungswerkzeugseite verwendet."
     },
     "cleaning_tool_description": {
         "message": "Mit diesem Werkzeug können Sie URLs in die Textbox einfügen. Nach einem klick auf den grünen Button reinigt ClearURLs die Links. Sie können mehrer URLs auf einmal einfügen, jede URL muss aber in einer eigenen Zeile stehen.",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Beschreibung des Reinigungswerkzeugs verwendet."
     },
     "cleaning_tool_btn": {
         "message": "URLs säubern",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche \"URLs säubern\" verwendet."
     },
     "cleaning_tool_dirty_urls_label": {
         "message": "Hier können Sie die ungesäuberten URLs einfügen:",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel auf der Seite des Bereinigungstools für die fehlerhaften URLs verwendet."
     },
     "cleaning_tool_clean_urls_label": {
         "message": "Hier finden Sie die gesäuberten URLs:",
-        "description": ""
+        "description": "Diese Zeichenfolge wird als Titel auf der Bereinigungswerkzeugseite für die bereinigten URLs verwendet."
     }
 }
