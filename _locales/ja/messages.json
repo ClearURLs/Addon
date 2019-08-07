@@ -1,246 +1,234 @@
 {
     "hash_status_code_1": {
-        "description": "up to date",
-        "message": "最新の"
+        "message": "最新の",
+        "description": "このステータスコードは、ClearURLs ルールの更新が利用できず、すべてが最新であることを示しています。"
     },
-
     "hash_status_code_2": {
-        "description": "updated",
-        "message": "更新する"
+        "message": "更新する",
+        "description": "このステータスコードは、ClearURLs ルールが正常に更新されたことを示しています。"
     },
-
     "hash_status_code_3": {
-        "description": "update available",
-        "message": "利用可能な更新"
+        "message": "利用可能な更新",
+        "description": "このステータスコードは、ClearURLs ルールの更新が利用可能であることを示しています。"
     },
-
     "hash_status_code_4": {
-        "description": "error",
-        "message": "エラー"
+        "message": "エラー",
+        "description": "このステータスコードは、ClearURLs を正しく開始できなかったことを示しています。"
     },
-
     "hash_status_code_5": {
-        "description": "Oops something went wrong!",
-        "message": "おっと！何かが間違っていた！"
+        "message": "おっと！何かが間違っていた！",
+        "description": "このステータスコードは、ClearURLs ルールの更新中にエラーが発生したことを示しています。"
     },
-
     "log_redirect": {
-        "description": "This url is redirected",
-        "message": "この URL はリダイレクトされます"
+        "message": "この URL はリダイレクトされます",
+        "description": "この文字列は、ClearURLs ログをリダイレクトして使用されます。"
     },
-
     "log_domain_blocked": {
-        "description": "This domain is blocked",
-        "message": "このドメインはブロックされています"
+        "message": "このドメインはブロックされています",
+        "description": "この文字列は、ClearURLs ログのブロックされたドメインで使用されます。"
     },
-
     "check_os_log": {
-        "description": "[ClearURLs]: Log listener is added.",
-        "message": "[ClearURLs]：ログリスナーが追加されました。"
+        "message": "[ClearURLs]：ログリスナーが追加されました。",
+        "description": "この文字列は、ClearURLs ログの起動時に使用されます。"
     },
-
     "log_html_page_title": {
-        "description": "Log from ClearURLs",
-        "message": "ClearURLs からのログ"
+        "message": "ClearURLs からのログ",
+        "description": "この文字列は、ログページのヘッダーとして使用されます。"
     },
-
     "log_html_table_head_1": {
-        "description": "Before processing",
-        "message": "処理する前に"
+        "message": "処理する前に",
+        "description": "この文字列は、ログページのテーブルタイトルとして使用されます。"
     },
-
     "log_html_table_head_2": {
-        "description": "After processing",
-        "message": "処理後"
+        "message": "処理後",
+        "description": "この文字列は、ログページのテーブルタイトルとして使用されます。"
     },
-
     "log_html_table_head_3": {
-        "description": "Rule",
-        "message": "規則"
+        "message": "規則",
+        "description": "この文字列は、ログページのテーブルタイトルとして使用されます。"
     },
-
     "log_html_table_head_4": {
-        "description": "Time",
-        "message": "時間"
+        "message": "時間",
+        "description": "この文字列は、ログページのテーブルタイトルとして使用されます。"
     },
-
     "log_html_reset_button": {
-        "description": "Reset",
-        "message": "リセットする"
+        "message": "リセットする",
+        "description": "この文字列は、ログページのリセットボタンに使用されます。"
     },
-
     "log_html_reset_button_title": {
-        "description": "Reset the global log",
-        "message": "グローバルログをリセットする"
+        "message": "グローバルログをリセットする",
+        "description": "この文字列は、ログページのリセットボタンのタイトルとして使用されます。"
     },
-
     "popup_html_configs_head": {
-        "description": "Configs",
-        "message": "設定"
+        "message": "設定",
+        "description": "この文字列は、ポップアップページの設定のタイトルとして使用されます。"
     },
-
     "popup_html_configs_switch_filter": {
-        "description": "Filter",
-        "message": "フィルター"
+        "message": "フィルター",
+        "description": "この文字列は、ポップアップページのフィルタースイッチボタンの名前として使用されます。"
     },
-
     "popup_html_configs_switch_filter_title": {
-        "description": "The filters switch activates the cleaning functionality of ClearURLs. If you disable this option, the whole addon is disabled",
-        "message": "フィルタースイッチは、ClearURL のクリーニング機能を有効にします。 このオプションを無効にすると、アドオン全体が無効になります。"
+        "message": "フィルタースイッチは、ClearURLs のクリーニング機能を有効にします。 このオプションを無効にすると、アドオン全体が無効になります。",
+        "description": "この文字列は、ポップアップページのフィルタースイッチボタンのタイトルとして使用されます。"
     },
-
     "popup_html_configs_switch_log": {
-        "description": "Logging",
-        "message": "追跡記録"
+        "message": "追跡記録",
+        "description": "この文字列は、ポップアップページのロギングスイッチボタンの名前として使用されます。"
     },
-
     "popup_html_configs_switch_log_title": {
-        "description": "The log is saved only locally. We advise against this feature if you do not need it",
-        "message": "ログはローカルにのみ保存されます。この機能が必要ない場合は、この機能を無効にすることをおすすめします。"
+        "message": "ログはローカルにのみ保存されます。この機能が必要ない場合は、この機能を無効にすることをおすすめします。",
+        "description": "この文字列は、ポップアップページのロギングスイッチボタンのタイトルとして使用されます。"
     },
-
     "popup_html_configs_switch_badges": {
-        "description": "Badges",
-        "message": "バッジ"
+        "message": "バッジ",
+        "description": "この文字列は、ポップアップページのバッジスイッチボタンの名前として使用されます。"
     },
-
     "popup_html_configs_switch_badges_title": {
-        "description": "Show number of cleaned urls",
-        "message": "消去された URL の数を表示する"
+        "message": "消去された URL の数を表示する",
+        "description": "この文字列は、ポップアップページのバッジ切り替えボタンのタイトルとして使用されます。"
     },
-
     "popup_html_statistics_head": {
-        "description": "Statistics",
-        "message": "統計"
+        "message": "統計",
+        "description": "この文字列は、ポップアップページの統計のタイトルとして使用されます。"
     },
-
     "popup_html_statistics_elements": {
-        "description": "Elements",
-        "message": "要素"
+        "message": "要素",
+        "description": "この文字列は、ポップアップページの要素の名前として使用されます。"
     },
-
     "popup_html_statistics_blocked": {
-        "description": "Blocked",
-        "message": "ブロックされた"
+        "message": "ブロックされた要素",
+        "description": "この文字列は、ポップアップページでブロックされた要素の名前として使用されます。"
     },
-
     "popup_html_statistics_percentage": {
-        "description": "Percentage",
-        "message": "パーセンテージ"
+        "message": "ブロックされた要素の割合",
+        "description": "この文字列は、ポップアップページでブロックされた要素の割合の名前として使用されます。"
     },
-
     "popup_html_statistics_reset_button": {
-        "description": "Reset",
-        "message": "リセットする"
+        "message": "リセットする",
+        "description": "この文字列は、ポップアップページの統計リセットボタンの名前として使用されます。"
     },
-
     "popup_html_statistics_reset_button_title": {
-        "description": "Reset the global statistics",
-        "message": "グローバル統計をリセットする"
+        "message": "グローバル統計をリセットする",
+        "description": "この文字列は、ポップアップページの統計リセットボタンのタイトルとして使用されます。"
     },
-
     "popup_html_rules_status_head": {
-        "description": "Rules-Status",
-        "message": "ルール・ステータス"
+        "message": "ルール・ステータス",
+        "description": "この文字列は、ポップアップページのルール・ステータスセクションのタイトルとして使用されます。"
     },
-
     "popup_html_log_head": {
-        "description": "Log",
-        "message": "記録を取る"
+        "message": "記録を取る",
+        "description": "この文字列は、ポップアップページのログボタンの名前として使用されます。"
     },
-
     "popup_html_log_head_title": {
-        "description": "Open the log",
-        "message": "記録を開く"
+        "message": "記録を開く",
+        "description": "この文字列は、ポップアップページのログボタンのタイトルとして使用されます。"
     },
-
     "popup_html_report_button": {
-        "description": "Report current URL",
-        "message": "現在の URL を報告する"
+        "message": "現在の URL を報告する",
+        "description": "注：現在使用されていません。"
     },
-
     "popup_html_report_button_title": {
-        "description": "Report the current URL from this tab.",
-        "message": "このタブから現在の URL を報告してください。"
+        "message": "このタブから現在の URL を報告してください。",
+        "description": "現在使用されていません。"
     },
-
     "core_save_on_disk": {
-        "description": "[ClearURLs]: Save on disk.",
-        "message": "[ClearURLs]：ディスクに保存します。"
+        "message": "[ClearURLs]：ディスクに保存します。",
+        "description": "この文字列は、ClearURLs が設定をディスクに保存したことをユーザーに伝えるために使用されます。"
     },
-
     "core_error": {
-        "description": "[ClearURLs]: The addon could not started.",
-        "message": "[ClearURLs]：アドオンを開始できませんでした。"
+        "message": "[ClearURLs]：アドオンを開始できませんでした。",
+        "description": "この文字列は、ClearURLs を開始できなかったことをユーザーに伝えるために使用されます。"
     },
-
     "configs_switch_statistics": {
-        "description": "Statistics",
-        "message": "統計"
+        "message": "統計情報",
+        "description": "この文字列は、ポップアップページの統計情報切り替えボタンの名前として使用されます。"
     },
-
     "configs_switch_statistics_title": {
-        "description": "Activate or deactivate the statistics function",
-        "message": "統計機能を有効または無効にする"
+        "message": "統計情報機能を有効または無効にする",
+        "description": "この文字列は、ポップアップページの統計情報切り替えボタンのタイトルとして使用されます。"
     },
-
     "settings_html_page_title": {
-        "description": "Settings from ClearURLs",
-        "message": "ClearURL からの設定"
+        "message": "ClearURLs からの設定",
+        "description": "この文字列は、設定ページのタイトルとして使用されます。"
     },
-
     "badged_color_label": {
-        "description": "Badged color",
-        "message": "バッジの色"
+        "message": "バッジの色",
+        "description": "この文字列は、バッジ付きカラーラベルの名前として使用されます。"
     },
-
     "setting_html_reset_button": {
-        "description": "Reset",
-        "message": "リセットする"
+        "message": "リセットする",
+        "description": "この文字列は、設定ページのリセットボタンの名前として使用されます。"
     },
-
     "setting_html_reset_button_title": {
-        "description": "Reset everything",
-        "message": "すべてをリセットする"
+        "message": "すべてをリセットする",
+        "description": "この文字列は、設定ページのリセットボタンのタイトルとして使用されます。"
     },
-
     "setting_rule_url_label": {
-        "description": "The url to the data.json file (rules)",
-        "message": "data.json ファイルへの URL（ルール）"
+        "message": "data.json ファイルへの URL（ルール）",
+        "description": "この文字列は、ルールの URL ラベルの名前として使用されます。"
     },
-
     "settings_html_save_button": {
-        "description": "Save & reload addon",
-        "message": "アドオンの保存と再読み込み"
+        "message": "アドオンの保存と再読み込み",
+        "description": "この文字列は、設定ページの保存と再読み込みボタンの名前として使用されます。"
     },
-
     "settings_html_save_button_title": {
-        "description": "Saves the settings",
-        "message": "設定を保存します。"
+        "message": "設定を保存します。",
+        "description": "この文字列は、設定ページの保存と再読み込みボタンのタイトルとして使用されます。"
     },
-
     "setting_hash_url_label": {
-        "description": "The url to the rules.hash file (hash)",
-        "message": "rules.hash ファイル（ハッシュ）への URL"
+        "message": "rules.hash ファイル（ハッシュ）への URL",
+        "description": "この文字列は、rule.hash URL ラベルの名前として使用されます。"
     },
-
     "setting_types_label": {
-        "description": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
-        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'> リクエストタイプ</a> （エキスパートレベル）"
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'> リクエストタイプ</a> （エキスパートレベル）",
+        "description": "この文字列は、タイプラベルの名前として使用されます。"
     },
-
     "setting_report_server_label": {
-        "description": "Report server for URLs",
-        "message": "URL のサーバーを報告する"
+        "message": "URL のサーバーを報告する",
+        "description": "注：現在使用されていません。"
     },
-
     "success_report_url": {
-        "description": "The URL was successfully reported. We will check this URL soon.",
-        "message": "URL は正常に報告されました。 我々はすぐに、この URL をチェックします。"
+        "message": "URL は正常に報告されました。 我々はすぐに、この URL をチェックします。",
+        "description": "注：現在使用されていません。"
     },
-
     "error_report_url": {
-        "description": "It seems like this URL has already been reported.",
-        "message": "この URL は既に報告されているようです。"
+        "message": "この URL は既に報告されているようです。",
+        "description": "注：現在使用されていません。"
+    },
+    "donate_button": {
+        "message": "ClearURLs 作成者への寄付。",
+        "description": "この文字列は、寄付ページを参照するために使用されます。"
+    },
+    "clipboard_copy_link": {
+        "message": "クリーンリンクの Location（位置情報）のコピー",
+        "description": "この文字列は、コンテキストメニューでクリーンリンクをコピーするために使用されます。"
+    },
+    "context_menu_enabled": {
+        "message": "コンテキストメニューエントリを表示する",
+        "description": "この文字列は、コンテキストメニューのエントリを切り替えて、クリーンなリンクをコピーするために使用されます。"
+    },
+    "history_listener_enabled": {
+        "message": "history(履歴)API でのインジェクションの追跡を防止する (参照: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
+        "description": "この文字列は、history(履歴)API リスナーラベルの名前として使用されます。"
+    },
+    "cleaning_tool_page_title": {
+        "message": "ClearURLs のクリーニングツール",
+        "description": "この文字列は、クリーニングツールページのタイトルとして使用されます。"
+    },
+    "cleaning_tool_description": {
+        "message": "このツールを使用すると、URL を貼り付けることができます。ClearURLs は、緑色のボタンをクリックすると URL を消去します。 一度に複数の URL を貼り付けることができますが、すべての URL を別々の行に含める必要があります。",
+        "description": "この文字列は、クリーニングツールの説明として使用されます。"
+    },
+    "cleaning_tool_btn": {
+        "message": "Clean URLs",
+        "description": "この文字列は、クリーン URL ボタンの名前として使用されます。"
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "ここで、難読化された URL を貼り付けることができます。",
+        "description": "この文字列は、難読化された URL のクリーニングツールページのタイトルとして使用されます。"
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "ここで、クリーンアップされた URL を見つけることができます。",
+        "description": "この文字列は、クリーン URL のクリーニングツールページのタイトルとして使用されます。"
     }
 }
