@@ -3,204 +3,232 @@
         "message": "atualizado",
         "description": ""
     },
-
     "hash_status_code_2": {
         "message": "atualizado",
         "description": ""
     },
-
     "hash_status_code_3": {
-        "message": "atualização disponivel",
+        "message": "atualização disponível",
         "description": ""
     },
-
     "hash_status_code_4": {
         "message": "erro",
         "description": ""
     },
-
     "hash_status_code_5": {
         "message": "Oops, algo deu errado!",
         "description": ""
     },
-
     "log_redirect": {
         "message": "Esta url foi redirecionada",
         "description": ""
     },
-
     "log_domain_blocked": {
         "message": "Este domínio foi bloqueado",
         "description": ""
     },
-
     "check_os_log": {
-        "message": "[ClearURLs]: Examinador de registro foi adicionado",
+        "message": "[ClearURLs]: Examinador de registro foi adicionado.",
         "description": ""
     },
-
     "log_html_page_title": {
         "message": "Registro do ClearURLs",
         "description": ""
     },
-
     "log_html_table_head_1": {
         "message": "Antes de processar",
         "description": ""
     },
-
     "log_html_table_head_2": {
         "message": "Depois de processar",
         "description": ""
     },
-
     "log_html_table_head_3": {
         "message": "Regra",
         "description": ""
     },
-
     "log_html_table_head_4": {
         "message": "Tempo",
         "description": ""
     },
-
     "log_html_reset_button": {
         "message": "Resetar",
         "description": ""
     },
-
     "log_html_reset_button_title": {
         "message": "Resetar o registro global",
         "description": ""
     },
-
     "popup_html_configs_head": {
         "message": "Configurações",
         "description": ""
     },
-
     "popup_html_configs_switch_filter": {
         "message": "Filtrar",
         "description": ""
     },
-
+    "popup_html_configs_switch_filter_title": {
+        "message": "O switch de filtros ativa a funcionalidade de limpeza do ClearURLs. Se você desabilitar essa opção, toda a extensão será desativada",
+        "description": ""
+    },
     "popup_html_configs_switch_log": {
         "message": "Registro",
         "description": ""
     },
-
     "popup_html_configs_switch_log_title": {
-        "message": "O registro é salvo localmente apenas. Aconselhamos contra este recurso se você não precisa dele",
+        "message": "O registro é salvo apenas localmente. Aconselhamos contra este recurso se você não precisa dele",
         "description": ""
     },
-
     "popup_html_configs_switch_badges": {
         "message": "Contador",
         "description": ""
     },
-
+    "popup_html_configs_switch_badges_title": {
+        "message": "Mostrar o número de urls limpas",
+        "description": ""
+    },
     "popup_html_statistics_head": {
         "message": "Estatísticas",
         "description": ""
     },
-
     "popup_html_statistics_elements": {
         "message": "Elementos",
         "description": ""
     },
-
     "popup_html_statistics_blocked": {
         "message": "Bloqueado",
         "description": ""
     },
-
     "popup_html_statistics_percentage": {
         "message": "Porcentagem",
         "description": ""
     },
-
     "popup_html_statistics_reset_button": {
         "message": "Resetar",
         "description": ""
     },
-
     "popup_html_statistics_reset_button_title": {
         "message": "Resetar as estatísticas globais",
         "description": ""
     },
-
     "popup_html_rules_status_head": {
         "message": "Estado das regras",
         "description": ""
     },
-
     "popup_html_log_head": {
         "message": "Registro",
         "description": ""
     },
-
     "popup_html_log_head_title": {
         "message": "Abrir o registro",
         "description": ""
     },
-
+    "popup_html_report_button": {
+        "message": "Reportar URL atual",
+        "description": ""
+    },
+    "popup_html_report_button_title": {
+        "message": "Reportar a URL atual dessa aba.",
+        "description": ""
+    },
     "core_save_on_disk": {
         "message": "[ClearURLs]: Salvar no disco.",
         "description": ""
     },
-
     "core_error": {
-        "message": "[ClearURLs]: A extensão não pode ser inicializada.",
+        "message": "[ClearURLs]: A extensão não pôde ser inicializada.",
         "description": ""
     },
-
     "configs_switch_statistics": {
         "message": "Estatísticas",
         "description": ""
     },
-
     "configs_switch_statistics_title": {
         "message": "Ativar ou desativar função de estatísticas",
         "description": ""
     },
-
     "settings_html_page_title": {
         "message": "Configurações do ClearURLs",
         "description": ""
     },
-
     "badged_color_label": {
         "message": "Cor do contador",
         "description": ""
     },
-
     "setting_html_reset_button": {
         "message": "Resetar",
         "description": ""
     },
-
     "setting_html_reset_button_title": {
         "message": "Resetar tudo",
         "description": ""
     },
-
     "setting_rule_url_label": {
         "message": "Url do arquivo data.json (regras)",
         "description": ""
     },
-
     "settings_html_save_button": {
         "message": "Salvar e recarregar extensão",
         "description": ""
     },
-
     "settings_html_save_button_title": {
         "message": "Salvar configurações",
         "description": ""
     },
-
     "setting_hash_url_label": {
         "message": "Url do arquivo rules.hash (hash)",
+        "description": ""
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Tipos de pedidos</a> (expert level)",
+        "description": ""
+    },
+    "setting_report_server_label": {
+        "message": "Reportar servidor para URLs",
+        "description": ""
+    },
+    "success_report_url": {
+        "message": "A URL foi reportada com sucesso. Estaremos verificando a url em breve.",
+        "description": ""
+    },
+    "error_report_url": {
+        "message": "Parece que essa URL ja foi reportada.",
+        "description": ""
+    },
+    "donate_button": {
+        "message": "Uma doação para o criador do ClearURLs.",
+        "description": ""
+    },
+    "clipboard_copy_link": {
+        "message": "Copiar local do link limpo",
+        "description": ""
+    },
+    "context_menu_enabled": {
+        "message": "Mostrar entrada do menu de contexto",
+        "description": ""
+    },
+    "history_listener_enabled": {
+        "message": "Prevent tracking injection over history API (See also: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
+        "description": ""
+    },
+    "cleaning_tool_page_title": {
+        "message": "Ferramenta de limpeza do ClearURLs",
+        "description": ""
+    },
+    "cleaning_tool_description": {
+        "message": "Com essa ferramenta você pode colar URLs e ClearURLs as limpará após um clique no botão verde. Você pode colar várias URLs de uma só vez, mas cada URL deve estar em uma linha separada.",
+        "description": ""
+    },
+    "cleaning_tool_btn": {
+        "message": "Limpar URLs",
+        "description": ""
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Aqui você pode colar as urls que deseja limpar:",
+        "description": ""
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Aqui você pode encontrar as urls limpas:",
         "description": ""
     }
 }
