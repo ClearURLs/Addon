@@ -58,3 +58,5 @@ We use some third-party scripts in our add-on. The authors and licenses are list
 -   [DataTables](https://datatables.net/) |  Copyright 2011-2015 SpryMedia Ltd | [MIT](https://datatables.net/license/)
 -   [Pick-a-Color v1.2.3](https://github.com/lauren/pick-a-color) | Copyright (c) 2013 Lauren Sperber and Broadstreet Ads |
     [MIT](https://github.com/lauren/pick-a-color/blob/master/LICENSE)
+-   [ip-range-check v0.2.0](https://github.com/danielcompton/ip-range-check) | Copyright (c) 2018 Daniel Compton |
+    [MIT](https://github.com/danielcompton/ip-range-check/blob/master/LICENSE)
