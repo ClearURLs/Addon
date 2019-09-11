@@ -26,6 +26,10 @@
 */
 function pureCleaning(url) {
     var cleanURL = url;
+    var URLbeforeReplaceCount = countFields(url);
+
+    //Add Fields form Request to global url counter
+    increaseGlobalURLCounter(URLbeforeReplaceCount);
 
     for (var i = 0; i < providers.length; i++) {
         var result = {

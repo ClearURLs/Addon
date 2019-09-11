@@ -48,6 +48,14 @@ function removeFieldsFormURL(provider, pureUrl)
     var cancel = false;
     var rawRules = provider.getRawRules();
 
+    if(storage.localHostsSkipping && checkLocalURL(pureUrl)) {
+        return {
+            "changes": false,
+            "url": url,
+            "cancel": false
+        };
+    }
+
     /*
     * Apply raw rules to the URL.
     */
@@ -66,16 +74,18 @@ function removeFieldsFormURL(provider, pureUrl)
 
             increaseURLCounter();
 
-            if(!checkOSAndroid())
-            {
-                if(storage.badgedStatus) {
-                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+            checkOSAndroid().then((res) => {
+                if(!res) {
+
+                    if(storage.badgedStatus) {
+                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                    }
+                    else
+                    {
+                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                    }
                 }
-                else
-                {
-                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                }
-            }
+            });
 
             changes = true;
         }
@@ -144,16 +154,19 @@ function removeFieldsFormURL(provider, pureUrl)
 
                 increaseURLCounter();
 
-                if(!checkOSAndroid())
-                {
-                    if(storage.badgedStatus) {
-                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                checkOSAndroid().then((res) => {
+                    if(!res) {
+
+                        if(storage.badgedStatus) {
+                            browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                        }
+                        else
+                        {
+                            browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                        }
                     }
-                    else
-                    {
-                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                    }
-                }
+                });
+                
                 changes = true;
             }
         });
@@ -175,16 +188,17 @@ function removeFieldsFormURL(provider, pureUrl)
 
         increaseURLCounter();
 
-        if(!checkOSAndroid())
-        {
-            if(storage.badgedStatus) {
-                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+        checkOSAndroid().then((res) => {
+            if(!res) {
+                if(storage.badgedStatus) {
+                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                }
+                else
+                {
+                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                }
             }
-            else
-            {
-                browser.browserAction.setBadgeText({text: "", tabId: tabid});
-            }
-        }
+        });
 
         cancel = true;
     }

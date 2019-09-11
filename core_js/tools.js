@@ -67,10 +67,10 @@ function reload()
 * Check if it is an android device.
 * @return bool
 */
-function checkOSAndroid()
+async function checkOSAndroid()
 {
     if(os === undefined || os === null || os === "") {
-        chrome.runtime.getPlatformInfo(function(info) {
+        await chrome.runtime.getPlatformInfo(function(info) {
             os = info.os;
         });
     }
@@ -82,6 +82,31 @@ function checkOSAndroid()
     else{
         return false;
     }
+}
+
+/**
+* Extract the host without port from an url.
+* @param  {String} url URL as String
+* @return {Array}     host as string
+*/
+function extractHost(url) {
+    let parsed_url = new URL(url);
+
+    return parsed_url.hostname;
+}
+
+/**
+* Returns true if the url has a local host.
+* @param  {String} url URL as String
+* @return {boolean}
+*/
+function checkLocalURL(url) {
+    let host = extractHost(url);
+
+    return ipRangeCheck(host, ["10.0.0.0/8", "172.16.0.0/12",
+    "192.168.0.0/16", "100.64.0.0/10",
+    "169.254.0.0/16", "127.0.0.1"])||
+    host === 'localhost';
 }
 
 /**
@@ -225,13 +250,15 @@ function increaseURLCounter()
 */
 function changeIcon()
 {
-    if(!checkOSAndroid()) {
-        if(storage.globalStatus){
-            browser.browserAction.setIcon({path: "img/clearurls_128x128.png"});
-        } else{
-            browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"});
+    checkOSAndroid().then((res) => {
+        if(!res) {
+            if(storage.globalStatus){
+                browser.browserAction.setIcon({path: "img/clearurls_128x128.png"});
+            } else{
+                browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"});
+            }
         }
-    }
+    });
 }
 
 /**
@@ -241,11 +268,13 @@ function changeIcon()
 */
 function setBadgedStatus()
 {
-    if(!checkOSAndroid() && storage.badgedStatus){
-        browser.browserAction.setBadgeBackgroundColor({
-            'color': '#'+storage.badged_color
-        });
-    }
+    checkOSAndroid().then((res) => {
+        if(!res && storage.badgedStatus) {
+            browser.browserAction.setBadgeBackgroundColor({
+                'color': '#'+storage.badged_color
+            });
+        }
+    });
 }
 
 /**

@@ -230,5 +230,13 @@
     "cleaning_tool_clean_urls_label": {
         "message": "Here you can find the cleaned URLs:",
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "Skipping URLs on local hosts (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "message": "Skipping URLs on local hosts",
+        "description": "This string is used as title for the local host skipping switch"
     }
 }

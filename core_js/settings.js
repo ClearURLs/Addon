@@ -110,8 +110,6 @@ function save()
         function: "reload",
         params: []
     }).then(handleResponse, handleError);
-
-    //location.reload();
 }
 
 /**
@@ -159,12 +157,17 @@ function getData()
             params: ["historyListenerEnabled"]
         }).then((data) => {
             handleResponseData(data, "historyListenerEnabled", "historyListenerEnabled");
-            changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
-            changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
+            browser.runtime.sendMessage({
+                function: "getData",
+                params: ["localHostsSkipping"]
+            }).then((data) => {
+                handleResponseData(data, "localHostsSkipping", "localHostsSkipping");
+                changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
+                changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
+                changeSwitchButton("localHostsSkipping", "localHostsSkipping");
+            }, handleError);
         }, handleError);
     }, handleError);
-
-
 }
 
 /**
@@ -184,6 +187,7 @@ function setText()
     $('#save_settings_btn').prop('title', translate('settings_html_save_button_title'));
     injectText("context_menu_enabled", "context_menu_enabled");
     $('#history_listener_enabled').html(translate('history_listener_enabled'));
+    injectText("local_hosts_skipping", "local_hosts_skipping");
 }
 
 /**

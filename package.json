@@ -22,11 +22,12 @@
     }
   ],
   "dependencies": {
-    "twbs/bootstrap": "3.3.7",
-    "jquery/jquery": "3.2.1",
-    "orsozed/sha256.jquery.plugin": "1.0",
     "DataTables/DataTables": "1.10.16",
-    "lauren/pick-a-color": "1.2.3"
+    "ip-range-check": "^0.2.0",
+    "jquery/jquery": "3.2.1",
+    "lauren/pick-a-color": "1.2.3",
+    "orsozed/sha256.jquery.plugin": "1.0",
+    "twbs/bootstrap": "3.3.7"
   },
   "bugs": {
     "web": "https://gitlab.com/KevinRoebert/ClearUrls/issues/new"

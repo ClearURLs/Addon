@@ -160,6 +160,7 @@ function initSettings()
     storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
+    storage.localHostsSkipping = true;
 
     if(getBrowser() === "Firefox") {
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];

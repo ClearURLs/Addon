@@ -230,5 +230,13 @@
     "cleaning_tool_clean_urls_label": {
         "message": "Hier finden Sie die gesäuberten URLs:",
         "description": "Diese Zeichenfolge wird als Titel auf der Bereinigungswerkzeugseite für die bereinigten URLs verwendet."
+    },
+    "local_hosts_skipping": {
+        "message": "Auslassen von lokalen URLs (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "Diese Zeichenkette wird als Beschreibung für das Auslassen von lokalen URLs verwendet."
+    },
+    "local_hosts_skipping_title": {
+        "message": "Auslassen von lokalen URLs",
+        "description": "Diese Zeichenkette wird als Titel für das Auslassen von lokalen URLs verwendet."
     }
 }
