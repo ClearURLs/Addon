@@ -13,9 +13,9 @@ Large (and small) webpages use elements in the URL, e.g.: https://example.com?so
 ![Interface (version 1.3.4.x)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_1.5.2.png)
 
 ## Offical installation
-Firefox Add-on: [Download](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
+[<img src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png" alt="for Firefox">](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
 
-Chrome Add-on: [Download](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
+[<img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png"  alt="for Chrome">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
 
 
 ### Download (for Firefox- and Chrome-Dev only)
