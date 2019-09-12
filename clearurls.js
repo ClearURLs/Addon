@@ -308,6 +308,7 @@ function start()
                             else {
                                 toObject(storage.ClearURLsData);
                                 storeHashStatus(1);
+                                saveOnDisk(['hashStatus']);
                             }
                         }
                         else {
