@@ -21,6 +21,8 @@
 * This script is responsible for the storage.
 */
 var storage = [];
+var hasPendingSaves = false;
+var pendingSaves = new Set();
 
 /**
 * Writes the storage variable to the disk.
@@ -72,9 +74,6 @@ function saveOnDisk(keys)
     browser.storage.local.set(json);
 }
 
-var hasPendingSaves = false;
-var pendingSaves = new Set();
-
 /**
 * Schedule to save a key to disk in 30 seconds.
 * @param  {String} key
@@ -95,11 +94,22 @@ function deferSaveOnDisk(key)
 }
 
 /**
-* Retrieve everything and save on the RAM.
+* Start sequence for ClearURLs.
 */
-function getDataFromDisk()
+function genesis()
 {
-    browser.storage.local.get(null).then(initStorage, error);
+    browser.storage.local.get(null).then((items) => {
+        initStorage(items);
+
+        // Start the clearurls.js
+        start();
+
+        // Start the context_menu
+        contextMenuStart();
+
+        // Start history listener
+        historyListenerStart();
+    }, error);
 }
 
 /**
@@ -171,15 +181,6 @@ function initStorage(items)
             setData(key, value);
         });
     }
-
-    // Start the clearurls.js
-    start();
-
-    // Start the context_menu
-    contextMenuStart();
-
-    // Start history listener
-    historyListenerStart();
 }
 
 /**
@@ -264,5 +265,5 @@ function storeHashStatus(status_code)
     storage.hashStatus = status_code;
 }
 
-// Start storage
-getDataFromDisk();
+// Start storage and ClearURLs
+genesis();

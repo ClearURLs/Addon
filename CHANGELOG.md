@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.1] - 2019-09-12
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Changed
+- Improvements on check for android systems ([#206](https://gitlab.com/KevinRoebert/ClearUrls/issues/206))
+- Improvements on storage. Away with periodic save of in-memory data to storage. Instead save when there are actual changes by [@tartpvule](https://gitlab.com/tartpvule) in ([!47](https://gitlab.com/KevinRoebert/ClearUrls/merge_requests/47))
+
 ## [1.8.0] - 2019-09-11
 
 ### Compatibility note
