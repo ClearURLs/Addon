@@ -1,4 +1,6 @@
-# ClearURLs
+[<img src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png" alt="for Firefox">](https://addons.mozilla.org/en-US/firefox/addon/clearurls/) [<img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png"  alt="for Chrome">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
+
+# <sub><img src="https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/clearurls.svg" width=64px height=64px></sub> ClearURLs 
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and now also available for *Chrome* based browsers.
 
@@ -12,13 +14,8 @@ Large (and small) webpages use elements in the URL, e.g.: https://example.com?so
 ## Screenshot
 ![Interface (version 1.3.4.x)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_1.5.2.png)
 
-## Offical installation
-[<img src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png" alt="for Firefox">](https://addons.mozilla.org/en-US/firefox/addon/clearurls/)
 
-[<img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png"  alt="for Chrome">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
-
-
-### Download (for Firefox- and Chrome-Dev only)
+## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
 
 [Firefox](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls_firefox.zip?job=build%20firefox)
