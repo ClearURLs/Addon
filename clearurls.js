@@ -345,6 +345,7 @@ function start()
                             }
                             storage.ClearURLsData = JSON.parse(storage.ClearURLsData);
                             toObject(storage.ClearURLsData);
+                            saveOnDisk(['ClearURLsData', 'dataHash', 'hashStatus']);
                         }
                     });
                 }
@@ -777,5 +778,6 @@ function start()
                     "timestamp": Date.now()
                 }
             );
+            deferSaveOnDisk('log');
         }
     }
