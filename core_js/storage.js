@@ -68,6 +68,7 @@ function saveOnDisk(keys)
             json[key] = value;
         }
     });
+    console.log(translate('core_save_on_disk'));
     browser.storage.local.set(json);
 }
 
@@ -122,6 +123,10 @@ function getEntireData()
 
 /**
 * Save the value under the key on the RAM.
+*
+* Note: To store the data on the hard disk, one of
+*  deferSaveOnDisk(), saveOnDisk(), or saveOnExit()
+*  must be called.
 * @param {String} key
 * @param {Object} value
 */
