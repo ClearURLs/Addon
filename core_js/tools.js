@@ -199,7 +199,7 @@ function loadOldDataFromStore()
 }
 
 /**
-* Save the hash status to the local storage.
+* Save the hash status to the local storage (RAM).
 * The status can have the following values:
 *  1 "up to date"
 *  2 "updated"
@@ -231,6 +231,7 @@ function increaseGlobalURLCounter(number)
     if(storage.statisticsStatus)
     {
         storage.globalurlcounter += number;
+        deferSaveOnDisk('globalurlcounter');
     }
 }
 
@@ -242,6 +243,7 @@ function increaseURLCounter()
     if(storage.statisticsStatus)
     {
         storage.globalCounter++;
+        deferSaveOnDisk('globalCounter');
     }
 }
 
