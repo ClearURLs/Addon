@@ -47,13 +47,50 @@ function saveOnExit()
 }
 
 /**
-* Save the value under the key on the disk.
-* @param  {String} key
-* @param  {Object} value
+* Save multiple keys on the disk.
+* @param  {String[]} keys
 */
-function saveOnDisk(key, value)
+function saveOnDisk(keys)
 {
-    browser.storage.local.set({key: value});
+    var json = {};
+
+    keys.forEach(function(key) {
+        var value = storage[key];
+        switch (key) {
+            case "ClearURLsData":
+            case "log":
+            json[key] = JSON.stringify(value);
+            break;
+            case "types":
+            json[key] = value.toString();
+            break;
+            default:
+            json[key] = value;
+        }
+    });
+    browser.storage.local.set(json);
+}
+
+var hasPendingSaves = false;
+var pendingSaves = new Set();
+
+/**
+* Schedule to save a key to disk in 30 seconds.
+* @param  {String} key
+*/
+function deferSaveOnDisk(key)
+{
+    if (hasPendingSaves) {
+        pendingSaves.add(key);
+        return;
+    }
+
+    setTimeout(function() {
+        saveOnDisk(Array.from(pendingSaves));
+        pendingSaves.clear();
+        hasPendingSaves = false;
+    }, 30000);
+    hasPendingSaves = true;
 }
 
 /**
@@ -199,7 +236,7 @@ function loadOldDataFromStore()
 }
 
 /**
-* Save the hash status to the local storage.
+* Save the hash status to the local storage (RAM).
 * The status can have the following values:
 *  1 "up to date"
 *  2 "updated"
@@ -221,11 +258,6 @@ function storeHashStatus(status_code)
 
     storage.hashStatus = status_code;
 }
-
-/**
-* Save every minute the temporary data to the disk.
-*/
-setInterval(saveOnExit, 60000);
 
 // Start storage
 getDataFromDisk();
