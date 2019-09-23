@@ -631,8 +631,8 @@ function start()
                     * Cancel the active request.
                     */
                     if(result.redirect &&
-                        request.type === 'main_frame' ||
-                        request.type === 'sub_frame')
+                        (request.type === 'main_frame' ||
+                        request.type === 'sub_frame'))
                         {
                             if(providers[i].shouldForceRedirect() ) {
                                 browser.tabs.update(request.tabId, {url: result.url});
