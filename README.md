@@ -22,6 +22,10 @@ Here you can download the packed files for the Firefox- and Chrome-Dev:
 
 [Chrome](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls_chrome.zip?job=build%20chrome)
 
+## Test
+
+If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://clearurls.roebert.eu/](https://clearurls.roebert.eu/)
+
 ## Contribute
 If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
 
