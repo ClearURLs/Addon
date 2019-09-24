@@ -43,7 +43,12 @@ build chrome:
       - ClearUrls_chrome.zip
 
 pages:
-    stage: deploy
-    artifacts:
-        paths:
-            - public
+  stage: deploy
+  script:
+    - mkdir public
+    - mv GitLabPages/* public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
