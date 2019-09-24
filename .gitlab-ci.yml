@@ -47,6 +47,7 @@ pages:
   script:
     - mkdir public
     - mv GitLabPages/* public/
+    - cp img/clearurls.svg public/clearurls.svg
   artifacts:
     paths:
       - public
