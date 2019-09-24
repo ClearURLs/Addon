@@ -7,7 +7,7 @@ before_script:
 
 stages:
   - build
-  - deploy
+  - page
 
 hash rules:
     stage: build
@@ -43,7 +43,7 @@ build chrome:
       - ClearUrls_chrome.zip
 
 pages:
-    stage: deploy
+    stage: page
     artifacts:
         paths:
             - public
