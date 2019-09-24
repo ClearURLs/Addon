@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>ClearURLs test page</title>
+    <meta name="description" content="ClearURLs test page">
+    <meta name="author" content="Kevin Röbert">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="ui inverted menu">
+        <div class="ui container">
+            <a href="#" class="header item">
+                <img class="logo" src="https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/clearurls.svg">
+                ClearURLs
+            </a>
+        </div>
+    </div>
+
+    <div class="ui main text container">
+        <h1 class="ui header">ClearURLs test page</h1>
+
+        <p>
+            On this page you can automatically check whether ClearURLs works correctly.
+            If you are using an obsolete ClearURLs version that is affected by a potential security vulnerability,
+            you will also be notified on this page.
+        </p>
+
+        <br />
+
+        <div class="ui icon message" id="rules_filter_test"></div>
+        <div class="ui icon message" id="redirection_filter_test"></div>
+        <div class="ui icon message" id="block_filter_test"></div>
+        <div class="ui icon message" id="issue_253_test"></div>
+
+        <iframe src="https://kevinroebert.gitlab.io/clearurls/void/index.html?ref=gitlab"
+        height="0" width="0" id="void_roebert_eu_iframe"></iframe>
+
+        <iframe src="https://youtube.com/redirect?q=https%3A%2F%2Fkevinroebert.gitlab.io%2Fclearurls%2Fvoid%2Findex.html%3Fref%3Dgitlab"
+        height="0" width="0" id="redirect_roebert_eu_iframe"></iframe>
+
+        <img id="i253_roebert_eu_img" height="0" width="0"/>
+        <img id="block_roebert_eu_img" height="0" width="0"/>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
