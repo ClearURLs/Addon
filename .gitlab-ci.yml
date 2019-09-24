@@ -7,7 +7,7 @@ before_script:
 
 stages:
   - build
-  - deploy
+  - page
 
 hash rules:
     stage: build
