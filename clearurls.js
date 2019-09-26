@@ -630,148 +630,147 @@ function start()
                     * Expand urls and bypass tracking.
                     * Cancel the active request.
                     */
-                    if(result.redirect &&
-                        (request.type === 'main_frame' ||
-                        request.type === 'sub_frame'))
-                        {
-                            if(providers[i].shouldForceRedirect() ) {
-                                browser.tabs.update(request.tabId, {url: result.url});
-                                return {cancel: true};
-                            }
-
-                            return {
-                                redirectUrl: result.url
-                            };
+                    if(result.redirect)
+                    {
+                        if(providers[i].shouldForceRedirect() &&
+                        request.type === 'main_frame') {
+                            browser.tabs.update(request.tabId, {url: result.url});
+                            return {cancel: true};
                         }
 
-                        /*
-                        * Cancel the Request and redirect to the site blocked alert page,
-                        * to inform the user about the full url blocking.
-                        */
-                        if(result.cancel){
-                            return {
-                                redirectUrl: siteBlockedAlert
-                            };
-                        }
+                        return {
+                            redirectUrl: result.url
+                        };
+                    }
 
-                        /*
-                        * Ensure that the function go not into
-                        * a loop.
-                        */
-                        if(result.changes){
-                            return {
-                                redirectUrl: result.url
-                            };
-                        }
+                    /*
+                    * Cancel the Request and redirect to the site blocked alert page,
+                    * to inform the user about the full url blocking.
+                    */
+                    if(result.cancel){
+                        return {
+                            redirectUrl: siteBlockedAlert
+                        };
+                    }
+
+                    /*
+                    * Ensure that the function go not into
+                    * a loop.
+                    */
+                    if(result.changes){
+                        return {
+                            redirectUrl: result.url
+                        };
                     }
                 }
-
-                // Default case
-                return {};
             }
 
-            /**
-            * Call loadOldDataFromStore, getHash, counter, status and log functions
-            */
-
-            loadOldDataFromStore();
-            getHash();
-            setBadgedStatus();
-
-            /**
-            * Call by each tab is updated.
-            * And if url has changed.
-            */
-            function handleUpdated(tabId, changeInfo, tabInfo) {
-                if(changeInfo.url)
-                {
-                    delete badges[tabId];
-                }
-                currentURL = tabInfo.url;
-            }
-
-            /**
-            * Call by each tab is updated.
-            */
-            browser.tabs.onUpdated.addListener(handleUpdated);
-
-            /**
-            * Call by each tab change to set the actual tab id
-            */
-            function handleActivated(activeInfo) {
-                tabid = activeInfo.tabId;
-                browser.tabs.get(tabid).then(function (tab) {
-                    currentURL = tab.url;
-                });
-            }
-
-            /**
-            * Call by each tab change.
-            */
-            browser.tabs.onActivated.addListener(handleActivated);
-
-            /**
-            * Check the request.
-            */
-            function promise(requestDetails)
-            {
-                if(isDataURL(requestDetails))
-                {
-                    return {};
-                }
-                else {
-                    var ret = clearUrl(requestDetails);
-                    return ret;
-                }
-            }
-
-            /**
-            * To prevent long loading on data urls
-            * we will check here for data urls.
-            *
-            * @type {requestDetails}
-            * @return {boolean}
-            */
-            function isDataURL(requestDetails) {
-                var s = requestDetails.url;
-
-                return s.substring(0,4) == "data";
-            }
-
-            /**
-            * Call by each Request and checking the url.
-            *
-            * @type {Array}
-            */
-            browser.webRequest.onBeforeRequest.addListener(
-                promise,
-                {urls: ["<all_urls>"], types: getData("types")},
-                ["blocking"]
-            );
+            // Default case
+            return {};
         }
 
         /**
-        * Function to log all activities from ClearUrls.
-        * Only logging when activated.
-        * The log is only temporary saved in the cache and will
-        * permanently saved with the saveLogOnClose function.
-        *
-        * @param beforeProcessing  the url before the clear process
-        * @param afterProcessing   the url after the clear process
-        * @param rule              the rule that triggered the process
+        * Call loadOldDataFromStore, getHash, counter, status and log functions
         */
-        function pushToLog(beforeProcessing, afterProcessing, rule)
-        {
-            if(storage.loggingStatus)
+
+        loadOldDataFromStore();
+        getHash();
+        setBadgedStatus();
+
+        /**
+        * Call by each tab is updated.
+        * And if url has changed.
+        */
+        function handleUpdated(tabId, changeInfo, tabInfo) {
+            if(changeInfo.url)
             {
-                storage.log.log.push(
-                    {
-                        "before": beforeProcessing,
-                        "after": afterProcessing,
-                        "rule": rule,
-                        "timestamp": Date.now()
-                    }
-                );
-                deferSaveOnDisk('log');
+                delete badges[tabId];
+            }
+            currentURL = tabInfo.url;
+        }
+
+        /**
+        * Call by each tab is updated.
+        */
+        browser.tabs.onUpdated.addListener(handleUpdated);
+
+        /**
+        * Call by each tab change to set the actual tab id
+        */
+        function handleActivated(activeInfo) {
+            tabid = activeInfo.tabId;
+            browser.tabs.get(tabid).then(function (tab) {
+                currentURL = tab.url;
+            });
+        }
+
+        /**
+        * Call by each tab change.
+        */
+        browser.tabs.onActivated.addListener(handleActivated);
+
+        /**
+        * Check the request.
+        */
+        function promise(requestDetails)
+        {
+            if(isDataURL(requestDetails))
+            {
+                return {};
+            }
+            else {
+                var ret = clearUrl(requestDetails);
+                return ret;
             }
         }
+
+        /**
+        * To prevent long loading on data urls
+        * we will check here for data urls.
+        *
+        * @type {requestDetails}
+        * @return {boolean}
+        */
+        function isDataURL(requestDetails) {
+            var s = requestDetails.url;
+
+            return s.substring(0,4) == "data";
+        }
+
+        /**
+        * Call by each Request and checking the url.
+        *
+        * @type {Array}
+        */
+        browser.webRequest.onBeforeRequest.addListener(
+            promise,
+            {urls: ["<all_urls>"], types: getData("types")},
+            ["blocking"]
+        );
+    }
+
+    /**
+    * Function to log all activities from ClearUrls.
+    * Only logging when activated.
+    * The log is only temporary saved in the cache and will
+    * permanently saved with the saveLogOnClose function.
+    *
+    * @param beforeProcessing  the url before the clear process
+    * @param afterProcessing   the url after the clear process
+    * @param rule              the rule that triggered the process
+    */
+    function pushToLog(beforeProcessing, afterProcessing, rule)
+    {
+        if(storage.loggingStatus)
+        {
+            storage.log.log.push(
+                {
+                    "before": beforeProcessing,
+                    "after": afterProcessing,
+                    "rule": rule,
+                    "timestamp": Date.now()
+                }
+            );
+            deferSaveOnDisk('log');
+        }
+    }
