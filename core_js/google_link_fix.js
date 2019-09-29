@@ -24,30 +24,18 @@
 (function (window) {
     "use strict";
 
-    function injectFunction(func) {
+    function injectFunction() {
         var ele = document.createElement('script');
         var s = document.getElementsByTagName('script')[0];
 
         ele.type = 'text/javascript';
-        ele.textContent = '(' + func + ')();';
+        ele.textContent = "Object.defineProperty(window, 'rwt', {" +
+        "    value: function() { return false; }," +
+        "    writable: false," +
+        "    configurable: false" +
+        "});";
 
         s.parentNode.insertBefore(ele, s);
-    }
-
-    /*
-    * Disable the url rewrite function
-    */
-    function disableURLRewrite() {
-        function inject_init() {
-            /* Define the url rewrite function */
-            Object.defineProperty(window, 'rwt', {
-                value: function() { return true; },
-                writable: false, // set the property to read-only
-                configurable: false
-            });
-        }
-
-        injectFunction(inject_init);
     }
 
     /*
@@ -55,7 +43,7 @@
     */
     function main()
     {
-        disableURLRewrite();
+        injectFunction();
 
         document.addEventListener('mouseover', function (event) {
             var a = event.target, depth = 1;
@@ -65,9 +53,12 @@
             }
 
             if (a && a.tagName == 'A') {
-                a.removeAttribute('onmousedown');
-                var clone = a.cloneNode(true);
-                a.parentNode.replaceChild(clone, a);
+                try {
+                    a.removeAttribute('data-cthref');
+                    delete a.dataset.cthref;
+                } catch(e) {
+                    console.log(e);
+                }
             }
         }, true);
     }

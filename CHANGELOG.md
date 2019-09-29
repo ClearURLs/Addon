@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.8.5] - 2019-09-29
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Fixed
+- Fixed [#264](https://gitlab.com/KevinRoebert/ClearUrls/issues/264)
+- Fixed [#262](https://gitlab.com/KevinRoebert/ClearUrls/issues/262)
+- Fixed [#267](https://gitlab.com/KevinRoebert/ClearUrls/issues/267)
+
 ## [1.8.4] - 2019-09-26
 
 ### Compatibility note
