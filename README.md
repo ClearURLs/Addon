@@ -1,19 +1,17 @@
 [<img src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_1.png" alt="for Firefox">](https://addons.mozilla.org/en-US/firefox/addon/clearurls/) [<img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png"  alt="for Chrome">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
 
-# <sub><img src="https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/clearurls.svg" width=64px height=64px></sub> ClearURLs 
+# <sub><img src="https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/clearurls.svg" width="64px" height="64px"></sub> ClearURLs 
 
-**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and now also available for *Chrome* based browsers.
+**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and *Chrome* based browsers.
 
-This add-on will remove the tracking fields from all URLs which are visited by the browser and use a rule file, namely `data.min.json`.
-
-This add-on protects your privacy and block the request from advertising services like *doubleclick.net*.
+This add-on will remove the tracking fields from all URLs which are visited by the browser and use a rule file, namely `data.min.json`, 
+to protects your privacy.
 
 ## Application
 Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL.
 
 ## Screenshot
 ![Interface (version 1.8.5)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_1.8.5.png)
-
 
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
@@ -23,11 +21,25 @@ Here you can download the packed files for the Firefox- and Chrome-Dev:
 [Chrome](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls_chrome.zip?job=build%20chrome)
 
 ## Test
-
 If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://clearurls.roebert.eu/](https://clearurls.roebert.eu/)
 
 ## Contribute
 If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
+
+### Translate ClearURLs
+You want to help translating ClearURLs into many languages? – Nice
+
+You can choose between two options to contribute. You can create a merge request, or you can use the POEditor to translate ClearURLs.
+
+*Hint*: The description field in the translation files are only an information for what the translation is used. It is not necessary to translate the description field; in the most cases it is empty.
+
+#### Merge request
+If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://github.com/KevinRoebert/ClearUrls/blob/master/_locales/en/messages.json) in the ClearURLs repo 
+and translate the english terms into terms of your language. Once you have translated all the terms, you make a pull request of your translation. 
+Please push your translation into the folder `_locales/{country code}/messages.json`.
+
+#### POEditor
+[<img src="https://poeditor.com/public/images/logo/logo.svg" alt="https://poeditor.com/join/project/vKTpQWWvk2" width="150">](https://poeditor.com/join/project/vKTpQWWvk2)
 
 ## Projects that use parts of ClearURLs
 
@@ -38,7 +50,6 @@ If you have any suggestions or complaints, please [create an issue.](https://git
 *  [Awesome Humane Tech List](https://github.com/humanetech-community/awesome-humane-tech#tracking)
   
 ## Permissions
-
 Reasoning for needed permissions you can find under [this discussion](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
 
 ## Copyright
