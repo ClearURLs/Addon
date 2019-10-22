@@ -39,12 +39,5 @@ You do not have to reinstall Firefox or disable all addons. You can just create 
 * **Country**: [The country from which you called the page. You can found your country here: http://ip-api.com/json/?fields=country]
 
 ### Log
-<!-- Please enable the log functionality of ClearURLs and copy your log into this table. -->
-<!-- Or if the log is to long, save the html file (press ctrl+s) and attach to this issue the `Log from ClearURLs.html` file -->
+<!-- Please enable the log functionality of ClearURLs and attach the exported log to this bug report. -->
 <!-- Here you can find a step by step tutorial "How to enable logging in ClearURLs": https://www.youtube-nocookie.com/embed/Rm1YkwXQDSM -->
-
-| Before processing | After processing | Rule | Time |
-|-------------------|------------------|------|------|
-|                   |                  |      |      |
-
-<!-- You could also attach a screenshot from the log. -->
