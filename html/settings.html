@@ -37,6 +37,23 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
             word-wrap: break-word;
             max-width: 200px;
         }
+
+        .fileinput-button {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .fileinput-button input {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            opacity: 0;
+            -ms-filter: 'alpha(opacity=0)';
+            direction: ltr;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +77,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 <p class="text-center">
                     <button type="button" id="reset_settings_btn"
                     class="btn btn-danger" title="Reset everything settings"></button>
+
+                    <button type="button" id="export_settings_btn"
+                            class="btn btn-success" title="Export the settings">
+                        <i class="glyphicon glyphicon-save"></i>
+                        <span id="export_settings_btn_text"></span>
+                    </button>
+
+                    <span id="import_settings_btn"
+                          class="btn btn-success fileinput-button" title="Import the settings">
+                    <i class="glyphicon glyphicon-open"></i>
+                    <span id="import_settings_btn_text"></span>
+                    <input type="file" name="file" id="importSettings"/>
+                </span>
                 </p>
                 <br />
                 <p>
@@ -80,9 +110,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 <p>
                     <label id="types_label"></label><br />
                     <input type="text" id="types" value="" name="types" class="form-control" />
-
-                    <br />
-
+                </p>
+                <br />
+                <p>
+                    <label id="logLimit_label"></label><br />
+                    <input type="number" id="logLimit" value="" name="logLimit" class="form-control" min="-1">
+                </p>
+                <br />
+                <p>
                     <label id="context_menu_enabled" style="font-weight: bold;"></label><br />
                     <label class="switch">
                         <input type="checkbox" id="contextMenuEnabled">
@@ -102,6 +137,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     <label id="history_listener_enabled" style="font-weight: bold;"></label><br />
                     <label class="switch">
                         <input type="checkbox" id="historyListenerEnabled">
+                        <span class="slider round"></span>
+                    </label>
+                </p>
+                <br />
+                <p>
+                    <label id="referral_marketing_enabled" style="font-weight: bold;"></label><br />
+                    <label class="switch">
+                        <input type="checkbox" id="referralMarketing">
                         <span class="slider round"></span>
                     </label>
                 </p>

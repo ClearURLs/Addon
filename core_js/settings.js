@@ -27,6 +27,8 @@ $(document).ready(function(){
     setText();
     $(".pick-a-color").pickAColor();
     $('#reset_settings_btn').on("click", reset);
+    $('#export_settings_btn').on("click", exportSettings);
+    $('#importSettings').on("change", importSettings);
     $('#save_settings_btn').on("click", save);
 
     $("#badged_color input").on("change", function () {
@@ -102,6 +104,11 @@ function save()
     }).then(handleResponse, handleError);
 
     browser.runtime.sendMessage({
+        function: "setData",
+        params: ["logLimit", $('input[name=logLimit]').val()]
+    }).then(handleResponse, handleError);
+
+    browser.runtime.sendMessage({
         function: "saveOnExit",
         params: []
     }).then(handleResponse, handleError);
@@ -113,13 +120,14 @@ function save()
 }
 
 /**
-* Translate a string with the i18n API.
-*
-* @param {string} string Name of the attribute used for localization
+ * Translate a string with the i18n API.
+ *
+ * @param {string} string           Name of the attribute used for localization
+ * @param {string[]} placeholders   Array of placeholders
 */
-function translate(string)
+function translate(string, ...placeholders)
 {
-    return browser.i18n.getMessage(string);
+    return browser.i18n.getMessage(string, placeholders);
 }
 
 /**
@@ -149,6 +157,18 @@ function getData()
 
     browser.runtime.sendMessage({
         function: "getData",
+        params: ["logLimit"]
+    }).then((data) => {
+        handleResponseData(data, "logLimit", "logLimit");
+        if(data.response === undefined || data.response === -1) {
+            $('#logLimit_label').text(translate('setting_log_limit_label', "∞"));
+        } else {
+            $('#logLimit_label').text(translate('setting_log_limit_label', data.response));
+        }
+    }, handleError);
+
+    browser.runtime.sendMessage({
+        function: "getData",
         params: ["contextMenuEnabled"]
     }).then((data) => {
         handleResponseData(data, "contextMenuEnabled", "contextMenuEnabled");
@@ -162,9 +182,16 @@ function getData()
                 params: ["localHostsSkipping"]
             }).then((data) => {
                 handleResponseData(data, "localHostsSkipping", "localHostsSkipping");
-                changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
-                changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
-                changeSwitchButton("localHostsSkipping", "localHostsSkipping");
+                browser.runtime.sendMessage({
+                    function: "getData",
+                    params: ["referralMarketing"]
+                }).then((data) => {
+                    handleResponseData(data, "referralMarketing", "referralMarketing");
+                    changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
+                    changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
+                    changeSwitchButton("localHostsSkipping", "localHostsSkipping");
+                    changeSwitchButton("referralMarketing", "referralMarketing");
+                }, handleError);
             }, handleError);
         }, handleError);
     }, handleError);
@@ -178,22 +205,74 @@ function setText()
     document.title = translate('settings_html_page_title');
     $('#page_title').text(translate('settings_html_page_title'));
     $('#badged_color_label').text(translate('badged_color_label'));
-    $('#reset_settings_btn').text(translate('setting_html_reset_button'));
-    $('#reset_settings_btn').prop('title', translate('setting_html_reset_button_title'));
+    $('#reset_settings_btn').text(translate('setting_html_reset_button'))
+        .prop('title', translate('setting_html_reset_button_title'));
     $('#rule_url_label').text(translate('setting_rule_url_label'));
     $('#hash_url_label').text(translate('setting_hash_url_label'));
     $('#types_label').html(translate('setting_types_label'));
-    $('#save_settings_btn').text(translate('settings_html_save_button'));
-    $('#save_settings_btn').prop('title', translate('settings_html_save_button_title'));
+    $('#save_settings_btn').text(translate('settings_html_save_button'))
+        .prop('title', translate('settings_html_save_button_title'));
     injectText("context_menu_enabled", "context_menu_enabled");
     $('#history_listener_enabled').html(translate('history_listener_enabled'));
     injectText("local_hosts_skipping", "local_hosts_skipping");
+    $('#export_settings_btn_text').text(translate('setting_html_export_button'));
+    $('#export_settings_btn').prop('title', translate('setting_html_export_button_title'));
+    $('#import_settings_btn_text').text(translate('setting_html_import_button'));
+    $('#import_settings_btn').prop('title', translate('setting_html_import_button_title'));
+    injectText("referral_marketing_enabled", "referral_marketing_enabled");
 }
 
 /**
-* Handle the response from the storage and saves the data.
-* @param  {JSON-Object} data Data JSON-Object
-*/
+ * This function exports all ClearURLs settings with statistics and rules.
+ */
+function exportSettings() {
+    browser.runtime.sendMessage({
+        function: "storageAsJSON",
+        params: []
+    }).then((data) => {
+        let blob = new Blob([JSON.stringify(data.response)], {type: 'application/json'});
+
+        browser.downloads.download({
+            'url': URL.createObjectURL(blob),
+            'filename': 'ClearURLs.conf',
+            'saveAs': true
+        });
+    });
+}
+
+/**
+ * This function imports an exported ClearURLs setting and overwrites the old one.
+ */
+function importSettings(evt) {
+    let file = evt.target.files[0];
+    let fileReader = new FileReader();
+
+    fileReader.onload = function(e) {
+        let data = JSON.parse(e.target.result);
+        const length = Object.keys(data).length;
+        let i=0;
+
+        Object.entries(data).forEach(([key, value]) => {
+            browser.runtime.sendMessage({
+                function: "setData",
+                params: [key, value]
+            }).then(() => {
+                i++;
+                if(i === length) {
+                    location.reload();
+                }
+            }, handleError);
+        });
+    };
+    fileReader.readAsText(file);
+}
+
+/**
+ * Handle the response from the storage and saves the data.
+ * @param  {JSON-Object} data Data JSON-Object
+ * @param varName
+ * @param inputID
+ */
 function handleResponseData(data, varName, inputID)
 {
     settings[varName] = data.response;
@@ -215,14 +294,14 @@ function handleError(error) {
 */
 function changeSwitchButton(id, storageID)
 {
-    var element = $('#'+id);
+    let element = $('#'+id);
 
     element.on('change', function(){
         browser.runtime.sendMessage({
             function: "setData",
             params: [storageID, element.is(':checked')]
         }).then((data) => {
-            if(storageID == "globalStatus"){
+            if(storageID === "globalStatus"){
                 browser.runtime.sendMessage({
                     function: "changeIcon",
                     params: []
@@ -245,9 +324,9 @@ function changeSwitchButton(id, storageID)
 * @param   {string}    attribute Name of the attribute used for localization
 * @param   {boolean}   tooltip
 */
-function injectText(id, attribute, tooltip)
+function injectText(id, attribute, tooltip = "")
 {
-    object = $('#'+id);
+    let object = $('#'+id);
     object.text(translate(attribute));
 
     /*
@@ -256,7 +335,7 @@ function injectText(id, attribute, tooltip)
     */
     tooltip = translate(attribute+"_title");
 
-    if(tooltip != "")
+    if(tooltip !== "")
     {
         object.prop('title', tooltip);
     }
@@ -269,6 +348,6 @@ function injectText(id, attribute, tooltip)
 */
 function setSwitchButton(id, varname)
 {
-    var element = $('#'+id);
+    let element = $('#'+id);
     element.prop('checked', settings[varname]);
 }

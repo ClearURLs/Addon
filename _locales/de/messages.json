@@ -59,6 +59,22 @@
         "message": "Setzt das globale Protokoll zurück",
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen auf der Protokollseite verwendet."
     },
+    "log_html_export_button": {
+        "message": "Exportieren",
+        "description": "Diese Zeichenfolge wird für die Schaltfläche zum Exportieren auf der Protokollseite verwendet."
+    },
+    "log_html_export_button_title": {
+        "message": "Exportieren des globalen Protokolls",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Exportieren auf der Protokollseite verwendet."
+    },
+    "log_html_import_button": {
+        "message": "Importieren",
+        "description": "Diese Zeichenfolge wird für die Schaltfläche zum Importieren auf der Protokollseite verwendet."
+    },
+    "log_html_import_button_title": {
+        "message": "Importieren des globalen Protokolls",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Importieren auf der Protokollseite verwendet."
+    },
     "popup_html_configs_head": {
         "message": "Einstellungen",
         "description": "Diese Zeichenfolge wird als Titel für die Konfigurationen auf der Popup-Seite verwendet."
@@ -163,9 +179,35 @@
         "message": "Setzt alle Einstellungen zurück",
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen auf der Einstellungsseite verwendet."
     },
+    "setting_html_export_button": {
+        "message": "Exportieren",
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Exportieren auf der Einstellungsseite verwendet."
+    },
+    "setting_html_export_button_title": {
+        "message": "Exportiert alle Einstellungen",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Exportieren auf der Einstellungsseite verwendet."
+    },
+    "setting_html_import_button": {
+        "message": "Importieren",
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Importieren auf der Einstellungsseite verwendet."
+    },
+    "setting_html_import_button_title": {
+        "message": "Importiert alle Einstellungen inkl. Regeln und Protokoll",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Importieren auf der Einstellungsseite verwendet."
+    },
     "setting_rule_url_label": {
         "message": "Die Url zu der data.json Datei (Regeln)",
         "description": "Diese Zeichenfolge wird als Name für die Regel-URL-Bezeichnung verwendet."
+    },
+    "setting_log_limit_label": {
+        "message": "Limitiert das Protokoll auf $LIMIT$ Einträge. (-1 := ∞)",
+        "description": "Diese Zeichenfolge wird als Name für das Protokolllimit verwendet.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
     },
     "settings_html_save_button": {
         "message": "Speichern & Addon neustarten",
@@ -238,5 +280,29 @@
     "local_hosts_skipping_title": {
         "message": "Auslassen von lokalen URLs",
         "description": "Diese Zeichenkette wird als Titel für das Auslassen von lokalen URLs verwendet."
+    },
+    "blocked_html_title": {
+        "message": "Diese Seite wurde von <b>ClearURLs</b> blockiert.",
+        "description": "Diese Zeichenfolge wird als Titel auf der Hinweisseite für blockierte Seiten verwendet."
+    },
+    "blocked_html_body": {
+        "message": "Diese Seite wurde vom <b>ClearURLs</b> Add-On blockiert, weil wir sie als Werbe- bzw. Trackingservice identifiziert haben. Um diese Seite zu besuchen, müssen Sie das Add-On temporär deaktivieren. Dann können Sie auf den untenstehenden Button klicken, um die Seite aufzurufen.",
+        "description": "Diese Zeichenfolge wird als Mengentext auf der Hinweisseite für blockierte Seiten verwendet."
+    },
+    "blocked_html_button": {
+        "message": "Seite besuchen",
+        "description": "Diese Zeichenfolge wird als Buttontext auf der Hinweisseite für blockierte Seiten verwendet."
+    },
+    "referral_marketing_enabled": {
+        "message": "Erlaube Referral-Marketing",
+        "description": "Diese Zeichenkette wird als Beschreibung für das Referral-Marketing verwendet."
+    },
+    "referral_marketing_enabled_title": {
+        "message": "Erlaubt Referral-Marketing",
+        "description": "Diese Zeichenkette wird als Titel für das Referral-Marketing verwendet."
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: Der Watchdog hat ein Problem festgestellt. ClearURLs wird neugestartet.",
+        "description": "Diese Zeichenkette wird als Text für den Watchdog verwendet."
     }
 }

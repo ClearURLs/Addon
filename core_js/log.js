@@ -26,7 +26,7 @@ var log = {};
 * Reset the global log
 */
 function resetGlobalLog(){
-    obj = {"log": []};
+    let obj = {"log": []};
 
     browser.runtime.sendMessage({
         function: "setData",
@@ -53,11 +53,11 @@ function getLog()
             return b.timestamp - a.timestamp;
         });
 
-        var length = Object.keys(log.log).length;
-        var row;
-        if(length != 0)
+        const length = Object.keys(log.log).length;
+        let row;
+        if(length !== 0)
         {
-            for(var i=0; i<length;i++)
+            for(let i=0; i<length;i++)
             {
                 row = "<tr>" +
                 "<td>"+log.log[i].before+"</td>" +
@@ -81,11 +81,9 @@ function getLog()
  */
 function getDataTableTranslation()
 {
-    var lang = browser.i18n.getUILanguage();
+    let lang = browser.i18n.getUILanguage();
     lang = lang.substring(0,2);
-    var file = browser.extension.getURL('./external_js/dataTables/i18n/'+lang+'.lang');
-
-    return file;
+    return browser.extension.getURL('./external_js/dataTables/i18n/' + lang + '.lang');
 }
 
 /**
@@ -97,12 +95,50 @@ function toDate(time)
 }
 
 /**
+ * This function export the global log as json file.
+ */
+function exportGlobalLog() {
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ['log']
+    }).then((data) => {
+        let blob = new Blob([JSON.stringify(data.response)], {type: 'application/json'});
+
+        browser.downloads.download({
+            'url': URL.createObjectURL(blob),
+            'filename': 'ClearURLsLogExport.json',
+            'saveAs': true
+        });
+    });
+}
+
+/**
+ * This function imports an exported global log and overwrites the old one.
+ */
+function importGlobalLog(evt) {
+    let file = evt.target.files[0];
+    let fileReader = new FileReader();
+
+    fileReader.onload = function(e) {
+        browser.runtime.sendMessage({
+            function: "setData",
+            params: ["log", e.target.result]
+        }).then(() => {
+            location.reload();
+        }, handleError);
+    };
+    fileReader.readAsText(file);
+}
+
+/**
 * Load only when document is ready
 */
 $(document).ready(function(){
     setText();
     getLog();
     $('#reset_log_btn').on("click", resetGlobalLog);
+    $('#export_log_btn').on("click", exportGlobalLog);
+    $('#importLog').on("change", importGlobalLog);
 });
 
 /**
@@ -122,12 +158,16 @@ function setText()
 {
     document.title = translate('log_html_page_title');
     $('#page_title').text(translate('log_html_page_title'));
-    $('#reset_log_btn').text(translate('log_html_reset_button'));
-    $('#log_html_reset_button').prop('title', translate('log_html_reset_button_title'));
+    $('#reset_log_btn').text(translate('log_html_reset_button'))
+        .prop('title', translate('log_html_reset_button_title'));
     $('#head_1').text(translate('log_html_table_head_1'));
     $('#head_2').text(translate('log_html_table_head_2'));
     $('#head_3').text(translate('log_html_table_head_3'));
     $('#head_4').text(translate('log_html_table_head_4'));
+    $('#export_log_btn_text').text(translate('log_html_export_button'));
+    $('#export_log_btn').prop('title', translate('log_html_export_button_title'));
+    $('#import_log_btn_text').text(translate('log_html_import_button'));
+    $('#import_log_btn').prop('title', translate('log_html_import_button_title'));
 }
 
 function handleError(error) {

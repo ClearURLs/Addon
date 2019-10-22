@@ -19,20 +19,23 @@
 /*jshint esversion: 6 */
 
 /**
-* Cleans given links. Also do automatic redirection.
-*
-* @param  {[type]} url url as string
-* @return {Array}     redirectUrl or none
-*/
-function pureCleaning(url) {
-    var cleanURL = url;
-    var URLbeforeReplaceCount = countFields(url);
+ * Cleans given links. Also do automatic redirection.
+ *
+ * @param  {String} url     url as string
+ * @param {boolean} quiet   if the action should be displayed in log and statistics
+ * @return {String}     redirectUrl or none
+ */
+function pureCleaning(url, quiet = false) {
+    let cleanURL = url;
+    const URLbeforeReplaceCount = countFields(url);
 
-    //Add Fields form Request to global url counter
-    increaseGlobalURLCounter(URLbeforeReplaceCount);
+    if(!quiet) {
+        //Add Fields form Request to global url counter
+        increaseGlobalURLCounter(URLbeforeReplaceCount);
+    }
 
-    for (var i = 0; i < providers.length; i++) {
-        var result = {
+    for (let i = 0; i < providers.length; i++) {
+        let result = {
             "changes": false,
             "url": "",
             "redirect": false,
@@ -41,7 +44,7 @@ function pureCleaning(url) {
 
         if(providers[i].matchURL(cleanURL))
         {
-            result = removeFieldsFormURL(providers[i], cleanURL);
+            result = removeFieldsFormURL(providers[i], cleanURL, quiet);
             cleanURL = result.url;
         }
 

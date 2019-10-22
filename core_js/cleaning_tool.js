@@ -33,9 +33,9 @@ $(document).ready(function(){
 * This function cleans all URLs line by line in the textarea.
 */
 function cleanURLs() {
-    var cleanTArea = $('#cleanURLs');
-    var dirtyTArea = $('#dirtyURLs');
-    var urls = dirtyTArea.val().split('\n');
+    const cleanTArea = $('#cleanURLs');
+    const dirtyTArea = $('#dirtyURLs');
+    const urls = dirtyTArea.val().split('\n');
     cleanedURLs = [];
     length = urls.length;
 

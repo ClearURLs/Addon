@@ -29,11 +29,11 @@
  */
 function handleMessage(request, sender, sendResponse)
 {
-    var fn = window[request.function];
+    let fn = window[request.function];
 
     if(typeof fn === "function")
     {
-        var response = fn.apply(null, request.params);
+        let response = fn.apply(null, request.params);
 
         return Promise.resolve({response});
     }

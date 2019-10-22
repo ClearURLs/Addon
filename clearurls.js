@@ -31,22 +31,24 @@ var os;
 var currentURL;
 
 /**
-* Helper function which remove the tracking fields
-* for each provider given as parameter.
-*
-* @param  {Provider} provider      Provider-Object
-* @return {Array}                  Array with changes and url fields
-*/
-function removeFieldsFormURL(provider, pureUrl)
+ * Helper function which remove the tracking fields
+ * for each provider given as parameter.
+ *
+ * @param  {Provider} provider      Provider-Object
+ * @param pureUrl                   URL as String
+ * @param {boolean} quiet   if the action should be displayed in log and statistics
+ * @return {Array}                  Array with changes and url fields
+ */
+function removeFieldsFormURL(provider, pureUrl, quiet = false)
 {
-    var url = pureUrl;
-    var domain = "";
-    var fragments = "";
-    var fields = "";
-    var rules = provider.getRules();
-    var changes = false;
-    var cancel = false;
-    var rawRules = provider.getRawRules();
+    let url = pureUrl;
+    let domain = "";
+    let fragments = "";
+    let fields = "";
+    let rules = provider.getRules();
+    let changes = false;
+    let cancel = false;
+    let rawRules = provider.getRawRules();
 
     if(storage.localHostsSkipping && checkLocalURL(pureUrl)) {
         return {
@@ -60,19 +62,19 @@ function removeFieldsFormURL(provider, pureUrl)
     * Apply raw rules to the URL.
     */
     rawRules.forEach(function(rawRule) {
-        var beforReplace = url;
+        let beforeReplace = url;
         url = url.replace(new RegExp(rawRule, "gi"), "");
 
-        if(beforReplace !== url) {
+        if(beforeReplace !== url) {
             //Log the action
-            if(storage.loggingStatus)
+            if(storage.loggingStatus && !quiet)
             {
-                pushToLog(beforReplace, url, rawRule);
+                pushToLog(beforeReplace, url, rawRule);
             }
 
             if(badges[tabid] == null) badges[tabid] = 0;
 
-            increaseURLCounter();
+            if(!quiet) increaseURLCounter();
 
             checkOSAndroid().then((res) => {
                 if(!res) {
@@ -102,12 +104,13 @@ function removeFieldsFormURL(provider, pureUrl)
     * Expand the url by provider redirections. So no tracking on
     * url redirections form sites to sites.
     */
-    var re = provider.getRedirection(url);
+    let re = provider.getRedirection(url);
     if(re !== null)
     {
-        url = decodeURIComponent(re);
+        url = decodeURL(re);
+
         //Log the action
-        pushToLog(pureUrl, url, translate('log_redirect'));
+        if(!quiet) pushToLog(pureUrl, url, translate('log_redirect'));
 
         return {
             "redirect": true,
@@ -129,30 +132,30 @@ function removeFieldsFormURL(provider, pureUrl)
     if(fields !== "" || fragments !== "")
     {
         rules.forEach(function(rule) {
-            var beforReplace = fields;
-            var beforReplaceFragments = fragments;
+            let beforeReplace = fields;
+            let beforeReplaceFragments = fragments;
             fields = fields.replace(new RegExp(rule, "gi"), "");
             fragments = fragments.replace(new RegExp(rule, "gi"), "");
 
-            if(beforReplace !== fields || beforReplaceFragments !== fragments)
+            if(beforeReplace !== fields || beforeReplaceFragments !== fragments)
             {
                 //Log the action
                 if(storage.loggingStatus)
                 {
-                    var tempURL = domain;
-                    var tempBeforeURL = domain;
+                    let tempURL = domain;
+                    let tempBeforeURL = domain;
 
                     if(fields !== "") tempURL += "?"+fields.replace("?&", "?").replace("?", "");
                     if(fragments !== "") tempURL += "#"+fragments.replace("#&","#").replace("#", "");
-                    if(beforReplace !== "") tempBeforeURL += "?"+beforReplace.replace("?&", "?").replace("?", "");
-                    if(beforReplaceFragments !== "") tempBeforeURL += "#"+beforReplaceFragments.replace("#&","#").replace("#", "");
+                    if(beforeReplace !== "") tempBeforeURL += "?"+beforeReplace.replace("?&", "?").replace("?", "");
+                    if(beforeReplaceFragments !== "") tempBeforeURL += "#"+beforeReplaceFragments.replace("#&","#").replace("#", "");
 
-                    pushToLog(tempBeforeURL, tempURL, rule);
+                    if(!quiet) pushToLog(tempBeforeURL, tempURL, rule);
                 }
 
                 if(badges[tabid] == null) badges[tabid] = 0;
 
-                increaseURLCounter();
+                if(!quiet) increaseURLCounter();
 
                 checkOSAndroid().then((res) => {
                     if(!res) {
@@ -171,7 +174,7 @@ function removeFieldsFormURL(provider, pureUrl)
             }
         });
 
-        var finalURL = domain;
+        let finalURL = domain;
 
         if(fields !== "") finalURL += "?"+fields.replace("?", "");
         if(fragments !== "") finalURL += "#"+fragments.replace("#", "");
@@ -180,13 +183,13 @@ function removeFieldsFormURL(provider, pureUrl)
     }
 
     if(provider.isCaneling()){
-        pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
+        if(!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
         if(badges[tabid] == null)
         {
             badges[tabid] = 0;
         }
 
-        increaseURLCounter();
+        if(!quiet) increaseURLCounter();
 
         checkOSAndroid().then((res) => {
             if(!res) {
@@ -218,7 +221,7 @@ function start()
     * @param {JSON Object} obj
     */
     function getKeys(obj){
-        for(var key in obj){
+        for(const key in obj){
             prvKeys.push(key);
         }
     }
@@ -229,9 +232,9 @@ function start()
     */
     function createProviders()
     {
-        data = storage.ClearURLsData;
+        let data = storage.ClearURLsData;
 
-        for(var p = 0; p < prvKeys.length; p++)
+        for(let p = 0; p < prvKeys.length; p++)
         {
             //Create new provider
             providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].completeProvider,
@@ -241,25 +244,31 @@ function start()
                 providers[p].setURLPattern(data.providers[prvKeys[p]].urlPattern);
 
                 //Add rules to provider
-                for(var r = 0; r < data.providers[prvKeys[p]].rules.length; r++)
+                for(let r = 0; r < data.providers[prvKeys[p]].rules.length; r++)
                 {
                     providers[p].addRule(data.providers[prvKeys[p]].rules[r]);
                 }
 
                 //Add raw rules to provider
-                for(var raw = 0; raw < data.providers[prvKeys[p]].rawRules.length; raw++)
+                for(let raw = 0; raw < data.providers[prvKeys[p]].rawRules.length; raw++)
                 {
                     providers[p].addRawRule(data.providers[prvKeys[p]].rawRules[raw]);
                 }
 
+                //Add referral marketing rules to provider
+                for(let referralMarketing = 0; referralMarketing < data.providers[prvKeys[p]].referralMarketing.length; referralMarketing++)
+                {
+                    providers[p].addReferralMarketing(data.providers[prvKeys[p]].referralMarketing[referralMarketing]);
+                }
+
                 //Add exceptions to provider
-                for(var e = 0; e < data.providers[prvKeys[p]].exceptions.length; e++)
+                for(let e = 0; e < data.providers[prvKeys[p]].exceptions.length; e++)
                 {
                     providers[p].addException(data.providers[prvKeys[p]].exceptions[e]);
                 }
 
                 //Add redirections to provider
-                for(var re = 0; re < data.providers[prvKeys[p]].redirections.length; re++)
+                for(let re = 0; re < data.providers[prvKeys[p]].redirections.length; re++)
                 {
                     providers[p].addRedirection(data.providers[prvKeys[p]].redirections[re]);
                 }
@@ -288,22 +297,18 @@ function start()
             //Get the target hash from github
             fetch(storage.hashURL)
             .then(function(response){
-                var responseTextHash = response.clone().text().then(function(responseTextHash){
-                    if(response.ok && $.trim(responseTextHash))
-                    {
+                const responseTextHash = response.clone().text().then(function (responseTextHash) {
+                    if (response.ok && $.trim(responseTextHash)) {
                         dataHash = responseTextHash;
 
-                        if($.trim(dataHash) !== $.trim(localDataHash))
-                        {
+                        if ($.trim(dataHash) !== $.trim(localDataHash)) {
                             fetchFromURL();
-                        }
-                        else {
+                        } else {
                             toObject(storage.ClearURLsData);
                             storeHashStatus(1);
                             saveOnDisk(['hashStatus']);
                         }
-                    }
-                    else {
+                    } else {
                         dataHash = false;
                     }
                 });
@@ -322,18 +327,15 @@ function start()
 
             function checkResponse(response)
             {
-                var responseText = response.clone().text().then(function(responseText){
-                    if(response.ok && $.trim(responseText))
-                    {
-                        var downloadedFileHash = $.sha256(responseText);
+                const responseText = response.clone().text().then(function (responseText) {
+                    if (response.ok && $.trim(responseText)) {
+                        const downloadedFileHash = $.sha256(responseText);
 
-                        if($.trim(downloadedFileHash) === $.trim(dataHash))
-                        {
+                        if ($.trim(downloadedFileHash) === $.trim(dataHash)) {
                             storage.ClearURLsData = responseText;
                             storage.dataHash = downloadedFileHash;
                             storeHashStatus(2);
-                        }
-                        else {
+                        } else {
                             storeHashStatus(3);
                         }
                         storage.ClearURLsData = JSON.parse(storage.ClearURLsData);
@@ -360,18 +362,20 @@ function start()
         * @param {boolean} _isActive            Is the provider active?
         */
         function Provider(_name, _completeProvider = false, _forceRedirection = false, _isActive = true){
-            var name = _name;
-            var urlPattern;
-            var enabled_rules = {};
-            var disabled_rules = {};
-            var enabled_exceptions = {};
-            var disabled_exceptions = {};
-            var canceling = _completeProvider;
-            var enabled_redirections = {};
-            var disabled_redirections = {};
-            var active = _isActive;
-            var enabled_rawRules = {};
-            var disabled_rawRules = {};
+            let name = _name;
+            let urlPattern;
+            let enabled_rules = {};
+            let disabled_rules = {};
+            let enabled_exceptions = {};
+            let disabled_exceptions = {};
+            let canceling = _completeProvider;
+            let enabled_redirections = {};
+            let disabled_redirections = {};
+            let active = _isActive;
+            let enabled_rawRules = {};
+            let disabled_rawRules = {};
+            let enabled_referralMarketing = {};
+            let disabled_referralMarketing = {};
 
             if(_completeProvider){
                 enabled_rules[".*"] = true;
@@ -420,6 +424,33 @@ function start()
             };
 
             /**
+             * Apply a rule to a given tuple of rule array.
+             * @param enabledRuleArray      array for enabled rules
+             * @param disabledRulesArray    array for disabled rules
+             * @param {String} rule         RegExp as string
+             * @param {boolean} isActive    Is this rule active?
+             */
+            this.applyRule = (enabledRuleArray, disabledRulesArray, rule, isActive = true) => {
+                if(isActive)
+                {
+                    enabledRuleArray[rule] = true;
+
+                    if(disabledRulesArray[rule] !== undefined)
+                    {
+                        delete disabledRulesArray[rule];
+                    }
+                }
+                else {
+                    disabledRulesArray[rule] = true;
+
+                    if(enabledRuleArray[rule] !== undefined)
+                    {
+                        delete enabledRuleArray[rule];
+                    }
+                }
+            };
+
+            /**
             * Add a rule to the rule array
             * and replace old rule with new rule.
             *
@@ -429,23 +460,7 @@ function start()
             this.addRule = function(rule, isActive = true) {
                 rule = "([\\/|\\?|#]|(&|&amp;))+("+rule+"=[^\\/|\\?|&]*)";
 
-                if(isActive)
-                {
-                    enabled_rules[rule] = true;
-
-                    if(disabled_rules[rule] !== undefined)
-                    {
-                        delete disabled_rules[rule];
-                    }
-                }
-                else {
-                    disabled_rules[rule] = true;
-
-                    if(enabled_rules[rule] !== undefined)
-                    {
-                        delete enabled_rules[rule];
-                    }
-                }
+                this.applyRule(enabled_rules, disabled_rules, rule, isActive);
             };
 
             /**
@@ -465,23 +480,7 @@ function start()
             * @param {boolean} isActive   Is this rule active?
             */
             this.addRawRule = function(rule, isActive = true) {
-                if(isActive)
-                {
-                    enabled_rawRules[rule] = true;
-
-                    if(disabled_rawRules[rule] !== undefined)
-                    {
-                        delete disabled_rawRules[rule];
-                    }
-                }
-                else {
-                    disabled_rawRules[rule] = true;
-
-                    if(enabled_rawRules[rule] !== undefined)
-                    {
-                        delete enabled_rawRules[rule];
-                    }
-                }
+                this.applyRule(enabled_rawRules, disabled_rawRules, rule, isActive);
             };
 
             /**
@@ -490,7 +489,22 @@ function start()
             * @return Array RegExp strings
             */
             this.getRawRules = function() {
+                if(!storage.referralMarketing) {
+                    return Object.keys(Object.assign(enabled_rawRules, enabled_referralMarketing));
+                }
+
                 return Object.keys(enabled_rawRules);
+            };
+
+            /**
+             * Add a referral marketing rule to the referral marketing array
+             * and replace old referral marketing rule with new referral marketing rule.
+             *
+             * @param {String} rule        RegExp as string
+             * @param {boolean} isActive   Is this rule active?
+             */
+            this.addReferralMarketing = function(rule, isActive = true) {
+                this.applyRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive);
             };
 
             /**
@@ -528,15 +542,15 @@ function start()
             * @return {boolean}        if matching? true: false
             */
             this.matchException = function(url) {
-                var result = false;
+                let result = false;
 
                 //Add the site blocked alert to every exception
-                if(url == siteBlockedAlert) return true;
+                if(url === siteBlockedAlert) return true;
 
-                for(var exception in enabled_exceptions) {
+                for(const exception in enabled_exceptions) {
                     if(result) break;
 
-                    exception_regex = new RegExp(exception, "i");
+                    let exception_regex = new RegExp(exception, "i");
                     result = exception_regex.test(url);
                 }
 
@@ -576,10 +590,10 @@ function start()
             * @return url
             */
             this.getRedirection = function(url) {
-                var re = null;
+                let re = null;
 
-                for(var redirection in enabled_redirections) {
-                    result = (url.match(new RegExp(redirection, "i")));
+                for(const redirection in enabled_redirections) {
+                    let result = (url.match(new RegExp(redirection, "i")));
 
                     if (result && result.length > 0 && redirection)
                     {
@@ -603,13 +617,13 @@ function start()
         */
         function clearUrl(request)
         {
-            var URLbeforeReplaceCount = countFields(request.url);
+            const URLbeforeReplaceCount = countFields(request.url);
 
             //Add Fields form Request to global url counter
             increaseGlobalURLCounter(URLbeforeReplaceCount);
 
             if(storage.globalStatus){
-                var result = {
+                let result = {
                     "changes": false,
                     "url": "",
                     "redirect": false,
@@ -619,7 +633,7 @@ function start()
                 /*
                 * Call for every provider the removeFieldsFormURL method.
                 */
-                for (var i = 0; i < providers.length; i++) {
+                for (let i = 0; i < providers.length; i++) {
 
                     if(providers[i].matchURL(request.url))
                     {
@@ -648,9 +662,16 @@ function start()
                     * to inform the user about the full url blocking.
                     */
                     if(result.cancel){
-                        return {
-                            redirectUrl: siteBlockedAlert
-                        };
+                        if(request.type === 'main_frame') {
+                            const blockingPage = browser.extension.getURL("html/siteBlockedAlert.html?source="+encodeURIComponent(request.url));
+                            browser.tabs.update(request.tabId, {url: blockingPage});
+
+                            return {cancel: true};
+                        } else {
+                            return {
+                                redirectUrl: siteBlockedAlert
+                            };
+                        }
                     }
 
                     /*
@@ -719,8 +740,7 @@ function start()
                 return {};
             }
             else {
-                var ret = clearUrl(requestDetails);
-                return ret;
+                return clearUrl(requestDetails);
             }
         }
 
@@ -732,9 +752,9 @@ function start()
         * @return {boolean}
         */
         function isDataURL(requestDetails) {
-            var s = requestDetails.url;
+            const s = requestDetails.url;
 
-            return s.substring(0,4) == "data";
+            return s.substring(0,4) === "data";
         }
 
         /**
@@ -761,8 +781,15 @@ function start()
     */
     function pushToLog(beforeProcessing, afterProcessing, rule)
     {
-        if(storage.loggingStatus)
+        const limit = storage.logLimit;
+        if(storage.loggingStatus && limit !== 0)
         {
+            if(limit > 0 && !isNaN(limit)) {
+                while(storage.log.log.length >= limit) {
+                    storage.log.log.shift();
+                }
+            }
+
             storage.log.log.push(
                 {
                     "before": beforeProcessing,

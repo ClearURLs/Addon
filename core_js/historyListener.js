@@ -37,14 +37,16 @@ function historyListenerStart() {
 * which is associated with the new history entry created by replaceState()
 */
 function historyCleaner(details) {
-    var urlBefore = details.url;
-    var urlAfter = pureCleaning(details.url);
+    if(storage.globalStatus) {
+        const urlBefore = details.url;
+        const urlAfter = pureCleaning(details.url);
 
-    if(urlBefore != urlAfter) {
-        browser.tabs.executeScript(details.tabId, {
-            frameId: details.frameId,
-            code: 'history.replaceState({state: "cleaned_history"},"",'+JSON.stringify(urlAfter)+');'
-        }).then(() => {}, onError);
+        if(urlBefore !== urlAfter) {
+            browser.tabs.executeScript(details.tabId, {
+                frameId: details.frameId,
+                   code: 'history.replaceState({state: "cleaned_history"},"",'+JSON.stringify(urlAfter)+');'
+            }).then(() => {}, onError);
+        }
     }
 }
 

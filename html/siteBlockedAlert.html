@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>This site or element was blocked by ClearURLs Add-on</title>
+    <title>This site was blocked by ClearURLs Add-on</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -53,12 +53,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <div class="container content">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
-                <h1 class="text-center">This site or element was blocked by <b>ClearURLs</b> Add-on</h1>
+                <h1 class="text-center" id="title"></h1>
+                <p class="text-center" id="body"></p>
                 <p class="text-center">
-                    This site or element was blocked by <b>ClearURLs</b> Add-on, because we identify this site as an
-                    advertising and/or tracking service.
-                    <br>
-                    To visit this site, you must temporarily deactivate the Add-on.
+                    <a class="btn btn-warning" id="page"></a>
                 </p>
             </div>
         </div>
@@ -66,13 +64,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <footer class="navbar-fixed-bottom">
         <div class="navbar-inverse text-center">
-            <small class="text-muted">Version 1.1.2.5</small>
+            <small class="text-muted">v.<span id="version"></span></small>
         </div>
     </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="../browser-polyfill.js"></script>
     <script src="../external_js/jquery-3.2.1.min.js"></script>
     <script src="../external_js/bootstrap.min.js"></script>
+    <script src="../core_js/siteBlockedAlert.js"></script>
+    <script src="../core_js/write_version.js"></script>
 </body>
 </html>

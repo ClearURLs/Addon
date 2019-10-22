@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.0] - 2019-10-22
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Fixed
+- Fixed bug in "history tracking injection protection". This option was not disabled, when the global filter switch are on off
+- Fixed [#241](https://gitlab.com/KevinRoebert/ClearUrls/issues/241)
+- Possible fix for [#203](https://gitlab.com/KevinRoebert/ClearUrls/issues/203)
+
+## Changed
+- Refactoring
+- Changed background script loading sequence to prevent that required functions are not yet loaded.
+
+### Added
+- Added an option to im-/export the log (requires the `downloads` permission)
+- Added an option to im-/export the settings (requires the `downloads` permission)
+- Added information page for blocked sites, when they are called in the `main_frame`
+- Added option to allow referral marketing ([#284](https://gitlab.com/KevinRoebert/ClearUrls/issues/284))
+- Added "multiple times URL encodes" recognition
+- Added an option to limit the log entries ([#56](https://gitlab.com/KevinRoebert/ClearUrls/issues/56))
+
 ## [1.8.5] - 2019-09-29
 
 ### Compatibility note

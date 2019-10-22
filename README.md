@@ -4,11 +4,20 @@
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and *Chrome* based browsers.
 
-This add-on will remove the tracking fields from all URLs which are visited by the browser and use a rule file, namely `data.min.json`, 
-to protects your privacy.
+This add-on will remove the tracking fields from all URLs, which are visited by the browser, with the help of an external rule file, 
+which is regularly updated by us and can be found [here](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json), 
+to protect your privacy.
 
 ## Application
-Large (and small) webpages use elements in the URL, e.g.: https://example.com?source=thisIstheSiteIvisitedBefore to track your online activities. In this example, the source field tells the provider which page you visited before. The add-on will remove these tracking fields from the URL.
+Large (and small) websites use elements in the URL, e.g.: `https://example.com?utm_source=newsletter1&utm_medium=email&utm_campaign=sale`
+to track your online activities. In this example, the `utm` fields used to track a custom campaign, managed by Google. It tells the provider, and also Google, 
+the source, the medium (e.g. email or web) and the specific campaign of the link. All these tracking fields are not necessary for a website to be displayed 
+or work correctly and can therefore be removed - that is exactly what ClearURLs does, so you can think of it as an *URL clean maid*.
+
+Another common example are Amazon URLs. If you search for a product on Amazon you will get a very long URL for this product, e.g. 
+`https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=ÅMÅŽÕÑ&keywords=tea&pd_rd_i=exampleProduct&pd_rd_r=8d39e4cd-1e4f-43db-b6e7-72e969a84aa5&pd_rd_w=1pcKM&pd_rd_wg=hYrNl&pf_rd_p=50bbfd25-5ef7-41a2-68d6-74d854b30e30&pf_rd_r=0GMWD0YYKA7XFGX55ADP&qid=1517757263&rnid=2914120011`,
+the most of this URL is available for tracking and is not needed. After ClearURLs has cleaned this URL, it looks like this:
+`https://www.amazon.com/dp/exampleProduct`
 
 ## Screenshot
 ![Interface (version 1.8.5)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_1.8.5.png)
@@ -31,7 +40,8 @@ You want to help translating ClearURLs into many languages? – Nice
 
 You can choose between two options to contribute. You can create a merge request, or you can use the POEditor to translate ClearURLs.
 
-*Hint*: The description field in the translation files are only an information for what the translation is used. It is not necessary to translate the description field; in the most cases it is empty.
+*Hint: The description field in the translation files are only an information for what the translation is used. 
+It is not necessary to translate the description field; in the most cases it is empty.*
 
 #### Merge request
 If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://github.com/KevinRoebert/ClearUrls/blob/master/_locales/en/messages.json) in the ClearURLs repo 

@@ -75,19 +75,13 @@ async function checkOSAndroid()
         });
     }
 
-    if(os == "android")
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
+    return os === "android";
 }
 
 /**
 * Extract the host without port from an url.
 * @param  {String} url URL as String
-* @return {Array}     host as string
+* @return {String}     host as string
 */
 function extractHost(url) {
     let parsed_url = new URL(url);
@@ -126,8 +120,8 @@ function countFields(url)
 */
 function existsFields(url)
 {
-    var matches = (url.match(/\?.+/i) || []);
-    var count = matches.length;
+    let matches = (url.match(/\?.+/i) || []);
+    let count = matches.length;
 
     return (count > 0);
 }
@@ -140,7 +134,7 @@ function existsFields(url)
 function extractFileds(url)
 {
     if(existsFields(url)) {
-        var fields = url.replace(new RegExp(".*?\\?", "i"), "");
+        let fields = url.replace(new RegExp(".*?\\?", "i"), "");
         if(existsFragments(url)) {
             fields = fields.replace(new RegExp("#.*", "i"), "");
         }
@@ -169,7 +163,7 @@ function countFragments(url)
 function extractFragments(url)
 {
     if(existsFragments(url)) {
-        var fragments = url.replace(new RegExp(".*?#", "i"), "");
+        let fragments = url.replace(new RegExp(".*?#", "i"), "");
         return (fragments.match(/[^&]+=?[^&]*/gi) || []);
     }
 
@@ -183,8 +177,8 @@ function extractFragments(url)
 */
 function existsFragments(url)
 {
-    var matches = (url.match(/\#.+/i) || []);
-    var count = matches.length;
+    let matches = (url.match(/\#.+/i) || []);
+    let count = matches.length;
 
     return (count > 0);
 }
@@ -297,4 +291,17 @@ function getBrowser() {
     } else {
         return "Chrome";
     }
+}
+
+/**
+ * Decodes an URL, also one that is encoded multiple times.
+ * @param url   the url, that should be decoded
+ */
+function decodeURL(url) {
+    const rtn = decodeURIComponent(url);
+    if(rtn.indexOf("http://") === -1 && rtn.indexOf("https://") === -1) {
+        return decodeURL(rtn);
+    }
+
+    return rtn;
 }

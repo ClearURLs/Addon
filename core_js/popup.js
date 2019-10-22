@@ -107,7 +107,6 @@ function init()
 
 /**
 * Get the globalCounter and globalurlcounter value from the storage
-* @param  {(data){}    Return value form storage
 */
 function changeStatistics()
 {
@@ -127,7 +126,7 @@ function changeStatistics()
 */
 function setHashStatus()
 {
-    var element = $('#hashStatus');
+    let element = $('#hashStatus');
 
     if(hashStatus)
     {
@@ -146,7 +145,7 @@ function setHashStatus()
 */
 function changeSwitchButton(id, storageID)
 {
-    var element = $('#'+id);
+    let element = $('#'+id);
 
     changeVisibility(id, storageID);
 
@@ -155,7 +154,7 @@ function changeSwitchButton(id, storageID)
             function: "setData",
             params: [storageID, element.is(':checked')]
         }).then((data) => {
-            if(storageID == "globalStatus"){
+            if(storageID === "globalStatus"){
                 browser.runtime.sendMessage({
                     function: "changeIcon",
                     params: []
@@ -176,7 +175,7 @@ function changeSwitchButton(id, storageID)
 */
 function changeVisibility(id, storageID)
 {
-    var element;
+    let element;
 
     switch(storageID)
     {
@@ -190,7 +189,7 @@ function changeVisibility(id, storageID)
         element = "undefine";
     }
 
-    if(element != "undefine")
+    if(element !== "undefine")
     {
         if($('#'+id).is(':checked'))
         {
@@ -211,7 +210,7 @@ function changeVisibility(id, storageID)
 */
 function setSwitchButton(id, varname)
 {
-    var element = $('#'+id);
+    let element = $('#'+id);
     element.prop('checked', this[varname]);
 }
 
@@ -281,11 +280,11 @@ function setText()
 *
 * @param   {string}    id ID of the HTML element
 * @param   {string}    attribute Name of the attribute used for localization
-* @param   {boolean}   tooltip
+* @param   {string}   tooltip
 */
-function injectText(id, attribute, tooltip)
+function injectText(id, attribute, tooltip = "")
 {
-    object = $('#'+id);
+    let object = $('#'+id);
     object.text(translate(attribute));
 
     /*
@@ -294,7 +293,7 @@ function injectText(id, attribute, tooltip)
     */
     tooltip = translate(attribute+"_title");
 
-    if(tooltip != "")
+    if(tooltip !== "")
     {
         object.prop('title', tooltip);
     }

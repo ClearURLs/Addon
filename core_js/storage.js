@@ -29,23 +29,39 @@ var pendingSaves = new Set();
 */
 function saveOnExit()
 {
-    var json = {};
+    saveOnDisk(Object.keys(storage));
+}
+
+/**
+ * Returns the storage as JSON.
+ */
+function storageAsJSON() {
+    let json = {};
 
     Object.entries(storage).forEach(([key, value]) => {
-        switch (key) {
-            case "ClearURLsData":
-            case "log":
-            json[key] = JSON.stringify(value);
-            break;
-            case "types":
-            json[key] = value.toString();
-            break;
-            default:
-            json[key] = value;
-        }
+        json[key] = storageDataAsString(key);
     });
-    console.log(translate('core_save_on_disk'));
-    browser.storage.local.set(json);
+
+    return json;
+}
+
+/**
+ * Converts a given storage data to its string representation.
+ * @param key           key of the storage data
+ * @returns {string}    string representation
+ */
+function storageDataAsString(key) {
+    let value = storage[key];
+
+    switch (key) {
+        case "ClearURLsData":
+        case "log":
+            return JSON.stringify(value);
+        case "types":
+            return value.toString();
+        default:
+            return value;
+    }
 }
 
 /**
@@ -54,22 +70,12 @@ function saveOnExit()
 */
 function saveOnDisk(keys)
 {
-    var json = {};
+    let json = {};
 
     keys.forEach(function(key) {
-        var value = storage[key];
-        switch (key) {
-            case "ClearURLsData":
-            case "log":
-            json[key] = JSON.stringify(value);
-            break;
-            case "types":
-            json[key] = value.toString();
-            break;
-            default:
-            json[key] = value;
-        }
+        json[key] = storageDataAsString(key);
     });
+
     console.log(translate('core_save_on_disk'));
     browser.storage.local.set(json);
 }
@@ -145,17 +151,20 @@ function setData(key, value)
     switch (key) {
         case "ClearURLsData":
         case "log":
-        storage[key] = JSON.parse(value);
-        break;
+            storage[key] = JSON.parse(value);
+            break;
         case "hashURL":
         case "ruleURL":
-        storage[key] = replaceOldURLs(value);
-        break;
+            storage[key] = replaceOldURLs(value);
+            break;
         case "types":
-        storage[key] = value.split(',');
-        break;
+            storage[key] = value.split(',');
+            break;
+        case "logLimit":
+            storage[key] = Number(value);
+            break;
         default:
-        storage[key] = value;
+            storage[key] = value;
     }
 }
 
@@ -204,6 +213,8 @@ function initSettings()
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
+    storage.referralMarketing = false;
+    storage.logLimit = -1;
 
     if(getBrowser() === "Firefox") {
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
