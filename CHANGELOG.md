@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed badged in quiet mode
 
+### Added
+- Added Italian translation by [@gioxx](https://gitlab.com/gioxx)
+
 ## [1.9.0] - 2019-10-22
 
 ### Compatibility note
