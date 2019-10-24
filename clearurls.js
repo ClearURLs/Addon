@@ -78,8 +78,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false)
 
             checkOSAndroid().then((res) => {
                 if(!res) {
-
-                    if(storage.badgedStatus) {
+                    if(storage.badgedStatus && !quiet) {
                         browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
                     }
                     else
@@ -159,8 +158,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false)
 
                 checkOSAndroid().then((res) => {
                     if(!res) {
-
-                        if(storage.badgedStatus) {
+                        if(storage.badgedStatus && !quiet) {
                             browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
                         }
                         else
@@ -193,7 +191,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false)
 
         checkOSAndroid().then((res) => {
             if(!res) {
-                if(storage.badgedStatus) {
+                if(storage.badgedStatus && !quiet) {
                     browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
                 }
                 else
