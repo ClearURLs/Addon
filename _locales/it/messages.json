@@ -1,6 +1,6 @@
 {
     "hash_status_code_1": {
-        "message": "tutto è aggiornato",
+        "message": "tutto aggiornato",
         "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
     },
     "hash_status_code_2": {
@@ -72,7 +72,7 @@
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
-        "message": "Scrivi log",
+        "message": "Log",
         "description": "This string is used as name for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_log_title": {
@@ -164,7 +164,7 @@
         "description": "This string is used as title for the reset button on the settings page."
     },
     "setting_rule_url_label": {
-        "message": "L'indirizzo del file data.json (regole)",
+        "message": "Indirizzo del file data.json (regole)",
         "description": "This string is used as name for the rule url label."
     },
     "settings_html_save_button": {
@@ -208,7 +208,7 @@
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
     "history_listener_enabled": {
-        "message": "Impedisce il tracciamento via cronologia API (Vedi anche: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>Il metodo replaceState()</a>)",
+        "message": "Impedisci il tracciamento via cronologia API (vedi: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>Il metodo replaceState()</a>)",
         "description": "This string is used as name for the history API listener label."
     },
     "cleaning_tool_page_title": {
