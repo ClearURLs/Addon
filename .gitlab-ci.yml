@@ -3,8 +3,7 @@ image: debian:latest
 before_script:
   - export DEBIAN_FRONTEND= noninteractive
   - apt-get update -y
-  - apt-get install -y zip unzip jq
-  - apt-get install nodejs
+  - apt-get install -y zip unzip jq nodejs
 
 stages:
   - build
