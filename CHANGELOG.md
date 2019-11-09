@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.2] - 2019-11-09
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Fixed
+- Fixed [#290](https://gitlab.com/KevinRoebert/ClearUrls/issues/290)
+
+## Changed
+- Updated some strings of Italian translation by [@gioxx](https://gitlab.com/gioxx)
+
+### Added
+- Added a minimal version of the data.min.json file where all line breaks and spaces, as well as default values and empty lists are removed.
+
 ## [1.9.1] - 2019-10-24
 
 ### Compatibility note

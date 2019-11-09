@@ -25,10 +25,9 @@ var hasPendingSaves = false;
 var pendingSaves = new Set();
 
 /**
-* Writes the storage variable to the disk.
-*/
-function saveOnExit()
-{
+ * Writes the storage variable to the disk.
+ */
+function saveOnExit() {
     saveOnDisk(Object.keys(storage));
 }
 
@@ -65,14 +64,13 @@ function storageDataAsString(key) {
 }
 
 /**
-* Save multiple keys on the disk.
-* @param  {String[]} keys
-*/
-function saveOnDisk(keys)
-{
+ * Save multiple keys on the disk.
+ * @param  {String[]} keys
+ */
+function saveOnDisk(keys) {
     let json = {};
 
-    keys.forEach(function(key) {
+    keys.forEach(function (key) {
         json[key] = storageDataAsString(key);
     });
 
@@ -81,17 +79,16 @@ function saveOnDisk(keys)
 }
 
 /**
-* Schedule to save a key to disk in 30 seconds.
-* @param  {String} key
-*/
-function deferSaveOnDisk(key)
-{
+ * Schedule to save a key to disk in 30 seconds.
+ * @param  {String} key
+ */
+function deferSaveOnDisk(key) {
     if (hasPendingSaves) {
         pendingSaves.add(key);
         return;
     }
 
-    setTimeout(function() {
+    setTimeout(function () {
         saveOnDisk(Array.from(pendingSaves));
         pendingSaves.clear();
         hasPendingSaves = false;
@@ -100,10 +97,9 @@ function deferSaveOnDisk(key)
 }
 
 /**
-* Start sequence for ClearURLs.
-*/
-function genesis()
-{
+ * Start sequence for ClearURLs.
+ */
+function genesis() {
     browser.storage.local.get(null).then((items) => {
         initStorage(items);
 
@@ -119,35 +115,32 @@ function genesis()
 }
 
 /**
-* Return the value under the key.
-* @param  {String} key
-* @return {Object}
-*/
-function getData(key)
-{
+ * Return the value under the key.
+ * @param  {String} key
+ * @return {Object}
+ */
+function getData(key) {
     return storage[key];
 }
 
 /**
-* Return the entire storage object.
-* @return {Object}
-*/
-function getEntireData()
-{
+ * Return the entire storage object.
+ * @return {Object}
+ */
+function getEntireData() {
     return storage;
 }
 
 /**
-* Save the value under the key on the RAM.
-*
-* Note: To store the data on the hard disk, one of
-*  deferSaveOnDisk(), saveOnDisk(), or saveOnExit()
-*  must be called.
-* @param {String} key
-* @param {Object} value
-*/
-function setData(key, value)
-{
+ * Save the value under the key on the RAM.
+ *
+ * Note: To store the data on the hard disk, one of
+ *  deferSaveOnDisk(), saveOnDisk(), or saveOnExit()
+ *  must be called.
+ * @param {String} key
+ * @param {Object} value
+ */
+function setData(key, value) {
     switch (key) {
         case "ClearURLsData":
         case "log":
@@ -169,23 +162,21 @@ function setData(key, value)
 }
 
 /**
-* Write error on console.
-*/
-function error(e)
-{
+ * Write error on console.
+ */
+function error(e) {
     console.log(translate('core_error'));
     console.error(e);
 }
 
 /**
-* Set default values, if the storage is empty.
-* @param  {Object} items
-*/
-function initStorage(items)
-{
+ * Set default values, if the storage is empty.
+ * @param  {Object} items
+ */
+function initStorage(items) {
     initSettings();
 
-    if(!isEmpty(items)) {
+    if (!isEmpty(items)) {
         Object.entries(items).forEach(([key, value]) => {
             setData(key, value);
         });
@@ -193,10 +184,9 @@ function initStorage(items)
 }
 
 /**
-* Set default values for the settings.
-*/
-function initSettings()
-{
+ * Set default values for the settings.
+ */
+function initSettings() {
     storage.ClearURLsData = [];
     storage.dataHash = "";
     storage.badgedStatus = true;
@@ -208,15 +198,15 @@ function initSettings()
     storage.log = {"log": []};
     storage.statisticsStatus = true;
     storage.badged_color = "ffa500";
-    storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
-    storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
+    storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules";
+    storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.minify.json";
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
     storage.referralMarketing = false;
     storage.logLimit = -1;
 
-    if(getBrowser() === "Firefox") {
+    if (getBrowser() === "Firefox") {
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
     } else if (getBrowser() === "Chrome") {
         storage.types = ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "other"];
@@ -224,53 +214,57 @@ function initSettings()
 }
 
 /**
-* Replace the old URLs with the
-* new GitLab URLs.
-*/
-function replaceOldURLs(url)
-{
+ * Replace the old URLs with the
+ * new GitLab URLs.
+ */
+function replaceOldURLs(url) {
     switch (url) {
         case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":
-        return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
+            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
         case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true":
-        return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
+            return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
         case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash":
-        return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
+            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules";
         case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json":
-        return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
+            return "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json";
+        case "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules":
+            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules";
+        case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json":
+            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/data.minify.json?job=hash%20rules";
         default:
-        return url;
+            return url;
     }
 }
 
 /**
-* Load local saved data, if the browser is offline or
-* some other network trouble.
-*/
-function loadOldDataFromStore()
-{
+ * Load local saved data, if the browser is offline or
+ * some other network trouble.
+ */
+function loadOldDataFromStore() {
     localDataHash = storage.dataHash;
 }
 
 /**
-* Save the hash status to the local storage (RAM).
-* The status can have the following values:
-*  1 "up to date"
-*  2 "updated"
-*  3 "update available"
-*  @param status_code the number for the status
-*/
-function storeHashStatus(status_code)
-{
-    switch(status_code)
-    {
-        case 1: status_code = "hash_status_code_1";
-        break;
-        case 2: status_code = "hash_status_code_2";
-        break;
-        case 3: status_code = "hash_status_code_3";
-        break;
-        default: status_code = "hash_status_code_4";
+ * Save the hash status to the local storage (RAM).
+ * The status can have the following values:
+ *  1 "up to date"
+ *  2 "updated"
+ *  3 "update available"
+ *  @param status_code the number for the status
+ */
+function storeHashStatus(status_code) {
+    switch (status_code) {
+        case 1:
+            status_code = "hash_status_code_1";
+            break;
+        case 2:
+            status_code = "hash_status_code_2";
+            break;
+        case 3:
+            status_code = "hash_status_code_3";
+            break;
+        default:
+            status_code = "hash_status_code_4";
     }
 
     storage.hashStatus = status_code;

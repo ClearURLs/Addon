@@ -24,53 +24,49 @@
 /*
 * To support Waterfox.
 */
-Array.prototype.rmEmpty = function() {
+Array.prototype.rmEmpty = function () {
     return this.filter(v => v);
 };
 
 /*
 * To support Waterfox.
 */
-Array.prototype.flatten = function() {
+Array.prototype.flatten = function () {
     return this.reduce((a, b) => a.concat(b), []);
 };
 
 /**
-* Check if an object is empty.
-* @param  {Object}  obj
-* @return {Boolean}
-*/
-function isEmpty(obj)
-{
+ * Check if an object is empty.
+ * @param  {Object}  obj
+ * @return {Boolean}
+ */
+function isEmpty(obj) {
     return (Object.getOwnPropertyNames(obj).length === 0);
 }
 
 /**
-* Translate a string with the i18n API.
-*
-* @param {string} string Name of the attribute used for localization
-*/
-function translate(string)
-{
+ * Translate a string with the i18n API.
+ *
+ * @param {string} string Name of the attribute used for localization
+ */
+function translate(string) {
     return browser.i18n.getMessage(string);
 }
 
 /**
-* Reloads the extension.
-*/
-function reload()
-{
+ * Reloads the extension.
+ */
+function reload() {
     browser.runtime.reload();
 }
 
 /**
-* Check if it is an android device.
-* @return bool
-*/
-async function checkOSAndroid()
-{
-    if(os === undefined || os === null || os === "") {
-        await chrome.runtime.getPlatformInfo(function(info) {
+ * Check if it is an android device.
+ * @return bool
+ */
+async function checkOSAndroid() {
+    if (os === undefined || os === null || os === "") {
+        await chrome.runtime.getPlatformInfo(function (info) {
             os = info.os;
         });
     }
@@ -79,10 +75,10 @@ async function checkOSAndroid()
 }
 
 /**
-* Extract the host without port from an url.
-* @param  {String} url URL as String
-* @return {String}     host as string
-*/
+ * Extract the host without port from an url.
+ * @param  {String} url URL as String
+ * @return {String}     host as string
+ */
 function extractHost(url) {
     let parsed_url = new URL(url);
 
@@ -90,36 +86,34 @@ function extractHost(url) {
 }
 
 /**
-* Returns true if the url has a local host.
-* @param  {String} url URL as String
-* @return {boolean}
-*/
+ * Returns true if the url has a local host.
+ * @param  {String} url URL as String
+ * @return {boolean}
+ */
 function checkLocalURL(url) {
     let host = extractHost(url);
 
     return ipRangeCheck(host, ["10.0.0.0/8", "172.16.0.0/12",
-    "192.168.0.0/16", "100.64.0.0/10",
-    "169.254.0.0/16", "127.0.0.1"])||
-    host === 'localhost';
+            "192.168.0.0/16", "100.64.0.0/10",
+            "169.254.0.0/16", "127.0.0.1"]) ||
+        host === 'localhost';
 }
 
 /**
-* Return the number of parameters query strings.
-* @param  {String}     url URL as String
-* @return {int}        Number of Parameters
-*/
-function countFields(url)
-{
+ * Return the number of parameters query strings.
+ * @param  {String}     url URL as String
+ * @return {int}        Number of Parameters
+ */
+function countFields(url) {
     return extractFileds(url).length;
 }
 
 /**
-* Returns true if fields exists.
-* @param  {String}     url URL as String
-* @return {boolean}
-*/
-function existsFields(url)
-{
+ * Returns true if fields exists.
+ * @param  {String}     url URL as String
+ * @return {boolean}
+ */
+function existsFields(url) {
     let matches = (url.match(/\?.+/i) || []);
     let count = matches.length;
 
@@ -127,15 +121,14 @@ function existsFields(url)
 }
 
 /**
-* Extract the fields from an url.
-* @param  {String} url URL as String
-* @return {Array}     Fields as array
-*/
-function extractFileds(url)
-{
-    if(existsFields(url)) {
+ * Extract the fields from an url.
+ * @param  {String} url URL as String
+ * @return {Array}     Fields as array
+ */
+function extractFileds(url) {
+    if (existsFields(url)) {
         let fields = url.replace(new RegExp(".*?\\?", "i"), "");
-        if(existsFragments(url)) {
+        if (existsFragments(url)) {
             fields = fields.replace(new RegExp("#.*", "i"), "");
         }
 
@@ -146,23 +139,21 @@ function extractFileds(url)
 }
 
 /**
-* Return the number of fragments query strings.
-* @param  {String}     url URL as String
-* @return {int}        Number of fragments
-*/
-function countFragments(url)
-{
+ * Return the number of fragments query strings.
+ * @param  {String}     url URL as String
+ * @return {int}        Number of fragments
+ */
+function countFragments(url) {
     return extractFragments(url).length;
 }
 
 /**
-* Extract the fragments from an url.
-* @param  {String} url URL as String
-* @return {Array}     fragments as array
-*/
-function extractFragments(url)
-{
-    if(existsFragments(url)) {
+ * Extract the fragments from an url.
+ * @param  {String} url URL as String
+ * @return {Array}     fragments as array
+ */
+function extractFragments(url) {
+    if (existsFragments(url)) {
         let fragments = url.replace(new RegExp(".*?#", "i"), "");
         return (fragments.match(/[^&]+=?[^&]*/gi) || []);
     }
@@ -171,12 +162,11 @@ function extractFragments(url)
 }
 
 /**
-* Returns true if fragments exists.
-* @param  {String}     url URL as String
-* @return {boolean}
-*/
-function existsFragments(url)
-{
+ * Returns true if fragments exists.
+ * @param  {String}     url URL as String
+ * @return {boolean}
+ */
+function existsFragments(url) {
     let matches = (url.match(/\#.+/i) || []);
     let count = matches.length;
 
@@ -184,73 +174,69 @@ function existsFragments(url)
 }
 
 /**
-* Load local saved data, if the browser is offline or
-* some other network trouble.
-*/
-function loadOldDataFromStore()
-{
+ * Load local saved data, if the browser is offline or
+ * some other network trouble.
+ */
+function loadOldDataFromStore() {
     localDataHash = storage.dataHash;
 }
 
 /**
-* Save the hash status to the local storage (RAM).
-* The status can have the following values:
-*  1 "up to date"
-*  2 "updated"
-*  3 "update available"
-*  @param status_code the number for the status
-*/
-function storeHashStatus(status_code)
-{
-    switch(status_code)
-    {
-        case 1: status_code = "hash_status_code_1";
-        break;
-        case 2: status_code = "hash_status_code_2";
-        break;
-        case 3: status_code = "hash_status_code_3";
-        break;
-        default: status_code = "hash_status_code_4";
+ * Save the hash status to the local storage (RAM).
+ * The status can have the following values:
+ *  1 "up to date"
+ *  2 "updated"
+ *  3 "update available"
+ *  @param status_code the number for the status
+ */
+function storeHashStatus(status_code) {
+    switch (status_code) {
+        case 1:
+            status_code = "hash_status_code_1";
+            break;
+        case 2:
+            status_code = "hash_status_code_2";
+            break;
+        case 3:
+            status_code = "hash_status_code_3";
+            break;
+        default:
+            status_code = "hash_status_code_4";
     }
 
     storage.hashStatus = status_code;
 }
 
 /**
-* Increase by {number} the GlobalURLCounter
-* @param  {int} number
-*/
-function increaseGlobalURLCounter(number)
-{
-    if(storage.statisticsStatus)
-    {
+ * Increase by {number} the GlobalURLCounter
+ * @param  {int} number
+ */
+function increaseGlobalURLCounter(number) {
+    if (storage.statisticsStatus) {
         storage.globalurlcounter += number;
         deferSaveOnDisk('globalurlcounter');
     }
 }
 
 /**
-* Increase by one the URLCounter
-*/
-function increaseURLCounter()
-{
-    if(storage.statisticsStatus)
-    {
+ * Increase by one the URLCounter
+ */
+function increaseURLCounter() {
+    if (storage.statisticsStatus) {
         storage.globalCounter++;
         deferSaveOnDisk('globalCounter');
     }
 }
 
 /**
-* Change the icon.
-*/
-function changeIcon()
-{
+ * Change the icon.
+ */
+function changeIcon() {
     checkOSAndroid().then((res) => {
-        if(!res) {
-            if(storage.globalStatus){
+        if (!res) {
+            if (storage.globalStatus) {
                 browser.browserAction.setIcon({path: "img/clearurls_128x128.png"});
-            } else{
+            } else {
                 browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"});
             }
         }
@@ -258,35 +244,33 @@ function changeIcon()
 }
 
 /**
-* Get the badged status from the browser storage and put the value
-* into a local variable.
-*
-*/
-function setBadgedStatus()
-{
+ * Get the badged status from the browser storage and put the value
+ * into a local variable.
+ *
+ */
+function setBadgedStatus() {
     checkOSAndroid().then((res) => {
-        if(!res && storage.badgedStatus) {
+        if (!res && storage.badgedStatus) {
             browser.browserAction.setBadgeBackgroundColor({
-                'color': '#'+storage.badged_color
+                'color': '#' + storage.badged_color
             });
         }
     });
 }
 
 /**
-* Returns the current URL.
-* @return {String} [description]
-*/
-function getCurrentURL()
-{
+ * Returns the current URL.
+ * @return {String} [description]
+ */
+function getCurrentURL() {
     return currentURL;
 }
 
 /**
-* Check for browser.
-*/
+ * Check for browser.
+ */
 function getBrowser() {
-    if(typeof InstallTrigger !== 'undefined') {
+    if (typeof InstallTrigger !== 'undefined') {
         return "Firefox";
     } else {
         return "Chrome";
@@ -299,9 +283,19 @@ function getBrowser() {
  */
 function decodeURL(url) {
     const rtn = decodeURIComponent(url);
-    if(rtn.indexOf("http://") === -1 && rtn.indexOf("https://") === -1) {
+    if (rtn.indexOf("http://") === -1 && rtn.indexOf("https://") === -1) {
         return decodeURL(rtn);
     }
 
     return rtn;
 }
+
+/*
+* Gets the value of at `key` an object. If the resolved value is `undefined`, the `defaultValue` is returned in its place.
+*
+* @param {string} key the key of the object
+* @param {object} defaultValue the default value
+*/
+Object.prototype.getOrDefault = function (key, defaultValue) {
+    return this[key] === undefined ? defaultValue : this[key];
+};
