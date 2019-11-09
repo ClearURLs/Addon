@@ -14,7 +14,7 @@ hash rules:
     script:
         - sha256sum data/data.min.json | awk '{print $1}' > rules.min.hash
         - node build_tools/minifyDataJSON.js "data/data.min.json" "data.minify.json"
-        - sha256sum data/data.minify.json | awk '{print $1}' > rules.minify.hash
+        - sha256sum data.minify.json | awk '{print $1}' > rules.minify.hash
     artifacts:
         paths:
             - rules.min.hash
