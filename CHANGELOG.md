@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.3.1] - 2019-11-15
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Changed
+- Changed data and hash URL to GitLab Pages, to prevent hitting the GitLab infrastructure directly [#295](https://gitlab.com/KevinRoebert/ClearUrls/issues/295#note_245456134).
+
 ## [1.9.3] - 2019-11-15
 
 ### Compatibility note

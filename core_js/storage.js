@@ -198,8 +198,8 @@ function initSettings() {
     storage.log = {"log": []};
     storage.statisticsStatus = true;
     storage.badged_color = "ffa500";
-    storage.hashURL = "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules";
-    storage.ruleURL = "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/data.minify.json?job=hash%20rules";
+    storage.hashURL = "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
+    storage.ruleURL = "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
@@ -220,19 +220,23 @@ function initSettings() {
 function replaceOldURLs(url) {
     switch (url) {
         case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/rules.hash?flush_cache=true":
-            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules";
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
         case "https://raw.githubusercontent.com/KevinRoebert/ClearUrls/master/data/data.json?flush_cache=true":
-            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/data.minify.json?job=hash%20rules";
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
         case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/rules.hash":
-            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules";
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
         case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.json":
-            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/data.minify.json?job=hash%20rules";
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
         case "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.min.hash?job=hash%20rules":
-            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules";
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
         case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json":
-            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/data.minify.json?job=hash%20rules";
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
         case "https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.minify.json":
-            return "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/data.minify.json?job=hash%20rules";
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
+        case "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/data.minify.json?job=hash%20rules":
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
+        case "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules":
+            return "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
         default:
             return url;
     }
