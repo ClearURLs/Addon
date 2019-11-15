@@ -38,6 +38,7 @@ pages:
   stage: deploy
   script:
     - mkdir public
+    - mkdir public/data
     - mv GitLabPages/* public/
     - cp img/clearurls.svg public/clearurls.svg
     - cp data/data.min.json public/data/data.min.json
