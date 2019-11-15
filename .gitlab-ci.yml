@@ -48,6 +48,5 @@ pages:
   artifacts:
     paths:
       - public
-      - rules.min.hash
-      - data.minify.json
-      - rules.minify.hash
+  only:
+    - master
