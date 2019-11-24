@@ -32,65 +32,6 @@ var loggingStatus;
 var statisticsStatus;
 var currentURL;
 
-async function getData()
-{
-    await browser.runtime.sendMessage({
-        function: "getData",
-        params: ["globalCounter"]
-    }).then((data) => {
-        globalCounter = data.response;
-    });
-
-    await browser.runtime.sendMessage({
-        function: "getData",
-        params: ["globalurlcounter"]
-    }).then((data) => {
-        globalurlcounter = data.response;
-    });
-
-    await browser.runtime.sendMessage({
-        function: "getData",
-        params: ["globalStatus"]
-    }).then((data) => {
-        globalStatus = data.response;
-    });
-
-    await browser.runtime.sendMessage({
-        function: "getData",
-        params: ["badgedStatus"]
-    }).then((data) => {
-        badgedStatus = data.response;
-    });
-
-    await browser.runtime.sendMessage({
-        function: "getData",
-        params: ["hashStatus"]
-    }).then((data) => {
-        hashStatus = data.response;
-    });
-
-    await browser.runtime.sendMessage({
-        function: "getData",
-        params: ["loggingStatus"]
-    }).then((data) => {
-        loggingStatus = data.response;
-    });
-
-    await browser.runtime.sendMessage({
-        function: "getData",
-        params: ["statisticsStatus"]
-    }).then((data) => {
-        statisticsStatus = data.response;
-    });
-
-    await browser.runtime.sendMessage({
-        function: "getCurrentURL",
-        params: []
-    }).then((data) => {
-        currentURL = data.response;
-    });
-}
-
 /**
 * Initialize the UI.
 *
@@ -240,19 +181,26 @@ function resetGlobalCounter(){
 }
 
 $(document).ready(function(){
-    getData().then(() => {
-        init();
-        $('#reset_counter_btn').on("click", resetGlobalCounter);
-        changeSwitchButton("globalStatus", "globalStatus");
-        changeSwitchButton("tabcounter", "badgedStatus");
-        changeSwitchButton("logging", "loggingStatus");
-        changeSwitchButton("statistics", "statisticsStatus");
-        $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
-        $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
-        $('#cleaning_tools').attr('href', browser.extension.getURL('./html/cleaningTool.html'));
-        setText();
-    });
-
+    loadData("globalCounter")
+        .then(() => loadData("globalurlcounter"))
+        .then(() => loadData("globalStatus"))
+        .then(() => loadData("badgedStatus"))
+        .then(() => loadData("hashStatus"))
+        .then(() => loadData("loggingStatus"))
+        .then(() => loadData("statisticsStatus"))
+        .then(() => loadData("getCurrentURL", "currentURL"))
+        .then(() => {
+            init();
+            $('#reset_counter_btn').on("click", resetGlobalCounter);
+            changeSwitchButton("globalStatus", "globalStatus");
+            changeSwitchButton("tabcounter", "badgedStatus");
+            changeSwitchButton("logging", "loggingStatus");
+            changeSwitchButton("statistics", "statisticsStatus");
+            $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
+            $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
+            $('#cleaning_tools').attr('href', browser.extension.getURL('./html/cleaningTool.html'));
+            setText();
+        });
 });
 
 /**
@@ -297,6 +245,25 @@ function injectText(id, attribute, tooltip = "")
     {
         object.prop('title', tooltip);
     }
+}
+
+/**
+ * Loads data from storage and saves into local variable.
+ *
+ * @param name data name
+ * @param varName variable name
+ * @returns {Promise<data>} requested data
+ */
+async function loadData(name, varName=name) {
+    return new Promise((resolve, reject) => {
+        browser.runtime.sendMessage({
+            function: "getData",
+            params: [name]
+        }).then(data => {
+            this[varName] = data.response;
+            resolve(data);
+        }, handleError);
+    });
 }
 
 /**

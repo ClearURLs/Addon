@@ -286,7 +286,7 @@
         "description": "This string is used as title on the blocked site page."
     },
     "blocked_html_body": {
-        "message": "This site was blocked by the <b>ClearURLs</b> Add-on, because we identify this site as an advertising and/or tracking service. To visit this site, you must temporarily deactivate the Add-on. After deactivating ClearURLs you can click on the button below to load the page.",
+        "message": "This site was blocked by the <b>ClearURLs</b> Add-on, because we identify this site as an advertising and/or tracking service. To visit this site, you must temporarily deactivate the Add-on or disable domain blocking in the ClearURLs settings. After this you can click on the button below to load the page.",
         "description": "This string is used as body on the blocked site page."
     },
     "blocked_html_button": {
@@ -304,5 +304,13 @@
     "watchdog": {
         "message": "[ClearURLs]: The watchdog has detected a problem. ClearURLs is restarted.",
         "description": "This string is used as text for the watchdog"
+    },
+    "domain_blocking_enabled": {
+        "message": "Allow domain blocking (Can lead to problems on pages that do not allow AdBlocker)",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Allow domain blocking (Can lead to problems on pages that do not allow AdBlocker)",
+        "description": "This string is used as title for the domain blocking switch"
     }
 }

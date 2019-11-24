@@ -106,6 +106,9 @@ function genesis() {
         // Start the clearurls.js
         start();
 
+        //Set correct icon on startup
+        changeIcon();
+
         // Start the context_menu
         contextMenuStart();
 
@@ -205,6 +208,7 @@ function initSettings() {
     storage.localHostsSkipping = true;
     storage.referralMarketing = false;
     storage.logLimit = -1;
+    storage.domainBlocking = true;
 
     if (getBrowser() === "Firefox") {
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];

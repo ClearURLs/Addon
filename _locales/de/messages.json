@@ -286,7 +286,7 @@
         "description": "Diese Zeichenfolge wird als Titel auf der Hinweisseite für blockierte Seiten verwendet."
     },
     "blocked_html_body": {
-        "message": "Diese Seite wurde vom <b>ClearURLs</b> Add-On blockiert, weil wir sie als Werbe- bzw. Trackingservice identifiziert haben. Um diese Seite zu besuchen, müssen Sie das Add-On temporär deaktivieren. Dann können Sie auf den untenstehenden Button klicken, um die Seite aufzurufen.",
+        "message": "Diese Seite wurde vom <b>ClearURLs</b> Add-On blockiert, weil wir sie als Werbe- bzw. Trackingservice identifiziert haben. Um diese Seite zu besuchen, müssen Sie das Add-On temporär deaktivieren oder in den Einstellungen von ClearURLs das Domain-Blocking deaktivieren. Dann können Sie auf den untenstehenden Button klicken, um die Seite aufzurufen.",
         "description": "Diese Zeichenfolge wird als Mengentext auf der Hinweisseite für blockierte Seiten verwendet."
     },
     "blocked_html_button": {
@@ -304,5 +304,13 @@
     "watchdog": {
         "message": "[ClearURLs]: Der Watchdog hat ein Problem festgestellt. ClearURLs wird neugestartet.",
         "description": "Diese Zeichenkette wird als Text für den Watchdog verwendet."
+    },
+    "domain_blocking_enabled": {
+        "message": "Erlaube Domain-Blocking (Kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
+        "description": "Diese Zeichenkette wird als Beschreibung für das Domain-Blocking verwendet."
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Erlaube Domain-Blocking (Kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
+        "description": "Diese Zeichenkette wird als Titel für das Domain-Blocking verwendet."
     }
 }

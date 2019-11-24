@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.4] - 2019-11-24
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Fixed
+- Fixed toolbar icon on startup [#102](https://gitlab.com/KevinRoebert/ClearUrls/issues/102)
+
+### Added
+- Added option to disable/allow domain blocking [#294](https://gitlab.com/KevinRoebert/ClearUrls/issues/294)
+
+### Changed
+- Some refactoring
+
 ## [1.9.3.1] - 2019-11-15
 
 ### Compatibility note
@@ -31,7 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed [#290](https://gitlab.com/KevinRoebert/ClearUrls/issues/290)
 
-## Changed
+### Changed
 - Updated some strings of Italian translation by [@gioxx](https://gitlab.com/gioxx)
 
 ### Added
@@ -60,7 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed [#241](https://gitlab.com/KevinRoebert/ClearUrls/issues/241)
 - Possible fix for [#203](https://gitlab.com/KevinRoebert/ClearUrls/issues/203)
 
-## Changed
+### Changed
 - Refactoring
 - Changed background script loading sequence to prevent that required functions are not yet loaded.
 
@@ -89,7 +104,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 22
 
-## Changed
+### Changed
 - Force redirects only on main frames
 - Added google link fix script, to avoid the sub frame permission for force redirection on google
 

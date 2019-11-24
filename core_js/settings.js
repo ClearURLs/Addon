@@ -78,45 +78,23 @@ function reset()
 */
 function save()
 {
-    browser.runtime.sendMessage({
-        function: "setData",
-        params: ["badged_color", $('input[name=badged_color]').val()]
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
-        function: "setBadgedStatus",
-        params: []
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
-        function: "setData",
-        params: ["ruleURL", $('input[name=rule_url]').val()]
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
-        function: "setData",
-        params: ["hashURL", $('input[name=hash_url]').val()]
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
-        function: "setData",
-        params: ["types", $('input[name=types]').val()]
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
-        function: "setData",
-        params: ["logLimit", $('input[name=logLimit]').val()]
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
-        function: "saveOnExit",
-        params: []
-    }).then(handleResponse, handleError);
-
-    browser.runtime.sendMessage({
-        function: "reload",
-        params: []
-    }).then(handleResponse, handleError);
+    saveData("badged_color", $('input[name=badged_color]').val())
+        .then(() => saveData("ruleURL", $('input[name=ruleURL]').val()))
+        .then(() => saveData("hashURL", $('input[name=hashURL]').val()))
+        .then(() => saveData("types", $('input[name=types]').val()))
+        .then(() => saveData("logLimit", $('input[name=logLimit]').val()))
+        .then(() => browser.runtime.sendMessage({
+            function: "setBadgedStatus",
+            params: []
+        }), handleError)
+        .then(() => browser.runtime.sendMessage({
+            function: "saveOnExit",
+            params: []
+        }), handleError)
+        .then(() => browser.runtime.sendMessage({
+            function: "reload",
+            params: []
+        }), handleError);
 }
 
 /**
@@ -135,66 +113,69 @@ function translate(string, ...placeholders)
 */
 function getData()
 {
-    browser.runtime.sendMessage({
-        function: "getData",
-        params: ["badged_color"]
-    }).then((data) => handleResponseData(data, "badged_color", "badged_color"), handleError);
+    loadData("badged_color")
+        .then(() => loadData("ruleURL"))
+        .then(() => loadData("hashURL"))
+        .then(() => loadData("types"))
+        .then(() => loadData("logLimit"))
+        .then(logData => {
+            if(logData.response === undefined || logData.response === -1) {
+                $('#logLimit_label').text(translate('setting_log_limit_label', "∞"));
+            } else {
+                $('#logLimit_label').text(translate('setting_log_limit_label', logData.response));
+            }
+        });
 
-    browser.runtime.sendMessage({
-        function: "getData",
-        params: ["ruleURL"]
-    }).then((data) => handleResponseData(data, "rule_url", "rule_url"), handleError);
+    loadData("contextMenuEnabled")
+        .then(() => loadData("historyListenerEnabled"))
+        .then(() => loadData("localHostsSkipping"))
+        .then(() => loadData("referralMarketing"))
+        .then(() => loadData("domainBlocking"))
+        .then(() => {
+            changeSwitchButton("localHostsSkipping", "localHostsSkipping");
+            changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
+            changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
+            changeSwitchButton("referralMarketing", "referralMarketing");
+            changeSwitchButton("domainBlocking", "domainBlocking");
+        });
+}
 
-    browser.runtime.sendMessage({
-        function: "getData",
-        params: ["hashURL"]
-    }).then((data) => handleResponseData(data, "hash_url", "hash_url"), handleError);
-
-    browser.runtime.sendMessage({
-        function: "getData",
-        params: ["types"]
-    }).then((data) => handleResponseData(data, "types", "types"), handleError);
-
-    browser.runtime.sendMessage({
-        function: "getData",
-        params: ["logLimit"]
-    }).then((data) => {
-        handleResponseData(data, "logLimit", "logLimit");
-        if(data.response === undefined || data.response === -1) {
-            $('#logLimit_label').text(translate('setting_log_limit_label', "∞"));
-        } else {
-            $('#logLimit_label').text(translate('setting_log_limit_label', data.response));
-        }
-    }, handleError);
-
-    browser.runtime.sendMessage({
-        function: "getData",
-        params: ["contextMenuEnabled"]
-    }).then((data) => {
-        handleResponseData(data, "contextMenuEnabled", "contextMenuEnabled");
+/**
+ * Loads data from storage and saves into local variable.
+ *
+ * @param name data/variable name
+ * @returns {Promise<data>} requested data
+ */
+async function loadData(name) {
+    return new Promise((resolve, reject) => {
         browser.runtime.sendMessage({
             function: "getData",
-            params: ["historyListenerEnabled"]
-        }).then((data) => {
-            handleResponseData(data, "historyListenerEnabled", "historyListenerEnabled");
-            browser.runtime.sendMessage({
-                function: "getData",
-                params: ["localHostsSkipping"]
-            }).then((data) => {
-                handleResponseData(data, "localHostsSkipping", "localHostsSkipping");
-                browser.runtime.sendMessage({
-                    function: "getData",
-                    params: ["referralMarketing"]
-                }).then((data) => {
-                    handleResponseData(data, "referralMarketing", "referralMarketing");
-                    changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
-                    changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
-                    changeSwitchButton("localHostsSkipping", "localHostsSkipping");
-                    changeSwitchButton("referralMarketing", "referralMarketing");
-                }, handleError);
-            }, handleError);
+            params: [name]
+        }).then(data => {
+            settings[name] = data.response;
+            $('input[name='+name+']').val(data.response);
+            resolve(data);
         }, handleError);
-    }, handleError);
+    });
+}
+
+/**
+ * Saves data to storage.
+ *
+ * @param key key of the data that should be saved
+ * @param data data that should be saved
+ * @returns {Promise<message>} message from background script
+ */
+async function saveData(key, data) {
+    return new Promise((resolve, reject) => {
+        browser.runtime.sendMessage({
+            function: "setData",
+            params: [key, data]
+        }).then(message => {
+            handleResponse(message);
+            resolve(message);
+        }, handleError);
+    });
 }
 
 /**
@@ -220,6 +201,7 @@ function setText()
     $('#import_settings_btn_text').text(translate('setting_html_import_button'));
     $('#import_settings_btn').prop('title', translate('setting_html_import_button_title'));
     injectText("referral_marketing_enabled", "referral_marketing_enabled");
+    injectText("domain_blocking_enabled", "domain_blocking_enabled");
 }
 
 /**
@@ -265,18 +247,6 @@ function importSettings(evt) {
         });
     };
     fileReader.readAsText(file);
-}
-
-/**
- * Handle the response from the storage and saves the data.
- * @param  {JSON-Object} data Data JSON-Object
- * @param varName
- * @param inputID
- */
-function handleResponseData(data, varName, inputID)
-{
-    settings[varName] = data.response;
-    $('input[name='+inputID+']').val(data.response);
 }
 
 function handleResponse(message) {

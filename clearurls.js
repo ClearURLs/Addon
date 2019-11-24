@@ -170,7 +170,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
         url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
     }
 
-    if (provider.isCaneling()) {
+    if (provider.isCaneling() && storage.domainBlocking) {
         if (!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
         if (badges[tabid] == null) {
             badges[tabid] = 0;
