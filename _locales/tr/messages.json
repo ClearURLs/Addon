@@ -1,1 +1,308 @@
-{}
+{
+    "hash_status_code_1": {
+        "message": "güncel",
+        "description": "Bu durum kodu, ClearURL kuralları için güncelleme olmadığını ve her şeyin güncel olduğunu söylüyor."
+    },
+    "hash_status_code_2": {
+        "message": "güncelleştirildi",
+        "description": "Bu durum kodu, ClearURL kurallarının başarıyla güncellendiğini söylüyor."
+    },
+    "hash_status_code_3": {
+        "message": "Güncelleme mevcut",
+        "description": "Bu durum kodu, ClearURL kuralları için bir güncellemenin mevcut olduğunu söylüyor."
+    },
+    "hash_status_code_4": {
+        "message": "hata",
+        "description": "Bu durum kodu, ClearURL'lerin doğru şekilde başlatılamadığını söylüyor."
+    },
+    "hash_status_code_5": {
+        "message": "Hoop! Birşeyler yanlış gitti!",
+        "description": "Bu durum kodu, ClearURL kurallarını güncellerken bir hata oluştuğunu söylüyor."
+    },
+    "log_redirect": {
+        "message": "Bu URL yönlendirildi",
+        "description": "Bu dize ClearURL'ler günlüğündeki yönlendirmelerde kullanılır."
+    },
+    "log_domain_blocked": {
+        "message": "Bu alan adı engellendi",
+        "description": "Bu dize ClearURL'ler günlüğündeki engellenen alan adlarında kullanılır."
+    },
+    "check_os_log": {
+        "message": "[ClearURLs]: Günlük dinleyicisi eklendi.",
+        "description": "Bu dize ClearURLs log başlangıcında kullanılır."
+    },
+    "log_html_page_title": {
+        "message": "ClearURLs'dan Günlük",
+        "description": "Bu dize, günlük sayfasında üstbilgi olarak kullanılır."
+    },
+    "log_html_table_head_1": {
+        "message": "İşlemeden önce",
+        "description": "Bu dize, günlük sayfasında tablo başlığı olarak kullanılır."
+    },
+    "log_html_table_head_2": {
+        "message": "İşlemden sonra",
+        "description": "Bu dize, günlük sayfasında tablo başlığı olarak kullanılır."
+    },
+    "log_html_table_head_3": {
+        "message": "Kural",
+        "description": "Bu dize, günlük sayfasında tablo başlığı olarak kullanılır."
+    },
+    "log_html_table_head_4": {
+        "message": "Zaman",
+        "description": "Bu dize, günlük sayfasında tablo başlığı olarak kullanılır."
+    },
+    "log_html_reset_button": {
+        "message": "Sıfırla",
+        "description": "Bu dize, günlük sayfasındaki sıfırlama düğmesi için kullanılır."
+    },
+    "log_html_reset_button_title": {
+        "message": "Genel günlüğü sıfırla",
+        "description": "Bu dize, günlük sayfasındaki sıfırlama düğmesi için başlık olarak kullanılır."
+    },
+    "popup_html_configs_head": {
+        "message": "Yapılandırmalar",
+        "description": "Bu dize, açılır sayfadaki yapılandırmalar için başlık olarak kullanılır."
+    },
+    "popup_html_configs_switch_filter": {
+        "message": "Filtre",
+        "description": "Bu dize, açılır sayfadaki filtre değiştirme düğmesinin adı olarak kullanılır."
+    },
+    "popup_html_configs_switch_filter_title": {
+        "message": "Filtreler anahtarı ClearURL'lerin temizleme işlevini etkinleştirir. Bu seçeneği devre dışı bırakırsanız, tüm eklenti devre dışı bırakılır",
+        "description": "Bu dize, açılır sayfadaki filtre değiştirme düğmesinin başlığı olarak kullanılır."
+    },
+    "popup_html_configs_switch_log": {
+        "message": "Günlük tutma",
+        "description": "Bu dize, açılır sayfadaki günlük anahtar düğmesinin adı olarak kullanılır."
+    },
+    "popup_html_configs_switch_log_title": {
+        "message": "Günlük yalnızca yerel olarak kaydedilir. İhtiyacınız yoksa bu özelliğe karşı tavsiyede bulunuruz",
+        "description": "Bu dize, açılır sayfadaki kayıt anahtarı düğmesinin başlığı olarak kullanılır."
+    },
+    "popup_html_configs_switch_badges": {
+        "message": "Rozetler",
+        "description": "Bu dize, açılır sayfadaki rozetler anahtar düğmesinin adı olarak kullanılır."
+    },
+    "popup_html_configs_switch_badges_title": {
+        "message": "Temizlenmiş URL'lerin sayısını göster",
+        "description": "Bu dize, açılır sayfadaki rozetler anahtar düğmesinin başlığı olarak kullanılır."
+    },
+    "popup_html_statistics_head": {
+        "message": "istatistik",
+        "description": "Bu dize, açılır sayfadaki istatistikler için başlık olarak kullanılır."
+    },
+    "popup_html_statistics_elements": {
+        "message": "Öğeler",
+        "description": "Bu dize, açılır sayfadaki öğelerin adı olarak kullanılır."
+    },
+    "popup_html_statistics_blocked": {
+        "message": "Engellendi",
+        "description": "Bu dize, açılır penceredeki engellenen öğelerin adı olarak kullanılır."
+    },
+    "popup_html_statistics_percentage": {
+        "message": "Yüzde",
+        "description": "Bu dize, açılır sayfadaki engellenen öğelerin yüzdesi için ad olarak kullanılır."
+    },
+    "popup_html_statistics_reset_button": {
+        "message": "Sıfırlama",
+        "description": "Bu dize, açılır sayfadaki istatistik sıfırlama düğmesinin adı olarak kullanılır."
+    },
+    "popup_html_statistics_reset_button_title": {
+        "message": "Genel istatistikleri sıfırla",
+        "description": "Bu dize, açılır sayfadaki istatistik sıfırlama düğmesinin başlığı olarak kullanılır."
+    },
+    "popup_html_rules_status_head": {
+        "message": "Kurallar-Durum",
+        "description": "Bu dize, açılır sayfadaki kurallar-durum bölümü için başlık olarak kullanılır."
+    },
+    "popup_html_log_head": {
+        "message": "Günlük",
+        "description": "Bu dize, açılır sayfadaki günlük düğmesinin adı olarak kullanılır."
+    },
+    "popup_html_log_head_title": {
+        "message": "Günlüğü aç",
+        "description": "Bu dize, açılır penceredeki günlük düğmesinin başlığı olarak kullanılır."
+    },
+    "popup_html_report_button": {
+        "message": "Geçerli URL'yi bildir",
+        "description": "Not: Şu anda kullanılmamaktadır."
+    },
+    "popup_html_report_button_title": {
+        "message": "Geçerli URL’yi bu sekmeden bildirin.",
+        "description": "Şu anda kullanılmamış."
+    },
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Diske kaydedin.",
+        "description": "Bu dize, kullanıcıya ClearURL'lerin ayarları diske kaydettiğini söylemek için kullanılır."
+    },
+    "core_error": {
+        "message": "[ClearURLs]: Eklenti başlatılamadı.",
+        "description": "Bu dize, kullanıcıya ClearURL'lerin başlatılamadığını söylemek için kullanılır."
+    },
+    "configs_switch_statistics": {
+        "message": "İstatistikler",
+        "description": "Bu dize, açılır sayfadaki istatistik anahtar düğmesinin adı olarak kullanılır."
+    },
+    "configs_switch_statistics_title": {
+        "message": "İstatistik işlevini etkinleştirin veya devre dışı bırakın",
+        "description": "Bu dize, açılır sayfadaki istatistik değiştirme düğmesinin başlığı olarak kullanılır."
+    },
+    "settings_html_page_title": {
+        "message": "ClearURL'lerdeki Ayarlar",
+        "description": "Bu dize, ayarlar sayfasında başlık olarak kullanılır."
+    },
+    "badged_color_label": {
+        "message": "Rozet renk",
+        "description": "Bu dize, rozet renk etiketinin adı olarak kullanılır."
+    },
+    "setting_html_reset_button": {
+        "message": "Sıfırlama",
+        "description": "Bu dize, ayarlar sayfasındaki sıfırlama düğmesinin adı olarak kullanılır."
+    },
+    "setting_html_reset_button_title": {
+        "message": "Her şeyi sıfırla",
+        "description": "Bu dize, ayarlar sayfasındaki sıfırlama düğmesinin adı olarak kullanılır."
+    },
+    "setting_rule_url_label": {
+        "message": "Data.json dosyasının URL'si (kurallar)",
+        "description": "Bu dize kural url etiketinin adı olarak kullanılır."
+    },
+    "settings_html_save_button": {
+        "message": "Eklentiyi kaydet ve yeniden yükle",
+        "description": "Bu dize, ayarlar sayfasındaki kaydet ve yeniden yükle düğmesinin adı olarak kullanılır."
+    },
+    "settings_html_save_button_title": {
+        "message": "Ayarları kaydeder",
+        "description": "Bu dize, ayarlar sayfasındaki kaydet ve yeniden yükle düğmesinin adı olarak kullanılır."
+    },
+    "setting_hash_url_label": {
+        "message": "Rules.hash dosyasının URL'si (karma)",
+        "description": "Bu dize rule.hash url etiketinin adı olarak kullanılır."
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/tr-TR/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (uzman seviyesi)",
+        "description": "Bu dize, tür etiketi için ad olarak kullanılır."
+    },
+    "setting_report_server_label": {
+        "message": "URL'ler için rapor sunucusu",
+        "description": "Not: Şu anda kullanılmamaktadır."
+    },
+    "success_report_url": {
+        "message": "URL başarıyla rapor edildi. Bu URL’yi yakında kontrol edeceğiz.",
+        "description": "Not: Şu anda kullanılmamaktadır."
+    },
+    "error_report_url": {
+        "message": "Bu URL zaten bildirilmiş gibi görünüyor.",
+        "description": "Not: Şu anda kullanılmamaktadır."
+    },
+    "donate_button": {
+        "message": "ClearURL'nin yaratıcısı için bir bağış.",
+        "description": "Bu dize bir bağış sayfasına başvurmak için kullanılır."
+    },
+    "clipboard_copy_link": {
+        "message": "Temiz Bağlantı Konumunu Kopyala",
+        "description": "Bu dize bağlam menüsünde temiz bağlantıları kopyalamak için kullanılır."
+    },
+    "context_menu_enabled": {
+        "message": "İçerik menüsü girişini görüntüle",
+        "description": "Bu dize, temiz linkleri kopyalamak için bağlam menüsü girişini değiştirmek için kullanılır."
+    },
+    "history_listener_enabled": {
+        "message": "Geçmiş API'si üzerinden izleme enjeksiyonunu engelle(Ayrıca bakınız: <a href='https://developer.mozilla.org/tr-TR/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
+        "description": "Bu dize geçmiş API dinleyici etiketinin adı olarak kullanılır."
+    },
+    "cleaning_tool_page_title": {
+        "message": "ClearURL'lerden temizleme aracı",
+        "description": "Bu dize temizleme aracı sayfasında başlık olarak kullanılır."
+    },
+    "cleaning_tool_description": {
+        "message": "Bu araçla URL'lere yapıştırabilirsiniz ve ClearURL'ler yeşil düğmeye tıkladıktan sonra URL'leri temizler. Aynı anda birden fazla URL'ye yapıştırabilirsiniz, ancak her URL ayrı bir satırda olmalıdır.",
+        "description": "Bu dize temizleme aracının açıklaması olarak kullanılır."
+    },
+    "cleaning_tool_btn": {
+        "message": "URL’leri temizle",
+        "description": "Bu dize temiz url düğmesinin adı olarak kullanılır."
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Burada kirli URL'leri yapıştırabilirsiniz:",
+        "description": "Bu dize, kirli URL’lerin temizleme aracı sayfasında başlık olarak kullanılır."
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Temizlenmiş URL’leri burada bulabilirsiniz:",
+        "description": "Bu dize, temiz URL’lerin temizleme aracı sayfasında başlık olarak kullanılır."
+    },
+    "local_hosts_skipping": {
+        "message": "Yerel ana makinelerde URL’lerin atlanması (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, yerel ana bilgisayar)",
+        "description": "Bu dize, yerel ana bilgisayar atlama anahtarı için etiket olarak kullanılır."
+    },
+    "local_hosts_skipping_title": {
+        "message": "Yerel ana makinelerde URL atlama",
+        "description": "Bu dize, yerel ana bilgisayar atlama anahtarı için başlık olarak kullanılır"
+    },
+    "log_html_export_button": {
+        "message": "Dışa Aktar",
+        "description": "Bu dize, günlük sayfasındaki verme düğmesi için kullanılır."
+    },
+    "log_html_export_button_title": {
+        "message": "Genel günlüğü dışa aktar",
+        "description": "Bu dize, günlük sayfasındaki verme düğmesine başlık olarak kullanılır."
+    },
+    "log_html_import_button": {
+        "message": "İçe Aktar",
+        "description": "Bu dize, günlük sayfasındaki içe aktar düğmesi için kullanılır."
+    },
+    "log_html_import_button_title": {
+        "message": "Genel günlüğü içe aktar",
+        "description": "Bu dize, günlük sayfasındaki içe aktarma düğmesi için başlık olarak kullanılır."
+    },
+    "setting_html_export_button": {
+        "message": "Dışa Aktar",
+        "description": "Bu dize, ayarlar sayfasındaki verme düğmesinin adı olarak kullanılır."
+    },
+    "setting_html_export_button_title": {
+        "message": "Her şeyi dışa aktar",
+        "description": "Bu dize, ayarlar sayfasındaki dışa aktar düğmesi için başlık olarak kullanılır."
+    },
+    "setting_html_import_button": {
+        "message": "Dışa Aktar",
+        "description": "Bu dize, ayarlar sayfasındaki sıfırlama düğmesinin adı olarak kullanılır."
+    },
+    "setting_html_import_button_title": {
+        "message": "Her şeyi içe aktar",
+        "description": "Bu dize, ayarlar sayfasındaki alma düğmesinin adı olarak kullanılır."
+    },
+    "setting_log_limit_label": {
+        "message": "Günlüğü $ LIMIT $ girişleriyle sınırlar. (-1: = ∞)",
+        "description": "Bu dize, günlük sınırı etiketinin adı olarak kullanılır.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "Bu site tarafından engellendi <b>ClearURLs</b>",
+        "description": "Bu dize engellenen site sayfasında başlık olarak kullanılır."
+    },
+    "blocked_html_body": {
+        "message": "Bu site tarafından engellendi <b>ClearURLs</b> Eklentisi, çünkü bu siteyi bir reklamcılık ve / veya izleme hizmeti olarak tanımlıyoruz. Bu siteyi ziyaret etmek için Eklentiyi geçici olarak devre dışı bırakmanız gerekir. ClearURL'leri devre dışı bıraktıktan sonra sayfayı yüklemek için aşağıdaki düğmeye tıklayabilirsiniz.",
+        "description": "Bu dize engellenen site sayfasında gövde olarak kullanılır."
+    },
+    "blocked_html_button": {
+        "message": "Sayfayı ziyaret et",
+        "description": "Bu dize engellenen site sayfasındaki düğme olarak kullanılır."
+    },
+    "referral_marketing_enabled": {
+        "message": "Tavsiye pazarlamasına izin ver",
+        "description": "Bu dize tavsiye pazarlama anahtarı için etiket olarak kullanılır"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "Tavsiye pazarlamasına izin verir",
+        "description": "Bu dize tavsiye pazarlama anahtarı için başlık olarak kullanılır"
+    },
+    "watchdog": {
+        "message": "[ClearURL'ler]: Güvenlik Zamanlayıcısı bir sorun tespit etti. ClearURL'ler yeniden başlatıldı.",
+        "description": "Bu dize güvenlik zamanlayıcısı için metin olarak kullanılır."
+    }
+}
