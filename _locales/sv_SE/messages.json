@@ -1,0 +1,316 @@
+{
+    "hash_status_code_1": {
+        "message": "senaste version",
+        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+    },
+    "hash_status_code_2": {
+        "message": "uppdaterad",
+        "description": "This status code says, that the ClearURLs rules are successfully updated."
+    },
+    "hash_status_code_3": {
+        "message": "uppdatering tillgänglig",
+        "description": "This status code says, that an update is available for the ClearURLs rules."
+    },
+    "hash_status_code_4": {
+        "message": "fel",
+        "description": "This status code says, that the ClearURLs could not be started correctly."
+    },
+    "hash_status_code_5": {
+        "message": "Ojdå, något gick fel!",
+        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
+    },
+    "log_redirect": {
+        "message": "Den här webbadressen omdirigeras",
+        "description": "This string is used on redirections in the ClearURLs log."
+    },
+    "log_domain_blocked": {
+        "message": "Den här domänen är blockerad",
+        "description": "This string is used on blocked domains in the ClearURLs log."
+    },
+    "check_os_log": {
+        "message": "[ClearURLs]: Logglistare är tilllagd.",
+        "description": "This string is used on ClearURLs log startup."
+    },
+    "log_html_page_title": {
+        "message": "Logg från ClearURLs",
+        "description": "This string is used as header on the log page."
+    },
+    "log_html_table_head_1": {
+        "message": "Före bearbetning",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_2": {
+        "message": "Efter bearbetning",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_3": {
+        "message": "Regel",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_4": {
+        "message": "Tid",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_reset_button": {
+        "message": "Återställ",
+        "description": "This string is used for the reset button on the log page."
+    },
+    "log_html_reset_button_title": {
+        "message": "Återställ den globala loggen",
+        "description": "This string is used as title for the reset button on the log page."
+    },
+    "log_html_export_button": {
+        "message": "Exportera",
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "message": "Exportera den globala loggen",
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "message": "Importera",
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "message": "Importera den globala loggen",
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "popup_html_configs_head": {
+        "message": "Konfiguration",
+        "description": "This string is used as title for the configs on the popup page."
+    },
+    "popup_html_configs_switch_filter": {
+        "message": "Filter",
+        "description": "This string is used as name for the filter switch button on the popup page."
+    },
+    "popup_html_configs_switch_filter_title": {
+        "message": "Filteromkopplaren aktiverar rensningsfunktionen i ClearURLs. Om du inaktiverar detta alternativ, är hela tillägget inaktiverat",
+        "description": "This string is used as title for the filter switch button on the popup page."
+    },
+    "popup_html_configs_switch_log": {
+        "message": "Logga",
+        "description": "This string is used as name for the logging switch button on the popup page."
+    },
+    "popup_html_configs_switch_log_title": {
+        "message": "Loggen sparas endast lokalt. Vi avråder dig från att använda den här funktionen om du inte behöver den",
+        "description": "This string is used as title for the logging switch button on the popup page."
+    },
+    "popup_html_configs_switch_badges": {
+        "message": "Märken",
+        "description": "This string is used as name for the badges switch button on the popup page."
+    },
+    "popup_html_configs_switch_badges_title": {
+        "message": "Visa antalet rensade webbadresser",
+        "description": "This string is used as title for the badges switch button on the popup page."
+    },
+    "popup_html_statistics_head": {
+        "message": "Statistik",
+        "description": "This string is used as title for the statistics on the popup page."
+    },
+    "popup_html_statistics_elements": {
+        "message": "Element",
+        "description": "This string is used as name for the elements on the popup page."
+    },
+    "popup_html_statistics_blocked": {
+        "message": "Blockerade",
+        "description": "This string is used as name for the blocked elements on the popup page."
+    },
+    "popup_html_statistics_percentage": {
+        "message": "Procentsats",
+        "description": "This string is used as name for the percentage of blocked elements on the popup page."
+    },
+    "popup_html_statistics_reset_button": {
+        "message": "Återställ",
+        "description": "This string is used as name for the statistics reset button on the popup page."
+    },
+    "popup_html_statistics_reset_button_title": {
+        "message": "Återställ den globala statistiken",
+        "description": "This string is used as title for the statistics reset button on the popup page."
+    },
+    "popup_html_rules_status_head": {
+        "message": "Regler-Status",
+        "description": "This string is used as title for the rules-status section on the popup page."
+    },
+    "popup_html_log_head": {
+        "message": "Logg",
+        "description": "This string is used as name for the log button on the popup page."
+    },
+    "popup_html_log_head_title": {
+        "message": "Öppna loggen",
+        "description": "This string is used as title for the log button on the popup page."
+    },
+    "popup_html_report_button": {
+        "message": "Rapportera aktuell webbadress",
+        "description": "Note: Currently not used."
+    },
+    "popup_html_report_button_title": {
+        "message": "Rapportera den aktuella webbadressen från den här fliken.",
+        "description": "Currently not used."
+    },
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Spara till disk.",
+        "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
+    },
+    "core_error": {
+        "message": "[ClearURLs]: Tillägget kunde inte starta.",
+        "description": "This string is used to tell the user, that ClearURLs could not be started."
+    },
+    "configs_switch_statistics": {
+        "message": "Statistik",
+        "description": "This string is used as name for the statistics switch button on the popup page."
+    },
+    "configs_switch_statistics_title": {
+        "message": "Aktivera eller inaktivera statistiken",
+        "description": "This string is used as title for the statistics switch button on the popup page."
+    },
+    "settings_html_page_title": {
+        "message": "Inställningar för ClearURLs",
+        "description": "This string is used as title on the settings page."
+    },
+    "badged_color_label": {
+        "message": "Märkesfärg",
+        "description": "This string is used as name for the badged color label."
+    },
+    "setting_html_reset_button": {
+        "message": "Återställ",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_reset_button_title": {
+        "message": "Återställer allt",
+        "description": "This string is used as title for the reset button on the settings page."
+    },
+    "setting_html_export_button": {
+        "message": "Exportera",
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "message": "Exportera allt",
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "message": "Importera",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "message": "Importera allt",
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_rule_url_label": {
+        "message": "Webbadressen till filen data.json (regler)",
+        "description": "This string is used as name for the rule url label."
+    },
+    "setting_log_limit_label": {
+        "message": "Begränsa loggfilen till $LIMIT$ poster. (-1 := ∞)",
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "settings_html_save_button": {
+        "message": "Spara och ladda om tillägget",
+        "description": "This string is used as name for the save&reload button on the settings page."
+    },
+    "settings_html_save_button_title": {
+        "message": "Sparar inställningarna",
+        "description": "This string is used as title for the save&reload button on the settings page."
+    },
+    "setting_hash_url_label": {
+        "message": "Webbadressen till filen rules.hash (hash)",
+        "description": "This string is used as name for the rule.hash url label."
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expertnivå)",
+        "description": "This string is used as name for the types label."
+    },
+    "setting_report_server_label": {
+        "message": "Rapporteringsserver för webbadresser",
+        "description": "Note: Currently not used."
+    },
+    "success_report_url": {
+        "message": "Webbadressen har rapporterats. Vi kommer att kontrollera webbadressen snart.",
+        "description": "Note: Currently not used."
+    },
+    "error_report_url": {
+        "message": "Det verkar som att den här webbadressen redan har rapporterats.",
+        "description": "Note: Currently not used."
+    },
+    "donate_button": {
+        "message": "Donera till skaparen av ClearURLs.",
+        "description": "This string is used to refer to a donation page."
+    },
+    "clipboard_copy_link": {
+        "message": "Kopiera rensad webbadress",
+        "description": "This string is used in the context menu to copy clean links."
+    },
+    "context_menu_enabled": {
+        "message": "Visa post i innehållsmenyn",
+        "description": "This string is used toggle the context menu entry to copy clean links."
+    },
+    "history_listener_enabled": {
+        "message": "Förhindra spårning av injektion över historik-API (Se även: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
+        "description": "This string is used as name for the history API listener label."
+    },
+    "cleaning_tool_page_title": {
+        "message": "Rensningsverktyg för ClearURLs",
+        "description": "This string is used as title on the cleaning tool page."
+    },
+    "cleaning_tool_description": {
+        "message": "Med detta verktyg kan du klistra in webbadresser och ClearURLs kommer att rensa webbadresserna efter ett klick på den gröna knappen. Du kan klistra en mer än en webbadress samtidigt, men varje webbadress måste vara på var sin rad.",
+        "description": "This string is used as description of the cleaning tool."
+    },
+    "cleaning_tool_btn": {
+        "message": "Rensa webbadresser",
+        "description": "This string is used as name for the clean url button."
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Här kan du klistra in orensade webbadresser:",
+        "description": "This string is used as title on the cleaning tool page for the dirty URLs."
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Här hittar du de rensade webbadresserna:",
+        "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "Hoppa över webbadresser på lokala värdar (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "message": "Hoppa över webbadresser på lokala värdar",
+        "description": "This string is used as title for the local host skipping switch"
+    },
+    "blocked_html_title": {
+        "message": "Den här webbplatsen blockerades av <b>ClearURLs</b>",
+        "description": "This string is used as title on the blocked site page."
+    },
+    "blocked_html_body": {
+        "message": "Den här sidan har blivit blockerats av <b>ClearURLs</b>, eftersom vi har identifierat webbplatsen som en reklam- och/eller spårningstjänst. För att besöka webbplatsen måste du tillfälligt inaktivera tillägget eller inaktivera domänblockering i inställningarna på ClearURLs. Efter detta kan du klicka på knappen nedan för att ladda sidan.",
+        "description": "This string is used as body on the blocked site page."
+    },
+    "blocked_html_button": {
+        "message": "Gå till sidan",
+        "description": "This string is used as button on the blocked site page."
+    },
+    "referral_marketing_enabled": {
+        "message": "Tillåt referral marketing",
+        "description": "This string is used as label for the referral marketing switch"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "Tillåt referral marketing",
+        "description": "This string is used as title for the referral marketing switch"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: Ett problem har upptäckts. ClearURLs startar om.",
+        "description": "This string is used as text for the watchdog"
+    },
+    "domain_blocking_enabled": {
+        "message": "Tillåt domänblockering (Kan leda till problem på sidor som inte tillåter AdBlockers)",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Tillåt domänblockering (Kan leda till problem på sidor som inte tillåter AdBlockers)",
+        "description": "This string is used as title for the domain blocking switch"
+    }
+}
