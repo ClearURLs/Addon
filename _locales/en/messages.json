@@ -302,7 +302,7 @@
         "description": "This string is used as title for the referral marketing switch"
     },
     "watchdog": {
-        "message": "[ClearURLs]: The watchdog has detected a problem. ClearURLs is restarted.",
+        "message": "[ClearURLs]: The watchdog has detected a problem. ClearURLs is restarting.",
         "description": "This string is used as text for the watchdog"
     },
     "domain_blocking_enabled": {
