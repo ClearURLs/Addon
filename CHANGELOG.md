@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Deleted unnecessary Bootstrap Dialog lib
 - Replaced [pick-a-color](https://github.com/lauren/pick-a-color) with [bootstrap-colorpicker 3.2.0](https://github.com/itsjavi/bootstrap-colorpicker)
 - Minor corrections on english translation by [@Sopor](https://gitlab.com/Sopor)
+- Replaced glyphicons with [fontawesome 5.12.0](https://github.com/FortAwesome/Font-Awesome/tree/5.12.0)
 
 ### Added
 - Added [popper.js 1.16.0](https://github.com/popperjs/popper.js/tree/v1.16.0)
