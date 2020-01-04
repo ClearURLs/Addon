@@ -27,40 +27,39 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/bootstrap-dialog.min.css">
     <link rel="stylesheet" type="text/css" href="../css/switchButtons.css">
     <link rel="stylesheet" type="text/css" href="../css/core.css">
 </head>
 <body>
-    <div id="body-popup">
         <div class="container-fluid"
-        style="background: url('../img/img-noise-361x370.png');background-size: auto;">
+        style="background: url('../img/img-noise-361x370.png');background-size: auto;min-width: 200px;">
         <div class="row">
-            <nav class="col-sm-1 navbar navbar-inverse">
+            <nav class="col-sm-1 navbar-margin navbar navbar-dark bg-dark">
                 <div class="container">
-                    <div class="navbar-header">
                         <span class="navbar-brand">
-                            <span class="pull-left"><img src="../img/clearurls.svg"
+                            <span class="float-left"><img src="../img/clearurls.svg"
                                 width="30" height="30" alt=""></span>
-                                <span style="color: #FF7800;" class="pull-right">
+                                <span style="color: #FF7800;" class="float-right brand">
                                     ClearURLs
                                 </span><br />
-                                <span class="label label-warning pull-left small-version"
+                                <span class="badge badge-warning float-left small-version"
                                 id="version"></span>
-                                <a id="donate" target="_blank" href="https://www.paypal.me/KevinRoebert">
-                                    <span class="pull-right glyphicon glyphicon-heart"></span>
-                                </a>
-                            </span>
+                        </span>
+                        <a id="donate" target="_blank" href="https://www.paypal.me/KevinRoebert">
+                            <i class="float-right fas fa-hand-holding-usd"></i>
+                        </a>
                         </div>
-                    </div>
                 </nav>
             </div>
-            <div id="dialog"></div>
-            <div class="row" id="config_section">
+
+            <div class="row" id="references_section">
                 <div class="col-sm-1 text-center">
-                    <a id="cleaning_tools" target="_blank"><span class="glyphicon glyphicon-wrench" style="font-size: 1.5em; margin-right: 1em;"></span></a>
-                    <a id="settings" target="_blank"><span class="glyphicon glyphicon-cog" style="font-size: 1.5em"></span></a>
+                    <a id="cleaning_tools" target="_blank"><span class="fas fa-tools" style="font-size: 1.5em; margin-right: 1em;"></span></a>
+                    <a id="settings" target="_blank"><span class="fas fa-cog" style="font-size: 1.5em"></span></a>
                 </div>
+            </div>
+
+            <div class="row" id="config_section">
                 <div class="col-sm-1">
                     <h5><b id="configs_head"></b></h5>
                     <label class="switch">
@@ -96,36 +95,36 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                     <h5><b id="statistics_head"></b></h5>
 
                     <div class="progress">
-                        <div class="progress-bar progress-bar-danger progress-bar-striped"
+                        <div class="progress-bar bg-danger progress-bar-striped"
                         role="progressbar" style="width: 0%" id="progress_blocked"></div>
-                        <div class="progress-bar progress-bar-info progress-bar-striped"
+                        <div class="progress-bar bg-info progress-bar-striped"
                         role="progressbar" style="width: 100%" id="progress_non_blocked"></div>
                     </div>
-
+                    <br>
                     <div>
-                        <span class="pull-left" id="statistics_elements"></span>
-                        <span class="pull-right text-info"
+                        <span class="float-left" id="statistics_elements"></span>
+                        <span class="float-right text-info"
                         id="statistics_total_elements"></span>
                         <div class="clearfix"></div>
                     </div>
 
                     <div>
-                        <span class="pull-left" id="statistics_blocked"></span>
-                        <span class="pull-right text-danger"
+                        <span class="float-left" id="statistics_blocked"></span>
+                        <span class="float-right text-danger"
                         id="statistics_value"></span>
                         <div class="clearfix"></div>
                     </div>
 
                     <div>
-                        <span class="pull-left" id="statistics_percentage"></span>
-                        <span class="pull-right text-success"
+                        <span class="float-left" id="statistics_percentage"></span>
+                        <span class="float-right text-success"
                         id="statistics_value_global_percentage"></span>
                         <div class="clearfix"></div>
                     </div>
                     <br />
                     <div class="text-center">
                         <button type="button" id="reset_counter_btn"
-                        class="btn btn-danger btn-xs">
+                        class="btn btn-danger btn-sm text-wrap">
                     </button>
                     <div class="clearfix"></div>
                     <br />
@@ -138,7 +137,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                 <h5><b id="rules_status_head"></b></h5>
                 <div class="text-center">
                     <a href="https://gitlab.com/KevinRoebert/ClearUrls/commits/master/data/data.min.json"
-                    id="hashStatus" class="btn btn-primary btn-xs" target="_blank"></a>
+                    id="hashStatus" class="btn btn-primary btn-sm text-wrap" target="_blank"></a>
                 </div>
                 <div class="clearfix"></div>
                 <br />
@@ -148,8 +147,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         <div class="row" id="log_section">
             <div class="col-sm-1">
                 <div class="text-center">
-                    <a type="button" id="loggingPage" target="_blank"
-                    class="btn btn-default btn-sm btn-block"></a>
+                    <a id="loggingPage" target="_blank"
+                    class="btn btn-default btn-sm btn-block text-wrap"></a>
                 </div>
             </div>
         </div>
@@ -159,9 +158,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script type="application/javascript" src="../browser-polyfill.js"></script>
-    <script src="../external_js/jquery-3.2.1.min.js"></script>
+    <script src="../external_js/jquery-3.4.1.min.js"></script>
     <script src="../external_js/bootstrap.min.js"></script>
-    <script src="../external_js/bootstrap-dialog.min.js"></script>
+    <script src="../external_js/fontawesome/all.min.js"></script>
     <script src="../core_js/popup.js"></script>
     <script src="../core_js/write_version.js"></script>
 </body>

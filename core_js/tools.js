@@ -251,8 +251,11 @@ function changeIcon() {
 function setBadgedStatus() {
     checkOSAndroid().then((res) => {
         if (!res && storage.badgedStatus) {
+            let color = storage.badged_color;
+            if(storage.badged_color.charAt(0) !== '#')
+                color = '#' + storage.badged_color;
             browser.browserAction.setBadgeBackgroundColor({
-                'color': '#' + storage.badged_color
+                'color': color
             });
         }
     });

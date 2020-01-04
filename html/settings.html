@@ -31,7 +31,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/switchButtons.css">
     <link rel="stylesheet" type="text/css" href="../css/core.css">
-    <link rel="stylesheet" href="../css/pick-a-color-1.2.3.min.css">
+    <link rel="stylesheet" href="../css/bootstrap-colorpicker.min.css">
     <style>
         td {
             word-wrap: break-word;
@@ -58,44 +58,45 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar-margin navbar navbar-dark bg-dark">
         <div class="container">
-            <div class="navbar-header">
-                <span class="navbar-brand">
-                    <span class="pull-left"><img src="../img/clearurls.svg"
+                <div class="navbar-brand">
+                    <span class="float-left"><img src="../img/clearurls.svg"
                         width="30" height="30" alt=""></span>
-                        <span style="color: #FF7800;" class="pull-right" id="page_title"></span><br />
-                        <span class="label label-warning pull-left small-version"
+                        <span style="color: #FF7800;" class="float-right" id="page_title"></span><br/>
+                        <span class="badge badge-warning float-left small-version"
                         id="version"></span>
-                    </span>
                 </div>
             </div>
         </nav>
 
         <div class="row">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-lg-4 offset-lg-4">
                 <p class="text-center">
                     <button type="button" id="reset_settings_btn"
                     class="btn btn-danger" title="Reset everything settings"></button>
 
                     <button type="button" id="export_settings_btn"
                             class="btn btn-success" title="Export the settings">
-                        <i class="glyphicon glyphicon-save"></i>
+                        <i class="fas fa-download"></i>
                         <span id="export_settings_btn_text"></span>
                     </button>
 
                     <span id="import_settings_btn"
                           class="btn btn-success fileinput-button" title="Import the settings">
-                    <i class="glyphicon glyphicon-open"></i>
+                    <i class="fas fa-upload"></i>
                     <span id="import_settings_btn_text"></span>
                     <input type="file" name="file" id="importSettings"/>
                 </span>
                 </p>
                 <br />
-                <p>
-                    <label id="badged_color_label"></label><br />
-                    <input type="text" id="badged_color" value="" name="badged_color" class="pick-a-color form-control">
-                </p>
+                <label id="badged_color_label"></label><br />
+                <div id="badged-color-picker" class="input-group">
+                    <input type="text" class="form-control input-lg" value="" name="badged_color" id="badged_color">
+                    <span class="input-group-append">
+                        <span class="input-group-text colorpicker-input-addon"><i></i></span>
+                    </span>
+                </div>
                 <br />
                 <p>
                     <label id="rule_url_label"></label><br />
@@ -166,10 +167,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
         <!-- Optional JavaScript -->
         <script src="../browser-polyfill.js"></script>
-        <script src="../external_js/jquery-3.2.1.min.js"></script>
+        <script src="../external_js/jquery-3.4.1.min.js"></script>
+        <script src="../external_js/popper.min.js"></script>
         <script src="../external_js/bootstrap.min.js"></script>
-        <script src="../external_js/tinycolor-0.9.15.min.js"></script>
-        <script src="../external_js/pick-a-color-1.2.3.min.js"></script>
+        <script src="../external_js/bootstrap-colorpicker.min.js"></script>
+        <script src="../external_js/fontawesome/all.min.js"></script>
         <script src="../core_js/settings.js"></script>
         <script src="../core_js/write_version.js"></script>
     </body>

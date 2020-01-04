@@ -200,7 +200,7 @@ function initSettings() {
     storage.loggingStatus = false;
     storage.log = {"log": []};
     storage.statisticsStatus = true;
-    storage.badged_color = "ffa500";
+    storage.badged_color = "#ffa500";
     storage.hashURL = "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
     storage.ruleURL = "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
     storage.contextMenuEnabled = true;

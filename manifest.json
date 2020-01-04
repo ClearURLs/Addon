@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "ClearURLs",
-    "version": "1.9.5",
+    "version": "1.10.0",
     "author": "Kevin Röbert",
     "description": "Remove tracking elements from URLs.",
     "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
@@ -58,7 +58,7 @@
     "background": {
         "scripts": [
             "browser-polyfill.js",
-            "external_js/jquery-3.2.1.min.js",
+            "external_js/jquery-3.4.1.min.js",
             "external_js/sha256.jquery.js",
             "core_js/message_handler.js",
             "external_js/ip-range-check.js",
