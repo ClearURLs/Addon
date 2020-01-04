@@ -4,6 +4,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0] - 2020-01-03
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Changed
+- Updated to Bootstrap 4.3.1
+- Updated to jQuery 3.4.1
+- Updated to DataTables 1.10.20
+- Deleted unnecessary Bootstrap Dialog lib
+- Replaced [pick-a-color](https://github.com/lauren/pick-a-color) with [bootstrap-colorpicker 3.2.0](https://github.com/itsjavi/bootstrap-colorpicker)
+- Minor corrections on english translation by [@Sopor](https://gitlab.com/Sopor)
+
+### Added
+- Added [popper.js 1.16.0](https://github.com/popperjs/popper.js/tree/v1.16.0)
+- Added Swedish translation by [@Sopor](https://gitlab.com/Sopor)
+
+### Fixed
+- Fixed [#338](https://gitlab.com/KevinRoebert/ClearUrls/issues/338)
+- Fixed [#333](https://gitlab.com/KevinRoebert/ClearUrls/issues/333)
+- Fixed [#332](https://gitlab.com/KevinRoebert/ClearUrls/issues/332)
+- Fixed [#307](https://gitlab.com/KevinRoebert/ClearUrls/issues/307)
+- Maybe [#315](https://gitlab.com/KevinRoebert/ClearUrls/issues/315) fixed
+
 ## [1.9.5] - 2019-12-17
 
 ### Compatibility note

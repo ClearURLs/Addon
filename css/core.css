@@ -17,32 +17,45 @@
  */
 
 body {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .small-version {
     font-size: 10px;
 }
 
-.navbar-header {
+.brand {
+    font-size: 17px;
+}
+
+.navbar-margin {
     margin-top: 0;
-    margin-bottom: 8px;
-}
-
-.col-sm-1 {
-    margin-top: -10px;
-}
-
-#body-popup {
-    width: 200px;
+    margin-bottom: 10px;
 }
 
 #donate {
     transition: 0.3s;
     opacity: 0.8;
-    color: red;
+    color: #ffa500;
 }
 
 #donate:hover {
     opacity: 1;
+}
+
+.btn-default {
+    color:#333;
+    background-color:#fff;
+    border-color:#ccc
+}
+.btn-default.focus,
+.btn-default:focus {
+    color:#333;
+    background-color:#e6e6e6;
+    border-color:#8c8c8c
+}
+.btn-default:hover {
+    color:#333;
+    background-color:#e6e6e6;
+    border-color:#adadad
 }

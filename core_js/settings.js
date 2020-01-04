@@ -25,30 +25,13 @@ getData();
 */
 $(document).ready(function(){
     setText();
-    $(".pick-a-color").pickAColor();
+    $("#badged-color-picker").colorpicker({
+        format: "hex"
+    });
     $('#reset_settings_btn').on("click", reset);
     $('#export_settings_btn').on("click", exportSettings);
     $('#importSettings').on("change", importSettings);
     $('#save_settings_btn').on("click", save);
-
-    $("#badged_color input").on("change", function () {
-        settings.badged_color = $(this).val();
-
-        browser.runtime.sendMessage({
-            function: "setData",
-            params: ["badged_color", settings.badged_color]
-        }).then(handleResponse, handleError);
-
-        browser.runtime.sendMessage({
-            function: "setBadgedStatus",
-            params: []
-        }).then(handleResponse, handleError);
-
-        browser.runtime.sendMessage({
-            function: "saveOnExit",
-            params: []
-        }).then(handleResponse, handleError);
-    });
 });
 
 /**
@@ -199,7 +182,7 @@ function setText()
     $('#export_settings_btn_text').text(translate('setting_html_export_button'));
     $('#export_settings_btn').prop('title', translate('setting_html_export_button_title'));
     $('#import_settings_btn_text').text(translate('setting_html_import_button'));
-    $('#import_settings_btn').prop('title', translate('setting_html_import_button_title'));
+    $('#importSettings').prop('title', translate('setting_html_import_button_title'));
     injectText("referral_marketing_enabled", "referral_marketing_enabled");
     injectText("domain_blocking_enabled", "domain_blocking_enabled");
 }

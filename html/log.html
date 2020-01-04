@@ -29,7 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../css/dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="../css/core.css">
     <style>
         td {
@@ -57,22 +57,20 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar-margin navbar navbar-dark bg-dark">
         <div class="container">
-            <div class="navbar-header">
                 <span class="navbar-brand">
-                    <span class="pull-left"><img src="../img/clearurls.svg"
+                    <span class="float-left"><img src="../img/clearurls.svg"
                         width="30" height="30" alt=""></span>
-                    <span style="color: #FF7800;" class="pull-right" id="page_title"></span><br />
-                    <span class="label label-warning pull-left small-version"
+                    <span style="color: #FF7800;" class="float-right" id="page_title"></span><br />
+                    <span class="badge badge-warning float-left small-version"
                     id="version"></span>
                 </span>
-            </div>
         </div>
     </nav>
 
     <div class="row">
-        <div class="col-md-10 col-md-offset-1">
+        <div class="col-lg-10 offset-lg-1">
             <p class="text-center">
                 <button type="button" id="reset_log_btn"
                 class="btn btn-danger" title="Reset the global log">
@@ -80,13 +78,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
                 <button type="button" id="export_log_btn"
                                  class="btn btn-success" title="Export the global log">
-                    <i class="glyphicon glyphicon-save"></i>
+                    <i class="fas fa-download"></i>
                     <span id="export_log_btn_text"></span>
                 </button>
 
                 <span id="import_log_btn"
                             class="btn btn-success fileinput-button" title="Import the global log">
-                    <i class="glyphicon glyphicon-open"></i>
+                    <i class="fas fa-upload"></i>
                     <span id="import_log_btn_text"></span>
                     <input type="file" name="file" id="importLog"/>
                 </span>
@@ -114,10 +112,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="../browser-polyfill.js"></script>
-    <script src="../external_js/jquery-3.2.1.min.js"></script>
+    <script src="../external_js/jquery-3.4.1.min.js"></script>
     <script src="../external_js/bootstrap.min.js"></script>
-    <script src="../external_js/jquery.dataTables.min.js"></script>
-    <script src="../external_js/dataTables.bootstrap.min.js"></script>
+    <script src="../external_js/dataTables.min.js"></script>
+    <script src="../external_js/fontawesome/all.min.js"></script>
     <script src="../core_js/log.js"></script>
     <script src="../core_js/write_version.js"></script>
 </body>

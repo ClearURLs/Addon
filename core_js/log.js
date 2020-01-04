@@ -33,7 +33,6 @@ function resetGlobalLog(){
         params: ['log', JSON.stringify(obj)]
     });
 
-    getLog();
     location.reload();
 }
 
@@ -167,7 +166,7 @@ function setText()
     $('#export_log_btn_text').text(translate('log_html_export_button'));
     $('#export_log_btn').prop('title', translate('log_html_export_button_title'));
     $('#import_log_btn_text').text(translate('log_html_import_button'));
-    $('#import_log_btn').prop('title', translate('log_html_import_button_title'));
+    $('#importLog').prop('title', translate('log_html_import_button_title'));
 }
 
 function handleError(error) {

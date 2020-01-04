@@ -433,7 +433,7 @@ function start() {
          * @param {boolean} isActive   Is this rule active?
          */
         this.addRule = function (rule, isActive = true) {
-            rule = "([\\/\\?#]|(&|&amp;))+(" + rule + "=[^\\/\\?&]*)";
+            rule = "([\\/\\?#]|(&|&amp;))+(" + rule + "=[^&]*)";
 
             this.applyRule(enabled_rules, disabled_rules, rule, isActive);
         };
