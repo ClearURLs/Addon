@@ -19,6 +19,18 @@ https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=ÅMÅŽÕÑ&ke
 Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the address, it will look like this:
 `https://www.amazon.com/dp/exampleProduct`
 
+## Features
+
+* Removes tracking from URLs automatically in the background
+* Blocks some common ad domains (optional)
+* Has a built-in tool to clean up multiple URLs at once
+* Supports redirection to the destination, without tracking services as middleman
+* Adds an entry to the context menu so that links can be copied quickly and cleanly
+* Blocks hyperlink auditing, also known as *ping tracking* (see also [this article](https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing))
+* Prevents tracking injection over history API (see also: [The replaceState() method](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method))
+* Prevents Google from rewriting the search results (to include tracking elements)
+* Prevents Yandex from rewriting the search results (to include tracking elements)
+
 ## Permissons
 Reasoning for needed permissions can be found under [here](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
 
@@ -71,18 +83,20 @@ We use some third-party scripts in our add-on. The authors and licenses are list
 -   [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill) |
     Copyright by Mozilla |
     [MPL-2.0](https://github.com/mozilla/webextension-polyfill/blob/master/LICENSE)
--   [Bootstrap v3.3.7 ](http://getbootstrap.com) |
+-   [Bootstrap v4.3.1](https://github.com/twbs/bootstrap/tree/v4.3.1) |
     Copyright 2011-2016 Twitter, Inc. |
     [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
--   [jQuery v3.2.1](https://jquery.com/) |
-    Copyright 2017 The jQuery Foundation |
+-   [jQuery v3.4.1](https://github.com/jquery/jquery/tree/3.4.1) |
+    Copyright JS Foundation and other contributors |
     [MIT](https://jquery.org/license/)
 -   [sha256.jquery.plugin](https://github.com/orsozed/sha256.jquery.plugin) |
     Copyright 2003, Christoph Bichlmeier |
     [MIT](https://raw.github.com/orsozed/JQuery-Plugins/master/license/MIT-LICENSE.txt) |
     [GPLv2](https://raw.github.com/orsozed/JQuery-Plugins/master/license/GPL-LICENSE.txt)
--   [DataTables](https://datatables.net/) |  Copyright 2011-2015 SpryMedia Ltd | [MIT](https://datatables.net/license/)
--   [Pick-a-Color v1.2.3](https://github.com/lauren/pick-a-color) | Copyright (c) 2013 Lauren Sperber and Broadstreet Ads |
-    [MIT](https://github.com/lauren/pick-a-color/blob/master/LICENSE)
--   [ip-range-check v0.2.0](https://github.com/danielcompton/ip-range-check) | Copyright (c) 2018 Daniel Compton |
-    [MIT](https://github.com/danielcompton/ip-range-check/blob/master/LICENSE)
+-   [DataTables v1.10.20](https://github.com/DataTables/DataTables/tree/master) |  Copyright (c) 2008-2015 SpryMedia Limited | [MIT](https://datatables.net/license/)
+-   [Popper.js v1.16.0](https://github.com/popperjs/popper.js/tree/v1.16.0) | Copyright (c) 2016 Federico Zivolo and contributors |
+    [MIT](https://github.com/popperjs/popper.js/blob/master/LICENSE.md)
+-   [Bootstrap Colorpicker v3.2.0](https://github.com/itsjavi/bootstrap-colorpicker/tree/3.2.0) | Copyright (c) 2017 Javi Aguilar |
+    [MIT](https://github.com/itsjavi/bootstrap-colorpicker/blob/master/LICENSE)
+-   [Font Awesome v5.12.0](https://github.com/FortAwesome/Font-Awesome/tree/5.12.0) | Copyright (c) @fontawesome |
+    [Font Awesome Free License](https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
