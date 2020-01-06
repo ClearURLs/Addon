@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Added hyperlink auditing blocking [#184](https://gitlab.com/KevinRoebert/ClearUrls/issues/184)
+- Added yandex link fix script, to avoid URL tracking [#305](https://gitlab.com/KevinRoebert/ClearUrls/issues/305)
 
 ### Compatibility note
 - Require Firefox >= 55
