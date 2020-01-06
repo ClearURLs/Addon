@@ -27,6 +27,10 @@
         "message": "Diese Domain wurde blockiert",
         "description": "Diese Zeichenfolge wird für blockierte Domäns im ClearURL-Protokoll verwendet."
     },
+    "log_ping_blocked": {
+        "message": "Diese Hyperlink Auditing Anfrage wurde blockiert",
+        "description": "Diese Zeichenfolge wird für blockierte Hyperlink Auditing Anfragen im ClearURL-Protokoll verwendet."
+    },
     "check_os_log": {
         "message": "[ClearURLs]: Protokoll-Listener wurde hinzugefügt.",
         "description": "Diese Zeichenfolge wird beim Start des ClearURL-Protokolls verwendet."
@@ -312,5 +316,13 @@
     "domain_blocking_enabled_title": {
         "message": "Erlaube Domain-Blocking (Kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
         "description": "Diese Zeichenkette wird als Titel für das Domain-Blocking verwendet."
+    },
+    "ping_blocking_enabled": {
+        "message": "Blockiere Hyperlink Auditing Anfragen (Siehe auch <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>diese Spezifikation</a>)",
+        "description": "Diese Zeichenkette wird als Beschreibung für das Hyperlink Auditing-Blocking verwendet."
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Blockiere Hyperlink Auditing Anfragen",
+        "description": "Diese Zeichenkette wird als Titel für das Hyperlink Auditing-Blocking verwendet."
     }
 }

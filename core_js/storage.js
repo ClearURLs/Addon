@@ -209,11 +209,14 @@ function initSettings() {
     storage.referralMarketing = false;
     storage.logLimit = -1;
     storage.domainBlocking = true;
+    storage.pingBlocking = true;
 
     if (getBrowser() === "Firefox") {
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
+        storage.pingRequestTypes = ["ping", "beacon"];
     } else if (getBrowser() === "Chrome") {
         storage.types = ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "other"];
+        storage.pingRequestTypes = ["ping"];
     }
 }
 

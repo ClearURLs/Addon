@@ -70,20 +70,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
                 pushToLog(beforeReplace, url, rawRule);
             }
 
-            if (badges[tabid] == null) badges[tabid] = 0;
-
-            if (!quiet) increaseURLCounter();
-
-            checkOSAndroid().then((res) => {
-                if (!res) {
-                    if (storage.badgedStatus && !quiet) {
-                        browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                    } else {
-                        browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                    }
-                }
-            });
-
+            increaseBadged(quiet);
             changes = true;
         }
     });
@@ -144,20 +131,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
                     if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
                 }
 
-                if (badges[tabid] == null) badges[tabid] = 0;
-
-                if (!quiet) increaseURLCounter();
-
-                checkOSAndroid().then((res) => {
-                    if (!res) {
-                        if (storage.badgedStatus && !quiet) {
-                            browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                        } else {
-                            browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                        }
-                    }
-                });
-
+                increaseBadged(quiet);
                 changes = true;
             }
         });
@@ -172,22 +146,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
 
     if (provider.isCaneling() && storage.domainBlocking) {
         if (!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
-        if (badges[tabid] == null) {
-            badges[tabid] = 0;
-        }
-
-        if (!quiet) increaseURLCounter();
-
-        checkOSAndroid().then((res) => {
-            if (!res) {
-                if (storage.badgedStatus && !quiet) {
-                    browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
-                } else {
-                    browser.browserAction.setBadgeText({text: "", tabId: tabid});
-                }
-            }
-        });
-
+        increaseBadged(quiet);
         cancel = true;
     }
 
@@ -598,6 +557,12 @@ function start() {
                 "cancel": false
             };
 
+            if(storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
+                pushToLog(request.url, request.url, translate('log_ping_blocked'));
+                increaseBadged();
+                return {cancel: true};
+            }
+
             /*
             * Call for every provider the removeFieldsFormURL method.
             */
@@ -726,7 +691,7 @@ function start() {
      */
     browser.webRequest.onBeforeRequest.addListener(
         promise,
-        {urls: ["<all_urls>"], types: getData("types")},
+        {urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes"))},
         ["blocking"]
     );
 }
@@ -760,4 +725,23 @@ function pushToLog(beforeProcessing, afterProcessing, rule) {
         );
         deferSaveOnDisk('log');
     }
+}
+
+/**
+ * Increases the badged by one.
+ */
+function increaseBadged(quiet = false) {
+    if (badges[tabid] == null) badges[tabid] = 0;
+
+    if (!quiet) increaseURLCounter();
+
+    checkOSAndroid().then((res) => {
+        if (!res) {
+            if (storage.badgedStatus && !quiet) {
+                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+            } else {
+                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+            }
+        }
+    });
 }

@@ -293,7 +293,7 @@ function decodeURL(url) {
     return rtn;
 }
 
-/*
+/**
 * Gets the value of at `key` an object. If the resolved value is `undefined`, the `defaultValue` is returned in its place.
 *
 * @param {string} key the key of the object
