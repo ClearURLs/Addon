@@ -14,6 +14,12 @@
 *
 * You should have received a copy of the GNU Lesser General Public License
 * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*
+* Based on:
+*   Remove Google Redirection
+*   https://github.com/kodango/Remove-Google-Redirection/blob/master/extension/chrome/remove-google-redirection.user.js
+*   Copyright (c) 2017 kodango
+*   MIT License: https://github.com/kodango/Remove-Google-Redirection/blob/master/LICENSE
 */
 (function (window) {
     "use strict";
@@ -35,8 +41,7 @@
     /*
     * The main entry
     */
-    function main()
-    {
+    function main() {
         injectFunction();
 
         document.addEventListener('mouseover', function (event) {
@@ -50,7 +55,7 @@
                 try {
                     a.removeAttribute('data-counter');
                     delete a.dataset.cthref;
-                } catch(e) {
+                } catch (e) {
                     console.log(e);
                 }
             }

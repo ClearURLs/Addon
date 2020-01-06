@@ -6,13 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.11.0] - 2020-01-06
 
-### Added
-- Added hyperlink auditing blocking [#184](https://gitlab.com/KevinRoebert/ClearUrls/issues/184)
-- Added yandex link fix script, to avoid URL tracking [#305](https://gitlab.com/KevinRoebert/ClearUrls/issues/305)
-
 ### Compatibility note
 - Require Firefox >= 55
 - Require Chrome >= 22
+
+### Added
+- Added hyperlink auditing blocking [#184](https://gitlab.com/KevinRoebert/ClearUrls/issues/184)
+- Added yandex link fix script, to avoid URL tracking [#305](https://gitlab.com/KevinRoebert/ClearUrls/issues/305)
 
 ## [1.10.0] - 2020-01-03
 
