@@ -557,7 +557,7 @@ function start() {
                 "cancel": false
             };
 
-            if(storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
+            if (storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
                 pushToLog(request.url, request.url, translate('log_ping_blocked'));
                 increaseBadged();
                 return {cancel: true};
@@ -651,7 +651,9 @@ function start() {
     function handleActivated(activeInfo) {
         tabid = activeInfo.tabId;
         browser.tabs.get(tabid).then(function (tab) {
-            currentURL = tab.url;
+            if (!browser.runtime.lastError) { // https://gitlab.com/KevinRoebert/ClearUrls/issues/346
+                currentURL = tab.url;
+            }
         });
     }
 
