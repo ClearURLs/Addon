@@ -27,10 +27,6 @@
         "message": "Diese Domain wurde blockiert",
         "description": "Diese Zeichenfolge wird für blockierte Domäns im ClearURL-Protokoll verwendet."
     },
-    "log_ping_blocked": {
-        "message": "Diese Hyperlink Auditing Anfrage wurde blockiert",
-        "description": "Diese Zeichenfolge wird für blockierte Hyperlink Auditing Anfragen im ClearURL-Protokoll verwendet."
-    },
     "check_os_log": {
         "message": "[ClearURLs]: Protokoll-Listener wurde hinzugefügt.",
         "description": "Diese Zeichenfolge wird beim Start des ClearURL-Protokolls verwendet."
@@ -62,22 +58,6 @@
     "log_html_reset_button_title": {
         "message": "Setzt das globale Protokoll zurück",
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen auf der Protokollseite verwendet."
-    },
-    "log_html_export_button": {
-        "message": "Exportieren",
-        "description": "Diese Zeichenfolge wird für die Schaltfläche zum Exportieren auf der Protokollseite verwendet."
-    },
-    "log_html_export_button_title": {
-        "message": "Exportieren des globalen Protokolls",
-        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Exportieren auf der Protokollseite verwendet."
-    },
-    "log_html_import_button": {
-        "message": "Importieren",
-        "description": "Diese Zeichenfolge wird für die Schaltfläche zum Importieren auf der Protokollseite verwendet."
-    },
-    "log_html_import_button_title": {
-        "message": "Importieren des globalen Protokolls",
-        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Importieren auf der Protokollseite verwendet."
     },
     "popup_html_configs_head": {
         "message": "Einstellungen",
@@ -183,35 +163,9 @@
         "message": "Setzt alle Einstellungen zurück",
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen auf der Einstellungsseite verwendet."
     },
-    "setting_html_export_button": {
-        "message": "Exportieren",
-        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Exportieren auf der Einstellungsseite verwendet."
-    },
-    "setting_html_export_button_title": {
-        "message": "Exportiert alle Einstellungen",
-        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Exportieren auf der Einstellungsseite verwendet."
-    },
-    "setting_html_import_button": {
-        "message": "Importieren",
-        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Importieren auf der Einstellungsseite verwendet."
-    },
-    "setting_html_import_button_title": {
-        "message": "Importiert alle Einstellungen inkl. Regeln und Protokoll",
-        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Importieren auf der Einstellungsseite verwendet."
-    },
     "setting_rule_url_label": {
         "message": "Die Url zu der data.json Datei (Regeln)",
         "description": "Diese Zeichenfolge wird als Name für die Regel-URL-Bezeichnung verwendet."
-    },
-    "setting_log_limit_label": {
-        "message": "Limitiert das Protokoll auf $LIMIT$ Einträge. (-1 := ∞)",
-        "description": "Diese Zeichenfolge wird als Name für das Protokolllimit verwendet.",
-        "placeholders": {
-            "limit": {
-                "content": "$1",
-                "example": "100"
-            }
-        }
     },
     "settings_html_save_button": {
         "message": "Speichern & Addon neustarten",
@@ -285,6 +239,48 @@
         "message": "Auslassen von lokalen URLs",
         "description": "Diese Zeichenkette wird als Titel für das Auslassen von lokalen URLs verwendet."
     },
+    "log_html_export_button": {
+        "message": "Exportieren",
+        "description": "Diese Zeichenfolge wird für die Schaltfläche zum Exportieren auf der Protokollseite verwendet."
+    },
+    "log_html_export_button_title": {
+        "message": "Exportieren des globalen Protokolls",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Exportieren auf der Protokollseite verwendet."
+    },
+    "log_html_import_button": {
+        "message": "Importieren",
+        "description": "Diese Zeichenfolge wird für die Schaltfläche zum Importieren auf der Protokollseite verwendet."
+    },
+    "log_html_import_button_title": {
+        "message": "Importieren des globalen Protokolls",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Importieren auf der Protokollseite verwendet."
+    },
+    "setting_html_export_button": {
+        "message": "Exportieren",
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Exportieren auf der Einstellungsseite verwendet."
+    },
+    "setting_html_export_button_title": {
+        "message": "Exportiert alle Einstellungen",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Exportieren auf der Einstellungsseite verwendet."
+    },
+    "setting_html_import_button": {
+        "message": "Importieren",
+        "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Importieren auf der Einstellungsseite verwendet."
+    },
+    "setting_html_import_button_title": {
+        "message": "Importiert alle Einstellungen inkl. Regeln und Protokoll",
+        "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Importieren auf der Einstellungsseite verwendet."
+    },
+    "setting_log_limit_label": {
+        "message": "Limitiert das Protokoll auf $LIMIT$ Einträge. (-1 := ∞)",
+        "description": "Diese Zeichenfolge wird als Name für das Protokolllimit verwendet.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
     "blocked_html_title": {
         "message": "Diese Seite wurde von <b>ClearURLs</b> blockiert.",
         "description": "Diese Zeichenfolge wird als Titel auf der Hinweisseite für blockierte Seiten verwendet."
@@ -316,6 +312,10 @@
     "domain_blocking_enabled_title": {
         "message": "Erlaube Domain-Blocking (Kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
         "description": "Diese Zeichenkette wird als Titel für das Domain-Blocking verwendet."
+    },
+    "log_ping_blocked": {
+        "message": "Diese Hyperlink Auditing Anfrage wurde blockiert",
+        "description": "Diese Zeichenfolge wird für blockierte Hyperlink Auditing Anfragen im ClearURL-Protokoll verwendet."
     },
     "ping_blocking_enabled": {
         "message": "Blockiere Hyperlink Auditing Anfragen (Siehe auch <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>diese Spezifikation</a>)",
