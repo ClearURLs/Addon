@@ -1,291 +1,328 @@
 {
     "hash_status_code_1": {
         "message": "已是最新的",
-        "description": ""
+        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
     },
-
     "hash_status_code_2": {
         "message": "已更新",
-        "description": ""
+        "description": "This status code says, that the ClearURLs rules are successfully updated."
     },
-
     "hash_status_code_3": {
         "message": "有可用的更新",
-        "description": ""
+        "description": "This status code says, that an update is available for the ClearURLs rules."
     },
-
     "hash_status_code_4": {
         "message": "錯誤",
-        "description": ""
+        "description": "This status code says, that the ClearURLs could not be started correctly."
     },
-
     "hash_status_code_5": {
         "message": "發生錯誤",
-        "description": ""
+        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
     },
-
     "log_redirect": {
         "message": "此網址已被轉址",
-        "description": ""
+        "description": "This string is used on redirections in the ClearURLs log."
     },
-
     "log_domain_blocked": {
         "message": "此網域已被封鎖",
-        "description": ""
+        "description": "This string is used on blocked domains in the ClearURLs log."
     },
-
     "check_os_log": {
         "message": "[ClearURLs]: 已新增記錄監聽器",
-        "description": ""
+        "description": "This string is used on ClearURLs log startup."
     },
-
     "log_html_page_title": {
         "message": "ClearURLs歷史記錄",
-        "description": ""
+        "description": "This string is used as header on the log page."
     },
-
     "log_html_table_head_1": {
         "message": "處理前",
-        "description": ""
+        "description": "This string is used as table title on the log page."
     },
-
     "log_html_table_head_2": {
         "message": "處理後",
-        "description": ""
+        "description": "This string is used as table title on the log page."
     },
-
     "log_html_table_head_3": {
         "message": "規則",
-        "description": ""
+        "description": "This string is used as table title on the log page."
     },
-
     "log_html_table_head_4": {
         "message": "時間",
-        "description": ""
+        "description": "This string is used as table title on the log page."
     },
-
     "log_html_reset_button": {
         "message": "重置",
-        "description": ""
+        "description": "This string is used for the reset button on the log page."
     },
-
     "log_html_reset_button_title": {
         "message": "重置全域記錄檔",
-        "description": ""
+        "description": "This string is used as title for the reset button on the log page."
     },
-
     "popup_html_configs_head": {
         "message": "設定",
-        "description": ""
+        "description": "This string is used as title for the configs on the popup page."
     },
-
     "popup_html_configs_switch_filter": {
         "message": "過濾器",
-        "description": ""
+        "description": "This string is used as name for the filter switch button on the popup page."
     },
-
     "popup_html_configs_switch_filter_title": {
         "message": "此為ClearURLs的主開關. 若關閉則此附件元件失效.",
-        "description": ""
+        "description": "This string is used as title for the filter switch button on the popup page."
     },
-
     "popup_html_configs_switch_log": {
         "message": "歷史記錄",
-        "description": ""
+        "description": "This string is used as name for the logging switch button on the popup page."
     },
-
     "popup_html_configs_switch_log_title": {
         "message": "記錄檔會被儲存於本機. 若不需要此功能建議關閉.",
-        "description": ""
+        "description": "This string is used as title for the logging switch button on the popup page."
     },
-
     "popup_html_configs_switch_badges": {
         "message": "徽章",
-        "description": ""
+        "description": "This string is used as name for the badges switch button on the popup page."
     },
-
     "popup_html_configs_switch_badges_title": {
         "message": "顯示已清理數量",
-        "description": ""
+        "description": "This string is used as title for the badges switch button on the popup page."
     },
-
     "popup_html_statistics_head": {
         "message": "統計",
-        "description": ""
+        "description": "This string is used as title for the statistics on the popup page."
     },
-
     "popup_html_statistics_elements": {
         "message": "元件",
-        "description": ""
+        "description": "This string is used as name for the elements on the popup page."
     },
-
     "popup_html_statistics_blocked": {
         "message": "已阻擋",
-        "description": ""
+        "description": "This string is used as name for the blocked elements on the popup page."
     },
-
     "popup_html_statistics_percentage": {
         "message": "比例",
-        "description": ""
+        "description": "This string is used as name for the percentage of blocked elements on the popup page."
     },
-
     "popup_html_statistics_reset_button": {
         "message": "重置",
-        "description": ""
+        "description": "This string is used as name for the statistics reset button on the popup page."
     },
-
     "popup_html_statistics_reset_button_title": {
         "message": "重置全域統計",
-        "description": ""
+        "description": "This string is used as title for the statistics reset button on the popup page."
     },
-
     "popup_html_rules_status_head": {
         "message": "規則-狀態",
-        "description": ""
+        "description": "This string is used as title for the rules-status section on the popup page."
     },
-
     "popup_html_log_head": {
         "message": "記錄",
-        "description": ""
+        "description": "This string is used as name for the log button on the popup page."
     },
-
     "popup_html_log_head_title": {
         "message": "開啟記錄",
-        "description": ""
+        "description": "This string is used as title for the log button on the popup page."
     },
-
     "popup_html_report_button": {
         "message": "回報目前網址",
-        "description": ""
+        "description": "Note: Currently not used."
     },
-
     "popup_html_report_button_title": {
         "message": "回報該分頁目前網址",
-        "description": ""
+        "description": "Currently not used."
     },
-
     "core_save_on_disk": {
         "message": "[ClearURLs]: 儲存於本機",
-        "description": ""
+        "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
     },
-
     "core_error": {
         "message": "[ClearURLs]: 附加元件無法啟動",
-        "description": ""
+        "description": "This string is used to tell the user, that ClearURLs could not be started."
     },
-
     "configs_switch_statistics": {
         "message": "統計",
-        "description": ""
+        "description": "This string is used as name for the statistics switch button on the popup page."
     },
-
     "configs_switch_statistics_title": {
         "message": "開啟或關閉統計功能",
-        "description": ""
+        "description": "This string is used as title for the statistics switch button on the popup page."
     },
-
     "settings_html_page_title": {
         "message": "ClearURLs設定",
-        "description": ""
+        "description": "This string is used as title on the settings page."
     },
-
     "badged_color_label": {
         "message": "徽章顏色",
-        "description": ""
+        "description": "This string is used as name for the badged color label."
     },
-
     "setting_html_reset_button": {
         "message": "重置",
-        "description": ""
+        "description": "This string is used as name for the reset button on the settings page."
     },
-
     "setting_html_reset_button_title": {
         "message": "重置所有設定",
-        "description": ""
+        "description": "This string is used as title for the reset button on the settings page."
     },
-
     "setting_rule_url_label": {
         "message": "data.json檔的網址 (規則)",
-        "description": ""
+        "description": "This string is used as name for the rule url label."
     },
-
     "settings_html_save_button": {
         "message": "儲存並重啟附件元件",
-        "description": ""
+        "description": "This string is used as name for the save&reload button on the settings page."
     },
-
     "settings_html_save_button_title": {
         "message": "儲存設定",
-        "description": ""
+        "description": "This string is used as title for the save&reload button on the settings page."
     },
-
     "setting_hash_url_label": {
         "message": "rules.hash檔的網址 (校驗)",
-        "description": ""
+        "description": "This string is used as name for the rule.hash url label."
     },
-
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>請求類型</a> (進階設定)",
-        "description": ""
+        "description": "This string is used as name for the types label."
     },
-
     "setting_report_server_label": {
         "message": "回報網址",
-        "description": ""
+        "description": "Note: Currently not used."
     },
-
     "success_report_url": {
         "message": "該網址已成功回報",
-        "description": ""
+        "description": "Note: Currently not used."
     },
-
     "error_report_url": {
         "message": "該網址已被回報過",
-        "description": ""
+        "description": "Note: Currently not used."
     },
-
     "donate_button": {
         "message": "給ClearURLs的作者一點贊助",
-        "description": ""
+        "description": "This string is used to refer to a donation page."
     },
-
     "clipboard_copy_link": {
         "message": "複製清理過的網址",
-        "description": ""
+        "description": "This string is used in the context menu to copy clean links."
     },
-
     "context_menu_enabled": {
         "message": "顯示右鍵選單項目",
-        "description": ""
+        "description": "This string is used toggle the context menu entry to copy clean links."
     },
-
     "history_listener_enabled": {
         "message": "Prevent tracking injection over history API (詳見: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
-        "description": ""
+        "description": "This string is used as name for the history API listener label."
     },
-
     "cleaning_tool_page_title": {
         "message": "ClearURLs的網址清理工具",
-        "description": ""
+        "description": "This string is used as title on the cleaning tool page."
     },
-
     "cleaning_tool_description": {
         "message": "此工具提供手動清理網址的功能. 在下方貼上網址並按下綠色按鈕, ClearURLs將會輸出清理後的網址. 若要同時清理多個網址, 請將每個置於不同行.",
-        "description": ""
+        "description": "This string is used as description of the cleaning tool."
     },
-
     "cleaning_tool_btn": {
         "message": "網址清理工具",
-        "description": ""
+        "description": "This string is used as name for the clean url button."
     },
-
     "cleaning_tool_dirty_urls_label": {
         "message": "清理前的網址:",
-        "description": ""
+        "description": "This string is used as title on the cleaning tool page for the dirty URLs."
     },
-
     "cleaning_tool_clean_urls_label": {
         "message": "清理後的網址:",
-        "description": ""
+        "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "Skip URLs on local hosts (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "message": "Skips URLs on local hosts",
+        "description": "This string is used as title for the local host skipping switch"
+    },
+    "log_html_export_button": {
+        "message": "Export",
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "message": "Exports the global log",
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "message": "Import",
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "message": "Import the global log",
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "setting_html_export_button": {
+        "message": "Export",
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "message": "Exports everything",
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "message": "Import",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "message": "Imports everything",
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_log_limit_label": {
+        "message": "Limit the log to $LIMIT$ entries. (-1 := ∞)",
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "This site was blocked by <b>ClearURLs</b>",
+        "description": "This string is used as title on the blocked site page."
+    },
+    "blocked_html_body": {
+        "message": "This site was blocked by the <b>ClearURLs</b> Add-on, because we identify this site as an advertising and/or tracking service. To visit this site, you must temporarily deactivate the Add-on or disable domain blocking in the ClearURLs settings. After this you can click on the button below to load the page.",
+        "description": "This string is used as body on the blocked site page."
+    },
+    "blocked_html_button": {
+        "message": "Visit page",
+        "description": "This string is used as button on the blocked site page."
+    },
+    "referral_marketing_enabled": {
+        "message": "Allow referral marketing",
+        "description": "This string is used as label for the referral marketing switch"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "Allows referral marketing",
+        "description": "This string is used as title for the referral marketing switch"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: The watchdog has detected a problem. ClearURLs is restarting.",
+        "description": "This string is used as text for the watchdog"
+    },
+    "domain_blocking_enabled": {
+        "message": "Allow domain blocking (Can lead to problems on pages that do not allow AdBlockers)",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Allow domain blocking (Can lead to problems on pages that do not allow AdBlockers)",
+        "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "This hyperlink auditing was blocked",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "message": "Block hyperlink auditing (See also <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>this article</a>)",
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Block hyperlink auditing",
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
     }
 }
