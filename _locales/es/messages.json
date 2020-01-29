@@ -27,10 +27,6 @@
         "message": "Este dominio está bloqueado",
         "description": "This string is used on blocked domains in the ClearURLs log."
     },
-    "log_ping_blocked": {
-        "message": "La auditoría de este hipervínculo ha sido bloqueada",
-        "description": "This string is used on hyperlink auditing in the ClearURLs log."
-    },
     "check_os_log": {
         "message": "[ClearURLs]: Registro activado.",
         "description": "This string is used on ClearURLs log startup."
@@ -62,22 +58,6 @@
     "log_html_reset_button_title": {
         "message": "Reiniciar el registro general",
         "description": "This string is used as title for the reset button on the log page."
-    },
-    "log_html_export_button": {
-        "message": "Exportar",
-        "description": "This string is used for the export button on the log page."
-    },
-    "log_html_export_button_title": {
-        "message": "Exporta el registro general",
-        "description": "This string is used as title for the export button on the log page."
-    },
-    "log_html_import_button": {
-        "message": "Importar",
-        "description": "This string is used for the import button on the log page."
-    },
-    "log_html_import_button_title": {
-        "message": "Importar el registro general",
-        "description": "This string is used as title for the import button on the log page."
     },
     "popup_html_configs_head": {
         "message": "Configuraciones",
@@ -183,35 +163,9 @@
         "message": "Reinicia el complemento entero.",
         "description": "This string is used as title for the reset button on the settings page."
     },
-    "setting_html_export_button": {
-        "message": "Exportar",
-        "description": "This string is used as name for the export button on the settings page."
-    },
-    "setting_html_export_button_title": {
-        "message": "Exporta todo.",
-        "description": "This string is used as title for the export button on the settings page."
-    },
-    "setting_html_import_button": {
-        "message": "Importar",
-        "description": "This string is used as name for the reset button on the settings page."
-    },
-    "setting_html_import_button_title": {
-        "message": "Importar todo.",
-        "description": "This string is used as title for the import button on the settings page."
-    },
     "setting_rule_url_label": {
         "message": "Dirección al fichero data.json de reglas",
         "description": "This string is used as name for the rule url label."
-    },
-    "setting_log_limit_label": {
-        "message": "Limitar el tamaño del registro a $LIMIT$ eventos. (-1 := ∞)",
-        "description": "This string is used as name for the log limit label.",
-        "placeholders": {
-            "limit": {
-                "content": "$1",
-                "example": "100"
-            }
-        }
     },
     "settings_html_save_button": {
         "message": "Guardar y aplicar",
@@ -285,6 +239,48 @@
         "message": "Omitir filtrado en local",
         "description": "This string is used as title for the local host skipping switch"
     },
+    "log_html_export_button": {
+        "message": "Exportar",
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "message": "Exporta el registro general",
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "message": "Importar",
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "message": "Importar el registro general",
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "setting_html_export_button": {
+        "message": "Exportar",
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "message": "Exporta todo.",
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "message": "Importar",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "message": "Importar todo.",
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_log_limit_label": {
+        "message": "Limitar el tamaño del registro a $LIMIT$ eventos. (-1 := ∞)",
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
     "blocked_html_title": {
         "message": "Este sitio ha sido bloqueado por <b>ClearURLs</b>",
         "description": "This string is used as title on the blocked site page."
@@ -316,6 +312,10 @@
     "domain_blocking_enabled_title": {
         "message": "Permitir bloqueo de dominios (Puede provocar problemas con sitios que no permitan bloqueadores de anuncios)",
         "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "La auditoría de este hipervínculo ha sido bloqueada",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
     },
     "ping_blocking_enabled": {
         "message": "Bloquear auditoría de hipervínculos (más información en inglés en <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>este artículo</a>)",
