@@ -312,17 +312,5 @@
     "domain_blocking_enabled_title": {
         "message": "Tillåt domänblockering (Kan leda till problem på sidor som inte tillåter AdBlockers)",
         "description": "This string is used as title for the domain blocking switch"
-    },
-    "log_ping_blocked": {
-        "message": "This hyperlink auditing was blocked",
-        "description": "This string is used on hyperlink auditing in the ClearURLs log."
-    },
-    "ping_blocking_enabled": {
-        "message": "Block hyperlink auditing (See also <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>this article</a>)",
-        "description": "This string is used as label for the hyperlink auditing blocking switch"
-    },
-    "ping_blocking_enabled_title": {
-        "message": "Block hyperlink auditing",
-        "description": "This string is used as title for the hyperlink auditing blocking switch"
     }
 }
