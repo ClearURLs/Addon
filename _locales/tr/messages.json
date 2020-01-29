@@ -304,5 +304,25 @@
     "watchdog": {
         "message": "[ClearURL'ler]: Güvenlik Zamanlayıcısı bir sorun tespit etti. ClearURL'ler yeniden başlatıldı.",
         "description": "Bu dize güvenlik zamanlayıcısı için metin olarak kullanılır."
+    },
+    "domain_blocking_enabled": {
+        "message": "Alan adı engellemeye izin ver (Reklam Engelleyicilere izin vermeyen sayfalarda sorunlara neden olabilir)",
+        "description": "Bu dize, alan adı engelleme anahtarı için etiket olarak kullanılır"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Alan adı engellemeye izin ver (Reklam Engelleyicilere izin vermeyen sayfalarda sorunlara neden olabilir)",
+        "description": "Bu dize, alan adı engelleme anahtarının başlığı olarak kullanılır"
+    },
+    "log_ping_blocked": {
+        "message": "Bu köprü denetimi engellendi",
+        "description": "Bu dize, ClearURLs günlüğündeki köprü denetimi için kullanılır."
+    },
+    "ping_blocking_enabled": {
+        "message": "Köprü denetimini engelle (Ayrıca bkz.<a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>this article</a>)",
+        "description": "Bu dize köprü denetim engelleme anahtarı için etiket olarak kullanılır"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Köprü denetimini engelle",
+        "description": "Bu dize köprü denetim engelleme anahtarının başlığı olarak kullanılır"
     }
 }
