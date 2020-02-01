@@ -5,7 +5,7 @@
     },
     "hash_status_code_2": {
         "message": "mis à jour",
-        "description": "This status code says, that the ClearURLs rules are successfully updated."
+        "description": "Cela indique la réussite des mises à jour des règles de ClearURLs."
     },
     "hash_status_code_3": {
         "message": "mise à jour disponible",
@@ -204,11 +204,11 @@
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
     },
     "context_menu_enabled": {
-        "message": "Activer ClearUrls dans le menu contextuel",
+        "message": "Activer ClearUrls dans le menu contextuel (le clic droit sur une page)",
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
     },
     "history_listener_enabled": {
-        "message": "Empêcher le suivi par l’API d'historique (<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>La méthode replaceState()</a>)",
+        "message": "Empêcher les sites d’aller fouiner dans l'historique. (<a href='https://developer.mozilla.org/fr/docs/Web/Guide/DOM/Manipuler_historique_du_navigateur' target='_blank'>La méthode utilisée est replaceState()</a>)",
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
     },
     "cleaning_tool_page_title": {
@@ -310,7 +310,19 @@
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
     },
     "domain_blocking_enabled_title": {
-        "message": "Bloquer les atteintes à la vie privée. Cependant, des sites décèlent la technique de protection et dysfonctionnent délibérément ou affichent des avertissements",
-        "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
+        "message": "Autoriser le blocage de domaine (ex : example.com) ; peut poser des problèmes d'affichage sur des sites refusant les bloqueurs de contenu",
+        "description": "Cette chaîne est utilisée comme titre pour le commutateur de blocage de domaine"
+    },
+    "log_ping_blocked": {
+        "message": "Bloquer l’espionnage des clics souris sur les liens hypertextes",
+        "description": "Cette chaîne est utilisée pour de l'audit (espionnage) des liens hypertextes dans le journal ClearURLs."
+    },
+    "ping_blocking_enabled": {
+        "message": "Bloquer l’espionnage des clics souris sur les liens hypertextes (voyez <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>cet article en anglais</a>)",
+        "description": "Utilisé pour le bouton activer/désactiver l'audit (espionnages) des liens hypertextes"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Bloquer l’espionnage des clics souris sur les liens hypertextes",
+        "description": "Utilisé pour le bouton activer/désactiver de l'audit (espionnages) des liens hypertextes"
     }
 }
