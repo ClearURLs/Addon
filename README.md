@@ -37,7 +37,7 @@ Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the ad
 Reasoning for needed permissions can be found under [here](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
 
 ## Screenshot
-![Interface (version 1.11.0)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_v_1.11.0.png)
+![Interface (version 1.14.0)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_v_1.14.0.png)
 
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
