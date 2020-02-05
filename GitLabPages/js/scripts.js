@@ -76,7 +76,7 @@ function checkBlock() {
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>The block function of ClearURLs works correctly.</p></div>');
     })
-    .attr("src", 'https://kevinroebert.gitlab.io/ClearUrls/void/block.html');
+    .attr("src", 'https://kevinroebert.gitlab.io/ClearUrls/void/block.svg');
 }
 
 function checkIssue253() {

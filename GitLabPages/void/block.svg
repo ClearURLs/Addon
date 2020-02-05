@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox = "0 0 200 200" version = "1.1">
+    <text x = "10" y = "25" fill = "navy" font-size = "15">
+        This site should be blocked by ClearURLs
+    </text>
+</svg>
+
