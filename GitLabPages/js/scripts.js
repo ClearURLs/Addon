@@ -27,7 +27,7 @@ function checkRule() {
 
     let segment = $('#rules_filter_test');
 
-    if(resURL === 'about:blank') {
+    if(resURL === 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html') {
         segment.addClass('positive');
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>The tracking filter function of ClearURLs works correctly.</p></div>');
@@ -49,7 +49,7 @@ function checkRedirection() {
 
     let segment = $('#redirection_filter_test');
 
-    if(resURL === 'https://kevinroebert.gitlab.io/ClearUrls/void/bla.html') {
+    if(resURL === 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html') {
         segment.addClass('positive');
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>The redirection function of ClearURLs works correctly.</p></div>');
@@ -76,7 +76,7 @@ function checkBlock() {
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>The block function of ClearURLs works correctly.</p></div>');
     })
-    .attr("src", 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html');
+    .attr("src", 'https://kevinroebert.gitlab.io/ClearUrls/void/block.html');
 }
 
 function checkIssue253() {
