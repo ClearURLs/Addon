@@ -27,7 +27,7 @@ function checkRule() {
 
     let segment = $('#rules_filter_test');
 
-    if(resURL === 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html') {
+    if(resURL === 'about:blank') {
         segment.addClass('positive');
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>The tracking filter function of ClearURLs works correctly.</p></div>');
@@ -49,7 +49,7 @@ function checkRedirection() {
 
     let segment = $('#redirection_filter_test');
 
-    if(resURL === 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html') {
+    if(resURL === 'https://kevinroebert.gitlab.io/ClearUrls/void/bla.html') {
         segment.addClass('positive');
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>The redirection function of ClearURLs works correctly.</p></div>');
@@ -76,7 +76,7 @@ function checkBlock() {
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>The block function of ClearURLs works correctly.</p></div>');
     })
-    .attr("src", 'https://www.contentpass.de/img/logo.svg');
+    .attr("src", 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html');
 }
 
 function checkIssue253() {
@@ -94,7 +94,7 @@ function checkIssue253() {
         segment.append('<i class="large smile outline icon"></i>');
         segment.append('<div class="content"><p>Your ClearURLs version is not vulnerable to the problem from Issue 253.</p></div>');
     })
-    .attr("src", 'https://www.google.com/url?rct=j&url=https%3A%2F%2Fkevinroebert.gitlab.io%2FClearUrls%2Fi253.html');
+    .attr("src", 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html?url=https%3A%2F%2Fkevinroebert.gitlab.io%2FClearUrls%2Fi253.html');
 }
 
 $(window).on('load', function () {
