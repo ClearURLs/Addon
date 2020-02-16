@@ -304,5 +304,25 @@
     "watchdog": {
         "message": "[ClearURLs]: Il sistema di controllo ha identificato un problema. ClearURLs verrà riavviato.",
         "description": "This string is used as text for the watchdog"
+    },
+    "domain_blocking_enabled": {
+        "message": "Permetti il blocco dei domini (può portare a problemi su pagine che non consentono AdBlocker)",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Permetti il blocco dei domini (può portare a problemi su pagine che non consentono AdBlocker)",
+        "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "Questa verifica del collegamento è stata bloccata",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "message": "Blocca la verifica dei collegamenti (vedi anche <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>questo articolo</a>)",
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Blocca la verifica dei collegamenti",
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
     }
 }
