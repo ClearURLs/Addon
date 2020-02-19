@@ -1,4 +1,8 @@
 {
+    "extension_description": {
+        "message": "Remove tracking elements from URLs.",
+        "description": "Extension description."
+    },
     "hash_status_code_1": {
         "message": "up to date",
         "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."

@@ -3,7 +3,7 @@
     "name": "ClearURLs",
     "version": "1.15.0",
     "author": "Kevin Röbert",
-    "description": "Remove tracking elements from URLs.",
+    "description": "__MSG_extension_description__",
     "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
     "default_locale": "en",
     "applications": {
