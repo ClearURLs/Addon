@@ -235,9 +235,9 @@ function changeIcon() {
     checkOSAndroid().then((res) => {
         if (!res) {
             if (storage.globalStatus) {
-                browser.browserAction.setIcon({path: "img/clearurls_128x128.png"});
+                browser.browserAction.setIcon({path: "img/clearurls_128x128.png"}).catch(handleError);
             } else {
-                browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"});
+                browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"}).catch(handleError);
             }
         }
     });
@@ -252,11 +252,11 @@ function setBadgedStatus() {
     checkOSAndroid().then((res) => {
         if (!res && storage.badgedStatus) {
             let color = storage.badged_color;
-            if(storage.badged_color.charAt(0) !== '#')
+            if (storage.badged_color.charAt(0) !== '#')
                 color = '#' + storage.badged_color;
             browser.browserAction.setBadgeBackgroundColor({
                 'color': color
-            });
+            }).catch(handleError);
         }
     });
 }
@@ -294,11 +294,15 @@ function decodeURL(url) {
 }
 
 /**
-* Gets the value of at `key` an object. If the resolved value is `undefined`, the `defaultValue` is returned in its place.
-*
-* @param {string} key the key of the object
-* @param {object} defaultValue the default value
-*/
+ * Gets the value of at `key` an object. If the resolved value is `undefined`, the `defaultValue` is returned in its place.
+ *
+ * @param {string} key the key of the object
+ * @param {object} defaultValue the default value
+ */
 Object.prototype.getOrDefault = function (key, defaultValue) {
     return this[key] === undefined ? defaultValue : this[key];
 };
+
+function handleError(error) {
+    console.log(translate('core_error') + ":" + error);
+}

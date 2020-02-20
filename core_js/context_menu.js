@@ -42,7 +42,7 @@ function contextMenuStart() {
                     if (!results || results[0] !== true) {
                         return browser.tabs.executeScript(tab.id, {
                             file: "/external_js/clipboard-helper.js",
-                        });
+                        }).catch(handleError);
                     }
                 }).then(() => {
                     return browser.tabs.executeScript(tab.id, {

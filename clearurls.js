@@ -579,7 +579,7 @@ function start() {
                 if (result.redirect) {
                     if (providers[i].shouldForceRedirect() &&
                         request.type === 'main_frame') {
-                        browser.tabs.update(request.tabId, {url: result.url});
+                        browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
                         return {cancel: true};
                     }
 
@@ -595,7 +595,7 @@ function start() {
                 if (result.cancel) {
                     if (request.type === 'main_frame') {
                         const blockingPage = browser.extension.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
-                        browser.tabs.update(request.tabId, {url: blockingPage});
+                        browser.tabs.update(request.tabId, {url: blockingPage}).catch(handleError);
 
                         return {cancel: true};
                     } else {
@@ -654,7 +654,7 @@ function start() {
             if (!browser.runtime.lastError) { // https://gitlab.com/KevinRoebert/ClearUrls/issues/346
                 currentURL = tab.url;
             }
-        });
+        }).catch(handleError);
     }
 
     /**
@@ -740,9 +740,9 @@ function increaseBadged(quiet = false) {
     checkOSAndroid().then((res) => {
         if (!res) {
             if (storage.badgedStatus && !quiet) {
-                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid});
+                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid}).catch(handleError);
             } else {
-                browser.browserAction.setBadgeText({text: "", tabId: tabid});
+                browser.browserAction.setBadgeText({text: "", tabId: tabid}).catch(handleError);
             }
         }
     });

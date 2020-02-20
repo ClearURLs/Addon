@@ -75,7 +75,7 @@ function saveOnDisk(keys) {
     });
 
     console.log(translate('core_save_on_disk'));
-    browser.storage.local.set(json);
+    browser.storage.local.set(json).catch(handleError);
 }
 
 /**
@@ -114,7 +114,7 @@ function genesis() {
 
         // Start history listener
         historyListenerStart();
-    }, error);
+    }, handleError);
 }
 
 /**
@@ -162,14 +162,6 @@ function setData(key, value) {
         default:
             storage[key] = value;
     }
-}
-
-/**
- * Write error on console.
- */
-function error(e) {
-    console.log(translate('core_error'));
-    console.error(e);
 }
 
 /**

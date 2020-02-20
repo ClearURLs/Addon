@@ -99,15 +99,15 @@ function changeSwitchButton(id, storageID)
                 browser.runtime.sendMessage({
                     function: "changeIcon",
                     params: []
-                });
+                }).catch(handleError);
             }
             changeVisibility(id, storageID);
 
             browser.runtime.sendMessage({
                 function: "saveOnExit",
                 params: []
-            });
-        });
+            }).catch(handleError);
+        }).catch(handleError);
     });
 }
 
@@ -162,17 +162,17 @@ function resetGlobalCounter(){
     browser.runtime.sendMessage({
         function: "setData",
         params: ['globalCounter', 0]
-    });
+    }).catch(handleError);
 
     browser.runtime.sendMessage({
         function: "setData",
         params: ['globalurlcounter', 0]
-    });
+    }).catch(handleError);
 
     browser.runtime.sendMessage({
         function: "saveOnExit",
         params: []
-    });
+    }).catch(handleError);
 
     globalCounter = 0;
     globalurlcounter = 0;

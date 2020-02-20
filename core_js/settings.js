@@ -107,7 +107,7 @@ function getData()
             } else {
                 $('#logLimit_label').text(translate('setting_log_limit_label', logData.response));
             }
-        });
+        }).catch(handleError);
 
     loadData("contextMenuEnabled")
         .then(() => loadData("historyListenerEnabled"))
@@ -122,7 +122,7 @@ function getData()
             changeSwitchButton("referralMarketing", "referralMarketing");
             changeSwitchButton("domainBlocking", "domainBlocking");
             changeSwitchButton("pingBlocking", "pingBlocking");
-        });
+        }).catch(handleError);
 }
 
 /**
@@ -205,8 +205,8 @@ function exportSettings() {
             'url': URL.createObjectURL(blob),
             'filename': 'ClearURLs.conf',
             'saveAs': true
-        });
-    });
+        }).catch(handleError);
+    }).catch(handleError);
 }
 
 /**
@@ -262,14 +262,14 @@ function changeSwitchButton(id, storageID)
                 browser.runtime.sendMessage({
                     function: "changeIcon",
                     params: []
-                });
+                }).catch(handleError);
             }
 
             browser.runtime.sendMessage({
                 function: "saveOnExit",
                 params: []
-            });
-        });
+            }).catch(handleError);
+        }).catch(handleError);
     });
     setSwitchButton(id, storageID);
 }
@@ -279,7 +279,7 @@ function changeSwitchButton(id, storageID)
 *
 * @param   {string}    id ID of the HTML element
 * @param   {string}    attribute Name of the attribute used for localization
-* @param   {boolean}   tooltip
+* @param   {string}    tooltip
 */
 function injectText(id, attribute, tooltip = "")
 {

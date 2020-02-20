@@ -31,7 +31,7 @@ function resetGlobalLog(){
     browser.runtime.sendMessage({
         function: "setData",
         params: ['log', JSON.stringify(obj)]
-    });
+    }).catch(handleError);
 
     location.reload();
 }
@@ -72,7 +72,7 @@ function getLog()
                 "url": getDataTableTranslation()
             }
         } ).order([3, 'desc']).draw();
-    });
+    }).catch(handleError);
 }
 
 /**
@@ -107,8 +107,8 @@ function exportGlobalLog() {
             'url': URL.createObjectURL(blob),
             'filename': 'ClearURLsLogExport.json',
             'saveAs': true
-        });
-    });
+        }).catch(handleError);
+    }).catch(handleError);
 }
 
 /**
