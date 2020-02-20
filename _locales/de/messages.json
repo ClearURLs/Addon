@@ -1,7 +1,7 @@
 {
     "extension_description": {
         "message": "Entfernt tracking Elemente von URLs.",
-        "description": "Erweiterungsbeschreibung"
+        "description": "Erweiterungsbeschreibung (max. 132 Zeichen)"
     },
     "hash_status_code_1": {
         "message": "Aktuell",

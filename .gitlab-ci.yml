@@ -38,7 +38,7 @@ build firefox:
 build chrome:
   stage: build
   script:
-    - jq 'del(.applications) | .description=""' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
+    - jq 'del(.applications)' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
     - zip ClearUrls_chrome -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
 
   only:
