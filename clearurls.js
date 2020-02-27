@@ -35,9 +35,9 @@ var currentURL;
  * for each provider given as parameter.
  *
  * @param  {Provider} provider      Provider-Object
- * @param pureUrl                   URL as String
- * @param {boolean} quiet   if the action should be displayed in log and statistics
- * @return {Array}                  Array with changes and url fields
+ * @param  {string}   pureUrl       URL as String
+ * @param  {boolean}  quiet         If the action should be displayed in log and statistics
+ * @return {object}                 Object with changes and url fields
  */
 function removeFieldsFormURL(provider, pureUrl, quiet = false) {
     let url = pureUrl;
@@ -84,7 +84,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
 
     /*
     * Expand the url by provider redirections. So no tracking on
-    * url redirections form sites to sites.
+    * url redirections form site to site.
     */
     let re = provider.getRedirection(url);
     if (re !== null) {
