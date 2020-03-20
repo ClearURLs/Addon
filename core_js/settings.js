@@ -115,6 +115,7 @@ function getData()
         .then(() => loadData("referralMarketing"))
         .then(() => loadData("domainBlocking"))
         .then(() => loadData("pingBlocking"))
+        .then(() => loadData("eTagFiltering"))
         .then(() => {
             changeSwitchButton("localHostsSkipping", "localHostsSkipping");
             changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
@@ -122,6 +123,7 @@ function getData()
             changeSwitchButton("referralMarketing", "referralMarketing");
             changeSwitchButton("domainBlocking", "domainBlocking");
             changeSwitchButton("pingBlocking", "pingBlocking");
+            changeSwitchButton("eTagFiltering", "eTagFiltering");
         }).catch(handleError);
 }
 
@@ -189,6 +191,8 @@ function setText()
     injectText("domain_blocking_enabled", "domain_blocking_enabled");
     $('#ping_blocking_enabled').html(translate('ping_blocking_enabled'))
         .prop('title', translate('ping_blocking_enabled_title'));
+    $('#eTag_filtering_enabled').html(translate('eTag_filtering_enabled'))
+        .prop('title', translate('eTag_filtering_enabled_title'))
 }
 
 /**

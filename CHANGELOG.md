@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.16.0] - 2020-03-20
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Added
+- Added ETag header filtering [#362](https://gitlab.com/KevinRoebert/ClearUrls/issues/362), [#440](https://gitlab.com/KevinRoebert/ClearUrls/issues/440). Hint: Cache must be cleared before first use, to delete the already existing ETags.
+
+### Fixed
+- Fixed spontaneous disappearance of the badged
+- Fixed wrong counting of blocked elements (too little was  ;D)
+
+### Changed
+- Updated all translation
+- Changed badged font color to #FFFFFF
+- Changed watchdog behavior as follows [#428](https://gitlab.com/KevinRoebert/ClearUrls/issues/428), [#431](https://gitlab.com/KevinRoebert/ClearUrls/issues/431), [#429](https://gitlab.com/KevinRoebert/ClearUrls/issues/429): 
+   - Increased watchdog interval to 60 seconds
+   - Executed watchdog only if ClearURLs is also active
+   - Watchdog restarts ClearURLs at most 3 times and only if ClearURLs has rules
+- Changed behavior of downloading rules [#428](https://gitlab.com/KevinRoebert/ClearUrls/issues/428), [#431](https://gitlab.com/KevinRoebert/ClearUrls/issues/431), [#429](https://gitlab.com/KevinRoebert/ClearUrls/issues/429):
+   - If download of hash file fails and no local rules are available, then ClearURLs displays `hash_status_code_5` and deactivates itself
+   - If download of rules file fails and no local rules are available, then ClearURLs displays `hash_status_code_5` and deactivates itself
+
 ## [1.15.0] - 2020-02-16
 
 ### Compatibility note

@@ -301,10 +301,6 @@
         "message": "Permettre certaines actions commerciales",
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
     },
-    "watchdog": {
-        "message": "[ClearURLs]: Temps ou délais d’exécution imparti dépassé. ClearURLs doit redémarrer.",
-        "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
-    },
     "domain_blocking_enabled": {
         "message": "Bloquer les atteintes à la vie privée. Cependant, des sites décèlent la technique de protection et dysfonctionnent délibérément ou affichent des avertissements",
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."

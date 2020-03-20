@@ -306,8 +306,14 @@
         "description": "This string is used as title for the referral marketing switch"
     },
     "watchdog": {
-        "message": "[ClearURLs]: The watchdog has detected a problem. ClearURLs is restarting.",
-        "description": "This string is used as text for the watchdog"
+        "message": "[ClearURLs]: The watchdog has detected a problem and has already failed $TIMES$ times.",
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Allow domain blocking (Can lead to problems on pages that do not allow AdBlockers)",
@@ -328,5 +334,17 @@
     "ping_blocking_enabled_title": {
         "message": "Block hyperlink auditing",
         "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "eTag_filtering_log": {
+        "message": "ETag header was removed from this request",
+        "description": "This string is used on ETag header filtering in the ClearURLs log."
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filters ETag headers from requests (See also <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>this article</a>)",
+        "description": "This string is used as label for the ETag header filtering switch"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filters ETag headers. Hint: Cache must be cleared before first use.",
+        "description": "This string is used as title for the ETag header filtering switch"
     }
 }

@@ -202,6 +202,8 @@ function initSettings() {
     storage.logLimit = -1;
     storage.domainBlocking = true;
     storage.pingBlocking = true;
+    storage.eTagFiltering = true;
+    storage.watchDogErrorCount = 0;
 
     if (getBrowser() === "Firefox") {
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xbl", "xml_dtd", "xmlhttprequest", "xslt"];
@@ -268,6 +270,10 @@ function storeHashStatus(status_code) {
         case 3:
             status_code = "hash_status_code_3";
             break;
+        case 5:
+            status_code = "hash_status_code_5";
+            break;
+        case 4:
         default:
             status_code = "hash_status_code_4";
     }

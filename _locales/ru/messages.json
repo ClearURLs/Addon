@@ -301,10 +301,6 @@
         "message": "Разрешить рефералы маркетинга",
         "description": "This string is used as title for the referral marketing switch"
     },
-    "watchdog": {
-        "message": "[ClearURLs]: сторожевой таймер обнаружил проблему. ClearURLs будет перезапущен.",
-        "description": "This string is used as text for the watchdog"
-    },
     "domain_blocking_enabled": {
         "message": "Разрешить блокировку домена (может вызвать проблемы на сайтах, которые запрещают AdBlocker)",
         "description": "This string is used as label for the domain blocking switch"

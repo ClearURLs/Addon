@@ -301,10 +301,6 @@
         "message": "Tavsiye pazarlamasına izin verir",
         "description": "Bu dize tavsiye pazarlama anahtarı için başlık olarak kullanılır"
     },
-    "watchdog": {
-        "message": "[ClearURL'ler]: Güvenlik Zamanlayıcısı bir sorun tespit etti. ClearURL'ler yeniden başlatıldı.",
-        "description": "Bu dize güvenlik zamanlayıcısı için metin olarak kullanılır."
-    },
     "domain_blocking_enabled": {
         "message": "Alan adı engellemeye izin ver (Reklam Engelleyicilere izin vermeyen sayfalarda sorunlara neden olabilir)",
         "description": "Bu dize, alan adı engelleme anahtarı için etiket olarak kullanılır"
