@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed spontaneous disappearance of the badged
-- Fixed wrong counting of blocked elements corrected (too little was  ;D)
+- Fixed wrong counting of blocked elements (too little was  ;D)
 
 ### Changed
 - Updated all translation

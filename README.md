@@ -29,6 +29,7 @@ Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the ad
 * Supports redirection to the destination, without tracking services as middleman
 * Adds an entry to the context menu so that links can be copied quickly and cleanly
 * Blocks hyperlink auditing, also known as *ping tracking* (see also [this article](https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing))
+* Prevents ETag tracking
 * Prevents tracking injection over history API (see also: [The replaceState() method](https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method))
 * Prevents Google from rewriting the search results (to include tracking elements)
 * Prevents Yandex from rewriting the search results (to include tracking elements)
