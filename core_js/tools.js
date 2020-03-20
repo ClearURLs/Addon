@@ -47,10 +47,12 @@ function isEmpty(obj) {
 /**
  * Translate a string with the i18n API.
  *
- * @param {string} string Name of the attribute used for localization
+ * @param {string} string           Name of the attribute used for localization
+ * @param {string[]} placeholders   Array of placeholders
  */
-function translate(string) {
-    return browser.i18n.getMessage(string);
+function translate(string, ...placeholders)
+{
+    return browser.i18n.getMessage(string, placeholders);
 }
 
 /**
@@ -182,32 +184,6 @@ function loadOldDataFromStore() {
 }
 
 /**
- * Save the hash status to the local storage (RAM).
- * The status can have the following values:
- *  1 "up to date"
- *  2 "updated"
- *  3 "update available"
- *  @param status_code the number for the status
- */
-function storeHashStatus(status_code) {
-    switch (status_code) {
-        case 1:
-            status_code = "hash_status_code_1";
-            break;
-        case 2:
-            status_code = "hash_status_code_2";
-            break;
-        case 3:
-            status_code = "hash_status_code_3";
-            break;
-        default:
-            status_code = "hash_status_code_4";
-    }
-
-    storage.hashStatus = status_code;
-}
-
-/**
  * Increase by {number} the GlobalURLCounter
  * @param  {int} number
  */
@@ -257,6 +233,9 @@ function setBadgedStatus() {
             browser.browserAction.setBadgeBackgroundColor({
                 'color': color
             }).catch(handleError);
+            browser.browserAction.setBadgeTextColor({
+                color: "#FFFFFF"
+            }).catch(handleError);
         }
     });
 }
@@ -305,4 +284,42 @@ Object.prototype.getOrDefault = function (key, defaultValue) {
 
 function handleError(error) {
     console.log(translate('core_error') + ":" + error);
+}
+
+/**
+ * Function to log all activities from ClearUrls.
+ * Only logging when activated.
+ * The log is only temporary saved in the cache and will
+ * permanently saved with the saveLogOnClose function.
+ *
+ * @param beforeProcessing  the url before the clear process
+ * @param afterProcessing   the url after the clear process
+ * @param rule              the rule that triggered the process
+ */
+function pushToLog(beforeProcessing, afterProcessing, rule) {
+    const limit = storage.logLimit;
+    if (storage.loggingStatus && limit !== 0) {
+        if (limit > 0 && !isNaN(limit)) {
+            while (storage.log.log.length >= limit) {
+                storage.log.log.shift();
+            }
+        }
+
+        storage.log.log.push(
+            {
+                "before": beforeProcessing,
+                "after": afterProcessing,
+                "rule": rule,
+                "timestamp": Date.now()
+            }
+        );
+        deferSaveOnDisk('log');
+    }
+}
+
+/**
+ * Checks if the storage is available.
+ */
+function isStorageAvailable() {
+    return storage.ClearURLsData.length !== 0;
 }

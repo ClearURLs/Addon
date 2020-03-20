@@ -301,10 +301,6 @@
         "message": "Permitir márketing de referidos",
         "description": "This string is used as title for the referral marketing switch"
     },
-    "watchdog": {
-        "message": "[ClearURLs]: El watchdog detectado un problema. ClearURLs será reiniciado.",
-        "description": "This string is used as text for the watchdog"
-    },
     "domain_blocking_enabled": {
         "message": "Permitir bloqueo de dominios (Puede provocar problemas con sitios que no permitan bloqueadores de anuncios)",
         "description": "This string is used as label for the domain blocking switch"

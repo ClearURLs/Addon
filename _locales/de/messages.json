@@ -306,8 +306,14 @@
         "description": "Diese Zeichenkette wird als Titel für das Referral-Marketing verwendet."
     },
     "watchdog": {
-        "message": "[ClearURLs]: Der Watchdog hat ein Problem festgestellt. ClearURLs wird neugestartet.",
-        "description": "Diese Zeichenkette wird als Text für den Watchdog verwendet."
+        "message": "[ClearURLs]: Der Watchdog hat ein Problem festgestellt und ist bereits das $TIMES$-te mal gescheitert.",
+        "description": "Diese Zeichenkette wird als Text für den Watchdog verwendet.",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Erlaube Domain-Blocking (Kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
@@ -328,5 +334,17 @@
     "ping_blocking_enabled_title": {
         "message": "Blockiere Hyperlink Auditing Anfragen",
         "description": "Diese Zeichenkette wird als Titel für das Hyperlink Auditing-Blocking verwendet."
+    },
+    "eTag_filtering_log": {
+        "message": "ETag-Header wurde aus dieser Anfrage entfernt",
+        "description": "Diese Zeichenkette wird für das Filtern von ETag-Headern im ClearURL-Protokoll verwendet."
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filtert die ETag-Header aus den Anfragen (Siehe auch <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>diesen Artikel</a>)",
+        "description": "Diese Zeichenkette wird als Beschreibung für das Filtern von ETag-Headern verwendet."
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filtert ETag-Header. Info: Cache muss vor der ersten Benutzung geleert werden.",
+        "description": "Diese Zeichenkette wird als Titel für das Filtern von ETag-Headern verwendet."
     }
 }

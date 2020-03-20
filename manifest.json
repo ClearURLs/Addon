@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "ClearURLs",
-    "version": "1.15.0",
+    "version": "1.16.0",
     "author": "Kevin Röbert",
     "description": "__MSG_extension_description__",
     "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
@@ -63,12 +63,14 @@
             "core_js/message_handler.js",
             "external_js/ip-range-check.js",
             "core_js/tools.js",
+            "core_js/badgedHandler.js",
             "core_js/pureCleaning.js",
             "core_js/context_menu.js",
             "core_js/historyListener.js",
             "clearurls.js",
             "core_js/storage.js",
-            "core_js/watchdog.js"
+            "core_js/watchdog.js",
+            "core_js/eTagFilter.js"
         ]
     },
     "content_scripts": [

@@ -22,13 +22,10 @@
 */
 var providers = [];
 var prvKeys = [];
-var badges = [];
-var tabid = 0;
 var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
 var localDataHash;
 var os;
-var currentURL;
 
 /**
  * Helper function which remove the tracking fields
@@ -36,10 +33,11 @@ var currentURL;
  *
  * @param  {Provider} provider      Provider-Object
  * @param pureUrl                   URL as String
- * @param {boolean} quiet   if the action should be displayed in log and statistics
+ * @param {boolean} quiet           if the action should be displayed in log and statistics
+ * @param {requestDetails} request  the request details
  * @return {Array}                  Array with changes and url fields
  */
-function removeFieldsFormURL(provider, pureUrl, quiet = false) {
+function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     let url = pureUrl;
     let domain = "";
     let fragments = "";
@@ -70,7 +68,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
                 pushToLog(beforeReplace, url, rawRule);
             }
 
-            increaseBadged(quiet);
+            increaseBadged(quiet, request);
             changes = true;
         }
     });
@@ -91,7 +89,11 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
         url = decodeURL(re);
 
         //Log the action
-        if (!quiet) pushToLog(pureUrl, url, translate('log_redirect'));
+        if (!quiet) {
+            pushToLog(pureUrl, url, translate('log_redirect'));
+            increaseGlobalURLCounter(1);
+            increaseBadged(false, request)
+        };
 
         return {
             "redirect": true,
@@ -131,7 +133,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
                     if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
                 }
 
-                increaseBadged(quiet);
+                increaseBadged(quiet, request);
                 changes = true;
             }
         });
@@ -146,7 +148,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false) {
 
     if (provider.isCaneling() && storage.domainBlocking) {
         if (!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
-        increaseBadged(quiet);
+        increaseGlobalURLCounter(1);
+        increaseBadged(quiet, request);
         cancel = true;
     }
 
@@ -228,13 +231,26 @@ function start() {
     }
 
     /**
-     * Get the hash for the rule file on github.
+     * Deactivates ClearURLs, if no rules can be downloaded and also no old rules in storage
+     */
+    function deactivateOnFailure() {
+        if(storage.ClearURLsData.length === 0)  {
+            storage.globalStatus = false;
+            storage.dataHash = "";
+            changeIcon();
+            storeHashStatus(5);
+            saveOnExit();
+        }
+    }
+
+    /**
+     * Get the hash for the rule file on GitLab.
      * Check the hash with the hash form the local file.
      * If the hash has changed, then download the new rule file.
      * Else do nothing.
      */
     function getHash() {
-        //Get the target hash from github
+        //Get the target hash from GitLab
         fetch(storage.hashURL)
             .then(function (response) {
                 const responseTextHash = response.clone().text().then(function (responseTextHash) {
@@ -250,6 +266,7 @@ function start() {
                         }
                     } else {
                         dataHash = false;
+                        deactivateOnFailure();
                     }
                 });
             });
@@ -279,6 +296,8 @@ function start() {
                     storage.ClearURLsData = JSON.parse(storage.ClearURLsData);
                     toObject(storage.ClearURLsData);
                     saveOnDisk(['ClearURLsData', 'dataHash', 'hashStatus']);
+                } else {
+                    deactivateOnFailure();
                 }
             });
         }
@@ -559,7 +578,8 @@ function start() {
 
             if (storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
                 pushToLog(request.url, request.url, translate('log_ping_blocked'));
-                increaseBadged();
+                increaseBadged(false, request);
+                increaseGlobalURLCounter(1);
                 return {cancel: true};
             }
 
@@ -567,9 +587,8 @@ function start() {
             * Call for every provider the removeFieldsFormURL method.
             */
             for (let i = 0; i < providers.length; i++) {
-
                 if (providers[i].matchURL(request.url)) {
-                    result = removeFieldsFormURL(providers[i], request.url);
+                    result = removeFieldsFormURL(providers[i], request.url, false, request);
                 }
 
                 /*
@@ -630,39 +649,6 @@ function start() {
     setBadgedStatus();
 
     /**
-     * Call by each tab is updated.
-     * And if url has changed.
-     */
-    function handleUpdated(tabId, changeInfo, tabInfo) {
-        if (changeInfo.url) {
-            delete badges[tabId];
-        }
-        currentURL = tabInfo.url;
-    }
-
-    /**
-     * Call by each tab is updated.
-     */
-    browser.tabs.onUpdated.addListener(handleUpdated);
-
-    /**
-     * Call by each tab change to set the actual tab id
-     */
-    function handleActivated(activeInfo) {
-        tabid = activeInfo.tabId;
-        browser.tabs.get(tabid).then(function (tab) {
-            if (!browser.runtime.lastError) { // https://gitlab.com/KevinRoebert/ClearUrls/issues/346
-                currentURL = tab.url;
-            }
-        }).catch(handleError);
-    }
-
-    /**
-     * Call by each tab change.
-     */
-    browser.tabs.onActivated.addListener(handleActivated);
-
-    /**
      * Check the request.
      */
     function promise(requestDetails) {
@@ -696,54 +682,4 @@ function start() {
         {urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes"))},
         ["blocking"]
     );
-}
-
-/**
- * Function to log all activities from ClearUrls.
- * Only logging when activated.
- * The log is only temporary saved in the cache and will
- * permanently saved with the saveLogOnClose function.
- *
- * @param beforeProcessing  the url before the clear process
- * @param afterProcessing   the url after the clear process
- * @param rule              the rule that triggered the process
- */
-function pushToLog(beforeProcessing, afterProcessing, rule) {
-    const limit = storage.logLimit;
-    if (storage.loggingStatus && limit !== 0) {
-        if (limit > 0 && !isNaN(limit)) {
-            while (storage.log.log.length >= limit) {
-                storage.log.log.shift();
-            }
-        }
-
-        storage.log.log.push(
-            {
-                "before": beforeProcessing,
-                "after": afterProcessing,
-                "rule": rule,
-                "timestamp": Date.now()
-            }
-        );
-        deferSaveOnDisk('log');
-    }
-}
-
-/**
- * Increases the badged by one.
- */
-function increaseBadged(quiet = false) {
-    if (badges[tabid] == null) badges[tabid] = 0;
-
-    if (!quiet) increaseURLCounter();
-
-    checkOSAndroid().then((res) => {
-        if (!res) {
-            if (storage.badgedStatus && !quiet) {
-                browser.browserAction.setBadgeText({text: (++badges[tabid]).toString(), tabId: tabid}).catch(handleError);
-            } else {
-                browser.browserAction.setBadgeText({text: "", tabId: tabid}).catch(handleError);
-            }
-        }
-    });
 }
