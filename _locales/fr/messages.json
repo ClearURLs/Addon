@@ -1,4 +1,8 @@
 {
+    "extension_description": {
+        "message": "Retirer les espions dans les adresses Internet.",
+        "description": "Description des fonctions ; utilisez au maximum 132 caractères."
+    },
     "hash_status_code_1": {
         "message": "à jour",
         "description": "Les règles ClearURLs sont parfaitement à jour."
@@ -299,7 +303,17 @@
     },
     "referral_marketing_enabled_title": {
         "message": "Permettre certaines actions commerciales",
-        "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
+        "description": "Sert à afficher la signification de la fonction sur la switch"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: Watchdog, très petit programme qui surveille les attaques de la mémoire vive, a détecté $TIMES$ problème(s)",
+        "description": "Utilisé pour un texte explicatif du Watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Bloquer les atteintes à la vie privée. Cependant, des sites décèlent la technique de protection et dysfonctionnent délibérément ou affichent des avertissements",
@@ -318,7 +332,19 @@
         "description": "Utilisé pour le bouton activer/désactiver l'audit (espionnages) des liens hypertextes"
     },
     "ping_blocking_enabled_title": {
-        "message": "Bloquer l’espionnage des clics souris sur les liens hypertextes",
-        "description": "Utilisé pour le bouton activer/désactiver de l'audit (espionnages) des liens hypertextes"
+        "message": "Bloquer l’espionnage auditing",
+        "description": "Utilisé comme titre pour le bouton, commutateur, de l’audit des liens hypertextes"
+    },
+    "eTag_filtering_log": {
+        "message": "L’identification ETag a été supprimée",
+        "description": "Utilisé pour le journal de ClearUrls et indiquer ce qui a été nettoyé"
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filtrer ETag ; les sites mettent dans le cache du Navigateur, ou Système d’Exploitation, un identifiant pour vous pister",
+        "description": "Titre pour le bouton de filtrage ETag"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filtre les identifications ETag, mais pour la première utilisation, veuillez vider le cache",
+        "description": "Titre pour le bouton de filtrage ETag"
     }
 }
