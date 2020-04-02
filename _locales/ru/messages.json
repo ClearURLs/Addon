@@ -301,6 +301,16 @@
         "message": "Разрешить рефералы маркетинга",
         "description": "This string is used as title for the referral marketing switch"
     },
+    "watchdog": {
+        "message": "[ClearURLs]: сторожевой таймер обнаружил проблему. ClearURLs будет перезапущен.",
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
     "domain_blocking_enabled": {
         "message": "Разрешить блокировку домена (может вызвать проблемы на сайтах, которые запрещают AdBlocker)",
         "description": "This string is used as label for the domain blocking switch"
@@ -320,5 +330,21 @@
     "ping_blocking_enabled_title": {
         "message": "Блокировка аудита гиперссылок",
         "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "Удаление элементов слежения из URL-адресов.",
+        "description": "Описание расширения"
+    },
+    "eTag_filtering_log": {
+        "message": "Заголовок ETag был удален из этого запроса",
+        "description": "This string is used on ETag header filtering in the ClearURLs log."
+    },
+    "eTag_filtering_enabled": {
+        "message": "Фильтровать заголовки ETag из запросов (см. <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>эту статью</a>)",
+        "description": "This string is used as label for the ETag header filtering switch"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Фильтрация заголовков ETag. Примечание: очистите кэш перед первым использованием.",
+        "description": "This string is used as title for the ETag header filtering switch"
     }
 }
