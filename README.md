@@ -43,12 +43,10 @@ Reasoning for needed permissions can be found under [here](https://gitlab.com/Ke
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
 
-[Firefox](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls_firefox.zip?job=build%20firefox)
-
-[Chrome](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls_chrome.zip?job=build%20chrome)
+[<img src="promotion/download-128.png"/>](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls.zip?job=bundle%20addon)
 
 ## Test
-If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://clearurls.roebert.eu/](https://clearurls.roebert.eu/)
+If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://kevinroebert.gitlab.io/ClearUrls/](https://kevinroebert.gitlab.io/ClearUrls/)
 
 ## Contribute
 If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
@@ -72,6 +70,7 @@ Please push your translation into the folder `_locales/{country code}/messages.j
 ## Projects that use parts of ClearURLs
 
 * [Uroute](https://github.com/walterl/uroute) used ClearURLs to filter/clean URL before launching browser
+* [Scrub](https://gitlab.com/CrunchBangDev/cbd-cogs/-/tree/master/Scrub) used ClearURLs to filter/clean URLs as cog for the Red Discord bot
 
 ## Recommended by...
 *  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)

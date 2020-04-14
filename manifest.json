@@ -1,16 +1,11 @@
 {
     "manifest_version": 2,
     "name": "ClearURLs",
-    "version": "1.16.0",
+    "version": "1.17.0",
     "author": "Kevin Röbert",
     "description": "__MSG_extension_description__",
     "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
     "default_locale": "en",
-    "applications": {
-        "gecko": {
-            "id": "{74145f27-f039-47ce-a470-a662b129930a}"
-        }
-    },
     "icons": {
         "16": "img/clearurls_16x16.png",
         "19": "img/clearurls_19x19.png",
@@ -74,14 +69,6 @@
         ]
     },
     "content_scripts": [
-        {
-            "matches": [
-                "<all_urls>"
-            ],
-            "js": [
-                "browser-polyfill.js"
-            ]
-        },
         {
             "all_frames": true,
             "matches": [

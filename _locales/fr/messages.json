@@ -1,8 +1,4 @@
 {
-    "extension_description": {
-        "message": "Retirer les espions dans les adresses Internet.",
-        "description": "Description des fonctions ; utilisez au maximum 132 caractères."
-    },
     "hash_status_code_1": {
         "message": "à jour",
         "description": "Les règles ClearURLs sont parfaitement à jour."
@@ -334,6 +330,10 @@
     "ping_blocking_enabled_title": {
         "message": "Bloquer l’espionnage auditing",
         "description": "Utilisé comme titre pour le bouton, commutateur, de l’audit des liens hypertextes"
+    },
+    "extension_description": {
+        "message": "Retirer les espions dans les adresses Internet.",
+        "description": "Description des fonctions ; utilisez au maximum 132 caractères."
     },
     "eTag_filtering_log": {
         "message": "L’identification ETag a été supprimée",

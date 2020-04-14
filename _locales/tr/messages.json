@@ -301,6 +301,16 @@
         "message": "Tavsiye pazarlamasına izin verir",
         "description": "Bu dize tavsiye pazarlama anahtarı için başlık olarak kullanılır"
     },
+    "watchdog": {
+        "message": "[ClearURL'ler]: Güvenlik Zamanlayıcısı bir sorun tespit etti. ClearURL'ler yeniden başlatıldı.",
+        "description": "Bu dize güvenlik zamanlayıcısı için metin olarak kullanılır.",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
     "domain_blocking_enabled": {
         "message": "Alan adı engellemeye izin ver (Reklam Engelleyicilere izin vermeyen sayfalarda sorunlara neden olabilir)",
         "description": "Bu dize, alan adı engelleme anahtarı için etiket olarak kullanılır"
@@ -320,5 +330,21 @@
     "ping_blocking_enabled_title": {
         "message": "Köprü denetimini engelle",
         "description": "Bu dize köprü denetim engelleme anahtarının başlığı olarak kullanılır"
+    },
+    "extension_description": {
+        "message": "İzleme öğelerini URL'lerden kaldırın.",
+        "description": "Uzantı açıklaması."
+    },
+    "eTag_filtering_log": {
+        "message": "ETag başlığı bu istekten kaldırıldı",
+        "description": "Bu dize, ClearURLs günlüğünde ETag üstbilgisi filtrelemesinde kullanılır."
+    },
+    "eTag_filtering_enabled": {
+        "message": "ETag başlıklarını isteklerden filtreler (Ayrıca bkz. <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>Bu makaleye</a>)",
+        "description": "Bu dize, ETag başlık filtreleme anahtarı için etiket olarak kullanılır"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "ETag başlıklarını filtreler. İpucu: İlk kullanımdan önce önbellek temizlenmelidir.",
+        "description": "Bu dize, ETag başlık filtreleme anahtarının başlığı olarak kullanılır"
     }
 }

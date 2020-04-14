@@ -233,9 +233,13 @@ function setBadgedStatus() {
             browser.browserAction.setBadgeBackgroundColor({
                 'color': color
             }).catch(handleError);
-            browser.browserAction.setBadgeTextColor({
-                color: "#FFFFFF"
-            }).catch(handleError);
+
+            // Works only in Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeTextColor#Browser_compatibility
+            if (getBrowser() === "Firefox") {
+                browser.browserAction.setBadgeTextColor({
+                    color: "#FFFFFF"
+                }).catch(handleError);
+            }
         }
     });
 }
@@ -283,7 +287,7 @@ Object.prototype.getOrDefault = function (key, defaultValue) {
 };
 
 function handleError(error) {
-    console.log(translate('core_error') + ":" + error);
+    console.log("[ClearURLs ERROR]:" + error);
 }
 
 /**

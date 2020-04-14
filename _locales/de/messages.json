@@ -1,8 +1,4 @@
 {
-    "extension_description": {
-        "message": "Entfernt Tracking-Elemente von URLs.",
-        "description": "Erweiterungsbeschreibung (max. 132 Zeichen)"
-    },
     "hash_status_code_1": {
         "message": "Aktuell",
         "description": "Dieser Statuscode besagt, dass kein Update für die ClearURLs-Regeln verfügbar ist und alles auf dem neuesten Stand ist."
@@ -334,6 +330,10 @@
     "ping_blocking_enabled_title": {
         "message": "Blockiere Hyperlink Auditing Anfragen",
         "description": "Diese Zeichenkette wird als Titel für das Hyperlink Auditing-Blocking verwendet."
+    },
+    "extension_description": {
+        "message": "Entfernt Tracking-Elemente von URLs.",
+        "description": "Erweiterungsbeschreibung (max. 132 Zeichen)"
     },
     "eTag_filtering_log": {
         "message": "ETag-Header wurde aus dieser Anfrage entfernt",

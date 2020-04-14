@@ -301,6 +301,10 @@
         "message": "Permette l'utilizzo del referral marketing (esempio: Amazon)",
         "description": "This string is used as title for the referral marketing switch"
     },
+    "watchdog": {
+        "message": "[ClearURLs]: Il sistema di controllo ha identificato un problema. ClearURLs verrà riavviato.",
+        "description": "This string is used as text for the watchdog"
+    },
     "domain_blocking_enabled": {
         "message": "Permetti il blocco dei domini (può portare a problemi su pagine che non consentono AdBlocker)",
         "description": "This string is used as label for the domain blocking switch"

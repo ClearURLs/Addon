@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.17.0] - 2020-04-14
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 22
+
+### Changed
+- Updated some strings of Spanish translation
+- Updated some strings of French translation
+- Updated some strings of Italian translation
+- Updated some strings of Russian translation
+- Updated some strings of Swedish translation
+- Updated some strings of Turkish translation
+- Updated some strings of Ukrainian translation
+- Updated some strings of Chinese Simple translation
+
+### Fixed
+- Fixed a typo in the path to the Datatables JavaScript file
+- Fixed [#445](https://gitlab.com/KevinRoebert/ClearUrls/issues/445)
+- Fixed [#462](https://gitlab.com/KevinRoebert/ClearUrls/issues/462)
+
+### Added
+- Added check for setBadgeTextColor function (only supported in Firefox)
+
+### Removed
+- Removed browser-polyfill content script import (seems no longer needed)
+- Removed old `applications` value
+
 ## [1.16.0] - 2020-03-20
 
 ### Compatibility note

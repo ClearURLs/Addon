@@ -207,10 +207,6 @@
         "message": "顯示右鍵選單項目",
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
-    "history_listener_enabled": {
-        "message": "Prevent tracking injection over history API (詳見: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
-        "description": "This string is used as name for the history API listener label."
-    },
     "cleaning_tool_page_title": {
         "message": "ClearURLs的網址清理工具",
         "description": "This string is used as title on the cleaning tool page."

@@ -22,7 +22,8 @@
  * Filters eTag headers from web requests.
  */
 function eTagFilter(requestDetails) {
-    if(!requestDetails.responseHeaders || !storage.eTagFiltering) return {};
+    if(!requestDetails.responseHeaders || !storage.eTagFiltering
+        || storage.localHostsSkipping && checkLocalURL(requestDetails.url)) return {};
     const responseHeaders = requestDetails.responseHeaders;
 
     const filteredHeaders = responseHeaders.filter(header => {

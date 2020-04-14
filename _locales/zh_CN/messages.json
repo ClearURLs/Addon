@@ -207,10 +207,6 @@
         "message": "显示右键选单条目",
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
-    "history_listener_enabled": {
-        "message": "Prevent tracking injection over history API (详见: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
-        "description": "This string is used as name for the history API listener label."
-    },
     "cleaning_tool_page_title": {
         "message": "ClearURLs的网址清理工具",
         "description": "This string is used as title on the cleaning tool page."
@@ -230,5 +226,9 @@
     "cleaning_tool_clean_urls_label": {
         "message": "清理后的网址:",
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "跳过本地主机链接（10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost）",
+        "description": "This string is used as label for the local host skipping switch"
     }
 }

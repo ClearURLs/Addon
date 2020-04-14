@@ -301,6 +301,10 @@
         "message": "Tillåt referral marketing",
         "description": "This string is used as title for the referral marketing switch"
     },
+    "watchdog": {
+        "message": "[ClearURLs]: Ett problem har upptäckts. ClearURLs startar om.",
+        "description": "This string is used as text for the watchdog"
+    },
     "domain_blocking_enabled": {
         "message": "Tillåt domänblockering (Kan leda till problem på sidor som inte tillåter AdBlockers)",
         "description": "This string is used as label for the domain blocking switch"

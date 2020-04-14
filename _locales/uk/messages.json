@@ -72,7 +72,7 @@
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
-        "message": "Журнал",
+        "message": "Логування",
         "description": "This string is used as name for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_log_title": {
@@ -198,5 +198,153 @@
     "donate_button": {
         "message": "Внесок для розробників ClearURLs.",
         "description": "This string is used to refer to a donation page."
+    },
+    "clipboard_copy_link": {
+        "message": "Скопіювати \"чисте\" посилання",
+        "description": "This string is used in the context menu to copy clean links."
+    },
+    "context_menu_enabled": {
+        "message": "Відобразити контекстне меню",
+        "description": "This string is used toggle the context menu entry to copy clean links."
+    },
+    "history_listener_enabled": {
+        "message": "Запобігти трекінг через API історії браузеру (див. також: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>Метод replaceState()</a>)",
+        "description": "This string is used as name for the history API listener label."
+    },
+    "cleaning_tool_page_title": {
+        "message": "ClearURLs є утилітою очищення посилань",
+        "description": "This string is used as title on the cleaning tool page."
+    },
+    "cleaning_tool_description": {
+        "message": "За допомогою цієї утиліти ви можете вставити URL-адреси для ії \"очищення\" після натискання на зелену кнопку. Ви можете вставити відразу кілька URL-адрес, але кожна URL-адреса повинна бути на окремому рядку.",
+        "description": "This string is used as description of the cleaning tool."
+    },
+    "cleaning_tool_btn": {
+        "message": "\"Чисті\" посилання",
+        "description": "This string is used as name for the clean url button."
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Тут ви можете вставити \"брудні\" посилання:",
+        "description": "This string is used as title on the cleaning tool page for the dirty URLs."
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Тут ви можете знайти \"чисті\" посилання:",
+        "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "Не фільтрувати посилання на локальних адресах (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "message": "Не фільтрує посилання на локальних адресах",
+        "description": "This string is used as title for the local host skipping switch"
+    },
+    "log_html_export_button": {
+        "message": "Експорт",
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "message": "Експортувати глобальний лог",
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "message": "Імпорт",
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "message": "Імпортувати глобальний лог",
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "setting_html_export_button": {
+        "message": "Експрот",
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "message": "Експортує все",
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "message": "Імпорт",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "message": "Імпортує все",
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_log_limit_label": {
+        "message": "Обмежити логування $LIMIT$ записів.",
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "Цей сайт було заблоковано додатком <b>ClearURLs</b>",
+        "description": "This string is used as title on the blocked site page."
+    },
+    "blocked_html_body": {
+        "message": "Цей сайт було заблоковано додатком <b>ClearURLs</b>, оскільки ми ідентифікували його як рекламний і/або трекінговий сервіс.\nДля того, щоб відвідати цей сайт, ви повинні тимчасово відключати додаток або виключати блокування доменів в налаштуваннях ClearURLs.\nПісля цього ви зможете натитснути кнопку нижче, щоб завантажити сторінку.",
+        "description": "This string is used as body on the blocked site page."
+    },
+    "blocked_html_button": {
+        "message": "Відвідати сторінку",
+        "description": "This string is used as button on the blocked site page."
+    },
+    "referral_marketing_enabled": {
+        "message": "Дозволити реферальний маркетинг",
+        "description": "This string is used as label for the referral marketing switch"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "Дозволяє реферальний маркетинг",
+        "description": "This string is used as title for the referral marketing switch"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: \"Сторожовий пес\" помітив проблему та вилетів $TIMES$ разів.\n",
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
+    "domain_blocking_enabled": {
+        "message": "Дозволити блокування домену (Може привести до проблем на сайтах, які блокують AdBlocker'и)",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Дозволити блокування домену (Може привести до проблем на сайтах, які блокують AdBlocker'и)",
+        "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "Цей аудит гіперпосилань було заблоковано",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "message": "Відключити аудит гіперпосилань (див. також <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>цю статтю</a>)",
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Блокувати аудит гіперпосилань",
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "Видалити елементи трекінгу з посилань",
+        "description": "Опис додатку (максимум 132 символи)"
+    },
+    "eTag_filtering_log": {
+        "message": "ETag був видалений з цього запиту",
+        "description": "Ця стрічка використовується для фільтрації заголовків ETag у журналі ClearURL."
+    },
+    "eTag_filtering_enabled": {
+        "message": "Фільтрує ETag заголовки в запитах (див. також <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>цю статтю</a>)",
+        "description": "Цей рядок використовується, як мітка для перемикача фільтра заголовка ETag"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Фільтри заголовків ETag. \nПідказка: Кеш повинен бути скинутим перед першим використанням.",
+        "description": "Цей рядок використовується, як заголовок для перемикача фільтра заголовка ETag"
     }
 }
