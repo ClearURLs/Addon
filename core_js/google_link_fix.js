@@ -30,7 +30,7 @@
 
         ele.type = 'text/javascript';
         ele.textContent = "Object.defineProperty(window, 'rwt', {" +
-        "    value: function() { return false; }," +
+        "    value: function() { return true; }," +
         "    writable: false," +
         "    configurable: false" +
         "});";

@@ -3,7 +3,7 @@ image: debian:latest
 before_script:
   - export DEBIAN_FRONTEND= noninteractive
   - apt-get update -y
-  - apt-get install -y zip unzip jq nodejs
+  - apt-get install -y zip unzip nodejs
 
 stages:
   - build
@@ -23,30 +23,17 @@ hash rules:
   only:
     - master
 
-build firefox:
+bundle addon:
   stage: build
   script:
-    - zip ClearUrls_firefox -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
+    - zip ClearUrls -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
 
   only:
     - master
 
   artifacts:
     paths:
-      - ClearUrls_firefox.zip
-
-build chrome:
-  stage: build
-  script:
-    - jq 'del(.applications)' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
-    - zip ClearUrls_chrome -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
-
-  only:
-    - master
-
-  artifacts:
-    paths:
-      - ClearUrls_chrome.zip
+      - ClearUrls.zip
 
 pages:
   stage: deploy
