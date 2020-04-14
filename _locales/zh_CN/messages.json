@@ -207,9 +207,6 @@
         "message": "显示右键选单条目",
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
-    "history_listener_enabled": {
-        "description": "This string is used as name for the history API listener label."
-    },
     "cleaning_tool_page_title": {
         "message": "ClearURLs的网址清理工具",
         "description": "This string is used as title on the cleaning tool page."
