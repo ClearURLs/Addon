@@ -312,14 +312,5 @@
     "domain_blocking_enabled_title": {
         "message": "Tillåt domänblockering (Kan leda till problem på sidor som inte tillåter AdBlockers)",
         "description": "This string is used as title for the domain blocking switch"
-    },
-    "log_ping_blocked": {
-        "description": "This string is used on hyperlink auditing in the ClearURLs log."
-    },
-    "ping_blocking_enabled": {
-        "description": "This string is used as label for the hyperlink auditing blocking switch"
-    },
-    "ping_blocking_enabled_title": {
-        "description": "This string is used as title for the hyperlink auditing blocking switch"
     }
 }
