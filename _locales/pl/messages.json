@@ -179,6 +179,10 @@
         "message": "Url do pliku rules.hash (hash)",
         "description": "This string is used as name for the rule.hash url label."
     },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
+        "description": "This string is used as name for the types label."
+    },
     "setting_report_server_label": {
         "message": "Serwer raportów dla adresów URL",
         "description": "Note: Currently not used."
@@ -226,5 +230,77 @@
     "cleaning_tool_clean_urls_label": {
         "message": "Tu możesz znaleźć oczyszczone URL:",
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "description": "This string is used as title for the local host skipping switch"
+    },
+    "log_html_export_button": {
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "setting_html_export_button": {
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_log_limit_label": {
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "description": "This string is used as title on the blocked site page."
+    },
+    "blocked_html_body": {
+        "description": "This string is used as body on the blocked site page."
+    },
+    "blocked_html_button": {
+        "description": "This string is used as button on the blocked site page."
+    },
+    "referral_marketing_enabled": {
+        "description": "This string is used as label for the referral marketing switch"
+    },
+    "referral_marketing_enabled_title": {
+        "description": "This string is used as title for the referral marketing switch"
+    },
+    "watchdog": {
+        "description": "This string is used as text for the watchdog"
+    },
+    "domain_blocking_enabled": {
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
     }
 }
