@@ -38,7 +38,6 @@
         "default_popup": "html/popup.html"
     },
     "permissions": [
-        "*://*/*",
         "<all_urls>",
         "webRequest",
         "webRequestBlocking",
