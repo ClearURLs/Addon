@@ -199,7 +199,7 @@ function initSettings() {
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
     storage.referralMarketing = false;
-    storage.logLimit = -1;
+    storage.logLimit = 100;
     storage.domainBlocking = true;
     storage.pingBlocking = true;
     storage.eTagFiltering = true;
