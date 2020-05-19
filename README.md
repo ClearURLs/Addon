@@ -75,8 +75,9 @@ Please push your translation into the folder `_locales/{country code}/messages.j
 ## Recommended by...
 *  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)
 *  [Awesome Humane Tech List](https://github.com/humanetech-community/awesome-humane-tech#tracking)
+*  [PrivacyTools](https://www.privacytools.io/browsers/#addons)
 *  ClearURLs is part of Mozilla's recommended extensions program
-  
+
 ## Permissions
 Reasoning for needed permissions you can find under [this discussion](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
 
