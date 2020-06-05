@@ -24,18 +24,18 @@ var length = 0;
 /**
 * Load only when document is ready
 */
-$(document).ready(function(){
+(function() {
     setText();
-    $('#cleaning_tool_btn').on("click", cleanURLs);
-});
+    document.getElementById('cleaning_tool_btn').onclick = cleanURLs;
+})();
 
 /**
 * This function cleans all URLs line by line in the textarea.
 */
 function cleanURLs() {
-    const cleanTArea = $('#cleanURLs');
-    const dirtyTArea = $('#dirtyURLs');
-    const urls = dirtyTArea.val().split('\n');
+    const cleanTArea = document.getElementById('cleanURLs');
+    const dirtyTArea = document.getElementById('dirtyURLs');
+    const urls = dirtyTArea.value.split('\n');
     cleanedURLs = [];
     length = urls.length;
 
@@ -46,7 +46,7 @@ function cleanURLs() {
         }).then((data) => {
             cleanedURLs.push(data.response);
             if(i >= length-1) {
-                cleanTArea.val(cleanedURLs.join('\n'));
+                cleanTArea.value= cleanedURLs.join('\n');
             }
         }, handleError);
     }
@@ -68,11 +68,11 @@ function translate(string)
 function setText()
 {
     document.title = translate('cleaning_tool_page_title');
-    $('#page_title').text(translate('cleaning_tool_page_title'));
-    $('#cleaning_tool_description').text(translate('cleaning_tool_description'));
-    $('#cleaning_tool_btn').text(translate('cleaning_tool_btn'));
-    $('#cleaning_tool_dirty_urls_label').text(translate('cleaning_tool_dirty_urls_label'));
-    $('#cleaning_tool_clean_urls_label').text(translate('cleaning_tool_clean_urls_label'));
+    document.getElementById('page_title').textContent = translate('cleaning_tool_page_title');
+    document.getElementById('cleaning_tool_description').textContent = translate('cleaning_tool_description');
+    document.getElementById('cleaning_tool_btn').textContent = translate('cleaning_tool_btn');
+    document.getElementById('cleaning_tool_dirty_urls_label').textContent = translate('cleaning_tool_dirty_urls_label');
+    document.getElementById('cleaning_tool_clean_urls_label').textContent = translate('cleaning_tool_clean_urls_label');
 }
 
 function handleError(error) {

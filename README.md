@@ -92,14 +92,8 @@ We use some third-party scripts in our add-on. The authors and licenses are list
 -   [jQuery v3.4.1](https://github.com/jquery/jquery/tree/3.4.1) |
     Copyright JS Foundation and other contributors |
     [MIT](https://jquery.org/license/)
--   [sha256.jquery.plugin](https://github.com/orsozed/sha256.jquery.plugin) |
-    Copyright 2003, Christoph Bichlmeier |
-    [MIT](https://raw.github.com/orsozed/JQuery-Plugins/master/license/MIT-LICENSE.txt) |
-    [GPLv2](https://raw.github.com/orsozed/JQuery-Plugins/master/license/GPL-LICENSE.txt)
 -   [DataTables v1.10.20](https://github.com/DataTables/DataTables/tree/master) |  Copyright (c) 2008-2015 SpryMedia Limited | [MIT](https://datatables.net/license/)
--   [Popper.js v1.16.0](https://github.com/popperjs/popper.js/tree/v1.16.0) | Copyright (c) 2016 Federico Zivolo and contributors |
-    [MIT](https://github.com/popperjs/popper.js/blob/master/LICENSE.md)
--   [Bootstrap Colorpicker v3.2.0](https://github.com/itsjavi/bootstrap-colorpicker/tree/3.2.0) | Copyright (c) 2017 Javi Aguilar |
-    [MIT](https://github.com/itsjavi/bootstrap-colorpicker/blob/master/LICENSE)
+-   [Pickr v1.7.0](https://github.com/Simonwep/pickr/tree/1.7.0) | Copyright (c) 2018 - 2020 Simon Reinisch |
+    [MIT](https://github.com/Simonwep/pickr/blob/master/LICENSE)
 -   [Font Awesome v5.12.0](https://github.com/FortAwesome/Font-Awesome/tree/5.12.0) | Copyright (c) @fontawesome |
     [Font Awesome Free License](https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)

@@ -21,6 +21,9 @@
 * This script is responsible for some tools.
 */
 
+// Needed by the sha256 method
+const enc = new TextEncoder();
+
 // Max amount of log entries to prevent performance issues
 const logThreshold = 5000;
 
@@ -290,7 +293,7 @@ Object.prototype.getOrDefault = function (key, defaultValue) {
 };
 
 function handleError(error) {
-    console.log("[ClearURLs ERROR]:" + error);
+    console.error("[ClearURLs ERROR]:" + error);
 }
 
 /**
@@ -326,4 +329,21 @@ function pushToLog(beforeProcessing, afterProcessing, rule) {
  */
 function isStorageAvailable() {
     return storage.ClearURLsData.length !== 0;
+}
+
+/**
+ * This method calculates the SHA-256 hash as HEX string of the given message.
+ * This method uses the native hashing implementations of the SubtleCrypto interface which is supported by all browsers
+ * that implement the Web Cryptography API specification and is based on:
+ * https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
+ *
+ * @param message message for which the hash should be calculated
+ * @returns {Promise<string>} SHA-256 of the given message
+ */
+async function sha256(message) {
+    const msgUint8 = enc.encode(message);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }

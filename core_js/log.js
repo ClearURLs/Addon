@@ -52,21 +52,32 @@ function getLog()
             return b.timestamp - a.timestamp;
         });
 
-        const length = Object.keys(log.log).length;
-        let row;
-        if(length !== 0)
-        {
-            for(let i=0; i<length;i++)
-            {
-                row = "<tr>" +
-                "<td>"+log.log[i].before+"</td>" +
-                "<td>"+log.log[i].after+"</td>" +
-                "<td>"+log.log[i].rule+"</td>" +
-                "<td>"+toDate(log.log[i].timestamp)+"</td>";
-                $('#tbody').append(row);
-            }
-        }
         $('#logTable').DataTable({
+            "data": log.log,
+            "columns": [
+                {
+                    "data": "before",
+                    "type": "string"
+                },
+                {
+                    "data": "after",
+                    "type": "string"
+                },
+                {
+                    "data": "rule",
+                    "type": "string"
+                },
+                {
+                    "data": "timestamp",
+                    "type": "date"
+                }
+            ],
+            "columnDefs": [
+                {
+                    targets: 3,
+                    render: toDate
+                }
+            ],
             "pageLength": 10,
             "language": {
                 "url": getDataTableTranslation()
@@ -132,13 +143,13 @@ function importGlobalLog(evt) {
 /**
 * Load only when document is ready
 */
-$(document).ready(function(){
+(function () {
     setText();
     getLog();
-    $('#reset_log_btn').on("click", resetGlobalLog);
-    $('#export_log_btn').on("click", exportGlobalLog);
-    $('#importLog').on("change", importGlobalLog);
-});
+    document.getElementById('reset_log_btn').onclick = resetGlobalLog;
+    document.getElementById('export_log_btn').onclick = exportGlobalLog;
+    document.getElementById('importLog').onchange = importGlobalLog;
+})();
 
 /**
 * Translate a string with the i18n API.
@@ -156,17 +167,17 @@ function translate(string)
 function setText()
 {
     document.title = translate('log_html_page_title');
-    $('#page_title').text(translate('log_html_page_title'));
-    $('#reset_log_btn').text(translate('log_html_reset_button'))
-        .prop('title', translate('log_html_reset_button_title'));
-    $('#head_1').text(translate('log_html_table_head_1'));
-    $('#head_2').text(translate('log_html_table_head_2'));
-    $('#head_3').text(translate('log_html_table_head_3'));
-    $('#head_4').text(translate('log_html_table_head_4'));
-    $('#export_log_btn_text').text(translate('log_html_export_button'));
-    $('#export_log_btn').prop('title', translate('log_html_export_button_title'));
-    $('#import_log_btn_text').text(translate('log_html_import_button'));
-    $('#importLog').prop('title', translate('log_html_import_button_title'));
+    document.getElementById('page_title').textContent = translate('log_html_page_title');
+    document.getElementById('reset_log_btn').textContent = translate('log_html_reset_button');
+    document.getElementById('reset_log_btn').setAttribute('title', translate('log_html_reset_button_title'));
+    document.getElementById('head_1').textContent = translate('log_html_table_head_1');
+    document.getElementById('head_2').textContent = translate('log_html_table_head_2');
+    document.getElementById('head_3').textContent = translate('log_html_table_head_3');
+    document.getElementById('head_4').textContent = translate('log_html_table_head_4');
+    document.getElementById('export_log_btn_text').textContent = translate('log_html_export_button');
+    document.getElementById('export_log_btn').setAttribute('title', translate('log_html_export_button_title'));
+    document.getElementById('import_log_btn_text').textContent = translate('log_html_import_button');
+    document.getElementById('importLog').setAttribute('title', translate('log_html_import_button_title'));
 }
 
 function handleError(error) {
