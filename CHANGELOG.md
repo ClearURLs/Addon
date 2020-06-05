@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.18.0] - 2020-06-06
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Removed
+- sha256.jquery.plugin
+- Popper.js v1.16.0
+- Bootstrap Colorpicker v3.2.0
+- Removed `xbl` type from request types, because it throws since 78.0b3 exceptions (no longer supported)
+
+### Added
+- Pickr v1.7.0
+
+### Changed
+- Replaced sha256.jquery.plugin with native hashing
+- Replaced jQuery dependencies with native JavaScript in all core files (jQuery is only required for the log page)
+    - Hopefully this fixes the performance problems that some users experience when using this addon in conjunction with other addons
+    - [#256](https://gitlab.com/KevinRoebert/ClearUrls/issues/256)
+    - [#535](https://gitlab.com/KevinRoebert/ClearUrls/issues/535)
+- Restricted the log limit to max. 5000 entries
+    - Default value is now 100
+    - Too many log entries have resulted in performance losses for users who have forgotten that they have turned on the log. This step should prevent this.
+
+
 ## [1.17.0] - 2020-04-14
 
 ### Compatibility note
