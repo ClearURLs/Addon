@@ -272,7 +272,7 @@
         "description": "This string is used as title for the import button on the settings page."
     },
     "setting_log_limit_label": {
-        "message": "Limita le voci di log a $LIMIT$. (-1 := ∞)",
+        "message": "Limita le voci di log a $LIMIT$.",
         "description": "This string is used as name for the log limit label.",
         "placeholders": {
             "limit": {

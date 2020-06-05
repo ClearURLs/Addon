@@ -272,7 +272,7 @@
         "description": "This string is used as title for the import button on the settings page."
     },
     "setting_log_limit_label": {
-        "message": "Limitar el tamaño del registro a $LIMIT$ eventos. (-1 := ∞)",
+        "message": "Limitar el tamaño del registro a $LIMIT$ eventos.",
         "description": "This string is used as name for the log limit label.",
         "placeholders": {
             "limit": {

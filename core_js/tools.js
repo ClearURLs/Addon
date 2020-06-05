@@ -24,6 +24,9 @@
 // Needed by the sha256 method
 const enc = new TextEncoder();
 
+// Max amount of log entries to prevent performance issues
+const logThreshold = 5000;
+
 /*
 * To support Waterfox.
 */
@@ -296,8 +299,6 @@ function handleError(error) {
 /**
  * Function to log all activities from ClearUrls.
  * Only logging when activated.
- * The log is only temporary saved in the cache and will
- * permanently saved with the saveLogOnClose function.
  *
  * @param beforeProcessing  the url before the clear process
  * @param afterProcessing   the url after the clear process
@@ -305,11 +306,10 @@ function handleError(error) {
  */
 function pushToLog(beforeProcessing, afterProcessing, rule) {
     const limit = storage.logLimit;
-    if (storage.loggingStatus && limit !== 0) {
-        if (limit > 0 && !isNaN(limit)) {
-            while (storage.log.log.length >= limit) {
-                storage.log.log.shift();
-            }
+    if (storage.loggingStatus && limit !== 0 && !isNaN(limit)) {
+        while (storage.log.log.length >= limit
+        || storage.log.log.length >= logThreshold) {
+            storage.log.log.shift();
         }
 
         storage.log.log.push(

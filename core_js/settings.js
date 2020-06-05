@@ -65,7 +65,7 @@ function save()
         .then(() => saveData("ruleURL", $('input[name=ruleURL]').val()))
         .then(() => saveData("hashURL", $('input[name=hashURL]').val()))
         .then(() => saveData("types", $('input[name=types]').val()))
-        .then(() => saveData("logLimit", $('input[name=logLimit]').val()))
+        .then(() => saveData("logLimit", Math.max(0, Math.min(5000, $('input[name=logLimit]').val()))))
         .then(() => browser.runtime.sendMessage({
             function: "setBadgedStatus",
             params: []
