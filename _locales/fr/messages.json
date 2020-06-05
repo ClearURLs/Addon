@@ -272,7 +272,7 @@
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options."
     },
     "setting_log_limit_label": {
-        "message": "Nombre d’éléments à enregistrer dans le journal, $LIMIT$ de -1 à l’infini (-1 := ∞)",
+        "message": "Nombre d’éléments à enregistrer dans le journal, $LIMIT$ de -1 à l’infini",
         "description": "Sert à afficher la signification de la fonction sur la page qui affiche les options.",
         "placeholders": {
             "limit": {
