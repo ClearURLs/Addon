@@ -370,5 +370,9 @@
     "popup_html_configs_head_title": {
         "message": "",
         "description": "not needed, only to prevent exceptions"
+    },
+    "context_menu_enabled_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
     }
 }

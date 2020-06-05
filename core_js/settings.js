@@ -18,28 +18,47 @@
 
 var settings = [];
 
-getData();
-
-/**
-* Load only when document is ready
-*/
-$(document).ready(function(){
-    setText();
-    $("#badged-color-picker").colorpicker({
-        format: "hex"
-    });
-    $('#reset_settings_btn').on("click", reset);
-    $('#export_settings_btn').on("click", exportSettings);
-    $('#importSettings').on("change", importSettings);
-    $('#save_settings_btn').on("click", save);
+const pickr = Pickr.create({
+    el: '#badged-color-picker',
+    theme: 'nano',
+    components: {
+        preview: true,
+        opacity: true,
+        hue: true,
+        default: '#FFA500',
+        comparison: false,
+        interaction: {
+            hex: true,
+            rgba: false,
+            hsla: false,
+            hsva: false,
+            cmyk: false,
+            input: true,
+            clear: false,
+            save: true
+        }
+    }
 });
 
 /**
-* Reset everything.
-* Set everthing to the default values.
-*/
-function reset()
-{
+ * Load only when document is ready
+ */
+(function () {
+    pickr.on('init', () => {
+        getData();
+        setText();
+        document.getElementById('reset_settings_btn').onclick = reset;
+        document.getElementById('export_settings_btn').onclick = exportSettings;
+        document.getElementById('importSettings').onchange = importSettings;
+        document.getElementById('save_settings_btn').onclick = save;
+    });
+})();
+
+/**
+ * Reset everything.
+ * Set everthing to the default values.
+ */
+function reset() {
     browser.runtime.sendMessage({
         function: "initSettings",
         params: []
@@ -57,15 +76,14 @@ function reset()
 }
 
 /**
-* Saves the settings.
-*/
-function save()
-{
-    saveData("badged_color", $('input[name=badged_color]').val())
-        .then(() => saveData("ruleURL", $('input[name=ruleURL]').val()))
-        .then(() => saveData("hashURL", $('input[name=hashURL]').val()))
-        .then(() => saveData("types", $('input[name=types]').val()))
-        .then(() => saveData("logLimit", Math.max(0, Math.min(5000, $('input[name=logLimit]').val()))))
+ * Saves the settings.
+ */
+function save() {
+    saveData("badged_color", pickr.getColor().toHEXA().toString())
+        .then(() => saveData("ruleURL", document.querySelector('input[name=ruleURL]').value))
+        .then(() => saveData("hashURL", document.querySelector('input[name=hashURL]').value))
+        .then(() => saveData("types", document.querySelector('input[name=types]').value))
+        .then(() => saveData("logLimit", Math.max(0, Math.min(5000, document.querySelector('input[name=logLimit]').value))))
         .then(() => browser.runtime.sendMessage({
             function: "setBadgedStatus",
             params: []
@@ -85,27 +103,32 @@ function save()
  *
  * @param {string} string           Name of the attribute used for localization
  * @param {string[]} placeholders   Array of placeholders
-*/
-function translate(string, ...placeholders)
-{
+ */
+function translate(string, ...placeholders) {
     return browser.i18n.getMessage(string, placeholders);
 }
 
 /**
-* Get the data.
-*/
-function getData()
-{
-    loadData("badged_color")
-        .then(() => loadData("ruleURL"))
+ * Get the data.
+ */
+function getData() {
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ["badged_color"]
+    }).then(data => {
+        settings["badged_color"] = data.response;
+        pickr.setColor(data.response, false);
+    }).catch(handleError);
+
+    loadData("ruleURL")
         .then(() => loadData("hashURL"))
         .then(() => loadData("types"))
         .then(() => loadData("logLimit"))
         .then(logData => {
-            if(logData.response === undefined || logData.response === -1) {
-                $('#logLimit_label').text(translate('setting_log_limit_label', "∞"));
+            if (logData.response === undefined) {
+                document.getElementById('logLimit_label').textContent = translate('setting_log_limit_label', "0");
             } else {
-                $('#logLimit_label').text(translate('setting_log_limit_label', logData.response));
+                document.getElementById('logLimit_label').textContent = translate('setting_log_limit_label', logData.response);
             }
         }).catch(handleError);
 
@@ -140,7 +163,10 @@ async function loadData(name) {
             params: [name]
         }).then(data => {
             settings[name] = data.response;
-            $('input[name='+name+']').val(data.response);
+            if (document.querySelector('input[id=' + name + ']') == null) {
+                console.debug(name)
+            }
+            document.querySelector('input[id=' + name + ']').value = data.response;
             resolve(data);
         }, handleError);
     });
@@ -166,33 +192,32 @@ async function saveData(key, data) {
 }
 
 /**
-* Set the text for the UI.
-*/
-function setText()
-{
+ * Set the text for the UI.
+ */
+function setText() {
     document.title = translate('settings_html_page_title');
-    $('#page_title').text(translate('settings_html_page_title'));
-    $('#badged_color_label').text(translate('badged_color_label'));
-    $('#reset_settings_btn').text(translate('setting_html_reset_button'))
-        .prop('title', translate('setting_html_reset_button_title'));
-    $('#rule_url_label').text(translate('setting_rule_url_label'));
-    $('#hash_url_label').text(translate('setting_hash_url_label'));
-    $('#types_label').html(translate('setting_types_label'));
-    $('#save_settings_btn').text(translate('settings_html_save_button'))
-        .prop('title', translate('settings_html_save_button_title'));
+    document.getElementById('page_title').textContent = translate('settings_html_page_title');
+    document.getElementById('badged_color_label').textContent = translate('badged_color_label');
+    document.getElementById('reset_settings_btn').textContent = translate('setting_html_reset_button');
+    document.getElementById('reset_settings_btn').setAttribute('title', translate('setting_html_reset_button_title'));
+    document.getElementById('rule_url_label').textContent = translate('setting_rule_url_label');
+    document.getElementById('hash_url_label').textContent = translate('setting_hash_url_label');
+    document.getElementById('types_label').innerHTML = translate('setting_types_label');
+    document.getElementById('save_settings_btn').textContent = translate('settings_html_save_button');
+    document.getElementById('save_settings_btn').setAttribute('title', translate('settings_html_save_button_title'));
     injectText("context_menu_enabled", "context_menu_enabled");
-    $('#history_listener_enabled').html(translate('history_listener_enabled'));
+    document.getElementById('history_listener_enabled').innerHTML = translate('history_listener_enabled');
     injectText("local_hosts_skipping", "local_hosts_skipping");
-    $('#export_settings_btn_text').text(translate('setting_html_export_button'));
-    $('#export_settings_btn').prop('title', translate('setting_html_export_button_title'));
-    $('#import_settings_btn_text').text(translate('setting_html_import_button'));
-    $('#importSettings').prop('title', translate('setting_html_import_button_title'));
+    document.getElementById('export_settings_btn_text').textContent = translate('setting_html_export_button');
+    document.getElementById('export_settings_btn').setAttribute('title', translate('setting_html_export_button_title'));
+    document.getElementById('import_settings_btn_text').textContent = translate('setting_html_import_button');
+    document.getElementById('importSettings').setAttribute('title', translate('setting_html_import_button_title'));
     injectText("referral_marketing_enabled", "referral_marketing_enabled");
     injectText("domain_blocking_enabled", "domain_blocking_enabled");
-    $('#ping_blocking_enabled').html(translate('ping_blocking_enabled'))
-        .prop('title', translate('ping_blocking_enabled_title'));
-    $('#eTag_filtering_enabled').html(translate('eTag_filtering_enabled'))
-        .prop('title', translate('eTag_filtering_enabled_title'))
+    document.getElementById('ping_blocking_enabled').innerHTML = translate('ping_blocking_enabled');
+    document.getElementById('ping_blocking_enabled').setAttribute('title', translate('ping_blocking_enabled_title'));
+    document.getElementById('eTag_filtering_enabled').innerHTML = translate('eTag_filtering_enabled');
+    document.getElementById('eTag_filtering_enabled').setAttribute('title', translate('eTag_filtering_enabled_title'));
 }
 
 /**
@@ -220,10 +245,10 @@ function importSettings(evt) {
     let file = evt.target.files[0];
     let fileReader = new FileReader();
 
-    fileReader.onload = function(e) {
+    fileReader.onload = function (e) {
         let data = JSON.parse(e.target.result);
         const length = Object.keys(data).length;
-        let i=0;
+        let i = 0;
 
         Object.entries(data).forEach(([key, value]) => {
             browser.runtime.sendMessage({
@@ -231,7 +256,7 @@ function importSettings(evt) {
                 params: [key, value]
             }).then(() => {
                 i++;
-                if(i === length) {
+                if (i === length) {
                     location.reload();
                 }
             }, handleError);
@@ -249,20 +274,19 @@ function handleError(error) {
 }
 
 /**
-* Change the value of a switch button.
-* @param  {string} id        HTML id
-* @param  {string} storageID storage internal id
-*/
-function changeSwitchButton(id, storageID)
-{
-    let element = $('#'+id);
+ * Change the value of a switch button.
+ * @param  {string} id        HTML id
+ * @param  {string} storageID storage internal id
+ */
+function changeSwitchButton(id, storageID) {
+    let element = document.getElementById(id);
 
-    element.on('change', function(){
+    element.onchange = function () {
         browser.runtime.sendMessage({
             function: "setData",
-            params: [storageID, element.is(':checked')]
-        }).then((data) => {
-            if(storageID === "globalStatus"){
+            params: [storageID, element.checked]
+        }).then(() => {
+            if (storageID === "globalStatus") {
                 browser.runtime.sendMessage({
                     function: "changeIcon",
                     params: []
@@ -274,41 +298,38 @@ function changeSwitchButton(id, storageID)
                 params: []
             }).catch(handleError);
         }).catch(handleError);
-    });
+    };
     setSwitchButton(id, storageID);
 }
 
 /**
-* Helper function to inject the translated text and tooltip.
-*
-* @param   {string}    id ID of the HTML element
-* @param   {string}    attribute Name of the attribute used for localization
-* @param   {string}    tooltip
-*/
-function injectText(id, attribute, tooltip = "")
-{
-    let object = $('#'+id);
-    object.text(translate(attribute));
+ * Helper function to inject the translated text and tooltip.
+ *
+ * @param   {string}    id ID of the HTML element
+ * @param   {string}    attribute Name of the attribute used for localization
+ * @param   {string}    tooltip
+ */
+function injectText(id, attribute, tooltip = "") {
+    let object = document.getElementById(id);
+    object.textContent = translate(attribute);
 
     /*
     This function will throw an error if no translation
     is found for the tooltip. This is a planned error.
     */
-    tooltip = translate(attribute+"_title");
+    tooltip = translate(attribute + "_title");
 
-    if(tooltip !== "")
-    {
-        object.prop('title', tooltip);
+    if (tooltip !== "") {
+        object.setAttribute('title', tooltip);
     }
 }
 
 /**
-* Set the value of a switch button.
-* @param {string} id      HTML id
-* @param {string} varname js internal variable name
-*/
-function setSwitchButton(id, varname)
-{
-    let element = $('#'+id);
-    element.prop('checked', settings[varname]);
+ * Set the value of a switch button.
+ * @param {string} id      HTML id
+ * @param {string} varname js internal variable name
+ */
+function setSwitchButton(id, varname) {
+    let element = document.getElementById(id);
+    element.checked = settings[varname];
 }
