@@ -27,18 +27,18 @@
 function setText()
 {
     document.title = translate('blocked_html_title');
-    $('#title').html(translate('blocked_html_title'));
-    $('#body').html(translate('blocked_html_body'));
-    $('#page').text(translate('blocked_html_button'));
+    document.getElementById('title').innerHTML = translate('blocked_html_title');
+    document.getElementById('body').innerHTML = translate('blocked_html_body');
+    document.getElementById('page').textContent = translate('blocked_html_button');
 
 }
 
-$(document).ready(function(){
+(function() {
     setText();
 
-    let source = new URLSearchParams(window.location.search).get("source");
-    $('#page').attr('href', decodeURIComponent(source));
-});
+    const source = new URLSearchParams(window.location.search).get("source");
+    document.getElementById('page').href = decodeURIComponent(source);
+})();
 
 /**
  * Translate a string with the i18n API.

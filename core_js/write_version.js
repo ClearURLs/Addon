@@ -21,4 +21,4 @@
  * @return version
  */
 const version = browser.runtime.getManifest().version;
-$('#version').text(version);
+document.getElementById('version').textContent = version;

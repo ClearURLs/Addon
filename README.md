@@ -92,10 +92,6 @@ We use some third-party scripts in our add-on. The authors and licenses are list
 -   [jQuery v3.4.1](https://github.com/jquery/jquery/tree/3.4.1) |
     Copyright JS Foundation and other contributors |
     [MIT](https://jquery.org/license/)
--   [sha256.jquery.plugin](https://github.com/orsozed/sha256.jquery.plugin) |
-    Copyright 2003, Christoph Bichlmeier |
-    [MIT](https://raw.github.com/orsozed/JQuery-Plugins/master/license/MIT-LICENSE.txt) |
-    [GPLv2](https://raw.github.com/orsozed/JQuery-Plugins/master/license/GPL-LICENSE.txt)
 -   [DataTables v1.10.20](https://github.com/DataTables/DataTables/tree/master) |  Copyright (c) 2008-2015 SpryMedia Limited | [MIT](https://datatables.net/license/)
 -   [Popper.js v1.16.0](https://github.com/popperjs/popper.js/tree/v1.16.0) | Copyright (c) 2016 Federico Zivolo and contributors |
     [MIT](https://github.com/popperjs/popper.js/blob/master/LICENSE.md)

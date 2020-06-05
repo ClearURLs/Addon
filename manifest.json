@@ -52,8 +52,6 @@
     "background": {
         "scripts": [
             "browser-polyfill.js",
-            "external_js/jquery-3.4.1.min.js",
-            "external_js/sha256.jquery.js",
             "core_js/message_handler.js",
             "external_js/ip-range-check.js",
             "core_js/tools.js",

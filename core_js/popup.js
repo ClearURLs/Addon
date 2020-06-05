@@ -17,11 +17,11 @@
  */
 
 /*jshint esversion: 6 */
-var element = $("#statistics_value");
-var elGlobalPercentage = $("#statistics_value_global_percentage");
-var elProgressbar_blocked = $('#progress_blocked');
-var elProgressbar_non_blocked = $('#progress_non_blocked');
-var elTotal = $('#statistics_total_elements');
+var element = document.getElementById('statistics_value');
+var elGlobalPercentage = document.getElementById('statistics_value_global_percentage');
+var elProgressbar_blocked = document.getElementById('progress_blocked');
+var elProgressbar_non_blocked = document.getElementById('progress_non_blocked');
+var elTotal = document.getElementById('statistics_total_elements');
 var globalPercentage = 0;
 var globalCounter;
 var globalurlcounter;
@@ -55,11 +55,11 @@ function changeStatistics()
 
     if(isNaN(Number(globalPercentage))) globalPercentage = 0;
 
-    element.text(globalCounter.toLocaleString());
-    elGlobalPercentage.text(globalPercentage+"%");
-    elProgressbar_blocked.css('width', globalPercentage+'%');
-    elProgressbar_non_blocked.css('width', (100-globalPercentage)+'%');
-    elTotal.text(globalurlcounter.toLocaleString());
+    element.textContent = globalCounter.toLocaleString();
+    elGlobalPercentage.textContent = globalPercentage+"%";
+    elProgressbar_blocked.style.width = globalPercentage+'%';
+    elProgressbar_non_blocked.style.width = (100-globalPercentage)+'%';
+    elTotal.textContent = globalurlcounter.toLocaleString();
 }
 
 /**
@@ -67,14 +67,14 @@ function changeStatistics()
 */
 function setHashStatus()
 {
-    let element = $('#hashStatus');
+    let element = document.getElementById('hashStatus');
 
     if(hashStatus)
     {
-        element.text(translate(hashStatus));
+        element.textContent = translate(hashStatus);
     }
     else {
-        element.text(translate('hash_status_code_5'));
+        element.textContent = translate('hash_status_code_5');
     }
 
 }
@@ -86,14 +86,14 @@ function setHashStatus()
 */
 function changeSwitchButton(id, storageID)
 {
-    let element = $('#'+id);
+    let element = document.getElementById(id);
 
     changeVisibility(id, storageID);
 
-    element.on('change', function(){
+    element.onchange = function(){
         browser.runtime.sendMessage({
             function: "setData",
-            params: [storageID, element.is(':checked')]
+            params: [storageID, element.checked]
         }).then((data) => {
             if(storageID === "globalStatus"){
                 browser.runtime.sendMessage({
@@ -108,7 +108,7 @@ function changeSwitchButton(id, storageID)
                 params: []
             }).catch(handleError);
         }).catch(handleError);
-    });
+    };
 }
 
 /**
@@ -121,10 +121,10 @@ function changeVisibility(id, storageID)
     switch(storageID)
     {
         case "loggingStatus":
-        element = $('#log_section');
+        element = document.getElementById('log_section');
         break;
         case "statisticsStatus":
-        element = $('#statistic_section');
+        element = document.getElementById('statistic_section');
         break;
         default:
         element = "undefine";
@@ -132,14 +132,14 @@ function changeVisibility(id, storageID)
 
     if(element !== "undefine")
     {
-        if($('#'+id).is(':checked'))
+        if(document.getElementById(id).checked)
         {
-            element.css('display', '');
-            element.css('display', '');
+            element.style.display = '';
+            element.style.display = '';
         }
         else {
-            element.css('display', 'none');
-            element.css('display', 'none');
+            element.style.display = 'none';
+            element.style.display = 'none';
         }
     }
 }
@@ -151,8 +151,8 @@ function changeVisibility(id, storageID)
 */
 function setSwitchButton(id, varname)
 {
-    let element = $('#'+id);
-    element.prop('checked', this[varname]);
+    const element = document.getElementById(id);
+    element.checked = this[varname];
 }
 
 /**
@@ -180,7 +180,7 @@ function resetGlobalCounter(){
     changeStatistics();
 }
 
-$(document).ready(function(){
+(function() {
     loadData("globalCounter")
         .then(() => loadData("globalurlcounter"))
         .then(() => loadData("globalStatus"))
@@ -191,17 +191,17 @@ $(document).ready(function(){
         .then(() => loadData("getCurrentURL", "currentURL"))
         .then(() => {
             init();
-            $('#reset_counter_btn').on("click", resetGlobalCounter);
+            document.getElementById('reset_counter_btn').onclick = resetGlobalCounter;
             changeSwitchButton("globalStatus", "globalStatus");
             changeSwitchButton("tabcounter", "badgedStatus");
             changeSwitchButton("logging", "loggingStatus");
             changeSwitchButton("statistics", "statisticsStatus");
-            $('#loggingPage').attr('href', browser.extension.getURL('./html/log.html'));
-            $('#settings').attr('href', browser.extension.getURL('./html/settings.html'));
-            $('#cleaning_tools').attr('href', browser.extension.getURL('./html/cleaningTool.html'));
+            document.getElementById('loggingPage').href = browser.extension.getURL('./html/log.html');
+            document.getElementById('settings').href = browser.extension.getURL('./html/settings.html');
+            document.getElementById('cleaning_tools').href = browser.extension.getURL('./html/cleaningTool.html');
             setText();
         });
-});
+})();
 
 /**
 * Set the text for the UI.
@@ -220,7 +220,7 @@ function setText()
     injectText('configs_switch_filter','popup_html_configs_switch_filter');
     injectText('configs_head','popup_html_configs_head');
     injectText('configs_switch_statistics','configs_switch_statistics');
-    $('#donate').prop('title', translate('donate_button'));
+    document.getElementById('donate').title = translate('donate_button');
 }
 
 /**
@@ -232,8 +232,8 @@ function setText()
 */
 function injectText(id, attribute, tooltip = "")
 {
-    let object = $('#'+id);
-    object.text(translate(attribute));
+    const object = document.getElementById(id);
+    object.textContent = translate(attribute);
 
     /*
     This function will throw an error if no translation
@@ -243,7 +243,7 @@ function injectText(id, attribute, tooltip = "")
 
     if(tooltip !== "")
     {
-        object.prop('title', tooltip);
+        object.setAttribute('title', tooltip);
     }
 }
 

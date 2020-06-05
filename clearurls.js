@@ -251,25 +251,32 @@ function start() {
      */
     function getHash() {
         //Get the target hash from GitLab
-        fetch(storage.hashURL)
-            .then(function (response) {
-                const responseTextHash = response.clone().text().then(function (responseTextHash) {
-                    if (response.ok && $.trim(responseTextHash)) {
-                        dataHash = responseTextHash;
+        const response = fetch(storage.hashURL).then(async response => {
+            return {
+                hash: (await response.text()).trim(),
+                status: response.status
+            };
+        });
 
-                        if ($.trim(dataHash) !== $.trim(localDataHash)) {
-                            fetchFromURL();
-                        } else {
-                            toObject(storage.ClearURLsData);
-                            storeHashStatus(1);
-                            saveOnDisk(['hashStatus']);
-                        }
-                    } else {
-                        dataHash = false;
-                        deactivateOnFailure();
-                    }
-                });
-            });
+        response.then(result => {
+            if (result.status === 200 && result.hash) {
+                dataHash = result.hash;
+
+                if (dataHash !== localDataHash.trim()) {
+                    fetchFromURL();
+                } else {
+                    toObject(storage.ClearURLsData);
+                    storeHashStatus(1);
+                    saveOnDisk(['hashStatus']);
+                }
+            } else {
+                throw "The status code was not okay or the given hash were empty.";
+            }
+        }).catch(error => {
+            console.error("[ClearURLs]: Could not download the rules hash from the given URL due to the following error: ", error);
+            dataHash = false;
+            deactivateOnFailure();
+        });
     }
 
     /*
@@ -278,29 +285,33 @@ function start() {
     * ##################################################################
     */
     function fetchFromURL() {
-        fetch(storage.ruleURL)
-            .then(checkResponse);
+        const response = fetch(storage.ruleURL).then(async response => {
+            return {
+                data: (await response.clone().text()).trim(),
+                hash: await sha256((await response.text()).trim()),
+                status: response.status
+            };
+        })
 
-        function checkResponse(response) {
-            const responseText = response.clone().text().then(function (responseText) {
-                if (response.ok && $.trim(responseText)) {
-                    const downloadedFileHash = $.sha256(responseText);
-
-                    if ($.trim(downloadedFileHash) === $.trim(dataHash)) {
-                        storage.ClearURLsData = responseText;
-                        storage.dataHash = downloadedFileHash;
-                        storeHashStatus(2);
-                    } else {
-                        storeHashStatus(3);
-                    }
-                    storage.ClearURLsData = JSON.parse(storage.ClearURLsData);
-                    toObject(storage.ClearURLsData);
-                    saveOnDisk(['ClearURLsData', 'dataHash', 'hashStatus']);
+        response.then(result => {
+            if (result.status === 200 && result.data) {
+                if (result.hash === dataHash.trim()) {
+                    storage.ClearURLsData = result.data;
+                    storage.dataHash = result.hash;
+                    storeHashStatus(2);
                 } else {
-                    deactivateOnFailure();
+                    storeHashStatus(3);
                 }
-            });
-        }
+                storage.ClearURLsData = JSON.parse(storage.ClearURLsData);
+                toObject(storage.ClearURLsData);
+                saveOnDisk(['ClearURLsData', 'dataHash', 'hashStatus']);
+            } else {
+                throw "The status code was not okay or the given rules were empty."
+            }
+        }).catch(error => {
+            console.error("[ClearURLs]: Could not download the rules from the given URL due to the following error: ", error);
+            deactivateOnFailure();
+        });
     }
 
     // ##################################################################
