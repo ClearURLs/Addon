@@ -272,7 +272,7 @@
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Importieren auf der Einstellungsseite verwendet."
     },
     "setting_log_limit_label": {
-        "message": "Limitiert das Protokoll auf $LIMIT$ Einträge. (-1 := ∞)",
+        "message": "Limitiert das Protokoll auf $LIMIT$ Einträge.",
         "description": "Diese Zeichenfolge wird als Name für das Protokolllimit verwendet.",
         "placeholders": {
             "limit": {
