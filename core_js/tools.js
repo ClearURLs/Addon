@@ -305,7 +305,7 @@ function handleError(error) {
  * @param rule              the rule that triggered the process
  */
 function pushToLog(beforeProcessing, afterProcessing, rule) {
-    const limit = storage.logLimit;
+    const limit = Math.max(0, storage.logLimit);
     if (storage.loggingStatus && limit !== 0 && !isNaN(limit)) {
         while (storage.log.log.length >= limit
         || storage.log.log.length >= logThreshold) {

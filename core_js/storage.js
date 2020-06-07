@@ -157,7 +157,7 @@ function setData(key, value) {
             storage[key] = value.split(',');
             break;
         case "logLimit":
-            storage[key] = Number(value);
+            storage[key] = Math.max(0, Number(value));
             break;
         default:
             storage[key] = value;
