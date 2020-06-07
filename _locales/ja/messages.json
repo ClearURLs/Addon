@@ -1,19 +1,19 @@
 {
     "hash_status_code_1": {
-        "message": "最新の",
-        "description": "このステータスコードは、ClearURLs ルールの更新が利用できず、すべてが最新であることを示しています。"
+        "message": "最新",
+        "description": "このステータスコードは、ClearURLs ルールの更新が無く、すべてが最新であることを示しています。"
     },
     "hash_status_code_2": {
         "message": "更新する",
         "description": "このステータスコードは、ClearURLs ルールが正常に更新されたことを示しています。"
     },
     "hash_status_code_3": {
-        "message": "利用可能な更新",
+        "message": "更新が利用可能",
         "description": "このステータスコードは、ClearURLs ルールの更新が利用可能であることを示しています。"
     },
     "hash_status_code_4": {
         "message": "エラー",
-        "description": "このステータスコードは、ClearURLs を正しく開始できなかったことを示しています。"
+        "description": "このステータスコードは、ClearURLs が正しく開始できなかったことを示しています。"
     },
     "hash_status_code_5": {
         "message": "おっと！何かが間違っていた！",
@@ -25,10 +25,10 @@
     },
     "log_domain_blocked": {
         "message": "このドメインはブロックされています",
-        "description": "この文字列は、ClearURLs ログのブロックされたドメインで使用されます。"
+        "description": "この文字列は、ClearURLs ログでブロックされたドメインで使用されます。"
     },
     "check_os_log": {
-        "message": "[ClearURLs]：ログリスナーが追加されました。",
+        "message": "[ClearURLs]：ログリスナーを追加しました。",
         "description": "この文字列は、ClearURLs ログの起動時に使用されます。"
     },
     "log_html_page_title": {
@@ -36,7 +36,7 @@
         "description": "この文字列は、ログページのヘッダーとして使用されます。"
     },
     "log_html_table_head_1": {
-        "message": "処理する前に",
+        "message": "処理前",
         "description": "この文字列は、ログページのテーブルタイトルとして使用されます。"
     },
     "log_html_table_head_2": {
@@ -44,7 +44,7 @@
         "description": "この文字列は、ログページのテーブルタイトルとして使用されます。"
     },
     "log_html_table_head_3": {
-        "message": "規則",
+        "message": "ルール",
         "description": "この文字列は、ログページのテーブルタイトルとして使用されます。"
     },
     "log_html_table_head_4": {
@@ -120,7 +120,7 @@
         "description": "この文字列は、ポップアップページのログボタンの名前として使用されます。"
     },
     "popup_html_log_head_title": {
-        "message": "記録を開く",
+        "message": "ログを開く",
         "description": "この文字列は、ポップアップページのログボタンのタイトルとして使用されます。"
     },
     "popup_html_report_button": {
@@ -148,7 +148,7 @@
         "description": "この文字列は、ポップアップページの統計情報切り替えボタンのタイトルとして使用されます。"
     },
     "settings_html_page_title": {
-        "message": "ClearURLs からの設定",
+        "message": "ClearURLs の設定",
         "description": "この文字列は、設定ページのタイトルとして使用されます。"
     },
     "badged_color_label": {
@@ -200,7 +200,7 @@
         "description": "この文字列は、寄付ページを参照するために使用されます。"
     },
     "clipboard_copy_link": {
-        "message": "クリーンリンクの Location（位置情報）のコピー",
+        "message": "クリーンリンクをコピー",
         "description": "この文字列は、コンテキストメニューでクリーンリンクをコピーするために使用されます。"
     },
     "context_menu_enabled": {
@@ -230,5 +230,121 @@
     "cleaning_tool_clean_urls_label": {
         "message": "ここで、クリーンアップされた URL を見つけることができます。",
         "description": "この文字列は、クリーン URL のクリーニングツールページのタイトルとして使用されます。"
+    },
+    "local_hosts_skipping": {
+        "message": "ローカルホストの URL をスキップする  (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "この文字列は、ローカルホストのスキップスイッチのラベルとして使用されます。"
+    },
+    "local_hosts_skipping_title": {
+        "message": "ローカルホストの URL をスキップ",
+        "description": "この文字列は、ローカルホストのスキップスイッチのタイトルとして使用されます。"
+    },
+    "log_html_export_button": {
+        "message": "エクスポート",
+        "description": "この文字列は、ログページのエクスポートボタンに使用されます。"
+    },
+    "log_html_export_button_title": {
+        "message": "グローバルログをエクスポートする",
+        "description": "この文字列は、ログページのエクスポートボタンのタイトルとして使用されます。"
+    },
+    "log_html_import_button": {
+        "message": "インポート",
+        "description": "この文字列は、ログページのインポートボタンに使用されます。\n"
+    },
+    "log_html_import_button_title": {
+        "message": "グローバルログのインポート",
+        "description": "この文字列は、ログページのインポートボタンのタイトルとして使用されます。"
+    },
+    "setting_html_export_button": {
+        "message": "エクスポート",
+        "description": "この文字列は、設定ページのエクスポートボタンの名前として使用されます。\n"
+    },
+    "setting_html_export_button_title": {
+        "message": "すべてをエクスポートする",
+        "description": "この文字列は、設定ページのエクスポートボタンのタイトルとして使用されます。"
+    },
+    "setting_html_import_button": {
+        "message": "インポート",
+        "description": "この文字列は、設定画面のリセットボタンの名前として使用されます。"
+    },
+    "setting_html_import_button_title": {
+        "message": "すべてをインポートする",
+        "description": "この文字列は、設定ページのインポートボタンのタイトルとして使用されます。"
+    },
+    "setting_log_limit_label": {
+        "message": "ログのエントリを $LIMIT$ に制限します。",
+        "description": "この文字列は、ログリミットラベルの名前として使用されます。",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "このサイトは <b>ClearURLs</b> よってブロックされました。",
+        "description": "この文字列は、ブロックされたサイトのページのタイトルとして使用されます。"
+    },
+    "blocked_html_body": {
+        "message": "このサイトは <b>ClearURLs</b> アドオンによってブロックされました。このサイトを訪問するには、アドオンを一時的に無効にするか、ClearURLs の設定でドメインブロックを無効にする必要があります。その対処後、下のボタンをクリックしてページを読み込むことができます。",
+        "description": "この文字列は、ブロックされたサイトページの本文として使用されます。"
+    },
+    "blocked_html_button": {
+        "message": "ページを見る",
+        "description": "この文字列は、ブロックされたサイトのページのボタンとして使用されます。"
+    },
+    "referral_marketing_enabled": {
+        "message": "Referral marketing（口コミなどの紹介商法）を許可する",
+        "description": "この文字列は、Referral marketing（口コミなどの紹介商法）スイッチのラベルとして使用されます。"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "Referral marketing（口コミなどの紹介商法）を許可する",
+        "description": "この文字列は、Referral marketing（口コミなどの紹介商法）スイッチのタイトルとして使用されます。"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]:  システム監視ツールのウォッチドッグが問題を検出し、すでに $TIMES$ 回失敗しています。",
+        "description": "この文字列は、システム監視ツール・ウォッチドッグのテキストとして使用されます。",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
+    "domain_blocking_enabled": {
+        "message": "ドメインブロックを許可する（AdBlocker を許可していないページで問題が発生する可能性があります。",
+        "description": "この文字列はドメインブロッキングスイッチのラベルとして使用されます。"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "ドメインブロックを許可する（AdBlockerを許可していないページで問題が発生する可能性があります。",
+        "description": "この文字列は、ドメインブロッキングスイッチのタイトルとして使用されます。"
+    },
+    "log_ping_blocked": {
+        "message": "このハイパーリンク監査はブロックされました",
+        "description": "この文字列は、ClearURLs ログのハイパーリンク監査で使用されます。"
+    },
+    "ping_blocking_enabled": {
+        "message": "ハイパーリンク監査をブロックする (<a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>この記事</a>も参照してください)",
+        "description": "この文字列は、ハイパーリンク監査ブロッキングスイッチのラベルとして使用されます。"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "ハイパーリンク監査をブロックする",
+        "description": "この文字列は、ハイパーリンク監査ブロッキングスイッチのタイトルとして使用されます。"
+    },
+    "extension_description": {
+        "message": "URL からトラッキング要素を削除します。",
+        "description": "拡張機能の説明（最大 132 文字）"
+    },
+    "eTag_filtering_log": {
+        "message": "このリクエストから ETag ヘッダが削除されました。",
+        "description": "この文字列は、ClearURLs ログの ETag ヘッダフィルタリングで使用されます。"
+    },
+    "eTag_filtering_enabled": {
+        "message": "リクエストから ETag ヘッダをフィルタリングします (<a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'> この記事 </a> も参照してください)",
+        "description": "この文字列は、ETag ヘッダフィルタリングスイッチのラベルとして使用されます。"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "ETag ヘッダをフィルタリングします。ヒント: 最初に使用する前にキャッシュをクリアしなければなりません。",
+        "description": "この文字列は、ETag ヘッダフィルタリングスイッチのタイトルとして使用されます。"
     }
 }
