@@ -15,6 +15,9 @@ test rules:
   script:
     - jsonlint-php data/data.min.json
   only:
+    refs:
+      - merge_requests
+      - master
     changes:
       - data/data.min.json
 
@@ -30,7 +33,9 @@ hash rules:
       - data.minify.json
       - rules.minify.hash
   only:
-    - master
+    refs:
+      - merge_requests
+      - master
     changes:
       - data/data.min.json
 
@@ -59,7 +64,9 @@ pages:
     paths:
       - public
   only:
-    - master
+    refs:
+      - merge_requests
+      - master
     changes:
       - GitLabPages/*
       - img/clearurls.svg
