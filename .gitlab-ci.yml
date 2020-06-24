@@ -3,11 +3,20 @@ image: debian:latest
 before_script:
   - export DEBIAN_FRONTEND= noninteractive
   - apt-get update -y
-  - apt-get install -y zip unzip nodejs
+  - apt-get install -y zip unzip nodejs jsonlint
 
 stages:
+  - test
   - build
   - deploy
+
+test rules:
+  stage: test
+  script:
+    - jsonlint-php data/data.min.json
+  only:
+    changes:
+      - data/data.min.json
 
 hash rules:
   stage: build
@@ -22,15 +31,15 @@ hash rules:
       - rules.minify.hash
   only:
     - master
+    changes:
+      - data/data.min.json
 
 bundle addon:
   stage: build
   script:
     - zip ClearUrls -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
-
   only:
     - master
-
   artifacts:
     paths:
       - ClearUrls.zip
@@ -51,3 +60,8 @@ pages:
       - public
   only:
     - master
+    changes:
+      - GitLabPages/*
+      - img/clearurls.svg
+      - data/data.min.json
+      - build_tools/minifyDataJSON.js
