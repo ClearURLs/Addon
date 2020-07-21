@@ -101,6 +101,10 @@ function extractHost(url) {
 function checkLocalURL(url) {
     let host = extractHost(url);
 
+    if(!host.match(/^\d/) && host !== 'localhost') {
+        return false;
+    }
+
     return ipRangeCheck(host, ["10.0.0.0/8", "172.16.0.0/12",
             "192.168.0.0/16", "100.64.0.0/10",
             "169.254.0.0/16", "127.0.0.1"]) ||
@@ -271,15 +275,27 @@ function getBrowser() {
 
 /**
  * Decodes an URL, also one that is encoded multiple times.
+ *
+ * @see https://stackoverflow.com/a/38265168
+ *
  * @param url   the url, that should be decoded
  */
 function decodeURL(url) {
-    const rtn = decodeURIComponent(url);
-    if (rtn.indexOf("http://") === -1 && rtn.indexOf("https://") === -1) {
-        return decodeURL(rtn);
+    let rtn = decodeURIComponent(url);
+
+    while(isEncodedURI(rtn)) {
+        rtn = decodeURIComponent(rtn);
     }
 
     return rtn;
+}
+
+/**
+ * Returns true, iff the given URI is encoded
+ * @see https://stackoverflow.com/a/38265168
+ */
+function isEncodedURI(uri) {
+    return uri !== decodeURIComponent(uri || '')
 }
 
 /**
