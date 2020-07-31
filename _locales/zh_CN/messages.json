@@ -16,23 +16,23 @@
         "description": "This status code says, that the ClearURLs could not be started correctly."
     },
     "hash_status_code_5": {
-        "message": "发生错误",
+        "message": "出错了！",
         "description": "This status code says, that an error occurred while updating the ClearURLs rules."
     },
     "log_redirect": {
-        "message": "此网址已被转址",
+        "message": "此 URL 已被重定向",
         "description": "This string is used on redirections in the ClearURLs log."
     },
     "log_domain_blocked": {
-        "message": "此网域已被封锁",
+        "message": "此域名已被屏蔽",
         "description": "This string is used on blocked domains in the ClearURLs log."
     },
     "check_os_log": {
-        "message": "[ClearURLs]: 已新增日志聆听者",
+        "message": "[ClearURLs]: 日志监听器已添加",
         "description": "This string is used on ClearURLs log startup."
     },
     "log_html_page_title": {
-        "message": "ClearURLs日志",
+        "message": "ClearURLs 日志",
         "description": "This string is used as header on the log page."
     },
     "log_html_table_head_1": {
@@ -60,7 +60,7 @@
         "description": "This string is used as title for the reset button on the log page."
     },
     "popup_html_configs_head": {
-        "message": "设定",
+        "message": "设置",
         "description": "This string is used as title for the configs on the popup page."
     },
     "popup_html_configs_switch_filter": {
@@ -68,7 +68,7 @@
         "description": "This string is used as name for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "此为ClearURLs的主开关. 若关闭则此插件失效.",
+        "message": "此过滤器开关启用 ClearURLs 的清理功能。关闭此开关将禁用此插件",
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
@@ -76,7 +76,7 @@
         "description": "This string is used as name for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_log_title": {
-        "message": "日志会被储存于本地. 若不需要此功能建议关闭.",
+        "message": "日志仅会储存于本地。若不需要此功能建议关闭",
         "description": "This string is used as title for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_badges": {
@@ -96,7 +96,7 @@
         "description": "This string is used as name for the elements on the popup page."
     },
     "popup_html_statistics_blocked": {
-        "message": "已阻挡",
+        "message": "已屏蔽",
         "description": "This string is used as name for the blocked elements on the popup page."
     },
     "popup_html_statistics_percentage": {
@@ -124,15 +124,15 @@
         "description": "This string is used as title for the log button on the popup page."
     },
     "popup_html_report_button": {
-        "message": "回报目前网址",
+        "message": "报告当前 URL",
         "description": "Note: Currently not used."
     },
     "popup_html_report_button_title": {
-        "message": "回报该分页目前网址",
+        "message": "报告此标签页当前 URL",
         "description": "Currently not used."
     },
     "core_save_on_disk": {
-        "message": "[ClearURLs]: 储存于本地",
+        "message": "[ClearURLs]: 储存于本地。",
         "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
     },
     "core_error": {
@@ -148,7 +148,7 @@
         "description": "This string is used as title for the statistics switch button on the popup page."
     },
     "settings_html_page_title": {
-        "message": "ClearURLs设定",
+        "message": "ClearURLs 设置",
         "description": "This string is used as title on the settings page."
     },
     "badged_color_label": {
@@ -160,75 +160,219 @@
         "description": "This string is used as name for the reset button on the settings page."
     },
     "setting_html_reset_button_title": {
-        "message": "重置所有设定",
+        "message": "重置所有设置",
         "description": "This string is used as title for the reset button on the settings page."
     },
     "setting_rule_url_label": {
-        "message": "data.json档的网址 (规则)",
+        "message": "data.json 文件（规则）url",
         "description": "This string is used as name for the rule url label."
     },
     "settings_html_save_button": {
-        "message": "储存并重启插件",
+        "message": "保存并重启插件",
         "description": "This string is used as name for the save&reload button on the settings page."
     },
     "settings_html_save_button_title": {
-        "message": "储存设定",
+        "message": "保存设置",
         "description": "This string is used as title for the save&reload button on the settings page."
     },
     "setting_hash_url_label": {
-        "message": "rules.hash档的网址 (校验)",
+        "message": "rules.hash 文件（哈希值）url",
         "description": "This string is used as name for the rule.hash url label."
     },
     "setting_types_label": {
-        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>请求类型</a> (进阶设定)",
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>请求类型</a>（高级设置）",
         "description": "This string is used as name for the types label."
     },
     "setting_report_server_label": {
-        "message": "回报网址",
+        "message": "向服务器报告 URL",
         "description": "Note: Currently not used."
     },
     "success_report_url": {
-        "message": "该网址已成功回报",
+        "message": "已成功报告 URL。我们将尽快检查此 URL。",
         "description": "Note: Currently not used."
     },
     "error_report_url": {
-        "message": "该网址已被回报过",
+        "message": "此 URL 已报告。",
         "description": "Note: Currently not used."
     },
     "donate_button": {
-        "message": "给ClearURLs的作者一点贊助",
+        "message": "捐赠 ClearURLs 的作者",
         "description": "This string is used to refer to a donation page."
     },
     "clipboard_copy_link": {
-        "message": "複製清理过的网址",
+        "message": "复制清理后链接位置",
         "description": "This string is used in the context menu to copy clean links."
     },
     "context_menu_enabled": {
-        "message": "显示右键选单条目",
+        "message": "显示上下文菜单项",
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
+    "history_listener_enabled": {
+        "message": "阻止历史 API 耿总注入（参见：<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>）",
+        "description": "This string is used as name for the history API listener label."
+    },
     "cleaning_tool_page_title": {
-        "message": "ClearURLs的网址清理工具",
+        "message": "ClearURLs 清理工具",
         "description": "This string is used as title on the cleaning tool page."
     },
     "cleaning_tool_description": {
-        "message": "此工具提供手动清理网址的功能. 在下方贴上网址并按下绿色按钮, ClearURLs将会输出清理后的网址. 若要同时清理多个网址, 请将每个置于不同行.",
+        "message": "使用此工具您可以粘贴 URL，ClearURLs 将在点击绿色按钮后清理 URL。您可以粘贴多个 URL 但每个 URL 必须独占一行。",
         "description": "This string is used as description of the cleaning tool."
     },
     "cleaning_tool_btn": {
-        "message": "网址清理工具",
+        "message": "清理 URL",
         "description": "This string is used as name for the clean url button."
     },
     "cleaning_tool_dirty_urls_label": {
-        "message": "清理前的网址:",
+        "message": "请将待清理 URL 粘贴于此：",
         "description": "This string is used as title on the cleaning tool page for the dirty URLs."
     },
     "cleaning_tool_clean_urls_label": {
-        "message": "清理后的网址:",
+        "message": "清理后的 URL：",
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
     },
     "local_hosts_skipping": {
-        "message": "跳过本地主机链接（10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost）",
+        "message": "跳过本地主机 URL (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
         "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "message": "跳过本地主机 URL",
+        "description": "This string is used as title for the local host skipping switch"
+    },
+    "log_html_export_button": {
+        "message": "导出",
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "message": "导出全局日志",
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "message": "导入",
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "message": "导入全局日志",
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "setting_html_export_button": {
+        "message": "导出",
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "message": "导出全部设置",
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "message": "导入",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "message": "导入全部设置",
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_log_limit_label": {
+        "message": "限制为 $LIMIT$ 条日志。",
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "此站点被 <b>ClearURLs</b> 屏蔽",
+        "description": "This string is used as title on the blocked site page."
+    },
+    "blocked_html_body": {
+        "message": "此站点被 <b>ClearURLs</b> 插件屏蔽，因为我们识别出此站点为广告和/或跟踪服务。为访问此站点，您必须暂时禁用此插件或在 ClearURLs 设置中禁用域名屏蔽禁用。之后您可以点击下方按钮载入此页面。",
+        "description": "This string is used as body on the blocked site page."
+    },
+    "blocked_html_button": {
+        "message": "访问页面",
+        "description": "This string is used as button on the blocked site page."
+    },
+    "referral_marketing_enabled": {
+        "message": "允许跳转营销",
+        "description": "This string is used as label for the referral marketing switch"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "允许跳转营销",
+        "description": "This string is used as title for the referral marketing switch"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: 看门狗检测到一个问题并已失败 $TIMES$ 次。",
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
+    "domain_blocking_enabled": {
+        "message": "允许域名屏蔽（在不允许广告拦截器的页面上会导致问题）",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "允许域名屏蔽（在不允许广告拦截器的页面上会导致问题）",
+        "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "此超链接审计已屏蔽",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "message": "屏蔽超链接审计（参见<a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>此文章</a>）",
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "屏蔽超链接审计",
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "从 URL 中移除跟踪元素。",
+        "description": "Extension description (max. 132 characters)"
+    },
+    "eTag_filtering_log": {
+        "message": "ETag 头已从此请求移除",
+        "description": "This string is used on ETag header filtering in the ClearURLs log."
+    },
+    "eTag_filtering_enabled": {
+        "message": "从请求中过滤 ETag 头（参见<a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>此文章</a>）",
+        "description": "This string is used as label for the ETag header filtering switch"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "过滤 ETag 头。提示：第一次使用前必须清除缓存。",
+        "description": "This string is used as title for the ETag header filtering switch"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_head_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_configs_head_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "context_menu_enabled_title": {
+        "message": "",
+        "description": "not needed, only to prevent exceptions"
     }
 }
