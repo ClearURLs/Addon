@@ -272,7 +272,8 @@
             "all_frames": true,
             "matches": [
                 "*://*.yandex.ru/*",
-                "*://*.yandex.com/*"
+                "*://*.yandex.com/*",
+                "*://*.ya.ru/*"
             ],
             "js": [
                 "core_js/yandex_link_fix.js"
