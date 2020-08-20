@@ -25,9 +25,9 @@
 # Optionally, specify configuration settings just for `issues` or `pulls`
 issues:
    comment: >
-     This repository is only a mirror of https://gitlab.com/KevinRoebert/ClearUrls. Issues are readed here, but not directly addressed. If possible, please use the GitLab repo or this support mail address: clearurls_1 (at) kevinroebert.de.
+     This repository is only a mirror of https://gitlab.com/KevinRoebert/ClearUrls. Issues are read here, but it can take longer until they are addressed. If possible, please use the GitLab repo or this support mail address: clearurls_1 (at) kevinroebert.de.
    lock: false
-   close: true
+   close: false
 
 pulls:
    comment: >
