@@ -48,10 +48,12 @@ Here you can download the packed files for the Firefox- and Chrome-Dev:
 [<img src="promotion/download-128.png"/>](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearUrls.zip?job=bundle%20addon)
 
 ## Test
-If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://kevinroebert.gitlab.io/ClearUrls/](https://kevinroebert.gitlab.io/ClearUrls/)
+If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://test.clearurls.xyz/](https://test.clearurls.xyz/)
 
 ## Contribute
 If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
+
+**Note: If you have any suggestions or complaints regarding the rules, please [create an issue in this repo](https://gitlab.com/anti-tracking/ClearURLs/rules/-/issues/new) or email us rules.support (at) clearurls.xyz (this mail will automatically create a new issue in this repo).**
 
 ### Translate ClearURLs
 You want to help translating ClearURLs into many languages? – Nice
