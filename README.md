@@ -75,6 +75,8 @@ Please push your translation into the folder `_locales/{country code}/messages.j
 
 * [Uroute](https://github.com/walterl/uroute) used ClearURLs to filter/clean URL before launching browser
 * [Scrub](https://gitlab.com/CrunchBangDev/cbd-cogs/-/tree/master/Scrub) used ClearURLs to filter/clean URLs as cog for the Red Discord bot
+* [Unalix](https://github.com/AmanoTeam/Unalix) a simple Python module that removes tracking fields from URLs and unshort shortened URLs
+* [Unalix-nim](https://github.com/AmanoTeam/Unalix-nim) a simple Nim library that removes tracking fields from URLs and unshort shortened URLs
 
 ## Recommended by...
 *  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)
