@@ -1,5 +1,8 @@
 image: debian:latest
 
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 before_script:
   - export DEBIAN_FRONTEND= noninteractive
   - apt-get update -y

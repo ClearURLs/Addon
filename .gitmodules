@@ -1,0 +1,3 @@
+[submodule "rules"]
+	path = data
+	url = https://gitlab.com/anti-tracking/ClearURLs/rules.git

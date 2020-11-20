@@ -5,8 +5,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Ongoing
+- Rewrite ClearURLs completely form scratch in typescript
+- Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
+
+## [1.20.0] - 2020-11-20
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Fixed
+- Fixed [#664](https://gitlab.com/KevinRoebert/ClearUrls/issues/664) (also [#739](https://gitlab.com/KevinRoebert/ClearUrls/issues/739), [#740](https://gitlab.com/KevinRoebert/ClearUrls/issues/740))
 
 ### Changed
+- Changed url decoding to prevent endless loop
 - Performance optimizations for rules by [@thexeos](https://gitlab.com/thexeos)
 
 ## [1.19.0] - 2020-07-22
