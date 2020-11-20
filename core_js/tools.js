@@ -287,6 +287,11 @@ function decodeURL(url) {
         rtn = decodeURIComponent(rtn);
     }
 
+    // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
+    if(rtn.substr(0, 4) !== 'http') {
+        rtn = 'http://'+rtn
+    }
+
     return rtn;
 }
 
