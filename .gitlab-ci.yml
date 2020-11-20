@@ -9,17 +9,8 @@ before_script:
   - apt-get install -y zip unzip nodejs jsonlint
 
 stages:
-  - test
   - build
   - deploy
-
-test rules:
-  stage: test
-  script:
-    - jsonlint-php data/data.min.json
-  only:
-    changes:
-      - data/data.min.json
 
 hash rules:
   stage: build
@@ -32,12 +23,6 @@ hash rules:
       - rules.min.hash
       - data.minify.json
       - rules.minify.hash
-  only:
-    refs:
-      - merge_requests
-      - master
-    changes:
-      - data/data.min.json
 
 bundle addon:
   stage: build
@@ -63,12 +48,3 @@ pages:
   artifacts:
     paths:
       - public
-  only:
-    refs:
-      - merge_requests
-      - master
-    changes:
-      - GitLabPages/*
-      - img/clearurls.svg
-      - data/data.min.json
-      - build_tools/minifyDataJSON.js
