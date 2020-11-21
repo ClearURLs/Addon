@@ -68,7 +68,7 @@
         "description": "Diese Zeichenfolge wird als Name für die Filterschaltfläche auf der Popup-Seite verwendet."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "Der Filter-Schalter aktiviert die Reinigungsfunktion von ClearURLs, wenn Sie die Funktion ausschalten, dann deaktivieren Sie das gesamte Addon",
+        "message": "Der Filter-Schalter aktiviert die Reinigungsfunktion von ClearURLs, wenn Sie die Funktion ausschalten, dann deaktivieren Sie das gesamte Add-on",
         "description": "Diese Zeichenfolge wird als Titel für die Filterschaltfläche auf der Popup-Seite verwendet."
     },
     "popup_html_configs_switch_log": {
@@ -136,7 +136,7 @@
         "description": "Diese Zeichenfolge teilt dem Benutzer mit, dass ClearURLs die Einstellungen auf der Festplatte gespeichert hat."
     },
     "core_error": {
-        "message": "[ClearURLs]: Das Addon konnte nicht gestartet werden.",
+        "message": "[ClearURLs]: Das Add-on konnte nicht gestartet werden.",
         "description": "Diese Zeichenfolge teilt dem Benutzer mit, dass ClearURLs nicht gestartet werden konnten."
     },
     "configs_switch_statistics": {
@@ -168,7 +168,7 @@
         "description": "Diese Zeichenfolge wird als Name für die Regel-URL-Bezeichnung verwendet."
     },
     "settings_html_save_button": {
-        "message": "Speichern & Addon neustarten",
+        "message": "Speichern & Add-on neustarten",
         "description": "Diese Zeichenfolge wird als Name für die Schaltfläche zum Speichern und erneuten Laden auf der Einstellungsseite verwendet."
     },
     "settings_html_save_button_title": {
@@ -196,7 +196,7 @@
         "description": "Hinweis: Wird derzeit nicht verwendet."
     },
     "donate_button": {
-        "message": "Eine Spende für den ClearURLs-Urheber",
+        "message": "Eine Schenkung (Spende) für den ClearURLs-Urheber",
         "description": "Diese Zeichenfolge wird verwendet, um auf eine Spendenseite zu verweisen."
     },
     "clipboard_copy_link": {
@@ -286,7 +286,7 @@
         "description": "Diese Zeichenfolge wird als Titel auf der Hinweisseite für blockierte Seiten verwendet."
     },
     "blocked_html_body": {
-        "message": "Diese Seite wurde vom <b>ClearURLs</b>-Addon blockiert, weil wir sie als Werbe- bzw. Trackingservice identifiziert haben. Um diese Seite zu besuchen, müssen Sie das Addon temporär deaktivieren oder in den Einstellungen von ClearURLs das Domain-Blocking deaktivieren. Dann können Sie auf den untenstehenden Button klicken, um die Seite aufzurufen.",
+        "message": "Diese Seite wurde vom <b>ClearURLs</b>-Add-on blockiert, weil wir sie als Werbe- bzw. Trackingservice identifiziert haben. Um diese Seite zu besuchen, müssen Sie das Add-on temporär deaktivieren oder in den Einstellungen von ClearURLs das Domain-Blocking deaktivieren. Dann können Sie auf den untenstehenden Button klicken, um die Seite aufzurufen.",
         "description": "Diese Zeichenfolge wird als Mengentext auf der Hinweisseite für blockierte Seiten verwendet."
     },
     "blocked_html_button": {
