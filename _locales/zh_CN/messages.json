@@ -208,7 +208,7 @@
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
     "history_listener_enabled": {
-        "message": "阻止历史 API 耿总注入（参见：<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>）",
+        "message": "阻止历史 API 跟踪注入（参见：<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>）",
         "description": "This string is used as name for the history API listener label."
     },
     "cleaning_tool_page_title": {
