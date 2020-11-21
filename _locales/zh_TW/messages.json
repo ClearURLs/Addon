@@ -1,6 +1,6 @@
 {
     "hash_status_code_1": {
-        "message": "已是最新的",
+        "message": "已是最新版本",
         "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
     },
     "hash_status_code_2": {
@@ -24,7 +24,7 @@
         "description": "This string is used on redirections in the ClearURLs log."
     },
     "log_domain_blocked": {
-        "message": "此網域已被封鎖",
+        "message": "已封鎖此網域",
         "description": "This string is used on blocked domains in the ClearURLs log."
     },
     "check_os_log": {
@@ -32,7 +32,7 @@
         "description": "This string is used on ClearURLs log startup."
     },
     "log_html_page_title": {
-        "message": "ClearURLs歷史記錄",
+        "message": "ClearURLs 記錄檔",
         "description": "This string is used as header on the log page."
     },
     "log_html_table_head_1": {
@@ -52,11 +52,11 @@
         "description": "This string is used as table title on the log page."
     },
     "log_html_reset_button": {
-        "message": "重置",
+        "message": "清除",
         "description": "This string is used for the reset button on the log page."
     },
     "log_html_reset_button_title": {
-        "message": "重置全域記錄檔",
+        "message": "清除全域記錄檔",
         "description": "This string is used as title for the reset button on the log page."
     },
     "popup_html_configs_head": {
@@ -68,31 +68,31 @@
         "description": "This string is used as name for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "此為ClearURLs的主開關. 若關閉則此附件元件失效.",
+        "message": "「過濾器」即 ClearURLs 的網址清理功能。若你關閉此選項，則本套件的主要功能將無法作用。",
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
-        "message": "歷史記錄",
+        "message": "錄製記錄",
         "description": "This string is used as name for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_log_title": {
-        "message": "記錄檔會被儲存於本機. 若不需要此功能建議關閉.",
+        "message": "記錄檔將儲存於本機。若不需要此功能，建議關閉。",
         "description": "This string is used as title for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_badges": {
-        "message": "徽章",
+        "message": "計數徽章",
         "description": "This string is used as name for the badges switch button on the popup page."
     },
     "popup_html_configs_switch_badges_title": {
-        "message": "顯示已清理數量",
+        "message": "顯示已清理的數量",
         "description": "This string is used as title for the badges switch button on the popup page."
     },
     "popup_html_statistics_head": {
-        "message": "統計",
+        "message": "統計資料",
         "description": "This string is used as title for the statistics on the popup page."
     },
     "popup_html_statistics_elements": {
-        "message": "元件",
+        "message": "元素",
         "description": "This string is used as name for the elements on the popup page."
     },
     "popup_html_statistics_blocked": {
@@ -100,19 +100,19 @@
         "description": "This string is used as name for the blocked elements on the popup page."
     },
     "popup_html_statistics_percentage": {
-        "message": "比例",
+        "message": "阻擋比率",
         "description": "This string is used as name for the percentage of blocked elements on the popup page."
     },
     "popup_html_statistics_reset_button": {
-        "message": "重置",
+        "message": "歸零",
         "description": "This string is used as name for the statistics reset button on the popup page."
     },
     "popup_html_statistics_reset_button_title": {
-        "message": "重置全域統計",
+        "message": "重置全域統計資料",
         "description": "This string is used as title for the statistics reset button on the popup page."
     },
     "popup_html_rules_status_head": {
-        "message": "規則-狀態",
+        "message": "規則狀態",
         "description": "This string is used as title for the rules-status section on the popup page."
     },
     "popup_html_log_head": {
@@ -120,7 +120,7 @@
         "description": "This string is used as name for the log button on the popup page."
     },
     "popup_html_log_head_title": {
-        "message": "開啟記錄",
+        "message": "檢視記錄檔",
         "description": "This string is used as title for the log button on the popup page."
     },
     "popup_html_report_button": {
@@ -128,7 +128,7 @@
         "description": "Note: Currently not used."
     },
     "popup_html_report_button_title": {
-        "message": "回報該分頁目前網址",
+        "message": "回報目前分頁的網址",
         "description": "Currently not used."
     },
     "core_save_on_disk": {
@@ -136,11 +136,11 @@
         "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
     },
     "core_error": {
-        "message": "[ClearURLs]: 附加元件無法啟動",
+        "message": "[ClearURLs]: 無法啟動擴充功能",
         "description": "This string is used to tell the user, that ClearURLs could not be started."
     },
     "configs_switch_statistics": {
-        "message": "統計",
+        "message": "統計資料",
         "description": "This string is used as name for the statistics switch button on the popup page."
     },
     "configs_switch_statistics_title": {
@@ -148,27 +148,27 @@
         "description": "This string is used as title for the statistics switch button on the popup page."
     },
     "settings_html_page_title": {
-        "message": "ClearURLs設定",
+        "message": "ClearURLs 偏好設定",
         "description": "This string is used as title on the settings page."
     },
     "badged_color_label": {
-        "message": "徽章顏色",
+        "message": "計數徽章背景顏色",
         "description": "This string is used as name for the badged color label."
     },
     "setting_html_reset_button": {
-        "message": "重置",
+        "message": "重設",
         "description": "This string is used as name for the reset button on the settings page."
     },
     "setting_html_reset_button_title": {
-        "message": "重置所有設定",
+        "message": "將所有設定還原為預設值",
         "description": "This string is used as title for the reset button on the settings page."
     },
     "setting_rule_url_label": {
-        "message": "data.json檔的網址 (規則)",
+        "message": "data.json 檔的網址 (規則)",
         "description": "This string is used as name for the rule url label."
     },
     "settings_html_save_button": {
-        "message": "儲存並重啟附件元件",
+        "message": "儲存並重新啟動擴充功能",
         "description": "This string is used as name for the save&reload button on the settings page."
     },
     "settings_html_save_button_title": {
@@ -176,7 +176,7 @@
         "description": "This string is used as title for the save&reload button on the settings page."
     },
     "setting_hash_url_label": {
-        "message": "rules.hash檔的網址 (校驗)",
+        "message": "rules.hash 檔的網址 (校驗)",
         "description": "This string is used as name for the rule.hash url label."
     },
     "setting_types_label": {
@@ -188,7 +188,7 @@
         "description": "Note: Currently not used."
     },
     "success_report_url": {
-        "message": "該網址已成功回報",
+        "message": "已成功回報網址，我們將儘速對其檢查。",
         "description": "Note: Currently not used."
     },
     "error_report_url": {
@@ -196,35 +196,113 @@
         "description": "Note: Currently not used."
     },
     "donate_button": {
-        "message": "給ClearURLs的作者一點贊助",
+        "message": "給 ClearURLs 的作者一點贊助！",
         "description": "This string is used to refer to a donation page."
     },
     "clipboard_copy_link": {
-        "message": "複製清理過的網址",
+        "message": "複製經過清理的網址",
         "description": "This string is used in the context menu to copy clean links."
     },
     "context_menu_enabled": {
-        "message": "顯示右鍵選單項目",
+        "message": "在快顯功能表中顯示",
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
+    "history_listener_enabled": {
+        "message": "防止藉由 History API 注入追蹤 (參見：<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)"
+    },
     "cleaning_tool_page_title": {
-        "message": "ClearURLs的網址清理工具",
+        "message": "ClearURLs 網址清理工具",
         "description": "This string is used as title on the cleaning tool page."
     },
     "cleaning_tool_description": {
-        "message": "此工具提供手動清理網址的功能. 在下方貼上網址並按下綠色按鈕, ClearURLs將會輸出清理後的網址. 若要同時清理多個網址, 請將每個置於不同行.",
+        "message": "這個工具可讓你手動清理冗長的網址。請貼上欲清理的網址，並點擊「清理網址」按鈕，ClearURLs 便會還你乾淨的網址。你可以批次處理多個網址，每條網址須以換行分隔。",
         "description": "This string is used as description of the cleaning tool."
     },
     "cleaning_tool_btn": {
-        "message": "網址清理工具",
+        "message": "清理網址",
         "description": "This string is used as name for the clean url button."
     },
     "cleaning_tool_dirty_urls_label": {
-        "message": "清理前的網址:",
+        "message": "原始網址：",
         "description": "This string is used as title on the cleaning tool page for the dirty URLs."
     },
     "cleaning_tool_clean_urls_label": {
-        "message": "清理後的網址:",
+        "message": "清理結果：",
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "略過本機網址 (10.0.0.0/8、172.16.0.0/12、192.168.0.0/16、100.64.0.0/10、169.254.0.0/16、127.0.0.1、localhost)"
+    },
+    "local_hosts_skipping_title": {
+        "message": "略過本機網址"
+    },
+    "log_html_export_button": {
+        "message": "匯出"
+    },
+    "log_html_export_button_title": {
+        "message": "匯出全域記錄檔"
+    },
+    "log_html_import_button": {
+        "message": "匯入"
+    },
+    "log_html_import_button_title": {
+        "message": "匯入全域記錄檔"
+    },
+    "setting_html_export_button": {
+        "message": "匯出"
+    },
+    "setting_html_export_button_title": {
+        "message": "將各項設定匯出"
+    },
+    "setting_html_import_button": {
+        "message": "匯入"
+    },
+    "setting_html_import_button_title": {
+        "message": "匯入各項設定"
+    },
+    "setting_log_limit_label": {
+        "message": "最多保存 $LIMIT$ 筆記錄檔"
+    },
+    "blocked_html_title": {
+        "message": "這個網站已由 <b>ClearURLs</b> 封鎖"
+    },
+    "blocked_html_body": {
+        "message": "由於我們判定這個網站是廣告商或追蹤器的伺服器，因此 <b>ClearURLs</b> 已封鎖此網站。若你仍需造訪此網站，請先暫時停用本擴充功能；或者，至 ClearURLs 的偏好設定中關閉「允許封鎖網域」。完成上述操作後，點擊下方的「繼續前往」即可瀏覽該網站。"
+    },
+    "blocked_html_button": {
+        "message": "繼續前往"
+    },
+    "referral_marketing_enabled": {
+        "message": "允許聯盟行銷"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "允許聯盟行銷"
+    },
+    "domain_blocking_enabled": {
+        "message": "允許封鎖網域 (部分阻撓「廣告阻擋器」的網頁可能無法正常顯示)"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "允許封鎖網域 (部分阻撓「廣告阻擋器」的網頁可能無法正常顯示)"
+    },
+    "log_ping_blocked": {
+        "message": "已阻擋超連結稽核"
+    },
+    "ping_blocking_enabled": {
+        "message": "阻擋超連結稽核 (<a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>瞭解詳情</a>)"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "阻擋超連結稽核"
+    },
+    "extension_description": {
+        "message": "將網址中的追蹤元素一掃而空"
+    },
+    "eTag_filtering_log": {
+        "message": "已在這次請求裡移除 ETag 標頭"
+    },
+    "eTag_filtering_enabled": {
+        "message": "濾除請求裡的 ETag 標頭 (<a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>瞭解詳情</a>)"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "濾除 ETag 標頭 (注意：初次啟用前須先清除快取)"
     }
 }

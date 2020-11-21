@@ -1,71 +1,71 @@
 {
     "hash_status_code_1": {
         "message": "senaste version",
-        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+        "description": "Den här statuskoden säger att ingen uppdatering är tillgänglig för ClearURLs-reglerna och allt är uppdaterat."
     },
     "hash_status_code_2": {
         "message": "uppdaterad",
-        "description": "This status code says, that the ClearURLs rules are successfully updated."
+        "description": "Den här statuskoden säger att ClearURLs-reglerna har uppdaterats."
     },
     "hash_status_code_3": {
         "message": "uppdatering tillgänglig",
-        "description": "This status code says, that an update is available for the ClearURLs rules."
+        "description": "Den här statuskoden säger att en uppdatering är tillgänglig för ClearURLs-reglerna."
     },
     "hash_status_code_4": {
         "message": "fel",
-        "description": "This status code says, that the ClearURLs could not be started correctly."
+        "description": "Den här statuskoden säger att ClearURLs inte kunde startas korrekt."
     },
     "hash_status_code_5": {
         "message": "Ojdå, något gick fel!",
-        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
+        "description": "Den här statuskoden säger att ett fel inträffade vid uppdatering av ClearURLs-reglerna."
     },
     "log_redirect": {
         "message": "Den här webbadressen omdirigeras",
-        "description": "This string is used on redirections in the ClearURLs log."
+        "description": "Den här strängen används vid omdirigeringar i ClearURLs-loggen."
     },
     "log_domain_blocked": {
         "message": "Den här domänen är blockerad",
-        "description": "This string is used on blocked domains in the ClearURLs log."
+        "description": "Den här strängen används på blockerade domäner i ClearURLs-loggen."
     },
     "check_os_log": {
         "message": "[ClearURLs]: Logglistare är tilllagd.",
-        "description": "This string is used on ClearURLs log startup."
+        "description": "Den här strängen används vid ClearURLs loggstart."
     },
     "log_html_page_title": {
         "message": "Logg från ClearURLs",
-        "description": "This string is used as header on the log page."
+        "description": "Den här strängen används som rubrik på loggsidan."
     },
     "log_html_table_head_1": {
         "message": "Före bearbetning",
-        "description": "This string is used as table title on the log page."
+        "description": "Den här strängen används som tabellnamn på loggsidan."
     },
     "log_html_table_head_2": {
         "message": "Efter bearbetning",
-        "description": "This string is used as table title on the log page."
+        "description": "Den här strängen används som tabellnamn på loggsidan."
     },
     "log_html_table_head_3": {
         "message": "Regel",
-        "description": "This string is used as table title on the log page."
+        "description": "Den här strängen används som tabellnamn på loggsidan."
     },
     "log_html_table_head_4": {
         "message": "Tid",
-        "description": "This string is used as table title on the log page."
+        "description": "Den här strängen används som tabellnamn på loggsidan."
     },
     "log_html_reset_button": {
         "message": "Återställ",
-        "description": "This string is used for the reset button on the log page."
+        "description": "Den här strängen används för återställningsknappen på loggsidan."
     },
     "log_html_reset_button_title": {
         "message": "Återställ den globala loggen",
-        "description": "This string is used as title for the reset button on the log page."
+        "description": "Den här strängen används som titel för återställningsknappen på loggsidan."
     },
     "popup_html_configs_head": {
         "message": "Konfiguration",
-        "description": "This string is used as title for the configs on the popup page."
+        "description": "Den här strängen används som titel för konfigurationerna på popup-sidan."
     },
     "popup_html_configs_switch_filter": {
         "message": "Filter",
-        "description": "This string is used as name for the filter switch button on the popup page."
+        "description": "Den här strängen används som namn för filteromkopplarna på popup-sidan."
     },
     "popup_html_configs_switch_filter_title": {
         "message": "Filteromkopplaren aktiverar rensningsfunktionen i ClearURLs. Om du inaktiverar detta alternativ, är hela tillägget inaktiverat",
@@ -303,7 +303,13 @@
     },
     "watchdog": {
         "message": "[ClearURLs]: Ett problem har upptäckts. ClearURLs startar om.",
-        "description": "This string is used as text for the watchdog"
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Tillåt domänblockering (Kan leda till problem på sidor som inte tillåter AdBlockers)",
@@ -312,5 +318,61 @@
     "domain_blocking_enabled_title": {
         "message": "Tillåt domänblockering (Kan leda till problem på sidor som inte tillåter AdBlockers)",
         "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "Den här hyperlänksrevisionen blockerades",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "message": "Blockera hyperlänkrevision (Se även <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>den här artikeln</a>)",
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Blockera hyperlänkrevision",
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "Ta bort spårningselement från webbadresser.",
+        "description": "Extension description (max. 132 characters)"
+    },
+    "eTag_filtering_log": {
+        "message": "ETag-rubriken togs bort från denna begäran",
+        "description": "This string is used on ETag header filtering in the ClearURLs log."
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filtrera ETAG-rubriker från förfrågningar (Se även <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>den här artikeln</a>)",
+        "description": "This string is used as label for the ETag header filtering switch"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filtrera ETag-rubriker. Tips: Cachen måste rensas innan den används första gången.",
+        "description": "This string is used as title for the ETag header filtering switch"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": "meddelande",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": "meddelande",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": "meddelande",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": "meddelande",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_head_title": {
+        "message": "meddelande",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_configs_head_title": {
+        "message": "meddelande",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "context_menu_enabled_title": {
+        "message": "meddelande",
+        "description": "not needed, only to prevent exceptions"
     }
 }

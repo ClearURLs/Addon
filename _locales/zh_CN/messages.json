@@ -1,38 +1,38 @@
 {
     "hash_status_code_1": {
         "message": "已是最新的",
-        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+        "description": "这个状态码表示，ClearURLs规则已经是最新的，无需继续更新"
     },
     "hash_status_code_2": {
         "message": "已更新",
-        "description": "This status code says, that the ClearURLs rules are successfully updated."
+        "description": "这个状态码表示，ClearURLs规则更新成功"
     },
     "hash_status_code_3": {
         "message": "有可用的更新",
-        "description": "This status code says, that an update is available for the ClearURLs rules."
+        "description": "这个状态码表示，ClearURLs规则可以进行更新"
     },
     "hash_status_code_4": {
         "message": "错误",
-        "description": "This status code says, that the ClearURLs could not be started correctly."
+        "description": "这个状态码表示，ClearURLs无法正确启动"
     },
     "hash_status_code_5": {
-        "message": "出错了！",
-        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
+        "message": "发生错误",
+        "description": "这个状态码表示，ClearURLs在更新中遇到了错误"
     },
     "log_redirect": {
-        "message": "此 URL 已被重定向",
-        "description": "This string is used on redirections in the ClearURLs log."
+        "message": "此网址已被重定向",
+        "description": "在ClearURLs的日志中，这个字符串表示重定向的网址"
     },
     "log_domain_blocked": {
-        "message": "此域名已被屏蔽",
-        "description": "This string is used on blocked domains in the ClearURLs log."
+        "message": "此网址已被封锁",
+        "description": "在ClearURLs的日志中，这个字符串表示已被封锁的网址"
     },
     "check_os_log": {
-        "message": "[ClearURLs]: 日志监听器已添加",
-        "description": "This string is used on ClearURLs log startup."
+        "message": "[ClearURLs]: 已新增日志监听器",
+        "description": "在ClearURLs 的日志中，这个字符串表示日志开始"
     },
     "log_html_page_title": {
-        "message": "ClearURLs 日志",
+        "message": "ClearURLs日志",
         "description": "This string is used as header on the log page."
     },
     "log_html_table_head_1": {
@@ -60,7 +60,7 @@
         "description": "This string is used as title for the reset button on the log page."
     },
     "popup_html_configs_head": {
-        "message": "设置",
+        "message": "设定",
         "description": "This string is used as title for the configs on the popup page."
     },
     "popup_html_configs_switch_filter": {
@@ -68,7 +68,7 @@
         "description": "This string is used as name for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "此过滤器开关启用 ClearURLs 的清理功能。关闭此开关将禁用此插件",
+        "message": "此为ClearURLs的主开关. 若关闭则此插件失效.",
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
@@ -76,7 +76,7 @@
         "description": "This string is used as name for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_log_title": {
-        "message": "日志仅会储存于本地。若不需要此功能建议关闭",
+        "message": "日志会被储存于本地. 若不需要此功能建议关闭.",
         "description": "This string is used as title for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_badges": {
@@ -96,7 +96,7 @@
         "description": "This string is used as name for the elements on the popup page."
     },
     "popup_html_statistics_blocked": {
-        "message": "已屏蔽",
+        "message": "已阻挡",
         "description": "This string is used as name for the blocked elements on the popup page."
     },
     "popup_html_statistics_percentage": {
@@ -112,7 +112,7 @@
         "description": "This string is used as title for the statistics reset button on the popup page."
     },
     "popup_html_rules_status_head": {
-        "message": "规则-状态",
+        "message": "规则状态",
         "description": "This string is used as title for the rules-status section on the popup page."
     },
     "popup_html_log_head": {
@@ -124,15 +124,15 @@
         "description": "This string is used as title for the log button on the popup page."
     },
     "popup_html_report_button": {
-        "message": "报告当前 URL",
+        "message": "回报目前网址",
         "description": "Note: Currently not used."
     },
     "popup_html_report_button_title": {
-        "message": "报告此标签页当前 URL",
+        "message": "回报该分页目前网址",
         "description": "Currently not used."
     },
     "core_save_on_disk": {
-        "message": "[ClearURLs]: 储存于本地。",
+        "message": "[ClearURLs]: 储存于本地",
         "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
     },
     "core_error": {
@@ -148,7 +148,7 @@
         "description": "This string is used as title for the statistics switch button on the popup page."
     },
     "settings_html_page_title": {
-        "message": "ClearURLs 设置",
+        "message": "ClearURLs设定",
         "description": "This string is used as title on the settings page."
     },
     "badged_color_label": {
@@ -160,51 +160,51 @@
         "description": "This string is used as name for the reset button on the settings page."
     },
     "setting_html_reset_button_title": {
-        "message": "重置所有设置",
+        "message": "重置所有设定",
         "description": "This string is used as title for the reset button on the settings page."
     },
     "setting_rule_url_label": {
-        "message": "data.json 文件（规则）url",
+        "message": "data.json 档的网址 (规则)",
         "description": "This string is used as name for the rule url label."
     },
     "settings_html_save_button": {
-        "message": "保存并重启插件",
+        "message": "储存并重启插件",
         "description": "This string is used as name for the save&reload button on the settings page."
     },
     "settings_html_save_button_title": {
-        "message": "保存设置",
+        "message": "储存设定",
         "description": "This string is used as title for the save&reload button on the settings page."
     },
     "setting_hash_url_label": {
-        "message": "rules.hash 文件（哈希值）url",
+        "message": "rules.hash 档的网址 (校验)",
         "description": "This string is used as name for the rule.hash url label."
     },
     "setting_types_label": {
-        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>请求类型</a>（高级设置）",
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>请求类型</a> (进阶设定)",
         "description": "This string is used as name for the types label."
     },
     "setting_report_server_label": {
-        "message": "向服务器报告 URL",
+        "message": "回报网址",
         "description": "Note: Currently not used."
     },
     "success_report_url": {
-        "message": "已成功报告 URL。我们将尽快检查此 URL。",
+        "message": "该网址已成功回报",
         "description": "Note: Currently not used."
     },
     "error_report_url": {
-        "message": "此 URL 已报告。",
+        "message": "该网址已被回报过",
         "description": "Note: Currently not used."
     },
     "donate_button": {
-        "message": "捐赠 ClearURLs 的作者",
+        "message": "给ClearURLs的作者一点贊助",
         "description": "This string is used to refer to a donation page."
     },
     "clipboard_copy_link": {
-        "message": "复制清理后链接位置",
+        "message": "複製清理过的网址",
         "description": "This string is used in the context menu to copy clean links."
     },
     "context_menu_enabled": {
-        "message": "显示上下文菜单项",
+        "message": "显示右键选单条目",
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
     "history_listener_enabled": {
@@ -212,27 +212,27 @@
         "description": "This string is used as name for the history API listener label."
     },
     "cleaning_tool_page_title": {
-        "message": "ClearURLs 清理工具",
+        "message": "ClearURLs的网址清理工具",
         "description": "This string is used as title on the cleaning tool page."
     },
     "cleaning_tool_description": {
-        "message": "使用此工具您可以粘贴 URL，ClearURLs 将在点击绿色按钮后清理 URL。您可以粘贴多个 URL 但每个 URL 必须独占一行。",
+        "message": "手动清理网址工具\n在下方粘贴原网址并按下绿色按钮，ClearURLs将进行清理后输出。若要同时清理多个网址，请分行。",
         "description": "This string is used as description of the cleaning tool."
     },
     "cleaning_tool_btn": {
-        "message": "清理 URL",
+        "message": "网址清理工具",
         "description": "This string is used as name for the clean url button."
     },
     "cleaning_tool_dirty_urls_label": {
-        "message": "请将待清理 URL 粘贴于此：",
+        "message": "清理前的网址:",
         "description": "This string is used as title on the cleaning tool page for the dirty URLs."
     },
     "cleaning_tool_clean_urls_label": {
-        "message": "清理后的 URL：",
+        "message": "清理后的网址:",
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
     },
     "local_hosts_skipping": {
-        "message": "跳过本地主机 URL (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "message": "跳过本地主机链接（10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost）",
         "description": "This string is used as label for the local host skipping switch"
     },
     "local_hosts_skipping_title": {

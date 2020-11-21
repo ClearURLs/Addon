@@ -1,0 +1,273 @@
+{
+    "hash_status_code_1": {
+        "message": "up-to-date",
+        "description": "Deze statuscode betekent dat er geen update voor de ClearURLs-regels beschikbaar is. Alles is up-to-date."
+    },
+    "hash_status_code_2": {
+        "message": "geüpdatet",
+        "description": "Deze statuscode betekent dat de ClearURLs-regels succesvol geüpdatet zijn."
+    },
+    "hash_status_code_3": {
+        "message": "update beschikbaar",
+        "description": "Deze statuscode betekent dat er een update beschikbaar is voor de ClearURLs-regels."
+    },
+    "hash_status_code_4": {
+        "message": "error",
+        "description": "Deze statuscode betekent dat ClearURLs niet correct gestart kon worden."
+    },
+    "hash_status_code_5": {
+        "message": "Oeps, er ging iets mis!",
+        "description": "Deze statuscode betekent dat er iets mis ging tijdens het updaten van de ClearURLs-regels."
+    },
+    "log_redirect": {
+        "message": "Deze URL werd doorgestuurd",
+        "description": "Deze string wordt in de ClearURLs-log gebruikt voor redirects."
+    },
+    "log_domain_blocked": {
+        "message": "Dit domein wordt geblokkeerd",
+        "description": "Deze string wordt in de ClearURLs-log gebruikt voor geblokkeerde domeinen."
+    },
+    "check_os_log": {
+        "message": "[ClearURLs]: Log listener is toegevoegd",
+        "description": "Deze string wordt gebruikt wanneer de ClearURLs-log start."
+    },
+    "log_html_page_title": {
+        "message": "ClearURLs-log",
+        "description": "Deze string wordt als titel op de logpagina gebruikt"
+    },
+    "log_html_table_head_1": {
+        "message": "Voor opschoning",
+        "description": "Deze string wordt gebruikt als tabeltitel op de logpagina."
+    },
+    "log_html_table_head_2": {
+        "message": "Na verwerking"
+    },
+    "log_html_table_head_3": {
+        "message": "Regel"
+    },
+    "log_html_table_head_4": {
+        "message": "Tijd"
+    },
+    "log_html_reset_button": {
+        "message": "Reset"
+    },
+    "log_html_reset_button_title": {
+        "message": "Reset de globale log"
+    },
+    "popup_html_configs_head": {
+        "message": "Opties"
+    },
+    "popup_html_configs_switch_filter": {
+        "message": "Filter"
+    },
+    "popup_html_configs_switch_filter_title": {
+        "message": "De “Filter”-knop activeert de opschoonfunctionaliteit van ClearURLs. Als je deze uit zet, dan zet je de hele add-on uit"
+    },
+    "popup_html_configs_switch_log": {
+        "message": "Loggen"
+    },
+    "popup_html_configs_switch_log_title": {
+        "message": "Je log wordt alleen lokaal bewaard. We raden aan dit uit te laten staan als je het niet nodig hebt"
+    },
+    "popup_html_configs_switch_badges": {
+        "message": "Badges"
+    },
+    "popup_html_configs_switch_badges_title": {
+        "message": "Laat het aantal opgeschoonde URLs zien"
+    },
+    "popup_html_statistics_head": {
+        "message": "Statistieken"
+    },
+    "popup_html_statistics_elements": {
+        "message": "Elementen"
+    },
+    "popup_html_statistics_blocked": {
+        "message": "Geblokkeerd"
+    },
+    "popup_html_statistics_percentage": {
+        "message": "Percentage"
+    },
+    "popup_html_statistics_reset_button": {
+        "message": "Reset"
+    },
+    "popup_html_statistics_reset_button_title": {
+        "message": "Reset de globale statistieken"
+    },
+    "popup_html_rules_status_head": {
+        "message": "Status van de regels"
+    },
+    "popup_html_log_head_title": {
+        "message": "Open de log"
+    },
+    "popup_html_report_button": {
+        "message": "Rapporteer huidige URL"
+    },
+    "popup_html_report_button_title": {
+        "message": "Rapporteer URL van dit tabblad"
+    },
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Sla op naar je hardeschijf"
+    },
+    "core_error": {
+        "message": "[ClearURLs]: De add-on kon niet starten."
+    },
+    "configs_switch_statistics": {
+        "message": "Statistieken"
+    },
+    "configs_switch_statistics_title": {
+        "message": "Houd statistieken bij"
+    },
+    "settings_html_page_title": {
+        "message": "ClearURLs-instellingen"
+    },
+    "badged_color_label": {
+        "message": "Badge-kleur"
+    },
+    "setting_html_reset_button": {
+        "message": "Reset"
+    },
+    "setting_html_reset_button_title": {
+        "message": "Reset alles"
+    },
+    "setting_rule_url_label": {
+        "message": "De URL naar het “data.json”-bestand (regels)"
+    },
+    "settings_html_save_button": {
+        "message": "Sla op en herlaad de add-on"
+    },
+    "settings_html_save_button_title": {
+        "message": "Slaat de instellingen op"
+    },
+    "setting_hash_url_label": {
+        "message": "De URL naar het “rules.hash”-bestand (hash)"
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request-types</a> (voor geavanceerde gebruikers)"
+    },
+    "setting_report_server_label": {
+        "message": "Rapportage-server voor URLs"
+    },
+    "success_report_url": {
+        "message": "De URL werd succesvol gerapporteerd. We checken hem snel."
+    },
+    "error_report_url": {
+        "message": "Het lijkt er op dat deze URL al eerder gerapporteerd werd."
+    },
+    "donate_button": {
+        "message": "Een donatie voor de ontwikkelaar van ClearURLs."
+    },
+    "clipboard_copy_link": {
+        "message": "Kopiëer schone link-URL"
+    },
+    "context_menu_enabled": {
+        "message": "Laat optie in het contextmenu zien"
+    },
+    "history_listener_enabled": {
+        "message": "Voorkom tracking injection over de history API (Zie: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>replaceState() method</a>)"
+    },
+    "cleaning_tool_page_title": {
+        "message": "ClearURLs opschoon-tool"
+    },
+    "cleaning_tool_description": {
+        "message": "Met deze tool kun je URLs plakken die ClearURLs vervolgens met één klik op de groene knop voor je opschoont. Je kunt meerdere URLs plakken, één per regel."
+    },
+    "cleaning_tool_btn": {
+        "message": "Schoon URLs op"
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Plak hier de URLs met tracking-parameters:"
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Hier vind je de opgeschoonde URLs:"
+    },
+    "local_hosts_skipping": {
+        "message": "Sla URLs op lokale hosts (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost) over"
+    },
+    "local_hosts_skipping_title": {
+        "message": "Sla URLs op lokale hosts over"
+    },
+    "log_html_export_button": {
+        "message": "Exporteer"
+    },
+    "log_html_export_button_title": {
+        "message": "Exporteer de globale log"
+    },
+    "log_html_import_button": {
+        "message": "Importeer"
+    },
+    "log_html_import_button_title": {
+        "message": "Importeer de globale log"
+    },
+    "setting_html_export_button": {
+        "message": "Exporteer"
+    },
+    "setting_html_export_button_title": {
+        "message": "Exporteer alles"
+    },
+    "setting_html_import_button": {
+        "message": "Importeer"
+    },
+    "setting_html_import_button_title": {
+        "message": "Importeer alles"
+    },
+    "setting_log_limit_label": {
+        "message": "Beperk de log tot $LIMIT$ regels.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "Deze site werd geblokkeerd door <b>ClearURLs</b>"
+    },
+    "blocked_html_body": {
+        "message": "Deze site werd geblokkeerd door de <b>ClearURLs</b>-add-on omdat we hem herkenden als een advertentie- en/of tracking-service. Om deze site toch te bezoeken moet je de add-on tijdelijk deactiveren, of het blokkeren van domeinen in de instellingen uitzetten. Klik daarna op onderstaande knop om de pagina te herladen."
+    },
+    "blocked_html_button": {
+        "message": "Bezoek pagina"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: De “watchdog” liep tegen een probleem aan en is al $TIMES$ keer gefaald.",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
+    "domain_blocking_enabled": {
+        "message": "Sta het blokkeren van domeinen toe. (Dit kan problemen veroorzaken op pagina's die ad blockers niet toestaan.)"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Sta het blokkeren van domeinen toe. (Dit kan problemen veroorzaken op pagina's die ad blockers niet toestaan.)"
+    },
+    "log_ping_blocked": {
+        "message": "Deze “hyperlink auditing” werd geblokkeerd"
+    },
+    "ping_blocking_enabled": {
+        "message": "Blokkeer “hyperlink auditing”. (Zie <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>dit artikel</a>)"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Blokkeer “hyperlink auditing”"
+    },
+    "extension_description": {
+        "message": "Verwijder tracking-elementen uit URLs."
+    },
+    "eTag_filtering_log": {
+        "message": "De “ETag header” werd van deze request verwijderd"
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filter “Etag headers” van requests. (Zie <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>dit artikel</a>)"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filter “Etag headers”. Hint: De cache moet geleegd worden vóór het eerste gebruik."
+    },
+    "popup_html_rules_status_head_title": {
+        "message": "bericht"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": "bericht"
+    }
+}

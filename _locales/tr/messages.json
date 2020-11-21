@@ -346,5 +346,33 @@
     "eTag_filtering_enabled_title": {
         "message": "ETag başlıklarını filtreler. İpucu: İlk kullanımdan önce önbellek temizlenmelidir.",
         "description": "Bu dize, ETag başlık filtreleme anahtarının başlığı olarak kullanılır"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": "ileti",
+        "description": "gerekli değil, sadece istisnaları önlemek için"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": "ileti",
+        "description": "gerekli değil, sadece istisnaları önlemek için"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": "ileti",
+        "description": "gerekli değil, sadece istisnaları önlemek için"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": "ileti",
+        "description": "gerekli değil, sadece istisnaları önlemek için"
+    },
+    "popup_html_statistics_head_title": {
+        "message": "ileti",
+        "description": "gerekli değil, sadece istisnaları önlemek için"
+    },
+    "popup_html_configs_head_title": {
+        "message": "ileti",
+        "description": "gerekli değil, sadece istisnaları önlemek için"
+    },
+    "context_menu_enabled_title": {
+        "message": "ileti",
+        "description": "gerekli değil, sadece istisnaları önlemek için"
     }
 }

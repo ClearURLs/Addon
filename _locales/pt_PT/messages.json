@@ -1,0 +1,254 @@
+{
+    "hash_status_code_1": {
+        "message": "em dia"
+    },
+    "hash_status_code_2": {
+        "message": "atualizadas"
+    },
+    "hash_status_code_3": {
+        "message": "atualização disponível"
+    },
+    "hash_status_code_4": {
+        "message": "erro"
+    },
+    "hash_status_code_5": {
+        "message": "Ups! Qualquer coisa correu mal."
+    },
+    "log_redirect": {
+        "message": "Este URL é um reencaminhamento"
+    },
+    "log_domain_blocked": {
+        "message": "Este domínio está bloqueado"
+    },
+    "check_os_log": {
+        "message": "[ClearURLs]: O observador de registos foi adicionado."
+    },
+    "log_html_page_title": {
+        "message": "Registo de funcionamento do ClearURLs"
+    },
+    "log_html_table_head_1": {
+        "message": "Antes do processamento"
+    },
+    "log_html_table_head_2": {
+        "message": "Depois do processamento"
+    },
+    "log_html_table_head_3": {
+        "message": "Regra"
+    },
+    "log_html_table_head_4": {
+        "message": "Data"
+    },
+    "log_html_reset_button": {
+        "message": "Limpar"
+    },
+    "log_html_reset_button_title": {
+        "message": "Limpa o registo."
+    },
+    "popup_html_configs_head": {
+        "message": "Configurações"
+    },
+    "popup_html_configs_switch_filter": {
+        "message": "Filtro"
+    },
+    "popup_html_configs_switch_filter_title": {
+        "message": "O interruptor do filtro controla a função de limpeza do ClearURLs. Se desativar esta opção, a extensão será desativada."
+    },
+    "popup_html_configs_switch_log": {
+        "message": "Registo de Operação"
+    },
+    "popup_html_configs_switch_log_title": {
+        "message": "O registo é apenas guardado localmente. Aconselhamos que não use esta função se ela não for necessária."
+    },
+    "popup_html_configs_switch_badges": {
+        "message": "Crachás"
+    },
+    "popup_html_configs_switch_badges_title": {
+        "message": "Mostrar o número de URLs limpos."
+    },
+    "popup_html_statistics_head": {
+        "message": "Estatísticas"
+    },
+    "popup_html_statistics_elements": {
+        "message": "Elementos"
+    },
+    "popup_html_statistics_blocked": {
+        "message": "Bloqueados"
+    },
+    "popup_html_statistics_percentage": {
+        "message": "Percentagem"
+    },
+    "popup_html_statistics_reset_button": {
+        "message": "Repor"
+    },
+    "popup_html_statistics_reset_button_title": {
+        "message": "Repõe as estatísticas globais"
+    },
+    "popup_html_rules_status_head": {
+        "message": "Estado das regras"
+    },
+    "popup_html_log_head": {
+        "message": "Registo"
+    },
+    "popup_html_log_head_title": {
+        "message": "Abre o registo de operação"
+    },
+    "popup_html_report_button": {
+        "message": "Denunciar URL atual"
+    },
+    "popup_html_report_button_title": {
+        "message": "Denuncia o URL atual deste separador."
+    },
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: Guardar definições no disco."
+    },
+    "core_error": {
+        "message": "[ClearURLs]: Não foi possível iniciar a extensão"
+    },
+    "configs_switch_statistics": {
+        "message": "Estatísticas"
+    },
+    "configs_switch_statistics_title": {
+        "message": "Ativar ou desativar a função de estatística"
+    },
+    "settings_html_page_title": {
+        "message": "Definições do ClearURLs"
+    },
+    "badged_color_label": {
+        "message": "Cor dos crachás"
+    },
+    "setting_html_reset_button": {
+        "message": "Repor"
+    },
+    "setting_html_reset_button_title": {
+        "message": "Repõe as definições de fábrica"
+    },
+    "setting_rule_url_label": {
+        "message": "URL do ficheiro data.json (regras)"
+    },
+    "settings_html_save_button": {
+        "message": "Guardar e reiniciar extensão"
+    },
+    "settings_html_save_button_title": {
+        "message": "Guarda as novas definições"
+    },
+    "setting_hash_url_label": {
+        "message": "URL do ficheiro rules.hash (soma de verificação das regras)"
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Tipos de pedidos</a> (expert level)"
+    },
+    "setting_report_server_label": {
+        "message": "Denunciar URLs do servidor"
+    },
+    "success_report_url": {
+        "message": "O URL foi denunciado com sucesso. Iremos verificá-lo brevemente."
+    },
+    "error_report_url": {
+        "message": "Parece que este URL já foi denunciado."
+    },
+    "donate_button": {
+        "message": "Uma doação para o criador do ClearURLs."
+    },
+    "clipboard_copy_link": {
+        "message": "Copiar ligação limpa."
+    },
+    "context_menu_enabled": {
+        "message": "Mostrar entrada no menu de contexto"
+    },
+    "history_listener_enabled": {
+        "message": "Prevenir injeção de rastreadores com a API do histórico (Ver mais: <a href='https://developer.mozilla.org/pt-BR/docs/Web/API/History_API#O_m%C3%A9todo_replaceState()' target='_blank'>O método replaceState()</a>)"
+    },
+    "cleaning_tool_page_title": {
+        "message": "Ferramenta de limpeza ClearURLs"
+    },
+    "cleaning_tool_description": {
+        "message": "Com esta ferramenta pode colar URLs e nós limpamo-los quando clicar no butão verde. Pode colar vários URLs de uma vez, mas devem estar em linhas separadas."
+    },
+    "cleaning_tool_btn": {
+        "message": "Limpar URLs"
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "Cole aqui os URLs sujos:"
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "Aqui estão os URLs limpos:"
+    },
+    "local_hosts_skipping": {
+        "message": "Ignorar URLs de anfitriões locais (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)"
+    },
+    "local_hosts_skipping_title": {
+        "message": "Ignora os URLs em páginas de anfitriões locais"
+    },
+    "log_html_export_button": {
+        "message": "Exportar"
+    },
+    "log_html_export_button_title": {
+        "message": "Exporta o registo de atividade"
+    },
+    "log_html_import_button": {
+        "message": "Importar"
+    },
+    "log_html_import_button_title": {
+        "message": "Importa o registo de atividade"
+    },
+    "setting_html_export_button": {
+        "message": "Exportar"
+    },
+    "setting_html_export_button_title": {
+        "message": "Exporta tudo"
+    },
+    "setting_html_import_button": {
+        "message": "Importar"
+    },
+    "setting_html_import_button_title": {
+        "message": "Importa tudo"
+    },
+    "setting_log_limit_label": {
+        "message": "Limitar o registo a $LIMIT$ entradas. (-1 significa ∞)"
+    },
+    "blocked_html_title": {
+        "message": "Este site foi bloqueado pelo <b>ClearURLs</b>"
+    },
+    "blocked_html_body": {
+        "message": "Este site foi bloqueado pela extensão <b>ClearURLs</b>, porque identificámos este site como um serviço de publicidade e/ou rastreamento. Para visitar este site, deve desativar a extensão temporáriamente ou desativar o bloqueio de domínio nas definições da extensão. Depois, clique no botão abaixo para carregar a página."
+    },
+    "blocked_html_button": {
+        "message": "Visitar página"
+    },
+    "referral_marketing_enabled": {
+        "message": "Permitir <i>referral marketing</i>"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "Permite <i>referral marketing</i>"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: O watchdog detetou um problema e já falhou $TIMES$ vezes.\n"
+    },
+    "domain_blocking_enabled": {
+        "message": "Permitir o bloqueio de domínios (pode causar problemas em páginas que não permitem bloqueadores de anúncios)"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "Permitir o bloqueio de domínios (pode causar problemas em páginas que não permitem bloqueadores de anúncios)"
+    },
+    "log_ping_blocked": {
+        "message": "Esta inspeção de ligação foi bloqueada"
+    },
+    "ping_blocking_enabled": {
+        "message": "Bloquear inspeção de ligações (Ver também <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>este artigo</a>)"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "Bloquear inspeção de ligações"
+    },
+    "extension_description": {
+        "message": "Remover elementos de rastreamento de URLs."
+    },
+    "eTag_filtering_log": {
+        "message": "O cabeçalho ETag foi removido deste pedido"
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filtra cabeçalhos ETag dos pedidos (Ver também <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>este artigo</a>)"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filtrar cabeçalhos ETag. Dica: deve limpar a cache antes de começar a utlizar esta função."
+    }
+}

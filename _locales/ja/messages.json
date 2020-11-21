@@ -4,7 +4,7 @@
         "description": "このステータスコードは、ClearURLs ルールの更新が無く、すべてが最新であることを示しています。"
     },
     "hash_status_code_2": {
-        "message": "更新する",
+        "message": "更新しました",
         "description": "このステータスコードは、ClearURLs ルールが正常に更新されたことを示しています。"
     },
     "hash_status_code_3": {
@@ -32,7 +32,7 @@
         "description": "この文字列は、ClearURLs ログの起動時に使用されます。"
     },
     "log_html_page_title": {
-        "message": "ClearURLs からのログ",
+        "message": "ClearURLs のログ",
         "description": "この文字列は、ログページのヘッダーとして使用されます。"
     },
     "log_html_table_head_1": {
@@ -312,11 +312,11 @@
         }
     },
     "domain_blocking_enabled": {
-        "message": "ドメインブロックを許可する（AdBlocker を許可していないページで問題が発生する可能性があります。",
+        "message": "ドメインブロックを許可する（AdBlocker を許可していないページで問題が発生する可能性があります。）",
         "description": "この文字列はドメインブロッキングスイッチのラベルとして使用されます。"
     },
     "domain_blocking_enabled_title": {
-        "message": "ドメインブロックを許可する（AdBlockerを許可していないページで問題が発生する可能性があります。",
+        "message": "ドメインブロックを許可する（AdBlocker を許可していないページで問題が発生する可能性があります。）",
         "description": "この文字列は、ドメインブロッキングスイッチのタイトルとして使用されます。"
     },
     "log_ping_blocked": {
@@ -346,5 +346,33 @@
     "eTag_filtering_enabled_title": {
         "message": "ETag ヘッダをフィルタリングします。ヒント: 最初に使用する前にキャッシュをクリアしなければなりません。",
         "description": "この文字列は、ETag ヘッダフィルタリングスイッチのタイトルとして使用されます。"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": "メッセージ",
+        "description": "例外を防ぐためにのみ必要"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": "メッセージ",
+        "description": "例外を防ぐためにのみ必要"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": "メッセージ",
+        "description": "例外を防ぐためにのみ必要"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": "メッセージ",
+        "description": "例外を防ぐためにのみ必要"
+    },
+    "popup_html_statistics_head_title": {
+        "message": "メッセージ",
+        "description": "例外を防ぐためにのみ必要"
+    },
+    "popup_html_configs_head_title": {
+        "message": "メッセージ",
+        "description": "例外を防ぐためにのみ必要"
+    },
+    "context_menu_enabled_title": {
+        "message": "メッセージ",
+        "description": "例外を防ぐためにのみ必要"
     }
 }

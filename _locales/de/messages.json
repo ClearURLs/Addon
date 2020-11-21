@@ -346,5 +346,33 @@
     "eTag_filtering_enabled_title": {
         "message": "Filtert ETag-Header. Info: Cache muss vor der ersten Benutzung geleert werden.",
         "description": "Diese Zeichenkette wird als Titel für das Filtern von ETag-Headern verwendet."
+    },
+    "popup_html_rules_status_head_title": {
+        "message": "Nachricht",
+        "description": "nur zur Fehlerbehebung benötigt"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": "Nachricht",
+        "description": "nur zur Fehlerbehebung benötigt"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": "Nachricht",
+        "description": "nur zur Fehlerbehebung benötigt"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": "Nachricht",
+        "description": "nur zur Fehlerbehebung benötigt"
+    },
+    "popup_html_statistics_head_title": {
+        "message": "Nachricht",
+        "description": "nur zur Fehlerbehebung benötigt"
+    },
+    "popup_html_configs_head_title": {
+        "message": "Nachricht",
+        "description": "nur zur Fehlerbehebung benötigt"
+    },
+    "context_menu_enabled_title": {
+        "message": "Nachricht",
+        "description": "nur zur Fehlerbehebung benötigt"
     }
 }
