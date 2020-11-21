@@ -348,31 +348,31 @@
         "description": "This string is used as title for the ETag header filtering switch"
     },
     "popup_html_rules_status_head_title": {
-        "message": "",
+        "message": " ",
         "description": "not needed, only to prevent exceptions"
     },
     "popup_html_statistics_percentage_title": {
-        "message": "",
+        "message": " ",
         "description": "not needed, only to prevent exceptions"
     },
     "popup_html_statistics_blocked_title": {
-        "message": "",
+        "message": " ",
         "description": "not needed, only to prevent exceptions"
     },
     "popup_html_statistics_elements_title": {
-        "message": "",
+        "message": " ",
         "description": "not needed, only to prevent exceptions"
     },
     "popup_html_statistics_head_title": {
-        "message": "",
+        "message": " ",
         "description": "not needed, only to prevent exceptions"
     },
     "popup_html_configs_head_title": {
-        "message": "",
+        "message": " ",
         "description": "not needed, only to prevent exceptions"
     },
     "context_menu_enabled_title": {
-        "message": "",
+        "message": " ",
         "description": "not needed, only to prevent exceptions"
     }
 }
