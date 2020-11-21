@@ -20,7 +20,7 @@
         "description": "Dieser Statuscode besagt, dass beim Aktualisieren der ClearURLs-Regeln ein Fehler aufgetreten ist."
     },
     "log_redirect": {
-        "message": "Diese Url wurde weiter geleitet",
+        "message": "Diese URL wurde weiter geleitet",
         "description": "Diese Zeichenfolge wird für Umleitungen im ClearURL-Protokoll verwendet."
     },
     "log_domain_blocked": {
@@ -68,7 +68,7 @@
         "description": "Diese Zeichenfolge wird als Name für die Filterschaltfläche auf der Popup-Seite verwendet."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "Der Filter-Schalter aktiviert die Reinigungsfunktion von ClearURLs, wenn sie die Funktion ausschalten, dann deaktivieren sie das gesamte Addon",
+        "message": "Der Filter-Schalter aktiviert die Reinigungsfunktion von ClearURLs, wenn Sie die Funktion ausschalten, dann deaktivieren Sie das gesamte Addon",
         "description": "Diese Zeichenfolge wird als Titel für die Filterschaltfläche auf der Popup-Seite verwendet."
     },
     "popup_html_configs_switch_log": {
@@ -112,7 +112,7 @@
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen der Statistik auf der Popup-Seite verwendet."
     },
     "popup_html_rules_status_head": {
-        "message": "Regel Status",
+        "message": "Regel-Status",
         "description": "Diese Zeichenfolge wird als Titel für den Abschnitt \"Regelstatus\" auf der Popup-Seite verwendet."
     },
     "popup_html_log_head": {
@@ -164,7 +164,7 @@
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Zurücksetzen auf der Einstellungsseite verwendet."
     },
     "setting_rule_url_label": {
-        "message": "Die Url zu der data.json Datei (Regeln)",
+        "message": "Die URL zu der data.json Datei (Regeln)",
         "description": "Diese Zeichenfolge wird als Name für die Regel-URL-Bezeichnung verwendet."
     },
     "settings_html_save_button": {
@@ -192,11 +192,11 @@
         "description": "Hinweis: Wird derzeit nicht verwendet."
     },
     "error_report_url": {
-        "message": "Es schaut so aus, als ob diese URL schon gemeldet wurde.",
+        "message": "Es sieht so aus, als sei diese URL schon gemeldet worden.",
         "description": "Hinweis: Wird derzeit nicht verwendet."
     },
     "donate_button": {
-        "message": "Eine Spende (Schenkung) für den ClearURLs Urheber.",
+        "message": "Eine Spende für den ClearURLs-Urheber",
         "description": "Diese Zeichenfolge wird verwendet, um auf eine Spendenseite zu verweisen."
     },
     "clipboard_copy_link": {
@@ -286,7 +286,7 @@
         "description": "Diese Zeichenfolge wird als Titel auf der Hinweisseite für blockierte Seiten verwendet."
     },
     "blocked_html_body": {
-        "message": "Diese Seite wurde vom <b>ClearURLs</b> Add-On blockiert, weil wir sie als Werbe- bzw. Trackingservice identifiziert haben. Um diese Seite zu besuchen, müssen Sie das Add-On temporär deaktivieren oder in den Einstellungen von ClearURLs das Domain-Blocking deaktivieren. Dann können Sie auf den untenstehenden Button klicken, um die Seite aufzurufen.",
+        "message": "Diese Seite wurde vom <b>ClearURLs</b>-Addon blockiert, weil wir sie als Werbe- bzw. Trackingservice identifiziert haben. Um diese Seite zu besuchen, müssen Sie das Addon temporär deaktivieren oder in den Einstellungen von ClearURLs das Domain-Blocking deaktivieren. Dann können Sie auf den untenstehenden Button klicken, um die Seite aufzurufen.",
         "description": "Diese Zeichenfolge wird als Mengentext auf der Hinweisseite für blockierte Seiten verwendet."
     },
     "blocked_html_button": {
@@ -320,16 +320,16 @@
         "description": "Diese Zeichenkette wird als Titel für das Domain-Blocking verwendet."
     },
     "log_ping_blocked": {
-        "message": "Diese Hyperlink Auditing Anfrage wurde blockiert",
-        "description": "Diese Zeichenfolge wird für blockierte Hyperlink Auditing Anfragen im ClearURL-Protokoll verwendet."
+        "message": "Diese Hyperlink-Auditing-Anfrage wurde blockiert",
+        "description": "Diese Zeichenfolge wird für blockierte Hyperlink-Auditing-Anfragen im ClearURL-Protokoll verwendet."
     },
     "ping_blocking_enabled": {
-        "message": "Blockiere Hyperlink Auditing Anfragen (Siehe auch <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>diese Spezifikation</a>)",
+        "message": "Blockiere Hyperlink-Auditing-Anfragen (siehe auch <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>diese Spezifikation</a>)",
         "description": "Diese Zeichenkette wird als Beschreibung für das Hyperlink Auditing-Blocking verwendet."
     },
     "ping_blocking_enabled_title": {
-        "message": "Blockiere Hyperlink Auditing Anfragen",
-        "description": "Diese Zeichenkette wird als Titel für das Hyperlink Auditing-Blocking verwendet."
+        "message": "Blockiere Hyperlink-Auditing-Anfragen",
+        "description": "Diese Zeichenkette wird als Titel für das Hyperlink-Auditing-Blocking verwendet."
     },
     "extension_description": {
         "message": "Entfernt Tracking-Elemente von URLs.",
