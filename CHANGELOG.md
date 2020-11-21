@@ -9,20 +9,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
-## [1.20.0] - 2020-11-20
+## [1.20.0] - 2020-11-21
 
 ### Compatibility note
 - Require Firefox >= 55
 - Require Chrome >= 37
 
-### Fixed
-- Fixed [#664](https://gitlab.com/KevinRoebert/ClearUrls/issues/664) (also [#739](https://gitlab.com/KevinRoebert/ClearUrls/issues/739), [#740](https://gitlab.com/KevinRoebert/ClearUrls/issues/740))
+### Added
+- Added Dutch translation by Harm M.
 
 ### Changed
 - Changed url decoding to prevent endless loop
 - Performance optimizations for rules by [@thexeos](https://gitlab.com/thexeos)
 - Changed default rules and hash host to Github Pages
 - Changed rules changelog button `href` to the new rules submodule repo
+- Updated various translations - thanks to all contributors
+
+### Fixed
+- Fixed [#664](https://gitlab.com/KevinRoebert/ClearUrls/issues/664) (also [#739](https://gitlab.com/KevinRoebert/ClearUrls/issues/739), [#740](https://gitlab.com/KevinRoebert/ClearUrls/issues/740))
 
 ## [1.19.0] - 2020-07-22
 
