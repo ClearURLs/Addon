@@ -193,8 +193,8 @@ function initSettings() {
     storage.log = {"log": []};
     storage.statisticsStatus = true;
     storage.badged_color = "#ffa500";
-    storage.hashURL = "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
-    storage.ruleURL = "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
+    storage.hashURL = "https://rules2.clearurls.xyz/rules.minify.hash";
+    storage.ruleURL = "https://rules2.clearurls.xyz/data.minify.json";
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
@@ -238,6 +238,10 @@ function replaceOldURLs(url) {
             return "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json";
         case "https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/rules.minify.hash?job=hash%20rules":
             return "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash";
+        case "https://kevinroebert.gitlab.io/ClearUrls/data/data.minify.json":
+            return "https://rules2.clearurls.xyz/data.minify.json";
+        case "https://kevinroebert.gitlab.io/ClearUrls/data/rules.minify.hash":
+            return "https://rules2.clearurls.xyz/rules.minify.hash";
         default:
             return url;
     }
