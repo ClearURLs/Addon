@@ -14,9 +14,9 @@ possible. Thank you!
 <!--
 You do not have to reinstall Firefox or disable all addons. You can just create a new profile that only has ClearURLs installed and where no settings are changed. Instructions can be found here: https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-firefox-profiles
 -->
-* [ ] Can you reproduce the problem in a **fresh** firefox profile with **only** ClearURLs?
+* [ ] Can you reproduce the problem in a **fresh** Firefox profile with **only** ClearURLs?
 * [ ] Are you running the latest version of ClearURLs?
-* [ ] Are you have changed settings under `about:config`?
+* [ ] Have you changed settings under `about:config`?
 
 ### Description
 
@@ -33,10 +33,10 @@ You do not have to reinstall Firefox or disable all addons. You can just create 
 **Actual behavior:** [What actually happened]
 
 ### System
-* **Version**: [compulsory. you must provide your version]
+* **Version**: [compulsory. You must provide your version]
 * **Platform**: [either `uname -a` output, or if Windows, version and 32-bit or
   64-bit]
-* **Country**: [The country from which you called the page. You can found your country here: https://ipapi.co//country_capital]
+* **Country**: [The country from which you called the page. You can find your country here: https://ipapi.co//country_capital]
 
 ### Log
 <!-- Please enable the log functionality of ClearURLs and attach the exported log to this bug report. -->
