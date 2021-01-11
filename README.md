@@ -66,7 +66,7 @@ It is not necessary to translate the description field; in the most cases it is 
 #### Merge request
 If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://github.com/KevinRoebert/ClearUrls/blob/master/_locales/en/messages.json) in the ClearURLs repo 
 and translate the english terms into terms of your language. Once you have translated all the terms, you make a pull request of your translation. 
-Please push your translation into the folder `_locales/{country code}/messages.json`.
+Please push your translation into the folder `_locales/{language code}/messages.json`.
 
 #### POEditor
 [<img src="https://poeditor.com/public/images/logo/logo.svg" alt="https://poeditor.com/join/project/vKTpQWWvk2" width="150">](https://poeditor.com/join/project/vKTpQWWvk2)
