@@ -204,7 +204,13 @@
         "message": "Importa tudo"
     },
     "setting_log_limit_label": {
-        "message": "Limitar o registo a $LIMIT$ entradas. (-1 significa ∞)"
+        "message": "Limitar o registo a $LIMIT$ entradas. (-1 significa ∞)",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
     },
     "blocked_html_title": {
         "message": "Este site foi bloqueado pelo <b>ClearURLs</b>"
