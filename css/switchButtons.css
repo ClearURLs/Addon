@@ -82,6 +82,7 @@ input:checked + .slider:before {
 .switch label {
     position: absolute;
     left: 60px;
+    word-break: keep-all;
 }
 
 label {
