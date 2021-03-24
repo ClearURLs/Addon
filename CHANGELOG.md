@@ -9,6 +9,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
+## [1.21.0] - 2021-03-24
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Changed
+- Updated Polish translation by Kityn
+
+### Removed
+- Removed `clipboardWrite` permission
+- Removed noisy background of popup
+
+### Fixed
+- Fixed [#771](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/771)
+- Fixed [#466](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/466) by [@aethanyc](https://gitlab.com/aethanyc) in MR [!85](https://gitlab.com/KevinRoebert/ClearUrls/-/merge_requests/85)
+
 ## [1.20.0] - 2020-11-21
 
 ### Compatibility note
