@@ -2,14 +2,14 @@
 <a href="https://liberapay.com/kroeb" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/LiberaPay.png" alt="Buy Me A Coffee" height="55"></a>
 <a href="https://www.buymeacoffee.com/KevinRoebert" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/BuyMeACoffee.png" alt="Buy Me A Coffee" height="55"></a>
 
-[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://gitlab.com/KevinRoebert/ClearUrls/-/raw/master/promotion/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei) [<img src="https://developer.chrome.com/webstore/images/ChromeWebStore_BadgeWBorder_v2_206x58.png" alt="for Chrome" height="60px">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
+[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://gitlab.com/KevinRoebert/ClearUrls/-/raw/master/promotion/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei) [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" alt="for Chrome" height="60px">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
 
 # <sub><img src="https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/clearurls.svg" width="64px" height="64px"></sub> ClearURLs [![Gitter](https://badges.gitter.im/ClearURLs/ClearURLs.svg)](https://gitter.im/ClearURLs/ClearURLs)
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and *Chrome* based browsers.
 
 This extension will automatically remove tracking elements from URLs to help protect your privacy when browse through the Internet, 
-which is regularly updated by us and can be found [here](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json).
+which is regularly updated by us and can be found [here](https://gitlab.com/anti-tracking/ClearURLs/rules/-/raw/master/data.min.json).
 
 ## Application
 Many websites use tracking elements in the URL (e.g. `https://example.com?utm_source=newsletter1&utm_medium=email&utm_campaign=sale`) to mark your online activity. 
@@ -66,7 +66,7 @@ It is not necessary to translate the description field; in the most cases it is 
 #### Merge request
 If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://github.com/KevinRoebert/ClearUrls/blob/master/_locales/en/messages.json) in the ClearURLs repo 
 and translate the english terms into terms of your language. Once you have translated all the terms, you make a pull request of your translation. 
-Please push your translation into the folder `_locales/{country code}/messages.json`.
+Please push your translation into the folder `_locales/{language code}/messages.json`.
 
 #### POEditor
 [<img src="https://poeditor.com/public/images/logo/logo.svg" alt="https://poeditor.com/join/project/vKTpQWWvk2" width="150">](https://poeditor.com/join/project/vKTpQWWvk2)
@@ -82,6 +82,7 @@ Please push your translation into the folder `_locales/{country code}/messages.j
 *  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)
 *  [Awesome Humane Tech List](https://github.com/humanetech-community/awesome-humane-tech#tracking)
 *  [PrivacyTools](https://www.privacytools.io/browsers/#addons)
+*  [New York Times Wirecutter](https://www.nytimes.com/wirecutter/reviews/our-favorite-ad-blockers-and-browser-extensions-to-protect-privacy/#cleaner-links-clearurls)
 *  ClearURLs is part of Mozilla's recommended extensions program
 
 ## Permissions

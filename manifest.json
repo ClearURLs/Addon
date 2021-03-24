@@ -44,7 +44,6 @@
         "storage",
         "unlimitedStorage",
         "contextMenus",
-        "clipboardWrite",
         "webNavigation",
         "tabs",
         "downloads"

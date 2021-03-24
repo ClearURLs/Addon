@@ -1,20 +1,20 @@
 /*
-* ClearURLs
-* Copyright (c) 2017-2020 Kevin Röbert
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU Lesser General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU Lesser General Public License for more details.
-*
-* You should have received a copy of the GNU Lesser General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * ClearURLs
+ * Copyright (c) 2017-2021 Kevin Röbert
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 /*jshint esversion: 6 */
 /*
@@ -52,7 +52,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             "changes": false,
             "url": url,
             "cancel": false
-        };
+        }
     }
 
     /*
@@ -93,12 +93,12 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             pushToLog(pureUrl, url, translate('log_redirect'));
             increaseGlobalURLCounter(1);
             increaseBadged(false, request)
-        };
+        }
 
         return {
             "redirect": true,
             "url": url
-        };
+        }
     }
 
     if (existsFields(url)) {
@@ -157,7 +157,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
         "changes": changes,
         "url": url,
         "cancel": cancel
-    };
+    }
 }
 
 function start() {
@@ -255,7 +255,7 @@ function start() {
             return {
                 hash: (await response.text()).trim(),
                 status: response.status
-            };
+            }
         });
 
         response.then(result => {
@@ -290,7 +290,7 @@ function start() {
                 data: (await response.clone().text()).trim(),
                 hash: await sha256((await response.text()).trim()),
                 status: response.status
-            };
+            }
         })
 
         response.then(result => {
@@ -468,7 +468,7 @@ function start() {
          * @param {boolean} isActive   Is this rule active?
          */
         this.addReferralMarketing = function (rule, isActive = true) {
-            rule = "([\\/\\?#]|(&|&amp;))+(" + rule + "=[^\\/\\?&]*)";
+            rule = "([\\/\\?#]|(&|&amp;))+(" + rule + "=[^&]*)";
 
             this.applyRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive);
         };
@@ -478,7 +478,7 @@ function start() {
          * and replace old with new exception.
          *
          * @param {String} exception   RegExp as string
-         * @param {Boolean} isActive   Is this exception acitve?
+         * @param {Boolean} isActive   Is this exception active?
          */
         this.addException = function (exception, isActive = true) {
             if (isActive) {
