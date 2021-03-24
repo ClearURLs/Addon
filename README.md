@@ -9,7 +9,7 @@
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and *Chrome* based browsers.
 
 This extension will automatically remove tracking elements from URLs to help protect your privacy when browse through the Internet, 
-which is regularly updated by us and can be found [here](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/data/data.min.json).
+which is regularly updated by us and can be found [here](https://gitlab.com/anti-tracking/ClearURLs/rules/-/raw/master/data.min.json).
 
 ## Application
 Many websites use tracking elements in the URL (e.g. `https://example.com?utm_source=newsletter1&utm_medium=email&utm_campaign=sale`) to mark your online activity. 
