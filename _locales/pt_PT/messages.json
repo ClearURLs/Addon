@@ -204,7 +204,7 @@
         "message": "Importa tudo"
     },
     "setting_log_limit_label": {
-        "message": "Limitar o registo a $LIMIT$ entradas. (-1 significa ∞)",
+        "message": "Limitar o registo a $LIMIT$ entradas",
         "placeholders": {
             "limit": {
                 "content": "$1",
