@@ -102,7 +102,7 @@
         "message": "[ClearURLs]: Guardar definições no disco."
     },
     "core_error": {
-        "message": "[ClearURLs]: Não foi possível iniciar a extensão"
+        "message": "[ClearURLs]: Não foi possível iniciar a extensão."
     },
     "configs_switch_statistics": {
         "message": "Estatísticas"
