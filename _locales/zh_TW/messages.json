@@ -261,7 +261,13 @@
         "message": "匯入各項設定"
     },
     "setting_log_limit_label": {
-        "message": "最多保存 $LIMIT$ 筆記錄檔"
+        "message": "最多保存 $LIMIT$ 筆記錄檔",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
     },
     "blocked_html_title": {
         "message": "這個網站已由 <b>ClearURLs</b> 封鎖"

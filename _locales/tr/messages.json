@@ -272,7 +272,7 @@
         "description": "Bu dize, ayarlar sayfasındaki alma düğmesinin adı olarak kullanılır."
     },
     "setting_log_limit_label": {
-        "message": "Günlüğü $ LIMIT $ girişleriyle sınırlar. (-1: = ∞)",
+        "message": "Günlüğü $ LIMIT $ girişleriyle sınırlar",
         "description": "Bu dize, günlük sınırı etiketinin adı olarak kullanılır.",
         "placeholders": {
             "limit": {

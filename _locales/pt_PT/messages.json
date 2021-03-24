@@ -102,7 +102,7 @@
         "message": "[ClearURLs]: Guardar definições no disco."
     },
     "core_error": {
-        "message": "[ClearURLs]: Não foi possível iniciar a extensão"
+        "message": "[ClearURLs]: Não foi possível iniciar a extensão."
     },
     "configs_switch_statistics": {
         "message": "Estatísticas"
@@ -204,7 +204,13 @@
         "message": "Importa tudo"
     },
     "setting_log_limit_label": {
-        "message": "Limitar o registo a $LIMIT$ entradas. (-1 significa ∞)"
+        "message": "Limitar o registo a $LIMIT$ entradas",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
     },
     "blocked_html_title": {
         "message": "Este site foi bloqueado pelo <b>ClearURLs</b>"
