@@ -1,0 +1,378 @@
+{
+    "hash_status_code_1": {
+        "message": "คุณมีรุ่นล่าสุด",
+        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+    },
+    "hash_status_code_2": {
+        "message": "อัปเดทสำเร็จ",
+        "description": "This status code says, that the ClearURLs rules are successfully updated."
+    },
+    "hash_status_code_3": {
+        "message": "มีรายการที่ต้องอัปเดต",
+        "description": "This status code says, that an update is available for the ClearURLs rules."
+    },
+    "hash_status_code_4": {
+        "message": "พบข้อผิดพลาด",
+        "description": "This status code says, that the ClearURLs could not be started correctly."
+    },
+    "hash_status_code_5": {
+        "message": "ดูเหมือนว่าจะมีบางอย่างผิดปกติ!",
+        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
+    },
+    "log_redirect": {
+        "message": "ทำการ redirected URL",
+        "description": "This string is used on redirections in the ClearURLs log."
+    },
+    "log_domain_blocked": {
+        "message": "โดเมนนี้ถูกบล็อก",
+        "description": "This string is used on blocked domains in the ClearURLs log."
+    },
+    "check_os_log": {
+        "message": "[ClearURLs]: ได้เพิ่ม Log listener แล้ว",
+        "description": "This string is used on ClearURLs log startup."
+    },
+    "log_html_page_title": {
+        "message": "Log จาก ClearURLs",
+        "description": "This string is used as header on the log page."
+    },
+    "log_html_table_head_1": {
+        "message": "ก่อนเริ่มดำเนินการ",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_2": {
+        "message": "หลังดำเนินการ",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_3": {
+        "message": "กฏข้อห้าม",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_4": {
+        "message": "เวลา",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_reset_button": {
+        "message": "คืนค่าเดิม",
+        "description": "This string is used for the reset button on the log page."
+    },
+    "log_html_reset_button_title": {
+        "message": "คืนค่าเดิมของlog ทั่วโลก",
+        "description": "This string is used as title for the reset button on the log page."
+    },
+    "popup_html_configs_head": {
+        "message": "ตั้งค่าอื่น ๆ ",
+        "description": "This string is used as title for the configs on the popup page."
+    },
+    "popup_html_configs_switch_filter": {
+        "message": "ตัวกรอง",
+        "description": "This string is used as name for the filter switch button on the popup page."
+    },
+    "popup_html_configs_switch_filter_title": {
+        "message": "สวิตช์ตัวกรองเปิดใช้งานฟังก์ชันการทำความสะอาดของ ClearURLs ถ้าคุณปิดการทำงานตัวเลือกนี้ addon ทั้งหมดจะถูกปิด",
+        "description": "This string is used as title for the filter switch button on the popup page."
+    },
+    "popup_html_configs_switch_log": {
+        "message": "Logging",
+        "description": "This string is used as name for the logging switch button on the popup page."
+    },
+    "popup_html_configs_switch_log_title": {
+        "message": "log นี้ถูกบันทึกแบบเฉพาะที่ เราแนะนำให้ต้านฟีเจอร์ถ้าคุณไม่จำเป็นต้องใช้",
+        "description": "This string is used as title for the logging switch button on the popup page."
+    },
+    "popup_html_configs_switch_badges": {
+        "message": "เครื่องหมาย",
+        "description": "This string is used as name for the badges switch button on the popup page."
+    },
+    "popup_html_configs_switch_badges_title": {
+        "message": "แสดงจำนวนของ urls ที่ถูกล้าง",
+        "description": "This string is used as title for the badges switch button on the popup page."
+    },
+    "popup_html_statistics_head": {
+        "message": "สถิติ",
+        "description": "This string is used as title for the statistics on the popup page."
+    },
+    "popup_html_statistics_elements": {
+        "message": "ส่วนประกอบ",
+        "description": "This string is used as name for the elements on the popup page."
+    },
+    "popup_html_statistics_blocked": {
+        "message": "บล็อกแล้ว",
+        "description": "This string is used as name for the blocked elements on the popup page."
+    },
+    "popup_html_statistics_percentage": {
+        "message": "ร้อยละ",
+        "description": "This string is used as name for the percentage of blocked elements on the popup page."
+    },
+    "popup_html_statistics_reset_button": {
+        "message": "คืนค่าสถิติเดิม",
+        "description": "This string is used as name for the statistics reset button on the popup page."
+    },
+    "popup_html_statistics_reset_button_title": {
+        "message": "คืนค่าสถิติเดิมทั่วโลก",
+        "description": "This string is used as title for the statistics reset button on the popup page."
+    },
+    "popup_html_rules_status_head": {
+        "message": "สถานะข้อห้าม",
+        "description": "This string is used as title for the rules-status section on the popup page."
+    },
+    "popup_html_log_head": {
+        "message": "Log",
+        "description": "This string is used as name for the log button on the popup page."
+    },
+    "popup_html_log_head_title": {
+        "message": "เปิด log",
+        "description": "This string is used as title for the log button on the popup page."
+    },
+    "popup_html_report_button": {
+        "message": "รายงาน URL ปัจจุบัน",
+        "description": "Note: Currently not used."
+    },
+    "popup_html_report_button_title": {
+        "message": "รายงาน URL จากแท็ปนี้",
+        "description": "Currently not used."
+    },
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: บันทึกลงบนดิสก์",
+        "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
+    },
+    "core_error": {
+        "message": "[ClearURLs]: addon ไม่สามารถทำงานได้",
+        "description": "This string is used to tell the user, that ClearURLs could not be started."
+    },
+    "configs_switch_statistics": {
+        "message": "สถิติ",
+        "description": "This string is used as name for the statistics switch button on the popup page."
+    },
+    "configs_switch_statistics_title": {
+        "message": "เปิดการใช้งานหรือปิดการใช้งานฟังก์ชันสถิติ",
+        "description": "This string is used as title for the statistics switch button on the popup page."
+    },
+    "settings_html_page_title": {
+        "message": "การตั้งค่า ClearURLs",
+        "description": "This string is used as title on the settings page."
+    },
+    "badged_color_label": {
+        "message": "สีเครื่องหมาย",
+        "description": "This string is used as name for the badged color label."
+    },
+    "setting_html_reset_button": {
+        "message": "คืนค่าเดิม",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_reset_button_title": {
+        "message": "ล้างทั้งหมด",
+        "description": "This string is used as title for the reset button on the settings page."
+    },
+    "setting_rule_url_label": {
+        "message": "The url to the data.json file (rules)",
+        "description": "This string is used as name for the rule url label."
+    },
+    "settings_html_save_button": {
+        "message": "บันทึก & รีโหลด addon",
+        "description": "This string is used as name for the save&reload button on the settings page."
+    },
+    "settings_html_save_button_title": {
+        "message": "บันทึกการตั้งค่า",
+        "description": "This string is used as title for the save&reload button on the settings page."
+    },
+    "setting_hash_url_label": {
+        "message": "The url to the rules.hash file (hash)",
+        "description": "This string is used as name for the rule.hash url label."
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
+        "description": "This string is used as name for the types label."
+    },
+    "setting_report_server_label": {
+        "message": "รายงาน server ของ URLs",
+        "description": "Note: Currently not used."
+    },
+    "success_report_url": {
+        "message": "รายงาน URL สำเร็จเราจะทำการตรวจสอบโดยเร็ว",
+        "description": "Note: Currently not used."
+    },
+    "error_report_url": {
+        "message": "เหมือนกับว่าคุณจะได้รายงาน URL นี้ไปแล้ว",
+        "description": "Note: Currently not used."
+    },
+    "donate_button": {
+        "message": "ร่วมบริจาคให้กับทีมผู้สร้าง ClearURLs",
+        "description": "This string is used to refer to a donation page."
+    },
+    "clipboard_copy_link": {
+        "message": "คัดลอกตำแหน่งลิงก์ Clean",
+        "description": "This string is used in the context menu to copy clean links."
+    },
+    "context_menu_enabled": {
+        "message": "แสดงเนื้อหาการบันทึกเมนู",
+        "description": "This string is used toggle the context menu entry to copy clean links."
+    },
+    "history_listener_enabled": {
+        "message": "ป้องกันการติดตามผ่านประวัติ API (ดูเพิ่มเติม: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
+        "description": "This string is used as name for the history API listener label."
+    },
+    "cleaning_tool_page_title": {
+        "message": "เครื่องมือ ClearURLs",
+        "description": "This string is used as title on the cleaning tool page."
+    },
+    "cleaning_tool_description": {
+        "message": "ด้วยเครื่องมือนี้คุณจะวางใน URLs และ ClearURLs ได้ด้วยการคลิกปุ่มสีเขียว คุณสามารถวางได้หลาย URLs ในคราวเดียวกัน แต่ว่าแต่ละ URL ต้องอยูแยกบรรทัดกัน",
+        "description": "This string is used as description of the cleaning tool."
+    },
+    "cleaning_tool_btn": {
+        "message": "Clean URLs",
+        "description": "This string is used as name for the clean url button."
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "วาง URL ที่ต้องการคลีนที่นี่:",
+        "description": "This string is used as title on the cleaning tool page for the dirty URLs."
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "ดู URLs ที่คลีนแล้วที่นี่:",
+        "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "ข้ามการล้าง URLs จากแม่ข่ายท้องถิ่น(10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "message": "ข้าม URLs ของแม่ข่ายท้องถิ่น",
+        "description": "This string is used as title for the local host skipping switch"
+    },
+    "log_html_export_button": {
+        "message": "ส่งข้อมูลออก",
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "message": "ส่งข้อมูลออก log ทั่วโลก",
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "message": "นำข้อมูลเข้า",
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "message": "นำข้อมูลเข้า log ทั่วโลก",
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "setting_html_export_button": {
+        "message": "ส่งข้อมูลออก",
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "message": "ส่งออกทุกอย่าง",
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "message": "นำเข้า",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "message": "นำเข้าทุกอย่าง",
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_log_limit_label": {
+        "message": "จำกัด log ให้ $LIMIT$ ลงข้อมูล",
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "ไซต์นี้ถูกจำกัดการเข้าถึงโดย <b>ClearURLs</b>",
+        "description": "This string is used as title on the blocked site page."
+    },
+    "blocked_html_body": {
+        "message": "ไซต์นี้ถูกจำกัดการเข้าถึงโดย <b>ClearURLs</b> Add-on, เนื่องจากเราตรวจจับว่าไซต์นี้เป็นการโฆษณาหรือมีการติดตาม หากต้องการเข้าชมไซต์คุณต้องปิด Add-on ชั่วคราวที่การตั้งค่า ClearURLs หลังจากนั้นคลิกปุ่มด้านล่างเพื่อโหลดหน้านี้อีกครั้ง",
+        "description": "This string is used as body on the blocked site page."
+    },
+    "blocked_html_button": {
+        "message": "เข้าชมเว็บเพจ",
+        "description": "This string is used as button on the blocked site page."
+    },
+    "referral_marketing_enabled": {
+        "message": "อนุญาตการตลาดแบบอ้างถึง",
+        "description": "This string is used as label for the referral marketing switch"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "อนุญาตการตลาดแบบอ้างถึง",
+        "description": "This string is used as title for the referral marketing switch"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: ระบบเฝ้าระวังตรวจพบปัญหาที่ล่มไปแล้ว $TIMES$ ครั้ง",
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
+    "domain_blocking_enabled": {
+        "message": "อนุญาตให้บล็อกโดเมน (อาจทำให้เกิดปัญหาในหน้าที่ไม่อนุญาต AdBlockers)",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "อนุญาตให้บล็อกโดเมน (อาจทำให้เกิดปัญหาในหน้าที่ไม่อนุญาต AdBlockers)",
+        "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "การตรวจสอบไฮเปอร์ลิงก์นี้ถูกบล็อก",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "message": "บล็อกการตรวจสอบไฮเปอร์ลิงก์ (ดูเพิ่มเติม <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>บทความนี้</a>)",
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "บล็อกการตรวจสอบไฮเปอร์ลิงก์",
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "เอาตัวติดตามทั้งหมดออกจาก URLs.",
+        "description": "Extension description (max. 132 characters)"
+    },
+    "eTag_filtering_log": {
+        "message": "หัว ETag ได้ถูกนำออกจากคำขอ",
+        "description": "This string is used on ETag header filtering in the ClearURLs log."
+    },
+    "eTag_filtering_enabled": {
+        "message": "กรองหัว ETag จากคำขอทั้งหมด (ดูเพิ่มเติม <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>บทความนี้</a>)",
+        "description": "This string is used as label for the ETag header filtering switch"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "ตัวกรองหัว ETag คำใบ้: ต้องล้างค่าแคชก่อนใช้งาน",
+        "description": "This string is used as title for the ETag header filtering switch"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_head_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_configs_head_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "context_menu_enabled_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    }
+}
