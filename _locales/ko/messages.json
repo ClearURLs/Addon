@@ -1,70 +1,70 @@
 {
     "hash_status_code_1": {
-        "message": "up to date",
+        "message": "최신 버전",
         "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
     },
     "hash_status_code_2": {
-        "message": "updated",
+        "message": "업데이트됨",
         "description": "This status code says, that the ClearURLs rules are successfully updated."
     },
     "hash_status_code_3": {
-        "message": "update available",
+        "message": "업데이트 가능",
         "description": "This status code says, that an update is available for the ClearURLs rules."
     },
     "hash_status_code_4": {
-        "message": "error",
+        "message": "오류",
         "description": "This status code says, that the ClearURLs could not be started correctly."
     },
     "hash_status_code_5": {
-        "message": "Oops something went wrong!",
+        "message": "앗 무언가가 잘못되었어요!",
         "description": "This status code says, that an error occurred while updating the ClearURLs rules."
     },
     "log_redirect": {
-        "message": "This url is redirected",
+        "message": "이 url이 리다이렉트됨",
         "description": "This string is used on redirections in the ClearURLs log."
     },
     "log_domain_blocked": {
-        "message": "This domain is blocked",
+        "message": "이 도메인이 차단됨",
         "description": "This string is used on blocked domains in the ClearURLs log."
     },
     "check_os_log": {
-        "message": "[ClearURLs]: Log listener is added.",
+        "message": "[ClearURLs]: 로그 리스너가 추가되었습니다.",
         "description": "This string is used on ClearURLs log startup."
     },
     "log_html_page_title": {
-        "message": "Log from ClearURLs",
+        "message": "ClearURLs의 로그",
         "description": "This string is used as header on the log page."
     },
     "log_html_table_head_1": {
-        "message": "Before processing",
+        "message": "처리하기 전에",
         "description": "This string is used as table title on the log page."
     },
     "log_html_table_head_2": {
-        "message": "After processing",
+        "message": "처리한 이후",
         "description": "This string is used as table title on the log page."
     },
     "log_html_table_head_3": {
-        "message": "Rule",
+        "message": "규칙",
         "description": "This string is used as table title on the log page."
     },
     "log_html_table_head_4": {
-        "message": "Time",
+        "message": "시간",
         "description": "This string is used as table title on the log page."
     },
     "log_html_reset_button": {
-        "message": "Reset",
+        "message": "초기화",
         "description": "This string is used for the reset button on the log page."
     },
     "log_html_reset_button_title": {
-        "message": "Resets the global log",
+        "message": "글로벌 로그 초기화",
         "description": "This string is used as title for the reset button on the log page."
     },
     "popup_html_configs_head": {
-        "message": "Configs",
+        "message": "설정",
         "description": "This string is used as title for the configs on the popup page."
     },
     "popup_html_configs_switch_filter": {
-        "message": "Filter",
+        "message": "필터",
         "description": "This string is used as name for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_filter_title": {
@@ -72,23 +72,23 @@
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
-        "message": "Logging",
+        "message": "로깅",
         "description": "This string is used as name for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_log_title": {
-        "message": "The log is saved only locally. We advise against this feature if you do not need it",
+        "message": "이 로그는 오직 기기에만 저장됩니다. 필요하지 않으면 사용하지 않는 것을 추천합니다",
         "description": "This string is used as title for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_badges": {
-        "message": "Badges",
+        "message": "배지",
         "description": "This string is used as name for the badges switch button on the popup page."
     },
     "popup_html_configs_switch_badges_title": {
-        "message": "Show numbers of cleaned urls",
+        "message": "청소된 url의 수 표시",
         "description": "This string is used as title for the badges switch button on the popup page."
     },
     "popup_html_statistics_head": {
-        "message": "Statistics",
+        "message": "통계",
         "description": "This string is used as title for the statistics on the popup page."
     },
     "popup_html_statistics_elements": {
