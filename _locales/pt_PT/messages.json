@@ -266,5 +266,33 @@
     },
     "eTag_filtering_enabled_title": {
         "message": "Filtrar cabeçalhos ETag. Dica: deve limpar a cache antes de começar a utlizar esta função."
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " ",
+        "description": "não necessário, apenas para evitar exceções"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " ",
+        "description": ""
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " ",
+        "description": ""
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " ",
+        "description": ""
+    },
+    "popup_html_statistics_head_title": {
+        "message": " ",
+        "description": ""
+    },
+    "popup_html_configs_head_title": {
+        "message": " ",
+        "description": ""
+    },
+    "context_menu_enabled_title": {
+        "message": " ",
+        "description": ""
     }
 }
