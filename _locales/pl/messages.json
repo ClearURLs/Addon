@@ -216,7 +216,7 @@
         "description": "This string is used as title on the cleaning tool page."
     },
     "cleaning_tool_description": {
-        "message": "To narzędzie pozwala wkleić adres URL, a po wciśnięciu zielonego przycisku ClearURLs oczyści go. Można wkleić wiele adresów URL jednocześnie, ale każdy pojedynczy powinien być w osobnej linii.",
+        "message": "ClearURLs pozwala na wklejenie adresu URL i oczyszczenie go po wciśnięciu zielonego przycisku. Można wkleić wiele adresów URL jednocześnie, ale każdy z nich powinien być w osobnej linii.",
         "description": "This string is used as description of the cleaning tool."
     },
     "cleaning_tool_btn": {
@@ -244,7 +244,7 @@
         "description": "This string is used for the export button on the log page."
     },
     "log_html_export_button_title": {
-        "message": "Eksportuje cały dziennik",
+        "message": "Eksportuj cały dziennik",
         "description": "This string is used as title for the export button on the log page."
     },
     "log_html_import_button": {
@@ -252,7 +252,7 @@
         "description": "This string is used for the import button on the log page."
     },
     "log_html_import_button_title": {
-        "message": "Importuje cały dziennik",
+        "message": "Importuj cały dziennik",
         "description": "This string is used as title for the import button on the log page."
     },
     "setting_html_export_button": {
@@ -328,7 +328,7 @@
         "description": "This string is used as label for the hyperlink auditing blocking switch"
     },
     "ping_blocking_enabled_title": {
-        "message": "Blokuje inspekcję hiperłączy",
+        "message": "Blokuj inspekcję hiperłączy",
         "description": "This string is used as title for the hyperlink auditing blocking switch"
     },
     "extension_description": {
@@ -346,5 +346,33 @@
     "eTag_filtering_enabled_title": {
         "message": "Filtruje nagłówki ETag. Wskazówka: pamięć podręczną należy wyczyścić przed pierwszym użyciem.",
         "description": "This string is used as title for the ETag header filtering switch"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " ",
+        "description": "niewymagane, jedynie po to, aby zapobiegać wyjątkom"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " ",
+        "description": "niewymagane, jedynie po to, aby zapobiegać wyjątkom"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " ",
+        "description": "niewymagane, jedynie po to, aby zapobiegać wyjątkom"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " ",
+        "description": "niewymagane, jedynie po to, aby zapobiegać wyjątkom"
+    },
+    "popup_html_statistics_head_title": {
+        "message": " ",
+        "description": "niewymagane, jedynie po to, aby zapobiegać wyjątkom"
+    },
+    "popup_html_configs_head_title": {
+        "message": " ",
+        "description": "niewymagane, jedynie po to, aby zapobiegać wyjątkom"
+    },
+    "context_menu_enabled_title": {
+        "message": " ",
+        "description": "niewymagane, jedynie po to, aby zapobiegać wyjątkom"
     }
 }
