@@ -505,24 +505,24 @@ function start() {
 
         /**
          * Add a HTTP method to methods list.
-         * 
+         *
          * @param {String} method HTTP Method Name
          */
         this.addMethod = function (method) {
-            if (methods.indexOf(method) == -1) {
+            if (methods.indexOf(method) === -1) {
                 methods.push(method);
             }
         }
 
         /**
          * Check the requests' method.
-         * 
-         * @param {requestDetails} details Requests deatils
-         * @returns {boolean} if need filter? true: false
+         *
+         * @param {requestDetails} details Requests details
+         * @returns {boolean} should be filtered or not
          */
         this.matchMethod = function (details) {
             if (!methods.length) return true;
-            return methods.indexOf(details['method']) > -1 ? true : false;
+            return methods.indexOf(details['method']) > -1;
         }
 
         /**
@@ -599,7 +599,7 @@ function start() {
      * Function which called from the webRequest to
      * remove the tracking fields from the url.
      *
-     * @param  {webRequest} request     webRequest-Object
+     * @param  {requestDetails} request     webRequest-Object
      * @return {Array}                  redirectUrl or none
      */
     function clearUrl(request) {
