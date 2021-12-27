@@ -1,23 +1,23 @@
 {
     "hash_status_code_1": {
-        "message": "actualizado",
-        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+        "message": "Actualizado",
+        "description": "Este código de estado dice que no hay actualizaciones disponibles para las reglas de ClearURLs y que todo está actualizado."
     },
     "hash_status_code_2": {
-        "message": "actualizado",
-        "description": "This status code says, that the ClearURLs rules are successfully updated."
+        "message": "Actualizado",
+        "description": "Este código de estado dice que las reglas de ClearURL se actualizaron correctamente."
     },
     "hash_status_code_3": {
-        "message": "actualización disponible",
-        "description": "This status code says, that an update is available for the ClearURLs rules."
+        "message": "Actualización disponible",
+        "description": "Este código de estado dice que hay una actualización disponible para las reglas de ClearURL."
     },
     "hash_status_code_4": {
         "message": "error",
-        "description": "This status code says, that the ClearURLs could not be started correctly."
+        "description": "Este código de estado dice que ClearURL no se pudo iniciar correctamente."
     },
     "hash_status_code_5": {
         "message": "¡Vaya, algo ha ido mal!",
-        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
+        "description": "Este código de estado dice que se produjo un error al actualizar las reglas de ClearURL."
     },
     "log_redirect": {
         "message": "Esta dirección ha sido redirigida",
@@ -303,7 +303,13 @@
     },
     "watchdog": {
         "message": "[ClearURLs]: El watchdog detectado un problema. ClearURLs será reiniciado.",
-        "description": "This string is used as text for the watchdog"
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Permitir bloqueo de dominios (Puede provocar problemas con sitios que no permitan bloqueadores de anuncios)",
@@ -324,5 +330,49 @@
     "ping_blocking_enabled_title": {
         "message": "Bloquear auditoría de hipervínculos",
         "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "Eliminar los elementos de seguimiento de las URL.\n",
+        "description": "Descripción de la extensión (máx. 132 caracteres)\n"
+    },
+    "eTag_filtering_log": {
+        "message": "Se ha eliminado la cabecera ETag de esta solicitud\n",
+        "description": "Esta cadena se utiliza en el filtrado del encabezado ETag en el registro de ClearURLs.\n"
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filtra las cabeceras ETag de las peticiones (Véase también <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>este artículo</a>)\n",
+        "description": "Esta cadena se utiliza como etiqueta para el interruptor de filtrado de la cabecera ETag\n"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filtra las cabeceras ETag. Sugerencia: La caché debe borrarse antes del primer uso.\n",
+        "description": "Esta cadena se utiliza como título para el interruptor de filtrado de la cabecera ETag\n"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " ",
+        "description": "no es necesario, sólo para evitar excepciones"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " ",
+        "description": "no es necesario, sólo para evitar excepciones"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " ",
+        "description": "no es necesario, sólo para evitar excepciones"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " ",
+        "description": "no es necesario, sólo para evitar excepciones"
+    },
+    "popup_html_statistics_head_title": {
+        "message": " ",
+        "description": "no es necesario, sólo para evitar excepciones"
+    },
+    "popup_html_configs_head_title": {
+        "message": " ",
+        "description": "no es necesario, sólo para evitar excepciones"
+    },
+    "context_menu_enabled_title": {
+        "message": " ",
+        "description": "no es necesario, sólo para evitar excepciones"
     }
 }
