@@ -1,0 +1,378 @@
+{
+    "hash_status_code_1": {
+        "message": "최신 버전",
+        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+    },
+    "hash_status_code_2": {
+        "message": "업데이트됨",
+        "description": "This status code says, that the ClearURLs rules are successfully updated."
+    },
+    "hash_status_code_3": {
+        "message": "업데이트 가능",
+        "description": "This status code says, that an update is available for the ClearURLs rules."
+    },
+    "hash_status_code_4": {
+        "message": "오류",
+        "description": "This status code says, that the ClearURLs could not be started correctly."
+    },
+    "hash_status_code_5": {
+        "message": "앗 무언가가 잘못되었어요!",
+        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
+    },
+    "log_redirect": {
+        "message": "이 url이 리다이렉트됨",
+        "description": "This string is used on redirections in the ClearURLs log."
+    },
+    "log_domain_blocked": {
+        "message": "이 도메인이 차단됨",
+        "description": "This string is used on blocked domains in the ClearURLs log."
+    },
+    "check_os_log": {
+        "message": "[ClearURLs]: 로그 리스너가 추가되었습니다.",
+        "description": "This string is used on ClearURLs log startup."
+    },
+    "log_html_page_title": {
+        "message": "ClearURLs의 로그",
+        "description": "This string is used as header on the log page."
+    },
+    "log_html_table_head_1": {
+        "message": "처리하기 전에",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_2": {
+        "message": "처리한 이후",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_3": {
+        "message": "규칙",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_table_head_4": {
+        "message": "시간",
+        "description": "This string is used as table title on the log page."
+    },
+    "log_html_reset_button": {
+        "message": "초기화",
+        "description": "This string is used for the reset button on the log page."
+    },
+    "log_html_reset_button_title": {
+        "message": "글로벌 로그 초기화",
+        "description": "This string is used as title for the reset button on the log page."
+    },
+    "popup_html_configs_head": {
+        "message": "설정",
+        "description": "This string is used as title for the configs on the popup page."
+    },
+    "popup_html_configs_switch_filter": {
+        "message": "필터",
+        "description": "This string is used as name for the filter switch button on the popup page."
+    },
+    "popup_html_configs_switch_filter_title": {
+        "message": "이 필터 스위치는 ClearURLs의 청소 기능을 스위치합니다. 이 옵션을 비활성화하면 전체 확장 프로그램이 비활성화됩니다",
+        "description": "This string is used as title for the filter switch button on the popup page."
+    },
+    "popup_html_configs_switch_log": {
+        "message": "로깅",
+        "description": "This string is used as name for the logging switch button on the popup page."
+    },
+    "popup_html_configs_switch_log_title": {
+        "message": "이 로그는 오직 기기에만 저장됩니다. 필요하지 않으면 사용하지 않는 것을 추천합니다",
+        "description": "This string is used as title for the logging switch button on the popup page."
+    },
+    "popup_html_configs_switch_badges": {
+        "message": "배지",
+        "description": "This string is used as name for the badges switch button on the popup page."
+    },
+    "popup_html_configs_switch_badges_title": {
+        "message": "청소된 url의 수 표시",
+        "description": "This string is used as title for the badges switch button on the popup page."
+    },
+    "popup_html_statistics_head": {
+        "message": "통계",
+        "description": "This string is used as title for the statistics on the popup page."
+    },
+    "popup_html_statistics_elements": {
+        "message": "요소",
+        "description": "This string is used as name for the elements on the popup page."
+    },
+    "popup_html_statistics_blocked": {
+        "message": "차단됨",
+        "description": "This string is used as name for the blocked elements on the popup page."
+    },
+    "popup_html_statistics_percentage": {
+        "message": "퍼센트",
+        "description": "This string is used as name for the percentage of blocked elements on the popup page."
+    },
+    "popup_html_statistics_reset_button": {
+        "message": "초기화",
+        "description": "This string is used as name for the statistics reset button on the popup page."
+    },
+    "popup_html_statistics_reset_button_title": {
+        "message": "글로벌 통계 초기화",
+        "description": "This string is used as title for the statistics reset button on the popup page."
+    },
+    "popup_html_rules_status_head": {
+        "message": "Rules-Status",
+        "description": "This string is used as title for the rules-status section on the popup page."
+    },
+    "popup_html_log_head": {
+        "message": "로그",
+        "description": "This string is used as name for the log button on the popup page."
+    },
+    "popup_html_log_head_title": {
+        "message": "로그 열기",
+        "description": "This string is used as title for the log button on the popup page."
+    },
+    "popup_html_report_button": {
+        "message": "현재 URL 제보",
+        "description": "Note: Currently not used."
+    },
+    "popup_html_report_button_title": {
+        "message": "이 탭에서 URL을 제보합니다.",
+        "description": "Currently not used."
+    },
+    "core_save_on_disk": {
+        "message": "[ClearURLs]: 디스크에 저장했습니다.",
+        "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
+    },
+    "core_error": {
+        "message": "[ClearURLs]: 확장 프로그램이 시작할 수 없습니다.",
+        "description": "This string is used to tell the user, that ClearURLs could not be started."
+    },
+    "configs_switch_statistics": {
+        "message": "통계",
+        "description": "This string is used as name for the statistics switch button on the popup page."
+    },
+    "configs_switch_statistics_title": {
+        "message": "통계 기능을 활성화하거나 비활성화합니다.",
+        "description": "This string is used as title for the statistics switch button on the popup page."
+    },
+    "settings_html_page_title": {
+        "message": "ClearURLs 설정",
+        "description": "This string is used as title on the settings page."
+    },
+    "badged_color_label": {
+        "message": "배지 색",
+        "description": "This string is used as name for the badged color label."
+    },
+    "setting_html_reset_button": {
+        "message": "초기화",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_reset_button_title": {
+        "message": "모든 것을 초기화함",
+        "description": "This string is used as title for the reset button on the settings page."
+    },
+    "setting_rule_url_label": {
+        "message": "data.json(규칙) 파일의 url",
+        "description": "This string is used as name for the rule url label."
+    },
+    "settings_html_save_button": {
+        "message": "저장하고 확장 프로그램 다시 시작",
+        "description": "This string is used as name for the save&reload button on the settings page."
+    },
+    "settings_html_save_button_title": {
+        "message": "설정 저장",
+        "description": "This string is used as title for the save&reload button on the settings page."
+    },
+    "setting_hash_url_label": {
+        "message": "rules.hash (hash) 파일의 url",
+        "description": "This string is used as name for the rule.hash url label."
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
+        "description": "This string is used as name for the types label."
+    },
+    "setting_report_server_label": {
+        "message": "Report server for URLs",
+        "description": "Note: Currently not used."
+    },
+    "success_report_url": {
+        "message": "The URL was successfully reported. We will check this URL soon.",
+        "description": "Note: Currently not used."
+    },
+    "error_report_url": {
+        "message": "It seems like this URL has already been reported.",
+        "description": "Note: Currently not used."
+    },
+    "donate_button": {
+        "message": "ClearURLs 제작자에게 후원",
+        "description": "This string is used to refer to a donation page."
+    },
+    "clipboard_copy_link": {
+        "message": "깨끗한 링크 주소 복사",
+        "description": "This string is used in the context menu to copy clean links."
+    },
+    "context_menu_enabled": {
+        "message": "Display context menu entry",
+        "description": "This string is used toggle the context menu entry to copy clean links."
+    },
+    "history_listener_enabled": {
+        "message": "Prevent tracking injection over history API (See also: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
+        "description": "This string is used as name for the history API listener label."
+    },
+    "cleaning_tool_page_title": {
+        "message": "ClearURLs cleaning tool",
+        "description": "This string is used as title on the cleaning tool page."
+    },
+    "cleaning_tool_description": {
+        "message": "With this tool you can paste in URLs and ClearURLs will clean the URLs after a click on the green button. You can paste in multiple URLs at once, but every URL must be on a separate line.",
+        "description": "This string is used as description of the cleaning tool."
+    },
+    "cleaning_tool_btn": {
+        "message": "URL들 청소",
+        "description": "This string is used as name for the clean url button."
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "여기에 더러운 URL들을 붙여넣으세요:",
+        "description": "This string is used as title on the cleaning tool page for the dirty URLs."
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "여기서 깨끗한 URL들을 찾을 수 있습니다:",
+        "description": "This string is used as title on the cleaning tool page for the clean URLs."
+    },
+    "local_hosts_skipping": {
+        "message": "로컬 호스트에서 URL 스킵 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "This string is used as label for the local host skipping switch"
+    },
+    "local_hosts_skipping_title": {
+        "message": "로컬 호스트에서 URL 스킵함",
+        "description": "This string is used as title for the local host skipping switch"
+    },
+    "log_html_export_button": {
+        "message": "내보내기",
+        "description": "This string is used for the export button on the log page."
+    },
+    "log_html_export_button_title": {
+        "message": "글로벌 로그 내보냄",
+        "description": "This string is used as title for the export button on the log page."
+    },
+    "log_html_import_button": {
+        "message": "불러오기",
+        "description": "This string is used for the import button on the log page."
+    },
+    "log_html_import_button_title": {
+        "message": "글로벌 로그 불러옴",
+        "description": "This string is used as title for the import button on the log page."
+    },
+    "setting_html_export_button": {
+        "message": "내보내기",
+        "description": "This string is used as name for the export button on the settings page."
+    },
+    "setting_html_export_button_title": {
+        "message": "모든 것을 내보냄",
+        "description": "This string is used as title for the export button on the settings page."
+    },
+    "setting_html_import_button": {
+        "message": "불러오기",
+        "description": "This string is used as name for the reset button on the settings page."
+    },
+    "setting_html_import_button_title": {
+        "message": "모든 것을 불러옴",
+        "description": "This string is used as title for the import button on the settings page."
+    },
+    "setting_log_limit_label": {
+        "message": "Limit the log to $LIMIT$ entries.",
+        "description": "This string is used as name for the log limit label.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "이 사이트가 <b>ClearURLs</b>에 의해 차단됨",
+        "description": "This string is used as title on the blocked site page."
+    },
+    "blocked_html_body": {
+        "message": "이 사이트는 광고/추적 서비스로 발견되었기 때문에 <b>ClearURLs</b>에 의해 차단되었습니다. 이 사이트를 방문하려면 임시로 확장 프로그램을 비활성화하거나 ClearURLs 설정에서 도메인 차단을 비활성화해야 합니다. 이후에 아래의 버튼을 눌러 페이지를 불러올 수 있습니다.",
+        "description": "This string is used as body on the blocked site page."
+    },
+    "blocked_html_button": {
+        "message": "페이지 방문",
+        "description": "This string is used as button on the blocked site page."
+    },
+    "referral_marketing_enabled": {
+        "message": "레퍼럴 마케팅 허용",
+        "description": "This string is used as label for the referral marketing switch"
+    },
+    "referral_marketing_enabled_title": {
+        "message": "레퍼럴 마케팅 허용",
+        "description": "This string is used as title for the referral marketing switch"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: watchdog은 문제를 발견했고 이미 $TIMES$ 번 실패했습니다.",
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
+    },
+    "domain_blocking_enabled": {
+        "message": "도메인 차단 허용 (광고 차단기를 허용하지 않는 사이트에서 문제가 생길 수 있음)",
+        "description": "This string is used as label for the domain blocking switch"
+    },
+    "domain_blocking_enabled_title": {
+        "message": "도메인 차단 허용 (광고 차단기를 허용하지 않는 사이트에서 문제가 생길 수 있음)",
+        "description": "This string is used as title for the domain blocking switch"
+    },
+    "log_ping_blocked": {
+        "message": "이 하이퍼링크 수정이 차단됨",
+        "description": "This string is used on hyperlink auditing in the ClearURLs log."
+    },
+    "ping_blocking_enabled": {
+        "message": "하이퍼링크 수정 차단 (<a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>이 기사</a>를 참고해주세요.)",
+        "description": "This string is used as label for the hyperlink auditing blocking switch"
+    },
+    "ping_blocking_enabled_title": {
+        "message": "하이퍼링크 수정 차단",
+        "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "URL에서 추적 요소를 삭제",
+        "description": "Extension description (max. 132 characters)"
+    },
+    "eTag_filtering_log": {
+        "message": "ETag 헤더가 이 요청에서 삭제됨",
+        "description": "This string is used on ETag header filtering in the ClearURLs log."
+    },
+    "eTag_filtering_enabled": {
+        "message": "요청에서 ETag 헤더를 필터함 (<a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>이 기사</a>를 참고하세요)",
+        "description": "This string is used as label for the ETag header filtering switch"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "ETag 헤더를 필터함. 힌트: 첫 사용 이전에 캐시가 삭제되어야 합니다.",
+        "description": "This string is used as title for the ETag header filtering switch"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_statistics_head_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "popup_html_configs_head_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    },
+    "context_menu_enabled_title": {
+        "message": " ",
+        "description": "not needed, only to prevent exceptions"
+    }
+}
