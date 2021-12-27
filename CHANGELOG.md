@@ -18,7 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added Korean translation by [@hellojaccc](https://gitlab.com/hellojaccc)
 - Added Thai translation by [@ammaneena](https://gitlab.com/ammaneena)
-- [Added](https://gitlab.com/KevinRoebert/ClearUrls/-/merge_requests/93) `method` filtering to rule cataogs. Thanks to [@lifegpc](https://gitlab.com/lifegpc). Closes [#948](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/948).
+- Added Slovenian translation by [@betterwebleon](https://github.com/betterwebleon)
+- [Added](https://gitlab.com/KevinRoebert/ClearUrls/-/merge_requests/93) `method` filtering to rule catalogs. Thanks to [@lifegpc](https://gitlab.com/lifegpc). Closes [#948](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/948).
 
 ### Changed
 - Updated jQuery to 3.6.0
