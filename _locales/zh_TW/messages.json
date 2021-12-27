@@ -1,15 +1,15 @@
 {
     "hash_status_code_1": {
         "message": "已是最新版本",
-        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+        "description": "此状态码表示此时并没有任何的 ClearURLs 规则需要更新，并且所有的都已是最新版本。"
     },
     "hash_status_code_2": {
         "message": "已更新",
-        "description": "This status code says, that the ClearURLs rules are successfully updated."
+        "description": "此状态码表示 ClearURLs 规则已成功更新。"
     },
     "hash_status_code_3": {
         "message": "有可用的更新",
-        "description": "This status code says, that an update is available for the ClearURLs rules."
+        "description": "此状态码表示有可用的 ClearURLs 规则更新。"
     },
     "hash_status_code_4": {
         "message": "錯誤",
@@ -208,7 +208,8 @@
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
     "history_listener_enabled": {
-        "message": "防止藉由 History API 注入追蹤 (參見：<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)"
+        "message": "防止藉由 History API 注入追蹤 (參見：<a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>The replaceState() method</a>)",
+        "description": "此字符串是history API 监听器的 名字。"
     },
     "cleaning_tool_page_title": {
         "message": "ClearURLs 網址清理工具",
@@ -231,37 +232,48 @@
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
     },
     "local_hosts_skipping": {
-        "message": "略過本機網址 (10.0.0.0/8、172.16.0.0/12、192.168.0.0/16、100.64.0.0/10、169.254.0.0/16、127.0.0.1、localhost)"
+        "message": "略過本機網址 (10.0.0.0/8、172.16.0.0/12、192.168.0.0/16、100.64.0.0/10、169.254.0.0/16、127.0.0.1、localhost)",
+        "description": "此字符串是跳过 localhost 的开关的 label"
     },
     "local_hosts_skipping_title": {
-        "message": "略過本機網址"
+        "message": "略過本機網址",
+        "description": "此字符串被用于跳过 localhost 的开关的标题"
     },
     "log_html_export_button": {
-        "message": "匯出"
+        "message": "匯出",
+        "description": "此字符串被用于日志页面的导出按钮"
     },
     "log_html_export_button_title": {
-        "message": "匯出全域記錄檔"
+        "message": "匯出全域記錄檔",
+        "description": "此字符串被用于日志页面的导出按钮的标题"
     },
     "log_html_import_button": {
-        "message": "匯入"
+        "message": "匯入",
+        "description": "此字符串被用于日志页面的导入按钮"
     },
     "log_html_import_button_title": {
-        "message": "匯入全域記錄檔"
+        "message": "匯入全域記錄檔",
+        "description": "此字符串被用于日志页面的导入按钮的标题"
     },
     "setting_html_export_button": {
-        "message": "匯出"
+        "message": "匯出",
+        "description": "此字符串被用于设置页面的导出按钮"
     },
     "setting_html_export_button_title": {
-        "message": "將各項設定匯出"
+        "message": "將各項設定匯出",
+        "description": "此字符串被用于设置页面的导出按钮的标题"
     },
     "setting_html_import_button": {
-        "message": "匯入"
+        "message": "匯入",
+        "description": "此字符串被用于设置页面的重置按钮"
     },
     "setting_html_import_button_title": {
-        "message": "匯入各項設定"
+        "message": "匯入各項設定",
+        "description": "此字符串被用于设置页面的导入按钮的标题"
     },
     "setting_log_limit_label": {
         "message": "最多保存 $LIMIT$ 筆記錄檔",
+        "description": "此字符串是日志限制的标签名",
         "placeholders": {
             "limit": {
                 "content": "$1",
@@ -270,45 +282,97 @@
         }
     },
     "blocked_html_title": {
-        "message": "這個網站已由 <b>ClearURLs</b> 封鎖"
+        "message": "這個網站已由 <b>ClearURLs</b> 封鎖",
+        "description": "此字符串被用于阻挡页面的标题"
     },
     "blocked_html_body": {
-        "message": "由於我們判定這個網站是廣告商或追蹤器的伺服器，因此 <b>ClearURLs</b> 已封鎖此網站。若你仍需造訪此網站，請先暫時停用本擴充功能；或者，至 ClearURLs 的偏好設定中關閉「允許封鎖網域」。完成上述操作後，點擊下方的「繼續前往」即可瀏覽該網站。"
+        "message": "由於我們判定這個網站是廣告商或追蹤器的伺服器，因此 <b>ClearURLs</b> 已封鎖此網站。若你仍需造訪此網站，請先暫時停用本擴充功能；或者，至 ClearURLs 的偏好設定中關閉「允許封鎖網域」。完成上述操作後，點擊下方的「繼續前往」即可瀏覽該網站。",
+        "description": "此字符串被用于阻挡页面的 body"
     },
     "blocked_html_button": {
-        "message": "繼續前往"
+        "message": "繼續前往",
+        "description": "此字符串被用于阻挡设置页面的按钮"
     },
     "referral_marketing_enabled": {
-        "message": "允許聯盟行銷"
+        "message": "允許聯盟行銷",
+        "description": "此字符串被用于跳转营销页面的开关的 label"
     },
     "referral_marketing_enabled_title": {
-        "message": "允許聯盟行銷"
+        "message": "允許聯盟行銷",
+        "description": "此字符串被用于跳转营销页面的开关的标题"
+    },
+    "watchdog": {
+        "message": "[ClearURLs]: 插件监控发现了一个已失败了 $TIMES$ 次的问题。",
+        "description": "此字符串被用于插件监控的文字",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
-        "message": "允許封鎖網域 (部分阻撓「廣告阻擋器」的網頁可能無法正常顯示)"
+        "message": "允許封鎖網域 (部分阻撓「廣告阻擋器」的網頁可能無法正常顯示)",
+        "description": "此字符串被用于域名阻拦开关的 label"
     },
     "domain_blocking_enabled_title": {
-        "message": "允許封鎖網域 (部分阻撓「廣告阻擋器」的網頁可能無法正常顯示)"
+        "message": "允許封鎖網域 (部分阻撓「廣告阻擋器」的網頁可能無法正常顯示)",
+        "description": "此字符串被用于域名阻拦开关的标题"
     },
     "log_ping_blocked": {
-        "message": "已阻擋超連結稽核"
+        "message": "已阻擋超連結稽核",
+        "description": "此字符串被用于 ClearURLs 日志中的超链接审计。"
     },
     "ping_blocking_enabled": {
-        "message": "阻擋超連結稽核 (<a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>瞭解詳情</a>)"
+        "message": "阻擋超連結稽核 (<a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>瞭解詳情</a>)",
+        "description": "此字符串被用于 ClearURLs 日志中的超链接审计的开关的 label"
     },
     "ping_blocking_enabled_title": {
-        "message": "阻擋超連結稽核"
+        "message": "阻擋超連結稽核",
+        "description": "此字符串被用于 ClearURLs 日志中的超链接审计的开关的标题"
     },
     "extension_description": {
-        "message": "將網址中的追蹤元素一掃而空"
+        "message": "將網址中的追蹤元素一掃而空",
+        "description": "异常描述 (最多 132个字符)"
     },
     "eTag_filtering_log": {
-        "message": "已在這次請求裡移除 ETag 標頭"
+        "message": "已在這次請求裡移除 ETag 標頭",
+        "description": "此字符串被用于 ClearURLs 日志中 ETag 头过滤。"
     },
     "eTag_filtering_enabled": {
-        "message": "濾除請求裡的 ETag 標頭 (<a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>瞭解詳情</a>)"
+        "message": "濾除請求裡的 ETag 標頭 (<a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>瞭解詳情</a>)",
+        "description": "此字符串被用于 ClearURLs 日志中 ETag 头过滤开关的 label"
     },
     "eTag_filtering_enabled_title": {
-        "message": "濾除 ETag 標頭 (注意：初次啟用前須先清除快取)"
+        "message": "濾除 ETag 標頭 (注意：初次啟用前須先清除快取)",
+        "description": "此字符串被用于 ClearURLs 日志中 ETag 头过滤开关的标题"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " ",
+        "description": "非必须，仅为了防止异常发生"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " ",
+        "description": "非必须，仅为了防止异常发生"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " ",
+        "description": "非必须，仅为了防止异常发生"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " ",
+        "description": "非必须，仅为了防止异常发生"
+    },
+    "popup_html_statistics_head_title": {
+        "message": " ",
+        "description": "非必须，仅为了防止异常发生"
+    },
+    "popup_html_configs_head_title": {
+        "message": " ",
+        "description": "非必须，仅为了防止异常发生"
+    },
+    "context_menu_enabled_title": {
+        "message": " ",
+        "description": "非必须，仅为了防止异常发生"
     }
 }
