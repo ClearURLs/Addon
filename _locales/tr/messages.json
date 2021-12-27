@@ -16,7 +16,7 @@
         "description": "Bu durum kodu, ClearURL'lerin doğru şekilde başlatılamadığını söylüyor."
     },
     "hash_status_code_5": {
-        "message": "Hoop! Birşeyler yanlış gitti!",
+        "message": "Hoop! Bir şeyler yanlış gitti!",
         "description": "Bu durum kodu, ClearURL kurallarını güncellerken bir hata oluştuğunu söylüyor."
     },
     "log_redirect": {
@@ -40,7 +40,7 @@
         "description": "Bu dize, günlük sayfasında tablo başlığı olarak kullanılır."
     },
     "log_html_table_head_2": {
-        "message": "İşlemden sonra",
+        "message": "İşlemeden sonra",
         "description": "Bu dize, günlük sayfasında tablo başlığı olarak kullanılır."
     },
     "log_html_table_head_3": {
@@ -68,11 +68,11 @@
         "description": "Bu dize, açılır sayfadaki filtre değiştirme düğmesinin adı olarak kullanılır."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "Filtreler anahtarı ClearURL'lerin temizleme işlevini etkinleştirir. Bu seçeneği devre dışı bırakırsanız, tüm eklenti devre dışı bırakılır",
+        "message": "Filtreler butonu ClearURL'lerin temizleme işlevini etkinleştirir. Bu seçeneği devre dışı bırakırsanız, tüm eklenti devre dışı bırakılır",
         "description": "Bu dize, açılır sayfadaki filtre değiştirme düğmesinin başlığı olarak kullanılır."
     },
     "popup_html_configs_switch_log": {
-        "message": "Günlük tutma",
+        "message": "Günlükleme",
         "description": "Bu dize, açılır sayfadaki günlük anahtar düğmesinin adı olarak kullanılır."
     },
     "popup_html_configs_switch_log_title": {
@@ -88,7 +88,7 @@
         "description": "Bu dize, açılır sayfadaki rozetler anahtar düğmesinin başlığı olarak kullanılır."
     },
     "popup_html_statistics_head": {
-        "message": "istatistik",
+        "message": "İstatistikler",
         "description": "Bu dize, açılır sayfadaki istatistikler için başlık olarak kullanılır."
     },
     "popup_html_statistics_elements": {
@@ -104,7 +104,7 @@
         "description": "Bu dize, açılır sayfadaki engellenen öğelerin yüzdesi için ad olarak kullanılır."
     },
     "popup_html_statistics_reset_button": {
-        "message": "Sıfırlama",
+        "message": "Sıfırla",
         "description": "Bu dize, açılır sayfadaki istatistik sıfırlama düğmesinin adı olarak kullanılır."
     },
     "popup_html_statistics_reset_button_title": {
@@ -152,7 +152,7 @@
         "description": "Bu dize, ayarlar sayfasında başlık olarak kullanılır."
     },
     "badged_color_label": {
-        "message": "Rozet renk",
+        "message": "Rozet rengi",
         "description": "Bu dize, rozet renk etiketinin adı olarak kullanılır."
     },
     "setting_html_reset_button": {
@@ -264,7 +264,7 @@
         "description": "Bu dize, ayarlar sayfasındaki dışa aktar düğmesi için başlık olarak kullanılır."
     },
     "setting_html_import_button": {
-        "message": "Dışa Aktar",
+        "message": "İçe Aktar",
         "description": "Bu dize, ayarlar sayfasındaki sıfırlama düğmesinin adı olarak kullanılır."
     },
     "setting_html_import_button_title": {
@@ -272,7 +272,7 @@
         "description": "Bu dize, ayarlar sayfasındaki alma düğmesinin adı olarak kullanılır."
     },
     "setting_log_limit_label": {
-        "message": "Günlüğü $ LIMIT $ girişleriyle sınırlar",
+        "message": "Günlüğü $LIMIT$ girişle sınırlar.",
         "description": "Bu dize, günlük sınırı etiketinin adı olarak kullanılır.",
         "placeholders": {
             "limit": {

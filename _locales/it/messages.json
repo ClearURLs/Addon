@@ -1,203 +1,203 @@
 {
     "hash_status_code_1": {
         "message": "tutto aggiornato",
-        "description": "This status code says, that no update is available for the ClearURLs rules and everything is up to date."
+        "description": "Questo codice di stato indica che non sono disponibili aggiornamenti per le regole di ClearURLs e che tutto è aggiornato."
     },
     "hash_status_code_2": {
         "message": "aggiornate",
-        "description": "This status code says, that the ClearURLs rules are successfully updated."
+        "description": "Questo codice di stato indica che le regole di ClearURLs sono state aggiornate correttamente."
     },
     "hash_status_code_3": {
         "message": "aggiornamento disponibile",
-        "description": "This status code says, that an update is available for the ClearURLs rules."
+        "description": "Questo codice di stato indica che è disponibile un aggiornamento delle regole di ClearURLs."
     },
     "hash_status_code_4": {
         "message": "errore",
-        "description": "This status code says, that the ClearURLs could not be started correctly."
+        "description": "Questo codice di stato indica che ClearURLs non può essere avviato correttamente."
     },
     "hash_status_code_5": {
         "message": "Oops qualcosa è andato storto!",
-        "description": "This status code says, that an error occurred while updating the ClearURLs rules."
+        "description": "Questo codice di stato indica che si è verificato un errore durante l'aggiornamento delle regole di ClearURLs."
     },
     "log_redirect": {
         "message": "Questo URL viene reindirizzato",
-        "description": "This string is used on redirections in the ClearURLs log."
+        "description": "Questa stringa è usata per i reindirizzamenti nel log di ClearURLs."
     },
     "log_domain_blocked": {
         "message": "Questo dominio è bloccato",
-        "description": "This string is used on blocked domains in the ClearURLs log."
+        "description": "Questa stringa è usata per i domini bloccati nel log di ClearURLs."
     },
     "check_os_log": {
         "message": "[ClearURLs]: Log listener è stato aggiunto.",
-        "description": "This string is used on ClearURLs log startup."
+        "description": "Questa stringa è usata all'avvio del log di ClearURLs."
     },
     "log_html_page_title": {
         "message": "Log di ClearURLs",
-        "description": "This string is used as header on the log page."
+        "description": "Questa stringa viene utilizzata come header nella pagina di log."
     },
     "log_html_table_head_1": {
         "message": "Prima dell'elaborazione",
-        "description": "This string is used as table title on the log page."
+        "description": "Questa stringa è usata come titolo della tabella nella pagina di log."
     },
     "log_html_table_head_2": {
         "message": "Dopo l'elaborazione",
-        "description": "This string is used as table title on the log page."
+        "description": "Questa stringa è usata come titolo della tabella nella pagina di log."
     },
     "log_html_table_head_3": {
         "message": "Regola",
-        "description": "This string is used as table title on the log page."
+        "description": "Questa stringa è usata come titolo della tabella nella pagina di log."
     },
     "log_html_table_head_4": {
         "message": "Data e ora",
-        "description": "This string is used as table title on the log page."
+        "description": "Questa stringa è usata come titolo della tabella nella pagina di log."
     },
     "log_html_reset_button": {
         "message": "Ripristina",
-        "description": "This string is used for the reset button on the log page."
+        "description": "Questa stringa è usata per il pulsante di reset nella pagina di log."
     },
     "log_html_reset_button_title": {
         "message": "Azzera il log globale",
-        "description": "This string is used as title for the reset button on the log page."
+        "description": "Questa stringa è usata come titolo per il pulsante di reset nella pagina di log."
     },
     "popup_html_configs_head": {
         "message": "Configurazioni",
-        "description": "This string is used as title for the configs on the popup page."
+        "description": "Questa stringa è usata come titolo per le configurazioni nella pagina popup."
     },
     "popup_html_configs_switch_filter": {
         "message": "Filtra",
-        "description": "This string is used as name for the filter switch button on the popup page."
+        "description": "Questa stringa è usata come nome per il pulsante di attivazione del filtro nella pagina popup."
     },
     "popup_html_configs_switch_filter_title": {
         "message": "L'interruttore dei filtri attiva la funzione di pulizia di ClearURLs. Se si disabilita questa opzione, l'intero componente aggiuntivo è disabilitato.",
-        "description": "This string is used as title for the filter switch button on the popup page."
+        "description": "Questa stringa è usata come titolo per il pulsante di attivazione del filtro nella pagina popup."
     },
     "popup_html_configs_switch_log": {
         "message": "Log",
-        "description": "This string is used as name for the logging switch button on the popup page."
+        "description": "Questa stringa è usata come nome per il pulsante di attivazione della registrazione nella pagina popup."
     },
     "popup_html_configs_switch_log_title": {
         "message": "Il registro viene salvato solo in locale. Si sconsiglia di utilizzare questa funzione se non ne hai bisogno.",
-        "description": "This string is used as title for the logging switch button on the popup page."
+        "description": "Questa stringa è usata come titolo per il pulsante di attivazione della registrazione nella pagina popup."
     },
     "popup_html_configs_switch_badges": {
         "message": "Contatore",
-        "description": "This string is used as name for the badges switch button on the popup page."
+        "description": "Questa stringa è usata come nome per il pulsante di attivazione dei badge nella pagina popup."
     },
     "popup_html_configs_switch_badges_title": {
         "message": "Mostra il numero di url puliti",
-        "description": "This string is used as title for the badges switch button on the popup page."
+        "description": "Questa stringa è usata come titolo per il pulsante di attivazione dei badge nella pagina popup."
     },
     "popup_html_statistics_head": {
         "message": "Statistiche",
-        "description": "This string is used as title for the statistics on the popup page."
+        "description": "Questa stringa è usata come titolo per le statistiche nella pagina popup."
     },
     "popup_html_statistics_elements": {
         "message": "Elementi",
-        "description": "This string is used as name for the elements on the popup page."
+        "description": "Questa stringa è usata come nome per gli elementi della pagina popup."
     },
     "popup_html_statistics_blocked": {
         "message": "Bloccati",
-        "description": "This string is used as name for the blocked elements on the popup page."
+        "description": "Questa stringa è usata come nome per gli elementi bloccati nella pagina popup."
     },
     "popup_html_statistics_percentage": {
         "message": "Percentuale",
-        "description": "This string is used as name for the percentage of blocked elements on the popup page."
+        "description": "Questa stringa è usata come nome per la percentuale di elementi bloccati nella pagina popup."
     },
     "popup_html_statistics_reset_button": {
         "message": "Ripristina",
-        "description": "This string is used as name for the statistics reset button on the popup page."
+        "description": "Questa stringa è usata come nome per il pulsante di reset delle statistiche nella pagina popup."
     },
     "popup_html_statistics_reset_button_title": {
         "message": "Ripristina le statistiche globali",
-        "description": "This string is used as title for the statistics reset button on the popup page."
+        "description": "Questa stringa è usata come titolo per il pulsante di reset delle statistiche nella pagina popup."
     },
     "popup_html_rules_status_head": {
         "message": "Regole-Stato",
-        "description": "This string is used as title for the rules-status section on the popup page."
+        "description": "Questa stringa è usata come titolo per la sezione rules-status nella pagina popup."
     },
     "popup_html_log_head": {
         "message": "Log",
-        "description": "This string is used as name for the log button on the popup page."
+        "description": "Questa stringa è usata come nome per il pulsante di log nella pagina popup."
     },
     "popup_html_log_head_title": {
         "message": "Apri il file di log",
-        "description": "This string is used as title for the log button on the popup page."
+        "description": "Questa stringa è usata come titolo per il pulsante di log nella pagina popup."
     },
     "popup_html_report_button": {
         "message": "Segnala l'url corrente",
-        "description": "Note: Currently not used."
+        "description": "Nota: attualmente non utilizzato."
     },
     "popup_html_report_button_title": {
         "message": "Segnala l'URL corrente da questa scheda.",
-        "description": "Currently not used."
+        "description": "Attualmente non utilizzato."
     },
     "core_save_on_disk": {
         "message": "[ClearURLs]: Salva sul disco.",
-        "description": "This string is used to tell the user, that ClearURLs saved the settings on disk."
+        "description": "Questa stringa è usata per dire all'utente che ClearURLs ha salvato le impostazioni su disco."
     },
     "core_error": {
         "message": "[ClearURLs]: Il componente aggiuntivo non può essere avviato.",
-        "description": "This string is used to tell the user, that ClearURLs could not be started."
+        "description": "Questa stringa è usata per dire all'utente che ClearURLs non può essere avviato."
     },
     "configs_switch_statistics": {
         "message": "Statistiche",
-        "description": "This string is used as name for the statistics switch button on the popup page."
+        "description": "Questa stringa è usata come nome per il pulsante di attivazione delle statistiche nella pagina popup."
     },
     "configs_switch_statistics_title": {
         "message": "Attiva o disattiva le statistiche",
-        "description": "This string is used as title for the statistics switch button on the popup page."
+        "description": "Questa stringa è usata come titolo per il pulsante di attivazione delle statistiche nella pagina popup."
     },
     "settings_html_page_title": {
         "message": "Impostazioni da ClearURLs",
-        "description": "This string is used as title on the settings page."
+        "description": "Questa stringa è usata come titolo nella pagina delle impostazioni."
     },
     "badged_color_label": {
-        "message": "Colore distintivo",
-        "description": "This string is used as name for the badged color label."
+        "message": "Colore del badge",
+        "description": "Questa stringa è usata come nome per l'etichetta del colore del badge."
     },
     "setting_html_reset_button": {
         "message": "Ripristina",
-        "description": "This string is used as name for the reset button on the settings page."
+        "description": "Questa stringa è usata come nome per il pulsante di reset nella pagina delle impostazioni."
     },
     "setting_html_reset_button_title": {
         "message": "Ripristina tutto",
-        "description": "This string is used as title for the reset button on the settings page."
+        "description": "Questa stringa è usata come titolo per il pulsante di reset nella pagina delle impostazioni."
     },
     "setting_rule_url_label": {
         "message": "Indirizzo del file data.json (regole)",
-        "description": "This string is used as name for the rule url label."
+        "description": "Questa stringa è usata come nome per l'etichetta url della regola."
     },
     "settings_html_save_button": {
         "message": "Salva e ricarica il componente aggiuntivo",
-        "description": "This string is used as name for the save&reload button on the settings page."
+        "description": "Questa stringa è usata come nome per il pulsante salva&ricarica nella pagina delle impostazioni."
     },
     "settings_html_save_button_title": {
         "message": "Salva le impostazioni",
-        "description": "This string is used as title for the save&reload button on the settings page."
+        "description": "Questa stringa è usata come titolo per il pulsante salva&ricarica nella pagina delle impostazioni."
     },
     "setting_hash_url_label": {
         "message": "Indirizzo del file rules.hash (hash)",
-        "description": "This string is used as name for the rule.hash url label."
+        "description": "Questa stringa è usata come nome per l'etichetta dell'url rule.hash."
     },
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (livello esperto)\n",
-        "description": "This string is used as name for the types label."
+        "description": "Questa stringa è usata come nome per l'etichetta dei tipi."
     },
     "setting_report_server_label": {
         "message": "Server di report per gli URL",
-        "description": "Note: Currently not used."
+        "description": "Nota: attualmente non utilizzato."
     },
     "success_report_url": {
         "message": "L'URL è stato segnalato correttamente. Verificheremo l'URL quanto prima.",
-        "description": "Note: Currently not used."
+        "description": "Nota: attualmente non utilizzato."
     },
     "error_report_url": {
         "message": "Sembra che questo URL sia già stato segnalato.",
-        "description": "Note: Currently not used."
+        "description": "Nota: attualmente non utilizzato."
     },
     "donate_button": {
         "message": "Una donazione per l'autore di ClearURLs.",
-        "description": "This string is used to refer to a donation page."
+        "description": "Questa stringa è usata per riferirsi a una pagina di donazione."
     },
     "clipboard_copy_link": {
         "message": "Copia i collegamenti puliti",
@@ -217,7 +217,7 @@
     },
     "cleaning_tool_description": {
         "message": "Con questo strumento è possibile incollare URL che ClearURLs pulirà facendo clic sul pulsante verde. È possibile incollare più URL contemporaneamente, indica un singolo URL per riga.",
-        "description": "This string is used as description of the cleaning tool."
+        "description": "Questa stringa viene utilizzata come descrizione dello strumento di pulizia."
     },
     "cleaning_tool_btn": {
         "message": "Pulisci gli URL",
@@ -233,7 +233,7 @@
     },
     "local_hosts_skipping": {
         "message": "Escludi gli URL locali (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
-        "description": "This string is used as label for the local host skipping switch"
+        "description": "Questa stringa viene utilizzata come etichetta per l'opzione di salto del localhost"
     },
     "local_hosts_skipping_title": {
         "message": "Escludi gli URL locali",
@@ -287,15 +287,15 @@
     },
     "blocked_html_body": {
         "message": "Questo sito è stato bloccato da <b>ClearURLs</b> perché è stato identificato come sito web di advertising e/o servizio di tracciamento. Per visitare questo sito web devi temporaneamente disattivare il componente aggiuntivo. Dopo aver disattivato ClearURLs potrai fare clic sul pulsante qui sotto per ricaricare la pagina.",
-        "description": "This string is used as body on the blocked site page."
+        "description": "Questa stringa viene utilizzata come corpo della pagina del sito bloccato."
     },
     "blocked_html_button": {
         "message": "Visita la pagina",
-        "description": "This string is used as button on the blocked site page."
+        "description": "Questa stringa viene utilizzata come pulsante della pagina del sito bloccato."
     },
     "referral_marketing_enabled": {
         "message": "Permetti l'utilizzo di referral marketing",
-        "description": "This string is used as label for the referral marketing switch"
+        "description": "Questa stringa viene utilizzata come etichetta per l'interruttore del referral marketing"
     },
     "referral_marketing_enabled_title": {
         "message": "Permette l'utilizzo del referral marketing (esempio: Amazon)",
@@ -303,11 +303,17 @@
     },
     "watchdog": {
         "message": "[ClearURLs]: Il sistema di controllo ha identificato un problema. ClearURLs verrà riavviato.",
-        "description": "This string is used as text for the watchdog"
+        "description": "This string is used as text for the watchdog",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Permetti il blocco dei domini (può portare a problemi su pagine che non consentono AdBlocker)",
-        "description": "This string is used as label for the domain blocking switch"
+        "description": "Questa stringa viene utilizzata come etichetta per l'interruttore di blocco del dominio"
     },
     "domain_blocking_enabled_title": {
         "message": "Permetti il blocco dei domini (può portare a problemi su pagine che non consentono AdBlocker)",
@@ -319,10 +325,54 @@
     },
     "ping_blocking_enabled": {
         "message": "Blocca la verifica dei collegamenti (vedi anche <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>questo articolo</a>)",
-        "description": "This string is used as label for the hyperlink auditing blocking switch"
+        "description": "Questa stringa viene utilizzata come etichetta per l'interruttore di blocco dell'hyperlink auditing"
     },
     "ping_blocking_enabled_title": {
         "message": "Blocca la verifica dei collegamenti",
         "description": "This string is used as title for the hyperlink auditing blocking switch"
+    },
+    "extension_description": {
+        "message": "Rimuove gli elementi di tracciamento dagli URL.",
+        "description": "Descrizione dell'estensione (max.132 caratteri)"
+    },
+    "eTag_filtering_log": {
+        "message": "L'header ETag è stato rimosso da questa richiesta",
+        "description": "Questa stringa è usata sul filtraggio dell'header ETag nel log di ClearURLs."
+    },
+    "eTag_filtering_enabled": {
+        "message": "Filtra gli header ETag dalle richieste (Guarda anche <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>this article</a>)",
+        "description": "Questa stringa viene utilizzata come etichetta per l'opzione di filtraggio dell'header ETag"
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "Filtra gli heaader ETag. Suggerimento: la cache deve essere svuotata prima del primo utilizzo.",
+        "description": "Questa stringa viene utilizzata come titolo per l'opzione di filtraggio dell'header ETag"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " ",
+        "description": "non necessario, solo per evitare eccezioni"
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " ",
+        "description": "non necessario, solo per evitare eccezioni"
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " ",
+        "description": "non necessario, solo per evitare eccezioni"
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " ",
+        "description": "non necessario, solo per evitare eccezioni"
+    },
+    "popup_html_statistics_head_title": {
+        "message": " ",
+        "description": "non necessario, solo per evitare eccezioni"
+    },
+    "popup_html_configs_head_title": {
+        "message": " ",
+        "description": "non necessario, solo per evitare eccezioni"
+    },
+    "context_menu_enabled_title": {
+        "message": " ",
+        "description": "non necessario, solo per evitare eccezioni"
     }
 }

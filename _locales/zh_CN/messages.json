@@ -200,7 +200,7 @@
         "description": "This string is used to refer to a donation page."
     },
     "clipboard_copy_link": {
-        "message": "複製清理过的网址",
+        "message": "复制清理过的网址",
         "description": "This string is used in the context menu to copy clean links."
     },
     "context_menu_enabled": {
