@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
+## [1.22.0] - 2021-12-27
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Changed
+- Updated jQuery to 3.6.0
+
 ## [1.21.0] - 2021-03-24
 
 ### Compatibility note
