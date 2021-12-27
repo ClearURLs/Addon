@@ -17,6 +17,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated jQuery to 3.6.0
+- Updated Spanish translation by Sergio
+- Updated Hungarian translation by krolli
+- Updated Italian translation by Gioxx
+- Updated Dutch translation by Harm and Heimen
+- Updated Polish translation by Mble
+- Updated Portuguese translation by Lalocas and Geraldo
+- Updated Turkish translation by Ümit
+- Updated Chinese (traditional) translation by 1304274443
+- Updated Chinese (simplified) translation by Eric
 
 ## [1.21.0] - 2021-03-24
 
