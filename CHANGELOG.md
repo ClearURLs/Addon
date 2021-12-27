@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
+### Added
+- Added Korean translation by [hellojaccc](https://gitlab.com/hellojaccc)
+- Added Thai translation by [ammaneena](https://gitlab.com/ammaneena)
+
 ### Changed
 - Updated jQuery to 3.6.0
 - Updated Spanish translation by Sergio
