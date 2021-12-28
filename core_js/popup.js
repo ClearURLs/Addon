@@ -196,9 +196,9 @@ function resetGlobalCounter(){
             changeSwitchButton("tabcounter", "badgedStatus");
             changeSwitchButton("logging", "loggingStatus");
             changeSwitchButton("statistics", "statisticsStatus");
-            document.getElementById('loggingPage').href = browser.extension.getURL('./html/log.html');
-            document.getElementById('settings').href = browser.extension.getURL('./html/settings.html');
-            document.getElementById('cleaning_tools').href = browser.extension.getURL('./html/cleaningTool.html');
+            document.getElementById('loggingPage').href = browser.runtime.getURL('./html/log.html');
+            document.getElementById('settings').href = browser.runtime.getURL('./html/settings.html');
+            document.getElementById('cleaning_tools').href = browser.runtime.getURL('./html/cleaningTool.html');
             setText();
         });
 })();

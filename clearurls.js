@@ -654,7 +654,7 @@ function start() {
                 */
                 if (result.cancel) {
                     if (request.type === 'main_frame') {
-                        const blockingPage = browser.extension.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
+                        const blockingPage = browser.runtime.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
                         browser.tabs.update(request.tabId, {url: blockingPage}).catch(handleError);
 
                         return {cancel: true};

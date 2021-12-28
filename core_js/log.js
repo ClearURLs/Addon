@@ -93,7 +93,7 @@ function getDataTableTranslation()
 {
     let lang = browser.i18n.getUILanguage();
     lang = lang.substring(0,2);
-    return browser.extension.getURL('./external_js/dataTables/i18n/' + lang + '.lang');
+    return browser.runtime.getURL('./external_js/dataTables/i18n/' + lang + '.lang');
 }
 
 /**

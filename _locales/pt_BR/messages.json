@@ -262,7 +262,13 @@
         "message": "Importa tudo"
     },
     "setting_log_limit_label": {
-        "message": "Limitar o registro (log) a $LIMIT$ itens."
+        "message": "Limitar o registro (log) a $LIMIT$ itens.",
+        "placeholders": {
+            "limit": {
+                "content": "$1",
+                "example": "100"
+            }
+        }
     },
     "blocked_html_title": {
         "message": "Este site foi bloqueado por <b>ClearURLs</b>"
@@ -280,7 +286,13 @@
         "message": "Permite marketing de referência (\"referral\")"
     },
     "watchdog": {
-        "message": "[ClearURLs]: O watchdog detectou um problema e já falhou $TIMES$ vezes."
+        "message": "[ClearURLs]: O watchdog detectou um problema e já falhou $TIMES$ vezes.",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Permitir bloqueio de domínio (pode causar problemas em páginas que não permitem AdBlockers)"

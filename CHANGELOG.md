@@ -32,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated Turkish translation by Ümit
 - Updated Chinese (traditional) translation by 1304274443
 - Updated Chinese (simplified) translation by Eric
+- Replaced deprecated `extension.getURL` by `runtime.getURL`
 
 ## [1.21.0] - 2021-03-24
 

@@ -238,7 +238,13 @@
         "message": "Permite marketing com referências"
     },
     "watchdog": {
-        "message": "[ClearURLs]: o \"cão de vigia\" detetou um problema e já falhou $TIMES$ vezes.\n"
+        "message": "[ClearURLs]: o \"cão de vigia\" detetou um problema e já falhou $TIMES$ vezes.",
+        "placeholders": {
+            "times": {
+                "content": "$1",
+                "example": "3"
+            }
+        }
     },
     "domain_blocking_enabled": {
         "message": "Permitir o bloqueio de domínios (pode causar problemas em páginas que não permitem bloqueadores de anúncios)"
