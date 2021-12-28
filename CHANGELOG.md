@@ -9,6 +9,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
+## [1.XX.0] - 20XX-XX-XX
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Added
+- Added Arabic translation by Essam and kugani
+- Added Indonesian translation by Iputucaganesha
+
 ## [1.22.0] - 2021-12-27
 
 ### Compatibility note
