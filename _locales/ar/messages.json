@@ -1,0 +1,378 @@
+{
+    "hash_status_code_1": {
+        "message": "حتى تاريخ ",
+        "description": "يشير كود الحالة هذا ، الى أنه لا يوجد تعديل متاح لقواعد ClearURLs وأن كل شيء قد تم حتى تاريخه. "
+    },
+    "hash_status_code_2": {
+        "message": "تم التعديل ",
+        "description": "يشير كود الحالة هذا الى أنه تم تعديل قواعد ClearURLs بنجاح. "
+    },
+    "hash_status_code_3": {
+        "message": "التعديل متاح ",
+        "description": "يشير كود الحالة هذا ، الى أنه يتم اتاحة تعديل لقواعد ClearURLs. "
+    },
+    "hash_status_code_4": {
+        "message": "خطأ ",
+        "description": "يشير كود الحالة هذا الى أنه لا يمكن بدء ClearURLs بطريقة صحيحة. "
+    },
+    "hash_status_code_5": {
+        "message": "أوبس شيء حدث خطأ ! ",
+        "description": "يشير كود الحالة هذا الى أنه قد حدث خطأ أثناء تعديل قواعد ClearURLs. "
+    },
+    "log_redirect": {
+        "message": "تم اعادة توجيه عنوان url ",
+        "description": "يتم استخدام مجموعة الحروف هذه في اعادة الاتجاه في سجل ClearURLs. "
+    },
+    "log_domain_blocked": {
+        "message": "تم اقفال هذا النطاق ",
+        "description": "يتم استخدام مجموعة الحروف هذه في النطاقات التي تم اعاقتها في سجل ClearURLs. "
+    },
+    "check_os_log": {
+        "message": "[ ClearURLs ] : تم اضافة وحدة انصات السجل. ",
+        "description": "يتم استخدام هذه السلسلة في بدء سجل ClearURLs. "
+    },
+    "log_html_page_title": {
+        "message": "Log من ClearURLs ",
+        "description": "يتم استخدام مجموعة الحروف هذه كنص رأس في صفحة السجل. "
+    },
+    "log_html_table_head_1": {
+        "message": "قبل التشغيل ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان جدول في صفحة السجل. "
+    },
+    "log_html_table_head_2": {
+        "message": "بعد التشغيل ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان جدول في صفحة السجل. "
+    },
+    "log_html_table_head_3": {
+        "message": "القاعدة ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان جدول في صفحة السجل. "
+    },
+    "log_html_table_head_4": {
+        "message": "الوقت ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان جدول في صفحة السجل. "
+    },
+    "log_html_reset_button": {
+        "message": "ارجاع ",
+        "description": "يتم استخدام مجموعة الحروف هذه لاختيار اعادة الضبط في صفحة السجل. "
+    },
+    "log_html_reset_button_title": {
+        "message": "يقوم باعادة ضبط السجل الشامل ",
+        "description": "يتم استخدام هذه العبارة كعنوان لاختيار اعادة الضبط في صفحة السجل. "
+    },
+    "popup_html_configs_head": {
+        "message": "Configs ",
+        "description": "يتم استخدام هذه السلسلة كعنوان للتوصيف في الصفحة المظهرة. "
+    },
+    "popup_html_configs_switch_filter": {
+        "message": "مرشح البيانات ",
+        "description": "يتم استخدام هذه العبارة كاسم لاختيار مرشح البيانات في الصفحة popup. "
+    },
+    "popup_html_configs_switch_filter_title": {
+        "message": "مفتاح ترشيح البيانات يقوم بتشغيل وظيفة التنظيف الخاصة ب ـClearURLs.  اذا قمت بالغاء اتاحة هذا الاختيار ، سيتم الغاء اتاحة كل addon ",
+        "description": "يتم استخدام هذه العبارة كعنوان لاختيار مرشح البيانات في الصفحة popup. "
+    },
+    "popup_html_configs_switch_log": {
+        "message": "تسجيل ",
+        "description": "يتم استخدام هذا النص كاسم لمفتاح تشغيل التسجيل في الصفحة popup. "
+    },
+    "popup_html_configs_switch_log_title": {
+        "message": "يتم حفظ السجل محليا فقط.  ننصح بعدم هذه الميزة إذا لم تكن في حاجة إليها ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لمفتاح تشغيل التسجيل في الصفحة المظهرة. "
+    },
+    "popup_html_configs_switch_badges": {
+        "message": "الشارات ",
+        "description": "يتم استخدام هذا النص كاسم لمفتاح تبديل الشارات في الصفحة popup. "
+    },
+    "popup_html_configs_switch_badges_title": {
+        "message": "عرض أرقام urls التي تم تنظيفها ",
+        "description": "يتم استخدام هذا النص كعنوان لمفتاح تبديل الشارات في الصفحة popup. "
+    },
+    "popup_html_statistics_head": {
+        "message": "الإحصاءات ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان للاحصائيات في الصفحة المظهرة. "
+    },
+    "popup_html_statistics_elements": {
+        "message": "العناصر ",
+        "description": "يتم استخدام هذه السلسلة كاسم للعناصر التي توجد في الصفحة المظهرة. "
+    },
+    "popup_html_statistics_blocked": {
+        "message": "مقفل ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم للعناصر التي تم اقفالها في الصفحة المظهرة. "
+    },
+    "popup_html_statistics_percentage": {
+        "message": "النسبة المئوية ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم للنسبة المئوية للعناصر التي تم اعاقتها في الصفحة المظهرة. "
+    },
+    "popup_html_statistics_reset_button": {
+        "message": "ارجاع ",
+        "description": "يتم استخدام هذه العبارة كاسم لاختيار ارجاع الاحصائيات في الصفحة popup. "
+    },
+    "popup_html_statistics_reset_button_title": {
+        "message": "ارجاع الاحصائيات الشاملة ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لاختيار ارجاع الاحصائيات في الصفحة popup. "
+    },
+    "popup_html_rules_status_head": {
+        "message": "القواعد-الحالة ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان لقسم حالة-القواعد في الصفحة المظهرة. "
+    },
+    "popup_html_log_head": {
+        "message": "السجل ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم لاختيار السجل في الصفحة المظهرة. "
+    },
+    "popup_html_log_head_title": {
+        "message": "قم بفتح السجل ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لاختيار السجل في الصفحة المظهرة. "
+    },
+    "popup_html_report_button": {
+        "message": "تسجيل عنوان URL الحالي ",
+        "description": "ملحوظة : لا يتم استخدامها حاليا. "
+    },
+    "popup_html_report_button_title": {
+        "message": "قم بتسجيل عنوان URL الحالي من علامة التبويب هذه. ",
+        "description": "لا يتم استخدامه حاليا. "
+    },
+    "core_save_on_disk": {
+        "message": "[ ClearURLs ] : حفظ على القرص. ",
+        "description": "يتم استخدام مجموعة الحروف هذه لتخبر المستخدم ، بأن ClearURLs يقوم بحفظ المحددات على القرص. "
+    },
+    "core_error": {
+        "message": "[ ClearURLs ] : لا يمكن بدء addon. ",
+        "description": "يتم استخدام مجموعة الحروف هذه لتخبر المستخدم بأنه لا يمكن بدء ClearURLs. "
+    },
+    "configs_switch_statistics": {
+        "message": "الإحصاءات ",
+        "description": "يتم استخدام هذه العبارة كاسم لاختيار مفتاح الاحصائيات في الصفحة المظهرة. "
+    },
+    "configs_switch_statistics_title": {
+        "message": "تشغيل أو ايقاف تشغيل وظيفة الاحصائيات ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لمفتاح تبديل الاحصائيات في الصفحة المظهرة. "
+    },
+    "settings_html_page_title": {
+        "message": "محددات ClearURL ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان في صفحة المحددات. "
+    },
+    "badged_color_label": {
+        "message": "لون الشارة ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم لعلامة اللون التي تم تعليمها. "
+    },
+    "setting_html_reset_button": {
+        "message": "ارجاع ",
+        "description": "يتم استخدام هذه العبارة كاسم لاختيار اعادة الضبط في صفحة المحددات. "
+    },
+    "setting_html_reset_button_title": {
+        "message": "يقوم بارجاع كل شيء ",
+        "description": "يتم استخدام هذه العبارة كعنوان لاختيار اعادة الضبط في صفحة المحددات. "
+    },
+    "setting_rule_url_label": {
+        "message": "عنوان url لملف data.json (القواعد) ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم للعلامة المميزة لعنوان url للقاعدة. "
+    },
+    "settings_html_save_button": {
+        "message": "حفظ & اعادة تحميل اضافة ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم لملف sae&reload في صفحة المحددات. "
+    },
+    "settings_html_save_button_title": {
+        "message": "يتم حفظ المحددات ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان لملف sae&reload في صفحة المحددات. "
+    },
+    "setting_hash_url_label": {
+        "message": "عنوان URL الى ملف Rules.hash file (hash) ",
+        "description": "يتم استخدام هذه العبارة كاسم للعلامة المميزة لعنوان URL الى rule.hash. "
+    },
+    "setting_types_label": {
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>أنواع الطلب</a> (مستوى الخبراء) ",
+        "description": "يتم استخدام هذه السلسلة كاسم للعلامة المميزة للأنواع. "
+    },
+    "setting_report_server_label": {
+        "message": "وحدة خدمة التقرير لعناوين URL ",
+        "description": "ملحوظة : لا يتم استخدامها حاليا. "
+    },
+    "success_report_url": {
+        "message": "تم تسجيل عنوان URL بنجاح.  سنقوم بالتحقق من عنوان URL هذا قريبا. ",
+        "description": "ملحوظة : لا يتم استخدامها حاليا. "
+    },
+    "error_report_url": {
+        "message": "يبدو أن عنوان URL هذا تم تسجيله بالفعل. ",
+        "description": "ملحوظة : لا يتم استخدامها حاليا. "
+    },
+    "donate_button": {
+        "message": "تبرع لمبتكر ClearURLs. ",
+        "description": "يتم استخدام مجموعة الحروف هذه للاشارة الى صفحة تبرع. "
+    },
+    "clipboard_copy_link": {
+        "message": "نسخ مكان وصلة نظيفة ",
+        "description": "يتم استخدام مجموعة الحروف هذه في القائمة السياقية لنسخ وصلات نظيفة. "
+    },
+    "context_menu_enabled": {
+        "message": "عرض ادخال القائمة السياقية ",
+        "description": "يتم استخدام مجموعة الحروف هذه لتبديل ادخال القائمة السياقية لنسخ وصلات نظيفة. "
+    },
+    "history_listener_enabled": {
+        "message": "تجنب تتبع مسار عملية الحقن على السجل التاريخي API (أنظر أيضا : <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>طريقة replaceState ()</a>) ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم للعلامة المميزة لوحدة انصات السجل التاريخي API. "
+    },
+    "cleaning_tool_page_title": {
+        "message": "أداة تنظيف ClearURLs ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان في صفحة أداة التنظيف. "
+    },
+    "cleaning_tool_description": {
+        "message": "باستخدام هذه الأداة يمكنك اللصق في URLs وسيقوم ClearURLs بتنظيف عناوين URL بعد الضغط على الاختيار الأخضر.  يمكنك لصق عناوين URL متعددة في وقت واحد ، ولكن يجب أن يكون كل عنوان URL في سطر منفصل. ",
+        "description": "يتم استخدام مجموعة الحروف هذه كوصف لأداة التنظيف. "
+    },
+    "cleaning_tool_btn": {
+        "message": "اعادة تنظيم عناوين URL ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم لاختيار عنوان url غير صحيح. "
+    },
+    "cleaning_tool_dirty_urls_label": {
+        "message": "وهنا يمكنك اللصق في عناوين URL المتسخة : ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان في صفحة أداة التنظيف لعناوين URL المتسخة. "
+    },
+    "cleaning_tool_clean_urls_label": {
+        "message": "هنا يمكنك ايجاد عناوين URL التي تم تنظيفها : ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان في صفحة أداة التنظيف لعناوين URL النظيفة. "
+    },
+    "local_hosts_skipping": {
+        "message": "تخطي URLs على الأنظمة الرئيسية المحلية (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost) ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعلامة مميزة لمفتاح تخطي النظام الرئيسي المحلي "
+    },
+    "local_hosts_skipping_title": {
+        "message": "يقوم بتخطي عناوين URL على الأنظمة الرئيسية المحلية ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان لمفتاح تخطي النظام الرئيسي المحلي "
+    },
+    "log_html_export_button": {
+        "message": "ارسال ",
+        "description": "يتم استخدام مجموعة الحروف هذه لاختيار الارسال في صفحة السجل. "
+    },
+    "log_html_export_button_title": {
+        "message": "ارسال السجل الشامل ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لاختيار التصدير في صفحة السجل. "
+    },
+    "log_html_import_button": {
+        "message": "استقبال ",
+        "description": "يتم استخدام مجموعة الحروف هذه لاختيار الاستقبال في صفحة السجل. "
+    },
+    "log_html_import_button_title": {
+        "message": "استقبال السجل الشامل ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لاختيار الاستقبال في صفحة السجل. "
+    },
+    "setting_html_export_button": {
+        "message": "ارسال ",
+        "description": "يتم استخدام مجموعة الحروف هذه كاسم لاختيار التصدير في صفحة المحددات. "
+    },
+    "setting_html_export_button_title": {
+        "message": "صادرات كل شيء ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لاختيار التصدير في صفحة المحددات. "
+    },
+    "setting_html_import_button": {
+        "message": "استقبال ",
+        "description": "يتم استخدام هذه العبارة كاسم لاختيار اعادة الضبط في صفحة المحددات. "
+    },
+    "setting_html_import_button_title": {
+        "message": "لاستقبال كل شيء ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لاختيار الاستقبال في صفحة المحددات. "
+    },
+    "setting_log_limit_label": {
+        "message": "قم بتحديد السجل الى $LIMIT$ ادخالات. ",
+        "description": "يتم استخدام هذه العبارة كاسم للعلامة المميزة لحدود السجل. ",
+        "placeholders": {
+            "limit": {
+                "content": "1 دولار ",
+                "example": "100 "
+            }
+        }
+    },
+    "blocked_html_title": {
+        "message": "تم تجميع هذا الموقع بواسطة <b>ClearURLs</b> ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان في صفحة الموقع التي تم اعاقتها. "
+    },
+    "blocked_html_body": {
+        "message": "تم تجميع هذا الموقع بواسطة <b>ClearURLs</b> Add-on ، لأننا نتعرف على هذا الموقع على أنه خدمة اعلانية و / أو تتبع.  لزيارة هذا الموقع ، يجب أن تقوم مؤقتا بايقاف تشغيل البرنامج المساعد أو عدم اتاحة حجب النطاق في محددات ClearURLs.  بعد ذلك ، يمكنك الضغط على المفتاح الموجود بأسفل لتحميل الصفحة. ",
+        "description": "يتم استخدام مجموعة الحروف هذه كنص في صفحة الموقع التي تم اقفالها. "
+    },
+    "blocked_html_button": {
+        "message": "صفحة الزيارة ",
+        "description": "يتم استخدام هذا التسلسل كمفتاح في صفحة الموقع التي تم اعاقتها. "
+    },
+    "referral_marketing_enabled": {
+        "message": "السماح بتسويق الاحالة ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعلامة مميزة لمفتاح تسويق الاحالة "
+    },
+    "referral_marketing_enabled_title": {
+        "message": "يسمح بتسويق الاحالة ",
+        "description": "يتم استخدام هذه السلسلة كعنوان لمحول تسويق الاحالة "
+    },
+    "watchdog": {
+        "message": "[ ClearURLs ] : قام جهاز المراقبة باكتشاف مشكلة وقد فشل بالفعل بأوقات $TIMES$. ",
+        "description": "يتم استخدام مجموعة الحروف هذه كنص لجهة المراقبة. ",
+        "placeholders": {
+            "times": {
+                "content": "1 دولار ",
+                "example": "3 "
+            }
+        }
+    },
+    "domain_blocking_enabled": {
+        "message": "السماح بحجب النطاق (يمكن أن يؤدي ذلك الى حدوث مشاكل في الصفحات التي لا تسمح باستخدام AdBlockers) ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعلامة مميزة لمفتاح حجب النطاق "
+    },
+    "domain_blocking_enabled_title": {
+        "message": "السماح بحجب النطاق (يمكن أن يؤدي ذلك الى حدوث مشاكل في الصفحات التي لا تسمح باستخدام AdBlockers) ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان لمفتاح حجب النطاق "
+    },
+    "log_ping_blocked": {
+        "message": "تم منع عملية مراجعة الوصلة المرجعية هذه ",
+        "description": "يتم استخدام مجموعة الحروف هذه في مراجعة الوصلات المرجعية في سجل ClearURLs. "
+    },
+    "ping_blocking_enabled": {
+        "message": "اعاقة مراجعة الوصلات المرجعية (أنظر أيضا <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>هذه المقالة</a>) ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعلامة مميزة لمفتاح منع مراجعة الوصلة المرجعية "
+    },
+    "ping_blocking_enabled_title": {
+        "message": "حظر مراجعة الوصلات المرجعية ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان لمفتاح منع مراجعة الوصلة المرجعية "
+    },
+    "extension_description": {
+        "message": "ازالة عناصر التتبع من عناوين URL. ",
+        "description": "وصف اللاحقة (بحد أقصى 132 حرفا) "
+    },
+    "eTag_filtering_log": {
+        "message": "تم ازالة عنوان ETag من هذا الطلب ",
+        "description": "يتم استخدام مجموعة الحروف هذه في ترشيح بيانات عنوان ETag في سجل ClearURLs. "
+    },
+    "eTag_filtering_enabled": {
+        "message": "ترشيح بيانات عناوين ETag من الطلبات (أنظر أيضا <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>هذه المقالة</a>) ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعلامة مميزة لمفتاح ترشيح بيانات عنوان ETag "
+    },
+    "eTag_filtering_enabled_title": {
+        "message": "ترشيح بيانات عناوين ETag.  ملحوظة : يجب اخلاء الذاكرة الوسيطة قبل الاستخدام الأول. ",
+        "description": "يتم استخدام مجموعة الحروف هذه كعنوان لمفتاح ترشيح بيانات عنوان ETag "
+    },
+    "popup_html_rules_status_head_title": {
+        "message": "  ",
+        "description": "غير مطلوب ، لمنع الاستثناءات فقط "
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": "  ",
+        "description": "غير مطلوب ، لمنع الاستثناءات فقط "
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": "  ",
+        "description": "غير مطلوب ، لمنع الاستثناءات فقط "
+    },
+    "popup_html_statistics_elements_title": {
+        "message": "  ",
+        "description": "غير مطلوب ، لمنع الاستثناءات فقط "
+    },
+    "popup_html_statistics_head_title": {
+        "message": "  ",
+        "description": "غير مطلوب ، لمنع الاستثناءات فقط "
+    },
+    "popup_html_configs_head_title": {
+        "message": "  ",
+        "description": "غير مطلوب ، لمنع الاستثناءات فقط "
+    },
+    "context_menu_enabled_title": {
+        "message": "  ",
+        "description": "غير مطلوب ، لمنع الاستثناءات فقط"
+    }
+}
