@@ -96,7 +96,7 @@ We use some third-party scripts in our add-on. The authors and licenses are list
 -   [Bootstrap v4.3.1](https://github.com/twbs/bootstrap/tree/v4.3.1) |
     Copyright 2011-2016 Twitter, Inc. |
     [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
--   [jQuery v3.4.1](https://github.com/jquery/jquery/tree/3.4.1) |
+-   [jQuery v3.6.0](https://github.com/jquery/jquery/tree/3.6.0) |
     Copyright JS Foundation and other contributors |
     [MIT](https://jquery.org/license/)
 -   [DataTables v1.10.20](https://github.com/DataTables/DataTables/tree/master) |  Copyright (c) 2008-2015 SpryMedia Limited | [MIT](https://datatables.net/license/)
