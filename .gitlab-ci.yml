@@ -27,12 +27,12 @@ hash rules:
 bundle addon:
   stage: build
   script:
-    - zip ClearUrls -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
+    - zip ClearURLs -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
   only:
     - master
   artifacts:
     paths:
-      - ClearUrls.zip
+      - ClearURLs.zip
 
 pages:
   stage: deploy
