@@ -24,15 +24,26 @@ hash rules:
       - data.minify.json
       - rules.minify.hash
 
-bundle addon:
+bundle addon firefox:
   stage: build
   script:
-    - zip ClearURLs -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
+    - zip ClearURLs-firefox -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
   only:
     - master
   artifacts:
     paths:
-      - ClearURLs.zip
+      - ClearURLs-firefox.zip
+
+bundle addon chrome:
+  stage: build
+  script:
+    - jq 'del(.applications)' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
+    - zip ClearURLs-chrome -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
+  only:
+    - master
+  artifacts:
+    paths:
+      - ClearURLs-chrome.zip
 
 pages:
   stage: deploy
