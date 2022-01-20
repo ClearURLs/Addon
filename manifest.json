@@ -2,10 +2,11 @@
     "manifest_version": 2,
     "name": "ClearURLs",
     "version": "1.22.0",
-    "author": "Kevin Röbert",
+    "author": "Kevin Roebert",
     "description": "__MSG_extension_description__",
-    "homepage_url": "https://gitlab.com/KevinRoebert/ClearUrls",
+    "homepage_url": "https://docs.clearurls.xyz",
     "default_locale": "en",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'none'",
     "icons": {
         "16": "img/clearurls_16x16.png",
         "19": "img/clearurls_19x19.png",
