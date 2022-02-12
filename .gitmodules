@@ -1,4 +1,4 @@
 [submodule "rules"]
 	path = data
-	url = https://gitlab.com/anti-tracking/ClearURLs/rules.git
+	url = https://gitlab.com/ClearURLs/rules.git
 	branch = master
