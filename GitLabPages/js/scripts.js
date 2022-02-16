@@ -86,13 +86,13 @@ function checkIssue253() {
     .on('load', function() {
         segment.addClass('negative');
         segment.append('<i class="large frown outline icon"></i>');
-        segment.append('<div class="content"><p>Your ClearURLs version is vulnerable to the problem from issue 253. ' +
-        'Please update your ClearURLs installation to at least version <b>1.8.3 or higher</b>.</p></div>');
+        segment.append('<div class="content"><p>Your ClearURLs version is vulnerable to the problem from <a href="https://gitlab.com/KevinRoebert/ClearUrls/-/issues/253">Issue 253</a>. ' +
+        'Please update your ClearURLs installation to version <b>1.8.3 or higher</b>.</p></div>');
     })
     .on('error', function() {
         segment.addClass('positive');
         segment.append('<i class="large smile outline icon"></i>');
-        segment.append('<div class="content"><p>Your ClearURLs version is not vulnerable to the problem from Issue 253.</p></div>');
+        segment.append('<div class="content"><p>Your ClearURLs version is not vulnerable to the problem from <a href="https://gitlab.com/KevinRoebert/ClearUrls/-/issues/253">Issue 253</a>.</p></div>');
     })
     .attr("src", 'https://kevinroebert.gitlab.io/ClearUrls/void/index.html?url=https%3A%2F%2Fkevinroebert.gitlab.io%2FClearUrls%2Fi253.html');
 }
