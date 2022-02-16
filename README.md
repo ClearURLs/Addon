@@ -40,7 +40,7 @@ Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the ad
 Reasoning for needed permissions can be found under [here](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
 
 ## Screenshot
-![Interface (version 1.14.0)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_v_1.14.0.png)
+![Interface (version 1.14.0)](https://docs.clearurls.xyz/1.22.0/assets/img/interface.png)
 
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
@@ -87,7 +87,7 @@ Please push your translation into the folder `_locales/{language code}/messages.
 *  ClearURLs is part of Mozilla's recommended extensions program
 
 ## Permissions
-Reasoning for needed permissions you can find under [this discussion](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
+Reasoning for needed permissions you can find under [this wiki page](https://docs.clearurls.xyz/latest/permissions/).
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
