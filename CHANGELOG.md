@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added Indonesian translation by Iputucaganesha
 - Added `content_security_policy` to `manifest.json`
 - Re-Added `applications`to `manifest.json`
+- Added recursive cleaning
 
 ### Changed
 - Updated `homepage_url` and `author` field in `manifest.json`

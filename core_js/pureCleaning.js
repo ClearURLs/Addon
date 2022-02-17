@@ -19,17 +19,32 @@
 /*jshint esversion: 6 */
 
 /**
- * Cleans given links. Also do automatic redirection.
+ * Cleans given URLs. Also do automatic redirection.
  *
  * @param  {String} url     url as string
  * @param {boolean} quiet   if the action should be displayed in log and statistics
- * @return {String}     redirectUrl or none
+ * @return {String}         cleaned URL
  */
 function pureCleaning(url, quiet = false) {
+    let before = url;
+    let after = url;
+
+    do {
+        before = after;
+        after = _cleaning(before, quiet);
+    } while (after !== before); // do recursive cleaning
+
+    return after;
+}
+
+/**
+ * Internal function to clean the given URL.
+ */
+function _cleaning(url, quiet = false) {
     let cleanURL = url;
     const URLbeforeReplaceCount = countFields(url);
 
-    if(!quiet) {
+    if (!quiet) {
         //Add Fields form Request to global url counter
         increaseGlobalURLCounter(URLbeforeReplaceCount);
     }
@@ -42,14 +57,12 @@ function pureCleaning(url, quiet = false) {
             "cancel": false
         };
 
-        if(providers[i].matchURL(cleanURL))
-        {
+        if (providers[i].matchURL(cleanURL)) {
             result = removeFieldsFormURL(providers[i], cleanURL, quiet);
             cleanURL = result.url;
         }
 
-        if(result.redirect)
-        {
+        if (result.redirect) {
             return result.url;
         }
     }
