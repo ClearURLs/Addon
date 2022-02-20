@@ -484,10 +484,10 @@ function check_single_cidr(addr, cidr) {
     while ((lastColon = string.indexOf(':', lastColon + 1)) >= 0) {
       colonCount++;
     }
-    if (string.substr(0, 2) === '::') {
+    if (string.startsWith('::')) {
       colonCount--;
     }
-    if (string.substr(-2, 2) === '::') {
+    if (string.endsWith('::')) {
       colonCount--;
     }
     if (colonCount > parts) {
