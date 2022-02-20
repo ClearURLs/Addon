@@ -288,7 +288,7 @@ function decodeURL(url) {
     }
 
     // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if(rtn.substr(0, 4) !== 'http') {
+    if(!rtn.startsWith('http')) {
         rtn = 'http://'+rtn
     }
 
