@@ -307,6 +307,7 @@ function start() {
                     storeHashStatus(2);
                 } else {
                     storeHashStatus(3);
+                    console.error("The hash does not match. Expected `" + result.hash + "` got `" + dataHash.trim() + "`");
                 }
                 storage.ClearURLsData = JSON.parse(storage.ClearURLsData);
                 toObject(storage.ClearURLsData);
