@@ -232,37 +232,48 @@
         "description": "This string is used as title on the cleaning tool page for the clean URLs."
     },
     "local_hosts_skipping": {
-        "message": "Pular URLs em hosts locais (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)"
+        "message": "Pular URLs em hosts locais (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16, 100.64.0.0/10, 169.254.0.0/16, 127.0.0.1, localhost)",
+        "description": "Esta string é usada como rótulo para o switch de salto do host local"
     },
     "local_hosts_skipping_title": {
-        "message": "Pula URLs em hosts locais"
+        "message": "Pula URLs em hosts locais",
+        "description": "Esta string é usada como título para o switch de salto do host local"
     },
     "log_html_export_button": {
-        "message": "Exportar"
+        "message": "Exportar",
+        "description": "Essa string é usada para o botão de exportação na página de log."
     },
     "log_html_export_button_title": {
-        "message": "Exporta o log global"
+        "message": "Exporta o log global",
+        "description": "Essa string é usada como título para o botão de exportação na página de log."
     },
     "log_html_import_button": {
-        "message": "Importar"
+        "message": "Importar",
+        "description": "Essa string é usada para o botão de importação na página de log."
     },
     "log_html_import_button_title": {
-        "message": "Importar o registro global"
+        "message": "Importar o registro global",
+        "description": "Esta string é usada como título para o botão de importação na página de log."
     },
     "setting_html_export_button": {
-        "message": "Exportar"
+        "message": "Exportar",
+        "description": "Essa string é usada como nome para o botão de exportação na página de configurações."
     },
     "setting_html_export_button_title": {
-        "message": "Exporta tudo"
+        "message": "Exporta tudo",
+        "description": "Esta string é usada como título para o botão de exportação na página de configurações."
     },
     "setting_html_import_button": {
-        "message": "Importar"
+        "message": "Importar",
+        "description": "Esta string é usada como nome para o botão de reset na página de configurações."
     },
     "setting_html_import_button_title": {
-        "message": "Importa tudo"
+        "message": "Importa tudo",
+        "description": "Esta string é usada como título para o botão de importação na página de configurações."
     },
     "setting_log_limit_label": {
         "message": "Limitar o registro (log) a $LIMIT$ itens.",
+        "description": "Essa string é usada como nome para o rótulo de limite de log.",
         "placeholders": {
             "limit": {
                 "content": "$1",
@@ -271,22 +282,28 @@
         }
     },
     "blocked_html_title": {
-        "message": "Este site foi bloqueado por <b>ClearURLs</b>"
+        "message": "Este site foi bloqueado por <b>ClearURLs</b>",
+        "description": "Essa string é usada como título na página do site bloqueada."
     },
     "blocked_html_body": {
-        "message": "Este site foi bloqueado pela extensão <b>ClearURLs</b> porque o identificamos como um serviço de publicidade ou rastreamento. Para visitar este site, você deve desativar temporariamente a extensão ou desabilitar o bloqueio de domínio nas configurações de ClearURLs. Depois disso, você pode clicar no botão abaixo para carregar a página."
+        "message": "Este site foi bloqueado pela extensão <b>ClearURLs</b> porque o identificamos como um serviço de publicidade ou rastreamento. Para visitar este site, você deve desativar temporariamente a extensão ou desabilitar o bloqueio de domínio nas configurações de ClearURLs. Depois disso, você pode clicar no botão abaixo para carregar a página.",
+        "description": "Essa string é usada como corpo na página do site bloqueado."
     },
     "blocked_html_button": {
-        "message": "Visitar a página"
+        "message": "Visitar a página",
+        "description": "Essa string é usada como botão na página do site bloqueado."
     },
     "referral_marketing_enabled": {
-        "message": "Permitir marketing de referência (\"referral\")"
+        "message": "Permitir marketing de referência (\"referral\")",
+        "description": "Essa string é usada como rótulo para a opção de marketing de referência"
     },
     "referral_marketing_enabled_title": {
-        "message": "Permite marketing de referência (\"referral\")"
+        "message": "Permite marketing de referência (\"referral\")",
+        "description": "Esta string é usada como título para a opção de marketing de referência"
     },
     "watchdog": {
         "message": "[ClearURLs]: O watchdog detectou um problema e já falhou $TIMES$ vezes.",
+        "description": "Esta string é usada como texto para o watchdog",
         "placeholders": {
             "times": {
                 "content": "$1",
@@ -295,31 +312,40 @@
         }
     },
     "domain_blocking_enabled": {
-        "message": "Permitir bloqueio de domínio (pode causar problemas em páginas que não permitem AdBlockers)"
+        "message": "Permitir bloqueio de domínio (pode causar problemas em páginas que não permitem AdBlockers)",
+        "description": "Esta string é usada como rótulo para o switch de bloqueio de domínio"
     },
     "domain_blocking_enabled_title": {
-        "message": "Permitir bloqueio de domínio (pode causar problemas em páginas que não permitem AdBlockers)"
+        "message": "Permitir bloqueio de domínio (pode causar problemas em páginas que não permitem AdBlockers)",
+        "description": "Esta string é usada como título para a chave de bloqueio de domínio"
     },
     "log_ping_blocked": {
-        "message": "Esta auditoria de hiperlink foi bloqueada"
+        "message": "Esta auditoria de hiperlink foi bloqueada",
+        "description": "Essa string é usada na auditoria de hiperlink no log ClearURLs."
     },
     "ping_blocking_enabled": {
-        "message": "Bloquear auditoria de hiperlink (vide <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>artigo sobre \"Hyperlink auditing\"</a>)"
+        "message": "Bloquear auditoria de hiperlink (vide <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>artigo sobre \"Hyperlink auditing\"</a>)",
+        "description": "Esta string é usada como rótulo para o switch de bloqueio de auditoria de hiperlink"
     },
     "ping_blocking_enabled_title": {
-        "message": "Bloquear auditoria de hiperlink"
+        "message": "Bloquear auditoria de hiperlink",
+        "description": "Esta string é usada como título para a chave de bloqueio de auditoria de hiperlink"
     },
     "extension_description": {
-        "message": "Remover os elementos de rastreamento de URLs. "
+        "message": "Remover os elementos de rastreamento de URLs. ",
+        "description": "Descrição da extensão (máx. 132 caracteres)"
     },
     "eTag_filtering_log": {
-        "message": "O cabeçalho ETag foi removido deste pedido"
+        "message": "O cabeçalho ETag foi removido deste pedido",
+        "description": "Essa string é usada na filtragem de cabeçalho ETag no log ClearURLs."
     },
     "eTag_filtering_enabled": {
-        "message": "Filtra cabeçalhos ETag de pedidos (vide <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>artigo sobre \"HTTP ETag\"</a>)"
+        "message": "Filtra cabeçalhos ETag de pedidos (vide <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>artigo sobre \"HTTP ETag\"</a>)",
+        "description": "Esta string é usada como rótulo para a opção de filtragem de cabeçalho ETag"
     },
     "eTag_filtering_enabled_title": {
-        "message": "Filtra cabeçalhos ETag de pedidos. Dica: o cache deve ser limpo antes do primeiro uso."
+        "message": "Filtra cabeçalhos ETag de pedidos. Dica: o cache deve ser limpo antes do primeiro uso.",
+        "description": "Esta string é usada como título para a opção de filtragem de cabeçalho ETag"
     },
     "popup_html_rules_status_head_title": {
         "message": " ",
@@ -327,26 +353,26 @@
     },
     "popup_html_statistics_percentage_title": {
         "message": " ",
-        "description": ""
+        "description": "não é necessário, apenas para evitar exceções"
     },
     "popup_html_statistics_blocked_title": {
         "message": " ",
-        "description": ""
+        "description": "não é necessário, apenas para evitar exceções"
     },
     "popup_html_statistics_elements_title": {
         "message": " ",
-        "description": ""
+        "description": "não é necessário, apenas para evitar exceções"
     },
     "popup_html_statistics_head_title": {
         "message": " ",
-        "description": ""
+        "description": "não é necessário, apenas para evitar exceções"
     },
     "popup_html_configs_head_title": {
         "message": " ",
-        "description": ""
+        "description": "não é necessário, apenas para evitar exceções"
     },
     "context_menu_enabled_title": {
         "message": " ",
-        "description": ""
+        "description": "não é necessário, apenas para evitar exceções"
     }
 }
