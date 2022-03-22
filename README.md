@@ -2,7 +2,7 @@
 <a href="https://liberapay.com/kroeb" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/LiberaPay.png" alt="Buy Me A Coffee" height="55"></a>
 <a href="https://www.buymeacoffee.com/KevinRoebert" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/BuyMeACoffee.png" alt="Buy Me A Coffee" height="55"></a>
 
-[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://gitlab.com/KevinRoebert/ClearUrls/-/raw/master/promotion/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei) [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" alt="for Chrome" height="60px">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
+[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://docs.clearurls.xyz/1.22.0/assets/img/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei) [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" alt="for Chrome" height="60px">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
 
 # <sub><img src="https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/clearurls.svg" width="64px" height="64px"></sub> ClearURLs [![Gitter](https://badges.gitter.im/ClearURLs/ClearURLs.svg)](https://gitter.im/ClearURLs/ClearURLs)
 
@@ -40,12 +40,13 @@ Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the ad
 Reasoning for needed permissions can be found under [here](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
 
 ## Screenshot
-![Interface (version 1.14.0)](https://gitlab.com/KevinRoebert/ClearUrls/raw/master/promotion/screens/Popup_v_1.14.0.png)
+![Interface (version 1.14.0)](https://docs.clearurls.xyz/1.22.0/assets/img/interface.png)
 
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
 
-[<img src="promotion/download-128.png"/>](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs.zip?job=bundle%20addon)
+ - [ClearURLs-firefox.zip](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs-firefox.zip?job=bundle%20addon%20firefox)
+ - [ClearURLs-chrome.zip](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs-chrome.zip?job=bundle%20addon%20chrome)
 
 ## Test
 If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://test.clearurls.xyz/](https://test.clearurls.xyz/)
@@ -86,7 +87,7 @@ Please push your translation into the folder `_locales/{language code}/messages.
 *  ClearURLs is part of Mozilla's recommended extensions program
 
 ## Permissions
-Reasoning for needed permissions you can find under [this discussion](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
+Reasoning for needed permissions you can find under [this wiki page](https://docs.clearurls.xyz/latest/permissions/).
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
