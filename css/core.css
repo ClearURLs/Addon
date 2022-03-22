@@ -16,8 +16,39 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+:root {
+    --page-bg-color: #fff;
+    --page-fg-color: #15141a;
+
+    --input-bg-color: #fff;
+    --input-border-color: #8f8F9d;
+    --input-fg-color: #15141a;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --page-bg-color: #23222b;
+        --page-fg-color: #fbfbfe;
+
+        --input-bg-color: #42414d;
+        --input-border-color: #8f8F9d;
+        --input-fg-color: #fbfbfe;
+    }
+}
+
 body {
+    background-color: var(--page-bg-color);
+    color: var(--page-fg-color);
     font-size: 14px;
+}
+
+.form-control,
+.form-control:disabled,
+.form-control:focus,
+.form-control[readonly] {
+    background-color: var(--input-bg-color);
+    border: solid 1px var(--input-border-color);
+    color: var(--input-fg-color);
 }
 
 .small-version {
