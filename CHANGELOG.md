@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added `content_security_policy` to `manifest.json`
 - Re-Added `applications`to `manifest.json`
 - Added recursive cleaning
+- Added dark mode support in [!101](https://gitlab.com/KevinRoebert/ClearUrls/-/merge_requests/101). Thanks to [@dannycolin](https://gitlab.com/dannycolin)
 
 ### Changed
 - Updated `homepage_url` and `author` field in `manifest.json`
