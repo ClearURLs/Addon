@@ -59,3 +59,13 @@ body {
     background-color:#e6e6e6;
     border-color:#adadad
 }
+
+@media (prefers-color-scheme: dark) {
+    body,
+    .form-control,
+    .form-control:disabled,
+    .form-control[readonly] {
+        background-color: #343a40;
+        color: #eee;
+    }
+}
