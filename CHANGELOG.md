@@ -15,6 +15,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
+## [1.23.1] - 2022-03-23
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Removed
+- Removed unnecessary `unsafe-eval` content security policy
+
 ## [1.23.0] - 2022-03-22
 
 ### Compatibility note
