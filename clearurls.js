@@ -111,7 +111,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             let localChange = false;
 
             for (const field of fields.keys()) {
-                if (new RegExp(rule, "gi").test(field)) {
+                if (new RegExp("^"+rule+"$", "gi").test(field)) {
                     fields.delete(field);
                     changes = true;
                     localChange = true;
@@ -119,7 +119,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             }
 
             for (const fragment of fragments.keys()) {
-                if (new RegExp(rule, "gi").test(fragment)) {
+                if (new RegExp("^"+rule+"$", "gi").test(fragment)) {
                     fragments.delete(fragment);
                     changes = true;
                     localChange = true;

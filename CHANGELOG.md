@@ -15,7 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
-## [1.24.0] - 2022-03-25
+## [1.24.1] - 2022-03-25
 
 ### Compatibility note
 - Require Firefox >= 55
