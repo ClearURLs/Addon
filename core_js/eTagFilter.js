@@ -23,7 +23,7 @@
  */
 function eTagFilter(requestDetails) {
     if(!requestDetails.responseHeaders || !storage.eTagFiltering
-        || storage.localHostsSkipping && checkLocalURL(requestDetails.url)) return {};
+        || storage.localHostsSkipping && checkLocalURL(new URL(requestDetails.url))) return {};
     const responseHeaders = requestDetails.responseHeaders;
 
     const filteredHeaders = responseHeaders.filter(header => {
