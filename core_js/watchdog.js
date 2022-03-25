@@ -25,13 +25,12 @@
 * This watchdog restarts the whole Add-on, when the check fails.
 */
 const CHECK_INTERVAL = 60000;
+const __dirtyURL = "https://clearurls.roebert.eu?utm_source=addon";
+const __cleanURL = new URL("https://clearurls.roebert.eu").toString();
 
 setInterval(function() {
     if(isStorageAvailable() && storage.globalStatus) {
-        const dirtyURL = "https://clearurls.roebert.eu?utm_source=addon";
-        const cleanURL = "https://clearurls.roebert.eu";
-
-        if(pureCleaning(dirtyURL, true) !== cleanURL) {
+        if(new URL(pureCleaning(__dirtyURL, true)).toString() !== __cleanURL) {
             storage.watchDogErrorCount += 1;
             console.log(translate('watchdog', storage.watchDogErrorCount));
             saveOnExit();

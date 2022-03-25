@@ -46,8 +46,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     let changes = false;
     let cancel = false;
     let rawRules = provider.getRawRules();
+    let urlObject = new URL(url);
 
-    if (storage.localHostsSkipping && checkLocalURL(pureUrl)) {
+    if (storage.localHostsSkipping && checkLocalURL(urlObject)) {
         return {
             "changes": false,
             "url": url,
@@ -73,12 +74,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
         }
     });
 
-    if (existsFragments(url)) {
-        domain = url.replace(new RegExp("#.*", "i"), "");
-    }
-    if (existsFields(url)) {
-        domain = url.replace(new RegExp("\\?.*", "i"), "");
-    }
+    urlObject = new URL(url);
 
     /*
     * Expand the url by provider redirections. So no tracking on
@@ -101,47 +97,55 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
         }
     }
 
-    if (existsFields(url)) {
-        fields = "?" + extractFileds(url).rmEmpty().join("&");
-    }
-
-    if (existsFragments(url)) {
-        fragments = "#" + extractFragments(url).rmEmpty().join("&");
-    }
+    fields = urlObject.searchParams;
+    fragments = extractFragments(urlObject);
+    domain = urlWithoutParamsAndHash(urlObject).toString();
 
     /**
      * Only test for matches, if there are fields or fragments that can be cleaned.
      */
-    if (fields !== "" || fragments !== "") {
-        rules.forEach(function (rule) {
-            let beforeReplace = fields;
-            let beforeReplaceFragments = fragments;
-            fields = fields.replace(new RegExp(rule, "gi"), "");
-            fragments = fragments.replace(new RegExp(rule, "gi"), "");
+    if (fields.toString() !== "" || fragments.toString() !== "") {
+        rules.forEach(rule => {
+            const beforeFields = fields.toString();
+            const beforeFragments = fragments.toString();
+            let localChange = false;
 
-            if (beforeReplace !== fields || beforeReplaceFragments !== fragments) {
-                //Log the action
-                if (storage.loggingStatus) {
-                    let tempURL = domain;
-                    let tempBeforeURL = domain;
-
-                    if (fields !== "") tempURL += "?" + fields.replace("?&", "?").replace("?", "");
-                    if (fragments !== "") tempURL += "#" + fragments.replace("#&", "#").replace("#", "");
-                    if (beforeReplace !== "") tempBeforeURL += "?" + beforeReplace.replace("?&", "?").replace("?", "");
-                    if (beforeReplaceFragments !== "") tempBeforeURL += "#" + beforeReplaceFragments.replace("#&", "#").replace("#", "");
-
-                    if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
+            for (const field of fields.keys()) {
+                if (new RegExp(rule, "gi").test(field)) {
+                    fields.delete(field);
+                    changes = true;
+                    localChange = true;
                 }
+            }
+
+            for (const fragment of fragments.keys()) {
+                if (new RegExp(rule, "gi").test(fragment)) {
+                    fragments.delete(fragment);
+                    changes = true;
+                    localChange = true;
+                }
+            }
+
+            //Log the action
+            if (localChange && storage.loggingStatus) {
+                let tempURL = domain;
+                let tempBeforeURL = domain;
+
+                if (fields.toString() !== "") tempURL += "?" + fields.toString();
+                if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
+                if (beforeFields.toString() !== "") tempBeforeURL += "?" + beforeFields.toString();
+                if (beforeFragments.toString() !== "") tempBeforeURL += "#" + beforeFragments.toString();
+
+                if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
 
                 increaseBadged(quiet, request);
-                changes = true;
             }
         });
 
         let finalURL = domain;
 
-        if (fields !== "") finalURL += "?" + fields.replace("?", "");
-        if (fragments !== "") finalURL += "#" + fragments.replace("#", "");
+        if (fields.toString() !== "") finalURL += "?" + fields.toString();
+        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
         url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
     }
@@ -240,7 +244,7 @@ function start() {
      * Deactivates ClearURLs, if no rules can be downloaded and also no old rules in storage
      */
     function deactivateOnFailure() {
-        if(storage.ClearURLsData.length === 0)  {
+        if (storage.ClearURLsData.length === 0) {
             storage.globalStatus = false;
             storage.dataHash = "";
             changeIcon();
@@ -430,8 +434,6 @@ function start() {
          * @param {boolean} isActive   Is this rule active?
          */
         this.addRule = function (rule, isActive = true) {
-            rule = "([\\/\\?#]|(&|&amp;))+(" + rule + "=[^&]*)";
-
             this.applyRule(enabled_rules, disabled_rules, rule, isActive);
         };
 
@@ -476,8 +478,6 @@ function start() {
          * @param {boolean} isActive   Is this rule active?
          */
         this.addReferralMarketing = function (rule, isActive = true) {
-            rule = "([\\/\\?#]|(&|&amp;))+(" + rule + "=[^&]*)";
-
             this.applyRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive);
         };
 
