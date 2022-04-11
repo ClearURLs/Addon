@@ -76,8 +76,9 @@ Please push your translation into the folder `_locales/{language code}/messages.
 
 * [Uroute](https://github.com/walterl/uroute) used ClearURLs to filter/clean URL before launching browser
 * [Scrub](https://gitlab.com/CrunchBangDev/cbd-cogs/-/tree/master/Scrub) used ClearURLs to filter/clean URLs as cog for the Red Discord bot
-* [Unalix](https://github.com/AmanoTeam/Unalix) a simple Python module that removes tracking fields from URLs and unshort shortened URLs
-* [Unalix-nim](https://github.com/AmanoTeam/Unalix-nim) a simple Nim library that removes tracking fields from URLs and unshort shortened URLs
+* [Unalix](https://github.com/AmanoTeam/Unalix) small, dependency-free, fast Python package for removing tracking fields from URLs
+* [Unalix-nim](https://github.com/AmanoTeam/Unalix-nim) small, dependency-free, fast Nim package and CLI tool for removing tracking fields from URLs
+* [UnalixAndroid](https://github.com/AmanoTeam/UnalixAndroid) simple Android app that removes link masking/tracking and optionally resolves shortened links
 
 ## Recommended by...
 *  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)
