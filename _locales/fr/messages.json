@@ -20,8 +20,8 @@
         "description": "Un problème est survenu pendant la mis à jour des règles ClearURLs"
     },
     "log_redirect": {
-        "message": "Cette URL a été redirigé",
-        "description": "Cette ligne est pour les redirections par le protocol ClearURL."
+        "message": "Cette URL a été redirigée",
+        "description": "Cette ligne est pour les redirections par le protocole ClearURL."
     },
     "log_domain_blocked": {
         "message": "Ce domaine est bloqué",
