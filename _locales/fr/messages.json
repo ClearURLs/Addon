@@ -76,7 +76,7 @@
         "description": "Cette ligne est utilisée comme nom pour le bouton du interrupteur de journalisation d'evenements sur la page des options."
     },
     "popup_html_configs_switch_log_title": {
-        "message": "Le journal est sauvé localement. Si vous n’avez pas besoin de le consulter, nous vous déconseillons de l'activer",
+        "message": "Le journal est sauvé localement. Si vous n’avez pas besoin de le consulter, nous vous déconseillons de l'activer.",
         "description": "Cette ligne est utilisée comme titre pour le bouton du interrupteur de journalisation sur la page des options."
     },
     "popup_html_configs_switch_badges": {
@@ -299,11 +299,11 @@
     },
     "referral_marketing_enabled_title": {
         "message": "Permettre certaines actions commerciales",
-        "description": "Sert à afficher la description de la fonction sur la switch"
+        "description": "Sert à afficher la description de la fonction sur la switch."
     },
     "watchdog": {
         "message": "[ClearURLs]: Watchdog, très petit programme qui surveille les attaques de la mémoire vive, a détecté $TIMES$ problème(s)",
-        "description": "Utilisé pour la description de Watchdog",
+        "description": "Utilisé pour la description du Watchdog.",
         "placeholders": {
             "times": {
                 "content": "$1",
@@ -317,7 +317,7 @@
     },
     "domain_blocking_enabled_title": {
         "message": "Autoriser le blocage par domaine (ex : example.com) ; peut poser des problèmes d'affichage sur des sites refusant les bloqueurs de contenu",
-        "description": "Cette ligne est utilisée comme titre pour le bouton de blocage de domaine"
+        "description": "Cette ligne est utilisée comme titre pour le bouton de blocage de domaine."
     },
     "log_ping_blocked": {
         "message": "Bloquer l'audit des clics souris sur les liens hypertextes",
@@ -325,11 +325,11 @@
     },
     "ping_blocking_enabled": {
         "message": "Bloquer l'audit des clics souris sur les liens hypertextes (voyez <a href='https://html.spec.whatwg.org/multipage/links.html#hyperlink-auditing' target='_blank'>cet article en anglais</a>)",
-        "description": "Utilisé pour le bouton activer/désactiver l'audit (espionnages) des liens hypertextes"
+        "description": "Utilisé pour le bouton activer/désactiver l'audit (espionnages) des liens hypertextes."
     },
     "ping_blocking_enabled_title": {
         "message": "Bloquer l’espionnage par audit",
-        "description": "Utilisé comme titre pour le bouton de l’audit des liens hypertextes"
+        "description": "Utilisé comme titre pour le bouton de l’audit des liens hypertextes."
     },
     "extension_description": {
         "message": "Retirer les traqueurs dans les adresses Internet.",
