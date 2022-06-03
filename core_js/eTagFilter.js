@@ -19,28 +19,29 @@
 /*jshint esversion: 6 */
 
 /**
- * Filters eTag headers from web requests.
+ * Filters headers containing eTag values from web requests.
  */
 function eTagFilter(requestDetails) {
-    if(!requestDetails.responseHeaders || !storage.eTagFiltering
+    if(!requestDetails.requestHeaders || !storage.eTagFiltering
         || storage.localHostsSkipping && checkLocalURL(new URL(requestDetails.url))) return {};
-    const responseHeaders = requestDetails.responseHeaders;
+    const requestHeaders = requestDetails.requestHeaders;
 
-    const filteredHeaders = responseHeaders.filter(header => {
-       return header.name.toLowerCase() !== "etag";
+    const filteredHeaders = requestHeaders.filter(header => {
+        // Browsers may automatically send an If-None-Match header with
+        return header.name.toLowerCase() !== "if-none-match";
     });
 
-    if(filteredHeaders.length < responseHeaders.length) {
+    if(filteredHeaders.length < requestHeaders.length) {
         pushToLog(requestDetails.url, requestDetails.url, translate("eTag_filtering_log"));
         increaseBadged(false, requestDetails);
         increaseGlobalURLCounter(1);
 
-        return {responseHeaders: filteredHeaders};
+        return {requestHeaders: filteredHeaders};
     }
 }
 
-browser.webRequest.onHeadersReceived.addListener(
+browser.webRequest.onBeforeSendHeaders.addListener(
     eTagFilter,
     {urls: ["<all_urls>"]},
-    ["blocking", "responseHeaders"]
+    ["blocking", "requestHeaders"]
 );
