@@ -24,19 +24,26 @@
 function eTagFilter(requestDetails) {
     if(!requestDetails.responseHeaders || !storage.eTagFiltering
         || storage.localHostsSkipping && checkLocalURL(new URL(requestDetails.url))) return {};
-    const responseHeaders = requestDetails.responseHeaders;
+    for(let i=0; i < requestDetails.responseHeaders.length; i++) {
+        const header = requestDetails.responseHeaders[i];
 
-    const filteredHeaders = responseHeaders.filter(header => {
-       return header.name.toLowerCase() !== "etag";
-    });
+        if(header.name.toString().toLowerCase() !== "etag") {
+            continue;
+        }
 
-    if(filteredHeaders.length < responseHeaders.length) {
+        // insert dummy etag
+        requestDetails.responseHeaders[i].value = generateDummyEtag();
+
         pushToLog(requestDetails.url, requestDetails.url, translate("eTag_filtering_log"));
-        increaseBadged(false, requestDetails);
-        increaseGlobalURLCounter(1);
 
-        return {responseHeaders: filteredHeaders};
+        break;
     }
+
+    return {responseHeaders: requestDetails.responseHeaders};
+}
+
+function generateDummyEtag() {
+    return Math.random().toString();
 }
 
 browser.webRequest.onHeadersReceived.addListener(

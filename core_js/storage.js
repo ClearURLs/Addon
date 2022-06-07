@@ -202,7 +202,7 @@ function initSettings() {
     storage.logLimit = 100;
     storage.domainBlocking = true;
     storage.pingBlocking = true;
-    storage.eTagFiltering = true;
+    storage.eTagFiltering = false;
     storage.watchDogErrorCount = 0;
 
     if (getBrowser() === "Firefox") {
