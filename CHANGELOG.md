@@ -19,6 +19,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - ETag filtering now generates random values and does no longer delete the header. As a result, filtering also works under Chrome-based browsers
 - ETag filtering no longer increases the counter
 - ETag filtering is now disabled by default
+- Updated rules URL href
 
 ### Fixed
 - [524](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/524)
