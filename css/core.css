@@ -42,6 +42,10 @@ body {
     font-size: 14px;
 }
 
+table {
+    color: var(--page-fg-color) !important;
+}
+
 .form-control,
 .form-control:disabled,
 .form-control:focus,
@@ -75,18 +79,20 @@ body {
 }
 
 .btn-default {
-    color:#333;
-    background-color:#fff;
-    border-color:#ccc
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc
 }
+
 .btn-default.focus,
 .btn-default:focus {
-    color:#333;
-    background-color:#e6e6e6;
-    border-color:#8c8c8c
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #8c8c8c
 }
+
 .btn-default:hover {
-    color:#333;
-    background-color:#e6e6e6;
-    border-color:#adadad
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad
 }
