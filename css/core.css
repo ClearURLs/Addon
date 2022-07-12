@@ -64,6 +64,10 @@ body {
     margin-bottom: 10px;
 }
 
+#logTable {
+    color: var(--page-fg-color);
+}
+
 #donate {
     transition: 0.3s;
     opacity: 0.8;
