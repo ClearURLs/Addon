@@ -20,7 +20,7 @@
         "description": "Dieser Statuscode besagt, dass beim Aktualisieren der ClearURLs-Regeln ein Fehler aufgetreten ist."
     },
     "log_redirect": {
-        "message": "Diese URL wurde weiter geleitet",
+        "message": "Diese URL wird weitergeleitet",
         "description": "Diese Zeichenfolge wird für Umleitungen im ClearURL-Protokoll verwendet."
     },
     "log_domain_blocked": {
@@ -176,11 +176,11 @@
         "description": "Diese Zeichenfolge wird als Titel für die Schaltfläche zum Speichern und erneuten Laden auf der Einstellungsseite verwendet."
     },
     "setting_hash_url_label": {
-        "message": "Die Url zu der rules.hash Datei (Hash)",
-        "description": "Diese Zeichenfolge wird als Name für die rule.hash URL verwendet."
+        "message": "Die URL zu der rules.hash-Datei (Hash)",
+        "description": "Diese Zeichenfolge wird als Name für die rule.hash-URL verwendet."
     },
     "setting_types_label": {
-        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (Expertenniveau)",
+        "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Anfragetypen</a> (Expertenniveau)",
         "description": "Diese Zeichenfolge wird als Name für die Typenbezeichnung verwendet."
     },
     "setting_report_server_label": {
@@ -312,11 +312,11 @@
         }
     },
     "domain_blocking_enabled": {
-        "message": "Erlaube Domain-Blocking (Kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
+        "message": "Erlaube Domain-Blocking (kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
         "description": "Diese Zeichenkette wird als Beschreibung für das Domain-Blocking verwendet."
     },
     "domain_blocking_enabled_title": {
-        "message": "Erlaube Domain-Blocking (Kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
+        "message": "Erlaube Domain-Blocking (kann zu Problemen auf Seiten führen, die AdBlocker nicht erlauben)",
         "description": "Diese Zeichenkette wird als Titel für das Domain-Blocking verwendet."
     },
     "log_ping_blocked": {
