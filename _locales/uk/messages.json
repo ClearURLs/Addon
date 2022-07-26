@@ -346,5 +346,26 @@
     "eTag_filtering_enabled_title": {
         "message": "Фільтри заголовків ETag. \nПідказка: Кеш повинен бути скинутим перед першим використанням.",
         "description": "Цей рядок використовується, як заголовок для перемикача фільтра заголовка ETag"
+    },
+    "popup_html_rules_status_head_title": {
+        "message": " "
+    },
+    "popup_html_statistics_percentage_title": {
+        "message": " "
+    },
+    "popup_html_statistics_blocked_title": {
+        "message": " "
+    },
+    "popup_html_statistics_elements_title": {
+        "message": " "
+    },
+    "popup_html_statistics_head_title": {
+        "message": " "
+    },
+    "popup_html_configs_head_title": {
+        "message": " "
+    },
+    "context_menu_enabled_title": {
+        "message": " "
     }
 }
