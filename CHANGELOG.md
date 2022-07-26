@@ -9,7 +9,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
-## [1.XX.0] - 20XX-XX-XX
+## [1.XX.0] - 2022-XX-XX
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+
+## [1.25.0] - 2022-07-27
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Changed
+- ETag filtering now generates random values and does no longer delete the header. As a result, filtering also works under Chrome-based browsers
+- ETag filtering no longer increases the counter
+- ETag filtering is now disabled by default
+- Updated rules URL href
+- Updated translations. Big update by [IHatePineapples](https://github.com/IHatePineapples)
+
+### Fixed
+- [524](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/524)
+- [67](https://github.com/ClearURLs/Addon/issues/67)
+- [138](https://github.com/ClearURLs/Addon/issues/138)
+- [1177](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/1177)
+- [234](https://github.com/ClearURLs/Addon/issues/234)
+- [191](https://github.com/ClearURLs/Addon/issues/191)
+
+## [1.24.1] - 2022-03-25
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Changed
+- Replaced self-written URL parser through `URL` and `URLSearchParams` from the Web API
+
+### Fixed
+- Fixed [185](https://github.com/ClearURLs/Addon/issues/185)
+- Fixed [186](https://github.com/ClearURLs/Addon/issues/186)
+
+## [1.23.1] - 2022-03-23
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Removed
+- Removed unnecessary `unsafe-eval` content security policy
+
+## [1.23.0] - 2022-03-22
 
 ### Compatibility note
 - Require Firefox >= 55
@@ -25,6 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated `homepage_url` and `author` field in `manifest.json`
+- Replaced deprecated `String.prototype.substr()` in [!175](https://github.com/ClearURLs/Addon/pull/175). Thanks to [@CommanderRoot](https://github.com/CommanderRoot)
 
 ## [1.22.0] - 2021-12-27
 

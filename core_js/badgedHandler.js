@@ -27,7 +27,7 @@ let badges = {};
  * Increases the badged by one.
  */
 function increaseBadged(quiet = false, request) {
-    if (!quiet) increaseURLCounter();
+    if (!quiet) increaseCleanedCounter();
 
     if(request === null) return;
 

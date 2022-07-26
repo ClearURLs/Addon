@@ -23,8 +23,8 @@ var elProgressbar_blocked = document.getElementById('progress_blocked');
 var elProgressbar_non_blocked = document.getElementById('progress_non_blocked');
 var elTotal = document.getElementById('statistics_total_elements');
 var globalPercentage = 0;
-var globalCounter;
-var globalurlcounter;
+var cleanedCounter;
+var totalCounter;
 var globalStatus;
 var badgedStatus;
 var hashStatus;
@@ -47,19 +47,19 @@ function init()
 }
 
 /**
-* Get the globalCounter and globalurlcounter value from the storage
+* Get the cleanedCounter and totalCounter value from the storage
 */
 function changeStatistics()
 {
-    globalPercentage = ((globalCounter/globalurlcounter)*100).toFixed(3);
+    globalPercentage = ((cleanedCounter/totalCounter)*100).toFixed(3);
 
     if(isNaN(Number(globalPercentage))) globalPercentage = 0;
 
-    element.textContent = globalCounter.toLocaleString();
+    element.textContent = cleanedCounter.toLocaleString();
     elGlobalPercentage.textContent = globalPercentage+"%";
     elProgressbar_blocked.style.width = globalPercentage+'%';
     elProgressbar_non_blocked.style.width = (100-globalPercentage)+'%';
-    elTotal.textContent = globalurlcounter.toLocaleString();
+    elTotal.textContent = totalCounter.toLocaleString();
 }
 
 /**
@@ -161,12 +161,12 @@ function setSwitchButton(id, varname)
 function resetGlobalCounter(){
     browser.runtime.sendMessage({
         function: "setData",
-        params: ['globalCounter', 0]
+        params: ['cleanedCounter', 0]
     }).catch(handleError);
 
     browser.runtime.sendMessage({
         function: "setData",
-        params: ['globalurlcounter', 0]
+        params: ['totalCounter', 0]
     }).catch(handleError);
 
     browser.runtime.sendMessage({
@@ -174,15 +174,15 @@ function resetGlobalCounter(){
         params: []
     }).catch(handleError);
 
-    globalCounter = 0;
-    globalurlcounter = 0;
+    cleanedCounter = 0;
+    totalCounter = 0;
 
     changeStatistics();
 }
 
 (function() {
-    loadData("globalCounter")
-        .then(() => loadData("globalurlcounter"))
+    loadData("cleanedCounter")
+        .then(() => loadData("totalCounter"))
         .then(() => loadData("globalStatus"))
         .then(() => loadData("badgedStatus"))
         .then(() => loadData("hashStatus"))

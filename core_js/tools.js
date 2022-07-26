@@ -56,8 +56,7 @@ function isEmpty(obj) {
  * @param {string} string           Name of the attribute used for localization
  * @param {string[]} placeholders   Array of placeholders
  */
-function translate(string, ...placeholders)
-{
+function translate(string, ...placeholders) {
     return browser.i18n.getMessage(string, placeholders);
 }
 
@@ -84,24 +83,22 @@ async function checkOSAndroid() {
 
 /**
  * Extract the host without port from an url.
- * @param  {String} url URL as String
+ * @param  {URL} url URL as String
  * @return {String}     host as string
  */
 function extractHost(url) {
-    let parsed_url = new URL(url);
-
-    return parsed_url.hostname;
+    return url.hostname;
 }
 
 /**
  * Returns true if the url has a local host.
- * @param  {String} url URL as String
+ * @param  {URL} url URL as object
  * @return {boolean}
  */
 function checkLocalURL(url) {
     let host = extractHost(url);
 
-    if(!host.match(/^\d/) && host !== 'localhost') {
+    if (!host.match(/^\d/) && host !== 'localhost') {
         return false;
     }
 
@@ -117,72 +114,35 @@ function checkLocalURL(url) {
  * @return {int}        Number of Parameters
  */
 function countFields(url) {
-    return extractFileds(url).length;
-}
-
-/**
- * Returns true if fields exists.
- * @param  {String}     url URL as String
- * @return {boolean}
- */
-function existsFields(url) {
-    let matches = (url.match(/\?.+/i) || []);
-    let count = matches.length;
-
-    return (count > 0);
-}
-
-/**
- * Extract the fields from an url.
- * @param  {String} url URL as String
- * @return {Array}     Fields as array
- */
-function extractFileds(url) {
-    if (existsFields(url)) {
-        let fields = url.replace(new RegExp(".*?\\?", "i"), "");
-        if (existsFragments(url)) {
-            fields = fields.replace(new RegExp("#.*", "i"), "");
-        }
-
-        return (fields.match(/[^\/|\?|&]+=?[^&]*/gi) || []);
-    }
-
-    return [];
-}
-
-/**
- * Return the number of fragments query strings.
- * @param  {String}     url URL as String
- * @return {int}        Number of fragments
- */
-function countFragments(url) {
-    return extractFragments(url).length;
+    return [...new URL(url).searchParams].length
 }
 
 /**
  * Extract the fragments from an url.
- * @param  {String} url URL as String
- * @return {Array}     fragments as array
+ * @param  {URL} url URL as object
+ * @return {URLHashParams}     fragments as URLSearchParams object
  */
 function extractFragments(url) {
-    if (existsFragments(url)) {
-        let fragments = url.replace(new RegExp(".*?#", "i"), "");
-        return (fragments.match(/[^&]+=?[^&]*/gi) || []);
-    }
-
-    return [];
+    return new URLHashParams(url)
 }
 
 /**
- * Returns true if fragments exists.
- * @param  {String}     url URL as String
- * @return {boolean}
+ * Returns the given URL without searchParams and hash.
+ * @param {URL} url the URL as object
+ * @return {URL} the url without searchParams and hash
  */
-function existsFragments(url) {
-    let matches = (url.match(/\#.+/i) || []);
-    let count = matches.length;
+function urlWithoutParamsAndHash(url) {
+    let newURL = url.toString();
 
-    return (count > 0);
+    if (url.search) {
+        newURL = newURL.replace(url.search, "");
+    }
+
+    if (url.hash) {
+        newURL = newURL.replace(url.hash, "");
+    }
+
+    return new URL(newURL);
 }
 
 /**
@@ -194,23 +154,23 @@ function loadOldDataFromStore() {
 }
 
 /**
- * Increase by {number} the GlobalURLCounter
+ * Increase by {number} the total counter
  * @param  {int} number
  */
-function increaseGlobalURLCounter(number) {
+function increaseTotalCounter(number) {
     if (storage.statisticsStatus) {
-        storage.globalurlcounter += number;
-        deferSaveOnDisk('globalurlcounter');
+        storage.totalCounter += number;
+        deferSaveOnDisk('totalCounter');
     }
 }
 
 /**
- * Increase by one the URLCounter
+ * Increase by one the cleaned counter
  */
-function increaseURLCounter() {
+function increaseCleanedCounter() {
     if (storage.statisticsStatus) {
-        storage.globalCounter++;
-        deferSaveOnDisk('globalCounter');
+        storage.cleanedCounter++;
+        deferSaveOnDisk('cleanedCounter');
     }
 }
 
@@ -283,13 +243,13 @@ function getBrowser() {
 function decodeURL(url) {
     let rtn = decodeURIComponent(url);
 
-    while(isEncodedURI(rtn)) {
+    while (isEncodedURI(rtn)) {
         rtn = decodeURIComponent(rtn);
     }
 
     // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if(rtn.substr(0, 4) !== 'http') {
-        rtn = 'http://'+rtn
+    if (!rtn.startsWith('http')) {
+        rtn = 'http://' + rtn
     }
 
     return rtn;
