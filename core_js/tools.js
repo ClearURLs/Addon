@@ -120,14 +120,10 @@ function countFields(url) {
 /**
  * Extract the fragments from an url.
  * @param  {URL} url URL as object
- * @return {URLSearchParams}     fragments as URLSearchParams object
+ * @return {URLHashParams}     fragments as URLSearchParams object
  */
 function extractFragments(url) {
-    if (url.hash) {
-        return new URLSearchParams(url.hash.slice(1));
-    } else {
-        return new URLSearchParams();
-    }
+    return new URLHashParams(url)
 }
 
 /**
