@@ -46,7 +46,7 @@ function _cleaning(url, quiet = false) {
 
     if (!quiet) {
         //Add Fields form Request to global url counter
-        increaseGlobalURLCounter(URLbeforeReplaceCount);
+        increaseTotalCounter(URLbeforeReplaceCount);
     }
 
     for (let i = 0; i < providers.length; i++) {

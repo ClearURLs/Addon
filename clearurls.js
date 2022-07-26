@@ -44,7 +44,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     let fields = "";
     let rules = provider.getRules();
     let changes = false;
-    let cancel = false;
     let rawRules = provider.getRawRules();
     let urlObject = new URL(url);
 
@@ -53,6 +52,37 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             "changes": false,
             "url": url,
             "cancel": false
+        }
+    }
+
+    /*
+    * Expand the url by provider redirections. So no tracking on
+    * url redirections form sites to sites.
+    */
+    let re = provider.getRedirection(url);
+    if (re !== null) {
+        url = decodeURL(re);
+
+        //Log the action
+        if (!quiet) {
+            pushToLog(pureUrl, url, translate('log_redirect'));
+            increaseTotalCounter(1);
+            increaseBadged(false, request)
+        }
+
+        return {
+            "redirect": true,
+            "url": url
+        }
+    }
+
+    if (provider.isCaneling() && storage.domainBlocking) {
+        if (!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
+        increaseTotalCounter(1);
+        increaseBadged(quiet, request);
+        return {
+            "cancel": true,
+            "url": url
         }
     }
 
@@ -75,28 +105,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     });
 
     urlObject = new URL(url);
-
-    /*
-    * Expand the url by provider redirections. So no tracking on
-    * url redirections form sites to sites.
-    */
-    let re = provider.getRedirection(url);
-    if (re !== null) {
-        url = decodeURL(re);
-
-        //Log the action
-        if (!quiet) {
-            pushToLog(pureUrl, url, translate('log_redirect'));
-            increaseGlobalURLCounter(1);
-            increaseBadged(false, request)
-        }
-
-        return {
-            "redirect": true,
-            "url": url
-        }
-    }
-
     fields = urlObject.searchParams;
     fragments = extractFragments(urlObject);
     domain = urlWithoutParamsAndHash(urlObject).toString();
@@ -150,17 +158,11 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
         url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
     }
 
-    if (provider.isCaneling() && storage.domainBlocking) {
-        if (!quiet) pushToLog(pureUrl, pureUrl, translate('log_domain_blocked'));
-        increaseGlobalURLCounter(1);
-        increaseBadged(quiet, request);
-        cancel = true;
-    }
+
 
     return {
         "changes": changes,
-        "url": url,
-        "cancel": cancel
+        "url": url
     }
 }
 
@@ -607,7 +609,7 @@ function start() {
         const URLbeforeReplaceCount = countFields(request.url);
 
         //Add Fields form Request to global url counter
-        increaseGlobalURLCounter(URLbeforeReplaceCount);
+        increaseTotalCounter(URLbeforeReplaceCount);
 
         if (storage.globalStatus) {
             let result = {
@@ -620,7 +622,7 @@ function start() {
             if (storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
                 pushToLog(request.url, request.url, translate('log_ping_blocked'));
                 increaseBadged(false, request);
-                increaseGlobalURLCounter(1);
+                increaseTotalCounter(1);
                 return {cancel: true};
             }
 

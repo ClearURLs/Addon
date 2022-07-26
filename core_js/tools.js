@@ -114,7 +114,7 @@ function checkLocalURL(url) {
  * @return {int}        Number of Parameters
  */
 function countFields(url) {
-    return new URL(url).searchParams.entries.length;
+    return [...new URL(url).searchParams].length
 }
 
 /**
@@ -158,23 +158,23 @@ function loadOldDataFromStore() {
 }
 
 /**
- * Increase by {number} the GlobalURLCounter
+ * Increase by {number} the total counter
  * @param  {int} number
  */
-function increaseGlobalURLCounter(number) {
+function increaseTotalCounter(number) {
     if (storage.statisticsStatus) {
-        storage.globalurlcounter += number;
-        deferSaveOnDisk('globalurlcounter');
+        storage.totalCounter += number;
+        deferSaveOnDisk('totalCounter');
     }
 }
 
 /**
- * Increase by one the URLCounter
+ * Increase by one the cleaned counter
  */
-function increaseURLCounter() {
+function increaseCleanedCounter() {
     if (storage.statisticsStatus) {
-        storage.globalCounter++;
-        deferSaveOnDisk('globalCounter');
+        storage.cleanedCounter++;
+        deferSaveOnDisk('cleanedCounter');
     }
 }
 

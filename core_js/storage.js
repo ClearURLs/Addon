@@ -64,6 +64,13 @@ function storageDataAsString(key) {
 }
 
 /**
+ * Delete key from browser storage.
+ */
+function deleteFromDisk(key) {
+    browser.storage.local.remove(key).catch(handleError);
+}
+
+/**
  * Save multiple keys on the disk.
  * @param  {String[]} keys
  */
@@ -159,6 +166,20 @@ function setData(key, value) {
         case "logLimit":
             storage[key] = Math.max(0, Number(value));
             break;
+        case "globalurlcounter":
+            // migrate from old key
+            storage["totalCounter"] = value;
+            delete storage[key];
+            deleteFromDisk(key);
+            saveOnExit();
+            break;
+        case "globalCounter":
+            // migrate from old key
+            storage["cleanedCounter"] = value;
+            delete storage[key];
+            deleteFromDisk(key);
+            saveOnExit();
+            break;
         default:
             storage[key] = value;
     }
@@ -186,8 +207,8 @@ function initSettings() {
     storage.dataHash = "";
     storage.badgedStatus = true;
     storage.globalStatus = true;
-    storage.globalurlcounter = 0;
-    storage.globalCounter = 0;
+    storage.totalCounter = 0;
+    storage.cleanedCounter = 0;
     storage.hashStatus = "error";
     storage.loggingStatus = false;
     storage.log = {"log": []};
