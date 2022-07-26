@@ -25,6 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [524](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/524)
 - [67](https://github.com/ClearURLs/Addon/issues/67)
 - [138](https://github.com/ClearURLs/Addon/issues/138)
+- [1177](https://gitlab.com/KevinRoebert/ClearUrls/-/issues/1177)
 
 ## [1.24.1] - 2022-03-25
 
