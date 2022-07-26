@@ -20,7 +20,7 @@
         "description": "Dieser Statuscode besagt, dass beim Aktualisieren der ClearURLs-Regeln ein Fehler aufgetreten ist."
     },
     "log_redirect": {
-        "message": "Diese URL wird weitergeleitet",
+        "message": "Diese URL wurde weitergeleitet",
         "description": "Diese Zeichenfolge wird für Umleitungen im ClearURL-Protokoll verwendet."
     },
     "log_domain_blocked": {
