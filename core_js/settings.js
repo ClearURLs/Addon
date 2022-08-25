@@ -82,6 +82,10 @@ function save() {
     saveData("badged_color", pickr.getColor().toHEXA().toString())
         .then(() => saveData("ruleURL", document.querySelector('input[name=ruleURL]').value))
         .then(() => saveData("hashURL", document.querySelector('input[name=hashURL]').value))
+        .then(() => saveData(
+            "customRules",
+            document.querySelector('textarea[name=customRules]').value
+        ), handleError)
         .then(() => saveData("types", document.querySelector('input[name=types]').value))
         .then(() => saveData("logLimit", Math.max(0, Math.min(5000, document.querySelector('input[name=logLimit]').value))))
         .then(() => browser.runtime.sendMessage({
@@ -122,6 +126,7 @@ function getData() {
 
     loadData("ruleURL")
         .then(() => loadData("hashURL"))
+        .then(() => loadData("customRules"))
         .then(() => loadData("types"))
         .then(() => loadData("logLimit"))
         .then(logData => {
@@ -163,10 +168,16 @@ async function loadData(name) {
             params: [name]
         }).then(data => {
             settings[name] = data.response;
-            if (document.querySelector('input[id=' + name + ']') == null) {
+            if (document.querySelector('*[id=' + name + ']') == null) {
                 console.debug(name)
             }
-            document.querySelector('input[id=' + name + ']').value = data.response;
+            switch (name) {
+                case "customRules":
+                    document.querySelector('*[id=' + name + ']').value = JSON.stringify(data.response);
+                    break;
+                default:
+                    document.querySelector('*[id=' + name + ']').value = data.response;
+            }
             resolve(data);
         }, handleError);
     });
@@ -202,6 +213,7 @@ function setText() {
     document.getElementById('reset_settings_btn').setAttribute('title', translate('setting_html_reset_button_title'));
     document.getElementById('rule_url_label').textContent = translate('setting_rule_url_label');
     document.getElementById('hash_url_label').textContent = translate('setting_hash_url_label');
+    document.getElementById('custom_rules_label').textContent = translate('setting_custom_rules_label');
     document.getElementById('types_label').innerHTML = translate('setting_types_label');
     document.getElementById('save_settings_btn').textContent = translate('settings_html_save_button');
     document.getElementById('save_settings_btn').setAttribute('title', translate('settings_html_save_button_title'));
