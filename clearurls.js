@@ -173,7 +173,7 @@ function start() {
      * @param {object} obj
      */
     function getKeys(obj) {
-        for (const key in obj) {
+        for (const key of Object.keys(obj)) {
             prvKeys.push(key);
         }
     }
