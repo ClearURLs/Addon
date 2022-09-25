@@ -1,6 +1,6 @@
 {
     "hash_status_code_1": {
-        "message": "已是最新的",
+        "message": "已是最新版",
         "description": "这个状态码表示，ClearURLs规则已经是最新的，无需继续更新"
     },
     "hash_status_code_2": {
@@ -68,7 +68,7 @@
         "description": "This string is used as name for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "此为ClearURLs的主开关. 若关闭则此插件失效.",
+        "message": "此为ClearURLs的主开关。若关闭则此插件失效。",
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
@@ -76,7 +76,7 @@
         "description": "This string is used as name for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_log_title": {
-        "message": "日志会被储存于本地. 若不需要此功能建议关闭.",
+        "message": "日志会被储存于本地。若不需要此功能建议关闭。",
         "description": "This string is used as title for the logging switch button on the popup page."
     },
     "popup_html_configs_switch_badges": {
@@ -128,7 +128,7 @@
         "description": "Note: Currently not used."
     },
     "popup_html_report_button_title": {
-        "message": "回报该分页目前网址",
+        "message": "报告当前标签页网址",
         "description": "Currently not used."
     },
     "core_save_on_disk": {
@@ -164,7 +164,7 @@
         "description": "This string is used as title for the reset button on the settings page."
     },
     "setting_rule_url_label": {
-        "message": "data.json 档的网址 (规则)",
+        "message": "data.json 文件(规则文件)的网址",
         "description": "This string is used as name for the rule url label."
     },
     "settings_html_save_button": {
@@ -176,7 +176,7 @@
         "description": "This string is used as title for the save&reload button on the settings page."
     },
     "setting_hash_url_label": {
-        "message": "rules.hash 档的网址 (校验)",
+        "message": "rules.hash 文件(校验文件)的网址",
         "description": "This string is used as name for the rule.hash url label."
     },
     "setting_types_label": {
@@ -184,19 +184,19 @@
         "description": "This string is used as name for the types label."
     },
     "setting_report_server_label": {
-        "message": "回报网址",
+        "message": "报告网址",
         "description": "Note: Currently not used."
     },
     "success_report_url": {
-        "message": "该网址已成功回报",
+        "message": "该网址已成功报告",
         "description": "Note: Currently not used."
     },
     "error_report_url": {
-        "message": "该网址已被回报过",
+        "message": "该网址已被报告过",
         "description": "Note: Currently not used."
     },
     "donate_button": {
-        "message": "给ClearURLs的作者一点贊助",
+        "message": "给ClearURLs的作者一点赞助",
         "description": "This string is used to refer to a donation page."
     },
     "clipboard_copy_link": {
