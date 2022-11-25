@@ -31,8 +31,16 @@ function eTagFilter(requestDetails) {
             continue;
         }
 
+        const etag = header.value.toLowerCase();
+        const w = etag.startsWith('w');
+        const quotes = etag.endsWith('"');
+
+        let len = etag.length;
+        if (w) len -= 2;
+        if (quotes) len -= 2;
+
         // insert dummy etag
-        requestDetails.responseHeaders[i].value = generateDummyEtag();
+        requestDetails.responseHeaders[i].value = generateDummyEtag(len, quotes, w);
 
         pushToLog(requestDetails.url, requestDetails.url, translate("eTag_filtering_log"));
 
@@ -42,8 +50,19 @@ function eTagFilter(requestDetails) {
     return {responseHeaders: requestDetails.responseHeaders};
 }
 
-function generateDummyEtag() {
-    return Math.random().toString();
+/**
+ * Generates a random ETag.
+ * 
+ * Must be ASCII characters placed between double quotes.
+ * See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
+ */
+function generateDummyEtag(len, quotes = true, w = false) {
+    let rtn = randomASCII(len);
+
+    if (quotes) rtn = '"' + rtn + '"';
+    if (w) rtn = 'W/' + rtn;
+
+    return rtn;
 }
 
 browser.webRequest.onHeadersReceived.addListener(

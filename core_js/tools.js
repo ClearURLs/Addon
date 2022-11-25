@@ -328,3 +328,12 @@ async function sha256(message) {
 
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
+
+/**
+ * Generates a non-secure random ASCII string of length {@code len}.
+ * 
+ * @returns non-secure random ASCII
+ */
+function randomASCII(len) {
+    return [...Array(len)].map(() => (~~(Math.random() * 36)).toString(36)).join('');
+}
