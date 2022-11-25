@@ -15,6 +15,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
+## [1.27.0] - 2022-XX-XX
+
+### Fixed
+- [#276](https://github.com/ClearURLs/Addon/issues/276)
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
 ## [1.26.0] - 2022-11-18
 
 ### Compatibility note
