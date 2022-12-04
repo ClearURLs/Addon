@@ -81,7 +81,6 @@ Please push your translation into the folder `_locales/{language code}/messages.
 * [UnalixAndroid](https://github.com/AmanoTeam/UnalixAndroid) simple Android app that removes link masking/tracking and optionally resolves shortened links
 
 ## Recommended by...
-*  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)
 *  [Awesome Humane Tech List](https://github.com/humanetech-community/awesome-humane-tech#tracking)
 *  [PrivacyTools](https://www.privacytools.io/browsers/#addons)
 *  [New York Times Wirecutter](https://www.nytimes.com/wirecutter/reviews/our-favorite-ad-blockers-and-browser-extensions-to-protect-privacy/#cleaner-links-clearurls)
