@@ -4,7 +4,7 @@
 
 [<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://docs.clearurls.xyz/1.22.0/assets/img/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei) [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" alt="for Chrome" height="60px">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
 
-# <sub><img src="https://gitlab.com/KevinRoebert/ClearUrls/raw/master/img/clearurls.svg" width="64px" height="64px"></sub> ClearURLs [![Gitter](https://badges.gitter.im/ClearURLs/ClearURLs.svg)](https://gitter.im/ClearURLs/ClearURLs)
+# <sub><img src="https://gitlab.com/ClearURLs/ClearUrls/raw/master/img/clearurls.svg" width="64px" height="64px"></sub> ClearURLs [![Gitter](https://badges.gitter.im/ClearURLs/ClearURLs.svg)](https://gitter.im/ClearURLs/ClearURLs)
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and *Chrome* based browsers.
 
@@ -37,7 +37,7 @@ Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the ad
 * Prevents Yandex from rewriting the search results (to include tracking elements)
 
 ## Permissons
-Reasoning for needed permissions can be found under [here](https://gitlab.com/KevinRoebert/ClearUrls/issues/159).
+Reasoning for needed permissions can be found under [here](https://gitlab.com/ClearURLs/ClearUrls/issues/159).
 
 ## Screenshot
 ![Interface (version 1.14.0)](https://docs.clearurls.xyz/1.22.0/assets/img/interface.png)
@@ -45,14 +45,14 @@ Reasoning for needed permissions can be found under [here](https://gitlab.com/Ke
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
 
- - [ClearURLs-firefox.zip](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs-firefox.zip?job=bundle%20addon%20firefox)
- - [ClearURLs-chrome.zip](https://gitlab.com/KevinRoebert/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs-chrome.zip?job=bundle%20addon%20chrome)
+ - [ClearURLs-firefox.zip](https://gitlab.com/ClearURLs/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs-firefox.zip?job=bundle%20addon%20firefox)
+ - [ClearURLs-chrome.zip](https://gitlab.com/ClearURLs/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs-chrome.zip?job=bundle%20addon%20chrome)
 
 ## Test
 If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://test.clearurls.xyz/](https://test.clearurls.xyz/)
 
 ## Contribute
-If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/KevinRoebert/ClearUrls/issues/new)
+If you have any suggestions or complaints, please [create an issue.](https://gitlab.com/ClearURLs/ClearUrls/issues/new)
 
 **Note: If you have any suggestions or complaints regarding the rules, please [create an issue in this repo](https://gitlab.com/anti-tracking/ClearURLs/rules/-/issues/new) or email us rules.support (at) clearurls.xyz (this mail will automatically create a new issue in this repo).**
 
@@ -65,7 +65,7 @@ You can choose between two options to contribute. You can create a merge request
 It is not necessary to translate the description field; in the most cases it is empty.*
 
 #### Merge request
-If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://github.com/KevinRoebert/ClearUrls/blob/master/_locales/en/messages.json) in the ClearURLs repo 
+If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://gitlab.com/ClearURLs/ClearUrls/-/blob/master/_locales/en/messages.json) in the ClearURLs repo 
 and translate the english terms into terms of your language. Once you have translated all the terms, you make a pull request of your translation. 
 Please push your translation into the folder `_locales/{language code}/messages.json`.
 
