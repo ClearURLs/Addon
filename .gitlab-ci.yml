@@ -37,7 +37,7 @@ bundle addon firefox:
 bundle addon chrome:
   stage: build
   script:
-    - jq 'del(.applications)' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
+    #- jq 'del(.applications)' manifest.json > manifest.json.tmp && mv manifest.json.tmp manifest.json
     - zip ClearURLs-chrome -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
   only:
     - master

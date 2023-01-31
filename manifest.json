@@ -7,7 +7,7 @@
   "homepage_url": "https://docs.clearurls.xyz",
   "default_locale": "en",
   "content_security_policy": "script-src 'self'; object-src 'none'",
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "{74145f27-f039-47ce-a470-a662b129930a}"
     }
