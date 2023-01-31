@@ -45,7 +45,7 @@ Reasoning for needed permissions can be found under [here](https://gitlab.com/Cl
 ## CI/CD Artifacts Download (for Firefox- and Chrome-Dev only)
 Here you can download the packed files for the Firefox- and Chrome-Dev:
 
- - [ClearURLs.zip](https://gitlab.com/ClearURLs/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs-firefox.zip?job=bundle%20addon%20firefox)
+ - [ClearURLs.zip](https://gitlab.com/ClearURLs/ClearUrls/-/jobs/artifacts/master/raw/ClearURLs.zip?job=bundle%20addon)
 
 ## Test
 If you want to test whether ClearURLs works correctly on your system, you can go to this test page: [https://test.clearurls.xyz/](https://test.clearurls.xyz/)
