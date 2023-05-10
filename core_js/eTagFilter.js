@@ -65,8 +65,14 @@ function generateDummyEtag(len, quotes = true, w = false) {
     return rtn;
 }
 
-browser.webRequest.onHeadersReceived.addListener(
-    eTagFilter,
-    {urls: ["<all_urls>"]},
-    ["blocking", "responseHeaders"]
-);
+/**
+ * Since Firefox 85, eTags can no longer be 
+ * used for tracking users over multiple sites.
+ */
+if(getBrowser() !== "Firefox") {
+    browser.webRequest.onHeadersReceived.addListener(
+        eTagFilter,
+        {urls: ["<all_urls>"]},
+        ["blocking", "responseHeaders"]
+    );
+}

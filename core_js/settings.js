@@ -147,6 +147,20 @@ function getData() {
             changeSwitchButton("domainBlocking", "domainBlocking");
             changeSwitchButton("pingBlocking", "pingBlocking");
             changeSwitchButton("eTagFiltering", "eTagFiltering");
+        })
+        .then(() => {
+            /**
+             * Since Firefox 85, eTags can no longer be 
+             * used for tracking users over multiple sites.
+             */
+            browser.runtime.sendMessage({
+                function: "getBrowser",
+                params: []
+            }).then(resp => {
+                if(resp.response === "Firefox") {
+                    document.getElementById('etag_p').remove();
+                }
+            }, null);
         }).catch(handleError);
 }
 

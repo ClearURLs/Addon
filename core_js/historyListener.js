@@ -44,7 +44,7 @@ function historyCleaner(details) {
         if(urlBefore !== urlAfter) {
             browser.tabs.executeScript(details.tabId, {
                 frameId: details.frameId,
-                   code: 'history.replaceState({state: "cleaned_history"},"",'+JSON.stringify(urlAfter)+');'
+                   code: 'history.replaceState({state: null},"",'+JSON.stringify(urlAfter)+');'
             }).then(() => {}, onError);
         }
     }
