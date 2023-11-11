@@ -86,7 +86,7 @@ function saveOnDisk(keys) {
 }
 
 /**
- * Schedule to save a key to disk in 30 seconds.
+ * Schedule to save a key to disk in 60 seconds.
  * @param  {String} key
  */
 function deferSaveOnDisk(key) {
@@ -95,13 +95,20 @@ function deferSaveOnDisk(key) {
         return;
     }
 
-    setTimeout(function () {
+    browser.alarms.create("deferSaveOnDisk", {
+        delayInMinutes: 1
+    });
+
+    hasPendingSaves = true;
+}
+
+browser.alarms.onAlarm.addListener(function (alarmInfo) {
+    if (alarmInfo.name === "deferSaveOnDisk") {
         saveOnDisk(Array.from(pendingSaves));
         pendingSaves.clear();
         hasPendingSaves = false;
-    }, 30000);
-    hasPendingSaves = true;
-}
+    }
+});
 
 /**
  * Start sequence for ClearURLs.
@@ -115,12 +122,6 @@ function genesis() {
 
         //Set correct icon on startup
         changeIcon();
-
-        // Start the context_menu
-        contextMenuStart();
-
-        // Start history listener
-        historyListenerStart();
     }, handleError);
 }
 
@@ -216,7 +217,6 @@ function initSettings() {
     storage.badged_color = "#ffa500";
     storage.hashURL = "https://rules2.clearurls.xyz/rules.minify.hash";
     storage.ruleURL = "https://rules2.clearurls.xyz/data.minify.json";
-    storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
     storage.referralMarketing = false;

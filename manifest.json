@@ -1,12 +1,14 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "ClearURLs",
-  "version": "1.27.0",
+  "version": "1.28.0",
   "author": "Kevin Roebert",
   "description": "__MSG_extension_description__",
   "homepage_url": "https://docs.clearurls.xyz",
   "default_locale": "en",
-  "content_security_policy": "script-src 'self'; object-src 'none'",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'"
+  },
   "browser_specific_settings": {
     "gecko": {
       "id": "{74145f27-f039-47ce-a470-a662b129930a}"
@@ -25,8 +27,7 @@
     "96": "img/clearurls_96x96.png",
     "128": "img/clearurls_128x128.png"
   },
-  "browser_action": {
-    "browser_style": true,
+  "action": {
     "default_icon": {
       "16": "img/clearurls_16x16.png",
       "19": "img/clearurls_19x19.png",
@@ -44,7 +45,6 @@
     "default_popup": "html/popup.html"
   },
   "permissions": [
-    "<all_urls>",
     "webRequest",
     "webRequestBlocking",
     "storage",
@@ -52,7 +52,12 @@
     "contextMenus",
     "webNavigation",
     "tabs",
-    "downloads"
+    "downloads",
+    "scripting",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
   ],
   "background": {
     "scripts": [

@@ -727,3 +727,9 @@ function start() {
         ["blocking"]
     );
 }
+
+// TODO: Must be asked after install
+browser.permissions.request({
+    permissions: ["webRequest", "webRequestBlocking", "tabs", "scripting", "webNavigation"],
+    origins: ["<all_urls>"],
+});

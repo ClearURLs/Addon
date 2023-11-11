@@ -181,9 +181,9 @@ function changeIcon() {
     checkOSAndroid().then((res) => {
         if (!res) {
             if (storage.globalStatus) {
-                browser.browserAction.setIcon({path: "img/clearurls_128x128.png"}).catch(handleError);
+                browser.action.setIcon({path: "img/clearurls_128x128.png"}).catch(handleError);
             } else {
-                browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"}).catch(handleError);
+                browser.action.setIcon({path: "img/clearurls_gray_128x128.png"}).catch(handleError);
             }
         }
     });
@@ -200,13 +200,13 @@ function setBadgedStatus() {
             let color = storage.badged_color;
             if (storage.badged_color.charAt(0) !== '#')
                 color = '#' + storage.badged_color;
-            browser.browserAction.setBadgeBackgroundColor({
+            browser.action.setBadgeBackgroundColor({
                 'color': color
             }).catch(handleError);
 
-            // Works only in Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeTextColor#Browser_compatibility
+            // Works only in Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/action/setBadgeTextColor#Browser_compatibility
             if (getBrowser() === "Firefox") {
-                browser.browserAction.setBadgeTextColor({
+                browser.action.setBadgeTextColor({
                     color: "#FFFFFF"
                 }).catch(handleError);
             }

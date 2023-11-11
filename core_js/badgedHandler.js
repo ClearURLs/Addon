@@ -48,9 +48,9 @@ function increaseBadged(quiet = false, request) {
     checkOSAndroid().then((res) => {
         if (!res) {
             if (storage.badgedStatus && !quiet) {
-                browser.browserAction.setBadgeText({text: (badges[tabId]).counter.toString(), tabId: tabId}).catch(handleError);
+                browser.action.setBadgeText({text: (badges[tabId]).counter.toString(), tabId: tabId}).catch(handleError);
             } else {
-                browser.browserAction.setBadgeText({text: "", tabId: tabId}).catch(handleError);
+                browser.action.setBadgeText({text: "", tabId: tabId}).catch(handleError);
             }
         }
     });

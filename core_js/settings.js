@@ -132,8 +132,7 @@ function getData() {
             }
         }).catch(handleError);
 
-    loadData("contextMenuEnabled")
-        .then(() => loadData("historyListenerEnabled"))
+    loadData("historyListenerEnabled")
         .then(() => loadData("localHostsSkipping"))
         .then(() => loadData("referralMarketing"))
         .then(() => loadData("domainBlocking"))
@@ -142,7 +141,6 @@ function getData() {
         .then(() => {
             changeSwitchButton("localHostsSkipping", "localHostsSkipping");
             changeSwitchButton("historyListenerEnabled", "historyListenerEnabled");
-            changeSwitchButton("contextMenuEnabled", "contextMenuEnabled");
             changeSwitchButton("referralMarketing", "referralMarketing");
             changeSwitchButton("domainBlocking", "domainBlocking");
             changeSwitchButton("pingBlocking", "pingBlocking");
@@ -219,7 +217,6 @@ function setText() {
     document.getElementById('types_label').innerHTML = translate('setting_types_label');
     document.getElementById('save_settings_btn').textContent = translate('settings_html_save_button');
     document.getElementById('save_settings_btn').setAttribute('title', translate('settings_html_save_button_title'));
-    injectText("context_menu_enabled", "context_menu_enabled");
     document.getElementById('history_listener_enabled').innerHTML = translate('history_listener_enabled');
     injectText("local_hosts_skipping", "local_hosts_skipping");
     document.getElementById('export_settings_btn_text').textContent = translate('setting_html_export_button');
