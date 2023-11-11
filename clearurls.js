@@ -152,7 +152,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
 
         let finalURL = domain;
 
-        if (fields.toString() !== "") finalURL += "?" + fields.toString();
+        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
         if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
         url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");

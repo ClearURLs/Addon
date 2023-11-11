@@ -337,3 +337,21 @@ async function sha256(message) {
 function randomASCII(len) {
     return [...Array(len)].map(() => (~~(Math.random() * 36)).toString(36)).join('');
 }
+
+/**
+ * Returns an URLSearchParams as string.
+ * Does handle spaces correctly.
+ */
+function urlSearchParamsToString(searchParams) {
+    const rtn = []
+
+    searchParams.forEach((value, key) => {
+        if (value) {
+            rtn.push(key + '=' + value)
+        } else {
+            rtn.push(key)
+        }
+    })
+
+    return rtn.join('&')
+}
