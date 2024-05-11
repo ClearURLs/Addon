@@ -27,6 +27,9 @@
     function injectFunction() {
         let ele = document.createElement('script');
         let s = document.getElementsByTagName('script')[0];
+        if (s === undefined) {
+            return;
+        }
 
         ele.type = 'text/javascript';
         ele.textContent = "Object.defineProperty(window, 'rwt', {" +
