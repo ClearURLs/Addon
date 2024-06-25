@@ -156,6 +156,29 @@ function setSwitchButton(id, varname)
 }
 
 /**
+* Adds the site the user is on to the whitelist
+* Whitelisted sites do not get filtered
+* @param {string} site Site url to add to whitelist
+*/
+function addToWhitelist() {
+    let site;
+    browser.tabs.query({active: true, currentWindow: true}, function(tabs) { // Couldn't figure out how to access currentUrl var
+        site = tabs[0].url;                                                  // So this is used instead
+    });
+    browser.runtime.sendMessage({
+        function: "getData",
+        params: ['whitelist']
+    }).then((data) => {
+        let domain = site.replace(/.*?:(?:\/\/)?(.*?\/).*/, '$1')
+        data.response.push(domain)
+        browser.runtime.sendMessage({
+            function: "setData",
+            params: ['whitelist', data.response]
+        }).catch(handleError);
+    }).catch(handleError);
+}
+
+/**
 * Reset the global statistic
 */
 function resetGlobalCounter(){
@@ -191,6 +214,7 @@ function resetGlobalCounter(){
         .then(() => loadData("getCurrentURL", "currentURL"))
         .then(() => {
             init();
+            document.getElementById('whitelist_btn').onclick = addToWhitelist;
             document.getElementById('reset_counter_btn').onclick = resetGlobalCounter;
             changeSwitchButton("globalStatus", "globalStatus");
             changeSwitchButton("tabcounter", "badgedStatus");
@@ -220,6 +244,7 @@ function setText()
     injectText('configs_switch_filter','popup_html_configs_switch_filter');
     injectText('configs_head','popup_html_configs_head');
     injectText('configs_switch_statistics','configs_switch_statistics');
+    injectText('whitelist_btn','popup_html_configs_whitelist_button');
     document.getElementById('donate').title = translate('donate_button');
 }
 
