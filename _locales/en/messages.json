@@ -87,6 +87,10 @@
         "message": "Show numbers of cleaned urls",
         "description": "This string is used as title for the badges switch button on the popup page."
     },
+    "popup_html_configs_whitelist_button": {
+        "message": "Whitelist Site",
+        "description": "This string is used as name for the whitelist button on the popup page."
+    },
     "popup_html_statistics_head": {
         "message": "Statistics",
         "description": "This string is used as title for the statistics on the popup page."
