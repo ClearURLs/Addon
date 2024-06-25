@@ -168,7 +168,8 @@ function addToWhitelist() {
         function: "getData",
         params: ['whitelist']
     }).then((data) => {
-        let domain = site.replace(/.*?:(?:\/\/)?(.*?\/).*/, '$1')
+        let siteUrl = new URL(site)
+        let domain = siteUrl.hostname
         data.response.push(domain)
         browser.runtime.sendMessage({
             function: "setData",
