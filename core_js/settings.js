@@ -82,7 +82,7 @@ function save() {
     saveData("badged_color", pickr.getColor().toHEXA().toString())
         .then(() => saveData("ruleURL", document.querySelector('input[name=ruleURL]').value))
         .then(() => saveData("hashURL", document.querySelector('input[name=hashURL]').value))
-        .then(() => saveData("whitelist", document.querySelector('input[name=whitelist]').value))
+        .then(() => saveData("whitelist", document.querySelector('input[name=whitelist]').value.split(',')))
         .then(() => saveData("types", document.querySelector('input[name=types]').value))
         .then(() => saveData("logLimit", Math.max(0, Math.min(5000, document.querySelector('input[name=logLimit]').value))))
         .then(() => browser.runtime.sendMessage({
