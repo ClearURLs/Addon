@@ -183,6 +183,10 @@
         "message": "The url to the rules.hash file (hash)",
         "description": "This string is used as name for the rule.hash url label."
     },
+    "setting_whitelist_list_label": {
+        "message": "Whitelisted sites",
+        "description": "This string is used as name for the whitelisted sites list label."
+    },
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
         "description": "This string is used as name for the types label."

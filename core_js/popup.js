@@ -158,7 +158,6 @@ function setSwitchButton(id, varname)
 /**
 * Adds the site the user is on to the whitelist
 * Whitelisted sites do not get filtered
-* @param {string} site Site url to add to whitelist
 */
 function addToWhitelist() {
     let site;
