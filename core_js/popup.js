@@ -68,7 +68,7 @@ function changeStatistics()
 function setWhitelistText()
 {
     let element = document.getElementById('whitelist_btn');
-    let currentSite;
+    let currentSite, siteFound;
     browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
         currentSite = tabs[0].url;
     });
@@ -78,20 +78,20 @@ function setWhitelistText()
         params: ['whitelist']
     }).then((data) => {
         data.response.forEach(site => {
-            console.log(currentSite.indexOf(site))
-            if (currentSite.indexOf(site) == -1) {
-                element.textContent = translate('popup_html_configs_whitelist_button_add')
-                document.getElementById('whitelist_btn').onclick = changeWhitelist;
-                element.classList.replace('btn-danger', 'btn-primary')
-            } else {
-                element.textContent = translate('popup_html_configs_whitelist_button_remove')
-                document.getElementById('whitelist_btn').onclick = () => {changeWhitelist(true)};
-                element.classList.replace('btn-primary', 'btn-danger')
+            if (currentSite.indexOf(site) != -1) {
+                siteFound = true
             }
         });
-        if (data.response.length == 0) {
+        if (!siteFound) {
+            if (data.response.length != 0) {
+                element.classList.replace('btn-danger', 'btn-primary')
+            }
             element.textContent = translate('popup_html_configs_whitelist_button_add')
             document.getElementById('whitelist_btn').onclick = changeWhitelist;
+        } else {
+            element.classList.replace('btn-primary', 'btn-danger')
+            element.textContent = translate('popup_html_configs_whitelist_button_remove')
+            document.getElementById('whitelist_btn').onclick = () => {changeWhitelist(true)};
         }
     }).catch(handleError);
 }
@@ -198,7 +198,6 @@ function changeWhitelist(removeWl = false) {
     if (removeWl != true) { // Handle click obj
         removeWl = false
     }
-    console.log('call')
     let site;
     browser.tabs.query({active: true, currentWindow: true}, function(tabs) { // Couldn't figure out how to access currentUrl var
         site = tabs[0].url;                                                  // So this is used instead
@@ -209,7 +208,6 @@ function changeWhitelist(removeWl = false) {
     }).then((data) => {
         let siteUrl = new URL(site)
         let domain = siteUrl.hostname
-        console.log(removeWl)
         if (removeWl == false) {
             data.response.push(domain)
         } else {
@@ -218,9 +216,10 @@ function changeWhitelist(removeWl = false) {
         browser.runtime.sendMessage({
             function: "setData",
             params: ['whitelist', data.response]
+        }).then(() => {
+            setWhitelistText();
         }).catch(handleError);
     }).catch(handleError);
-    setWhitelistText();
 }
 
 /**
