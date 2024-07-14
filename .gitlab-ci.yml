@@ -28,8 +28,6 @@ bundle addon:
   stage: build
   script:
     - zip ClearURLs -r -FS clearurls.js browser-polyfill.js manifest.json img/* external_js/* html/* core_js/* css/* fonts/* _locales/*
-  only:
-    - master
   artifacts:
     paths:
       - ClearURLs.zip
