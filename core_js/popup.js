@@ -68,7 +68,7 @@ function changeStatistics()
 function setWhitelistText()
 {
     let element = document.getElementById('whitelist_btn');
-    let currentSite, siteFound;
+    let currentSite;
     browser.tabs.query({active: true, currentWindow: true}, function(tabs) {
         currentSite = tabs[0].url;
     });
@@ -77,21 +77,15 @@ function setWhitelistText()
         function: "getData",
         params: ['whitelist']
     }).then((data) => {
-        data.response.forEach(site => {
-            if (currentSite.indexOf(site) != -1) {
-                siteFound = true
-            }
-        });
-        if (!siteFound) {
-            if (data.response.length != 0) {
-                element.classList.replace('btn-danger', 'btn-primary')
-            }
-            element.textContent = translate('popup_html_configs_whitelist_button_add')
-            document.getElementById('whitelist_btn').onclick = changeWhitelist;
-        } else {
+        let siteFound = data.response.some(site => currentSite.indexOf(site) !== -1);
+        if (siteFound) {
             element.classList.replace('btn-primary', 'btn-danger')
             element.textContent = translate('popup_html_configs_whitelist_button_remove')
             document.getElementById('whitelist_btn').onclick = () => {changeWhitelist(true)};
+        } else {
+            element.classList.replace('btn-danger', 'btn-primary')
+            element.textContent = translate('popup_html_configs_whitelist_button_add')
+            document.getElementById('whitelist_btn').onclick = () => {changeWhitelist(false)};
         }
     }).catch(handleError);
 }
@@ -192,12 +186,9 @@ function setSwitchButton(id, varname)
 /**
 * Adds (or removes) the site the user is on to the whitelist
 * Whitelisted sites do not get filtered
-* @param {boolean} remove If true remove current site instead of adding
+* @param {boolean} removeWl If true remove current site instead of adding
 */
-function changeWhitelist(removeWl = false) {
-    if (removeWl != true) { // Handle click obj
-        removeWl = false
-    }
+function changeWhitelist(removeWl) {
     let site;
     browser.tabs.query({active: true, currentWindow: true}, function(tabs) { // Couldn't figure out how to access currentUrl var
         site = tabs[0].url;                                                  // So this is used instead
@@ -208,10 +199,10 @@ function changeWhitelist(removeWl = false) {
     }).then((data) => {
         let siteUrl = new URL(site)
         let domain = siteUrl.hostname
-        if (removeWl == false) {
-            data.response.push(domain)
+        if (removeWl) {
+            data.response = data.response.filter(wlSite => wlSite !== domain)
         } else {
-            data.response = data.response.filter(wlSite => wlSite != domain)
+            data.response.push(domain)
         }
         browser.runtime.sendMessage({
             function: "setData",

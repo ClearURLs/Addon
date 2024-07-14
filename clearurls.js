@@ -51,7 +51,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     * Skip whitelisted sites
     */
     for (const site of storage.whitelist) {
-        if (url.indexOf(site) != -1) {
+        if (url.indexOf(site) !== -1) {
             return {
                 "changes": false,
                 "url": url,
