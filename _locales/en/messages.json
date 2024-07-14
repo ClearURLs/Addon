@@ -87,6 +87,14 @@
         "message": "Show numbers of cleaned urls",
         "description": "This string is used as title for the badges switch button on the popup page."
     },
+    "popup_html_configs_whitelist_button_add": {
+        "message": "Whitelist Site",
+        "description": "This string is used as name for the whitelist button on the popup page."
+    },
+    "popup_html_configs_whitelist_button_remove": {
+        "message": "Remove from Whitelist",
+        "description": "This string is used as name for the whitelist button on the popup page."
+    },
     "popup_html_statistics_head": {
         "message": "Statistics",
         "description": "This string is used as title for the statistics on the popup page."
@@ -178,6 +186,10 @@
     "setting_hash_url_label": {
         "message": "The url to the rules.hash file (hash)",
         "description": "This string is used as name for the rule.hash url label."
+    },
+    "setting_whitelist_list_label": {
+        "message": "Whitelisted sites",
+        "description": "This string is used as name for the whitelisted sites list label."
     },
     "setting_types_label": {
         "message": "<a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest/ResourceType' target='_blank'>Request types</a> (expert level)",
