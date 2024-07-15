@@ -173,7 +173,7 @@ function start() {
      * @param {object} obj
      */
     function getKeys(obj) {
-        for (const key in obj) {
+        for (const key of Object.keys(obj)) {
             prvKeys.push(key);
         }
     }
@@ -182,51 +182,51 @@ function start() {
      * Initialize the providers form the JSON object.
      *
      */
-    function createProviders() {
-        let data = storage.ClearURLsData;
-
+    function createProviders(data) {
         for (let p = 0; p < prvKeys.length; p++) {
-            //Create new provider
-            providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].getOrDefault('completeProvider', false),
-                data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
+            if (prvKeys[p] in data.providers) {
+                //Create new provider
+                providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].getOrDefault('completeProvider', false),
+                    data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
 
-            //Add URL Pattern
-            providers[p].setURLPattern(data.providers[prvKeys[p]].getOrDefault('urlPattern', ''));
+                //Add URL Pattern
+                providers[p].setURLPattern(data.providers[prvKeys[p]].getOrDefault('urlPattern', ''));
 
-            let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
-            //Add rules to provider
-            for (let r = 0; r < rules.length; r++) {
-                providers[p].addRule(rules[r]);
-            }
+                let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
+                //Add rules to provider
+                for (let r = 0; r < rules.length; r++) {
+                    providers[p].addRule(rules[r]);
+                }
 
-            let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
-            //Add raw rules to provider
-            for (let raw = 0; raw < rawRules.length; raw++) {
-                providers[p].addRawRule(rawRules[raw]);
-            }
+                let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
+                //Add raw rules to provider
+                for (let raw = 0; raw < rawRules.length; raw++) {
+                    providers[p].addRawRule(rawRules[raw]);
+                }
 
-            let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
-            //Add referral marketing rules to provider
-            for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
-                providers[p].addReferralMarketing(referralMarketingRules[referralMarketing]);
-            }
+                let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
+                //Add referral marketing rules to provider
+                for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
+                    providers[p].addReferralMarketing(referralMarketingRules[referralMarketing]);
+                }
 
-            let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
-            //Add exceptions to provider
-            for (let e = 0; e < exceptions.length; e++) {
-                providers[p].addException(exceptions[e]);
-            }
+                let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
+                //Add exceptions to provider
+                for (let e = 0; e < exceptions.length; e++) {
+                    providers[p].addException(exceptions[e]);
+                }
 
-            let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
-            //Add redirections to provider
-            for (let re = 0; re < redirections.length; re++) {
-                providers[p].addRedirection(redirections[re]);
-            }
+                let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
+                //Add redirections to provider
+                for (let re = 0; re < redirections.length; re++) {
+                    providers[p].addRedirection(redirections[re]);
+                }
 
-            let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
-            //Add HTTP methods list to provider
-            for (let re = 0; re < methods.length; re++) {
-                providers[p].addMethod(methods[re]);
+                let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
+                //Add HTTP methods list to provider
+                for (let re = 0; re < methods.length; re++) {
+                    providers[p].addMethod(methods[re]);
+                }
             }
         }
     }
@@ -239,7 +239,12 @@ function start() {
      */
     function toObject(retrievedText) {
         getKeys(storage.ClearURLsData.providers);
-        createProviders();
+        createProviders(storage.ClearURLsData);
+
+        if("providers" in storage.customRules) {
+            getKeys(storage.customRules.providers);
+            createProviders(storage.customRules);
+        }
     }
 
     /**
