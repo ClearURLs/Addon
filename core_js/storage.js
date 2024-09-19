@@ -160,6 +160,10 @@ function setData(key, value) {
         case "ruleURL":
             storage[key] = replaceOldURLs(value);
             break;
+        case "excludeDomains":
+            console.log(`excludeDomains: '${value}'`);
+            storage[key] = value;
+            break;
         case "types":
             storage[key] = value.split(',');
             break;
@@ -225,6 +229,7 @@ function initSettings() {
     storage.pingBlocking = true;
     storage.eTagFiltering = false;
     storage.watchDogErrorCount = 0;
+    storage.excludeDomains = "";
 
     if (getBrowser() === "Firefox") {
         storage.types = ["font", "image", "imageset", "main_frame", "media", "object", "object_subrequest", "other", "script", "stylesheet", "sub_frame", "websocket", "xml_dtd", "xmlhttprequest", "xslt"];
