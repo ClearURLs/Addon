@@ -20,7 +20,7 @@
 /*
 * This script is responsible for the storage.
 */
-var storage = [];
+var storage = {};
 var hasPendingSaves = false;
 var pendingSaves = new Set();
 
@@ -77,7 +77,7 @@ function deleteFromDisk(key) {
 function saveOnDisk(keys) {
     let json = {};
 
-    keys.forEach(function (key) {
+    keys.forEach(function(key) {
         json[key] = storageDataAsString(key);
     });
 
@@ -95,7 +95,7 @@ function deferSaveOnDisk(key) {
         return;
     }
 
-    setTimeout(function () {
+    setTimeout(function() {
         saveOnDisk(Array.from(pendingSaves));
         pendingSaves.clear();
         hasPendingSaves = false;
@@ -161,7 +161,6 @@ function setData(key, value) {
             storage[key] = replaceOldURLs(value);
             break;
         case "excludeDomains":
-            console.log(`excludeDomains: '${value}'`);
             storage[key] = value;
             break;
         case "types":
@@ -215,7 +214,7 @@ function initSettings() {
     storage.cleanedCounter = 0;
     storage.hashStatus = "error";
     storage.loggingStatus = false;
-    storage.log = {"log": []};
+    storage.log = { "log": [] };
     storage.statisticsStatus = true;
     storage.badged_color = "#ffa500";
     storage.hashURL = "https://rules2.clearurls.xyz/rules.minify.hash";

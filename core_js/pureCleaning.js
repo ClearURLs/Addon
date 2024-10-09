@@ -32,20 +32,13 @@ function pureCleaning(url, quiet = false) {
 
     if (exclude_domains.length > 0) {
         let hostname = new URL(url).hostname;
-        for (let i = 0; i < exclude_domains.length; i++) {
-            let domain = exclude_domains[i];
+        for (const domain of exclude_domains) {
+            let isRegexMatch = domain.startsWith('^') && domain.endsWith('$') && new RegExp(domain.slice(1, -1)).test(hostname)
+            let isSubdomainExcludeMatch = domain.startsWith('*') && hostname.endsWith(domain.slice(1))
+            let isExactDomainExcludeMatch = hostname.split('.').length === 2 && hostname === domain
 
-            // if regex
-            if (domain.startsWith('^') && domain.endsWith('$') && new RegExp(domain.slice(1, -1)).test(hostname)) {
-                return url;
-            } 
-            // if exclude with subdomain
-            else if (domain.startsWith('*') && hostname.endsWith(domain.slice(1))) {
-                return url;
-            } 
-            // if exclude exact domain
-            else if (hostname.split('.').length === 2 && hostname === domain) {
-                return url;
+            if (isRegexMatch || isSubdomainExcludeMatch || isExactDomainExcludeMatch) {
+                return url
             }
         }
     }
