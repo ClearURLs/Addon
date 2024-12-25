@@ -1,17 +1,28 @@
 {
-	"sProcessing":   "प्रगति पे हैं ...",
-	"sLengthMenu":   " _MENU_ प्रविष्टियां दिखाएं ",
-	"sZeroRecords":  "रिकॉर्ड्स का मेल नहीं मिला",
-	"sInfo":         "_START_ to _END_ of _TOTAL_ प्रविष्टियां दिखा रहे हैं",
-	"sInfoEmpty":    "0 में से 0 से 0 प्रविष्टियां दिखा रहे हैं",
-	"sInfoFiltered": "(_MAX_ कुल प्रविष्टियों में से छठा हुआ)",
-	"sInfoPostFix":  "",
-	"sSearch":       "खोजें:",
-	"sUrl":          "",
-	"oPaginate": {
-		"sFirst":    "प्रथम",
-		"sPrevious": "पिछला",
-		"sNext":     "अगला",
-		"sLast":     "अंतिम"
-	}
+  "aria": {
+    "sortAscending": "आरोही क्रम",
+    "sortDescending": "अवरोही क्रम"
+  },
+  "buttons": {
+    "copy": "प्रतिलिपि",
+    "copyTitle": "शीर्षक प्रतिलिपि"
+  },
+  "decimal": "दशमलव",
+  "emptyTable": "तालिका में आंकड़े उपलब्ध नहीं है",
+  "info": "_START_ to _END_ of _TOTAL_ प्रविष्टियां दिखा रहे हैं",
+  "infoEmpty": "0 में से 0 से 0 प्रविष्टियां दिखा रहे हैं",
+  "infoFiltered": "(_MAX_ कुल प्रविष्टियों में से छठा हुआ)",
+  "lengthMenu": " _MENU_ प्रविष्टियां दिखाएं ",
+  "loadingRecords": "प्रगति पे हैं ...",
+  "paginate": {
+    "first": "प्रथम",
+    "last": "अंतिम",
+    "next": "अगला",
+    "previous": "पिछला"
+  },
+  "processing": "प्रगति पे हैं ...",
+  "search": "खोजें:",
+  "searchPlaceholder": "खोजें ...",
+  "thousands": "हज़ार",
+  "zeroRecords": "रिकॉर्ड्स का मेल नहीं मिला"
 }

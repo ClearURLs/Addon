@@ -1,23 +1,40 @@
 {
-	"sEmptyTable":		"Tiada data",
-	"sInfo":         	"Paparan dari _START_ hingga _END_ dari _TOTAL_ rekod",
-	"sInfoEmpty":    	"Paparan 0 hingga 0 dari 0 rekod",
-	"sInfoFiltered": 	"(Ditapis dari jumlah _MAX_ rekod)",
-	"sInfoPostFix":  	"",
-	"sInfoThousands":  	",",
-	"sLengthMenu":		"Papar _MENU_ rekod",
-	"sLoadingRecords": 	"Diproses...",
-	"sProcessing":		"Sedang diproses...",
-	"sSearch":       	"Carian:",
-   "sZeroRecords":  	"Tiada padanan rekod yang dijumpai.",
-   "oPaginate": {
-       "sFirst":    	"Pertama",
-       "sPrevious": 	"Sebelum",
-       "sNext":     	"Kemudian",
-       "sLast":     	"Akhir"
-   },
-   "oAria": {
-       "sSortAscending":  ": diaktifkan kepada susunan lajur menaik",
-       "sSortDescending": ": diaktifkan kepada susunan lajur menurun"
-   }
+  "aria": {
+    "sortAscending": ": diaktifkan kepada susunan lajur menaik",
+    "sortDescending": ": diaktifkan kepada susunan lajur menurun"
+  },
+  "buttons": {
+    "copy": "Salin",
+    "copyKeys": "Tekan &lt;i&gt;ctrl&lt;/i&gt; atau &lt;i&gt;u2318&lt;/i&gt; + &lt;i&gt;C&lt;/i&gt; untuk menyalin maklumat jadual ke papan keratan sistem anda.&lt;br&gt;&lt;br&gt;Untuk batak, tekan mesej ini atau tekan escape.",
+    "copySuccess": {
+      "1": "1 baris disalian ke papan keratan",
+      "_": "%ds baris disalin ke papan keratan"
+    },
+    "copyTitle": "Salin ke Papan Klip"
+  },
+  "decimal": ".",
+  "emptyTable": "Tiada data",
+  "info": "Paparan dari _START_ hingga _END_ dari _TOTAL_ rekod",
+  "infoEmpty": "Paparan 0 hingga 0 dari 0 rekod",
+  "infoFiltered": "(Ditapis dari jumlah _MAX_ rekod)",
+  "infoThousands": ",",
+  "lengthMenu": "Papar _MENU_ rekod",
+  "loadingRecords": "Diproses...",
+  "paginate": {
+    "first": "Pertama",
+    "last": "Akhir",
+    "next": "Seterusnya",
+    "previous": "Sebelum"
+  },
+  "processing": "Sedang diproses...",
+  "search": "Carian:",
+  "searchPlaceholder": "Contoh",
+  "select": {
+    "rows": {
+      "1": "1 baris terpilih",
+      "_": "%d baris terpilih"
+    }
+  },
+  "thousands": ",",
+  "zeroRecords": "Tiada padanan rekod yang dijumpai."
 }

@@ -1,17 +1,32 @@
 {
-    "sProcessing":   "Procesiranje u toku...",
-    "sLengthMenu":   "Prikaži _MENU_ elemenata",
-    "sZeroRecords":  "Nije pronađen nijedan rezultat",
-    "sInfo":         "Prikaz _START_ do _END_ od ukupno _TOTAL_ elemenata",
-    "sInfoEmpty":    "Prikaz 0 do 0 od ukupno 0 elemenata",
-    "sInfoFiltered": "(filtrirano od ukupno _MAX_ elemenata)",
-    "sInfoPostFix":  "",
-    "sSearch":       "Pretraga:",
-    "sUrl":          "",
-    "oPaginate": {
-        "sFirst":    "Početna",
-        "sPrevious": "Prethodna",
-        "sNext":     "Sledeća",
-        "sLast":     "Poslednja"
-    }
+  "aria": {
+    "sortAscending": ": активирајте да сортирате колону узлазно",
+    "sortDescending": ": активирајте да сортирате колону силазно"
+  },
+  "buttons": {
+    "copy": "Копирај",
+    "copyKeys": "Притисните &lt;i&gt;ctrl&lt;/i&gt; или &lt;i&gt;u2318&lt;/i&gt; + &lt;i&gt;C&lt;/i&gt; да копирате податке из табеле&lt;br&gt;на ваш клипборд.&lt;br&gt;&lt;br&gt;Да откажете, кликните на ову поруку или стисните тастер \"escape\".",
+    "copySuccess": {
+      "1": "Копиран 1 ред у клипборд",
+      "_": "Копирано %ds ред(ова) у клипборд"
+    },
+    "copyTitle": "Kopirano u klipboard"
+  },
+  "emptyTable": "Нема података у табели.",
+  "info": "Приказано _START_ до _END_ од _TOTAL_ уноса",
+  "infoEmpty": "Приказано 0 до 0 од 0 уноса",
+  "infoFiltered": "филтрирано од укупно _MAX_ уноса",
+  "infoThousands": ".",
+  "lengthMenu": "Прикажи _MENU_ уноса",
+  "loadingRecords": "Учитавање...",
+  "paginate": {
+    "first": "Прва",
+    "last": "Последња",
+    "next": "Следећа",
+    "previous": "Претходна"
+  },
+  "processing": "Обрада...",
+  "search": "Претрага:",
+  "thousands": ",",
+  "zeroRecords": "Није пронађен ниједан одговарајући запис"
 }

@@ -1,22 +1,40 @@
 {
-	"sEmptyTable":   	"Ma'lumot yo'q",
-	"sInfo":         	"Umumiy _TOTAL_ yozuvlarlardan _START_ dan _END_ gachasi ko'rsatilmoqda",
-	"sInfoEmpty":    	"Umumiy 0 yozuvlardan 0 dan 0 gachasi ko'rsatilmoqda",
-	"sInfoFiltered": 	"(_MAX_ yozuvlardan filtrlandi)",
-	"sInfoPostFix":  	"",
-	"sLengthMenu":   	"_MENU_ ta yozuvlarni ko'rsat",
-	"sLoadingRecords": 	"Yozuvlar yuklanmoqda...",
-	"sProcessing":     	"Ishlayapman...",
-	"sSearch":       	"Izlash:",
-	"sZeroRecords":  	"Ma'lumot yo'q.",
-	"oPaginate": {
-		"sFirst": 		"Birinchi",
-		"sPrevious": 	"Avvalgi",
-		"sNext": 		"Keyingi",
-		"sLast": 		"Son'ggi"
-	},
-	"oAria": {
-		"sSortAscending":  ": to'g'ri tartiblash",
-		"sSortDescending": ": teskari tartiblash"
-	}
+  "aria": {
+    "sortAscending": ": to'g'ri tartiblash",
+    "sortDescending": ": teskari tartiblash"
+  },
+  "buttons": {
+    "copy": "Nusxalash",
+    "copyKeys": "Ma'lumotlarni vaqtinchalik xotiraga ko'chirib olish uchun &lt;i&gt;ctrl&lt;/i&gt; ni yoki &lt;i&gt;u2318&lt;/i&gt; + &lt;i&gt;C&lt;/i&gt; ni bosing.&lt;br&gt;&lt;br&gt; Bekor qilish uchun xabarni bosing yoki esc tugmasini bosing.",
+    "copySuccess": {
+      "1": "1 ta qator vaqtinchalik xotiraga ko'chirib olindi",
+      "_": "%d ta qator vaqtinchalik xotiraga ko'chirib olindi"
+    },
+    "copyTitle": "Vaqtinchalik xotiraga ko'chirib olish"
+  },
+  "decimal": ".",
+  "emptyTable": "Jadvalda ma'lumot mavjud emas",
+  "info": "Umumiy _TOTAL_ yozuvlarlardan _START_ dan _END_ gachasi ko'rsatilmoqda",
+  "infoEmpty": "Umumiy 0 yozuvlardan 0 dan 0 gachasi ko'rsatilmoqda",
+  "infoFiltered": "(_MAX_ yozuvlardan filtrlandi)",
+  "infoThousands": ",",
+  "lengthMenu": "_MENU_ ta yozuvlarni ko'rsatish",
+  "loadingRecords": "Yuklanmoqda...",
+  "paginate": {
+    "first": "Birinchi",
+    "last": "Oxirgi",
+    "next": "Keyingi",
+    "previous": "Oldingi"
+  },
+  "processing": "Yuklanmoqda...",
+  "search": "Izlash:",
+  "searchPlaceholder": "Nima izlayapsiz?",
+  "select": {
+    "rows": {
+      "1": "1 ta qator tanlandi",
+      "_": "%d ta qatorlar tanlandi"
+    }
+  },
+  "thousands": ",",
+  "zeroRecords": "Mos keladigan ma'lumotlar topilmadi"
 }

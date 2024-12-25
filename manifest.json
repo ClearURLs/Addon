@@ -56,7 +56,7 @@
   ],
   "background": {
     "scripts": [
-      "browser-polyfill.js",
+      "browser-polyfill.min.js",
       "core_js/utils/Multimap.js",
       "core_js/utils/URLHashParams.js",
       "core_js/message_handler.js",

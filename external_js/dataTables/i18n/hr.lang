@@ -1,23 +1,39 @@
 {
-    "sEmptyTable":      "Nema podataka u tablici",
-    "sInfo":            "Prikazano _START_ do _END_ od _TOTAL_ rezultata",
-    "sInfoEmpty":       "Prikazano 0 do 0 od 0 rezultata",
-    "sInfoFiltered":    "(filtrirano iz _MAX_ ukupnih rezultata)",
-    "sInfoPostFix":     "",
-    "sInfoThousands":   ",",
-    "sLengthMenu":      "Prikaži _MENU_ rezultata po stranici",
-    "sLoadingRecords":  "Dohvaćam...",
-    "sProcessing":      "Obrađujem...",
-    "sSearch":          "Pretraži:",
-    "sZeroRecords":     "Ništa nije pronađeno",
-    "oPaginate": {
-        "sFirst":       "Prva",
-        "sPrevious":    "Nazad",
-        "sNext":        "Naprijed",
-        "sLast":        "Zadnja"
+  "aria": {
+    "sortAscending": ": aktiviraj za rastući poredak",
+    "sortDescending": ": aktiviraj za padajući poredak"
+  },
+  "buttons": {
+    "copy": "Kopiraj",
+    "copyKeys": "Pritisni ctrl ili % + C da kopiraš podatke iz tablice u međuspremnik.  Da odustaneš, pritisni ovu poruku ili pritisni ESC.",
+    "copySuccess": {
+      "1": "Prvi redak je kopiran u međuspremnik",
+      "_": "Kopirano je %ds redova u međuspremnik"
     },
-    "oAria": {
-        "sSortAscending":  ": aktiviraj za rastući poredak",
-        "sSortDescending": ": aktiviraj za padajući poredak"
+    "copyTitle": "Kopiraj u Međuspremnik"
+  },
+  "decimal": ",",
+  "emptyTable": "Nema podataka u tablici",
+  "info": "Prikazano _START_ do _END_ od _TOTAL_ rezultata",
+  "infoEmpty": "Prikazano 0 do 0 od 0 rezultata",
+  "infoFiltered": "(filtrirano iz _MAX_ ukupnih rezultata)",
+  "infoThousands": ",",
+  "lengthMenu": "Prikaži _MENU_ rezultata po stranici",
+  "loadingRecords": "Dohvaćam...",
+  "paginate": {
+    "first": "Prva",
+    "last": "Zadnja",
+    "next": "Naprijed",
+    "previous": "Nazad"
+  },
+  "processing": "Obrađujem...",
+  "search": "Pretraži:",
+  "select": {
+    "rows": {
+      "1": "1 red odabran",
+      "_": "%d redova odabrano"
     }
+  },
+  "thousands": ".",
+  "zeroRecords": "Ništa nije pronađeno"
 }

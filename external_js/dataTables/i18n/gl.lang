@@ -1,24 +1,39 @@
 {
-	"sProcessing":     "Procesando...",
-	"sLengthMenu":     "Mostrar _MENU_ rexistros",
-	"sZeroRecords":    "Non se atoparon resultados",
-	"sEmptyTable":     "Ningún dato dispoñible nesta táboa",
-	"sInfo":           "Mostrando rexistros do _START_ ao _END_ dun total de _TOTAL_ rexistros",
-	"sInfoEmpty":      "Mostrando rexistros do 0 ao 0 dun total de 0 rexistros",
-	"sInfoFiltered":   "(filtrado dun total de _MAX_ rexistros)",
-	"sInfoPostFix":    "",
-	"sSearch":         "Buscar:",
-	"sUrl":            "",
-	"sInfoThousands":  ",",
-	"sLoadingRecords": "Cargando...",
-	"oPaginate": {
-		"sFirst":    "Primeiro",
-		"sLast":     "Último",
-		"sNext":     "Seguinte",
-		"sPrevious": "Anterior"
-	},
-	"oAria": {
-		"sSortAscending":  ": Activar para ordenar a columna de maneira ascendente",
-		"sSortDescending": ": Activar para ordenar a columna de maneira descendente"
-	}
+  "aria": {
+    "sortAscending": ": Activar para ordenar a columna de maneira ascendente",
+    "sortDescending": ": Activar para ordenar a columna de maneira descendente"
+  },
+  "buttons": {
+    "copy": "Copiar",
+    "copyKeys": "Preme ctrl o u2318 + C para copiar os datos da táboa ao portapapeis do sistema. <br /> <br /> Para cancelar, fai clic nesta mensaxe ou preme escape.",
+    "copySuccess": {
+      "1": "Copiada 1 fila ao portapapeis",
+      "_": "Copiadas %ds fila ao portapapeis"
+    },
+    "copyTitle": "Copiar ao portapapeis"
+  },
+  "decimal": ",",
+  "emptyTable": "Ningún dato dispoñible nesta táboa",
+  "info": "Mostrando rexistros do _START_ ao _END_ dun total de _TOTAL_ rexistros",
+  "infoEmpty": "Mostrando rexistros do 0 ao 0 dun total de 0 rexistros",
+  "infoFiltered": "(filtrado dun total de _MAX_ rexistros)",
+  "infoThousands": ".",
+  "lengthMenu": "Mostrar _MENU_ rexistros",
+  "loadingRecords": "Cargando...",
+  "paginate": {
+    "first": "Primeiro",
+    "last": "Último",
+    "next": "Seguinte",
+    "previous": "Anterior"
+  },
+  "processing": "Procesando...",
+  "search": "Buscar:",
+  "select": {
+    "rows": {
+      "1": "1 fila seleccionada",
+      "_": "%d filas seleccionadas"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "Non se atoparon resultados"
 }

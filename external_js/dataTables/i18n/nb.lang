@@ -1,25 +1,39 @@
 {
-	"sEmptyTable": "Ingen data tilgjengelig i tabellen",
-	"sInfo": "Viser _START_ til _END_ av _TOTAL_ linjer",
-	"sInfoEmpty": "Viser 0 til 0 av 0 linjer",
-	"sInfoFiltered": "(filtrert fra _MAX_ totalt antall linjer)",
-	"sInfoPostFix": "",
-	"sInfoThousands": " ",
-	"sLoadingRecords": "Laster...",
-	"sLengthMenu": "Vis _MENU_ linjer",
-	"sLoadingRecords": "Laster...",
-	"sProcessing": "Laster...",
-	"sSearch": "S&oslash;k:",
-	"sUrl": "",
-	"sZeroRecords": "Ingen linjer matcher s&oslash;ket",
-  	"oPaginate": {
-		"sFirst": "F&oslash;rste",
-		"sPrevious": "Forrige",
-		"sNext": "Neste",
-		"sLast": "Siste"
-   	},
-   	"oAria": {
-		"sSortAscending": ": aktiver for å sortere kolonnen stigende",
-		"sSortDescending": ": aktiver for å sortere kolonnen synkende"
-	}
+  "aria": {
+    "sortAscending": "aktiver for &aring; sortere kolonnen stigende",
+    "sortDescending": "aktiver for &aring; sortere kolonnen synkende"
+  },
+  "buttons": {
+    "copy": "Kopier",
+    "copyKeys": "Trykk ctrl eller u2318 + C for &aring; kopiere tabelldata til systemets utklippstavle.<br /><br />For &aring; avbryte, klikk p&aring; denne meldingen eller trykk p&aring; escape.",
+    "copySuccess": {
+      "1": "Kopierte én rad til utklippstavle",
+      "_": "Kopierte %ds rader til utklippstavle"
+    },
+    "copyTitle": "Kopier til utklippstavle"
+  },
+  "decimal": ",",
+  "emptyTable": "Ingen data tilgjengelig i tabellen",
+  "info": "Viser _START_ til _END_ av _TOTAL_ oppf&oslash;ringer",
+  "infoEmpty": "Viser 0 til 0 av 0 oppf&oslash;ringer",
+  "infoFiltered": "filtrert fra totalt _MAX_ oppf&oslash;ringer",
+  "infoThousands": " ",
+  "lengthMenu": "Vis _MENU_ oppf&oslash;ringer",
+  "loadingRecords": "Laster...",
+  "paginate": {
+    "first": "F&oslash;rste",
+    "last": "Siste",
+    "next": "Neste",
+    "previous": "Forrige"
+  },
+  "processing": "Laster...",
+  "search": "S&oslash;k:",
+  "select": {
+    "rows": {
+      "1": "1 rad valgt",
+      "_": "%d rader valgt"
+    }
+  },
+  "thousands": " .",
+  "zeroRecords": "Ingen rader samsvarer med s&oslash;ket"
 }

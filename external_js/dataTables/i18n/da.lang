@@ -1,17 +1,41 @@
 {
-	"sProcessing":   "Henter...",
-	"sLengthMenu":   "Vis _MENU_ linjer",
-	"sZeroRecords":  "Ingen linjer matcher s&oslash;gningen",
-	"sInfo":         "Viser _START_ til _END_ af _TOTAL_ linjer",
-	"sInfoEmpty":    "Viser 0 til 0 af 0 linjer",
-	"sInfoFiltered": "(filtreret fra _MAX_ linjer)",
-	"sInfoPostFix":  "",
-	"sSearch":       "S&oslash;g:",
-	"sUrl":          "",
-	"oPaginate": {
-	    "sFirst":    "F&oslash;rste",
-	    "sPrevious": "Forrige",
-	    "sNext":     "N&aelig;ste",
-	    "sLast":     "Sidste"
-	}
+  "aria": {
+    "sortAscending": "Stigende sortering",
+    "sortDescending": "Faldende sortering"
+  },
+  "buttons": {
+    "copy": "Kopier",
+    "copyKeys": "Tryk ctrl eller u2318 + C for at kopiere data til udklipsholder.  For at fortryde, klik på denne besked eller tryk escape.",
+    "copySuccess": {
+      "1": "Kopieret en række til udklipsholder",
+      "_": "Kopieret %ds rækker til udklipsholder"
+    },
+    "copyTitle": "Kopier til udklipsholder"
+  },
+  "decimal": ".",
+  "emptyTable": "Ingen data tilgængelige i tabellen",
+  "info": "Viser _START_ til _END_ af _TOTAL_ linjer",
+  "infoEmpty": "Viser 0 til 0 af 0 linjer",
+  "infoFiltered": "(filtreret fra _MAX_ linjer)",
+  "infoPostFix": " ",
+  "infoThousands": ".",
+  "lengthMenu": "Vis _MENU_ linjer",
+  "loadingRecords": "Henter...",
+  "paginate": {
+    "first": "Første",
+    "last": "Sidste",
+    "next": "Næste",
+    "previous": "Forrige"
+  },
+  "processing": "Henter...",
+  "search": "Søg:",
+  "searchPlaceholder": "søg..",
+  "select": {
+    "rows": {
+      "1": "1 række valgt",
+      "_": "%d rækker valgt"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "Ingen linjer matcher s&oslash;gningen"
 }

@@ -1,18 +1,40 @@
 {
-	"sEmptyTable":	 "Tidak ada data yang tersedia pada tabel ini",
-	"sProcessing":   "Sedang memproses...",
-	"sLengthMenu":   "Tampilkan _MENU_ entri",
-	"sZeroRecords":  "Tidak ditemukan data yang sesuai",
-	"sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
-	"sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 entri",
-	"sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
-	"sInfoPostFix":  "",
-	"sSearch":       "Cari:",
-	"sUrl":          "",
-	"oPaginate": {
-		"sFirst":    "Pertama",
-		"sPrevious": "Sebelumnya",
-		"sNext":     "Selanjutnya",
-		"sLast":     "Terakhir"
-	}
+  "aria": {
+    "sortAscending": ": aktifkan untuk mengurutkan kolom ke atas",
+    "sortDescending": ": aktifkan untuk mengurutkan kolom menurun"
+  },
+  "buttons": {
+    "copy": "Salin",
+    "copyKeys": "Tekan ctrl atau u2318 + C untuk menyalin tabel ke papan klip.<br /><br />Untuk membatalkan, klik pesan ini atau tekan esc.",
+    "copySuccess": {
+      "1": "satu baris disalin ke papan klip",
+      "_": "%d baris disalin ke papan klip"
+    },
+    "copyTitle": "Salin ke Papan klip"
+  },
+  "decimal": ",",
+  "emptyTable": "Tidak ada data yang tersedia pada tabel ini",
+  "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ entri",
+  "infoEmpty": "Menampilkan 0 sampai 0 dari 0 entri",
+  "infoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+  "infoThousands": ",",
+  "lengthMenu": "Tampilkan _MENU_ entri",
+  "loadingRecords": "Sedang memuat...",
+  "paginate": {
+    "first": "Pertama",
+    "last": "Terakhir",
+    "next": "Selanjutnya",
+    "previous": "Sebelumnya"
+  },
+  "processing": "Sedang memproses...",
+  "search": "Cari:",
+  "searchPlaceholder": "kata kunci pencarian",
+  "select": {
+    "rows": {
+      "1": "1 baris dipilih",
+      "_": "%d baris dipilih"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "Tidak ditemukan data yang sesuai"
 }

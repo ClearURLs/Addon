@@ -1,23 +1,34 @@
 {
-	"sEmptyTable":     "Nie sú k dispozícii žiadne dáta",
-	"sInfo":           "Záznamy _START_ až _END_ z celkom _TOTAL_",
-	"sInfoEmpty":      "Záznamy 0 až 0 z celkom 0 ",
-	"sInfoFiltered":   "(vyfiltrované spomedzi _MAX_ záznamov)",
-	"sInfoPostFix":    "",
-  	"sInfoThousands":  ",",
-	"sLengthMenu":     "Zobraz _MENU_ záznamov",
-	"sLoadingRecords": "Načítavam...",
-	"sProcessing":     "Spracúvam...",
-	"sSearch":         "Hľadať:",
-	"sZeroRecords":    "Nenašli sa žiadne vyhovujúce záznamy",
-	"oPaginate": {
-		"sFirst":    "Prvá",
-		"sLast":     "Posledná",
-		"sNext":     "Nasledujúca",
-		"sPrevious": "Predchádzajúca"
-	},
-	"oAria": {
-		"sSortAscending":  ": aktivujte na zoradenie stĺpca vzostupne",
-		"sSortDescending": ": aktivujte na zoradenie stĺpca zostupne"
-	}
+  "aria": {
+    "sortAscending": ": aktivujte na zoradenie stĺpca vzostupne",
+    "sortDescending": ": aktivujte na zoradenie stĺpca zostupne"
+  },
+  "buttons": {
+    "copy": "Kopírovať",
+    "copyKeys": "Stlačte CTRL alebo u2318 + C pre kopírovanie dát tabuľky do systémovej schránky. Pre zrušenie kliknite na túto správu alebo stlačte ESC.",
+    "copySuccess": {
+      "1": "Skopírovaný 1 riadok do schránky",
+      "_": "Skopírovaných %d riadkov do schránky"
+    },
+    "copyTitle": "Kopírovať do schránky"
+  },
+  "decimal": ",",
+  "emptyTable": "Nie sú k dispozícii žiadne dáta.",
+  "info": "Záznamy _START_ až _END_ z celkom _TOTAL_",
+  "infoEmpty": "Záznamy 0 až 0 z celkom 0 ",
+  "infoFiltered": "(vyfiltrované spomedzi _MAX_ záznamov)",
+  "infoThousands": " ",
+  "lengthMenu": "Zobraz _MENU_ záznamov",
+  "loadingRecords": "Načítavam...",
+  "paginate": {
+    "first": "Prvá",
+    "last": "Posledná",
+    "next": "Nasledujúca",
+    "previous": "Predchádzajúca"
+  },
+  "processing": "Spracúvam...",
+  "search": "Hľadať:",
+  "searchPlaceholder": "Príklad vyhľadávania",
+  "thousands": " ",
+  "zeroRecords": "Nenašli sa žiadne vyhovujúce záznamy"
 }

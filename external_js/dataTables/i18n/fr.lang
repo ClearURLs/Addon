@@ -1,29 +1,39 @@
 {
-	"sProcessing":     "Traitement en cours...",
-	"sSearch":         "Rechercher&nbsp;:",
-    "sLengthMenu":     "Afficher _MENU_ &eacute;l&eacute;ments",
-	"sInfo":           "Affichage de l'&eacute;l&eacute;ment _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
-	"sInfoEmpty":      "Affichage de l'&eacute;l&eacute;ment 0 &agrave; 0 sur 0 &eacute;l&eacute;ment",
-	"sInfoFiltered":   "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
-	"sInfoPostFix":    "",
-	"sLoadingRecords": "Chargement en cours...",
-    "sZeroRecords":    "Aucun &eacute;l&eacute;ment &agrave; afficher",
-	"sEmptyTable":     "Aucune donn&eacute;e disponible dans le tableau",
-	"oPaginate": {
-		"sFirst":      "Premier",
-		"sPrevious":   "Pr&eacute;c&eacute;dent",
-		"sNext":       "Suivant",
-		"sLast":       "Dernier"
-	},
-	"oAria": {
-		"sSortAscending":  ": activer pour trier la colonne par ordre croissant",
-		"sSortDescending": ": activer pour trier la colonne par ordre d&eacute;croissant"
-	},
-	"select": {
-        	"rows": {
-         		_: "%d lignes séléctionnées",
-         		0: "Aucune ligne séléctionnée",
-        		1: "1 ligne séléctionnée"
-        	}  
-	}
+  "aria": {
+    "sortAscending": " : activer pour trier la colonne par ordre croissant",
+    "sortDescending": " : activer pour trier la colonne par ordre décroissant"
+  },
+  "buttons": {
+    "copy": "Copier",
+    "copyKeys": "Appuyez sur ctrl ou u2318 + C pour copier les données du tableau dans votre presse-papier.",
+    "copySuccess": {
+      "1": "1 ligne copiée dans le presse-papier",
+      "_": "%d lignes copiées dans le presse-papier"
+    },
+    "copyTitle": "Copier dans le presse-papier"
+  },
+  "decimal": ",",
+  "emptyTable": "Aucune donnée disponible dans le tableau",
+  "info": "Affichage de _START_ à _END_ sur _TOTAL_ entrées",
+  "infoEmpty": "Affichage de 0 à 0 sur 0 entrées",
+  "infoFiltered": "(filtrées depuis un total de _MAX_ entrées)",
+  "infoThousands": " ",
+  "lengthMenu": "Afficher _MENU_ entrées",
+  "loadingRecords": "Chargement...",
+  "paginate": {
+    "first": "Première",
+    "last": "Dernière",
+    "next": "Suivante",
+    "previous": "Précédente"
+  },
+  "processing": "Traitement...",
+  "search": "Rechercher :",
+  "select": {
+    "rows": {
+      "1": "1 ligne sélectionnée",
+      "_": "%d lignes sélectionnées"
+    }
+  },
+  "thousands": " ",
+  "zeroRecords": "Aucune entrée correspondante trouvée"
 }

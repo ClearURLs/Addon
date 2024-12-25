@@ -1,23 +1,38 @@
 {
-	"sEmptyTable":     "No data available in table",
-	"sInfo":           "Showing _START_ to _END_ of _TOTAL_ entries",
-	"sInfoEmpty":      "Showing 0 to 0 of 0 entries",
-	"sInfoFiltered":   "(filtered from _MAX_ total entries)",
-	"sInfoPostFix":    "",
-	"sInfoThousands":  ",",
-	"sLengthMenu":     "Show _MENU_ entries",
-	"sLoadingRecords": "Loading...",
-	"sProcessing":     "Processing...",
-	"sSearch":         "Search:",
-	"sZeroRecords":    "No matching records found",
-	"oPaginate": {
-		"sFirst":    "First",
-		"sLast":     "Last",
-		"sNext":     "Next",
-		"sPrevious": "Previous"
-	},
-	"oAria": {
-		"sSortAscending":  ": activate to sort column ascending",
-		"sSortDescending": ": activate to sort column descending"
-	}
+  "aria": {
+    "sortAscending": ": activate to sort column ascending",
+    "sortDescending": ": activate to sort column descending"
+  },
+  "buttons": {
+    "copy": "Copy",
+    "copyKeys": "Press ctrl or u2318 + C to copy the table data to your system clipboard.<br><br>To cancel, click this message or press escape.",
+    "copySuccess": {
+      "1": "Copied 1 row to clipboard",
+      "_": "Copied %d rows to clipboard"
+    },
+    "copyTitle": "Copy to Clipboard"
+  },
+  "emptyTable": "No data available in table",
+  "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+  "infoEmpty": "Showing 0 to 0 of 0 entries",
+  "infoFiltered": "(filtered from _MAX_ total entries)",
+  "infoThousands": ",",
+  "lengthMenu": "Show _MENU_ entries",
+  "loadingRecords": "Loading...",
+  "paginate": {
+    "first": "First",
+    "last": "Last",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "processing": "Processing...",
+  "search": "Search:",
+  "select": {
+    "rows": {
+      "1": "1 row selected",
+      "_": "%d rows selected"
+    }
+  },
+  "thousands": ",",
+  "zeroRecords": "No matching records found"
 }

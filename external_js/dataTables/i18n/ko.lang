@@ -1,23 +1,31 @@
 {
-   "sEmptyTable":     "데이터가 없습니다",
-   "sInfo":           "_START_ - _END_ / _TOTAL_",
-   "sInfoEmpty":      "0 - 0 / 0",
-   "sInfoFiltered":   "(총 _MAX_ 개)",
-   "sInfoPostFix":    "",
-   "sInfoThousands":  ",",
-   "sLengthMenu":     "페이지당 줄수 _MENU_",
-   "sLoadingRecords": "읽는중...",
-   "sProcessing":     "처리중...",
-   "sSearch":         "검색:",
-   "sZeroRecords":    "검색 결과가 없습니다",
-   "oPaginate": {
-       "sFirst":    "처음",
-       "sLast":     "마지막",
-       "sNext":     "다음",
-       "sPrevious": "이전"
-   },
-   "oAria": {
-       "sSortAscending":  ": 오름차순 정렬",
-       "sSortDescending": ": 내림차순 정렬"
-   }
+  "aria": {
+    "sortAscending": ": 오름차순 정렬",
+    "sortDescending": ": 내림차순 정렬"
+  },
+  "buttons": {
+    "copy": "복사",
+    "copyKeys": "ctrl키 나 u2318 + C키로 테이블 데이터를 시스텝 복사판에서 복사하고 취소하려면 이 메시지를 클릭하거나 ESC키를 누르면됩니다. to copy the table data to your system clipboard. To cancel, click this message or press escape.",
+    "copySuccess": {
+      "1": "1행을 복사판에서 복사됨",
+      "_": "%d행을 복사판에서 복사됨"
+    },
+    "copyTitle": "복사판에서 복사"
+  },
+  "emptyTable": "데이터가 없습니다",
+  "info": "_START_ - _END_ / _TOTAL_",
+  "infoEmpty": "0 - 0 / 0",
+  "infoFiltered": "(총 _MAX_ 개)",
+  "infoThousands": ",",
+  "lengthMenu": "페이지당 줄수 _MENU_",
+  "loadingRecords": "읽는중...",
+  "paginate": {
+    "first": "처음",
+    "last": "마지막",
+    "next": "다음",
+    "previous": "이전"
+  },
+  "processing": "처리중...",
+  "search": "검색:",
+  "zeroRecords": "검색 결과가 없습니다"
 }

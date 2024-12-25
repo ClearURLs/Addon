@@ -1,22 +1,40 @@
 {
-    "sEmptyTable":      "Lentelėje nėra duomenų",
-    "sInfo":            "Rodomi įrašai nuo _START_ iki _END_ iš _TOTAL_ įrašų",
-    "sInfoEmpty":       "Rodomi įrašai nuo 0 iki 0 iš 0",
-    "sInfoFiltered":    "(atrinkta iš _MAX_ įrašų)",
-    "sInfoPostFix":     "",
-    "sInfoThousands":   " ",
-    "sLengthMenu":      "Rodyti _MENU_ įrašus",
-    "sLoadingRecords":  "Įkeliama...",
-    "sProcessing":      "Apdorojama...",
-    "sSearch":          "Ieškoti:",
-    "sThousands":       " ",
-    "sUrl":             "",
-    "sZeroRecords":     "Įrašų nerasta",
-
-    "oPaginate": {
-        "sFirst": "Pirmas",
-        "sPrevious": "Ankstesnis",
-        "sNext": "Tolimesnis",
-        "sLast": "Paskutinis"
+  "aria": {
+    "sortAscending": ": suaktyvinkite, jei norite rūšiuoti stulpelį didėjančia tvarka",
+    "sortDescending": ": suaktyvinkite, jei norite rūšiuoti stulpelį mažėjančia tvarka"
+  },
+  "buttons": {
+    "copy": "Kopijuoti",
+    "copyKeys": "Norėdami nukopijuoti lentelės duomenis į sistemos mainų sritį, paspauskite Ctrl arba u2318 + C. <br /> <br /> Norėdami atšaukti, spustelėkite šį pranešimą arba paspauskite Esc.",
+    "copySuccess": {
+      "1": "1 eilutė nukopijuota į iškarpinę",
+      "_": "%d eilučių nukopijuota į mainų sritį"
+    },
+    "copyTitle": "Nukopijuoti į iškarpinę"
+  },
+  "decimal": ",",
+  "emptyTable": "Lentelėje nėra duomenų",
+  "info": "Rodomi įrašai nuo _START_ iki _END_ iš _TOTAL_ įrašų",
+  "infoEmpty": "Rodomi įrašai nuo 0 iki 0 iš 0",
+  "infoFiltered": "(atrinkta iš _MAX_ įrašų)",
+  "infoThousands": "  ",
+  "lengthMenu": "Rodyti _MENU_ įrašus",
+  "loadingRecords": "Įkeliama...",
+  "paginate": {
+    "first": "Pirmas",
+    "last": "Paskutinis",
+    "next": "Tolimesnis",
+    "previous": "Ankstesnis"
+  },
+  "processing": "Apdorojama...",
+  "search": "Ieškoti:",
+  "searchPlaceholder": "Ieškoti...",
+  "select": {
+    "rows": {
+      "1": "Pasirinkta 1 eilutė",
+      "_": "Pasirinkta %d eilučių"
     }
+  },
+  "thousands": "  ",
+  "zeroRecords": "Įrašų nerasta"
 }

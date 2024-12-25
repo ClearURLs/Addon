@@ -1,23 +1,34 @@
 {
-   "sEmptyTable":     "Nuk ka asnjë të dhënë në tabele",
-   "sInfo":           "Duke treguar _START_ deri _END_ prej _TOTAL_ reshtave",
-   "sInfoEmpty":      "Duke treguar 0 deri 0 prej 0 reshtave",
-   "sInfoFiltered":   "(të filtruara nga gjithësej _MAX_  reshtave)",
-   "sInfoPostFix":    "",
-   "sInfoThousands":  ",",
-   "sLengthMenu":     "Shiko _MENU_ reshta",
-   "sLoadingRecords": "Duke punuar...",
-   "sProcessing":     "Duke procesuar...",
-   "sSearch":         "Kërkoni:",
-   "sZeroRecords":    "Asnjë e dhënë nuk u gjet",
-   "oPaginate": {
-       "sFirst":    "E para",
-       "sLast":     "E Fundit",
-       "sNext":     "Tjetra",
-       "sPrevious": "E Kaluara"
-   },
-   "oAria": {
-       "sSortAscending":  ": aktivizo për të sortuar kolumnin me vlera në ngritje",
-       "sSortDescending": ": aktivizo për të sortuar kolumnin me vlera në zbritje"
-   }
+  "aria": {
+    "sortAscending": ": aktivizo për të renditur kolonën me vlera në ngritje",
+    "sortDescending": ": aktivizo për të renditur kolonën me vlera në zbritje"
+  },
+  "buttons": {
+    "copy": "Kopjo",
+    "copyKeys": "Shtyp _ctr ose _⌘ + _C për të kopjuar të dhënat në Clipboard. Për të anulluar, kliko mesazhin ose shtyp butonin 'Escape'.",
+    "copySuccess": {
+      "1": "U kopjua 1 rresht në clipboard",
+      "_": "U kopjuan %d rreshta në clipboard"
+    },
+    "copyTitle": "Kopjo në Clipboard"
+  },
+  "decimal": ",",
+  "emptyTable": "Nuk ka asnjë të dhënë në tabelë",
+  "info": "Duke treguar _START_ deri _END_ prej _TOTAL_ rreshtave",
+  "infoEmpty": "Duke treguar 0 deri 0 prej 0 rreshtave",
+  "infoFiltered": "(të filtruara prej gjithsej _MAX_  reshtave)",
+  "infoThousands": ",",
+  "lengthMenu": "Shfaq _MENU_ rreshta",
+  "loadingRecords": "Po merren te dhënat...",
+  "paginate": {
+    "first": "E para",
+    "last": "E Fundit",
+    "next": "Tjetra",
+    "previous": "E Kaluara"
+  },
+  "processing": "Po procesohen...",
+  "search": "Kërkoni:",
+  "searchPlaceholder": "Vendmbajtës shembull",
+  "thousands": ",",
+  "zeroRecords": "Nuk u gjet asnjë e dhënë"
 }

@@ -8,14 +8,14 @@
 
 **ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and *Chrome* based browsers.
 
-This extension will automatically remove tracking elements from URLs to help protect your privacy when browsing the Internet, 
+This extension will automatically remove tracking elements from URLs to help protect your privacy when browsing the Internet,
 which is regularly updated by us and can be found [here](https://gitlab.com/anti-tracking/ClearURLs/rules/-/raw/master/data.min.json).
 
 ## Application
-Many websites use tracking elements in the URL (e.g. `https://example.com?utm_source=newsletter1&utm_medium=email&utm_campaign=sale`) to mark your online activity. 
+Many websites use tracking elements in the URL (e.g. `https://example.com?utm_source=newsletter1&utm_medium=email&utm_campaign=sale`) to mark your online activity.
 All that tracking code is not necessary for a website to be displayed or work correctly and can therefore be removed—that is exactly what ClearURLs does.
 
-Another common example are Amazon URLs. If you search for a product on Amazon you will see a very long URL, such as: 
+Another common example are Amazon URLs. If you search for a product on Amazon you will see a very long URL, such as:
 ```
 https://www.amazon.com/dp/exampleProduct/ref=sxin_0_pb?__mk_de_DE=ÅMÅŽÕÑ&keywords=tea&pd_rd_i=exampleProduct&pd_rd_r=8d39e4cd-1e4f-43db-b6e7-72e969a84aa5&pd_rd_w=1pcKM&pd_rd_wg=hYrNl&pf_rd_p=50bbfd25-5ef7-41a2-68d6-74d854b30e30&pf_rd_r=0GMWD0YYKA7XFGX55ADP&qid=1517757263&rnid=2914120011
 ```
@@ -60,12 +60,12 @@ You want to help translating ClearURLs into many languages? – Nice
 
 You can choose between two options to contribute. You can create a merge request, or you can use the POEditor to translate ClearURLs.
 
-*Hint: The description field in the translation files are only an information for what the translation is used. 
+*Hint: The description field in the translation files are only an information for what the translation is used.
 It is not necessary to translate the description field; in the most cases it is empty.*
 
 #### Merge request
-If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://gitlab.com/ClearURLs/ClearUrls/-/blob/master/_locales/en/messages.json) in the ClearURLs repo 
-and translate the english terms into terms of your language. Once you have translated all the terms, you make a pull request of your translation. 
+If you want to create a merge request, you must open the path [`_locales/en/messages.json`](https://gitlab.com/ClearURLs/ClearUrls/-/blob/master/_locales/en/messages.json) in the ClearURLs repo
+and translate the english terms into terms of your language. Once you have translated all the terms, you make a pull request of your translation.
 Please push your translation into the folder `_locales/{language code}/messages.json`.
 
 #### POEditor
@@ -94,14 +94,18 @@ We use some third-party scripts in our add-on. The authors and licenses are list
 -   [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill) |
     Copyright by Mozilla |
     [MPL-2.0](https://github.com/mozilla/webextension-polyfill/blob/master/LICENSE)
--   [Bootstrap v4.3.1](https://github.com/twbs/bootstrap/tree/v4.3.1) |
-    Copyright 2011-2016 Twitter, Inc. |
+-   [Bootstrap v5.3.3](https://github.com/twbs/bootstrap/tree/v5.3.3) |
+    Copyright (c) 2011-2024 The Bootstrap Authors |
     [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
 -   [jQuery v3.6.0](https://github.com/jquery/jquery/tree/3.6.0) |
     Copyright JS Foundation and other contributors |
     [MIT](https://jquery.org/license/)
--   [DataTables v1.10.20](https://github.com/DataTables/DataTables/tree/master) |  Copyright (c) 2008-2015 SpryMedia Limited | [MIT](https://datatables.net/license/)
--   [Pickr v1.7.0](https://github.com/Simonwep/pickr/tree/1.7.0) | Copyright (c) 2018 - 2020 Simon Reinisch |
+-   [DataTables v2.1.8](https://github.com/DataTables/DataTablesSrc/tree/2.1.8) |
+    Copyright (c) 2008-2024, SpryMedia Ltd. |
+    [MIT](https://datatables.net/license/)
+-   [Pickr v1.9.1](https://github.com/Simonwep/pickr/tree/1.9.1) |
+    Copyright (c) 2018 - 2021 Simon Reinisch |
     [MIT](https://github.com/Simonwep/pickr/blob/master/LICENSE)
--   [Font Awesome v5.12.0](https://github.com/FortAwesome/Font-Awesome/tree/5.12.0) | Copyright (c) @fontawesome |
+-   [Font Awesome v5.12.0](https://github.com/FortAwesome/Font-Awesome/tree/5.12.0) |
+    Copyright (c) @fontawesome |
     [Font Awesome Free License](https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)

@@ -1,17 +1,39 @@
 {
-	"sProcessing":   "Processant...",
-	"sLengthMenu":   "Mostra _MENU_ registres",
-	"sZeroRecords":  "No s'han trobat registres.",
-	"sInfo":         "Mostrant de _START_ a _END_ de _TOTAL_ registres",
-	"sInfoEmpty":    "Mostrant de 0 a 0 de 0 registres",
-	"sInfoFiltered": "(filtrat de _MAX_ total registres)",
-	"sInfoPostFix":  "",
-	"sSearch":       "Filtrar:",
-	"sUrl":          "",
-	"oPaginate": {
-		"sFirst":    "Primer",
-		"sPrevious": "Anterior",
-		"sNext":     "Següent",
-		"sLast":     "Últim"
-	}
+  "aria": {
+    "sortAscending": ": Activa per ordenar la columna de manera ascendent",
+    "sortDescending": ": Activa per ordenar la columna de manera descendent"
+  },
+  "buttons": {
+    "copy": "Copia",
+    "copyKeys": "Pressiona ctrl o poma + C per copiar les dades de la tabla al teu portapaper",
+    "copySuccess": {
+      "1": "1 fila copiada",
+      "_": "%d files copiades"
+    },
+    "copyTitle": "Copia al portapapers"
+  },
+  "decimal": ",",
+  "emptyTable": "No hi ha registres disponibles en aquesta taula",
+  "info": "Mostrant del _START_ al _END_ d'un total de _TOTAL_ registres",
+  "infoEmpty": "No hi ha registres disponibles",
+  "infoFiltered": "(filtrat de _MAX_ registres)",
+  "infoThousands": ".",
+  "lengthMenu": "Mostra _MENU_ registres",
+  "loadingRecords": "Carregant...",
+  "paginate": {
+    "first": "Primer",
+    "last": "Darrer",
+    "next": "Següent",
+    "previous": "Anterior"
+  },
+  "processing": "Processant...",
+  "search": "Cerca:",
+  "select": {
+    "rows": {
+      "1": "1 fila seleccionada",
+      "_": "%d files seleccionades"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "No s'han trobat registres"
 }

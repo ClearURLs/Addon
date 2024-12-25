@@ -1,23 +1,39 @@
 {
-    "sProcessing": "Bezig...",
-    "sLengthMenu": "_MENU_ resultaten weergeven",
-    "sZeroRecords": "Geen resultaten gevonden",
-    "sInfo": "_START_ tot _END_ van _TOTAL_ resultaten",
-    "sInfoEmpty": "Geen resultaten om weer te geven",
-    "sInfoFiltered": " (gefilterd uit _MAX_ resultaten)",
-    "sInfoPostFix": "",
-    "sSearch": "Zoeken:",
-    "sEmptyTable": "Geen resultaten aanwezig in de tabel",
-    "sInfoThousands": ".",
-    "sLoadingRecords": "Een moment geduld aub - bezig met laden...",
-    "oPaginate": {
-        "sFirst": "Eerste",
-        "sLast": "Laatste",
-        "sNext": "Volgende",
-        "sPrevious": "Vorige"
+  "aria": {
+    "sortAscending": ": activeer om kolom oplopend te sorteren",
+    "sortDescending": ": activeer om kolom aflopend te sorteren"
+  },
+  "buttons": {
+    "copy": "Kopieer",
+    "copyKeys": "Klik ctrl of u2318 + C om de tabeldata to kopiëren naar je klembord. Om te annuleren klik hier of klik op escape.",
+    "copySuccess": {
+      "1": "1 regel naar klembord gekopieerd",
+      "_": "%ds regels naar klembord gekopieerd"
     },
-    "oAria": {
-        "sSortAscending":  ": activeer om kolom oplopend te sorteren",
-        "sSortDescending": ": activeer om kolom aflopend te sorteren"
+    "copyTitle": "Kopieer naar klembord"
+  },
+  "decimal": ",",
+  "emptyTable": "Geen resultaten aanwezig in de tabel",
+  "info": "_START_ tot _END_ van _TOTAL_ resultaten",
+  "infoEmpty": "Geen resultaten om weer te geven",
+  "infoFiltered": " (gefilterd uit _MAX_ resultaten)",
+  "infoThousands": ".",
+  "lengthMenu": "_MENU_ resultaten weergeven",
+  "loadingRecords": "Een moment geduld aub - bezig met laden...",
+  "paginate": {
+    "first": "Eerste",
+    "last": "Laatste",
+    "next": "Volgende",
+    "previous": "Vorige"
+  },
+  "processing": "Verwerken...",
+  "search": "Zoeken:",
+  "select": {
+    "rows": {
+      "1": "1 rij geselecteerd",
+      "_": "%d rijen geselecteerd"
     }
+  },
+  "thousands": ".",
+  "zeroRecords": "Geen resultaten gevonden"
 }

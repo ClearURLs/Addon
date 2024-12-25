@@ -1,23 +1,39 @@
 {
-	"sEmptyTable":     "هیچ داده ای در جدول وجود ندارد",
-	"sInfo":           "نمایش _START_ تا _END_ از _TOTAL_ رکورد",
-	"sInfoEmpty":      "نمایش 0 تا 0 از 0 رکورد",
-	"sInfoFiltered":   "(فیلتر شده از _MAX_ رکورد)",
-	"sInfoPostFix":    "",
-	"sInfoThousands":  ",",
-	"sLengthMenu":     "نمایش _MENU_ رکورد",
-	"sLoadingRecords": "در حال بارگزاری...",
-	"sProcessing":     "در حال پردازش...",
-	"sSearch":         "جستجو:",
-	"sZeroRecords":    "رکوردی با این مشخصات پیدا نشد",
-	"oPaginate": {
-		"sFirst":    "ابتدا",
-		"sLast":     "انتها",
-		"sNext":     "بعدی",
-		"sPrevious": "قبلی"
-	},
-	"oAria": {
-		"sSortAscending":  ": فعال سازی نمایش به صورت صعودی",
-		"sSortDescending": ": فعال سازی نمایش به صورت نزولی"
-	}
+  "aria": {
+    "sortAscending": ": فعال سازی نمایش به صورت صعودی",
+    "sortDescending": ": فعال سازی نمایش به صورت نزولی"
+  },
+  "buttons": {
+    "copy": "کپی",
+    "copyKeys": "برای کپی داده جدول در حافظه سیستم کلید های ctrl یا ⌘ + C را فشار دهید",
+    "copySuccess": {
+      "1": "یک ردیف داخل حافظه کپی شد",
+      "_": "%ds ردیف داخل حافظه کپی شد"
+    },
+    "copyTitle": "کپی در حافظه"
+  },
+  "decimal": ".",
+  "emptyTable": "هیچ داده‌ای در جدول وجود ندارد",
+  "info": "نمایش _START_ تا _END_ از _TOTAL_ ردیف",
+  "infoEmpty": "نمایش 0 تا 0 از 0 ردیف",
+  "infoFiltered": "(فیلتر شده از _MAX_ ردیف)",
+  "infoThousands": ",",
+  "lengthMenu": "نمایش _MENU_ ردیف",
+  "loadingRecords": "در حال بارگذاری...",
+  "paginate": {
+    "first": "ابتدا",
+    "last": "انتها",
+    "next": "بعدی",
+    "previous": "قبلی"
+  },
+  "processing": "در حال پردازش...",
+  "search": "جستجو:",
+  "select": {
+    "rows": {
+      "1": "1ردیف انتخاب شد",
+      "_": "%d  انتخاب شد"
+    }
+  },
+  "thousands": ",",
+  "zeroRecords": "رکوردی با این مشخصات پیدا نشد"
 }

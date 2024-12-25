@@ -1,17 +1,40 @@
 {
-	"sProcessing":   "Đang xử lý...",
-	"sLengthMenu":   "Xem _MENU_ mục",
-	"sZeroRecords":  "Không tìm thấy dòng nào phù hợp",
-	"sInfo":         "Đang xem _START_ đến _END_ trong tổng số _TOTAL_ mục",
-	"sInfoEmpty":    "Đang xem 0 đến 0 trong tổng số 0 mục",
-	"sInfoFiltered": "(được lọc từ _MAX_ mục)",
-	"sInfoPostFix":  "",
-	"sSearch":       "Tìm:",
-	"sUrl":          "",
-	"oPaginate": {
-		"sFirst":    "Đầu",
-		"sPrevious": "Trước",
-		"sNext":     "Tiếp",
-		"sLast":     "Cuối"
-	}
+  "aria": {
+    "sortAscending": ": Sắp xếp thứ tự tăng dần",
+    "sortDescending": ": Sắp xếp thứ tự giảm dần"
+  },
+  "buttons": {
+    "copy": "Sao chép",
+    "copyKeys": "Nhấn Ctrl hoặc u2318 + C để sao chép bảng dữ liệu vào clipboard.<br /><br />Để hủy, click vào thông báo này hoặc nhấn ESC",
+    "copySuccess": {
+      "1": "Đã sao chép 1 dòng dữ liệu vào clipboard",
+      "_": "Đã sao chép %d dòng vào clipboard"
+    },
+    "copyTitle": "Sao chép vào clipboard"
+  },
+  "decimal": ",",
+  "emptyTable": "Không có dữ liệu",
+  "info": "Hiển thị _START_ tới _END_ của _TOTAL_ dữ liệu",
+  "infoEmpty": "Hiển thị 0 tới 0 của 0 dữ liệu",
+  "infoFiltered": "(được lọc từ _MAX_ dữ liệu)",
+  "infoThousands": ".",
+  "lengthMenu": "Hiển thị _MENU_ dữ liệu",
+  "loadingRecords": "Đang tải...",
+  "paginate": {
+    "first": "Đầu tiên",
+    "last": "Cuối cùng",
+    "next": "Sau",
+    "previous": "Trước"
+  },
+  "processing": "Đang xử lý...",
+  "search": "Tìm kiếm:",
+  "searchPlaceholder": "Nhập tìm kiếm...",
+  "select": {
+    "rows": {
+      "1": "1 dòng đang được chọn",
+      "_": "%d dòng đang được chọn"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "Không tìm thấy kết quả"
 }

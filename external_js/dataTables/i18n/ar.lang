@@ -1,17 +1,40 @@
 {
-	"sProcessing":   "جارٍ التحميل...",
-	"sLengthMenu":   "أظهر _MENU_ مدخلات",
-	"sZeroRecords":  "لم يعثر على أية سجلات",
-	"sInfo":         "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
-	"sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
-	"sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
-	"sInfoPostFix":  "",
-	"sSearch":       "ابحث:",
-	"sUrl":          "",
-	"oPaginate": {
-		"sFirst":    "الأول",
-		"sPrevious": "السابق",
-		"sNext":     "التالي",
-		"sLast":     "الأخير"
-	}
+  "aria": {
+    "sortAscending": ": تفعيل لترتيب العمود تصاعدياً",
+    "sortDescending": ": تفعيل لترتيب العمود تنازلياً"
+  },
+  "buttons": {
+    "copy": "نسخ",
+    "copyKeys": "زر <i>ctrl</i> أو <i>⌘</i> + <i>C</i> من الجدول<br>ليتم نسخها إلى الحافظة<br><br>للإلغاء اضغط على الرسالة أو اضغط على زر الخروج.",
+    "copySuccess": {
+      "1": "تم نسخ سطر واحد الى الحافظة",
+      "_": "تم نسخ %ds أسطر الى الحافظة"
+    },
+    "copyTitle": "نسخ إلى الحافظة"
+  },
+  "decimal": ",",
+  "emptyTable": "لا يوجد بيانات متاحة في الجدول",
+  "info": "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+  "infoEmpty": "يعرض 0 إلى 0 من أصل 0 مُدخل",
+  "infoFiltered": "(مرشحة من مجموع _MAX_ مُدخل)",
+  "infoThousands": ",",
+  "lengthMenu": "أظهر _MENU_ مدخلات",
+  "loadingRecords": "جارٍ التحميل...",
+  "paginate": {
+    "first": "الأول",
+    "last": "الأخير",
+    "next": "التالي",
+    "previous": "السابق"
+  },
+  "processing": "جارٍ المعالجة...",
+  "search": "ابحث:",
+  "searchPlaceholder": "مثال بحث",
+  "select": {
+    "rows": {
+      "1": "1 قيمة محددة",
+      "_": "%d قيمة محددة"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "لم يعثر على أية سجلات"
 }

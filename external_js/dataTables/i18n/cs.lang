@@ -1,23 +1,40 @@
 {
-	"sEmptyTable":     "Tabulka neobsahuje žádná data",
-	"sInfo":           "Zobrazuji _START_ až _END_ z celkem _TOTAL_ záznamů",
-	"sInfoEmpty":      "Zobrazuji 0 až 0 z 0 záznamů",
-	"sInfoFiltered":   "(filtrováno z celkem _MAX_ záznamů)",
-	"sInfoPostFix":    "",
-	"sInfoThousands":  " ",
-	"sLengthMenu":     "Zobraz záznamů _MENU_",
-	"sLoadingRecords": "Načítám...",
-	"sProcessing":     "Provádím...",
-	"sSearch":         "Hledat:",
-	"sZeroRecords":    "Žádné záznamy nebyly nalezeny",
-	"oPaginate": {
-		"sFirst":    "První",
-		"sLast":     "Poslední",
-		"sNext":     "Další",
-		"sPrevious": "Předchozí"
-	},
-	"oAria": {
-		"sSortAscending":  ": aktivujte pro řazení sloupce vzestupně",
-		"sSortDescending": ": aktivujte pro řazení sloupce sestupně"
-	}
+  "aria": {
+    "sortAscending": "Aktivujte pro seřazení vzestupně",
+    "sortDescending": "Aktivujte pro seřazení sestupně"
+  },
+  "buttons": {
+    "copy": "Kopírovat",
+    "copyKeys": "Zmáčkněte ctrl or u2318 + C pro zkopírování dat.  Pro zrušení klikněte na tuto zprávu nebo zmáčkněte esc..",
+    "copySuccess": {
+      "1": "Zkopírován 1 řádek do schránky",
+      "_": "Zkopírováno %d řádků do schránky"
+    },
+    "copyTitle": "Kopírovat do schránky"
+  },
+  "decimal": ",",
+  "emptyTable": "Tabulka neobsahuje žádná data",
+  "info": "Zobrazuji _START_ až _END_ z celkem _TOTAL_ záznamů",
+  "infoEmpty": "Zobrazuji 0 až 0 z 0 záznamů",
+  "infoFiltered": "(filtrováno z celkem _MAX_ záznamů)",
+  "infoThousands": " ",
+  "lengthMenu": "Zobrazit _MENU_ výsledků",
+  "loadingRecords": "Načítám...",
+  "paginate": {
+    "first": "První",
+    "last": "Poslední",
+    "next": "Další",
+    "previous": "Předchozí"
+  },
+  "processing": "Zpracovávání...",
+  "search": "Vyhledávání:",
+  "searchPlaceholder": "Příklad zástupného prvku",
+  "select": {
+    "rows": {
+      "1": "Vybrán 1 řádek",
+      "_": "Vybráno %d řádků"
+    }
+  },
+  "thousands": " ",
+  "zeroRecords": "Žádné záznamy nebyly nalezeny"
 }

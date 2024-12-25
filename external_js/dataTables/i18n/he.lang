@@ -1,18 +1,41 @@
 {
-    "processing":   "מעבד...",
-    "lengthMenu":   "הצג _MENU_ פריטים",
-    "zeroRecords":  "לא נמצאו רשומות מתאימות",
-    "emptyTable":   "לא נמצאו רשומות מתאימות",
-    "info": "_START_ עד _END_ מתוך _TOTAL_ רשומות" ,
-    "infoEmpty":    "0 עד 0 מתוך 0 רשומות",
-    "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
-    "infoPostFix":  "",
-    "search":       "חפש:",
-    "url":          "",
-    "paginate": {
-        "first":    "ראשון",
-        "previous": "קודם",
-        "next":     "הבא",
-        "last":     "אחרון"
+  "aria": {
+    "sortAscending": "מיון בסדר עולה",
+    "sortDescending": "מיון בסדר יורד"
+  },
+  "buttons": {
+    "copy": "העתק",
+    "copyKeys": "לחץ ctrl או u2318 + C על מנת להעתיק את תוכן הטבלה.",
+    "copySuccess": {
+      "1": "רשומה 1 הועתקה",
+      "_": "%ds רשומות הועתקו"
+    },
+    "copyTitle": "העתקת תוכן"
+  },
+  "decimal": "עשרוני",
+  "emptyTable": "לא נמצאו רשומות מתאימות",
+  "info": "מציג _START_ עד _END_ מתוך _TOTAL_ רשומות",
+  "infoEmpty": "0 עד 0 מתוך 0 רשומות",
+  "infoFiltered": "(מסונן מסך _MAX_  רשומות)",
+  "infoPostFix": "",
+  "infoThousands": ",",
+  "lengthMenu": "הצג _MENU_ פריטים",
+  "loadingRecords": "טוען...",
+  "paginate": {
+    "first": "ראשון",
+    "last": "אחרון",
+    "next": "הבא",
+    "previous": "קודם"
+  },
+  "processing": "מעבד...",
+  "search": "חפש:",
+  "searchPlaceholder": "טקסט לחיפוש",
+  "select": {
+    "rows": {
+      "1": "שורה אחת נבחרה",
+      "_": "%d שורות נבחרו"
     }
+  },
+  "thousands": ",",
+  "zeroRecords": "לא נמצאו רשומות מתאימות"
 }

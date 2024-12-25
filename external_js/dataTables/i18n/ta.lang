@@ -1,23 +1,29 @@
 {
-	"sEmptyTable":     "அட்டவணையில் தரவு கிடைக்கவில்லை",
-	"sInfo":           "உள்ளீடுகளை் _START_ முதல _END_ உள்ள _TOTAL_ காட்டும்",
-	"sInfoEmpty":      "0 உள்ளீடுகளை 0 0 காட்டும்",
-	"sInfoFiltered":   "(_MAX_ மொத்த உள்ளீடுகளை இருந்து வடிகட்டி)",
-	"sInfoPostFix":    "",
-	"sInfoThousands":  ",",
-	"sLengthMenu":     "_MENU_ காண்பி",
-	"sLoadingRecords": "ஏற்றுகிறது ...",
-	"sProcessing":     "செயலாக்க ...",
-	"sSearch":         "தேடல்:",
-	"sZeroRecords":    "பொருத்தமான பதிவுகள் இல்லை",
-	"oPaginate": {
-		"sFirst":    "முதல்",
-		"sLast":     "இறுதி",
-		"sNext":     "அடுத்து",
-		"sPrevious": "முந்தைய"
-	},
-	"oAria": {
-		"sSortAscending":  ": நிரலை ஏறுவரிசையில் வரிசைப்படுத்த செயல்படுத்த",
-		"sSortDescending": ": நிரலை இறங்கு வரிசைப்படுத்த செயல்படுத்த"
-	}
+  "aria": {
+    "sortAscending": ": நிரலை ஏறுவரிசையில் வரிசைப்படுத்த செயல்படுத்த",
+    "sortDescending": ": நிரலை இறங்கு வரிசைப்படுத்த செயல்படுத்த"
+  },
+  "buttons": {
+    "copy": "நகல்",
+    "copyKeys": "அட்டவணைத் தரவை உங்கள் கணினி கிளிப்போர்டுக்கு நகலெடுக்க &lt;i&gt; ctrl அல்லது &lt;i&gt;u2318&lt;/i&gt; + &lt;i&gt;C&lt;/i&gt; ctrl+C ஐ அழுத்தவும். &lt;br&gt;&lt;br&gt;  ரத்துசெய்ய, இந்தச் செய்தியைக் கிளிக் செய்யவும் அல்லது எஸ்கேப் என்பதை அழுத்தவும்.",
+    "copyTitle": "கிளிப்போர்டுக்கு நகலெடுக்கவும்"
+  },
+  "decimal": "தசம",
+  "emptyTable": "அட்டவணையில் தரவு கிடைக்கவில்லை",
+  "info": "உள்ளீடுகளை் _START_ முதல _END_ உள்ள _TOTAL_ காட்டும்",
+  "infoEmpty": "0 உள்ளீடுகளை 0 0 காட்டும்",
+  "infoFiltered": "(_MAX_ மொத்த உள்ளீடுகளை இருந்து வடிகட்டி)",
+  "infoThousands": ",",
+  "lengthMenu": "_MENU_ காண்பி",
+  "loadingRecords": "ஏற்றுகிறது ...",
+  "paginate": {
+    "first": "முதல்",
+    "last": "இறுதி",
+    "next": "அடுத்து",
+    "previous": "முந்தைய"
+  },
+  "processing": "செயலாக்க ...",
+  "search": "தேடு",
+  "searchPlaceholder": "தேடல் இடப்பெயர்ச்சி",
+  "zeroRecords": "பொருத்தமான பதிவுகள் இல்லை"
 }

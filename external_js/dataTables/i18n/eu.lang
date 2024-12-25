@@ -1,24 +1,33 @@
 {
-	"sProcessing":     "Prozesatzen...",
-	"sLengthMenu":     "Erakutsi _MENU_ erregistro",
-	"sZeroRecords":    "Ez da emaitzarik aurkitu",
-	"sEmptyTable":     "Taula hontan ez dago inongo datu erabilgarririk",
-	"sInfo":           "_START_ -etik _END_ -erako erregistroak erakusten, guztira _TOTAL_ erregistro",
-	"sInfoEmpty":      "0tik 0rako erregistroak erakusten, guztira 0 erregistro",
-	"sInfoFiltered":   "(guztira _MAX_ erregistro iragazten)",
-	"sInfoPostFix":    "",
-	"sSearch":         "Aurkitu:",
-	"sUrl":            "",
-	"sInfoThousands":  ",",
-	"sLoadingRecords": "Abiarazten...",
-	"oPaginate": {
-		"sFirst":    "Lehena",
-		"sLast":     "Azkena",
-		"sNext":     "Hurrengoa",
-		"sPrevious": "Aurrekoa"
-	},
-	"oAria": {
-		"sSortAscending":  ": Zutabea goranzko eran ordenatzeko aktibatu ",
-		"sSortDescending": ": Zutabea beheranzko eran ordenatzeko aktibatu"
-	}
+  "aria": {
+    "sortAscending": ": Zutabea goranzko eran ordenatzeko aktibatu ",
+    "sortDescending": ": Zutabea beheranzko eran ordenatzeko aktibatu"
+  },
+  "buttons": {
+    "copy": "Kopiatu",
+    "copyKeys": "Sakatu ctrl edo u2313 + C taularen datuak zure sistemaren arbelera kopiatuzeko. Sakatu mezu hau edo escape bertan behera uztekao, sa",
+    "copySuccess": {
+      "1": "Lerro bat arbelera kopiatu da",
+      "_": "%ds lerro arbelera kopiatu dira"
+    },
+    "copyTitle": "Kopiatu arbelera"
+  },
+  "decimal": ",",
+  "emptyTable": "Taula honetan ez dago datu erabilgarririk",
+  "info": "_TOTAL_ erregistrotik _START_ - _END_ ikusgai",
+  "infoEmpty": "Ez dago elementurik",
+  "infoFiltered": "(guztira _MAX_ erregistrotik iragazita)",
+  "infoThousands": ".",
+  "lengthMenu": "Erakutsi _MENU_ erregistro",
+  "loadingRecords": "Abiarazten...",
+  "paginate": {
+    "first": "Lehenengoa",
+    "last": "Azkena",
+    "next": "Hurrengoa",
+    "previous": "Aurrekoa"
+  },
+  "processing": "Prozesatzen...",
+  "search": "Bilatu:",
+  "thousands": ".",
+  "zeroRecords": "Ez da emaitzarik aurkitu"
 }

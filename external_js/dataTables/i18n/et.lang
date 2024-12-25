@@ -1,16 +1,28 @@
 {
-	"sProcessing":   "Palun oodake, koostan kuvamiseks nimekirja!",
-	"sLengthMenu":   "N&auml;ita kirjeid _MENU_ kaupa",
-	"sZeroRecords":  "Otsitavat vastet ei leitud.",
-	"sInfo":         "Kuvatud: _TOTAL_ kirjet (_START_-_END_)",
-	"sInfoEmpty":    "Otsinguvasteid ei leitud",
-	"sInfoFiltered": " - filteeritud _MAX_ kirje seast.",
-	"sInfoPostFix":  "K&otilde;ik kuvatud kirjed p&otilde;hinevad reaalsetel tulemustel.",
-	"sSearch":       "Otsi k&otilde;ikide tulemuste seast:",
-	"oPaginate": {
-		"sFirst":      "Algus",
-		"sPrevious":   "Eelmine",
-		"sNext":       "J&auml;rgmine",
-		"sLast":       "Viimane"
-	}
+  "aria": {
+    "sortAscending": ": sorteeri kasvavalt",
+    "sortDescending": ": sorteeri kahanevalt"
+  },
+  "buttons": {
+    "copy": "Kopeeri",
+    "copyKeys": "Vajuta CTRL või u2318 + C et kopeerida tabeli sisu lõikelauale<br /><br />Tühistamiseks kliki sellel sõnumil või vajutage ESC.",
+    "copyTitle": "Kopeeri lõikelauale"
+  },
+  "decimal": ".",
+  "emptyTable": "Andmed puuduvad",
+  "info": "Kuvatud: _TOTAL_ kirjet (_START_-_END_)",
+  "infoEmpty": "Otsinguvasteid ei leitud",
+  "infoFiltered": " - filteeritud _MAX_ kirje seast.",
+  "lengthMenu": "N&auml;ita kirjeid _MENU_ kaupa",
+  "loadingRecords": "Laen...",
+  "paginate": {
+    "first": "Algus",
+    "last": "Viimane",
+    "next": "J&auml;rgmine",
+    "previous": "Eelmine"
+  },
+  "processing": "Palun oodake, koostan kuvamiseks nimekirja!",
+  "search": "Otsi k&otilde;ikide tulemuste seast:",
+  "searchPlaceholder": "Otsi...",
+  "zeroRecords": "Otsitavat vastet ei leitud."
 }

@@ -1,23 +1,39 @@
 {
-	"sEmptyTable": "Nobenih podatkov ni na voljo",
-	"sInfo": "Prikazujem _START_ do _END_ od _TOTAL_ zapisov",
-	"sInfoEmpty": "Prikazujem 0 do 0 od 0 zapisov",
-	"sInfoFiltered": "(filtrirano od _MAX_ vseh zapisov)",
-	"sInfoPostFix": "",
-	"sInfoThousands": ",",
-	"sLengthMenu": "Prikaži _MENU_ zapisov",
-	"sLoadingRecords": "Nalagam...",
-	"sProcessing": "Obdelujem...",
-	"sSearch": "Išči:",
-	"sZeroRecords": "Nobeden zapis ne ustreza",
-	"oPaginate": {
-		"sFirst": "Prvi",
-		"sLast": "Zadnji",
-		"sNext": "Nasl.",
-		"sPrevious": "Pred."
-	},
-	"oAria": {
-		"sSortAscending": ": vključite za naraščujoči sort",
-		"sSortDescending": ": vključite za padajoči sort"
-	}
+  "aria": {
+    "sortAscending": "razvrsti naraščajoče",
+    "sortDescending": "razvrsti padajoče"
+  },
+  "buttons": {
+    "copy": "Kopiraj",
+    "copyKeys": "Pritisni Ctrl ali u2318 + C za kopiranje podatkov tabele v odložišče sistema. Za preklic klikni na to sporočilo ali pritisni Escape.",
+    "copySuccess": {
+      "1": "1 vrstica prekopirana na odložišče.",
+      "_": "%ds vrstic prekopiranih na odložišče."
+    },
+    "copyTitle": "Kopiraj na odložišče"
+  },
+  "decimal": ",",
+  "emptyTable": "Nobenih podatkov ni na voljo",
+  "info": "Prikazujem _START_ do _END_ od _TOTAL_ zapisov",
+  "infoEmpty": "Prikazujem 0 do 0 od 0 zapisov",
+  "infoFiltered": "(filtrirano od _MAX_ vseh zapisov)",
+  "infoThousands": ".",
+  "lengthMenu": "Prikaži _MENU_ zapisov",
+  "loadingRecords": "Nalagam...",
+  "paginate": {
+    "first": "Prva",
+    "last": "Zadnja",
+    "next": "Naslednja",
+    "previous": "Predhodna"
+  },
+  "processing": "Obdelujem ...",
+  "search": "Išči:",
+  "select": {
+    "rows": {
+      "1": "1 izbrana vrstica",
+      "_": "2 izbrane vrstice"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "Nobeden zapis ne ustreza"
 }

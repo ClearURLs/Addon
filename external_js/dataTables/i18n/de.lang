@@ -1,41 +1,40 @@
 {
-	"sEmptyTable":   	"Keine Daten in der Tabelle vorhanden",
-	"sInfo":         	"_START_ bis _END_ von _TOTAL_ Einträgen",
-	"sInfoEmpty":    	"Keine Daten vorhanden",
-	"sInfoFiltered": 	"(gefiltert von _MAX_ Einträgen)",
-	"sInfoPostFix":  	"",
-	"sInfoThousands":  	".",
-	"sLengthMenu":   	"_MENU_ Einträge anzeigen",
-	"sLoadingRecords": 	"Wird geladen ..",
-	"sProcessing":   	"Bitte warten ..",
-	"sSearch":       	"Suchen",
-	"sZeroRecords":  	"Keine Einträge vorhanden",
-	"oPaginate": {
-		"sFirst":    	"Erste",
-		"sPrevious": 	"Zurück",
-		"sNext":     	"Nächste",
-		"sLast":     	"Letzte"
-	},
-	"oAria": {
-		"sSortAscending":  ": aktivieren, um Spalte aufsteigend zu sortieren",
-		"sSortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
-	},
-	"select": {
-    	"rows": {
-			"_": "%d Zeilen ausgewählt",
-			"0": "",
-			"1": "1 Zeile ausgewählt"
-	    }
-	},
-	"buttons": {
-		"print":	"Drucken",
-		"colvis":	"Spalten",
-		"copy":		"Kopieren",
-		"copyTitle":	"In Zwischenablage kopieren",
-		"copyKeys":	"Taste <i>ctrl</i> oder <i>\u2318</i> + <i>C</i> um Tabelle<br>in Zwischenspeicher zu kopieren.<br><br>Um abzubrechen die Nachricht anklicken oder Escape drücken.",
-		"copySuccess": {
-			"_": "%d Spalten kopiert",
-			"1": "1 Spalte kopiert"
-		}
-	}
+  "aria": {
+    "sortAscending": ": aktivieren, um Spalte aufsteigend zu sortieren",
+    "sortDescending": ": aktivieren, um Spalte absteigend zu sortieren"
+  },
+  "buttons": {
+    "copy": "Kopieren",
+    "copyKeys": "Taste <i>STRG&lt;\\/i&gt; oder <i>⌘&lt;\\/i&gt; + <i>C&lt;\\/i&gt; drücken um die Tabelle<br />in den Zwischenspeicher zu kopieren.<br /><br />Um den Vorgang abzubrechen, Nachricht anklicken oder Escape-Taste drücken.</i></i></i>",
+    "copySuccess": {
+      "1": "1 Zeile kopiert",
+      "_": "%d Zeilen kopiert"
+    },
+    "copyTitle": "In Zwischenablage kopieren"
+  },
+  "decimal": ",",
+  "emptyTable": "Keine Daten in der Tabelle vorhanden",
+  "info": "_START_ bis _END_ von _TOTAL_ Einträgen",
+  "infoEmpty": "Keine Daten vorhanden",
+  "infoFiltered": "(gefiltert von _MAX_ Einträgen)",
+  "infoThousands": ".",
+  "lengthMenu": "_MENU_ Zeilen anzeigen",
+  "loadingRecords": "Wird geladen ..",
+  "paginate": {
+    "first": "Erste",
+    "last": "Letzte",
+    "next": "Nächste",
+    "previous": "Vorherige"
+  },
+  "processing": "Bitte warten ..",
+  "search": "Suche:",
+  "searchPlaceholder": "Suchen...",
+  "select": {
+    "rows": {
+      "1": "1 Zeile ausgewählt",
+      "_": "%d Zeilen ausgewählt"
+    }
+  },
+  "thousands": ".",
+  "zeroRecords": "Keine passenden Einträge gefunden"
 }
