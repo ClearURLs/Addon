@@ -216,6 +216,7 @@ function initSettings() {
     storage.badged_color = "#ffa500";
     storage.hashURL = "https://rules2.clearurls.xyz/rules.minify.hash";
     storage.ruleURL = "https://rules2.clearurls.xyz/data.minify.json";
+    storage.whitelist = []; // TODO: If we do whitelist per rule, this needs to be obj
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
