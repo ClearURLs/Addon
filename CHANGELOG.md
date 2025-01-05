@@ -15,11 +15,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
-## [1.27.0] - 2023-XX-XX
+## [1.27.0] - 2025-01-05
+
+### Changed
+- Updated dependencies
 
 ### Fixed
 - [#276](https://github.com/ClearURLs/Addon/issues/276)
 - [#196](https://github.com/ClearURLs/Addon/issues/196)
+- [!108](https://gitlab.com/ClearURLs/ClearUrls/-/merge_requests/108)
+- [Fixed undefined `s` error](https://github.com/ClearURLs/Addon/commit/897c7dc67beab5e1e5f6f4b70b781f5bd3897060)
 
 # Removed
 - ETag filtering for Firefox. Since Firefox 85, ETags can no longer be used for tracking users over multiple sites.
