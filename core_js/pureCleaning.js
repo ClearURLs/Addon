@@ -26,8 +26,23 @@
  * @return {String}         cleaned URL
  */
 function pureCleaning(url, quiet = false) {
+    let exclude_domains = storage.excludeDomains.split('\n');
     let before = url;
     let after = url;
+
+    if (exclude_domains.length > 0) {
+        let hostname = new URL(url).hostname;
+        for (const domain of exclude_domains) {
+            let isRegexMatch = domain.startsWith('^') && domain.endsWith('$') && new RegExp(domain.slice(1, -1)).test(hostname)
+            let isSubdomainExcludeMatch = domain.startsWith('*') && hostname.endsWith(domain.slice(1))
+            let isExactDomainExcludeMatch = hostname.split('.').length === 2 && hostname === domain
+
+            if (isRegexMatch || isSubdomainExcludeMatch || isExactDomainExcludeMatch) {
+                return url
+            }
+        }
+    }
+
 
     do {
         before = after;
