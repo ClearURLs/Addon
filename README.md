@@ -2,11 +2,11 @@
 <a href="https://liberapay.com/kroeb" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/LiberaPay.png" alt="Buy Me A Coffee" height="55"></a>
 <a href="https://www.buymeacoffee.com/KevinRoebert" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/BuyMeACoffee.png" alt="Buy Me A Coffee" height="55"></a>
 
-[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://docs.clearurls.xyz/1.22.0/assets/img/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei) [<img src="https://storage.googleapis.com/chrome-gcs-uploader.appspot.com/image/WlD8wC6g8khYWPJUsQceQkhXSlv1/HRs9MPufa1J1h5glNhut.png" alt="for Chrome" height="60px">](https://chrome.google.com/webstore/detail/clearurls/lckanjgmijmafbedllaakclkaicjfmnk)
+[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://docs.clearurls.xyz/1.22.0/assets/img/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei)
 
 # <sub><img src="https://gitlab.com/ClearURLs/ClearUrls/raw/master/img/clearurls.svg" width="64px" height="64px"></sub> ClearURLs [![Gitter](https://badges.gitter.im/ClearURLs/ClearURLs.svg)](https://gitter.im/ClearURLs/ClearURLs)
 
-**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and *Chrome* based browsers.
+**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and some *Chrome* based browsers.
 
 This extension will automatically remove tracking elements from URLs to help protect your privacy when browsing the Internet, 
 which is regularly updated by us and can be found [here](https://gitlab.com/anti-tracking/ClearURLs/rules/-/raw/master/data.min.json).
@@ -94,14 +94,14 @@ We use some third-party scripts in our add-on. The authors and licenses are list
 -   [WebExtension browser API Polyfill](https://github.com/mozilla/webextension-polyfill) |
     Copyright by Mozilla |
     [MPL-2.0](https://github.com/mozilla/webextension-polyfill/blob/master/LICENSE)
--   [Bootstrap v4.3.1](https://github.com/twbs/bootstrap/tree/v4.3.1) |
+-   [Bootstrap](https://github.com/twbs/bootstrap) |
     Copyright 2011-2016 Twitter, Inc. |
     [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
--   [jQuery v3.6.0](https://github.com/jquery/jquery/tree/3.6.0) |
+-   [jQuery](https://github.com/jquery/jquery/) |
     Copyright JS Foundation and other contributors |
     [MIT](https://jquery.org/license/)
--   [DataTables v1.10.20](https://github.com/DataTables/DataTables/tree/master) |  Copyright (c) 2008-2015 SpryMedia Limited | [MIT](https://datatables.net/license/)
--   [Pickr v1.7.0](https://github.com/Simonwep/pickr/tree/1.7.0) | Copyright (c) 2018 - 2020 Simon Reinisch |
+-   [DataTables](https://github.com/DataTables/DataTables/tree/master) |  Copyright (c) 2008-2015 SpryMedia Limited | [MIT](https://datatables.net/license/)
+-   [Pickr](https://github.com/Simonwep/pickr/) | Copyright (c) 2018 - 2020 Simon Reinisch |
     [MIT](https://github.com/Simonwep/pickr/blob/master/LICENSE)
--   [Font Awesome v5.12.0](https://github.com/FortAwesome/Font-Awesome/tree/5.12.0) | Copyright (c) @fontawesome |
+-   [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) | Copyright (c) @fontawesome |
     [Font Awesome Free License](https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
