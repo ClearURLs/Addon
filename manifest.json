@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ClearURLs",
-  "version": "1.27.0",
+  "version": "1.27.1",
   "author": "Kevin Roebert",
   "description": "__MSG_extension_description__",
   "homepage_url": "https://docs.clearurls.xyz",
