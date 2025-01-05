@@ -1,0 +1,57 @@
+{
+    "emptyTable": "टेबलमा डाटा उपलब्ध भएन",
+    "info": "_TOTAL_ रेकर्ड मध्य _START_ देखि _END_ रेकर्ड देखाउंदै",
+    "infoEmpty": "0 मध्य 0 देखि 0 रेकर्ड देखाउंदै",
+    "infoFiltered": "(_MAX_ कुल रेकर्डबाट छनौट गरिएको)",
+    "infoThousands": ",",
+    "lengthMenu": " _MENU_ रेकर्ड देखाउने ",
+    "loadingRecords": "लोड हुँदैछ...",
+    "processing": "प्रगति हुदैंछ ...",
+    "search": "खोजी:",
+    "zeroRecords": "कुनै मिल्ने रेकर्ड फेला परेन",
+    "paginate": {
+        "first": "प्रथम",
+        "previous": "पछिल्लो",
+        "next": "अघिल्लो",
+        "last": "अन्तिम"
+    },
+    "aria": {
+        "sortAscending": ": अगाडिबाट अक्षरात्मक रूपमा क्रमबद्ध गराउने",
+        "sortDescending": ": पछाडिबाट अक्षरात्मक रूपमा क्रमबद्ध गराउने"
+    },
+    "autoFill": {
+        "cancel": " रद्द गर्नुहोस्",
+        "fill": "भर्न",
+        "fillHorizontal": "तेर्सो भर्नुहोस्",
+        "fillVertical": " ठाडो भर्नुहोस्",
+        "info": "जानकारी"
+    },
+    "buttons": {
+        "collection": "सङ्कलन",
+        "colvis": "कोल्विस",
+        "colvisRestore": "कोल्विस पुनर्स्थापना",
+        "copy": "कपी"
+    },
+    "searchPlaceholder": "प्लेसहोल्डर खोज्नुहोस्",
+    "thousands": " हजारौं",
+    "datetime": {
+        "previous": "अघिल्लो",
+        "next": "अर्को",
+        "hours": "घण्टा",
+        "minutes": "मिनेट",
+        "seconds": "सेकेन्ड",
+        "unknown": "अज्ञात"
+    },
+    "editor": {
+        "close": "बन्द",
+        "create": {
+            "button": "बटन सिर्जना गर्नुहोस् ",
+            "title": "शीर्षक सिर्जना गर्नुहोस् ",
+            "submit": "पेश गर्न सिर्जना गर्नुहोस्"
+        },
+        "edit": {
+            "button": "बटन सम्पादन ",
+            "title": "शीर्षक सम्पादन गर्नुहोस्"
+        }
+    }
+}

@@ -1,0 +1,246 @@
+{
+    "search": "Meklēt:",
+    "lengthMenu": "Rādīt _MENU_ ierakstus",
+    "infoEmpty": "Nav ierakstu",
+    "zeroRecords": "Nav atrasti vaicājumam atbilstoši ieraksti",
+    "emptyTable": "Tabulā nav datu",
+    "paginate": {
+        "first": "Pirmā",
+        "previous": "Iepriekšējā",
+        "next": "Nākošā",
+        "last": "Pēdējā"
+    },
+    "aria": {
+        "sortAscending": ": aktivizēt kolonnu, lai kārtotu augoši",
+        "sortDescending": ": aktivizēt kolonnu, lai kārtotu dilstoši"
+    },
+    "autoFill": {
+        "cancel": "Atcelt",
+        "fillHorizontal": "Aizpildīt šūnas horizontāli",
+        "fillVertical": "Aizpildīt šūnas vertikāli",
+        "fill": "Aizpildīt visas šūnas ar <i>%d<\/i>",
+        "info": "Informācija"
+    },
+    "buttons": {
+        "collection": "Saraksts",
+        "colvis": "Pievienot - noņemt kolonnas",
+        "copy": "Kopēt",
+        "csv": "CSV",
+        "excel": "Excel",
+        "pdf": "PDF",
+        "copyTitle": "Kopēt starpliktuvē",
+        "colvisRestore": "Atjaunot redzamību",
+        "createState": "Izveidot Stāvokli",
+        "removeAllStates": "Dzēst Visus Stāvokļus",
+        "removeState": "Dzēst",
+        "renameState": "Pārsaukt",
+        "savedStates": "Saglabātie Stāvokļi",
+        "copyKeys": "Spiediet CTRL vai u2318 + C, lai kopētu tabulas datus sistēmas starpliktuvē.<br \/><br \/>Lai atceltu, klikšķiniet uz šī ziņojuma vai spiediet taustiņu Escape.",
+        "copySuccess": {
+            "1": "1 rinda ir kopēta starpliktuvē",
+            "_": "%d rindas ir kopētas starpliktuvē"
+        },
+        "pageLength": {
+            "-1": "Rādīt visas rindas",
+            "1": "Rādīt 1 rindu",
+            "_": "Rādīt %d rindas"
+        },
+        "print": "Drukāt",
+        "stateRestore": "Stāvoklis %d",
+        "updateState": "Atjaunināt"
+    },
+    "info": "Atlasīti _START_ līdz _END_ no _TOTAL_ ierakstiem",
+    "searchPlaceholder": "vārds vai frāze",
+    "select": {
+        "cells": {
+            "1": "atlasīta 1 šūna",
+            "_": "atlasītas %d šūnas"
+        },
+        "columns": {
+            "1": "atlasīta 1 kolonna",
+            "_": "atlasītas %d kolonnas"
+        },
+        "rows": {
+            "1": "atlasīta 1 rinda",
+            "_": "atlasītas %d rindas"
+        }
+    },
+    "datetime": {
+        "previous": "Iepriekšējais",
+        "next": "Nākamais",
+        "hours": "Stunda",
+        "minutes": "Minūte",
+        "seconds": "Sekunde",
+        "unknown": "-",
+        "amPm": [
+            "am",
+            "pm"
+        ],
+        "weekdays": [
+            "Pr",
+            "Ot",
+            "Tr",
+            "Ce",
+            "Pk",
+            "Se",
+            "Sv"
+        ],
+        "months": [
+            "Janvāris",
+            "Februāris",
+            "Marts",
+            "Aprīlis",
+            "Maijs",
+            "Jūnijs",
+            "Jūlijs",
+            "Augusts",
+            "Septembris",
+            "Oktobris",
+            "Novembris",
+            "Decembris"
+        ]
+    },
+    "editor": {
+        "close": "Aizvērt",
+        "create": {
+            "title": "Izveidot jaunu ierakstu",
+            "submit": "Izveidot",
+            "button": "Jauns"
+        },
+        "remove": {
+            "confirm": {
+                "_": "Vai tiešām dzēst %d rindas?",
+                "1": "Vai tiešām dzēst 1 rindu?"
+            },
+            "button": "Dzēst",
+            "title": "Dzēst",
+            "submit": "Dzēst"
+        },
+        "error": {
+            "system": "Kļūda sistēmā (<a target=\"\\\" rel=\"nofollow\" href=\"\\\">Vairāk informācijas<\/a>)."
+        },
+        "multi": {
+            "restore": "Atsaukt izmaiņas",
+            "title": "Vairākas vērtības",
+            "noMulti": "Šo ievadi var rediģēt atsevišķi, bet ne daļu no grupas.",
+            "info": "Atlasītie vienumi satur dažādas vērtības šai ievadei. Lai rediģētu un iestatītu visiem šīs ievades vienumiem vienādas vērtības, klikšķiniet vai pieskarieties šeit, pretējā gadījumā tiks saglabātas to individuālās vērtības."
+        },
+        "edit": {
+            "button": "Labot",
+            "title": "Labot ierakstu",
+            "submit": "Saglabāt"
+        }
+    },
+    "infoThousands": ",",
+    "stateRestore": {
+        "removeJoiner": "un",
+        "removeSubmit": "Dzēst",
+        "removeTitle": "Dzēst Stāvokli",
+        "renameButton": "Pārsaukt",
+        "renameLabel": "Jaunais %s nosaukums:",
+        "renameTitle": "Pārsaukt Stāvokli",
+        "creationModal": {
+            "button": "Izveidot",
+            "columns": {
+                "search": "Meklēšana Kolonnās",
+                "visible": "Kolonnu Redzamība"
+            },
+            "name": "Nosaukums:",
+            "paging": "Lapošana",
+            "scroller": "Ritināšanas Pozīcija",
+            "search": "Meklēšana",
+            "title": "Izveidot Jaunu Stāvokli",
+            "toggleLabel": "Iekļauj:",
+            "order": "Kārtošana",
+            "searchBuilder": "Atlases Konstruktors",
+            "select": "Atlase"
+        },
+        "duplicateError": "Stāvoklis ar šādu nosaukumu jau eksistē.",
+        "emptyStates": "Nav saglabātu stāvokļu",
+        "removeConfirm": "Vai tiešām vēlaties dzēst %s?",
+        "removeError": "Neizdevās dzēst stāvokli.",
+        "emptyError": "Nosaukums nedrīkst būt tukšs."
+    },
+    "thousands": ",",
+    "searchBuilder": {
+        "add": "Pievienot Nosacījumu",
+        "button": {
+            "0": "Atlases Konstruktors",
+            "_": "Atlases Konstruktors (%d)"
+        },
+        "clearAll": "Notīrīt Visu",
+        "condition": "Nosacījums",
+        "conditions": {
+            "date": {
+                "after": "Pēc",
+                "before": "Pirms",
+                "between": "Starp",
+                "empty": "Tukšs",
+                "equals": "Vienāds",
+                "not": "Nav",
+                "notBetween": "Nav Starp",
+                "notEmpty": "Nav Tukšs"
+            },
+            "number": {
+                "between": "Starp",
+                "empty": "Tukšs",
+                "equals": "Vienāds",
+                "gt": "Lielāks Par",
+                "gte": "Lielāks Par Vienāds Ar",
+                "lt": "Mazāks Par",
+                "lte": "Mazāks Par Vienāds Ar",
+                "not": "Nav",
+                "notBetween": "Nav Starp",
+                "notEmpty": "Nav Tukšs"
+            },
+            "string": {
+                "contains": "Satur",
+                "empty": "Tukšs",
+                "endsWith": "Beidzas Ar",
+                "equals": "Vienāds",
+                "not": "Nav",
+                "notEmpty": "Nav Tukšs",
+                "startsWith": "Sākas Ar",
+                "notContains": "Nesatur",
+                "notStartsWith": "Nesākas Ar",
+                "notEndsWith": "Nebeidzas Ar"
+            },
+            "array": {
+                "equals": "Vienāds",
+                "empty": "Tukšs",
+                "contains": "Satur",
+                "not": "Nav",
+                "notEmpty": "Nav Tukšs",
+                "without": "Bez"
+            }
+        },
+        "data": "Dati",
+        "deleteTitle": "Dzēst atlases noteikumu",
+        "leftTitle": "Izņemtie Kritēriji",
+        "logicAnd": "Un",
+        "logicOr": "Vai",
+        "rightTitle": "Atkāpes Kritēriji",
+        "title": {
+            "0": "Atlases Konstruktors",
+            "_": "Atlases Konstruktors (%d)"
+        },
+        "value": "Vērtība"
+    },
+    "searchPanes": {
+        "clearMessage": "Notīrīt Visu",
+        "collapse": {
+            "0": "Meklēšanas Paneļi",
+            "_": "Meklēšanas Paneļi (%d)"
+        },
+        "count": "{total}",
+        "countFiltered": "{shown} ({total})",
+        "emptyPanes": "Nav Meklēšanas Paneļu",
+        "loadMessage": "Ielādē Meklēšanas Paneļus...",
+        "title": "Aktīvie Filtri - %d",
+        "showMessage": "Rādīt Visu",
+        "collapseMessage": "Sakļaut Visu"
+    },
+    "loadingRecords": "Notiek ielāde...",
+    "processing": "Uzgaidiet...",
+    "infoFiltered": "atlasīts no pavisam _MAX_ ierakstiem"
+}

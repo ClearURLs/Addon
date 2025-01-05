@@ -1,0 +1,246 @@
+{
+    "processing": "Procesează...",
+    "lengthMenu": "Afișează _MENU_ înregistrări pe pagină",
+    "zeroRecords": "Nu am găsit nimic - ne pare rău",
+    "info": "Afișate de la _START_ la _END_ din _TOTAL_ înregistrări",
+    "infoEmpty": "Afișate de la 0 la 0 din 0 înregistrări",
+    "infoFiltered": "(filtrate dintr-un total de _MAX_ înregistrări)",
+    "search": "Caută:",
+    "aria": {
+        "sortAscending": "Sortează ascendent",
+        "sortDescending": "Sortează descendent"
+    },
+    "autoFill": {
+        "cancel": "Anulează",
+        "fill": "Completează toate celulele cu <i>%d<\/i>",
+        "fillHorizontal": "Completeză celulele orizonal",
+        "fillVertical": "Completează celulele vertical"
+    },
+    "buttons": {
+        "csv": "CSV",
+        "excel": "Excel",
+        "pageLength": {
+            "-1": "Arată toate rândurile",
+            "_": "Arată %d rânduri",
+            "1": "Arata un rând"
+        },
+        "pdf": "PDF",
+        "print": "Imprimă",
+        "colvis": "Vizibilitate coloane",
+        "copy": "Copie",
+        "copyTitle": "Copie în Clipboard",
+        "colvisRestore": "Resetare vizibilitate",
+        "copyKeys": "Apasă ctrl sau u2318 + C pentru a copia datele din tabel în clipboard-ul sistemului.<br \/><br \/>Pentru a anula, dați clic pe acest mesaj sau apăsați pe Escape.",
+        "createState": "Creează Stare",
+        "removeAllStates": "Înlătură Toate Stările",
+        "removeState": "Înlătură",
+        "renameState": "Redenumește",
+        "savedStates": "Salvează Stări",
+        "collection": "Colecție <span class=\"ui-button-icon-primary ui-icon ui-icon-triangle-1-s\"><\/span>",
+        "copySuccess": {
+            "1": "Copiat un rând în clipboard",
+            "_": "Copiat %ds rânduri în clipboard"
+        },
+        "stateRestore": "Starea %d",
+        "updateState": "Reincarcă"
+    },
+    "searchBuilder": {
+        "value": "Valoare",
+        "condition": "Condiție",
+        "data": "Data",
+        "logicAnd": "Și",
+        "logicOr": "Sau",
+        "button": {
+            "0": "Generator de căutare",
+            "_": "Generator de căutare (%d)"
+        },
+        "conditions": {
+            "date": {
+                "after": "După",
+                "between": "Între",
+                "empty": "Gol",
+                "before": "Înainte de",
+                "equals": "Egal",
+                "not": "Nu este",
+                "notBetween": "Nu este între",
+                "notEmpty": "Nu este goală"
+            },
+            "number": {
+                "between": "Între",
+                "empty": "Gol",
+                "equals": "Egal",
+                "gt": "Mai mare de",
+                "gte": "Mai mare sau egal cu",
+                "lt": "Mai puțin de",
+                "lte": "Mai pușin sau egal cu",
+                "not": "Nu este",
+                "notBetween": "Nu este între",
+                "notEmpty": "Nu este gol"
+            },
+            "string": {
+                "contains": "Conține",
+                "empty": "Este gol",
+                "endsWith": "Se termină cu",
+                "equals": "Este la fel cu",
+                "not": "Nu este",
+                "notEmpty": "Nu este gol",
+                "startsWith": "Începe cu",
+                "notContains": "Nu conține",
+                "notStartsWith": "Nu începe cu",
+                "notEndsWith": "Nu se termină cu"
+            },
+            "array": {
+                "equals": "Egal cu",
+                "empty": "Gol",
+                "contains": "Conține",
+                "not": "Nu este",
+                "notEmpty": "Nu este gol",
+                "without": "Fără"
+            }
+        },
+        "deleteTitle": "Ștergeți regula de filtrare",
+        "leftTitle": "Criterii Outdent",
+        "rightTitle": "Criterii de indentare",
+        "title": {
+            "0": "Generator de căutare",
+            "_": "Generator de căutare (%d)"
+        },
+        "add": "Adaugă condiție",
+        "clearAll": "Șterge tot"
+    },
+    "loadingRecords": "Încarcă...",
+    "datetime": {
+        "previous": "Precedentă",
+        "next": "Următoare",
+        "hours": "Ore",
+        "minutes": "Minute",
+        "seconds": "Secunde",
+        "unknown": "Necunoscut",
+        "amPm": [
+            "AM",
+            "PM"
+        ],
+        "weekdays": {
+            "1": "Mar",
+            "3": "Joi",
+            "4": "Vin",
+            "6": "Dum",
+            "0": "Lun",
+            "2": "Mie",
+            "5": "Sâm"
+        },
+        "months": [
+            "Ianuarie",
+            "Februarie",
+            "Martie",
+            "Aprilie",
+            "Mai",
+            "Iunie",
+            "Iulie",
+            "August",
+            "Septembrie",
+            "Octombrie",
+            "Noiembrie",
+            "Decembrie"
+        ]
+    },
+    "editor": {
+        "create": {
+            "button": "Nou",
+            "title": "Creează o intrare nouă",
+            "submit": "Creează"
+        },
+        "edit": {
+            "button": "Editează",
+            "submit": "Editează",
+            "title": "Editează rândul"
+        },
+        "remove": {
+            "button": "Șterge",
+            "title": "Șterge",
+            "submit": "Șterge",
+            "confirm": {
+                "_": "Sigur doriți să ștergeți %d rânduri?",
+                "1": "Sigur doriți să ștergeți 1 rând?"
+            }
+        },
+        "close": "Închide",
+        "multi": {
+            "title": "Valori multiple",
+            "info": "Elementele selectate conțin valori diferite pentru această intrare. Pentru a edita și a seta toate elementele pentru această intrare la aceeași valoare, faceți clic sau atingeți aici, altfel își vor păstra valorile individuale.",
+            "restore": "Anulează modificările",
+            "noMulti": "Această intrare poate fi editată individual, dar nu face parte dintr-un grup."
+        },
+        "error": {
+            "system": "A apărut o eroare de sistem (Mai multe informatii)."
+        }
+    },
+    "decimal": ",",
+    "emptyTable": "Nu există date în tabel",
+    "searchPlaceholder": "Caută în tabel",
+    "thousands": ".",
+    "infoThousands": ".",
+    "paginate": {
+        "first": "Prima pagină",
+        "last": "Ultima pagină",
+        "next": "Pagina următoare",
+        "previous": "Pagina precedentă"
+    },
+    "searchPanes": {
+        "clearMessage": "Șterge tot",
+        "collapse": {
+            "0": "Panou căutare",
+            "_": "Panou căutare (%d)"
+        },
+        "count": "{total}",
+        "countFiltered": "{shown} ({total})",
+        "emptyPanes": "Fără panouri de căutare",
+        "loadMessage": "Ăncarcă panouri de căutare",
+        "title": "Filtre Activ - %d",
+        "showMessage": "Arată toate",
+        "collapseMessage": "Închide toate"
+    },
+    "select": {
+        "cells": {
+            "1": "1 celulă selectată",
+            "_": "%d celule selectate"
+        },
+        "columns": {
+            "1": "1 coloană selectată",
+            "_": "%d coloane selectate"
+        },
+        "rows": {
+            "1": "1 rând selectat",
+            "_": "%d rânduri selectate"
+        }
+    },
+    "stateRestore": {
+        "creationModal": {
+            "button": "Creează",
+            "columns": {
+                "search": "Căutare în coloană",
+                "visible": "Vizibilitate coloană"
+            },
+            "name": "Nume:",
+            "order": "Ordonare",
+            "paging": "Paginație",
+            "scroller": "Poziție Scroll",
+            "search": "Căutare",
+            "searchBuilder": "Creează Căutare",
+            "select": "Selectări",
+            "title": "Creează o nouă Stare",
+            "toggleLabel": "Include:"
+        },
+        "duplicateError": "O stare cu acest nume există deja.",
+        "emptyError": "Numele nu poate fi gol.",
+        "emptyStates": "Stare nesalvată",
+        "removeConfirm": "Sunteți sigur că vreți sa ștergeți %s?",
+        "removeError": "Ștergere stare eșuată.",
+        "removeJoiner": "și",
+        "removeSubmit": "Șterge",
+        "removeTitle": "Sterge Starea",
+        "renameButton": "Redenumește",
+        "renameLabel": "Nume nou pentru %s:",
+        "renameTitle": "Redenumește Starea"
+    }
+}

@@ -1,0 +1,245 @@
+{
+    "emptyTable": "Nema podataka u tabeli",
+    "info": "Prikaz _START_ do _END_ od ukupno _TOTAL_ zapisa",
+    "infoEmpty": "Prikaz 0 do 0 od ukupno 0 zapisa",
+    "infoFiltered": "(filtrirano od ukupno _MAX_ zapisa)",
+    "infoThousands": ".",
+    "lengthMenu": "Prikaži _MENU_ zapisa",
+    "loadingRecords": "Učitavanje...",
+    "processing": "Obrada...",
+    "search": "Pretraga:",
+    "zeroRecords": "Nisu pronađeni odgovarajući zapisi",
+    "paginate": {
+        "first": "Početna",
+        "last": "Poslednja",
+        "next": "Sledeća",
+        "previous": "Prethodna"
+    },
+    "aria": {
+        "sortAscending": ": aktivirajte da sortirate kolonu uzlazno",
+        "sortDescending": ": aktivirajte da sortirate kolonu silazno"
+    },
+    "editor": {
+        "edit": {
+            "button": "Izmeni",
+            "title": "Izmeni unos",
+            "submit": "Izmeni"
+        },
+        "close": "Zatvori",
+        "create": {
+            "button": "Novo",
+            "title": "Kreiraj novi unos",
+            "submit": "Kreiraj"
+        },
+        "remove": {
+            "button": "Obriši",
+            "submit": "Obriši",
+            "title": "Brisanje",
+            "confirm": {
+                "_": "Da li želite da obrišete %d redova?",
+                "1": "Da li želite da obrišete 1 red?"
+            }
+        },
+        "error": {
+            "system": "Pojavila se sistemska greška (<a target=\"\\\" rel=\"nofollow\" href=\"\\\">Više informacija<\/a>)."
+        },
+        "multi": {
+            "title": "Višestruke vrednosti",
+            "info": "Izabrane stavke sadrže različite vrednosti za ovaj unos. Da biste uredili i postavili sve stavke za ovaj unos na istu vrednost, kliknite ili dodirnite ovde, inače će zadržati svoje pojedinačne vrednosti.",
+            "restore": "Poništi promene",
+            "noMulti": "Ovaj unos se može uređivati pojedinačno, ali ne i kao deo grupe."
+        }
+    },
+    "autoFill": {
+        "cancel": "Otkaži",
+        "fill": "Popuni sve ćelije sa <i>%d<\/i>",
+        "fillHorizontal": "Popuni ćelije horizontalno",
+        "fillVertical": "Popuni ćelije vertikalno"
+    },
+    "buttons": {
+        "collection": "Kolekcija <span class=\"ui-button-icon-primary ui-icon ui-icon-triangle-1-s\"><\/span>",
+        "colvisRestore": "Vrati vidljivost",
+        "copy": "Kopiraj",
+        "copyKeys": "Pritsni ctrl ili u2318 + C da kopiraš tabelu sa podacima u sistemski beležnik <br \/><br \/>Da otkažeš akciju, klikni na ovu poruku ili pritisni ESC na tastaturi.",
+        "copySuccess": {
+            "1": "1 red je kopiran u beležnik",
+            "_": "Kopirano %d redova"
+        },
+        "copyTitle": "Kopiraj u beležnik",
+        "csv": "CSV",
+        "excel": "Excel",
+        "pageLength": {
+            "-1": "Prikaži sve redove",
+            "1": "Prikaži 1 red",
+            "_": "Prikaži %d reda"
+        },
+        "pdf": "PDF",
+        "print": "Štampa",
+        "createState": "Kreiraj stanje",
+        "removeAllStates": "Ukloni sva stanja",
+        "removeState": "Ukloni",
+        "renameState": "Preimenuj",
+        "savedStates": "Sačuvana stanja",
+        "updateState": "Ažuriraj",
+        "colvis": "Vidljivost kolona",
+        "stateRestore": "Stanje %d"
+    },
+    "searchBuilder": {
+        "add": "Dodaj uslov",
+        "clearAll": "Očisti sve",
+        "condition": "Uslov",
+        "conditions": {
+            "date": {
+                "between": "Između",
+                "equals": "Jednako",
+                "not": "Nije",
+                "notBetween": "Nije između",
+                "after": "Posle",
+                "before": "Pre",
+                "empty": "Prazan",
+                "notEmpty": "Nije prazao"
+            },
+            "number": {
+                "between": "Između",
+                "empty": "Prazan",
+                "equals": "Jednak",
+                "gt": "Veće od",
+                "gte": "Veće ili jednako od",
+                "lt": "Manje od",
+                "lte": "Manje ili jednako od",
+                "not": "Nije",
+                "notBetween": "Nije između",
+                "notEmpty": "Nije prazan"
+            },
+            "string": {
+                "contains": "Sadrži",
+                "empty": "Prazno",
+                "endsWith": "Se završava na",
+                "not": "Nije",
+                "notEmpty": "Nije prazan",
+                "startsWith": "Počinje sa",
+                "notContains": "Ne sadrži",
+                "notStartsWith": "Ne počinje sa",
+                "notEndsWith": "Ne završava se sa",
+                "equals": "Jednak"
+            },
+            "array": {
+                "equals": "Jednako",
+                "empty": "Prazno",
+                "contains": "Sadrži",
+                "not": "Nije",
+                "notEmpty": "Nije prazan",
+                "without": "Bez"
+            }
+        },
+        "data": "Podaci",
+        "deleteTitle": "Obriši filter",
+        "leftTitle": "Outdent kriterijum",
+        "logicAnd": "I",
+        "logicOr": "ili",
+        "rightTitle": "Indent kriterijum",
+        "value": "Vrednost",
+        "button": {
+            "0": "Kreator pretraga",
+            "_": "Kreator pretraga (%d)"
+        },
+        "title": {
+            "0": "Kreator pretraga",
+            "_": "Kreator pretraga (%d)"
+        }
+    },
+    "searchPanes": {
+        "clearMessage": "Ukloni sve",
+        "count": "{total}",
+        "countFiltered": "{shown} ({total})",
+        "title": "Aktivni filteri - %d",
+        "showMessage": "Prikaži sve",
+        "collapseMessage": "Sakrij sve",
+        "collapse": {
+            "0": "Paneli pretrage",
+            "_": "Paneli pretrage (%d)"
+        },
+        "emptyPanes": "Nema panela pretage",
+        "loadMessage": "Učitavanje panela pretrage..."
+    },
+    "datetime": {
+        "previous": "Prethodni",
+        "next": "Sledeći",
+        "hours": "Sati",
+        "minutes": "Minuti",
+        "seconds": "Sekunde",
+        "unknown": "-",
+        "amPm": [
+            "am",
+            "pm"
+        ],
+        "weekdays": [
+            "Ned",
+            "Pon",
+            "Uto",
+            "Sre",
+            "Čet",
+            "Pet",
+            "Sub"
+        ],
+        "months": [
+            "Januar",
+            "Februar",
+            "Mart",
+            "April",
+            "Maj",
+            "Jun",
+            "Jul",
+            "Avgust",
+            "Septembar",
+            "Oktobar",
+            "Novembar",
+            "Decembar"
+        ]
+    },
+    "stateRestore": {
+        "creationModal": {
+            "columns": {
+                "search": "Pretraga kolone",
+                "visible": "Vidljivost kolone"
+            },
+            "order": "Sortiranje",
+            "paging": "Paginacija",
+            "scroller": "Pozicija skrola",
+            "search": "Pretraga",
+            "title": "Kreiraj novo stanje",
+            "toggleLabel": "Uključuje:",
+            "searchBuilder": "Kreator pretraga",
+            "select": "Odabir",
+            "button": "Kreiraj",
+            "name": "Ime:"
+        },
+        "duplicateError": "Stanje sa ovim imenom već postoji",
+        "emptyError": "Ime ne može biti prazno.",
+        "emptyStates": "Nema sačuvanih stanja",
+        "removeJoiner": "i",
+        "renameButton": "Preimenuj",
+        "renameLabel": "Novo ime za %s:",
+        "renameTitle": "Preimenuj stanje",
+        "removeConfirm": "Da li ste sigurni da zelite obrisati stanje %s?",
+        "removeError": "Brisanje stanja nije uspelo.",
+        "removeSubmit": "Obriši",
+        "removeTitle": "Obriši stanje"
+    },
+    "decimal": ",",
+    "select": {
+        "cells": {
+            "1": "1 ćelija je izabrana",
+            "_": "%d izabrane ćelije"
+        },
+        "columns": {
+            "1": "1 kolona je izabrana",
+            "_": "%d izabrane kolone"
+        },
+        "rows": {
+            "1": "1 red je izabran",
+            "_": "%d izabrana reda"
+        }
+    },
+    "thousands": "."
+}

@@ -1,0 +1,184 @@
+{
+    "processing": "Procesando...",
+    "lengthMenu": "Mostrar _MENU_ rexistros",
+    "zeroRecords": "Non se atoparon resultados",
+    "emptyTable": "Ningún dato dispoñible nesta táboa",
+    "info": "Mostrando rexistros do _START_ ao _END_ dun total de _TOTAL_ rexistros",
+    "infoEmpty": "Mostrando rexistros do 0 ao 0 dun total de 0 rexistros",
+    "infoFiltered": "(filtrado dun total de _MAX_ rexistros)",
+    "search": "Buscar:",
+    "loadingRecords": "Cargando...",
+    "paginate": {
+        "first": "Primeiro",
+        "last": "Último",
+        "next": "Seguinte",
+        "previous": "Anterior"
+    },
+    "aria": {
+        "sortAscending": ": Activar para ordenar a columna de maneira ascendente",
+        "sortDescending": ": Activar para ordenar a columna de maneira descendente"
+    },
+    "autoFill": {
+        "cancel": "Cancelar",
+        "fill": "Rechea todas as celas con <i>%d<\/i>",
+        "fillHorizontal": "Rechea celas horizontamente",
+        "fillVertical": "Rechea celas verticalmente"
+    },
+    "buttons": {
+        "collection": "Colección",
+        "colvis": "Visibilidade da columna",
+        "colvisRestore": "Restaurar visibilidade",
+        "copy": "Copiar",
+        "copyKeys": "Preme ctrl o u2318 + C para copiar os datos da táboa ao portapapeis do sistema. <br \/> <br \/> Para cancelar, fai clic nesta mensaxe ou preme escape.",
+        "copyTitle": "Copiar ao portapapeis",
+        "csv": "CSV",
+        "excel": "Excel",
+        "pdf": "PDF",
+        "copySuccess": {
+            "1": "Copiada 1 fila ao portapapeis",
+            "_": "Copiadas %ds fila ao portapapeis"
+        },
+        "pageLength": {
+            "-1": "Mostrar todas as filas",
+            "_": "Mostrar %d filas"
+        },
+        "print": "Imprimir",
+        "createState": "Crear Estado",
+        "removeAllStates": "Eliminar Todos os Estados",
+        "removeState": "Eliminar",
+        "renameState": "Renomear",
+        "savedStates": "Estados Gardados",
+        "stateRestore": "Estado %d",
+        "updateState": "Actualizar"
+    },
+    "decimal": ",",
+    "infoThousands": ".",
+    "thousands": ".",
+    "searchBuilder": {
+        "add": "Engadir condición",
+        "button": {
+            "0": "Constructor de busca",
+            "_": "Constructor de busca (%d)"
+        },
+        "clearAll": "Borrar todo",
+        "condition": "Condición",
+        "conditions": {
+            "date": {
+                "after": "Despois",
+                "before": "Antes",
+                "between": "Entre",
+                "empty": "Baleiro",
+                "equals": "Igual a",
+                "not": "Diferente de",
+                "notBetween": "Non entre",
+                "notEmpty": "Non Baleiro"
+            },
+            "number": {
+                "between": "Entre",
+                "empty": "Baleiro",
+                "equals": "Igual a",
+                "gt": "Maior a",
+                "gte": "Maior ou igual a",
+                "lt": "Menor que",
+                "lte": "Menor ou igual que",
+                "not": "Diferente de",
+                "notBetween": "Non entre",
+                "notEmpty": "Non baleiro"
+            },
+            "string": {
+                "contains": "Contén",
+                "empty": "Baleiro",
+                "endsWith": "Termina en",
+                "equals": "Igual a",
+                "not": "Diferente de",
+                "notEmpty": "Non baleiro",
+                "startsWith": "Comeza con",
+                "notContains": "Non Contén",
+                "notStartsWith": "Non comeza con",
+                "notEndsWith": "Non termina con"
+            },
+            "array": {
+                "equals": "Igual",
+                "empty": "Baleiro",
+                "contains": "Contén",
+                "not": "Diferente de",
+                "notEmpty": "Non Baleiro",
+                "without": "Sen"
+            }
+        },
+        "data": "Data",
+        "deleteTitle": "Eliminar regra de filtrado",
+        "leftTitle": "Criterios anulados",
+        "logicAnd": "E",
+        "logicOr": "Ou",
+        "rightTitle": "Criterios de sangría",
+        "title": {
+            "0": "Constructor de busca",
+            "_": "Constructor de busca (%d)"
+        },
+        "value": "Valor"
+    },
+    "searchPanes": {
+        "clearMessage": "Borrar todo",
+        "collapse": {
+            "0": "Paneis de busca",
+            "_": "Paneis de busca (%d)"
+        },
+        "count": "{total}",
+        "countFiltered": "{shown} ({total})",
+        "emptyPanes": "Sen paneis de busca",
+        "loadMessage": "Cargando paneis de busca",
+        "title": "Filtros Activos - %d",
+        "showMessage": "Mostrar Todo",
+        "collapseMessage": "Colapsar Todo"
+    },
+    "select": {
+        "cells": {
+            "1": "1 célula seleccionada",
+            "_": "%d células seleccionadas"
+        },
+        "columns": {
+            "1": "1 columna seleccionada",
+            "_": "%d columnas seleccionadas"
+        },
+        "rows": {
+            "1": "1 fila seleccionada",
+            "_": "%d filas seleccionadas"
+        }
+    },
+    "datetime": {
+        "previous": "Anterior",
+        "next": "Próximo",
+        "hours": "Horas",
+        "minutes": "Minutos",
+        "seconds": "Segundos",
+        "unknown": "-",
+        "amPm": [
+            "AM",
+            "PM"
+        ],
+        "weekdays": [
+            "Dom",
+            "Lun",
+            "Mar",
+            "Mer",
+            "Xov",
+            "Ven",
+            "Sab"
+        ],
+        "months": [
+            "Xaneiro",
+            "Febreiro",
+            "Marzo",
+            "Abril",
+            "Maio",
+            "Xuño",
+            "Xullo",
+            "Agosto",
+            "Setembro",
+            "Outubro",
+            "Novembro",
+            "Decembro"
+        ]
+    }
+}
