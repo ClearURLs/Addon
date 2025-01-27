@@ -347,7 +347,7 @@ function urlSearchParamsToString(searchParams) {
 
     searchParams.forEach((value, key) => {
         if (value) {
-            rtn.push(key + '=' + value)
+            rtn.push(key + '=' + encodeURIComponent(value))
         } else {
             rtn.push(key)
         }
