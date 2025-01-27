@@ -15,6 +15,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
+## [1.27.2] - 2025-01-27
+
+### Fixed
+Special thanks to [SunsetTechuila](https://github.com/SunsetTechuila) for providing [PR 415](https://github.com/ClearURLs/Addon/pull/415)
+- https://bugzilla.mozilla.org/show_bug.cgi?id=1943562
+- https://bugzilla.mozilla.org/show_bug.cgi?id=1942909
+- https://bugzilla.mozilla.org/show_bug.cgi?id=1942705
+- https://bugzilla.mozilla.org/show_bug.cgi?id=1943842
+- https://bugzilla.mozilla.org/show_bug.cgi?id=1943807
+- [#407](https://github.com/ClearURLs/Addon/issues/407)
+- [#408](https://github.com/ClearURLs/Addon/issues/408)
+- [#409](https://github.com/ClearURLs/Addon/issues/409)
+- [#410](https://github.com/ClearURLs/Addon/issues/410)
+- [#411](https://github.com/ClearURLs/Addon/issues/411)
+- [#412](https://github.com/ClearURLs/Addon/issues/412)
+- [#413](https://github.com/ClearURLs/Addon/issues/413)
+
 ## [1.27.1] - 2025-01-05
 
 ### Changed
