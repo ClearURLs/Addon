@@ -15,6 +15,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
+
+## [1.27.3] - 2025-XX-XX
+
+### Changed
+- Google Search `window.rwt` detection
+
+### Fixed
+- Google Docs
+    - [#134](https://github.com/ClearURLs/Addon/issues/134)
+    - [#187](https://gitlab.com/ClearURLs/rules/-/issues/187)
+    - [#387](https://github.com/ClearURLs/Addon/issues/387)
+    - [#393](https://github.com/ClearURLs/Addon/issues/393)
+    - [#978](https://gitlab.com/ClearURLs/ClearUrls/-/issues/978)
+    - [#980](https://gitlab.com/ClearURLs/ClearUrls/-/issues/980)
+    - [#1301](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1301)
+    - [#1302](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1302)
+    - [#1305](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1305)
+    
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
 ## [1.27.2] - 2025-01-27
 
 ### Fixed
