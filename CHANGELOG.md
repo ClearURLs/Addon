@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Chrome >= 37
 
 
-## [1.27.3] - 2025-XX-XX
+## [1.27.3] - 2025-02-05
 
 ### Changed
 - Google Search `window.rwt` detection
@@ -33,7 +33,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#1302](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1302)
     - [#1305](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1305)
     
-
 ### Compatibility note
 - Require Firefox >= 55
 - Require Chrome >= 37
