@@ -82,6 +82,7 @@ function save() {
     saveData("badged_color", pickr.getColor().toHEXA().toString())
         .then(() => saveData("ruleURL", document.querySelector('input[name=ruleURL]').value))
         .then(() => saveData("hashURL", document.querySelector('input[name=hashURL]').value))
+        .then(() => saveData("excludeDomains", document.querySelector('textarea[name=excludeDomains]').value))
         .then(() => saveData("types", document.querySelector('input[name=types]').value))
         .then(() => saveData("logLimit", Math.max(0, Math.min(5000, document.querySelector('input[name=logLimit]').value))))
         .then(() => browser.runtime.sendMessage({
@@ -122,6 +123,7 @@ function getData() {
 
     loadData("ruleURL")
         .then(() => loadData("hashURL"))
+        .then(() => loadData("excludeDomains"))
         .then(() => loadData("types"))
         .then(() => loadData("logLimit"))
         .then(logData => {
@@ -177,10 +179,16 @@ async function loadData(name) {
             params: [name]
         }).then(data => {
             settings[name] = data.response;
-            if (document.querySelector('input[id=' + name + ']') == null) {
+            if(document.querySelector('textarea[id=' + name + ']')) {
+                document.querySelector('textarea[id=' + name + ']').value = data.response;
+            }
+            else if (document.querySelector('input[id=' + name + ']') == null) {
                 console.debug(name)
             }
-            document.querySelector('input[id=' + name + ']').value = data.response;
+            else{
+                document.querySelector('input[id=' + name + ']').value = data.response;
+            }
+
             resolve(data);
         }, handleError);
     });
