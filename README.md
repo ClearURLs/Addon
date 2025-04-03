@@ -104,3 +104,12 @@ We use some third-party scripts in our add-on. The authors and licenses are list
     [MIT](https://github.com/Simonwep/pickr/blob/master/LICENSE)
 -   [Font Awesome](https://github.com/FortAwesome/Font-Awesome/) | Copyright (c) @fontawesome |
     [Font Awesome Free License](https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
+
+
+## Star History
+
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=ClearURLs/Addon&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=ClearURLs/Addon&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=ClearURLs/Addon&type=Date" />
+ </picture>
