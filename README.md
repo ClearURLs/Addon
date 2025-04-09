@@ -77,6 +77,7 @@ Please push your translation into the folder `_locales/{language code}/messages.
 * [Unalix](https://github.com/AmanoTeam/Unalix) small, dependency-free, fast Python package for removing tracking fields from URLs
 * [Unalix-nim](https://github.com/AmanoTeam/Unalix-nim) small, dependency-free, fast Nim package and CLI tool for removing tracking fields from URLs
 * [UnalixAndroid](https://github.com/AmanoTeam/UnalixAndroid) simple Android app that removes link masking/tracking and optionally resolves shortened links
+* [pl-fe](https://github.com/mkljczk/pl-fe) is a Fediverse client which uses ClearURLs code to clean URLs from displayed posts and recommend cleaning URLs from created posts
 
 ## Recommended by...
 *  [ghacks-user.js](https://github.com/ghacksuserjs/ghacks-user.js/wiki/4.1-Extensions)
