@@ -55,6 +55,7 @@ function storageDataAsString(key) {
     switch (key) {
         case "ClearURLsData":
         case "log":
+        case "customRules":
             return JSON.stringify(value);
         case "types":
             return value.toString();
@@ -152,6 +153,7 @@ function getEntireData() {
  */
 function setData(key, value) {
     switch (key) {
+        case "customRules":
         case "ClearURLsData":
         case "log":
             storage[key] = JSON.parse(value);
@@ -216,6 +218,7 @@ function initSettings() {
     storage.badged_color = "#ffa500";
     storage.hashURL = "https://rules2.clearurls.xyz/rules.minify.hash";
     storage.ruleURL = "https://rules2.clearurls.xyz/data.minify.json";
+    storage.customRules = {};
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
