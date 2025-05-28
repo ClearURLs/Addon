@@ -68,7 +68,7 @@
         "description": "This string is used as name for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_filter_title": {
-        "message": "Активує функцію очищення ClearURLs. Якщо вимкнути - додаток не працюватиме",
+        "message": "Активує функцію очищення ClearURLs. Якщо вимкнути, додаток не працюватиме",
         "description": "This string is used as title for the filter switch button on the popup page."
     },
     "popup_html_configs_switch_log": {
@@ -208,7 +208,7 @@
         "description": "This string is used toggle the context menu entry to copy clean links."
     },
     "history_listener_enabled": {
-        "message": "Запобігти трекінг через API історії браузеру (див. також: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>Метод replaceState()</a>)",
+        "message": "Запобігти трекінгу через API історії браузеру (див. також: <a href='https://developer.mozilla.org/en-US/docs/Web/API/History_API#The_replaceState()_method' target='_blank'>Метод replaceState()</a>)",
         "description": "This string is used as name for the history API listener label."
     },
     "cleaning_tool_page_title": {
@@ -216,7 +216,7 @@
         "description": "This string is used as title on the cleaning tool page."
     },
     "cleaning_tool_description": {
-        "message": "За допомогою цієї утиліти ви можете вставити URL-адреси для ії \"очищення\" після натискання на зелену кнопку. Ви можете вставити відразу кілька URL-адрес, але кожна URL-адреса повинна бути на окремому рядку.",
+        "message": "За допомогою цієї утиліти ви можете вставити URL-адреси для її \"очищення\" після натискання на зелену кнопку. Ви можете вставити відразу кілька URL-адрес, але кожна URL-адреса повинна бути на окремому рядку.",
         "description": "This string is used as description of the cleaning tool."
     },
     "cleaning_tool_btn": {
@@ -256,7 +256,7 @@
         "description": "This string is used as title for the import button on the log page."
     },
     "setting_html_export_button": {
-        "message": "Експрот",
+        "message": "Експорт",
         "description": "This string is used as name for the export button on the settings page."
     },
     "setting_html_export_button_title": {
@@ -341,7 +341,7 @@
     },
     "eTag_filtering_enabled": {
         "message": "Фільтрує ETag заголовки в запитах (див. також <a href='https://en.wikipedia.org/wiki/HTTP_ETag#Tracking_using_ETags' target='_blank'>цю статтю</a>)",
-        "description": "Цей рядок використовується, як мітка для перемикача фільтра заголовка ETag"
+        "description": "Цей рядок використовується як мітка для перемикача фільтра заголовка ETag"
     },
     "eTag_filtering_enabled_title": {
         "message": "Фільтри заголовків ETag. \nПідказка: Кеш повинен бути скинутим перед першим використанням.",
