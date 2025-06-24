@@ -167,6 +167,10 @@
         "message": "The url to the data.json file (rules)",
         "description": "This string is used as name for the rule url label."
     },
+    "setting_custom_rules_label": {
+        "message": "Custom rules",
+        "description": "This string is used as name for the custom rules label."
+    },
     "settings_html_save_button": {
         "message": "Save & reload addon",
         "description": "This string is used as name for the save&reload button on the settings page."
