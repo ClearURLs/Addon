@@ -51,8 +51,9 @@ function getLog()
         log.log.sort(function(a,b) {
             return b.timestamp - a.timestamp;
         });
-
-        $('#logTable').DataTable({
+		
+		let lang = getUILanguageCode();
+		let dataTableOptions = {
             "data": log.log,
             "columns": [
                 {
@@ -78,21 +79,30 @@ function getLog()
                     render: toDate
                 }
             ],
-            "pageLength": 10,
-            "language": {
-                "url": getDataTableTranslation()
-            }
-        } ).order([3, 'desc']).draw();
+            "pageLength": 10
+        };
+		if (lang !== "en") {
+			dataTableOptions.language = {
+			"url": getDataTableTranslation(lang)
+			};
+		}
+
+        $('#logTable').DataTable(dataTableOptions).order([3, 'desc']).draw();
     }).catch(handleError);
+}
+
+/**
+ * Get the two-letter language code of the browser's UI language
+ */
+function getUILanguageCode() {
+    let lang = browser.i18n.getUILanguage();
+    return lang.substring(0, 2).toLowerCase();
 }
 
 /**
  * Get the translation file for the DataTable
  */
-function getDataTableTranslation()
-{
-    let lang = browser.i18n.getUILanguage();
-    lang = lang.substring(0,2);
+function getDataTableTranslation(lang) {
     return browser.runtime.getURL('./external_js/dataTables/i18n/' + lang + '.json');
 }
 
