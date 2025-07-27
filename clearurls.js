@@ -47,6 +47,19 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     let rawRules = provider.getRawRules();
     let urlObject = new URL(url);
 
+    /*
+    * Skip whitelisted sites
+    */
+    for (const site of storage.whitelist) {
+        if (url.indexOf(site) != -1) {
+            return {
+                "changes": false,
+                "url": url,
+                "cancel": false
+            }
+        }
+    }
+
     if (storage.localHostsSkipping && checkLocalURL(urlObject)) {
         return {
             "changes": false,
