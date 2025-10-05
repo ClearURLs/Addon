@@ -35,8 +35,8 @@ Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the ad
 * Prevents Google from rewriting the search results (to include tracking elements)
 * Prevents Yandex from rewriting the search results (to include tracking elements)
 
-## Permissons
-Reasoning for needed permissions can be found under [here](https://gitlab.com/ClearURLs/ClearUrls/issues/159).
+## Permissions
+Reasoning for needed permissions you can find under [this wiki page](https://docs.clearurls.xyz/latest/permissions/).
 
 ## Screenshot
 ![Interface (version 1.14.0)](https://docs.clearurls.xyz/1.22.0/assets/img/interface.png)
@@ -86,9 +86,6 @@ Please push your translation into the folder `_locales/{language code}/messages.
 *  [PrivacyTools](https://www.privacytools.io/browsers/#addons)
 *  [New York Times Wirecutter](https://www.nytimes.com/wirecutter/reviews/our-favorite-ad-blockers-and-browser-extensions-to-protect-privacy/#cleaner-links-clearurls)
 *  ClearURLs is part of Mozilla's recommended extensions program
-
-## Permissions
-Reasoning for needed permissions you can find under [this wiki page](https://docs.clearurls.xyz/latest/permissions/).
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.
