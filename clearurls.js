@@ -447,7 +447,7 @@ function start() {
          */
         this.getRules = function () {
             let source = enabled_rules;
-            if (storage.referralMarketing) {
+            if (!storage.referralMarketing) {
                 // Determine if we need to merge referral marketing rules
                 // We use a new object to avoid mutating enabled_rules via Object.assign if that was happening
                 source = Object.assign({}, enabled_rules, enabled_referralMarketing);
