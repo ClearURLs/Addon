@@ -21,6 +21,8 @@
 * This script is responsible for the core functionalities.
 */
 var providers = [];
+var providersByToken = {}; // Map<string, Provider[]>
+var globalProviders = []; // Provider[]
 var prvKeys = [];
 var siteBlockedAlert = 'javascript:void(0)';
 var dataHash;
@@ -228,6 +230,17 @@ function start() {
             for (let re = 0; re < methods.length; re++) {
                 providers[p].addMethod(methods[re]);
             }
+
+            // Indexing logic
+            const token = providers[p].getLookupToken();
+            if (token) {
+                if (!providersByToken[token]) {
+                    providersByToken[token] = [];
+                }
+                providersByToken[token].push(providers[p]);
+            } else {
+                globalProviders.push(providers[p]);
+            }
         }
     }
 
@@ -377,6 +390,38 @@ function start() {
          */
         this.getName = function () {
             return name;
+        };
+
+        /**
+         * Returns the lookup token for this provider, or null if global.
+         * Extracts "domain" from patterns like ^https?://(?:[a-z0-9-]+\.)*?domain...
+         * @return {String|null}
+         */
+        this.getLookupToken = function () {
+            if (!urlPattern) return null;
+            const source = urlPattern.source;
+
+            // Case 1: Wildcard prefix pattern (e.g. ...*?amazon...)
+            const wildcardMatch = source.match(/\*\?([a-z0-9-]+)/i);
+            if (wildcardMatch && wildcardMatch[1]) {
+                return wildcardMatch[1].toLowerCase();
+            }
+
+            // Case 2: Explicit start pattern (e.g. ^https?://vk.com...)
+            // Matches ^https?://(optional www.)token
+            // We strip standard regex start structure to find the first meaningful domain token.
+            // This regex handles:
+            // - ^https?://  (start)
+            // - \/\/ or //  (slashes, potentially escaped)
+            // - www.        (optional www prefix, potentially escaped)
+            // - [a-z0-9-]+  (the token)
+            // It deliberately fails on patterns with groups (?:...) at the start, falling back to global.
+            const explicitMatch = source.match(/^(\^?https?:\\?\/\\?\/)(?:www(?:\\?\.))?([a-z0-9-]+)/i);
+            if (explicitMatch && explicitMatch[2]) {
+                return explicitMatch[2].toLowerCase();
+            }
+
+            return null;
         };
 
         /**
@@ -599,13 +644,39 @@ function start() {
                 return { cancel: true };
             }
 
+            let host = "";
+            try {
+                host = extractHost(new URL(request.url));
+            } catch (e) {
+                // If URL parsing fails, we falls back to empty host, relying on global providers or skipping
+            }
+
+            const hostTokens = host.split('.').map(t => t.toLowerCase());
+
+            // Collect candidate providers: Global + Key Matches
+            // Use a Set to avoid duplicates if multiple tokens map to same provider (unlikely but safe)
+            let candidateProviders = new Set(globalProviders);
+
+            for (const token of hostTokens) {
+                if (providersByToken[token]) {
+                    for (const p of providersByToken[token]) {
+                        candidateProviders.add(p);
+                    }
+                }
+            }
+
+            // "providers" global var is still used for legacy, but here we iterate candidates
+            // Converting Set to Array for iteration
+            const candidates = Array.from(candidateProviders);
+
             /*
             * Call for every provider the removeFieldsFormURL method.
             */
-            for (let i = 0; i < providers.length; i++) {
-                if (!providers[i].matchMethod(request)) continue;
-                if (providers[i].matchURL(request.url)) {
-                    result = removeFieldsFormURL(providers[i], request.url, false, request);
+            for (let i = 0; i < candidates.length; i++) {
+                const provider = candidates[i];
+                if (!provider.matchMethod(request)) continue;
+                if (provider.matchURL(request.url)) {
+                    result = removeFieldsFormURL(provider, request.url, false, request);
                 }
 
                 /*
@@ -613,7 +684,7 @@ function start() {
                 * Cancel the active request.
                 */
                 if (result.redirect) {
-                    if (providers[i].shouldForceRedirect() &&
+                    if (provider.shouldForceRedirect() &&
                         request.type === 'main_frame') {
                         browser.tabs.update(request.tabId, { url: result.url }).catch(handleError);
                         return { cancel: true };
