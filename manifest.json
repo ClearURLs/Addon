@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ClearURLs",
-  "version": "1.27.3",
+  "version": "1.28.0",
   "author": "Kevin Roebert",
   "description": "__MSG_extension_description__",
   "homepage_url": "https://docs.clearurls.xyz",
@@ -270,18 +270,18 @@
         "*://*.google.co.zw/*",
         "*://*.google.cat/*"
       ],
-      "include_globs": [ 
-        "http?://www.google.*/", 
+      "include_globs": [
+        "http?://www.google.*/",
         "http?://www.google.*/#hl=*",
-        "http?://www.google.*/search*", 
+        "http?://www.google.*/search*",
         "http?://www.google.*/webhp?hl=*",
-        "https://encrypted.google.*/", 
+        "https://encrypted.google.*/",
         "https://encrypted.google.*/#hl=*",
-        "https://encrypted.google.*/search*", 
+        "https://encrypted.google.*/search*",
         "https://encrypted.google.*/webhp?hl=*",
-        "http?://ipv6.google.com/", 
+        "http?://ipv6.google.com/",
         "http?://ipv6.google.com/search*"
-       ],
+      ],
       "js": [
         "core_js/google_link_fix.js"
       ],
