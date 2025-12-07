@@ -118,9 +118,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             const beforeFragments = fragments.toString();
             let localChange = false;
 
-            // Use the pre-compiled regex. 
-            // Note: reusing a regex without 'g' flag is safe for .test()
-
             for (const field of fields.keys()) {
                 if (regex.test(field)) {
                     fields.delete(field);
@@ -363,7 +360,6 @@ function start() {
         let methods = [];
 
         if (_completeProvider) {
-            // enabled_rules[".*"] = true; // Original
             enabled_rules[".*"] = new RegExp("^.*$", "i");
         }
 
@@ -406,7 +402,6 @@ function start() {
          * @return {boolean}    ProviderURL as RegExp
          */
         this.matchURL = function (url) {
-            // Use matchException internal logic
             return urlPattern.test(url) && !(this.matchException(url));
         };
 
@@ -535,7 +530,6 @@ function start() {
 
             for (const [exception, regex] of Object.entries(enabled_exceptions)) {
                 if (result) break;
-                // let exception_regex = new RegExp(exception, "i"); // Old
                 result = regex.test(url);
             }
 
@@ -562,13 +556,10 @@ function start() {
             let re = null;
 
             for (const [redirection, regex] of Object.entries(enabled_redirections)) {
-                // let result = (url.match(new RegExp(redirection, "i"))); // Old
                 let result = url.match(regex);
 
                 if (result && result.length > 0 && redirection) {
-                    // re = (new RegExp(redirection, "i")).exec(url)[1]; 
-                    // Reuse match result if possible, but exec is same as match for non-g.
-                    re = result[1]; // Capture group 1
+                    re = result[1];
 
                     break;
                 }
