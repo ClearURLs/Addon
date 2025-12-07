@@ -89,14 +89,14 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     /*
     * Apply raw rules to the URL.
     */
-    rawRules.forEach(function (rawRule) {
+    rawRules.forEach(function ({ rule: rawRuleStr, regex: rawRuleRegex }) {
         let beforeReplace = url;
-        url = url.replace(new RegExp(rawRule, "gi"), "");
+        url = url.replace(rawRuleRegex, "");
 
         if (beforeReplace !== url) {
             //Log the action
             if (storage.loggingStatus && !quiet) {
-                pushToLog(beforeReplace, url, rawRule);
+                pushToLog(beforeReplace, url, rawRuleStr);
             }
 
             increaseBadged(quiet, request);
@@ -113,13 +113,16 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
      * Only test for matches, if there are fields or fragments that can be cleaned.
      */
     if (fields.toString() !== "" || fragments.toString() !== "") {
-        rules.forEach(rule => {
+        rules.forEach(({ rule, regex }) => {
             const beforeFields = fields.toString();
             const beforeFragments = fragments.toString();
             let localChange = false;
 
+            // Use the pre-compiled regex. 
+            // Note: reusing a regex without 'g' flag is safe for .test()
+
             for (const field of fields.keys()) {
-                if (new RegExp("^"+rule+"$", "gi").test(field)) {
+                if (regex.test(field)) {
                     fields.delete(field);
                     changes = true;
                     localChange = true;
@@ -127,7 +130,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             }
 
             for (const fragment of fragments.keys()) {
-                if (new RegExp("^"+rule+"$", "gi").test(fragment)) {
+                if (regex.test(fragment)) {
                     fragments.delete(fragment);
                     changes = true;
                     localChange = true;
@@ -360,7 +363,8 @@ function start() {
         let methods = [];
 
         if (_completeProvider) {
-            enabled_rules[".*"] = true;
+            // enabled_rules[".*"] = true; // Original
+            enabled_rules[".*"] = new RegExp("^.*$", "i");
         }
 
         /**
@@ -402,29 +406,26 @@ function start() {
          * @return {boolean}    ProviderURL as RegExp
          */
         this.matchURL = function (url) {
+            // Use matchException internal logic
             return urlPattern.test(url) && !(this.matchException(url));
         };
 
         /**
-         * Apply a rule to a given tuple of rule array.
-         * @param enabledRuleArray      array for enabled rules
-         * @param disabledRulesArray    array for disabled rules
-         * @param {String} rule         RegExp as string
-         * @param {boolean} isActive    Is this rule active?
+         * Helper to update rule maps with compiled regexes.
          */
-        this.applyRule = (enabledRuleArray, disabledRulesArray, rule, isActive = true) => {
+        const updateRule = (enabledMap, disabledMap, rule, isActive, compileFn) => {
             if (isActive) {
-                enabledRuleArray[rule] = true;
-
-                if (disabledRulesArray[rule] !== undefined) {
-                    delete disabledRulesArray[rule];
+                if (!enabledMap[rule]) {
+                    try {
+                        enabledMap[rule] = compileFn(rule);
+                    } catch (e) {
+                        console.error("Invalid regex", rule, e);
+                    }
                 }
+                if (disabledMap[rule]) delete disabledMap[rule];
             } else {
-                disabledRulesArray[rule] = true;
-
-                if (enabledRuleArray[rule] !== undefined) {
-                    delete enabledRuleArray[rule];
-                }
+                disabledMap[rule] = true;
+                if (enabledMap[rule]) delete enabledMap[rule];
             }
         };
 
@@ -436,20 +437,22 @@ function start() {
          * @param {boolean} isActive   Is this rule active?
          */
         this.addRule = function (rule, isActive = true) {
-            this.applyRule(enabled_rules, disabled_rules, rule, isActive);
+            updateRule(enabled_rules, disabled_rules, rule, isActive, r => new RegExp("^" + r + "$", "i"));
         };
 
         /**
-         * Return all active rules as an array.
+         * Return all active rules as an array of {rule, regex}.
          *
-         * @return Array RegExp strings
+         * @return Array Objects
          */
         this.getRules = function () {
-            if (!storage.referralMarketing) {
-                return Object.keys(Object.assign(enabled_rules, enabled_referralMarketing));
+            let source = enabled_rules;
+            if (storage.referralMarketing) {
+                // Determine if we need to merge referral marketing rules
+                // We use a new object to avoid mutating enabled_rules via Object.assign if that was happening
+                source = Object.assign({}, enabled_rules, enabled_referralMarketing);
             }
-
-            return Object.keys(enabled_rules);
+            return Object.entries(source).map(([rule, regex]) => ({ rule, regex }));
         };
 
         /**
@@ -460,16 +463,17 @@ function start() {
          * @param {boolean} isActive   Is this rule active?
          */
         this.addRawRule = function (rule, isActive = true) {
-            this.applyRule(enabled_rawRules, disabled_rawRules, rule, isActive);
+            updateRule(enabled_rawRules, disabled_rawRules, rule, isActive, r => new RegExp(r, "gi"));
         };
 
         /**
          * Return all active raw rules as an array.
          *
-         * @return Array RegExp strings
+         * @return Array Objects {rule, regex}
          */
         this.getRawRules = function () {
-            return Object.keys(enabled_rawRules);
+            // return Object.keys(enabled_rawRules);
+            return Object.entries(enabled_rawRules).map(([rule, regex]) => ({ rule, regex }));
         };
 
         /**
@@ -480,7 +484,7 @@ function start() {
          * @param {boolean} isActive   Is this rule active?
          */
         this.addReferralMarketing = function (rule, isActive = true) {
-            this.applyRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive);
+            updateRule(enabled_referralMarketing, disabled_referralMarketing, rule, isActive, r => new RegExp("^" + r + "$", "i"));
         };
 
         /**
@@ -491,19 +495,7 @@ function start() {
          * @param {Boolean} isActive   Is this exception active?
          */
         this.addException = function (exception, isActive = true) {
-            if (isActive) {
-                enabled_exceptions[exception] = true;
-
-                if (disabled_exceptions[exception] !== undefined) {
-                    delete disabled_exceptions[exception];
-                }
-            } else {
-                disabled_exceptions[exception] = true;
-
-                if (enabled_exceptions[exception] !== undefined) {
-                    delete enabled_exceptions[exception];
-                }
-            }
+            updateRule(enabled_exceptions, disabled_exceptions, exception, isActive, r => new RegExp(r, "i"));
         };
 
         /**
@@ -541,11 +533,10 @@ function start() {
             //Add the site blocked alert to every exception
             if (url === siteBlockedAlert) return true;
 
-            for (const exception in enabled_exceptions) {
+            for (const [exception, regex] of Object.entries(enabled_exceptions)) {
                 if (result) break;
-
-                let exception_regex = new RegExp(exception, "i");
-                result = exception_regex.test(url);
+                // let exception_regex = new RegExp(exception, "i"); // Old
+                result = regex.test(url);
             }
 
             return result;
@@ -559,19 +550,7 @@ function start() {
          * @param {Boolean} isActive     Is this redirection active?
          */
         this.addRedirection = function (redirection, isActive = true) {
-            if (isActive) {
-                enabled_redirections[redirection] = true;
-
-                if (disabled_redirections[redirection] !== undefined) {
-                    delete disabled_redirections[redirection];
-                }
-            } else {
-                disabled_redirections[redirection] = true;
-
-                if (enabled_redirections[redirection] !== undefined) {
-                    delete enabled_redirections[redirection];
-                }
-            }
+            updateRule(enabled_redirections, disabled_redirections, redirection, isActive, r => new RegExp(r, "i"));
         };
 
         /**
@@ -582,11 +561,14 @@ function start() {
         this.getRedirection = function (url) {
             let re = null;
 
-            for (const redirection in enabled_redirections) {
-                let result = (url.match(new RegExp(redirection, "i")));
+            for (const [redirection, regex] of Object.entries(enabled_redirections)) {
+                // let result = (url.match(new RegExp(redirection, "i"))); // Old
+                let result = url.match(regex);
 
                 if (result && result.length > 0 && redirection) {
-                    re = (new RegExp(redirection, "i")).exec(url)[1];
+                    // re = (new RegExp(redirection, "i")).exec(url)[1]; 
+                    // Reuse match result if possible, but exec is same as match for non-g.
+                    re = result[1]; // Capture group 1
 
                     break;
                 }
@@ -623,7 +605,7 @@ function start() {
                 pushToLog(request.url, request.url, translate('log_ping_blocked'));
                 increaseBadged(false, request);
                 increaseTotalCounter(1);
-                return {cancel: true};
+                return { cancel: true };
             }
 
             /*
@@ -642,8 +624,8 @@ function start() {
                 if (result.redirect) {
                     if (providers[i].shouldForceRedirect() &&
                         request.type === 'main_frame') {
-                        browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
-                        return {cancel: true};
+                        browser.tabs.update(request.tabId, { url: result.url }).catch(handleError);
+                        return { cancel: true };
                     }
 
                     return {
@@ -658,9 +640,9 @@ function start() {
                 if (result.cancel) {
                     if (request.type === 'main_frame') {
                         const blockingPage = browser.runtime.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
-                        browser.tabs.update(request.tabId, {url: blockingPage}).catch(handleError);
+                        browser.tabs.update(request.tabId, { url: blockingPage }).catch(handleError);
 
-                        return {cancel: true};
+                        return { cancel: true };
                     } else {
                         return {
                             redirectUrl: siteBlockedAlert
@@ -723,7 +705,7 @@ function start() {
      */
     browser.webRequest.onBeforeRequest.addListener(
         promise,
-        {urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes"))},
+        { urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes")) },
         ["blocking"]
     );
 }
