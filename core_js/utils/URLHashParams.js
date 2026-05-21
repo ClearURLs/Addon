@@ -32,14 +32,13 @@ class URLHashParams {
         const hash = url.hash.slice(1);
         const params = hash.split('&');
         for (const p of params) {
-            const param = p.split('=');
-            if (!param[0])
+            if (!p)
                 continue;
-            const key = param[0];
-            let value = null;
-            if (param.length === 2 && param[1]) {
-                value = param[1];
-            }
+            const separator = p.indexOf('=');
+            const key = separator === -1 ? p : p.slice(0, separator);
+            if (!key)
+                continue;
+            const value = separator === -1 ? null : p.slice(separator + 1);
             this._params.put(key, value);
         }
     }
@@ -51,7 +50,7 @@ class URLHashParams {
     }
     get(name) {
         const [first] = this._params.get(name);
-        if (first) {
+        if (first !== undefined) {
             return first;
         }
         return null;
@@ -65,11 +64,11 @@ class URLHashParams {
     toString() {
         const rtn = [];
         this._params.forEach((key, value) => {
-            if (value) {
-                rtn.push(key + '=' + value);
+            if (value === null) {
+                rtn.push(key);
             }
             else {
-                rtn.push(key);
+                rtn.push(key + '=' + value);
             }
         });
         return rtn.join('&');
