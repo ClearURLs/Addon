@@ -606,6 +606,10 @@ function start() {
      * @return {Array}                  redirectUrl or none
      */
     function clearUrl(request) {
+        if (isURLDisabled(getRequestContextURL(request))) {
+            return {};
+        }
+
         const URLbeforeReplaceCount = countFields(request.url);
 
         //Add Fields form Request to global url counter

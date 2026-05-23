@@ -23,6 +23,8 @@
 
 // Needed by the sha256 method
 const enc = new TextEncoder();
+let currentURL = "";
+let tabURLs = {};
 
 // Max amount of log entries to prevent performance issues
 const logThreshold = 5000;
@@ -222,6 +224,126 @@ function getCurrentURL() {
     return currentURL;
 }
 
+function normalizeHostname(hostname) {
+    return (hostname || "").trim().toLowerCase();
+}
+
+function extractHostnameFromURL(url) {
+    try {
+        return normalizeHostname(new URL(url).hostname);
+    } catch (error) {
+        return "";
+    }
+}
+
+function getDisabledDomains() {
+    return storage.disabledDomains || [];
+}
+
+function setDisabledDomain(hostname, disabled = true) {
+    const normalizedHostname = normalizeHostname(hostname);
+
+    if (!normalizedHostname) {
+        return false;
+    }
+
+    const domains = new Set(getDisabledDomains());
+
+    if (disabled) {
+        domains.add(normalizedHostname);
+    } else {
+        domains.delete(normalizedHostname);
+    }
+
+    storage.disabledDomains = Array.from(domains).sort((left, right) => left.localeCompare(right));
+
+    return true;
+}
+
+function isDomainDisabled(hostname) {
+    const normalizedHostname = normalizeHostname(hostname);
+
+    if (!normalizedHostname) {
+        return false;
+    }
+
+    return getDisabledDomains().includes(normalizedHostname);
+}
+
+function isURLDisabled(url) {
+    return isDomainDisabled(extractHostnameFromURL(url));
+}
+
+function setTabURL(tabId, url) {
+    if (typeof tabId !== "number" || tabId < 0 || !url) {
+        return;
+    }
+
+    tabURLs[tabId] = url;
+}
+
+function getTabURL(tabId) {
+    if (typeof tabId !== "number" || tabId < 0) {
+        return "";
+    }
+
+    return tabURLs[tabId] || "";
+}
+
+function removeTabURL(tabId) {
+    delete tabURLs[tabId];
+}
+
+function refreshCurrentURL() {
+    browser.tabs.query({
+        active: true,
+        currentWindow: true
+    }).then((tabs) => {
+        if (tabs.length > 0) {
+            currentURL = tabs[0].url || "";
+            setTabURL(tabs[0].id, currentURL);
+        } else {
+            currentURL = "";
+        }
+    }).catch(handleError);
+}
+
+function getRequestContextURL(request) {
+    if (request.type === "main_frame") {
+        return request.url;
+    }
+
+    const tabURL = getTabURL(request.tabId);
+
+    if (tabURL) {
+        return tabURL;
+    }
+
+    if (request.documentUrl) {
+        return request.documentUrl;
+    }
+
+    if (request.originUrl) {
+        return request.originUrl;
+    }
+
+    if (request.initiator) {
+        return request.initiator;
+    }
+
+    return "";
+}
+
+function initializeTabURLs() {
+    browser.tabs.query({}).then((tabs) => {
+        tabs.forEach((tab) => {
+            setTabURL(tab.id, tab.url);
+        });
+    }).catch(handleError);
+
+    refreshCurrentURL();
+}
+
 /**
  * Check for browser.
  */
@@ -232,6 +354,29 @@ function getBrowser() {
         return "Chrome";
     }
 }
+
+browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if (changeInfo.url) {
+        setTabURL(tabId, changeInfo.url);
+    } else if (tab && tab.url) {
+        setTabURL(tabId, tab.url);
+    }
+
+    if (tab && tab.active) {
+        currentURL = tab.url || changeInfo.url || currentURL;
+    }
+});
+
+browser.tabs.onActivated.addListener((activeInfo) => {
+    browser.tabs.get(activeInfo.tabId).then((tab) => {
+        currentURL = tab.url || "";
+        setTabURL(tab.id, currentURL);
+    }).catch(handleError);
+});
+
+browser.tabs.onRemoved.addListener((tabId) => {
+    removeTabURL(tabId);
+});
 
 /**
  * Decodes an URL, also one that is encoded multiple times.

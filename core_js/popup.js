@@ -31,6 +31,10 @@ var hashStatus;
 var loggingStatus;
 var statisticsStatus;
 var currentURL;
+var disabledDomains = [];
+var currentHostname = "";
+var siteSwitchButton = document.getElementById('siteSwitchButton');
+var siteStatus = document.getElementById('siteStatus');
 
 /**
 * Initialize the UI.
@@ -44,6 +48,7 @@ function init()
     setSwitchButton("statistics", "statisticsStatus");
     setHashStatus();
     changeStatistics();
+    updateSiteSection();
 }
 
 /**
@@ -180,6 +185,78 @@ function resetGlobalCounter(){
     changeStatistics();
 }
 
+function updateSiteSection() {
+    if (!siteSwitchButton || !siteStatus) {
+        return;
+    }
+
+    const siteDisabled = disabledDomains.includes(currentHostname);
+
+    if (!currentHostname) {
+        siteStatus.textContent = translate('popup_html_site_unavailable');
+        siteSwitchButton.disabled = true;
+        siteSwitchButton.textContent = translate('popup_html_site_disable');
+        siteSwitchButton.removeAttribute('title');
+        return;
+    }
+
+    siteSwitchButton.disabled = false;
+
+    if (siteDisabled) {
+        siteStatus.textContent = translate('popup_html_site_disabled', currentHostname);
+        siteSwitchButton.textContent = translate('popup_html_site_enable');
+        siteSwitchButton.setAttribute('title', translate('popup_html_site_enable_title'));
+    } else {
+        siteStatus.textContent = translate('popup_html_site_enabled', currentHostname);
+        siteSwitchButton.textContent = translate('popup_html_site_disable');
+        siteSwitchButton.setAttribute('title', translate('popup_html_site_disable_title'));
+    }
+}
+
+function toggleCurrentSite() {
+    if (!currentHostname) {
+        return;
+    }
+
+    const siteDisabled = disabledDomains.includes(currentHostname);
+
+    browser.runtime.sendMessage({
+        function: "setDisabledDomain",
+        params: [currentHostname, !siteDisabled]
+    }).then(() => {
+        if (siteDisabled) {
+            disabledDomains = disabledDomains.filter((domain) => domain !== currentHostname);
+        } else {
+            disabledDomains.push(currentHostname);
+            disabledDomains.sort((left, right) => left.localeCompare(right));
+        }
+
+        updateSiteSection();
+
+        return browser.runtime.sendMessage({
+            function: "saveOnExit",
+            params: []
+        });
+    }).catch(handleError);
+}
+
+function loadCurrentTab() {
+    return browser.tabs.query({
+        active: true,
+        currentWindow: true
+    }).then((tabs) => {
+        const activeTab = tabs[0];
+
+        currentURL = activeTab && activeTab.url ? activeTab.url : "";
+
+        try {
+            currentHostname = currentURL ? new URL(currentURL).hostname.toLowerCase() : "";
+        } catch (error) {
+            currentHostname = "";
+        }
+    });
+}
+
 (function() {
     loadData("cleanedCounter")
         .then(() => loadData("totalCounter"))
@@ -188,7 +265,8 @@ function resetGlobalCounter(){
         .then(() => loadData("hashStatus"))
         .then(() => loadData("loggingStatus"))
         .then(() => loadData("statisticsStatus"))
-        .then(() => loadData("getCurrentURL", "currentURL"))
+        .then(() => loadData("disabledDomains"))
+        .then(() => loadCurrentTab())
         .then(() => {
             init();
             document.getElementById('reset_counter_btn').onclick = resetGlobalCounter;
@@ -196,6 +274,7 @@ function resetGlobalCounter(){
             changeSwitchButton("tabcounter", "badgedStatus");
             changeSwitchButton("logging", "loggingStatus");
             changeSwitchButton("statistics", "statisticsStatus");
+            siteSwitchButton.onclick = toggleCurrentSite;
             document.getElementById('loggingPage').href = browser.runtime.getURL('./html/log.html');
             document.getElementById('settings').href = browser.runtime.getURL('./html/settings.html');
             document.getElementById('cleaning_tools').href = browser.runtime.getURL('./html/cleaningTool.html');
@@ -209,6 +288,7 @@ function resetGlobalCounter(){
 function setText()
 {
     injectText('loggingPage','popup_html_log_head');
+    injectText('siteHead', 'popup_html_site_head');
     injectText('reset_counter_btn','popup_html_statistics_reset_button');
     injectText('rules_status_head','popup_html_rules_status_head');
     injectText('statistics_percentage','popup_html_statistics_percentage');
@@ -221,6 +301,7 @@ function setText()
     injectText('configs_head','popup_html_configs_head');
     injectText('configs_switch_statistics','configs_switch_statistics');
     document.getElementById('donate').title = translate('donate_button');
+    updateSiteSection();
 }
 
 /**
@@ -271,9 +352,9 @@ async function loadData(name, varName=name) {
 *
 * @param {string} string Name of the attribute used for localization
 */
-function translate(string)
+function translate(string, ...placeholders)
 {
-    return browser.i18n.getMessage(string);
+    return browser.i18n.getMessage(string, placeholders);
 }
 
 function handleError(error) {
