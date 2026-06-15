@@ -31,14 +31,14 @@ const logThreshold = 5000;
 * To support Waterfox.
 */
 Array.prototype.rmEmpty = function () {
-    return this.filter(v => v);
+    return this.filter(Boolean);
 };
 
 /*
 * To support Waterfox.
 */
 Array.prototype.flatten = function () {
-    return this.reduce((a, b) => a.concat(b), []);
+    return this.flat();
 };
 
 /**
@@ -226,11 +226,10 @@ function getCurrentURL() {
  * Check for browser.
  */
 function getBrowser() {
-    if (typeof InstallTrigger !== 'undefined') {
-        return "Firefox";
-    } else {
+    if (typeof InstallTrigger === 'undefined') {
         return "Chrome";
     }
+    return "Firefox";
 }
 
 /**
@@ -287,7 +286,7 @@ function handleError(error) {
  */
 function pushToLog(beforeProcessing, afterProcessing, rule) {
     const limit = Math.max(0, storage.logLimit);
-    if (storage.loggingStatus && limit !== 0 && !isNaN(limit)) {
+    if (storage.loggingStatus && limit !== 0 && !Number.isNaN(limit)) {
         while (storage.log.log.length >= limit
         || storage.log.log.length >= logThreshold) {
             storage.log.log.shift();
@@ -330,28 +329,70 @@ async function sha256(message) {
 }
 
 /**
- * Generates a non-secure random ASCII string of length {@code len}.
- * 
- * @returns non-secure random ASCII
+ * Generates a cryptographically-secure random ASCII string of length {@code len},
+ * using the Web Crypto API (crypto.getRandomValues). The result is base-36
+ * ([0-9a-z]) so it stays valid as an HTTP ETag value.
+ *
+ * @param  {number} len length of the generated string
+ * @returns {string}   random ASCII string
  */
 function randomASCII(len) {
-    return [...Array(len)].map(() => (~~(Math.random() * 36)).toString(36)).join('');
+    const bytes = crypto.getRandomValues(new Uint8Array(len));
+    return Array.from(bytes, b => (b % 36).toString(36)).join('');
 }
 
 /**
- * Returns an URLSearchParams as string.
- * Does handle spaces correctly.
+ * Decode a single percent-encoding into its raw byte value.
+ * Malformed sequences (e.g. a stray '%' or non-hex digits) are returned as-is,
+ * so that values are never corrupted.
+ *
+ * @param  {string} str the string to decode
+ * @return {string}     the percent-decoded string, with every %XX byte decoded
+ *                      to the character whose code unit equals that byte value
  */
-function urlSearchParamsToString(searchParams) {
-    const rtn = []
+function percentDecodeBytes(str) {
+    let rtn = '';
 
-    searchParams.forEach((value, key) => {
-        if (value) {
-            rtn.push(key + '=' + encodeURIComponent(value))
-        } else {
-            rtn.push(key)
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === '%' && i + 2 < str.length) {
+            const hex = str.slice(i + 1, i + 3);
+            if (/^[0-9a-f]{2}$/i.test(hex)) {
+                rtn += String.fromCodePoint(Number.parseInt(hex, 16));
+                i += 2;
+                continue;
+            }
         }
-    })
+        rtn += str[i];
+    }
 
-    return rtn.join('&')
+    return rtn;
+}
+
+/**
+ * Remove every query field whose (decoded) key matches one of the given rules
+ * from the raw query string, while preserving all other fields byte-for-byte.
+ *
+ * Unlike the URLSearchParams round-trip, the field values are never decoded as
+ * UTF-8, so values that use a non-UTF-8 encoding (e.g. GBK on Chinese sites
+ * such as 1688.com) survive unchanged.
+ *
+ * @param  {string} query the raw query string, WITHOUT the leading '?'
+ * @param  {Array<string>} rules the provider rules to match against each key
+ * @return {string} the filtered query string, WITHOUT a leading '?'
+ */
+function removeFieldsFromQuery(query, rules) {
+    const filtered = query.split('&').filter(pair => {
+        const rawKey = pair.split('=')[0];
+        const decodedKey = percentDecodeBytes(rawKey);
+
+        for (const rule of rules) {
+            if (new RegExp('^' + rule + '$', 'i').test(decodedKey)) {
+                return false;
+            }
+        }
+
+        return true;
+    });
+
+    return filtered.join('&');
 }
