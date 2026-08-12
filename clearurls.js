@@ -416,8 +416,22 @@ function start() {
         }
 
         // Enforce rule limits (dynamic rules limited to 30000, regex rules to 1000)
-        const regexRules = rules.filter(r => r.condition.regexFilter && !r.condition.urlFilter);
+        let regexRules = rules.filter(r => r.condition.regexFilter && !r.condition.urlFilter);
         const nonRegexRules = rules.filter(r => r.condition.urlFilter || !r.condition.regexFilter);
+
+        // Filter out regex rules that exceed the 2KB compiled limit or are unsupported
+        if (chrome.declarativeNetRequest.isRegexSupported) {
+            const supportedResults = await Promise.all(
+                regexRules.map(r => chrome.declarativeNetRequest.isRegexSupported({ regex: r.condition.regexFilter }))
+            );
+            regexRules = regexRules.filter((r, index) => {
+                if (!supportedResults[index].isSupported) {
+                    console.warn(`[ClearURLs] Skipping unsupported regex rule (e.g. >2KB limit):`, r.condition.regexFilter, supportedResults[index].reason);
+                    return false;
+                }
+                return true;
+            });
+        }
 
         let finalRules = [...nonRegexRules];
         if (regexRules.length > 1000) {
