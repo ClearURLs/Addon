@@ -66,6 +66,7 @@ core_js/
   - URL redirections → `redirect` + `regexFilter`/`regexSubstitution`
   - Raw rules → `redirect` + `regexFilter`
   - Ping blocking → `block` for ping resource type
+  - Uses `chrome.declarativeNetRequest.isRegexSupported` to pre-validate rules and drop overly complex filters that exceed Chrome's 2KB RE2 memory limit, preventing full installation failures.
 - Added `chrome.declarativeNetRequest.onRuleMatchedDebug` listener for statistics
 - Updated all `getOrDefault()` calls to standalone function (no prototype pollution)
 - Preserved `Provider` class and `removeFieldsFormURL` for pureCleaning/context menu
@@ -150,7 +151,7 @@ core_js/
 
 ## Known Limitations
 
-1. **Regex Rule Limit**: DNR limits regex rules to 1000. Extensions with very large rule sets may have some rules truncated.
+1. **Regex Rule Limit & Size Restrictions**: DNR limits regex rules to 1000, and restricts individual compiled regexes to 2KB in memory. Extensions with very large rule sets or massive domain exception strings may have some rules skipped or truncated (these are gracefully filtered out via `isRegexSupported` without breaking the extension).
 
 2. **Complex Raw Rules**: Some raw rules involving complex regex patterns may not convert perfectly to DNR `regexFilter`/`regexSubstitution` format.
 
