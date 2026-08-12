@@ -17,9 +17,6 @@
 */
 
 /*jshint esversion: 6 */
-var cleanedURLs = [];
-var i = 0;
-var length = 0;
 
 /**
 * Load only when document is ready
@@ -36,20 +33,15 @@ function cleanURLs() {
     const cleanTArea = document.getElementById('cleanURLs');
     const dirtyTArea = document.getElementById('dirtyURLs');
     const urls = dirtyTArea.value.split('\n');
-    cleanedURLs = [];
-    length = urls.length;
 
-    for(i=0; i < length; i++) {
+    Promise.all(urls.map(url =>
         browser.runtime.sendMessage({
             function: "pureCleaning",
-            params: [urls[i]]
-        }).then((data) => {
-            cleanedURLs.push(data.response);
-            if(i >= length-1) {
-                cleanTArea.value= cleanedURLs.join('\n');
-            }
-        }, handleError);
-    }
+            params: [url]
+        }).then(data => data.response)
+    )).then(results => {
+        cleanTArea.value = results.join('\n');
+    }).catch(handleError);
 }
 
 /**

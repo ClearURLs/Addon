@@ -1,17 +1,15 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "ClearURLs",
   "version": "1.27.3",
   "author": "Kevin Roebert",
   "description": "__MSG_extension_description__",
   "homepage_url": "https://docs.clearurls.xyz",
   "default_locale": "en",
-  "content_security_policy": "script-src 'self'; object-src 'none'",
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "{74145f27-f039-47ce-a470-a662b129930a}"
-    }
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'none'"
   },
+  "minimum_chrome_version": "120",
   "icons": {
     "16": "img/clearurls_16x16.png",
     "19": "img/clearurls_19x19.png",
@@ -25,8 +23,7 @@
     "96": "img/clearurls_96x96.png",
     "128": "img/clearurls_128x128.png"
   },
-  "browser_action": {
-    "browser_style": true,
+  "action": {
     "default_icon": {
       "16": "img/clearurls_16x16.png",
       "19": "img/clearurls_19x19.png",
@@ -43,10 +40,15 @@
     "default_title": "ClearURLs Add-on",
     "default_popup": "html/popup.html"
   },
+  "host_permissions": [
+    "<all_urls>"
+  ],
   "permissions": [
-    "<all_urls>",
-    "webRequest",
-    "webRequestBlocking",
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "scripting",
+    "alarms",
+    "offscreen",
     "storage",
     "unlimitedStorage",
     "contextMenus",
@@ -55,25 +57,11 @@
     "downloads"
   ],
   "background": {
-    "scripts": [
-      "browser-polyfill.js",
-      "core_js/utils/Multimap.js",
-      "core_js/utils/URLHashParams.js",
-      "core_js/message_handler.js",
-      "external_js/ip-range-check.js",
-      "core_js/tools.js",
-      "core_js/badgedHandler.js",
-      "core_js/pureCleaning.js",
-      "core_js/context_menu.js",
-      "core_js/historyListener.js",
-      "clearurls.js",
-      "core_js/storage.js",
-      "core_js/watchdog.js",
-      "core_js/eTagFilter.js"
-    ]
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
+      "world": "MAIN",
       "all_frames": true,
       "matches": [
         "*://*.google.com/*",
@@ -270,24 +258,13 @@
         "*://*.google.co.zw/*",
         "*://*.google.cat/*"
       ],
-      "include_globs": [ 
-        "http?://www.google.*/", 
-        "http?://www.google.*/#hl=*",
-        "http?://www.google.*/search*", 
-        "http?://www.google.*/webhp?hl=*",
-        "https://encrypted.google.*/", 
-        "https://encrypted.google.*/#hl=*",
-        "https://encrypted.google.*/search*", 
-        "https://encrypted.google.*/webhp?hl=*",
-        "http?://ipv6.google.com/", 
-        "http?://ipv6.google.com/search*"
-       ],
       "js": [
         "core_js/google_link_fix.js"
       ],
       "run_at": "document_end"
     },
     {
+      "world": "MAIN",
       "all_frames": true,
       "matches": [
         "*://*.yandex.ru/*",
@@ -302,5 +279,9 @@
   ],
   "options_ui": {
     "page": "html/settings.html"
-  }
+  },
+  "web_accessible_resources": [{
+    "resources": ["html/siteBlockedAlert.html", "external_js/clipboard-helper.js"],
+    "matches": ["<all_urls>"]
+  }]
 }

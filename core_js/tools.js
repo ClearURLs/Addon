@@ -181,9 +181,9 @@ function changeIcon() {
     checkOSAndroid().then((res) => {
         if (!res) {
             if (storage.globalStatus) {
-                browser.browserAction.setIcon({path: "img/clearurls_128x128.png"}).catch(handleError);
+                browser.action.setIcon({path: "img/clearurls_128x128.png"}).catch(handleError);
             } else {
-                browser.browserAction.setIcon({path: "img/clearurls_gray_128x128.png"}).catch(handleError);
+                browser.action.setIcon({path: "img/clearurls_gray_128x128.png"}).catch(handleError);
             }
         }
     });
@@ -200,16 +200,9 @@ function setBadgedStatus() {
             let color = storage.badged_color;
             if (storage.badged_color.charAt(0) !== '#')
                 color = '#' + storage.badged_color;
-            browser.browserAction.setBadgeBackgroundColor({
+            browser.action.setBadgeBackgroundColor({
                 'color': color
             }).catch(handleError);
-
-            // Works only in Firefox: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction/setBadgeTextColor#Browser_compatibility
-            if (getBrowser() === "Firefox") {
-                browser.browserAction.setBadgeTextColor({
-                    color: "#FFFFFF"
-                }).catch(handleError);
-            }
         }
     });
 }
@@ -226,7 +219,7 @@ function getCurrentURL() {
  * Check for browser.
  */
 function getBrowser() {
-    if (typeof InstallTrigger !== 'undefined') {
+    if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrowserInfo) {
         return "Firefox";
     } else {
         return "Chrome";
@@ -269,9 +262,9 @@ function isEncodedURI(uri) {
  * @param {string} key the key of the object
  * @param {object} defaultValue the default value
  */
-Object.prototype.getOrDefault = function (key, defaultValue) {
-    return this[key] === undefined ? defaultValue : this[key];
-};
+function getOrDefault(obj, key, defaultValue) {
+    return obj[key] === undefined ? defaultValue : obj[key];
+}
 
 function handleError(error) {
     console.error("[ClearURLs ERROR]:" + error);

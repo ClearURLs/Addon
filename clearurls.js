@@ -187,43 +187,43 @@ function start() {
 
         for (let p = 0; p < prvKeys.length; p++) {
             //Create new provider
-            providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].getOrDefault('completeProvider', false),
-                data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
+            providers.push(new Provider(prvKeys[p], getOrDefault(data.providers[prvKeys[p]], 'completeProvider', false),
+                getOrDefault(data.providers[prvKeys[p]], 'forceRedirection', false)));
 
             //Add URL Pattern
-            providers[p].setURLPattern(data.providers[prvKeys[p]].getOrDefault('urlPattern', ''));
+            providers[p].setURLPattern(getOrDefault(data.providers[prvKeys[p]], 'urlPattern', ''));
 
-            let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
+            let rules = getOrDefault(data.providers[prvKeys[p]], 'rules', []);
             //Add rules to provider
             for (let r = 0; r < rules.length; r++) {
                 providers[p].addRule(rules[r]);
             }
 
-            let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
+            let rawRules = getOrDefault(data.providers[prvKeys[p]], 'rawRules', []);
             //Add raw rules to provider
             for (let raw = 0; raw < rawRules.length; raw++) {
                 providers[p].addRawRule(rawRules[raw]);
             }
 
-            let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
+            let referralMarketingRules = getOrDefault(data.providers[prvKeys[p]], 'referralMarketing', []);
             //Add referral marketing rules to provider
             for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
                 providers[p].addReferralMarketing(referralMarketingRules[referralMarketing]);
             }
 
-            let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
+            let exceptions = getOrDefault(data.providers[prvKeys[p]], 'exceptions', []);
             //Add exceptions to provider
             for (let e = 0; e < exceptions.length; e++) {
                 providers[p].addException(exceptions[e]);
             }
 
-            let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
+            let redirections = getOrDefault(data.providers[prvKeys[p]], 'redirections', []);
             //Add redirections to provider
             for (let re = 0; re < redirections.length; re++) {
                 providers[p].addRedirection(redirections[re]);
             }
 
-            let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
+            let methods = getOrDefault(data.providers[prvKeys[p]], 'methods', []);
             //Add HTTP methods list to provider
             for (let re = 0; re < methods.length; re++) {
                 providers[p].addMethod(methods[re]);
@@ -240,6 +240,217 @@ function start() {
     function toObject(retrievedText) {
         getKeys(storage.ClearURLsData.providers);
         createProviders();
+        buildDeclarativeNetRequestRules();
+    }
+
+    /**
+     * Converts parsed provider rules into declarativeNetRequest dynamic rules.
+     * Called after providers are created from the JSON rule data.
+     */
+    async function buildDeclarativeNetRequestRules() {
+        const rules = [];
+        let ruleId = 1;
+
+        for (let i = 0; i < providers.length; i++) {
+            const provider = providers[i];
+            const providerData = storage.ClearURLsData.providers[prvKeys[i]];
+            const urlPattern = getOrDefault(providerData, 'urlPattern', '');
+
+            if (!urlPattern) continue;
+
+            // Convert urlPattern to a regexFilter-compatible pattern
+            // Provider urlPatterns are already regex strings
+            const regexFilter = urlPattern;
+
+            // Get exceptions for this provider
+            const exceptions = getOrDefault(providerData, 'exceptions', []);
+
+            // 1. Domain blocking rules (completeProvider)
+            if (provider.isCaneling()) {
+                rules.push({
+                    id: ruleId++,
+                    priority: 3,
+                    action: { type: "block" },
+                    condition: {
+                        regexFilter: regexFilter,
+                        resourceTypes: ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "media", "websocket", "other"]
+                    }
+                });
+                continue; // completeProvider blocks everything, no param cleaning needed
+            }
+
+            // 2. Field rules (query parameter removal)
+            const fieldRules = getOrDefault(providerData, 'rules', []);
+            const referralRules = getOrDefault(providerData, 'referralMarketing', []);
+            const allParamRules = [...fieldRules];
+            if (!storage.referralMarketing) {
+                allParamRules.push(...referralRules);
+            }
+
+            if (allParamRules.length > 0) {
+                // For simple parameter names (no regex special chars), use removeParams
+                const simpleParams = [];
+                const regexParams = [];
+
+                for (const rule of allParamRules) {
+                    // Check if the rule is a simple parameter name (no regex metacharacters)
+                    if (/^[a-zA-Z0-9_-]+$/.test(rule)) {
+                        simpleParams.push(rule);
+                    } else {
+                        regexParams.push(rule);
+                    }
+                }
+
+                if (simpleParams.length > 0) {
+                    rules.push({
+                        id: ruleId++,
+                        priority: 1,
+                        action: {
+                            type: "redirect",
+                            redirect: {
+                                transform: {
+                                    queryTransform: {
+                                        removeParams: simpleParams
+                                    }
+                                }
+                            }
+                        },
+                        condition: {
+                            regexFilter: regexFilter,
+                            resourceTypes: ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "media", "websocket", "other"]
+                        }
+                    });
+                }
+
+                // For regex-based param rules, we need individual rules
+                // These use regexFilter to match URLs containing these params
+                // Note: DNR has limited regex support, so complex rules may not convert perfectly
+                for (const regexRule of regexParams) {
+                    try {
+                        rules.push({
+                            id: ruleId++,
+                            priority: 1,
+                            action: {
+                                type: "redirect",
+                                redirect: {
+                                    transform: {
+                                        queryTransform: {
+                                            removeParams: [regexRule]
+                                        }
+                                    }
+                                }
+                            },
+                            condition: {
+                                regexFilter: regexFilter,
+                                resourceTypes: ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "media", "websocket", "other"]
+                            }
+                        });
+                    } catch (e) {
+                        console.warn(`[ClearURLs] Could not create DNR rule for regex param: ${regexRule}`, e);
+                    }
+                }
+            }
+
+            // 3. Redirection rules (extract embedded URLs)
+            const redirections = getOrDefault(providerData, 'redirections', []);
+            for (const redirection of redirections) {
+                try {
+                    rules.push({
+                        id: ruleId++,
+                        priority: 2,
+                        action: {
+                            type: "redirect",
+                            redirect: {
+                                regexSubstitution: "\\1"
+                            }
+                        },
+                        condition: {
+                            regexFilter: redirection,
+                            resourceTypes: ["main_frame", "sub_frame"]
+                        }
+                    });
+                } catch (e) {
+                    console.warn(`[ClearURLs] Could not create DNR redirect rule: ${redirection}`, e);
+                }
+            }
+
+            // 4. Raw rules (regex-based URL modifications)
+            const rawRules = getOrDefault(providerData, 'rawRules', []);
+            for (const rawRule of rawRules) {
+                try {
+                    // Raw rules replace matched regex with empty string
+                    // In DNR, we use regexSubstitution to rebuild the URL without the matched part
+                    // This is limited - complex raw rules may not convert perfectly
+                    rules.push({
+                        id: ruleId++,
+                        priority: 1,
+                        action: {
+                            type: "redirect",
+                            redirect: {
+                                regexSubstitution: "\\1"
+                            }
+                        },
+                        condition: {
+                            // Wrap the raw rule to capture everything before the match
+                            regexFilter: "^(.*?)" + rawRule,
+                            resourceTypes: ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "media", "websocket", "other"]
+                        }
+                    });
+                } catch (e) {
+                    console.warn(`[ClearURLs] Could not create DNR raw rule: ${rawRule}`, e);
+                }
+            }
+        }
+
+        // Add ping blocking rules
+        if (storage.pingBlocking) {
+            rules.push({
+                id: ruleId++,
+                priority: 3,
+                action: { type: "block" },
+                condition: {
+                    urlFilter: "*",
+                    resourceTypes: ["ping"]
+                }
+            });
+        }
+
+        // Enforce rule limits (dynamic rules limited to 30000, regex rules to 1000)
+        const regexRules = rules.filter(r => r.condition.regexFilter && !r.condition.urlFilter);
+        const nonRegexRules = rules.filter(r => r.condition.urlFilter || !r.condition.regexFilter);
+
+        let finalRules = [...nonRegexRules];
+        if (regexRules.length > 1000) {
+            console.warn(`[ClearURLs] Too many regex rules (${regexRules.length}), truncating to 1000`);
+            finalRules.push(...regexRules.slice(0, 1000));
+        } else {
+            finalRules.push(...regexRules);
+        }
+
+        if (finalRules.length > 30000) {
+            console.warn(`[ClearURLs] Too many total rules (${finalRules.length}), truncating to 30000`);
+            finalRules = finalRules.slice(0, 30000);
+        }
+
+        // Re-assign sequential IDs
+        finalRules.forEach((rule, index) => {
+            rule.id = index + 1;
+        });
+
+        try {
+            // Get existing rule IDs to remove them
+            const existingRules = await chrome.declarativeNetRequest.getDynamicRules();
+            const existingRuleIds = existingRules.map(r => r.id);
+
+            await chrome.declarativeNetRequest.updateDynamicRules({
+                removeRuleIds: existingRuleIds,
+                addRules: finalRules
+            });
+
+            console.log(`[ClearURLs] Installed ${finalRules.length} declarativeNetRequest rules`);
+        } catch (e) {
+            console.error('[ClearURLs] Failed to install declarativeNetRequest rules:', e);
+        }
     }
 
     /**
@@ -599,131 +810,20 @@ function start() {
     // ##################################################################
 
     /**
-     * Function which called from the webRequest to
-     * remove the tracking fields from the url.
-     *
-     * @param  {requestDetails} request     webRequest-Object
-     * @return {Array}                  redirectUrl or none
-     */
-    function clearUrl(request) {
-        const URLbeforeReplaceCount = countFields(request.url);
-
-        //Add Fields form Request to global url counter
-        increaseTotalCounter(URLbeforeReplaceCount);
-
-        if (storage.globalStatus) {
-            let result = {
-                "changes": false,
-                "url": "",
-                "redirect": false,
-                "cancel": false
-            };
-
-            if (storage.pingBlocking && storage.pingRequestTypes.includes(request.type)) {
-                pushToLog(request.url, request.url, translate('log_ping_blocked'));
-                increaseBadged(false, request);
-                increaseTotalCounter(1);
-                return {cancel: true};
-            }
-
-            /*
-            * Call for every provider the removeFieldsFormURL method.
-            */
-            for (let i = 0; i < providers.length; i++) {
-                if (!providers[i].matchMethod(request)) continue;
-                if (providers[i].matchURL(request.url)) {
-                    result = removeFieldsFormURL(providers[i], request.url, false, request);
-                }
-
-                /*
-                * Expand urls and bypass tracking.
-                * Cancel the active request.
-                */
-                if (result.redirect) {
-                    if (providers[i].shouldForceRedirect() &&
-                        request.type === 'main_frame') {
-                        browser.tabs.update(request.tabId, {url: result.url}).catch(handleError);
-                        return {cancel: true};
-                    }
-
-                    return {
-                        redirectUrl: result.url
-                    };
-                }
-
-                /*
-                * Cancel the Request and redirect to the site blocked alert page,
-                * to inform the user about the full url blocking.
-                */
-                if (result.cancel) {
-                    if (request.type === 'main_frame') {
-                        const blockingPage = browser.runtime.getURL("html/siteBlockedAlert.html?source=" + encodeURIComponent(request.url));
-                        browser.tabs.update(request.tabId, {url: blockingPage}).catch(handleError);
-
-                        return {cancel: true};
-                    } else {
-                        return {
-                            redirectUrl: siteBlockedAlert
-                        };
-                    }
-                }
-
-                /*
-                * Ensure that the function go not into
-                * a loop.
-                */
-                if (result.changes) {
-                    return {
-                        redirectUrl: result.url
-                    };
-                }
-            }
-        }
-
-        // Default case
-        return {};
-    }
-
-    /**
      * Call loadOldDataFromStore, getHash, counter, status and log functions
      */
 
     loadOldDataFromStore();
     getHash();
     setBadgedStatus();
+}
 
-    /**
-     * Check the request.
-     */
-    function promise(requestDetails) {
-        if (isDataURL(requestDetails)) {
-            return {};
-        } else {
-            return clearUrl(requestDetails);
+// Track statistics via declarativeNetRequest matched rules (MV3)
+if (chrome.declarativeNetRequest && chrome.declarativeNetRequest.onRuleMatchedDebug) {
+    chrome.declarativeNetRequest.onRuleMatchedDebug.addListener((info) => {
+        if (storage.globalStatus) {
+            increaseTotalCounter(1);
+            increaseBadged(false, { tabId: info.request.tabId, url: info.request.url });
         }
-    }
-
-    /**
-     * To prevent long loading on data urls
-     * we will check here for data urls.
-     *
-     * @type {requestDetails}
-     * @return {boolean}
-     */
-    function isDataURL(requestDetails) {
-        const s = requestDetails.url;
-
-        return s.substring(0, 4) === "data";
-    }
-
-    /**
-     * Call by each Request and checking the url.
-     *
-     * @type {Array}
-     */
-    browser.webRequest.onBeforeRequest.addListener(
-        promise,
-        {urls: ["<all_urls>"], types: getData("types").concat(getData("pingRequestTypes"))},
-        ["blocking"]
-    );
+    });
 }

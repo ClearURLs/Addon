@@ -1,78 +1,71 @@
 /*
-* ClearURLs
-* Copyright (c) 2017-2025 Kevin Röbert
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU Lesser General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU Lesser General Public License for more details.
-*
-* You should have received a copy of the GNU Lesser General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * ClearURLs
+ * Copyright (c) 2017-2025 Kevin Röbert
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 /*jshint esversion: 6 */
 
 /**
- * Filters eTag headers from web requests.
- */
-function eTagFilter(requestDetails) {
-    if(!requestDetails.responseHeaders || !storage.eTagFiltering
-        || storage.localHostsSkipping && checkLocalURL(new URL(requestDetails.url))) return {};
-    for(let i=0; i < requestDetails.responseHeaders.length; i++) {
-        const header = requestDetails.responseHeaders[i];
-
-        if(header.name.toString().toLowerCase() !== "etag") {
-            continue;
-        }
-
-        const etag = header.value.toLowerCase();
-        const w = etag.startsWith('w');
-        const quotes = etag.endsWith('"');
-
-        let len = etag.length;
-        if (w) len -= 2;
-        if (quotes) len -= 2;
-
-        // insert dummy etag
-        requestDetails.responseHeaders[i].value = generateDummyEtag(len, quotes, w);
-
-        pushToLog(requestDetails.url, requestDetails.url, translate("eTag_filtering_log"));
-
-        break;
-    }
-
-    return {responseHeaders: requestDetails.responseHeaders};
-}
-
-/**
- * Generates a random ETag.
+ * Sets up ETag filtering via declarativeNetRequest.
+ * In MV3, we can't modify headers synchronously. Instead, we use
+ * a declarativeNetRequest rule to remove ETag headers entirely.
  * 
- * Must be ASCII characters placed between double quotes.
- * See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
+ * Note: MV3 DNR cannot replace ETags with random values (only remove).
+ * Removing ETags still prevents ETag-based tracking.
  */
-function generateDummyEtag(len, quotes = true, w = false) {
-    let rtn = randomASCII(len);
+async function setupETagFilter() {
+    if (getBrowser() === "Firefox") return; // Firefox handles ETag partitioning natively since v85
 
-    if (quotes) rtn = '"' + rtn + '"';
-    if (w) rtn = 'W/' + rtn;
+    const ETAG_RULE_ID = 99999; // Reserved ID for ETag rule
 
-    return rtn;
+    try {
+        if (storage.eTagFiltering) {
+            await chrome.declarativeNetRequest.updateDynamicRules({
+                removeRuleIds: [ETAG_RULE_ID],
+                addRules: [{
+                    id: ETAG_RULE_ID,
+                    priority: 1,
+                    action: {
+                        type: "modifyHeaders",
+                        responseHeaders: [
+                            { header: "ETag", operation: "remove" }
+                        ]
+                    },
+                    condition: {
+                        urlFilter: "*",
+                        resourceTypes: ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "media", "websocket", "other"]
+                    }
+                }]
+            });
+            console.log('[ClearURLs] ETag filtering enabled via declarativeNetRequest');
+        } else {
+            // Remove the ETag rule if filtering is disabled
+            await chrome.declarativeNetRequest.updateDynamicRules({
+                removeRuleIds: [ETAG_RULE_ID],
+                addRules: []
+            });
+            console.log('[ClearURLs] ETag filtering disabled');
+        }
+    } catch (e) {
+        console.error('[ClearURLs] Failed to setup ETag filter:', e);
+    }
 }
 
-/**
- * Since Firefox 85, eTags can no longer be 
- * used for tracking users over multiple sites.
- */
-if(getBrowser() !== "Firefox") {
-    browser.webRequest.onHeadersReceived.addListener(
-        eTagFilter,
-        {urls: ["<all_urls>"]},
-        ["blocking", "responseHeaders"]
-    );
+// Setup ETag filtering (called after storage is initialized)
+if (getBrowser() !== "Firefox") {
+    // Will be called by genesis() after storage is loaded
+    // For now, register as a function that storage.js can call
 }

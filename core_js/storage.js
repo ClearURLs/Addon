@@ -1,28 +1,31 @@
 /*
-* ClearURLs
-* Copyright (c) 2017-2025 Kevin Röbert
-*
-* This program is free software: you can redistribute it and/or modify
-* it under the terms of the GNU Lesser General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-*
-* This program is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU Lesser General Public License for more details.
-*
-* You should have received a copy of the GNU Lesser General Public License
-* along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+ * ClearURLs
+ * Copyright (c) 2017-2025 Kevin Röbert
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 /*jshint esversion: 6 */
 /*
-* This script is responsible for the storage.
-*/
+ * This script is responsible for the storage.
+ * Adapted for MV3 service worker lifecycle.
+ */
 var storage = [];
 var hasPendingSaves = false;
 var pendingSaves = new Set();
+var storageInitialized = false;
+var storageInitPromise = null;
 
 /**
  * Writes the storage variable to the disk.
@@ -86,42 +89,67 @@ function saveOnDisk(keys) {
 }
 
 /**
- * Schedule to save a key to disk in 30 seconds.
+ * Schedule to save a key to disk.
+ * In MV3, we save quickly since service workers can terminate at any time.
+ * Uses a short 5-second timeout instead of the original 30-second one.
  * @param  {String} key
  */
 function deferSaveOnDisk(key) {
+    pendingSaves.add(key);
+
     if (hasPendingSaves) {
-        pendingSaves.add(key);
         return;
     }
 
+    hasPendingSaves = true;
     setTimeout(function () {
         saveOnDisk(Array.from(pendingSaves));
         pendingSaves.clear();
         hasPendingSaves = false;
-    }, 30000);
-    hasPendingSaves = true;
+    }, 5000); // Reduced from 30s to 5s for MV3 service worker safety
+}
+
+/**
+ * Ensures storage is initialized before use.
+ * In MV3 service workers, we may wake up without state.
+ * @returns {Promise} resolves when storage is ready
+ */
+function ensureStorageLoaded() {
+    if (storageInitialized) {
+        return Promise.resolve();
+    }
+    if (storageInitPromise) {
+        return storageInitPromise;
+    }
+    storageInitPromise = browser.storage.local.get(null).then((items) => {
+        initStorage(items);
+        storageInitialized = true;
+        return items;
+    });
+    return storageInitPromise;
 }
 
 /**
  * Start sequence for ClearURLs.
+ * In MV3, event listeners are registered at the top level of each script file.
+ * genesis() now only handles storage initialization and startup logic.
  */
 function genesis() {
-    browser.storage.local.get(null).then((items) => {
-        initStorage(items);
-
-        // Start the clearurls.js
+    ensureStorageLoaded().then(() => {
+        // Start the clearurls.js rule engine
         start();
 
-        //Set correct icon on startup
+        // Set correct icon on startup
         changeIcon();
 
-        // Start the context_menu
+        // Create context menu items
         contextMenuStart();
 
-        // Start history listener
-        historyListenerStart();
-    }, handleError);
+        // Setup ETag filtering
+        if (typeof setupETagFilter === 'function') {
+            setupETagFilter();
+        }
+    }).catch(handleError);
 }
 
 /**
@@ -219,7 +247,7 @@ function initSettings() {
     storage.contextMenuEnabled = true;
     storage.historyListenerEnabled = true;
     storage.localHostsSkipping = true;
-    storage.referralMarketing = true;
+    storage.referralMarketing = false;
     storage.logLimit = 100;
     storage.domainBlocking = true;
     storage.pingBlocking = true;
@@ -304,6 +332,23 @@ function storeHashStatus(status_code) {
     }
 
     storage.hashStatus = status_code;
+}
+
+// Register message handlers for IPC from popup/settings/tools pages
+// These must be available even before genesis() completes
+if (typeof registerMessageHandler === 'function') {
+    registerMessageHandler('getData', getData);
+    registerMessageHandler('setData', setData);
+    registerMessageHandler('getEntireData', getEntireData);
+    registerMessageHandler('saveOnExit', saveOnExit);
+    registerMessageHandler('saveOnDisk', saveOnDisk);
+    registerMessageHandler('initSettings', initSettings);
+    registerMessageHandler('storageAsJSON', storageAsJSON);
+    registerMessageHandler('reload', reload);
+    registerMessageHandler('changeIcon', changeIcon);
+    registerMessageHandler('setBadgedStatus', setBadgedStatus);
+    registerMessageHandler('getBrowser', getBrowser);
+    registerMessageHandler('pureCleaning', pureCleaning);
 }
 
 // Start storage and ClearURLs

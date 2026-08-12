@@ -18,26 +18,31 @@
 
 /*jshint esversion: 6 */
 /*
-* This script is responsible to check in fixed intervals, that ClearURLs works properly.
-* In issue #203, some users reported, that ClearURLs filter function doesn't work after
-* some time, but without any recognizable reason.
-*
-* This watchdog restarts the whole Add-on, when the check fails.
-*/
-const CHECK_INTERVAL = 60000;
+ * This script is responsible to check in fixed intervals, that ClearURLs works properly.
+ * In issue #203, some users reported, that ClearURLs filter function doesn't work after
+ * some time, but without any recognizable reason.
+ *
+ * This watchdog restarts the whole Add-on, when the check fails.
+ */
+const CHECK_INTERVAL_MINUTES = 1;
 const __dirtyURL = "https://clearurls.roebert.eu?utm_source=addon";
 const __cleanURL = new URL("https://clearurls.roebert.eu").toString();
 
-setInterval(function() {
-    if(isStorageAvailable() && storage.globalStatus) {
-        if(new URL(pureCleaning(__dirtyURL, true)).toString() !== __cleanURL) {
+// Create the watchdog alarm on install/startup
+chrome.alarms.create("clearurls-watchdog", { periodInMinutes: CHECK_INTERVAL_MINUTES });
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+    if (alarm.name !== "clearurls-watchdog") return;
+
+    if (isStorageAvailable() && storage.globalStatus) {
+        if (new URL(pureCleaning(__dirtyURL, true)).toString() !== __cleanURL) {
             storage.watchDogErrorCount += 1;
             console.log(translate('watchdog', storage.watchDogErrorCount));
             saveOnExit();
-            if(storage.watchDogErrorCount < 3) reload();
-        } else if(storage.watchDogErrorCount > 0){
+            if (storage.watchDogErrorCount < 3) reload();
+        } else if (storage.watchDogErrorCount > 0) {
             storage.watchDogErrorCount = 0;
             saveOnExit();
         }
     }
-}, CHECK_INTERVAL);
+});

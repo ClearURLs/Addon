@@ -21,20 +21,28 @@
  * This script is responsible for the communication between background and content_scripts.
  */
 
+// Explicit dispatch map for MV3 service worker (no `window` object available)
+const messageHandlers = {};
+
 /**
- * [handleMessage description]
- * @param  request      The message itself. This is a JSON-ifiable object.
- * @param  sender       A runtime.MessageSender object representing the sender of the message.
- * @param  sendResponse A function to call, at most once, to send a response to the message. The function takes a single argument, which may be any JSON-ifiable object. This argument is passed back to the message sender.
+ * Register a function to be callable via runtime.sendMessage.
+ * @param {string} name - The function name
+ * @param {Function} fn - The function to register
  */
-function handleMessage(request, sender, sendResponse)
-{
-    let fn = window[request.function];
+function registerMessageHandler(name, fn) {
+    messageHandlers[name] = fn;
+}
 
-    if(typeof fn === "function")
-    {
+/**
+ * @param  request      The message itself.
+ * @param  sender       A runtime.MessageSender object.
+ * @param  sendResponse A function to call to send a response.
+ */
+function handleMessage(request, sender, sendResponse) {
+    let fn = messageHandlers[request.function];
+
+    if (typeof fn === "function") {
         let response = fn.apply(null, request.params);
-
         return Promise.resolve({response});
     }
 }
