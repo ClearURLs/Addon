@@ -23,6 +23,7 @@ core_js/
   pureCleaning.js              — Standalone URL cleaning (for context menu/tools)
   context_menu.js              — "Copy clean link" context menu (uses chrome.scripting)
   historyListener.js           — SPA history.replaceState URL cleaning (uses chrome.scripting)
+  requestObserver.js           — Non-blocking production statistics for DNR actions
   watchdog.js                  — Periodic self-test (uses chrome.alarms)
   eTagFilter.js                — ETag header removal via declarativeNetRequest
   popup.js                     — Popup UI controller
@@ -47,8 +48,8 @@ core_js/
 - `background.scripts` → `background.service_worker: "background.js"`
 - `content_security_policy` string → object format
 - `<all_urls>` moved from `permissions` to `host_permissions`
-- Removed `webRequest`, `webRequestBlocking` permissions
-- Added `declarativeNetRequest`, `declarativeNetRequestFeedback`, `scripting`, `alarms`
+- Removed the unavailable `webRequestBlocking` permission
+- Added `declarativeNetRequest`, non-blocking `webRequest`, `scripting`, `clipboardWrite`, and `alarms`
 - Added `"world": "MAIN"` to Google and Yandex content scripts
 - Removed `browser_specific_settings` (Chrome-only build)
 - Added `web_accessible_resources`, `minimum_chrome_version: "120"`
@@ -61,13 +62,15 @@ core_js/
 - Removed `browser.webRequest.onBeforeRequest.addListener(..., ["blocking"])`
 - Removed `clearUrl()`, `promise()`, `isDataURL()` (MV2 webRequest callbacks)
 - Added `buildDeclarativeNetRequestRules()` — converts provider rules to DNR dynamic rules:
-  - Query parameter removal → `redirect` + `queryTransform.removeParams`
+  - Literal query parameters → `redirect` + `queryTransform.removeParams`
+  - Regex query parameters → provider-scoped `regexFilter`/`regexSubstitution` rules
   - Domain blocking → `block` rules
   - URL redirections → `redirect` + `regexFilter`/`regexSubstitution`
   - Raw rules → `redirect` + `regexFilter`
   - Ping blocking → `block` for ping resource type
   - Uses `chrome.declarativeNetRequest.isRegexSupported` to pre-validate rules and drop overly complex filters that exceed Chrome's 2KB RE2 memory limit, preventing full installation failures.
-- Added `chrome.declarativeNetRequest.onRuleMatchedDebug` listener for statistics
+- Preserves the reserved ETag rule when rebuilding cleaning rules
+- Rebuilds immediately when network-related settings change
 - Updated all `getOrDefault()` calls to standalone function (no prototype pollution)
 - Preserved `Provider` class and `removeFieldsFormURL` for pureCleaning/context menu
 
@@ -87,7 +90,8 @@ core_js/
 ### core_js/context_menu.js
 - `browser.tabs.executeScript` → `chrome.scripting.executeScript` with `func`+`args`
 - Moved `onClicked` listener to top level for service worker compatibility
-- Uses `navigator.clipboard.writeText()` with fallback
+- Uses `navigator.clipboard.writeText()` without the deprecated `execCommand` fallback
+- Updates or removes the menu idempotently across service-worker restarts
 
 ### core_js/historyListener.js
 - `browser.tabs.executeScript` → `chrome.scripting.executeScript` with `func`+`args`
@@ -105,12 +109,16 @@ core_js/
 - `setupETagFilter()` called from genesis() after storage loads
 
 ### core_js/storage.js
-- `deferSaveOnDisk()` timeout reduced from 30s to 5s for service worker safety
+- `deferSaveOnDisk()` writes immediately because service-worker timers can be cancelled
 - Added `ensureStorageLoaded()` for service worker re-initialization
 - Added `storageInitialized` / `storageInitPromise` state tracking
 - All message handlers registered via `registerMessageHandler()` at load time
 - `genesis()` uses `ensureStorageLoaded()` instead of direct `browser.storage.local.get()`
 - Calls `setupETagFilter()` after storage initialization
+
+### core_js/requestObserver.js
+- Uses non-blocking `webRequest` observation for production counters and badges
+- Does not intercept, redirect, or block requests; DNR remains the enforcement path
 
 ### core_js/cleaning_tool.js
 - Fixed async race condition bug (global `var i` in for loop with async callbacks)
@@ -133,18 +141,18 @@ core_js/
 
 2. **DNR Rule Strategy**:
    - Simple param names → `removeParams` (most efficient)
-   - Regex param names → individual `removeParams` rules with provider-scoped `regexFilter`
+   - Regex param names → scoped first/middle and final-parameter regex substitutions
    - Redirections → `regexSubstitution` with capture group
    - Raw rules → `regexSubstitution` with prefix capture
-   - Enforces 1000 regex rule limit and 30000 total rule limit
+   - Enforces the 1000 regex-rule limit and 5000 unsafe dynamic-rule limit
 
 3. **ETag Filtering**: Changed from replacing ETags with random values to removing them entirely. This is a minor behavioral difference but still prevents ETag-based tracking.
 
-4. **Badge Counters**: Uses `chrome.declarativeNetRequest.onRuleMatchedDebug` for statistics. This API requires the `declarativeNetRequestFeedback` permission and is only available in developer/unpacked mode.
+4. **Badge Counters**: Uses non-blocking `webRequest` lifecycle events, which work in packed production builds. DNR still performs all request modification.
 
 5. **Service Worker Lifecycle**: 
    - All event listeners registered at top level
-   - Storage writes deferred by only 5s (down from 30s)
+   - Counter and log writes are persisted immediately
    - `ensureStorageLoaded()` guards against cold starts
 
 ---
@@ -153,13 +161,11 @@ core_js/
 
 1. **Regex Rule Limit & Size Restrictions**: DNR limits regex rules to 1000, and restricts individual compiled regexes to 2KB in memory. Extensions with very large rule sets or massive domain exception strings may have some rules skipped or truncated (these are gracefully filtered out via `isRegexSupported` without breaking the extension).
 
-2. **Complex Raw Rules**: Some raw rules involving complex regex patterns may not convert perfectly to DNR `regexFilter`/`regexSubstitution` format.
+2. **Exception Semantics**: DNR has no provider-local negative regex condition. Regex exceptions are represented as high-priority allow rules, so an exception can also suppress a lower-priority rule from another ClearURLs provider for the same URL.
 
-3. **Statistics Tracking**: `onRuleMatchedDebug` is only available in developer/unpacked extensions. In production, cleaned counter statistics may not increment for DNR-handled requests.
+3. **Firefox Compatibility**: This migration targets Chrome MV3 only. The `browser_specific_settings` block was removed. A separate manifest would be needed for Firefox.
 
-4. **Firefox Compatibility**: This migration targets Chrome MV3 only. The `browser_specific_settings` block was removed. A separate manifest would be needed for Firefox.
-
-5. **Badge Text Color**: `setBadgeTextColor` was Firefox-only and has been removed. Badge text will use Chrome's default color.
+4. **Badge Text Color**: `setBadgeTextColor` was Firefox-only and has been removed. Badge text will use Chrome's default color.
 
 ---
 

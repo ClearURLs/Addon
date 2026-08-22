@@ -36,8 +36,24 @@ function setText()
 (function() {
     setText();
 
-    const source = new URLSearchParams(window.location.search).get("source");
-    document.getElementById('page').href = decodeURIComponent(source);
+    const marker = "?source=";
+    const markerIndex = window.location.href.indexOf(marker);
+    if (markerIndex === -1) {
+        document.getElementById('page').remove();
+        return;
+    }
+
+    const source = window.location.href.slice(markerIndex + marker.length);
+    try {
+        const destination = new URL(source);
+        if (["http:", "https:"].includes(destination.protocol)) {
+            document.getElementById('page').href = destination.href;
+            return;
+        }
+    } catch (error) {
+        console.error("[ClearURLs] Invalid blocked-page source:", error);
+    }
+    document.getElementById('page').remove();
 })();
 
 /**

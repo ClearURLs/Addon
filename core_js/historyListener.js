@@ -33,7 +33,9 @@ function historyListenerStart() {
  * Function that is triggered on history changes. Uses chrome.scripting.executeScript
  * to clean links pushed to the history stack via history.replaceState.
  */
-function historyCleaner(details) {
+async function historyCleaner(details) {
+    await ensureStorageLoaded();
+    await ensureRulesReady();
     if (storage.globalStatus && storage.historyListenerEnabled) {
         const urlBefore = details.url;
         const urlAfter = pureCleaning(details.url);

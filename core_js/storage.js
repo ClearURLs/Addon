@@ -22,16 +22,18 @@
  * Adapted for MV3 service worker lifecycle.
  */
 var storage = [];
-var hasPendingSaves = false;
-var pendingSaves = new Set();
 var storageInitialized = false;
 var storageInitPromise = null;
+const DNR_RELEVANT_SETTINGS = new Set([
+    "globalStatus", "referralMarketing", "domainBlocking",
+    "pingBlocking", "localHostsSkipping"
+]);
 
 /**
  * Writes the storage variable to the disk.
  */
 function saveOnExit() {
-    saveOnDisk(Object.keys(storage));
+    return saveOnDisk(Object.keys(storage));
 }
 
 /**
@@ -70,7 +72,7 @@ function storageDataAsString(key) {
  * Delete key from browser storage.
  */
 function deleteFromDisk(key) {
-    browser.storage.local.remove(key).catch(handleError);
+    return browser.storage.local.remove(key).catch(handleError);
 }
 
 /**
@@ -85,28 +87,16 @@ function saveOnDisk(keys) {
     });
 
     console.log(translate('core_save_on_disk'));
-    browser.storage.local.set(json).catch(handleError);
+    return browser.storage.local.set(json).catch(handleError);
 }
 
 /**
- * Schedule to save a key to disk.
- * In MV3, we save quickly since service workers can terminate at any time.
- * Uses a short 5-second timeout instead of the original 30-second one.
+ * Save a changed key immediately. Extension service-worker timers can be
+ * cancelled when the worker becomes idle, so delayed writes are unsafe.
  * @param  {String} key
  */
 function deferSaveOnDisk(key) {
-    pendingSaves.add(key);
-
-    if (hasPendingSaves) {
-        return;
-    }
-
-    hasPendingSaves = true;
-    setTimeout(function () {
-        saveOnDisk(Array.from(pendingSaves));
-        pendingSaves.clear();
-        hasPendingSaves = false;
-    }, 5000); // Reduced from 30s to 5s for MV3 service worker safety
+    return saveOnDisk([key]);
 }
 
 /**
@@ -135,20 +125,13 @@ function ensureStorageLoaded() {
  * genesis() now only handles storage initialization and startup logic.
  */
 function genesis() {
-    ensureStorageLoaded().then(() => {
-        // Start the clearurls.js rule engine
-        start();
-
-        // Set correct icon on startup
+    return ensureStorageLoaded().then(() => {
         changeIcon();
-
-        // Create context menu items
-        contextMenuStart();
-
-        // Setup ETag filtering
-        if (typeof setupETagFilter === 'function') {
-            setupETagFilter();
-        }
+        return Promise.all([
+            start(),
+            contextMenuStart(),
+            setupETagFilter()
+        ]);
     }).catch(handleError);
 }
 
@@ -211,6 +194,28 @@ function setData(key, value) {
         default:
             storage[key] = value;
     }
+
+    if (!storageInitialized) {
+        return undefined;
+    }
+    return applySettingSideEffects(key);
+}
+
+function applySettingSideEffects(key) {
+    if (DNR_RELEVANT_SETTINGS.has(key) &&
+        typeof rebuildDeclarativeNetRequestRules === "function") {
+        return rebuildDeclarativeNetRequestRules();
+    }
+    if (key === "ClearURLsData" && typeof installRuleData === "function") {
+        return installRuleData();
+    }
+    if (key === "eTagFiltering" && typeof setupETagFilter === "function") {
+        return setupETagFilter();
+    }
+    if (key === "contextMenuEnabled" && typeof contextMenuStart === "function") {
+        return contextMenuStart();
+    }
+    return undefined;
 }
 
 /**
@@ -261,6 +266,15 @@ function initSettings() {
         storage.types = ["main_frame", "sub_frame", "stylesheet", "script", "image", "font", "object", "xmlhttprequest", "ping", "csp_report", "media", "websocket", "other"];
         storage.pingRequestTypes = ["ping"];
     }
+
+    if (storageInitialized) {
+        return Promise.all([
+            rebuildDeclarativeNetRequestRules(),
+            setupETagFilter(),
+            contextMenuStart()
+        ]);
+    }
+    return undefined;
 }
 
 /**

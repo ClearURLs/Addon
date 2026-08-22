@@ -24,10 +24,10 @@
 let badges = {};
 
 /**
- * Increases the badged by one.
+ * Increases the badge and cleaned counter.
  */
-function increaseBadged(quiet = false, request) {
-    if (!quiet) increaseCleanedCounter();
+function increaseBadged(quiet = false, request, amount = 1) {
+    if (!quiet) increaseCleanedCounter(amount);
 
     if(request === null) return;
 
@@ -38,11 +38,11 @@ function increaseBadged(quiet = false, request) {
 
     if (badges[tabId] == null) {
         badges[tabId] = {
-            counter: 1,
+            counter: amount,
             lastURL: url
         };
     } else {
-        badges[tabId].counter += 1;
+        badges[tabId].counter += amount;
     }
 
     checkOSAndroid().then((res) => {

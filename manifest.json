@@ -45,10 +45,10 @@
   ],
   "permissions": [
     "declarativeNetRequest",
-    "declarativeNetRequestFeedback",
+    "webRequest",
     "scripting",
+    "clipboardWrite",
     "alarms",
-    "offscreen",
     "storage",
     "unlimitedStorage",
     "contextMenus",
@@ -281,7 +281,7 @@
     "page": "html/settings.html"
   },
   "web_accessible_resources": [{
-    "resources": ["html/siteBlockedAlert.html", "external_js/clipboard-helper.js"],
+    "resources": ["html/siteBlockedAlert.html", "html/redirect.html"],
     "matches": ["<all_urls>"]
   }]
 }

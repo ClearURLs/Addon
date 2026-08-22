@@ -23,39 +23,36 @@
  */
 
 function contextMenuStart() {
-    if (storage.contextMenuEnabled) {
-        browser.contextMenus.create({
+    const menuId = "copy-link-to-clipboard";
+    if (!storage.contextMenuEnabled) {
+        return browser.contextMenus.remove(menuId).catch(() => undefined);
+    }
+
+    return browser.contextMenus.update(menuId, {
+        title: translate("clipboard_copy_link"),
+        contexts: ["link"]
+    }).catch(() => browser.contextMenus.create({
             id: "copy-link-to-clipboard",
             title: translate("clipboard_copy_link"),
             contexts: ["link"]
-        });
-    }
+        }));
 }
 
 // Register context menu click handler at top level for MV3 service worker
-browser.contextMenus.onClicked.addListener((info, tab) => {
+browser.contextMenus.onClicked.addListener(async (info, tab) => {
     if (info.menuItemId === "copy-link-to-clipboard") {
+        await ensureStorageLoaded();
+        await ensureRulesReady();
         const url = pureCleaning(info.linkUrl);
 
-        // Use chrome.scripting.executeScript with function injection (MV3)
-        chrome.scripting.executeScript({
-            target: { tabId: tab.id },
-            func: (cleanUrl) => {
-                navigator.clipboard.writeText(cleanUrl).catch(err => {
-                    // Fallback for contexts where clipboard API is unavailable
-                    const textarea = document.createElement('textarea');
-                    textarea.value = cleanUrl;
-                    textarea.style.position = 'fixed';
-                    textarea.style.opacity = '0';
-                    document.body.appendChild(textarea);
-                    textarea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(textarea);
-                });
-            },
-            args: [url]
-        }).catch(error => {
+        try {
+            await chrome.scripting.executeScript({
+                target: {tabId: tab.id},
+                func: async (cleanUrl) => navigator.clipboard.writeText(cleanUrl),
+                args: [url]
+            });
+        } catch (error) {
             console.error("Failed to copy text: " + error);
-        });
+        }
     }
 });

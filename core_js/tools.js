@@ -31,14 +31,14 @@ const logThreshold = 5000;
 * To support Waterfox.
 */
 Array.prototype.rmEmpty = function () {
-    return this.filter(v => v);
+    return this.filter(Boolean);
 };
 
 /*
 * To support Waterfox.
 */
 Array.prototype.flatten = function () {
-    return this.reduce((a, b) => a.concat(b), []);
+    return this.flat();
 };
 
 /**
@@ -158,18 +158,19 @@ function loadOldDataFromStore() {
  * @param  {int} number
  */
 function increaseTotalCounter(number) {
-    if (storage.statisticsStatus) {
+    if (storage.statisticsStatus && number > 0) {
         storage.totalCounter += number;
         deferSaveOnDisk('totalCounter');
     }
 }
 
 /**
- * Increase by one the cleaned counter
+ * Increase the cleaned counter.
+ * @param {number} number
  */
-function increaseCleanedCounter() {
-    if (storage.statisticsStatus) {
-        storage.cleanedCounter++;
+function increaseCleanedCounter(number = 1) {
+    if (storage.statisticsStatus && number > 0) {
+        storage.cleanedCounter += number;
         deferSaveOnDisk('cleanedCounter');
     }
 }
@@ -219,7 +220,7 @@ function getCurrentURL() {
  * Check for browser.
  */
 function getBrowser() {
-    if (typeof browser !== 'undefined' && browser.runtime && browser.runtime.getBrowserInfo) {
+    if (typeof browser !== 'undefined' && browser.runtime?.getBrowserInfo) {
         return "Firefox";
     } else {
         return "Chrome";
@@ -280,7 +281,7 @@ function handleError(error) {
  */
 function pushToLog(beforeProcessing, afterProcessing, rule) {
     const limit = Math.max(0, storage.logLimit);
-    if (storage.loggingStatus && limit !== 0 && !isNaN(limit)) {
+    if (storage.loggingStatus && limit !== 0 && !Number.isNaN(limit)) {
         while (storage.log.log.length >= limit
         || storage.log.log.length >= logThreshold) {
             storage.log.log.shift();
@@ -328,7 +329,9 @@ async function sha256(message) {
  * @returns non-secure random ASCII
  */
 function randomASCII(len) {
-    return [...Array(len)].map(() => (~~(Math.random() * 36)).toString(36)).join('');
+    return [...new Array(len)]
+        .map(() => Math.trunc(Math.random() * 36).toString(36))
+        .join('');
 }
 
 /**

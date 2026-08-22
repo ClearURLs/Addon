@@ -31,8 +31,11 @@ const __cleanURL = new URL("https://clearurls.roebert.eu").toString();
 // Create the watchdog alarm on install/startup
 chrome.alarms.create("clearurls-watchdog", { periodInMinutes: CHECK_INTERVAL_MINUTES });
 
-chrome.alarms.onAlarm.addListener((alarm) => {
+chrome.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name !== "clearurls-watchdog") return;
+
+    await ensureStorageLoaded();
+    await ensureRulesReady();
 
     if (isStorageAvailable() && storage.globalStatus) {
         if (new URL(pureCleaning(__dirtyURL, true)).toString() !== __cleanURL) {

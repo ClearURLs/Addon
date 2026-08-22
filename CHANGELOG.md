@@ -9,6 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
+### Fixed
+- Preserve settings, provider exceptions, methods, local-network skipping, and ETag rules in the MV3 DNR lifecycle
+- Convert regex parameter and provider-scoped raw rules without treating regexes as literal query keys
+- Persist service-worker state without unreliable delayed timers
+- Restore production statistics through non-blocking request observation
+- Resolve static-analysis findings in the MV3 rule builder, tools, and context menu
+
 ## [1.XX.0] - 2022-XX-XX
 
 ### Compatibility note

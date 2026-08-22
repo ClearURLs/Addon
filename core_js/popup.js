@@ -53,7 +53,7 @@ function changeStatistics()
 {
     globalPercentage = ((cleanedCounter/totalCounter)*100).toFixed(3);
 
-    if(isNaN(Number(globalPercentage))) globalPercentage = 0;
+    if (Number.isNaN(Number(globalPercentage))) globalPercentage = 0;
 
     element.textContent = cleanedCounter.toLocaleString();
     elGlobalPercentage.textContent = globalPercentage+"%";

@@ -29,15 +29,14 @@
 async function setupETagFilter() {
     if (getBrowser() === "Firefox") return; // Firefox handles ETag partitioning natively since v85
 
-    const ETAG_RULE_ID = 99999; // Reserved ID for ETag rule
-
     try {
         if (storage.eTagFiltering) {
             await chrome.declarativeNetRequest.updateDynamicRules({
-                removeRuleIds: [ETAG_RULE_ID],
+                removeRuleIds: [DNR_ETAG_RULE_ID],
                 addRules: [{
-                    id: ETAG_RULE_ID,
-                    priority: 1,
+                    id: DNR_ETAG_RULE_ID,
+                    // Keep header protection independent from URL allow rules.
+                    priority: 10000,
                     action: {
                         type: "modifyHeaders",
                         responseHeaders: [
@@ -54,7 +53,7 @@ async function setupETagFilter() {
         } else {
             // Remove the ETag rule if filtering is disabled
             await chrome.declarativeNetRequest.updateDynamicRules({
-                removeRuleIds: [ETAG_RULE_ID],
+                removeRuleIds: [DNR_ETAG_RULE_ID],
                 addRules: []
             });
             console.log('[ClearURLs] ETag filtering disabled');

@@ -38,13 +38,18 @@ function registerMessageHandler(name, fn) {
  * @param  sender       A runtime.MessageSender object.
  * @param  sendResponse A function to call to send a response.
  */
-function handleMessage(request, sender, sendResponse) {
-    let fn = messageHandlers[request.function];
+async function handleMessage(request, sender, sendResponse) {
+    if (typeof ensureStorageLoaded === "function") {
+        await ensureStorageLoaded();
+    }
+
+    const fn = messageHandlers[request.function];
 
     if (typeof fn === "function") {
-        let response = fn.apply(null, request.params);
-        return Promise.resolve({response});
+        const response = await fn.apply(null, request.params || []);
+        return {response};
     }
+    return {response: undefined};
 }
 
 browser.runtime.onMessage.addListener(handleMessage);
