@@ -46,7 +46,7 @@ async function handleMessage(request, sender, sendResponse) {
     const fn = messageHandlers[request.function];
 
     if (typeof fn === "function") {
-        const response = await fn.apply(null, request.params || []);
+        const response = await fn(...(request.params || []));
         return {response};
     }
     return {response: undefined};

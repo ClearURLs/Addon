@@ -174,8 +174,8 @@ const DNR_RESOURCE_TYPES = [
     "object", "xmlhttprequest", "ping", "media", "websocket", "other"
 ];
 const DNR_LOCAL_HOST_EXCLUSIONS = ["localhost", "127.0.0.1"];
-var rulesReadyPromise = Promise.resolve();
-var dnrRebuildPromise = Promise.resolve();
+let rulesReadyPromise = Promise.resolve();
+let dnrRebuildPromise = Promise.resolve();
 
 /**
  * Represents one provider from the downloaded ClearURLs rule catalog.
@@ -237,7 +237,7 @@ function Provider(_name, _completeProvider = false, _forceRedirection = false, _
 
     this.getRules = function () {
         if (!storage.referralMarketing) {
-            return Object.keys(Object.assign({}, enabledRules, enabledReferralMarketing));
+            return Object.keys({...enabledRules, ...enabledReferralMarketing});
         }
         return Object.keys(enabledRules);
     };
@@ -374,7 +374,7 @@ function makeCapturesNonCapturing(pattern) {
 
 function getProviderPrefixRegex(urlPattern) {
     if (urlPattern === ".*") {
-        return String.raw`https?://`;
+        return "https?://";
     }
 
     const unanchored = urlPattern
@@ -508,8 +508,7 @@ function createProviderDnrRules(provider, providerData) {
                     regexFilter,
                     ["main_frame"]
                 )
-            });
-            rules.push({
+            }, {
                 priority: 100,
                 action: {type: "block"},
                 condition: getDnrCondition(
@@ -522,9 +521,11 @@ function createProviderDnrRules(provider, providerData) {
         return rules;
     }
 
-    rules.push(...createParameterRules(provider, providerData, regexFilter));
-    rules.push(...createRedirectionRules(provider, providerData));
-    rules.push(...createRawRules(provider, providerData, regexFilter));
+    rules.push(
+        ...createParameterRules(provider, providerData, regexFilter),
+        ...createRedirectionRules(provider, providerData),
+        ...createRawRules(provider, providerData, regexFilter)
+    );
     return rules;
 }
 

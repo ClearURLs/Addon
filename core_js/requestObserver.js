@@ -11,11 +11,10 @@
 /*jshint esversion: 6 */
 
 function countQueryFields(url) {
-    try {
-        return [...new URL(url).searchParams].length;
-    } catch (error) {
+    if (!URL.canParse(url)) {
         return 0;
     }
+    return [...new URL(url).searchParams].length;
 }
 
 function observeRequest(details) {
@@ -27,14 +26,11 @@ function observeRequest(details) {
 }
 
 function hasRemovedLiteralParameter(before, after, details) {
-    let beforeUrl;
-    let afterUrl;
-    try {
-        beforeUrl = new URL(before);
-        afterUrl = new URL(after);
-    } catch (error) {
+    if (!URL.canParse(before) || !URL.canParse(after)) {
         return false;
     }
+    const beforeUrl = new URL(before);
+    const afterUrl = new URL(after);
 
     if (beforeUrl.origin !== afterUrl.origin || beforeUrl.pathname !== afterUrl.pathname) {
         return false;

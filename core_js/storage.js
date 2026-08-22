@@ -21,9 +21,9 @@
  * This script is responsible for the storage.
  * Adapted for MV3 service worker lifecycle.
  */
-var storage = [];
-var storageInitialized = false;
-var storageInitPromise = null;
+const storage = [];
+let storageInitialized = false;
+let storageInitPromise = null;
 const DNR_RELEVANT_SETTINGS = new Set([
     "globalStatus", "referralMarketing", "domainBlocking",
     "pingBlocking", "localHostsSkipping"

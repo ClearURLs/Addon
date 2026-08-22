@@ -324,14 +324,15 @@ async function sha256(message) {
 }
 
 /**
- * Generates a non-secure random ASCII string of length {@code len}.
+ * Generates a cryptographically secure random ASCII string of length {@code len}.
  * 
- * @returns non-secure random ASCII
+ * @returns cryptographically secure random ASCII
  */
 function randomASCII(len) {
-    return [...new Array(len)]
-        .map(() => Math.trunc(Math.random() * 36).toString(36))
-        .join('');
+    return Array.from(
+        crypto.getRandomValues(new Uint8Array(len)),
+        value => (value % 36).toString(36)
+    ).join('');
 }
 
 /**
