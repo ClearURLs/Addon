@@ -150,24 +150,22 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             }
         });
 
-        // Rebuild the URL only if something was removed. Rebuilding re-encodes
-        // the query (e.g. "+" becomes "%20"), which made the history listener
-        // fight with pages that set their own URL (e.g. YouTrack login loops).
-        if (changes) {
-            let finalURL = domain;
+        let finalURL = domain;
 
-            if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
-            if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
+        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
+        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
-            url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
-        }
+        url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
     }
 
 
 
+    // Return the original URL if nothing was removed. The rebuild above re-encodes
+    // the query (e.g. "+" becomes "%20"), which made the history listener fight
+    // with pages that set their own URL (e.g. YouTrack login loops).
     return {
         "changes": changes,
-        "url": url
+        "url": changes ? url : pureUrl
     }
 }
 
