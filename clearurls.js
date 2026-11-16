@@ -150,12 +150,17 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             }
         });
 
-        let finalURL = domain;
+        // Rebuild the URL only if something was removed. Rebuilding re-encodes
+        // the query (e.g. "+" becomes "%20"), which made the history listener
+        // fight with pages that set their own URL (e.g. YouTrack login loops).
+        if (changes) {
+            let finalURL = domain;
 
-        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
-        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
+            if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
+            if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
-        url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
+            url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
+        }
     }
 
 
@@ -173,7 +178,9 @@ function start() {
      * @param {object} obj
      */
     function getKeys(obj) {
-        for (const key in obj) {
+        // Object.keys skips the inherited Object.prototype.getOrDefault helper,
+        // which for...in turned into an extra match-all provider without exceptions.
+        for (const key of Object.keys(obj)) {
             prvKeys.push(key);
         }
     }
