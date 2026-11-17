@@ -60,4 +60,3 @@ test('encoded fragment tracking names are matched once', async () => {
   assert.equal(addon.clean('https://example.com/#%75tm_source=x'), 'https://example.com/');
   assert.equal(addon.clean('https://example.com/#%2575tm_source=x'), 'https://example.com/#%2575tm_source=x');
 });
-
