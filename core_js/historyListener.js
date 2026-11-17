@@ -44,7 +44,9 @@ function historyCleaner(details) {
         if(urlBefore !== urlAfter) {
             browser.tabs.executeScript(details.tabId, {
                 frameId: details.frameId,
-                   code: 'history.replaceState(history.state,"",'+JSON.stringify(urlAfter)+');'
+                // Another navigation may have happened while this script was queued.
+                code: 'if(location.href==='+JSON.stringify(urlBefore)+'){' +
+                    'history.replaceState(history.state,"",'+JSON.stringify(urlAfter)+');}'
             }).then(() => {}, onError);
         }
     }

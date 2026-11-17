@@ -135,13 +135,37 @@ test('a matching provider without a rule change preserves URL bytes and leaves h
 test('a real rule change still reaches the history script and preserves navigation state', async () => {
   const context = makeProviderContext();
   await new Promise((resolve) => setImmediate(resolve));
-  context.historyCleaner({ url: 'https://example.test/?utm_source=x&id=42', tabId: 1, frameId: 0 });
+  const url = 'https://example.test/?utm_source=x&id=42';
+  context.historyCleaner({ url, tabId: 1, frameId: 0 });
 
   assert.equal(context.scripts.length, 1);
   const state = { route: 42 };
   const history = { state, replaceState(value, title, url) { this.state = value; this.url = url; } };
-  vm.runInNewContext(context.scripts[0].code, { history });
+  const location = { href: url };
+  vm.runInNewContext(context.scripts[0].code, { history, location });
   assert.equal(history.url, 'https://example.test/?id=42');
+  assert.strictEqual(history.state, state);
+});
+
+test('a delayed history script does not overwrite a newer navigation', async () => {
+  const context = makeProviderContext();
+  await new Promise((resolve) => setImmediate(resolve));
+  const url = 'https://example.test/?utm_source=x&id=42';
+  context.historyCleaner({ url, tabId: 1, frameId: 0 });
+
+  assert.equal(context.scripts.length, 1);
+  const state = { route: 'newer' };
+  let replaceCalls = 0;
+  const history = {
+    state,
+    url: 'https://example.test/newer',
+    replaceState() { replaceCalls++; },
+  };
+  const location = { href: history.url };
+  vm.runInNewContext(context.scripts[0].code, { history, location });
+
+  assert.equal(replaceCalls, 0);
+  assert.equal(history.url, 'https://example.test/newer');
   assert.strictEqual(history.state, state);
 });
 
