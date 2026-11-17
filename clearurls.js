@@ -35,6 +35,14 @@ function getProviderKeys(obj) {
     return Object.keys(obj);
 }
 
+function getOrDefault(obj, key, defaultValue) {
+    if (Object.prototype.hasOwnProperty.call(obj, key) && obj[key] !== undefined) {
+        return obj[key];
+    }
+
+    return defaultValue;
+}
+
 /**
  * Helper function which remove the tracking fields
  * for each provider given as parameter.
@@ -193,43 +201,43 @@ function start() {
 
         for (let p = 0; p < prvKeys.length; p++) {
             //Create new provider
-            providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].getOrDefault('completeProvider', false),
-                data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
+            providers.push(new Provider(prvKeys[p], getOrDefault(data.providers[prvKeys[p]], 'completeProvider', false),
+                getOrDefault(data.providers[prvKeys[p]], 'forceRedirection', false)));
 
             //Add URL Pattern
-            providers[p].setURLPattern(data.providers[prvKeys[p]].getOrDefault('urlPattern', ''));
+            providers[p].setURLPattern(getOrDefault(data.providers[prvKeys[p]], 'urlPattern', ''));
 
-            let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
+            let rules = getOrDefault(data.providers[prvKeys[p]], 'rules', []);
             //Add rules to provider
             for (let r = 0; r < rules.length; r++) {
                 providers[p].addRule(rules[r]);
             }
 
-            let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
+            let rawRules = getOrDefault(data.providers[prvKeys[p]], 'rawRules', []);
             //Add raw rules to provider
             for (let raw = 0; raw < rawRules.length; raw++) {
                 providers[p].addRawRule(rawRules[raw]);
             }
 
-            let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
+            let referralMarketingRules = getOrDefault(data.providers[prvKeys[p]], 'referralMarketing', []);
             //Add referral marketing rules to provider
             for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
                 providers[p].addReferralMarketing(referralMarketingRules[referralMarketing]);
             }
 
-            let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
+            let exceptions = getOrDefault(data.providers[prvKeys[p]], 'exceptions', []);
             //Add exceptions to provider
             for (let e = 0; e < exceptions.length; e++) {
                 providers[p].addException(exceptions[e]);
             }
 
-            let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
+            let redirections = getOrDefault(data.providers[prvKeys[p]], 'redirections', []);
             //Add redirections to provider
             for (let re = 0; re < redirections.length; re++) {
                 providers[p].addRedirection(redirections[re]);
             }
 
-            let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
+            let methods = getOrDefault(data.providers[prvKeys[p]], 'methods', []);
             //Add HTTP methods list to provider
             for (let re = 0; re < methods.length; re++) {
                 providers[p].addMethod(methods[re]);
@@ -351,18 +359,18 @@ function start() {
     function Provider(_name, _completeProvider = false, _forceRedirection = false, _isActive = true) {
         let name = _name;
         let urlPattern;
-        let enabled_rules = {};
-        let disabled_rules = {};
-        let enabled_exceptions = {};
-        let disabled_exceptions = {};
+        let enabled_rules = Object.create(null);
+        let disabled_rules = Object.create(null);
+        let enabled_exceptions = Object.create(null);
+        let disabled_exceptions = Object.create(null);
         let canceling = _completeProvider;
-        let enabled_redirections = {};
-        let disabled_redirections = {};
+        let enabled_redirections = Object.create(null);
+        let disabled_redirections = Object.create(null);
         let active = _isActive;
-        let enabled_rawRules = {};
-        let disabled_rawRules = {};
-        let enabled_referralMarketing = {};
-        let disabled_referralMarketing = {};
+        let enabled_rawRules = Object.create(null);
+        let disabled_rawRules = Object.create(null);
+        let enabled_referralMarketing = Object.create(null);
+        let disabled_referralMarketing = Object.create(null);
         let methods = [];
 
         if (_completeProvider) {
@@ -547,7 +555,7 @@ function start() {
             //Add the site blocked alert to every exception
             if (url === siteBlockedAlert) return true;
 
-            for (const exception in enabled_exceptions) {
+            for (const exception of Object.keys(enabled_exceptions)) {
                 if (result) break;
 
                 let exception_regex = new RegExp(exception, "i");
@@ -588,7 +596,7 @@ function start() {
         this.getRedirection = function (url) {
             let re = null;
 
-            for (const redirection in enabled_redirections) {
+            for (const redirection of Object.keys(enabled_redirections)) {
                 let result = (url.match(new RegExp(redirection, "i")));
 
                 if (result && result.length > 0 && redirection) {

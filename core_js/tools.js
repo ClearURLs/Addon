@@ -263,16 +263,6 @@ function isEncodedURI(uri) {
     return uri !== decodeURIComponent(uri || '')
 }
 
-/**
- * Gets the value of at `key` an object. If the resolved value is `undefined`, the `defaultValue` is returned in its place.
- *
- * @param {string} key the key of the object
- * @param {object} defaultValue the default value
- */
-Object.prototype.getOrDefault = function (key, defaultValue) {
-    return this[key] === undefined ? defaultValue : this[key];
-};
-
 function handleError(error) {
     console.error("[ClearURLs ERROR]:" + error);
 }

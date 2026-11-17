@@ -37,7 +37,7 @@ function build() {
     const data = JSON.parse(fileContent);
     let minifiedData = {"providers":{}};
 
-    for(let provider in data.providers) {
+    for (const provider of Object.keys(data.providers)) {
         minifiedData.providers[provider] = {};
         let self = minifiedData.providers[provider];
 

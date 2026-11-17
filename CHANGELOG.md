@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
 ### Fixed
-- Google OAuth consent with the History API listener enabled
+- Prevent inherited prototype methods from interfering with URL cleaning, including Google OAuth consent with the History API listener enabled
     - [#223](https://github.com/ClearURLs/Addon/issues/223)
     - [#272](https://github.com/ClearURLs/Addon/issues/272)
     - [#535](https://github.com/ClearURLs/Addon/issues/535)
