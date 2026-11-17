@@ -123,6 +123,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     urlObject = new URL(url);
     // Keep escaped query segments alongside the standard API's decoded names.
     fields = urlObject.search.slice(1);
+    // Empty components have delimiters even when their getters return an empty string.
+    let hasQuery = fields !== "" || urlObject.href.split("#", 1)[0].endsWith("?");
+    const preserveEmptyHash = urlObject.hash === "" && urlObject.href.endsWith("#");
     const rawFields = fields.split("&");
     const originalFieldNames = Array.from(urlObject.searchParams.keys());
     const remainingFieldNames = new Set(originalFieldNames);
@@ -135,6 +138,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     if (originalFieldNames.length > 0 || fragments.toString() !== "") {
         rules.forEach(rule => {
             const beforeFields = fields.toString();
+            const beforeHasQuery = hasQuery;
             const beforeFragments = fragments.toString();
             let localChange = false;
 
@@ -152,8 +156,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             if (remainingFieldNames.size !== beforeFieldCount) {
                 let fieldIndex = 0;
                 // URLSearchParams skips empty segments; only non-empty entries consume a name.
-                fields = rawFields.filter(field => field === "" ||
-                    remainingFieldNames.has(originalFieldNames[fieldIndex++])).join("&");
+                const retainedFields = rawFields.filter(field => field === "" ||
+                    remainingFieldNames.has(originalFieldNames[fieldIndex++]));
+                fields = retainedFields.join("&");
+                hasQuery = retainedFields.length > 0;
             }
 
             for (const fragment of fragments.keys()) {
@@ -169,10 +175,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
                 let tempURL = domain;
                 let tempBeforeURL = domain;
 
-                if (fields.toString() !== "") tempURL += "?" + fields.toString();
-                if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                if (beforeFields.toString() !== "") tempBeforeURL += "?" + beforeFields.toString();
-                if (beforeFragments.toString() !== "") tempBeforeURL += "#" + beforeFragments.toString();
+                if (hasQuery) tempURL += "?" + fields.toString();
+                if (fragments.toString() !== "" || preserveEmptyHash) tempURL += "#" + fragments.toString();
+                if (beforeHasQuery) tempBeforeURL += "?" + beforeFields.toString();
+                if (beforeFragments.toString() !== "" || preserveEmptyHash) tempBeforeURL += "#" + beforeFragments.toString();
 
                 if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
 
@@ -182,8 +188,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
 
         let finalURL = domain;
 
-        if (fields.toString() !== "") finalURL += "?" + fields;
-        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
+        if (hasQuery) finalURL += "?" + fields;
+        if (fragments.toString() !== "" || preserveEmptyHash) finalURL += "#" + fragments.toString();
 
         url = finalURL;
     }
