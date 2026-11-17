@@ -121,25 +121,39 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     });
 
     urlObject = new URL(url);
-    fields = urlObject.searchParams;
+    // Keep escaped query segments alongside the standard API's decoded names.
+    fields = urlObject.search.slice(1);
+    const rawFields = fields.split("&");
+    const originalFieldNames = Array.from(urlObject.searchParams.keys());
+    const remainingFieldNames = new Set(originalFieldNames);
     fragments = extractFragments(urlObject);
     domain = urlWithoutParamsAndHash(urlObject).toString();
 
     /**
      * Only test for matches, if there are fields or fragments that can be cleaned.
      */
-    if (fields.toString() !== "" || fragments.toString() !== "") {
+    if (originalFieldNames.length > 0 || fragments.toString() !== "") {
         rules.forEach(rule => {
             const beforeFields = fields.toString();
             const beforeFragments = fragments.toString();
             let localChange = false;
 
-            for (const field of fields.keys()) {
-                if (new RegExp("^"+rule+"$", "gi").test(field)) {
-                    fields.delete(field);
-                    changes = true;
-                    localChange = true;
+            const beforeFieldCount = remainingFieldNames.size;
+            if (beforeFieldCount) {
+                const fieldPattern = new RegExp("^"+rule+"$", "i");
+                for (const field of remainingFieldNames) {
+                    if (fieldPattern.test(field)) {
+                        remainingFieldNames.delete(field);
+                        changes = true;
+                        localChange = true;
+                    }
                 }
+            }
+            if (remainingFieldNames.size !== beforeFieldCount) {
+                let fieldIndex = 0;
+                // URLSearchParams skips empty segments; only non-empty entries consume a name.
+                fields = rawFields.filter(field => field === "" ||
+                    remainingFieldNames.has(originalFieldNames[fieldIndex++])).join("&");
             }
 
             for (const fragment of fragments.keys()) {
@@ -168,10 +182,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
 
         let finalURL = domain;
 
-        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
+        if (fields.toString() !== "") finalURL += "?" + fields;
         if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
-        url = finalURL.replace(new RegExp("\\?&"), "?");
+        url = finalURL;
     }
 
 

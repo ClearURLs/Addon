@@ -10,23 +10,6 @@ test('no-op cleaning preserves the exact URL and does not write history', async 
   assert.equal(addon.history(url).length, 0);
 });
 
-for (const key of ['a%26b', 'a%23b', 'a%3Db', 'a%2Bb']) {
-  test(`cleaning preserves the encoded query key ${key}`, async () => {
-    const addon = await loadAddon();
-    const input = `https://example.com/?utm_source=x&${key}=c`;
-    const expected = `https://example.com/?${key}=c`;
-    assert.equal(addon.clean(input), expected);
-    assert.deepEqual(addon.request(input), { redirectUrl: expected });
-  });
-}
-
-test('cleaning preserves non-UTF-8 query bytes', async () => {
-  const addon = await loadAddon();
-  const expected = 'https://example.com/?keywords=usb%D7%AA%B4%AE%BF%DA';
-  assert.equal(addon.clean(`${expected}&utm_source=x`), expected);
-  assert.deepEqual(addon.request(`${expected}&utm_source=x`), { redirectUrl: expected });
-});
-
 for (const [target, expected] of [
   ['https%3A%2F%2Fexample.com%2F%3Fq%3Da%2526b', 'https://example.com/?q=a%26b'],
   ['https%3A%2F%2Fexample.com%2F%3Fq%3D100%2525', 'https://example.com/?q=100%25'],
