@@ -16,26 +16,36 @@ const providerData = {
   },
 };
 
-function makeProviderContext() {
+function makeProviderContext(rulesData = providerData) {
+  const scripts = [];
   const context = vm.createContext({
-    storage: { dataHash: 'test-hash' },
+    URL, TextEncoder, scripts,
+    storage: { dataHash: 'test-hash', globalStatus: true },
     fetch: async () => ({ status: 200, text: async () => 'test-hash' }),
-    browser: { webRequest: { onBeforeRequest: { addListener() {} } } },
+    chrome: { runtime: { getPlatformInfo(callback) { callback({ os: 'linux' }); } } },
+    browser: {
+      webRequest: { onBeforeRequest: { addListener() {} } },
+      tabs: {
+        onUpdated: { addListener() {} },
+        executeScript(tabId, details) { scripts.push({ tabId, ...details }); return Promise.resolve(); },
+      },
+    },
     getData: () => [],
     storeHashStatus() {},
     saveOnDisk() {},
-    setBadgedStatus() {},
   });
 
+  for (const file of ['core_js/utils/Multimap.js', 'core_js/utils/URLHashParams.js',
+    'core_js/tools.js', 'core_js/badgedHandler.js', 'core_js/historyListener.js']) {
+    vm.runInContext(fs.readFileSync(path.join(addonRoot, file), 'utf8'), context);
+  }
   vm.runInContext(fs.readFileSync(path.join(addonRoot, 'clearurls.js'), 'utf8'), context);
   vm.runInContext(fs.readFileSync(path.join(addonRoot, 'core_js/pureCleaning.js'), 'utf8'), context);
   vm.runInContext(`
     Object.prototype.getOrDefault = function (key, defaultValue) {
       return this[key] === undefined ? defaultValue : this[key];
     };
-    storage.ClearURLsData = JSON.parse(${JSON.stringify(JSON.stringify(providerData))});
-    loadOldDataFromStore = function () { localDataHash = storage.dataHash; };
-    function countFields() { return 0; }
+    storage.ClearURLsData = JSON.parse(${JSON.stringify(JSON.stringify(rulesData))});
   `, context);
   vm.runInContext('start()', context);
 
@@ -109,4 +119,64 @@ test('inherited helper methods are not treated as redirection rules', async () =
   );
 
   assert.equal(redirection, null);
+});
+
+test('a matching provider without a rule change preserves URL bytes and leaves history untouched', async () => {
+  const context = makeProviderContext();
+  await new Promise((resolve) => setImmediate(resolve));
+  const url = 'https://example.test/callback?next=/signed/path&as=S123:456&q=a+b';
+
+  assert.equal(context.providers[0].matchURL(url), true);
+  assert.equal(context.pureCleaning(url, true), url);
+  context.historyCleaner({ url, tabId: 1, frameId: 0 });
+  assert.equal(context.scripts.length, 0);
+});
+
+test('a real rule change still reaches the history script and preserves navigation state', async () => {
+  const context = makeProviderContext();
+  await new Promise((resolve) => setImmediate(resolve));
+  const url = 'https://example.test/?utm_source=x&id=42';
+  context.historyCleaner({ url, tabId: 1, frameId: 0 });
+
+  assert.equal(context.scripts.length, 1);
+  const state = { route: 42 };
+  const history = { state, replaceState(value, title, url) { this.state = value; this.url = url; } };
+  const location = { href: url };
+  vm.runInNewContext(context.scripts[0].code, { history, location });
+  assert.equal(history.url, 'https://example.test/?id=42');
+  assert.strictEqual(history.state, state);
+});
+
+test('a delayed history script does not overwrite a newer navigation', async () => {
+  const context = makeProviderContext();
+  await new Promise((resolve) => setImmediate(resolve));
+  const url = 'https://example.test/?utm_source=x&id=42';
+  context.historyCleaner({ url, tabId: 1, frameId: 0 });
+
+  assert.equal(context.scripts.length, 1);
+  const state = { route: 'newer' };
+  let replaceCalls = 0;
+  const history = {
+    state,
+    url: 'https://example.test/newer',
+    replaceState() { replaceCalls++; },
+  };
+  const location = { href: history.url };
+  vm.runInNewContext(context.scripts[0].code, { history, location });
+
+  assert.equal(replaceCalls, 0);
+  assert.equal(history.url, 'https://example.test/newer');
+  assert.strictEqual(history.state, state);
+});
+
+test('later no-op providers preserve earlier raw-rule and field changes', async () => {
+  const context = makeProviderContext({ providers: {
+    raw: { urlPattern: '.*', rawRules: ['tracking/'] },
+    fields: { urlPattern: '.*', rules: ['utm_source'] },
+    noop: { urlPattern: '.*' },
+  } });
+  await new Promise((resolve) => setImmediate(resolve));
+
+  assert.equal(context.pureCleaning('https://example.test/tracking/?utm_source=x&id=42', true),
+    'https://example.test/?id=42');
 });
