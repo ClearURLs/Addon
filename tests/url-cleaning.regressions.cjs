@@ -40,9 +40,13 @@ for (const [target, expected] of [
 
 test('the injected history script preserves the existing navigation state', async () => {
   const addon = await loadAddon();
-  const [script] = addon.history('https://example.com/?utm_source=x&id=42');
+  const url = 'https://example.com/?utm_source=x&id=42';
+  const [script] = addon.history(url);
   const state = { route: 42 };
-  const page = { history: { state, replaceState(value, title, url) { this.state = value; this.url = url; } } };
+  const page = {
+    location: { href: url },
+    history: { state, replaceState(value, title, url) { this.state = value; this.url = url; } },
+  };
   vm.runInNewContext(script.code, page);
   assert.equal(page.history.url, 'https://example.com/?id=42');
   assert.strictEqual(page.history.state, state);
