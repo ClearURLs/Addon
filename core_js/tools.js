@@ -132,17 +132,10 @@ function extractFragments(url) {
  * @return {URL} the url without searchParams and hash
  */
 function urlWithoutParamsAndHash(url) {
-    let newURL = url.toString();
-
-    if (url.search) {
-        newURL = newURL.replace(url.search, "");
-    }
-
-    if (url.hash) {
-        newURL = newURL.replace(url.hash, "");
-    }
-
-    return new URL(newURL);
+    const newURL = new URL(url);
+    newURL.search = "";
+    newURL.hash = "";
+    return newURL;
 }
 
 /**

@@ -39,11 +39,13 @@ class URLHashParams {
             }
             const separator = p.indexOf('=');
             const key = separator < 0 ? p : p.slice(0, separator);
-            if (!key)
-                continue;
             const value = separator < 0 ? null : p.slice(separator + 1);
             this._params.push([key, value]);
         }
+    }
+    /** Number of segments, including empty segments and duplicate entries. */
+    get size() {
+        return this._params.length;
     }
     append(name, value = null) {
         this._params.push([name, value]);
