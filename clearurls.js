@@ -178,7 +178,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
 
     return {
         "changes": changes,
-        "url": url
+        "url": changes ? url : pureUrl
     }
 }
 
