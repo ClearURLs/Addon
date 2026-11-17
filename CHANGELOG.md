@@ -10,6 +10,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
 ### Fixed
+- Preserve original URLs when no cleaning rule changes them, avoiding re-encoding loops and unnecessary History API writes
+    - [#197](https://github.com/ClearURLs/Addon/issues/197)
+    - [#233](https://github.com/ClearURLs/Addon/issues/233)
+    - [#243](https://github.com/ClearURLs/Addon/issues/243)
+    - [#308](https://github.com/ClearURLs/Addon/issues/308)
+    - [#410](https://github.com/ClearURLs/Addon/issues/410)
+    - [#1167](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1167)
+    - [#1281](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1281)
+    - [#1320](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1320)
+    - [#267](https://gitlab.com/ClearURLs/rules/-/issues/267)
+    - [#274](https://gitlab.com/ClearURLs/rules/-/issues/274)
+- Preserve the application-provided navigation state during History API URL cleaning
+    - [#196](https://github.com/ClearURLs/Addon/issues/196)
+    - [#311](https://github.com/ClearURLs/Addon/issues/311)
+- Skip delayed History API cleaning when the page has already navigated to another URL
+    - [#409](https://github.com/ClearURLs/Addon/issues/409)
 - Prevent inherited prototype methods from interfering with URL cleaning, including Google OAuth consent with the History API listener enabled
     - [#223](https://github.com/ClearURLs/Addon/issues/223)
     - [#272](https://github.com/ClearURLs/Addon/issues/272)
