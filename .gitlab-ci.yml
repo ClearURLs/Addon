@@ -10,6 +10,7 @@ before_script:
 
 stages:
   - build
+  - test
   - deploy
 
 hash rules:
@@ -23,6 +24,11 @@ hash rules:
       - rules.min.hash
       - data.minify.json
       - rules.minify.hash
+
+test addon:
+  stage: test
+  script:
+    - node --test tests/*.test.cjs
 
 bundle addon:
   stage: build

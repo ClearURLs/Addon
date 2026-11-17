@@ -28,6 +28,14 @@ var localDataHash;
 var os;
 
 /**
+ * Return only the provider names defined directly on the rules object.
+ * Object.prototype is extended with helper methods elsewhere in the add-on.
+ */
+function getProviderKeys(obj) {
+    return Object.keys(obj);
+}
+
+/**
  * Helper function which remove the tracking fields
  * for each provider given as parameter.
  *
@@ -173,9 +181,7 @@ function start() {
      * @param {object} obj
      */
     function getKeys(obj) {
-        for (const key in obj) {
-            prvKeys.push(key);
-        }
+        prvKeys = getProviderKeys(obj);
     }
 
     /**
