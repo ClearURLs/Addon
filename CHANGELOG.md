@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
 ### Fixed
+- Prevent DataTables i18n file loading errors on the log page and fall back to English when a translation cannot be loaded
+    - [#469](https://github.com/ClearURLs/Addon/issues/469)
+    - [#405](https://github.com/ClearURLs/Addon/issues/405)
+    - [#409](https://github.com/ClearURLs/Addon/issues/409)
 - Preserve original URLs when no cleaning rule changes them, avoiding re-encoding loops and unnecessary History API writes
     - [#197](https://github.com/ClearURLs/Addon/issues/197)
     - [#233](https://github.com/ClearURLs/Addon/issues/233)
