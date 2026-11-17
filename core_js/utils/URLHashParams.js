@@ -22,54 +22,69 @@
  */
 class URLHashParams {
     constructor(url) {
+        // Null entries retain empty segments without exposing them as keys.
         Object.defineProperty(this, "_params", {
             enumerable: true,
             configurable: true,
             writable: true,
             value: void 0
         });
-        this._params = new Multimap();
+        this._params = [];
         const hash = url.hash.slice(1);
-        const params = hash.split('&');
+        const params = hash === '' ? [] : hash.split('&');
         for (const p of params) {
-            const param = p.split('=');
-            if (!param[0])
+            if (p === '') {
+                this._params.push(null);
                 continue;
-            const key = param[0];
-            let value = null;
-            if (param.length === 2 && param[1]) {
-                value = param[1];
             }
-            this._params.put(key, value);
+            const separator = p.indexOf('=');
+            const key = separator < 0 ? p : p.slice(0, separator);
+            if (!key)
+                continue;
+            const value = separator < 0 ? null : p.slice(separator + 1);
+            this._params.push([key, value]);
         }
     }
     append(name, value = null) {
-        this._params.put(name, value);
+        this._params.push([name, value]);
     }
     delete(name) {
-        this._params.delete(name);
+        this._params = this._params.filter(param => param === null || param[0] !== name);
     }
     get(name) {
-        const [first] = this._params.get(name);
-        if (first) {
-            return first;
+        for (const param of this._params) {
+            if (param !== null && param[0] === name)
+                return param[1];
         }
         return null;
     }
     getAll(name) {
-        return this._params.get(name);
+        const values = new Set();
+        for (const param of this._params) {
+            if (param !== null && param[0] === name)
+                values.add(param[1]);
+        }
+        return values;
     }
     keys() {
-        return this._params.keys();
+        const keys = new Set();
+        for (const param of this._params) {
+            if (param !== null)
+                keys.add(param[0]);
+        }
+        return keys.values();
     }
     toString() {
         const rtn = [];
-        this._params.forEach((key, value) => {
-            if (value) {
-                rtn.push(key + '=' + value);
+        this._params.forEach(param => {
+            if (param === null) {
+                rtn.push('');
+            }
+            else if (param[1] !== null) {
+                rtn.push(param[0] + '=' + param[1]);
             }
             else {
-                rtn.push(key);
+                rtn.push(param[0]);
             }
         });
         return rtn.join('&');

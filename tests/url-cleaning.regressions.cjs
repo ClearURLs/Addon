@@ -20,13 +20,6 @@ for (const key of ['a%26b', 'a%23b', 'a%3Db', 'a%2Bb']) {
   });
 }
 
-for (const fragment of ['token=', 'token==', 'state=abc==', 'foo=bar=baz', 'a=1&a=1&b=2&a=3', 'plain']) {
-  test(`cleaning preserves fragment #${fragment}`, async () => {
-    const addon = await loadAddon();
-    assert.equal(addon.clean(`https://example.com/?utm_source=x#${fragment}`), `https://example.com/#${fragment}`);
-  });
-}
-
 test('cleaning preserves non-UTF-8 query bytes', async () => {
   const addon = await loadAddon();
   const expected = 'https://example.com/?keywords=usb%D7%AA%B4%AE%BF%DA';

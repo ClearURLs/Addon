@@ -171,7 +171,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
         if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
         if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
 
-        url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
+        url = finalURL.replace(new RegExp("\\?&"), "?");
     }
 
 
