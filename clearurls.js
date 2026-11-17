@@ -121,25 +121,46 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     });
 
     urlObject = new URL(url);
-    fields = urlObject.searchParams;
+    // Keep escaped query segments alongside the standard API's decoded names.
+    fields = urlObject.search.slice(1);
+    // Empty components have delimiters even when their getters return an empty string.
+    let hasQuery = fields !== "" || urlObject.href.split("#", 1)[0].endsWith("?");
+    const preserveEmptyHash = urlObject.hash === "" && urlObject.href.endsWith("#");
+    const rawFields = fields.split("&");
+    const originalFieldNames = Array.from(urlObject.searchParams.keys());
+    const remainingFieldNames = new Set(originalFieldNames);
     fragments = extractFragments(urlObject);
     domain = urlWithoutParamsAndHash(urlObject).toString();
 
     /**
      * Only test for matches, if there are fields or fragments that can be cleaned.
      */
-    if (fields.toString() !== "" || fragments.toString() !== "") {
+    if (originalFieldNames.length > 0 || fragments.size > 0) {
         rules.forEach(rule => {
             const beforeFields = fields.toString();
+            const beforeHasQuery = hasQuery;
             const beforeFragments = fragments.toString();
+            const beforeHasHash = fragments.size > 0 || preserveEmptyHash;
             let localChange = false;
 
-            for (const field of fields.keys()) {
-                if (new RegExp("^"+rule+"$", "gi").test(field)) {
-                    fields.delete(field);
-                    changes = true;
-                    localChange = true;
+            const beforeFieldCount = remainingFieldNames.size;
+            if (beforeFieldCount) {
+                const fieldPattern = new RegExp("^"+rule+"$", "i");
+                for (const field of remainingFieldNames) {
+                    if (fieldPattern.test(field)) {
+                        remainingFieldNames.delete(field);
+                        changes = true;
+                        localChange = true;
+                    }
                 }
+            }
+            if (remainingFieldNames.size !== beforeFieldCount) {
+                let fieldIndex = 0;
+                // URLSearchParams skips empty segments; only non-empty entries consume a name.
+                const retainedFields = rawFields.filter(field => field === "" ||
+                    remainingFieldNames.has(originalFieldNames[fieldIndex++]));
+                fields = retainedFields.join("&");
+                hasQuery = retainedFields.length > 0;
             }
 
             for (const fragment of fragments.keys()) {
@@ -155,10 +176,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
                 let tempURL = domain;
                 let tempBeforeURL = domain;
 
-                if (fields.toString() !== "") tempURL += "?" + fields.toString();
-                if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                if (beforeFields.toString() !== "") tempBeforeURL += "?" + beforeFields.toString();
-                if (beforeFragments.toString() !== "") tempBeforeURL += "#" + beforeFragments.toString();
+                if (hasQuery) tempURL += "?" + fields.toString();
+                if (fragments.size > 0 || preserveEmptyHash) tempURL += "#" + fragments.toString();
+                if (beforeHasQuery) tempBeforeURL += "?" + beforeFields.toString();
+                if (beforeHasHash) tempBeforeURL += "#" + beforeFragments.toString();
 
                 if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
 
@@ -168,10 +189,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
 
         let finalURL = domain;
 
-        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
-        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
+        if (hasQuery) finalURL += "?" + fields;
+        if (fragments.size > 0 || preserveEmptyHash) finalURL += "#" + fragments.toString();
 
-        url = finalURL.replace(new RegExp("\\?&"), "?");
+        url = finalURL;
     }
 
 
