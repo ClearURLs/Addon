@@ -21,6 +21,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#1320](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1320)
     - [#267](https://gitlab.com/ClearURLs/rules/-/issues/267)
     - [#274](https://gitlab.com/ClearURLs/rules/-/issues/274)
+- Preserve encoded query names and values, legacy bytes and duplicates while removing tracking fields
+    - [#398](https://github.com/ClearURLs/Addon/issues/398)
+    - [#259](https://github.com/ClearURLs/Addon/issues/259)
+    - [#1297](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1297)
+    - [#257](https://gitlab.com/ClearURLs/rules/-/issues/257)
+- Preserve empty query and fragment delimiters during URL cleaning
+    - [#211](https://github.com/ClearURLs/Addon/issues/211)
 - Preserve fragment values, duplicates, ordering and empty separators during URL cleaning
     - [#510](https://github.com/ClearURLs/Addon/issues/510)
 - Preserve the application-provided navigation state during History API URL cleaning
