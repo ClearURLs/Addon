@@ -41,7 +41,7 @@ function resetGlobalLog(){
 */
 function getLog()
 {
-    browser.runtime.sendMessage({
+    return browser.runtime.sendMessage({
         function: "getData",
         params: ['log']
     }).then((data) => {
@@ -51,9 +51,9 @@ function getLog()
         log.log.sort(function(a,b) {
             return b.timestamp - a.timestamp;
         });
-		
-		let lang = getUILanguageCode();
-		let dataTableOptions = {
+
+        let lang = getUILanguageCode();
+        let dataTableOptions = {
             "data": log.log,
             "columns": [
                 {
@@ -81,13 +81,11 @@ function getLog()
             ],
             "pageLength": 10
         };
-		if (lang !== "en") {
-			dataTableOptions.language = {
-			"url": getDataTableTranslation(lang)
-			};
-		}
 
-        $('#logTable').DataTable(dataTableOptions).order([3, 'desc']).draw();
+        return loadDataTableTranslation(lang).then((language) => {
+            dataTableOptions.language = language;
+            $('#logTable').DataTable(dataTableOptions).order([3, 'desc']).draw();
+        });
     }).catch(handleError);
 }
 
@@ -97,6 +95,27 @@ function getLog()
 function getUILanguageCode() {
     let lang = browser.i18n.getUILanguage();
     return lang.substring(0, 2).toLowerCase();
+}
+
+/**
+ * Load a DataTable translation, falling back to its English defaults.
+ */
+function loadDataTableTranslation(lang) {
+    if (lang === "en") {
+        return Promise.resolve({});
+    }
+
+    return fetch(getDataTableTranslation(lang))
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.warn(`Could not load DataTables translation "${lang}". Using English defaults.`, error);
+            return {};
+        });
 }
 
 /**
