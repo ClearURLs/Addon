@@ -132,15 +132,17 @@ test('a matching provider without a rule change preserves URL bytes and leaves h
   assert.equal(context.scripts.length, 0);
 });
 
-test('a real rule change still reaches the history script', async () => {
+test('a real rule change still reaches the history script and preserves navigation state', async () => {
   const context = makeProviderContext();
   await new Promise((resolve) => setImmediate(resolve));
   context.historyCleaner({ url: 'https://example.test/?utm_source=x&id=42', tabId: 1, frameId: 0 });
 
   assert.equal(context.scripts.length, 1);
-  const history = { state: null, replaceState(state, title, url) { this.state = state; this.url = url; } };
+  const state = { route: 42 };
+  const history = { state, replaceState(value, title, url) { this.state = value; this.url = url; } };
   vm.runInNewContext(context.scripts[0].code, { history });
   assert.equal(history.url, 'https://example.test/?id=42');
+  assert.strictEqual(history.state, state);
 });
 
 test('later no-op providers preserve earlier raw-rule and field changes', async () => {
