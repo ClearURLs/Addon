@@ -63,7 +63,7 @@ test('fragment append preserves duplicates and value semantics', () => {
 });
 
 for (const fragment of ['token=', 'token==', 'state=abc==', 'foo=bar=baz', 'a=1&a=1&b=2&a=3', 'plain',
-  'a=1&&b=2&', '&&']) {
+  'a=1&&b=2&', '&&', '=value', '=', '==', '=a=b', '=first&=second&=first&', '=value&anchor']) {
   test(`cleaning preserves fragment #${fragment}`, async () => {
     const addon = await loadAddon();
     const input = `https://example.com/?utm_source=x#${fragment}`;
@@ -77,6 +77,8 @@ for (const [fragment, expected] of [
   ['utm_source=x&&b=2&', '&b=2&'],
   ['a=1&utm_source=x&a=1&b=2&a=3', 'a=1&a=1&b=2&a=3'],
   ['utm_source=x&utm_medium=y&token=abc==', 'token=abc=='],
+  ['utm_source=x&=value', '=value'],
+  ['=value&utm_source=x&=other', '=value&=other'],
 ]) {
   test(`removing fragment trackers preserves the remaining entries in #${fragment}`, async () => {
     const addon = await loadAddon();

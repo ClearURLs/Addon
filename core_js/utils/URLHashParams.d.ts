@@ -4,6 +4,8 @@
 export default class URLHashParams {
     private _params;
     constructor(url: URL);
+    /** Number of segments, including empty segments and duplicate entries. */
+    get size(): number;
     append(name: string, value?: string | null): void;
     delete(name: string): void;
     get(name: string): string | null;

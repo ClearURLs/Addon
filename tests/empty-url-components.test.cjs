@@ -15,6 +15,11 @@ const cases = [
   ['?&#utm_source=x', '?&'],
   ['#utm_source=x', ''],
   ['?utm_source=x#utm_source=x#', ''],
+  ['#utm_source=x&', '#'],
+  ['#&utm_source=x', '#'],
+  ['#&&utm_source=x', '#&'],
+  ['#utm_source=x&&', '#&'],
+  ['?fbclid=y#utm_source=x&', '#'],
 ];
 
 for (const [input, expected] of cases) {
@@ -30,14 +35,14 @@ for (const [input, expected] of cases) {
 
 test('unchanged empty URL components do not trigger history writes', async () => {
   const addon = await loadAddon();
-  for (const suffix of ['?', '#', '?#', '?&', '?&&#', '?id=42#']) {
+  for (const suffix of ['?', '#', '?#', '?&', '?&&#', '?id=42#', '#=value', '#=', '#&=value&']) {
     const url = 'https://example.com/' + suffix;
     assert.equal(addon.clean(url), url);
     assert.equal(addon.history(url).length, 0);
   }
 });
 
-for (const [input, expected] of [cases[0], cases[5], cases[8]]) {
+for (const [input, expected] of [cases[0], cases[5], cases[8], cases[12], ['?utm_source=x#=value', '#=value']]) {
   test(`logging preserves the URL delimiters in ${input}`, async () => {
     const addon = await loadAddon({ settings: { loggingStatus: true, logLimit: 10, log: { log: [] } } });
     const before = 'https://example.com/' + input;
@@ -48,3 +53,15 @@ for (const [input, expected] of [cases[0], cases[5], cases[8]]) {
     assert.equal(addon.context.storage.log.log[0].after, after);
   });
 }
+
+test('logging retains an empty fragment across successive rules', async () => {
+  const addon = await loadAddon({ settings: { loggingStatus: true, logLimit: 10, log: { log: [] } } });
+  const before = 'https://example.com/?fbclid=y#utm_source=x&';
+  const intermediate = 'https://example.com/?fbclid=y#';
+  const after = 'https://example.com/#';
+  assert.deepEqual(addon.request(before), { redirectUrl: after });
+  const entries = addon.context.storage.log.log;
+  assert.equal(entries.length, 2);
+  assert.ok(entries.some(entry => entry.before === before && entry.after === intermediate));
+  assert.ok(entries.some(entry => entry.before === intermediate && entry.after === after));
+});

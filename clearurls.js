@@ -135,11 +135,12 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     /**
      * Only test for matches, if there are fields or fragments that can be cleaned.
      */
-    if (originalFieldNames.length > 0 || fragments.toString() !== "") {
+    if (originalFieldNames.length > 0 || fragments.size > 0) {
         rules.forEach(rule => {
             const beforeFields = fields.toString();
             const beforeHasQuery = hasQuery;
             const beforeFragments = fragments.toString();
+            const beforeHasHash = fragments.size > 0 || preserveEmptyHash;
             let localChange = false;
 
             const beforeFieldCount = remainingFieldNames.size;
@@ -176,9 +177,9 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
                 let tempBeforeURL = domain;
 
                 if (hasQuery) tempURL += "?" + fields.toString();
-                if (fragments.toString() !== "" || preserveEmptyHash) tempURL += "#" + fragments.toString();
+                if (fragments.size > 0 || preserveEmptyHash) tempURL += "#" + fragments.toString();
                 if (beforeHasQuery) tempBeforeURL += "?" + beforeFields.toString();
-                if (beforeFragments.toString() !== "" || preserveEmptyHash) tempBeforeURL += "#" + beforeFragments.toString();
+                if (beforeHasHash) tempBeforeURL += "#" + beforeFragments.toString();
 
                 if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
 
@@ -189,7 +190,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
         let finalURL = domain;
 
         if (hasQuery) finalURL += "?" + fields;
-        if (fragments.toString() !== "" || preserveEmptyHash) finalURL += "#" + fragments.toString();
+        if (fragments.size > 0 || preserveEmptyHash) finalURL += "#" + fragments.toString();
 
         url = finalURL;
     }
