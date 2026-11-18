@@ -73,10 +73,20 @@ for (const fragment of ['token=', 'token==', 'state=abc==', 'foo=bar=baz', 'a=1&
   });
 }
 
+test('a literal question mark in a fragment remains part of the fragment syntax', async () => {
+  const addon = await loadAddon();
+  for (const name of ['utm_source', '%75tm_source']) {
+    const url = `https://example.com/#?${name}=x&route=dashboard`;
+    assert.equal(addon.clean(url), url);
+    assert.deepEqual(addon.request(url), {});
+  }
+});
+
 for (const [fragment, expected] of [
   ['utm_source=x&&b=2&', '&b=2&'],
   ['a=1&utm_source=x&a=1&b=2&a=3', 'a=1&a=1&b=2&a=3'],
   ['utm_source=x&utm_medium=y&token=abc==', 'token=abc=='],
+  ['?utm_source=x&utm_medium=y&route=dashboard', '?utm_source=x&route=dashboard'],
   ['utm_source=x&=value', '=value'],
   ['=value&utm_source=x&=other', '=value&=other'],
 ]) {

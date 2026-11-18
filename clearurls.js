@@ -147,6 +147,7 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
      */
     if (originalFieldNames.length > 0 || fragments.size > 0) {
         rules.forEach(rule => {
+            const fieldPattern = new RegExp("^"+rule+"$", "i");
             const beforeFields = fields.toString();
             const beforeHasQuery = hasQuery;
             const beforeFragments = fragments.toString();
@@ -155,7 +156,6 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
 
             const beforeFieldCount = remainingFieldNames.size;
             if (beforeFieldCount) {
-                const fieldPattern = new RegExp("^"+rule+"$", "i");
                 for (const field of remainingFieldNames) {
                     if (fieldPattern.test(field)) {
                         remainingFieldNames.delete(field);
@@ -173,27 +173,27 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
                 hasQuery = retainedFields.length > 0;
             }
 
-            for (const fragment of fragments.keys()) {
-                let decodedFragment = fragment;
+            const fragmentsChanged = fragments.deleteMatching((fragment, value) => {
+                if (fieldPattern.test(fragment)) return true;
+                // Preserve bare anchors and literal fragment query markers during decoded matching.
+                if (value === null || fragment.startsWith("?")) return false;
+
+                let decodedFragment;
                 try {
                     decodedFragment = decodeURIComponent(fragment);
                 } catch (error) {
-                    // Keep malformed escape sequences unchanged and continue cleaning.
+                    return false;
                 }
 
-                const fragmentPattern = new RegExp("^"+rule+"$", "i");
                 // Do not apply raw encoded rules to an already decoded nested encoding.
-                const hasNestedEncoding = /%[0-9a-f]{2}/i.test(decodedFragment);
+                if (/%[0-9a-f]{2}/i.test(decodedFragment)) return false;
                 // Catalog rules may use the raw %3F spelling for a decoded leading '?'.
-                const ruleCompatibleFragment = decodedFragment.replace(/^\?/, "%3F");
-                const matchesDecodedFragment = !hasNestedEncoding &&
-                    (fragmentPattern.test(decodedFragment) || fragmentPattern.test(ruleCompatibleFragment));
-
-                if (fragmentPattern.test(fragment) || matchesDecodedFragment) {
-                    fragments.delete(fragment);
-                    changes = true;
-                    localChange = true;
-                }
+                return fieldPattern.test(decodedFragment) ||
+                    fieldPattern.test(decodedFragment.replace(/^\?/, "%3F"));
+            });
+            if (fragmentsChanged) {
+                changes = true;
+                localChange = true;
             }
 
             //Log the action
@@ -637,16 +637,8 @@ function start() {
                 const match = new RegExp(redirection, "i").exec(url);
                 if (!match || !match[1]) continue;
 
-                const target = match[1];
-                if (name === "google") {
-                    // Inspect the matched prefix: an adurl rule can also match an AMP page.
-                    const prefix = match[0].slice(0, -target.length);
-                    if (/^https?:\/\/[^/?#]+\/amp\/s\/$/i.test(prefix)) {
-                        return decodeURL(target, "host-path");
-                    }
-                }
-
-                return decodeURL(target, name === "LinkedIn" ? "mixed-scheme" : undefined);
+                const redirectUrl = decodeURL(match[1]);
+                if (redirectUrl !== null) return redirectUrl;
             }
 
             return null;

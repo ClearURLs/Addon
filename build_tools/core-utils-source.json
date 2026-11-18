@@ -1,15 +1,15 @@
 {
   "repository": "https://gitlab.com/ClearURLs/core.git",
-  "sourceCommit": "0258c252972e75e971fea0427f655f74d711add4",
+  "sourceCommit": "9db7dd318c704444c0e1bc5c43d53d668b6b007b",
   "typescript": "4.1.3",
   "sources": {
     "src/utils/Multimap.ts": "7ee786aaa0924b2bec54e7773d43081b31cffd3abaadd74590afdd2efad50fbe",
-    "src/utils/URLHashParams.ts": "b89894ce63be4ca538742714e2e976b0b9d06cfdf9c26599e468eaf3443b61eb"
+    "src/utils/URLHashParams.ts": "930a56cad1f60c0da3f40bedf4ee803c0c3ab55552f67df561846b4135cc7827"
   },
   "files": {
     "Multimap.d.ts": "b40388488868e00c5275b6d037ba3a46d7b66c3a24aa8c03e0beeb94802ffdd3",
-    "URLHashParams.d.ts": "08cac19e186cbc1339c5439879ce799ca909ef761fc7b9d75d839de5fcb6c338",
+    "URLHashParams.d.ts": "cea839a48e5cb91c0321801933f2da7c4135c31c2c0dff8dd857f156f60700f6",
     "Multimap.js": "2539950c5a3f8c764c27006b98499969684521f203d73e8713196d25095d53ad",
-    "URLHashParams.js": "a9c4bf7c307ce90b61fa80654f4cc566e525e0e26092043181d25b5fa3bd5840"
+    "URLHashParams.js": "a41a1045729d3353d85de43876c0172600dbfef596c9a80ddb49ff750f9a81af"
   }
 }

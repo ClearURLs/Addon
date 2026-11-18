@@ -229,46 +229,125 @@ function getBrowser() {
 /**
  * Unwraps a redirect target without decoding escapes that belong to its URL.
  *
- * @param {string} url the captured target
- * @param {string} [format] the target format used by the matched rule
+ * @param {string} target the captured target
+ * @return {string|null} the valid HTTP(S) target, if one was found
  */
-function decodeURL(url, format) {
-    let rtn = url;
+function decodeURL(target) {
+    while (true) {
+        // A bare HTTP-like token has no visible host/path boundary to infer from.
+        if (/^https?(?:-[^/?#\\]*)?$/i.test(target)) return null;
 
-    // Stop once the target is absolute so its own escaped bytes stay untouched.
-    while (!/^https?:\/\//i.test(rtn)) {
-        if (format === "mixed-scheme") {
-            const target = rtn.replace(/^(https?)%3a(?=\/\/)/i, "$1:");
-            if (target !== rtn) return target;
-        }
+        const prefix = /^(?:([a-z][a-z0-9+.-]*)(?::|%(?:25)*3a))?(?:\/|%(?:25)*2f){2}/i.exec(target);
+        if (prefix) {
+            if (prefix[1] && !/^https?$/i.test(prefix[1])) return null;
 
-        if (format === "host-path" && /^[^/?#\\]/.test(rtn)) {
-            const target = 'http://' + rtn;
-            try {
-                new URL(target);
-                return target;
-            } catch (error) {
-                // The delimiter after the host may still be encoded by the wrapper.
-            }
+            const candidate = redirectURLWithScheme(prefix[1] || "http", target.slice(prefix[0].length),
+                /[:/]/.test(prefix[0]));
+            if (candidate !== null) return candidate;
+        } else if (isRedirectHostPath(target)) {
+            const candidate = redirectURLWithScheme("http", target);
+            if (candidate !== null) return candidate;
         }
 
         let decoded;
         try {
-            decoded = decodeURIComponent(rtn);
+            decoded = decodeURIComponent(target);
         } catch (error) {
-            return rtn;
+            return null;
         }
 
-        if (decoded === rtn) break;
-        rtn = decoded;
+        if (decoded === target) return null;
+        target = decoded;
+    }
+}
+
+function redirectURLWithScheme(scheme, rest, hasLiteralPrefixDelimiter = false) {
+    const prefix = scheme + "://";
+    const candidate = prefix + rest;
+    if (isValidRedirectURL(candidate)) return candidate;
+
+    const boundary = rest.search(/[/?#]/);
+    // A fully wrapped target can still be unwrapped one layer at a time.
+    if (boundary < 0 && !hasLiteralPrefixDelimiter) return null;
+
+    const head = boundary < 0 ? rest : rest.slice(0, boundary);
+    const separator = /%(?:25)*(2f|3f|23)/i.exec(head);
+    if (boundary < 0 && !separator) return null;
+
+    let authority = separator ? head.slice(0, separator.index) : head;
+    const rawSuffix = separator
+        ? decodeURIComponent("%" + separator[1]) + rest.slice(separator.index + separator[0].length)
+        : rest.slice(boundary);
+    const repairedQuery = hasLiteralPrefixDelimiter && (boundary < 0 || rest[boundary] === "#")
+        ? repairEncodedRedirectQuery(rawSuffix)
+        : null;
+    const suffix = repairedQuery ?? (boundary >= 0 || rawSuffix.startsWith("#") ? rawSuffix : null);
+    if (suffix === null) return null;
+
+    try {
+        while (true) {
+            const repaired = prefix + authority + suffix;
+            if (isValidRedirectURL(repaired)) return repaired;
+
+            const decoded = decodeURIComponent(authority);
+            if (decoded === authority) return null;
+            authority = decoded;
+        }
+    } catch (error) {
+        return null;
+    }
+}
+
+function repairEncodedRedirectQuery(suffix) {
+    const fragmentStart = suffix.indexOf("#");
+    const body = fragmentStart < 0 ? suffix : suffix.slice(0, fragmentStart);
+    const fragment = fragmentStart < 0 ? "" : suffix.slice(fragmentStart);
+    const start = /\?|%3f|%23/i.exec(body);
+    if (!start || !/^(?:\?|%3f)$/i.test(start[0])) return null;
+
+    const query = body.slice(start.index + start[0].length);
+    const separator = /%3d|%26|%23|%3f/i.exec(query);
+    if (!separator || separator[0].toLowerCase() !== "%3d") return null;
+
+    const value = query.slice(separator.index + separator[0].length);
+    // A nested escape or a second named field can signal one outer encoding layer.
+    if (/%25[0-9a-f]{2}/i.test(body) || /%26(?:[^%]|%(?!26|23|3d))+%3d/i.test(value)) {
+        try {
+            const encoded = body.slice(1);
+            const decoded = decodeURIComponent(encoded);
+            if (encodeURIComponent(decoded) === encoded.replace(/%[0-9a-f]{2}/gi, escape => escape.toUpperCase())) {
+                return body[0] + decoded + fragment;
+            }
+        } catch (error) {
+            // Legacy escaped bytes can still belong to a valid URL.
+        }
     }
 
-    // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if (!/^https?:\/\//i.test(rtn)) {
-        rtn = 'http://' + rtn;
-    }
+    // In a partly wrapped URL, escaped separators can also be query data.
+    return body.slice(0, start.index) + "?" + query.slice(0, separator.index) + "=" + value + fragment;
+}
 
-    return rtn;
+function isValidRedirectURL(url) {
+    if (!/^https?:\/\//i.test(url)) return false;
+    try {
+        return new URL(url).hostname !== "";
+    } catch (error) {
+        return false;
+    }
+}
+
+function isRedirectHostPath(target) {
+    if (!/^[^/?#\\]/.test(target)) return false;
+
+    // A colon in a scheme-less authority can introduce a port or password.
+    const colon = /^([a-z][a-z0-9+.-]*):/i.exec(target);
+    if (!colon) return true;
+    const afterColon = target.slice(colon[0].length);
+    const hasHostName = colon[1].includes(".") || /^localhost$/i.test(colon[1]);
+    const port = /^\d+([/?#]|$)/.exec(afterColon);
+    return /^[^/?#\\]+@[^/?#\\]+\//.test(afterColon) ||
+        (port !== null && (hasHostName || port[1] !== "")) ||
+        (colon[1].includes(".") && /^(?:\/(?!\/)|[?#]|$)/.test(afterColon));
 }
 
 function handleError(error) {
