@@ -51,7 +51,13 @@ class URLHashParams {
         this._params.push([name, value]);
     }
     delete(name) {
-        this._params = this._params.filter(param => param === null || param[0] !== name);
+        this.deleteMatching(key => key === name);
+    }
+    /** Delete matching entries and report whether any were removed. */
+    deleteMatching(predicate) {
+        const size = this._params.length;
+        this._params = this._params.filter(param => param === null || !predicate(param[0], param[1]));
+        return this._params.length < size;
     }
     get(name) {
         for (const param of this._params) {

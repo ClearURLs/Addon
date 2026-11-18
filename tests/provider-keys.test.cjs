@@ -36,7 +36,8 @@ function makeProviderContext(rulesData = providerData) {
   });
 
   for (const file of ['core_js/utils/Multimap.js', 'core_js/utils/URLHashParams.js',
-    'core_js/tools.js', 'core_js/badgedHandler.js', 'core_js/historyListener.js']) {
+    'core_js/utils/decodeRedirectTarget.js', 'core_js/tools.js', 'core_js/badgedHandler.js',
+    'core_js/historyListener.js']) {
     vm.runInContext(fs.readFileSync(path.join(addonRoot, file), 'utf8'), context);
   }
   vm.runInContext(fs.readFileSync(path.join(addonRoot, 'clearurls.js'), 'utf8'), context);

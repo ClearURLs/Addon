@@ -8,6 +8,8 @@ export default class URLHashParams {
     get size(): number;
     append(name: string, value?: string | null): void;
     delete(name: string): void;
+    /** Delete matching entries and report whether any were removed. */
+    deleteMatching(predicate: (name: string, value: string | null) => boolean): boolean;
     get(name: string): string | null;
     getAll(name: string): Set<string | null>;
     keys(): IterableIterator<string>;

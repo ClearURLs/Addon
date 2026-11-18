@@ -226,51 +226,6 @@ function getBrowser() {
     }
 }
 
-/**
- * Unwraps a redirect target without decoding escapes that belong to its URL.
- *
- * @param {string} url the captured target
- * @param {string} [format] the target format used by the matched rule
- */
-function decodeURL(url, format) {
-    let rtn = url;
-
-    // Stop once the target is absolute so its own escaped bytes stay untouched.
-    while (!/^https?:\/\//i.test(rtn)) {
-        if (format === "mixed-scheme") {
-            const target = rtn.replace(/^(https?)%3a(?=\/\/)/i, "$1:");
-            if (target !== rtn) return target;
-        }
-
-        if (format === "host-path" && /^[^/?#\\]/.test(rtn)) {
-            const target = 'http://' + rtn;
-            try {
-                new URL(target);
-                return target;
-            } catch (error) {
-                // The delimiter after the host may still be encoded by the wrapper.
-            }
-        }
-
-        let decoded;
-        try {
-            decoded = decodeURIComponent(rtn);
-        } catch (error) {
-            return rtn;
-        }
-
-        if (decoded === rtn) break;
-        rtn = decoded;
-    }
-
-    // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if (!/^https?:\/\//i.test(rtn)) {
-        rtn = 'http://' + rtn;
-    }
-
-    return rtn;
-}
-
 function handleError(error) {
     console.error("[ClearURLs ERROR]:" + error);
 }

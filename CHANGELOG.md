@@ -13,19 +13,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Compatibility note
 - Require Firefox >= 98
-- Require Chrome >= 42
 
 ## [1.28.0] - 2026-11-18
 
 ### Compatibility note
 - Require Firefox >= 98
-- Require Chrome >= 42
 
 ### Added
 - Add a donation dialog to the add-on popup with links to Patreon, PayPal and Buy Me a Coffee
 
 ### Changed
-- Allow referral marketing by default on new installations, preserving referral and affiliate parameters
+- Enable referral marketing by default when no preference has been saved, including after an upgrade.
 - Widen the add-on popup for better readability
 - Update and improve the Japanese localization. Thanks to [@Guest126](https://github.com/Guest126)
     - [#245](https://github.com/ClearURLs/Addon/pull/245)
@@ -50,7 +48,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#1320](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1320)
     - [#267](https://gitlab.com/ClearURLs/rules/-/issues/267)
     - [#274](https://gitlab.com/ClearURLs/rules/-/issues/274)
-- Preserve escaped path and query characters and HTTP(S) scheme casing when unwrapping redirect targets
+- Keep legacy redirect decoding compatible with 1.27.3 and support explicit decoding with `redirectRules`
+- Skip invalid redirect targets and check the remaining redirect rules
 - Preserve encoded query names and values, legacy bytes and duplicates while removing tracking fields
     - [#398](https://github.com/ClearURLs/Addon/issues/398)
     - [#259](https://github.com/ClearURLs/Addon/issues/259)
@@ -60,7 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#211](https://github.com/ClearURLs/Addon/issues/211)
 - Preserve fragment values, duplicates, ordering and empty separators during URL cleaning
     - [#510](https://github.com/ClearURLs/Addon/issues/510)
-- Remove tracking fields with percent-encoded fragment names without repeatedly decoding or re-encoding the fragment
+- Remove tracking parameters with percent-encoded fragment names while preserving anchors that match a rule only after decoding and literal `#?` query markers
 - Preserve the application-provided navigation state during History API URL cleaning
     - [#196](https://github.com/ClearURLs/Addon/issues/196)
     - [#311](https://github.com/ClearURLs/Addon/issues/311)

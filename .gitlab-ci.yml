@@ -27,7 +27,10 @@ hash rules:
 
 test addon:
   stage: test
+  variables:
+    GIT_DEPTH: "0"
   script:
+    - apt-get install -y git
     - node --test tests/*.test.cjs tests/*.regressions.cjs
 
 bundle addon:

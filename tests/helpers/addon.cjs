@@ -6,7 +6,12 @@ const vm = require('node:vm');
 const addonRoot = path.resolve(__dirname, '../..');
 const catalog = JSON.parse(fs.readFileSync(path.join(__dirname, '../fixtures/rules.json'), 'utf8'));
 
-async function loadAddon({ rules = catalog, settings = {}, pollute = false } = {}) {
+const readAddonSource = file => fs.readFileSync(path.join(addonRoot, file), 'utf8');
+
+async function loadAddon({
+  rules = catalog, settings = {}, pollute = false,
+  readSource = readAddonSource, expectedProviderNames = Object.keys(rules.providers),
+} = {}) {
   let requestListener;
   let historyListener;
   let resolveReady;
@@ -20,7 +25,7 @@ async function loadAddon({ rules = catalog, settings = {}, pollute = false } = {
     ...settings,
   };
   const context = vm.createContext({
-    URL, URLSearchParams, TextEncoder,
+    URL, URLSearchParams, TextEncoder, TextDecoder, atob, btoa,
     console: { log() {}, error(...args) { rejectReady(new Error(args.join(' '))); } },
     storage,
     fetch: async () => ({ status: 200, text: async () => 'fixture' }),
@@ -40,14 +45,14 @@ async function loadAddon({ rules = catalog, settings = {}, pollute = false } = {
     storeHashStatus(code) { if (code === 1) resolveReady(); },
     saveOnDisk() {}, deferSaveOnDisk() {},
   });
-  const manifest = JSON.parse(fs.readFileSync(path.join(addonRoot, 'manifest.json')));
+  const manifest = JSON.parse(readSource('manifest.json'));
   const modules = manifest.background.scripts.filter(file =>
     file.startsWith('core_js/utils/') || [
       'core_js/tools.js', 'core_js/badgedHandler.js', 'core_js/pureCleaning.js',
       'core_js/historyListener.js', 'clearurls.js',
     ].includes(file));
   for (const file of modules) {
-    vm.runInContext(fs.readFileSync(path.join(addonRoot, file), 'utf8'), context, { filename: file });
+    vm.runInContext(readSource(file), context, { filename: file });
   }
   if (pollute) {
     vm.runInContext('Object.prototype.getOrDefault = function () {};', context);
@@ -55,11 +60,12 @@ async function loadAddon({ rules = catalog, settings = {}, pollute = false } = {
   vm.runInContext(`storage.ClearURLsData = JSON.parse(${JSON.stringify(JSON.stringify(rules))}); start(); historyListenerStart();`, context);
   await ready;
   const names = Array.from(vm.runInContext('providers.map(provider => provider.getName())', context));
-  assert.deepEqual(names, Object.keys(rules.providers), 'load all and only catalog providers');
+  assert.deepEqual(names, expectedProviderNames, 'load all expected providers');
   return {
     context, scripts, names,
     clean: url => context.pureCleaning(url, true),
-    request: url => JSON.parse(JSON.stringify(requestListener({ url, type: 'xmlhttprequest', method: 'GET', tabId: 1 }))),
+    request: (url, type = 'xmlhttprequest') =>
+      JSON.parse(JSON.stringify(requestListener({ url, type, method: 'GET', tabId: 1 }))),
     history(url) {
       scripts.length = 0;
       historyListener({ url, tabId: 1, frameId: 0 });
