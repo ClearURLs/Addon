@@ -183,7 +183,12 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
                     // Keep malformed escape sequences unchanged and continue cleaning.
                 }
 
-                if (new RegExp("^"+rule+"$", "gi").test(decodedFragment)) {
+                const fragmentPattern = new RegExp("^"+rule+"$", "i");
+                // Do not apply raw encoded rules to an already decoded nested encoding.
+                const hasNestedEncoding = /%[0-9a-f]{2}/i.test(decodedFragment);
+
+                if (fragmentPattern.test(fragment) ||
+                    (!hasNestedEncoding && fragmentPattern.test(decodedFragment))) {
                     fragments.delete(fragment);
                     changes = true;
                     localChange = true;

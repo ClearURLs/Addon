@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "ClearURLs",
   "version": "1.28.0",
+  "minimum_chrome_version": "42",
   "author": "Kevin Roebert",
   "description": "__MSG_extension_description__",
   "homepage_url": "https://docs.clearurls.xyz",
@@ -9,7 +10,8 @@
   "content_security_policy": "script-src 'self'; object-src 'none'",
   "browser_specific_settings": {
     "gecko": {
-      "id": "{74145f27-f039-47ce-a470-a662b129930a}"
+      "id": "{74145f27-f039-47ce-a470-a662b129930a}",
+      "strict_min_version": "98.0"
     }
   },
   "icons": {
