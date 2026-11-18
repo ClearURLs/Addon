@@ -87,20 +87,18 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     * Expand the url by provider redirections. So no tracking on
     * url redirections form sites to sites.
     */
-    let re = provider.getRedirection(url);
-    if (re !== null) {
-        url = decodeURL(re);
-
+    const redirectUrl = provider.getRedirection(url);
+    if (redirectUrl !== null) {
         //Log the action
         if (!quiet) {
-            pushToLog(pureUrl, url, translate('log_redirect'));
+            pushToLog(pureUrl, redirectUrl, translate('log_redirect'));
             increaseTotalCounter(1);
             increaseBadged(false, request)
         }
 
         return {
             "redirect": true,
-            "url": url
+            "url": redirectUrl
         }
     }
 
@@ -186,9 +184,12 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
                 const fragmentPattern = new RegExp("^"+rule+"$", "i");
                 // Do not apply raw encoded rules to an already decoded nested encoding.
                 const hasNestedEncoding = /%[0-9a-f]{2}/i.test(decodedFragment);
+                // Catalog rules may use the raw %3F spelling for a decoded leading '?'.
+                const ruleCompatibleFragment = decodedFragment.replace(/^\?/, "%3F");
+                const matchesDecodedFragment = !hasNestedEncoding &&
+                    (fragmentPattern.test(decodedFragment) || fragmentPattern.test(ruleCompatibleFragment));
 
-                if (fragmentPattern.test(fragment) ||
-                    (!hasNestedEncoding && fragmentPattern.test(decodedFragment))) {
+                if (fragmentPattern.test(fragment) || matchesDecodedFragment) {
                     fragments.delete(fragment);
                     changes = true;
                     localChange = true;
@@ -627,24 +628,28 @@ function start() {
         };
 
         /**
-         * Return all redirection.
+         * Return the decoded target of the first matching redirection.
          *
-         * @return url
+         * @return {string|null}
          */
         this.getRedirection = function (url) {
-            let re = null;
-
             for (const redirection of Object.keys(enabled_redirections)) {
-                let result = (url.match(new RegExp(redirection, "i")));
+                const match = new RegExp(redirection, "i").exec(url);
+                if (!match || !match[1]) continue;
 
-                if (result && result.length > 0 && redirection) {
-                    re = (new RegExp(redirection, "i")).exec(url)[1];
-
-                    break;
+                const target = match[1];
+                if (name === "google") {
+                    // Inspect the matched prefix: an adurl rule can also match an AMP page.
+                    const prefix = match[0].slice(0, -target.length);
+                    if (/^https?:\/\/[^/?#]+\/amp\/s\/$/i.test(prefix)) {
+                        return decodeURL(target, "host-path");
+                    }
                 }
+
+                return decodeURL(target, name === "LinkedIn" ? "mixed-scheme" : undefined);
             }
 
-            return re;
+            return null;
         };
     }
 

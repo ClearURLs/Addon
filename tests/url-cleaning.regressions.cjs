@@ -18,7 +18,39 @@ for (const [target, expected] of [
 ]) {
   test(`Google redirect preserves ${expected}`, async () => {
     const addon = await loadAddon();
-    assert.equal(addon.clean(`https://www.google.com/url?q=${target}`), expected);
+    const url = `https://www.google.com/url?q=${target}`;
+    assert.equal(addon.clean(url), expected);
+    assert.equal(addon.request(url).redirectUrl, expected);
+  });
+}
+
+for (const [description, url, expected] of [
+  ['LinkedIn mixed scheme',
+    'https://www.linkedin.com/safety/go?url=HTTPS%3A//example.com/a%2Fb?q=a%26b',
+    'HTTPS://example.com/a%2Fb?q=a%26b'],
+  ['LinkedIn fully encoded target',
+    'https://www.linkedin.com/safety/go?url=https%3A%2F%2Fexample.com%2Fa%252Fb',
+    'https://example.com/a%2Fb'],
+  ['Google AMP target',
+    'https://www.google.com/amp/s/example.com/a%2Fb?q=a%26b',
+    'http://example.com/a%2Fb?q=a%26b'],
+  ['Google AMP target with a legacy escaped byte',
+    'https://www.google.com/amp/s/example.com/a%FFb',
+    'http://example.com/a%FFb'],
+  ['Google AMP target with an IPv6 host',
+    'https://www.google.com/amp/s/[2001:db8::1]/a%2Fb',
+    'http://[2001:db8::1]/a%2Fb'],
+  ['Google AMP target with an outer encoding layer',
+    'https://www.google.com/amp/s/example.com%2Fa%252Fb',
+    'http://example.com/a%2Fb'],
+  ['Google ad redirect on an AMP path',
+    'https://www.google.com/amp/s/example.com/page?adurl=example.org/a%2Fb',
+    'http://example.org/a/b'],
+]) {
+  test(`${description} decodes according to its redirection rule`, async () => {
+    const addon = await loadAddon();
+    assert.equal(addon.clean(url), expected);
+    assert.equal(addon.request(url).redirectUrl, expected);
   });
 }
 
@@ -42,5 +74,8 @@ test('encoded fragment tracking names are matched once', async () => {
   assert.equal(addon.clean('https://example.com/#%2575tm_source=x'), 'https://example.com/#%2575tm_source=x');
   assert.equal(addon.clean('https://example.com/#%3Futm_source=x'), 'https://example.com/');
   assert.equal(addon.clean('https://example.com/#%253Futm_source=x'), 'https://example.com/#%253Futm_source=x');
+  assert.equal(addon.clean('https://example.com/#%3F%75tm_source=x'), 'https://example.com/');
+  assert.equal(addon.clean('https://example.com/#%3F%66bclid=x'), 'https://example.com/');
+  assert.equal(addon.clean('https://example.com/#%253F%75tm_source=x'), 'https://example.com/#%253F%75tm_source=x');
   assert.equal(addon.clean('https://example.com/#bad%FF=value'), 'https://example.com/#bad%FF=value');
 });
