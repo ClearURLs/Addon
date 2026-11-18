@@ -49,6 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#1320](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1320)
     - [#267](https://gitlab.com/ClearURLs/rules/-/issues/267)
     - [#274](https://gitlab.com/ClearURLs/rules/-/issues/274)
+- Preserve escaped characters and HTTP(S) scheme casing when decoding redirect targets instead of repeatedly decoding the target URL
 - Preserve encoded query names and values, legacy bytes and duplicates while removing tracking fields
     - [#398](https://github.com/ClearURLs/Addon/issues/398)
     - [#259](https://github.com/ClearURLs/Addon/issues/259)

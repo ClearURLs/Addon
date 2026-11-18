@@ -14,6 +14,7 @@ for (const [target, expected] of [
   ['https%3A%2F%2Fexample.com%2F%3Fq%3Da%2526b', 'https://example.com/?q=a%26b'],
   ['https%3A%2F%2Fexample.com%2F%3Fq%3D100%2525', 'https://example.com/?q=100%25'],
   ['HTTPS%3A%2F%2Fexample.com%2F', 'HTTPS://example.com/'],
+  ['https%253A%252F%252Fexample.com%252F%253Fq%253Da%252526b', 'https://example.com/?q=a%26b'],
 ]) {
   test(`Google redirect preserves ${expected}`, async () => {
     const addon = await loadAddon();

@@ -234,26 +234,27 @@ function getBrowser() {
  * @param url   the url, that should be decoded
  */
 function decodeURL(url) {
-    let rtn = decodeURIComponent(url);
+    let rtn = url;
 
-    while (isEncodedURI(rtn)) {
-        rtn = decodeURIComponent(rtn);
+    // Stop once the target is absolute so its own escaped bytes stay untouched.
+    while (!/^https?:\/\//i.test(rtn)) {
+        let decoded;
+        try {
+            decoded = decodeURIComponent(rtn);
+        } catch (error) {
+            return rtn;
+        }
+
+        if (decoded === rtn) break;
+        rtn = decoded;
     }
 
     // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if (!rtn.startsWith('http')) {
-        rtn = 'http://' + rtn
+    if (!/^https?:\/\//i.test(rtn)) {
+        rtn = 'http://' + rtn;
     }
 
     return rtn;
-}
-
-/**
- * Returns true, iff the given URI is encoded
- * @see https://stackoverflow.com/a/38265168
- */
-function isEncodedURI(uri) {
-    return uri !== decodeURIComponent(uri || '')
 }
 
 function handleError(error) {
