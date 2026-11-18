@@ -195,6 +195,18 @@
         "message": "Es sieht so aus, als sei diese URL schon gemeldet worden.",
         "description": "Hinweis: Wird derzeit nicht verwendet."
     },
+    "donate_dialog_title": {
+        "message": "Bitte spende etwas",
+        "description": "Diese Zeichenfolge wird als Titel des Spendendialogs verwendet."
+    },
+    "donate_dialog_message": {
+        "message": "Danke, dass du ClearURLs nutzt. Deine Unterstützung ist ein großer Ansporn bei der Weiterentwicklung dieses Add-ons. Wenn dir ClearURLs gefällt, erwäge bitte eine Spende.",
+        "description": "Diese Zeichenfolge wird als Nachricht im Spendendialog verwendet."
+    },
+    "donate_dialog_close": {
+        "message": "Spendendialog schließen",
+        "description": "Diese Zeichenfolge wird als Beschriftung für die Schaltfläche zum Schließen des Spendendialogs verwendet."
+    },
     "donate_button": {
         "message": "Eine Schenkung (Spende) für den ClearURLs-Urheber",
         "description": "Diese Zeichenfolge wird verwendet, um auf eine Spendenseite zu verweisen."

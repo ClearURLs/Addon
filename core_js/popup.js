@@ -156,6 +156,38 @@ function setSwitchButton(id, varname)
 }
 
 /**
+* Initialize the donation dialog.
+*/
+function initDonationDialog()
+{
+    const donate = document.getElementById('donate');
+    const dialog = document.getElementById('donation_dialog');
+
+    donate.onclick = function() {
+        dialog.showModal();
+    };
+
+    document.getElementById('donation_close').onclick = function() {
+        dialog.close();
+    };
+
+    dialog.addEventListener('click', function(event) {
+        if(event.target !== dialog) return;
+
+        const bounds = dialog.getBoundingClientRect();
+        if(event.clientX < bounds.left || event.clientX > bounds.right ||
+            event.clientY < bounds.top || event.clientY > bounds.bottom)
+        {
+            dialog.close();
+        }
+    });
+
+    dialog.addEventListener('close', function() {
+        donate.focus();
+    });
+}
+
+/**
 * Reset the global statistic
 */
 function resetGlobalCounter(){
@@ -181,6 +213,8 @@ function resetGlobalCounter(){
 }
 
 (function() {
+    initDonationDialog();
+
     loadData("cleanedCounter")
         .then(() => loadData("totalCounter"))
         .then(() => loadData("globalStatus"))
@@ -208,6 +242,8 @@ function resetGlobalCounter(){
 */
 function setText()
 {
+    injectText('donation_dialog_title','donate_dialog_title');
+    injectText('donation_dialog_message','donate_dialog_message');
     injectText('loggingPage','popup_html_log_head');
     injectText('reset_counter_btn','popup_html_statistics_reset_button');
     injectText('rules_status_head','popup_html_rules_status_head');
@@ -221,6 +257,9 @@ function setText()
     injectText('configs_head','popup_html_configs_head');
     injectText('configs_switch_statistics','configs_switch_statistics');
     document.getElementById('donate').title = translate('donate_button');
+    document.getElementById('donate').setAttribute('aria-label', translate('donate_button'));
+    document.getElementById('donation_close').title = translate('donate_dialog_close');
+    document.getElementById('donation_close').setAttribute('aria-label', translate('donate_dialog_close'));
 }
 
 /**

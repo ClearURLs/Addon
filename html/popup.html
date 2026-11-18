@@ -45,9 +45,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
                                 <span class="badge badge-warning float-left small-version"
                                 id="version"></span>
                         </span>
-                        <a id="donate" target="_blank" href="https://www.paypal.me/KevinRoebert">
-                            <i class="float-right fas fa-hand-holding-usd"></i>
-                        </a>
+                        <button type="button" id="donate" aria-label="Donate" aria-haspopup="dialog" aria-controls="donation_dialog">
+                            <i class="float-right fas fa-heart" aria-hidden="true"></i>
+                        </button>
                         </div>
                 </nav>
             </div>
@@ -154,6 +154,27 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
         </div>
         <br />
     </div>
+
+    <dialog id="donation_dialog" class="donation-dialog" aria-labelledby="donation_dialog_title" aria-describedby="donation_dialog_message">
+        <div class="donation-dialog-header">
+            <h2 id="donation_dialog_title">Please consider donating</h2>
+            <button type="button" id="donation_close" aria-label="Close donation dialog">
+                <i class="fas fa-times" aria-hidden="true"></i>
+            </button>
+        </div>
+        <p id="donation_dialog_message">Thank you for using ClearURLs. Your support encourages the continued development of this add-on. If you like ClearURLs, please consider making a donation.</p>
+        <div class="donation-options">
+            <a class="donation-image-link" href="https://www.paypal.me/KevinRoebert" target="_blank" rel="noopener noreferrer" aria-label="PayPal">
+                <img src="../img/Paypal.png" alt="PayPal">
+            </a>
+            <a class="donation-image-link" href="https://www.buymeacoffee.com/KevinRoebert" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee">
+                <img src="../img/BuyMeACoffee.png" alt="Buy Me a Coffee">
+            </a>
+            <a class="donation-image-link" href="https://www.patreon.com/cw/ClearURLs/" target="_blank" rel="noopener noreferrer" aria-label="Patreon">
+                <img src="../img/Patreon.png" alt="Patreon">
+            </a>
+        </div>
+    </dialog>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
