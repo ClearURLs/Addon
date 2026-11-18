@@ -25,12 +25,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add a donation dialog to the add-on popup with links to Patreon, PayPal and Buy Me a Coffee
 
 ### Changed
+- Widen the add-on popup for better readability
 - Update and improve the Japanese localization. Thanks to [@Guest126](https://github.com/Guest126)
     - [#245](https://github.com/ClearURLs/Addon/pull/245)
 - Correct spelling and grammar in the Ukrainian localization. Thanks to [@MortalEngineXXII](https://github.com/MortalEngineXXII)
     - [#456](https://github.com/ClearURLs/Addon/pull/456)
 
 ### Fixed
+- Prevent a vertical scrollbar in the add-on popup when logging is enabled
 - Prevent DataTables i18n file loading errors on the log page and fall back to English when a translation cannot be loaded
     - [#469](https://github.com/ClearURLs/Addon/issues/469)
     - [#405](https://github.com/ClearURLs/Addon/issues/405)

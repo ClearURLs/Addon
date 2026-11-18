@@ -68,6 +68,10 @@ table {
     margin-bottom: 10px;
 }
 
+#log_section {
+    margin-bottom: 8px;
+}
+
 #donate {
     transition: 0.3s;
     opacity: 0.8;
