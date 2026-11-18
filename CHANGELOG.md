@@ -21,6 +21,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Firefox >= 55
 - Require Chrome >= 37
 
+### Added
+- Add a donation dialog to the add-on popup with links to Patreon, PayPal and Buy Me a Coffee
+
 ### Changed
 - Update and improve the Japanese localization. Thanks to [@Guest126](https://github.com/Guest126)
     - [#245](https://github.com/ClearURLs/Addon/pull/245)
