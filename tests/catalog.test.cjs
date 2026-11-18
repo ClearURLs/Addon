@@ -24,6 +24,19 @@ test('real tracking removal reaches webRequest and the history script', async ()
   assert.match(addon.history(input)[0].code, /id=42/);
 });
 
+test('referral marketing can be turned off and back on without reloading providers', async () => {
+  const addon = await loadAddon();
+  const product = 'https://www.amazon.com/dp/B000000000';
+  const referral = `${product}?tag=example-20`;
+
+  for (const enabled of [true, false, true]) {
+    addon.context.storage.referralMarketing = enabled;
+    const expected = enabled ? referral : product;
+    assert.equal(addon.clean(`${referral}&utm_source=test`), expected);
+    assert.deepEqual(addon.request(referral), enabled ? {} : { redirectUrl: expected });
+  }
+});
+
 test('prototype pollution creates neither exceptions nor redirects', async () => {
   const addon = await loadAddon({ pollute: true });
   const input = 'https://example.com/?utm_source=x&next=getOrDefault';

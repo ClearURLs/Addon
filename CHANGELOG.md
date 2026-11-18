@@ -33,6 +33,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#456](https://github.com/ClearURLs/Addon/pull/456)
 
 ### Fixed
+- Preserve referral and affiliate parameters immediately after re-enabling referral marketing
 - Prevent a vertical scrollbar in the add-on popup when logging is enabled
 - Prevent DataTables i18n file loading errors on the log page and fall back to English when a translation cannot be loaded
     - [#469](https://github.com/ClearURLs/Addon/issues/469)

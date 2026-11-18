@@ -499,7 +499,7 @@ function start() {
          */
         this.getRules = function () {
             if (!storage.referralMarketing) {
-                return Object.keys(Object.assign(enabled_rules, enabled_referralMarketing));
+                return Object.keys(Object.assign(Object.create(null), enabled_rules, enabled_referralMarketing));
             }
 
             return Object.keys(enabled_rules);
