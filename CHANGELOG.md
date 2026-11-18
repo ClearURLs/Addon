@@ -9,6 +9,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
+## [1.XX.0] - 202X-XX-XX
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+## [1.28.0] - 2026-11-18
+
+### Compatibility note
+- Require Firefox >= 55
+- Require Chrome >= 37
+
+### Changed
+- Correct spelling and grammar in the Ukrainian localization. Thanks to [@MortalEngineXXII](https://github.com/MortalEngineXXII)
+    - [#456](https://github.com/ClearURLs/Addon/pull/456)
+
 ### Fixed
 - Prevent DataTables i18n file loading errors on the log page and fall back to English when a translation cannot be loaded
     - [#469](https://github.com/ClearURLs/Addon/issues/469)
@@ -45,13 +61,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#535](https://github.com/ClearURLs/Addon/issues/535)
     - [#545](https://github.com/ClearURLs/Addon/issues/545)
     - [#548](https://github.com/ClearURLs/Addon/issues/548)
-
-## [1.XX.0] - 2022-XX-XX
-
-### Compatibility note
-- Require Firefox >= 55
-- Require Chrome >= 37
-
 
 ## [1.27.3] - 2025-02-05
 
