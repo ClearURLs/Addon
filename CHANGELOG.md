@@ -59,6 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#211](https://github.com/ClearURLs/Addon/issues/211)
 - Preserve fragment values, duplicates, ordering and empty separators during URL cleaning
     - [#510](https://github.com/ClearURLs/Addon/issues/510)
+- Remove tracking fields with percent-encoded fragment names without repeatedly decoding or re-encoding the fragment
 - Preserve the application-provided navigation state during History API URL cleaning
     - [#196](https://github.com/ClearURLs/Addon/issues/196)
     - [#311](https://github.com/ClearURLs/Addon/issues/311)

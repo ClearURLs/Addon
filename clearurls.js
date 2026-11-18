@@ -176,7 +176,14 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             }
 
             for (const fragment of fragments.keys()) {
-                if (new RegExp("^"+rule+"$", "gi").test(fragment)) {
+                let decodedFragment = fragment;
+                try {
+                    decodedFragment = decodeURIComponent(fragment);
+                } catch (error) {
+                    // Keep malformed escape sequences unchanged and continue cleaning.
+                }
+
+                if (new RegExp("^"+rule+"$", "gi").test(decodedFragment)) {
                     fragments.delete(fragment);
                     changes = true;
                     localChange = true;

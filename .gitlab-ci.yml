@@ -28,7 +28,7 @@ hash rules:
 test addon:
   stage: test
   script:
-    - node --test tests/*.test.cjs
+    - node --test tests/*.test.cjs tests/*.regressions.cjs
 
 bundle addon:
   stage: build

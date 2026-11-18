@@ -40,4 +40,5 @@ test('encoded fragment tracking names are matched once', async () => {
   const addon = await loadAddon();
   assert.equal(addon.clean('https://example.com/#%75tm_source=x'), 'https://example.com/');
   assert.equal(addon.clean('https://example.com/#%2575tm_source=x'), 'https://example.com/#%2575tm_source=x');
+  assert.equal(addon.clean('https://example.com/#bad%FF=value'), 'https://example.com/#bad%FF=value');
 });
