@@ -22,6 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Require Chrome >= 37
 
 ### Changed
+- Update and improve the Japanese localization. Thanks to [@Guest126](https://github.com/Guest126)
+    - [#245](https://github.com/ClearURLs/Addon/pull/245)
 - Correct spelling and grammar in the Ukrainian localization. Thanks to [@MortalEngineXXII](https://github.com/MortalEngineXXII)
     - [#456](https://github.com/ClearURLs/Addon/pull/456)
 
