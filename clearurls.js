@@ -44,6 +44,18 @@ function getOrDefault(obj, key, defaultValue) {
 }
 
 /**
+ * Build a URL from its separate query and fragment components.
+ */
+function buildURLFromParts(domain, fields, fragments, hasQuery, hasHash) {
+    let url = domain;
+
+    if (hasQuery) url += "?" + fields;
+    if (hasHash) url += "#" + fragments;
+
+    return url;
+}
+
+/**
  * Helper function which remove the tracking fields
  * for each provider given as parameter.
  *
@@ -173,13 +185,10 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
 
             //Log the action
             if (localChange && storage.loggingStatus) {
-                let tempURL = domain;
-                let tempBeforeURL = domain;
-
-                if (hasQuery) tempURL += "?" + fields.toString();
-                if (fragments.size > 0 || preserveEmptyHash) tempURL += "#" + fragments.toString();
-                if (beforeHasQuery) tempBeforeURL += "?" + beforeFields.toString();
-                if (beforeHasHash) tempBeforeURL += "#" + beforeFragments.toString();
+                const tempURL = buildURLFromParts(domain, fields, fragments.toString(), hasQuery,
+                    fragments.size > 0 || preserveEmptyHash);
+                const tempBeforeURL = buildURLFromParts(domain, beforeFields, beforeFragments,
+                    beforeHasQuery, beforeHasHash);
 
                 if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
 
@@ -187,12 +196,8 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             }
         });
 
-        let finalURL = domain;
-
-        if (hasQuery) finalURL += "?" + fields;
-        if (fragments.size > 0 || preserveEmptyHash) finalURL += "#" + fragments.toString();
-
-        url = finalURL;
+        url = buildURLFromParts(domain, fields, fragments.toString(), hasQuery,
+            fragments.size > 0 || preserveEmptyHash);
     }
 
 

@@ -12,19 +12,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.XX.0] - 202X-XX-XX
 
 ### Compatibility note
-- Require Firefox >= 55
-- Require Chrome >= 37
+- Require Firefox >= 98
+- Require Chrome >= 42
 
 ## [1.28.0] - 2026-11-18
 
 ### Compatibility note
-- Require Firefox >= 55
-- Require Chrome >= 37
+- Require Firefox >= 98
+- Require Chrome >= 42
 
 ### Added
 - Add a donation dialog to the add-on popup with links to Patreon, PayPal and Buy Me a Coffee
 
 ### Changed
+- Allow referral marketing by default on new installations, preserving referral and affiliate parameters
 - Widen the add-on popup for better readability
 - Update and improve the Japanese localization. Thanks to [@Guest126](https://github.com/Guest126)
     - [#245](https://github.com/ClearURLs/Addon/pull/245)
