@@ -123,6 +123,38 @@
         "message": "Open the log",
         "description": "This string is used as title for the log button on the popup page."
     },
+    "popup_html_site_head": {
+        "message": "Site",
+        "description": "This string is used as title for the current site section on the popup page."
+    },
+    "popup_html_site_disable": {
+        "message": "Disable on this site",
+        "description": "This string is used as label for disabling ClearURLs on the current site."
+    },
+    "popup_html_site_disable_title": {
+        "message": "Disable ClearURLs on the current site",
+        "description": "This string is used as title for the current-site disable button."
+    },
+    "popup_html_site_enable": {
+        "message": "Enable on this site",
+        "description": "This string is used as label for enabling ClearURLs on the current site."
+    },
+    "popup_html_site_enable_title": {
+        "message": "Enable ClearURLs again on the current site",
+        "description": "This string is used as title for the current-site enable button."
+    },
+    "popup_html_site_enabled": {
+        "message": "ClearURLs is active on $1",
+        "description": "This string is used to show that ClearURLs is active on the current site."
+    },
+    "popup_html_site_disabled": {
+        "message": "ClearURLs is disabled on $1",
+        "description": "This string is used to show that ClearURLs is disabled on the current site."
+    },
+    "popup_html_site_unavailable": {
+        "message": "This page does not have a normal site hostname.",
+        "description": "This string is used when the current tab does not expose a normal site hostname."
+    },
     "popup_html_report_button": {
         "message": "Report current URL",
         "description": "Note: Currently not used."

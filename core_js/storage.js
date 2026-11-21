@@ -116,6 +116,9 @@ function genesis() {
         //Set correct icon on startup
         changeIcon();
 
+        // Cache active and open tab URLs for per-site controls and filtering
+        initializeTabURLs();
+
         // Start the context_menu
         contextMenuStart();
 
@@ -162,6 +165,9 @@ function setData(key, value) {
             break;
         case "types":
             storage[key] = value.split(',');
+            break;
+        case "disabledDomains":
+            storage[key] = Array.isArray(value) ? value : value.split(',').filter(Boolean);
             break;
         case "logLimit":
             storage[key] = Math.max(0, Number(value));
@@ -224,6 +230,7 @@ function initSettings() {
     storage.domainBlocking = true;
     storage.pingBlocking = true;
     storage.eTagFiltering = false;
+    storage.disabledDomains = [];
     storage.watchDogErrorCount = 0;
 
     if (getBrowser() === "Firefox") {

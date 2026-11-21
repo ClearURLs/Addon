@@ -37,7 +37,7 @@ function historyListenerStart() {
 * which is associated with the new history entry created by replaceState()
 */
 function historyCleaner(details) {
-    if(storage.globalStatus) {
+    if(storage.globalStatus && !isURLDisabled(details.url)) {
         const urlBefore = details.url;
         const urlAfter = pureCleaning(details.url);
 
