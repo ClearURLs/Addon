@@ -40,9 +40,9 @@ async function assertContract(capture, expected, hostname) {
   else assert.notEqual(parsed.hostname, '');
 }
 
-async function assertCases(cases) {
+async function assertCases(t, cases) {
   for (const [label, capture, expected, hostname] of cases) {
-    test(label, () => assertContract(capture, expected, hostname));
+    await t.test(label, () => assertContract(capture, expected, hostname));
   }
 }
 
@@ -78,7 +78,7 @@ const ambiguousEncodedAuthority = 'https://u%2Fser%40example.test%2Fa?q=x';
 const competingHosts = 'https://reader@example.test:8443%2Fguide@archive.test?q=1';
 const encodedHttpsPrefix = 'https%25%32%35%33%41%252F%252F';
 
-test('legacy retains literal HTTP(S) destinations and validates their hosts', async () => {
+test('legacy retains literal HTTP(S) destinations and validates their hosts', async t => {
   const targets = [
     'http://example.com', 'https://example.com', 'https://example.com/', 'https://example.com/index.html',
     'http://example.com?', 'http://example.com#', 'http://example.com/?q=', 'http://example.com/#',
@@ -87,11 +87,11 @@ test('legacy retains literal HTTP(S) destinations and validates their hosts', as
     'https:///example.test/path', 'https://example.test\\path', 'https://example.test/straße?q=grüß',
   ];
   for (const target of targets) {
-    test(target, () => assertContract(target, target));
+    await t.test(target, () => assertContract(target, target));
   }
 });
 
-test('legacy decodes until no percent layer changes the destination', async () => {
+test('legacy decodes until no percent layer changes the destination', async t => {
   const targets = [
     ['HTTPS://User:Pass@Example.COM:8443/a%2Fb?keep=a%26b&data=x%2By#bookmark%23part',
       'HTTPS://User:Pass@Example.COM:8443/a/b?keep=a&b&data=x+y#bookmark#part'],
@@ -104,13 +104,13 @@ test('legacy decodes until no percent layer changes the destination', async () =
   ];
   for (const [target, expected] of targets) {
     for (let depth = 0; depth <= 3; depth++) {
-      test('depth ' + depth + ': ' + target, () => assertContract(wrapValue(target, depth), expected));
+      await t.test('depth ' + depth + ': ' + target, () => assertContract(wrapValue(target, depth), expected));
     }
   }
 });
 
-test('legacy opens separators in mixed and partially wrapped captures', async () => {
-  await assertCases([
+test('legacy opens separators in mixed and partially wrapped captures', async t => {
+  await assertCases(t, [
     ['encoded scheme colon before literal slashes', 'HTTPS%3A//example.test/a%2Fb?q=a%26b',
       'HTTPS://example.test/a/b?q=a&b'],
     ['encoded scheme colon and second slash', 'HTTPS%3A/%2Fexample.test/a%2Fb?q=a%26b',
@@ -135,8 +135,8 @@ test('legacy opens separators in mixed and partially wrapped captures', async ()
   ]);
 });
 
-test('legacy completes network and host paths after decoding', async () => {
-  await assertCases([
+test('legacy completes network and host paths after decoding', async t => {
+  await assertCases(t, [
     ['scheme-less partial path', 'example.test%2Fguide%23notes%2520team', 'http://example.test/guide#notes team'],
     ['scheme-less HTTP-named hostname', 'HTTPBIN.ORG/path', 'http://HTTPBIN.ORG/path'],
     ['scheme-less hostname with an HTTP scheme name', 'https%2Ffile', 'http://https/file'],
@@ -179,7 +179,7 @@ test('legacy retains the historical host and path after decoding authority delim
   }
 });
 
-test('legacy rejects raw controls in the capture and after every decode pass', async () => {
+test('legacy rejects raw controls in the capture and after every decode pass', async t => {
   for (const [label, raw, escaped] of [
     ['HTAB', '\t', '%09'], ['LF', '\n', '%0A'], ['CR', '\r', '%0D'],
     ['NUL', '\u0000', '%00'], ['DEL', '\u007f', '%7F'],
@@ -189,11 +189,11 @@ test('legacy rejects raw controls in the capture and after every decode pass', a
     const rawTarget = 'https://example.test/a?q=x' + raw + 'y';
     const escapedTarget = 'https://example.test/a' + escaped + '?q=x' + escaped + 'y#' + escaped;
     for (let depth = 0; depth <= 3; depth++) {
-      test(label + ' raw, depth ' + depth, () => assertContract(wrapValue(rawTarget, depth), null));
-      test(label + ' escaped, depth ' + depth, () => assertContract(wrapValue(escapedTarget, depth), null));
+      await t.test(label + ' raw, depth ' + depth, () => assertContract(wrapValue(rawTarget, depth), null));
+      await t.test(label + ' escaped, depth ' + depth, () => assertContract(wrapValue(escapedTarget, depth), null));
     }
   }
-  await assertCases([
+  await assertCases(t, [
     ['separately escaped hex characters produce a newline on a later pass',
       'https://example.test/a?q=x%25%30%41y', null],
     ['separately escaped hex characters produce a C1 control on a later pass',
@@ -205,9 +205,9 @@ test('legacy rejects raw controls in the capture and after every decode pass', a
   ]);
 });
 
-test('legacy restores the narrow opaque-byte query exception', async () => {
+test('legacy restores the narrow opaque-byte query exception', async t => {
   for (let depth = 0; depth <= 3; depth++) {
-    test('depth ' + depth, () => assertContract(wrapValue(opaqueLegacyCapture, depth), opaqueLegacyTarget));
+    await t.test('depth ' + depth, () => assertContract(wrapValue(opaqueLegacyCapture, depth), opaqueLegacyTarget));
   }
 });
 
@@ -225,16 +225,16 @@ const invalidTargets = [
   'https%3A%2F%2Fexample.test%2Fa\ud800',
 ];
 
-test('legacy rejects invalid targets and unsupported schemes', async () => {
+test('legacy rejects invalid targets and unsupported schemes', async t => {
   for (const target of invalidTargets) {
-    test(JSON.stringify(target), () => assertContract(target, null));
+    await t.test(JSON.stringify(target), () => assertContract(target, null));
   }
   for (const target of [
     'ftp://example.test/a', 'file:///etc/passwd', 'mailto:user@example.test',
     'javascript:alert(1)', 'data:text/html,test', 'ws://example.test/socket',
   ]) {
     for (let depth = 1; depth <= 3; depth++) {
-      test('non-HTTP at depth ' + depth + ': ' + target, () => assertContract(wrapValue(target, depth), null));
+      await t.test('non-HTTP at depth ' + depth + ': ' + target, () => assertContract(wrapValue(target, depth), null));
     }
   }
 });
