@@ -1,0 +1,24 @@
+{
+  "repository": "https://gitlab.com/ClearURLs/core.git",
+  "sourceCommit": null,
+  "sourceBaseCommit": "2b12f0f9e16d61b30a27d41497f516cc2a45b495",
+  "typescript": "5.9.3",
+  "sources": {
+    "src/utils/Multimap.ts": "7ee786aaa0924b2bec54e7773d43081b31cffd3abaadd74590afdd2efad50fbe",
+    "src/utils/URLHashParams.ts": "930a56cad1f60c0da3f40bedf4ee803c0c3ab55552f67df561846b4135cc7827",
+    "src/utils/decodeRedirectTarget.ts": "ea9282389ca204def8fa2297a1e98672c77ecb6244245a116b9e1669456e53dd",
+    "src/utils/redirect/declared.ts": "5c3eb38d21e90cd9291ccd920cf203917a3160eaa86aabab463aee419156aad0",
+    "src/utils/redirect/declaredRule.ts": "891ed142e7f5bb024f662037581d37add886c75b0ba6e7ab941e9f455bc9904c",
+    "src/utils/redirect/legacy.ts": "2aafb8ebcb0b3f78d6db7c5968ac682e2ce54f3d115c0e83493df5a8f1d6c23f",
+    "src/utils/redirect/percentEscapes.ts": "3df9a392d757a3fd11dc23d5e8d1cc7c13b7799833f58a90a7618ff7b06fbd7e",
+    "src/utils/redirect/url.ts": "c2cbbe0934f74653e00a8f79e51ce44569609a6648b4bdb4e80f032936dcdfc3"
+  },
+  "files": {
+    "Multimap.d.ts": "b40388488868e00c5275b6d037ba3a46d7b66c3a24aa8c03e0beeb94802ffdd3",
+    "URLHashParams.d.ts": "cea839a48e5cb91c0321801933f2da7c4135c31c2c0dff8dd857f156f60700f6",
+    "decodeRedirectTarget.d.ts": "cecc937c15944acedb1e24070292ddbd6074d1385cecb6c55f7baec559d50177",
+    "Multimap.js": "2539950c5a3f8c764c27006b98499969684521f203d73e8713196d25095d53ad",
+    "URLHashParams.js": "a41a1045729d3353d85de43876c0172600dbfef596c9a80ddb49ff750f9a81af",
+    "decodeRedirectTarget.js": "dec5ae54ffb52cbf95f71e950ab738da522922e2b75a72a59af381a71f44bcf8"
+  }
+}

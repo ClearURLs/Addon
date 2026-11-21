@@ -10,6 +10,7 @@ before_script:
 
 stages:
   - build
+  - test
   - deploy
 
 hash rules:
@@ -23,6 +24,14 @@ hash rules:
       - rules.min.hash
       - data.minify.json
       - rules.minify.hash
+
+test addon:
+  stage: test
+  variables:
+    GIT_DEPTH: "0"
+  script:
+    - apt-get install -y git
+    - node --test tests/*.test.cjs tests/*.regressions.cjs
 
 bundle addon:
   stage: build

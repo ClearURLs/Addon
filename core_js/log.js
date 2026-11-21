@@ -41,7 +41,7 @@ function resetGlobalLog(){
 */
 function getLog()
 {
-    browser.runtime.sendMessage({
+    return browser.runtime.sendMessage({
         function: "getData",
         params: ['log']
     }).then((data) => {
@@ -52,7 +52,8 @@ function getLog()
             return b.timestamp - a.timestamp;
         });
 
-        $('#logTable').DataTable({
+        let lang = getUILanguageCode();
+        let dataTableOptions = {
             "data": log.log,
             "columns": [
                 {
@@ -78,21 +79,49 @@ function getLog()
                     render: toDate
                 }
             ],
-            "pageLength": 10,
-            "language": {
-                "url": getDataTableTranslation()
-            }
-        } ).order([3, 'desc']).draw();
+            "pageLength": 10
+        };
+
+        return loadDataTableTranslation(lang).then((language) => {
+            dataTableOptions.language = language;
+            $('#logTable').DataTable(dataTableOptions).order([3, 'desc']).draw();
+        });
     }).catch(handleError);
+}
+
+/**
+ * Get the two-letter language code of the browser's UI language
+ */
+function getUILanguageCode() {
+    let lang = browser.i18n.getUILanguage();
+    return lang.substring(0, 2).toLowerCase();
+}
+
+/**
+ * Load a DataTable translation, falling back to its English defaults.
+ */
+function loadDataTableTranslation(lang) {
+    if (lang === "en") {
+        return Promise.resolve({});
+    }
+
+    return fetch(getDataTableTranslation(lang))
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            return response.json();
+        })
+        .catch((error) => {
+            console.warn(`Could not load DataTables translation "${lang}". Using English defaults.`, error);
+            return {};
+        });
 }
 
 /**
  * Get the translation file for the DataTable
  */
-function getDataTableTranslation()
-{
-    let lang = browser.i18n.getUILanguage();
-    lang = lang.substring(0,2);
+function getDataTableTranslation(lang) {
     return browser.runtime.getURL('./external_js/dataTables/i18n/' + lang + '.json');
 }
 

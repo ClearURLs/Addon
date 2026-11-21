@@ -1,11 +1,13 @@
 <a href="https://www.paypal.me/KevinRoebert" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/Paypal.png" alt="Buy Me A Coffee" height="55"></a>
 <a href="https://www.buymeacoffee.com/KevinRoebert" target="_blank"><img src="https://raw.githubusercontent.com/KevinRoebert/DonateButtons/master/BuyMeACoffee.png" alt="Buy Me A Coffee" height="55"></a>
+<a href="https://www.patreon.com/cw/ClearURLs/" target="_blank"><img src="img/Patreon.png" alt="Patreon" height="55"></a>
 
-[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/) [<img src="https://docs.clearurls.xyz/1.22.0/assets/img/MEA-button.png" alt="for Edge" height="60px">](https://microsoftedge.microsoft.com/addons/detail/mdkdmaickkfdekbjdoojfalpbkgaddei)
+
+[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="for Firefox" height="60px">](https://addons.mozilla.org/firefox/addon/clearurls/)
 
 # <sub><img src="https://gitlab.com/ClearURLs/ClearUrls/raw/master/img/clearurls.svg" width="64px" height="64px"></sub> ClearURLs
 
-**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox* and some *Chrome* based browsers.
+**ClearURLs** is an add-on based on the new WebExtensions technology and is optimized for *Firefox*.
 
 This extension will automatically remove tracking elements from URLs to help protect your privacy when browsing the Internet, 
 which is regularly updated by us and can be found [here](https://gitlab.com/anti-tracking/ClearURLs/rules/-/raw/master/data.min.json).
@@ -35,8 +37,8 @@ Indeed most of the above URL is tracking code. Once ClearURLs has cleaned the ad
 * Prevents Google from rewriting the search results (to include tracking elements)
 * Prevents Yandex from rewriting the search results (to include tracking elements)
 
-## Permissons
-Reasoning for needed permissions can be found under [here](https://gitlab.com/ClearURLs/ClearUrls/issues/159).
+## Permissions
+Reasoning for needed permissions you can find under [this wiki page](https://docs.clearurls.xyz/permissions).
 
 ## Screenshot
 ![Interface (version 1.14.0)](https://docs.clearurls.xyz/1.22.0/assets/img/interface.png)
@@ -86,9 +88,6 @@ Please push your translation into the folder `_locales/{language code}/messages.
 *  [PrivacyTools](https://www.privacytools.io/browsers/#addons)
 *  [New York Times Wirecutter](https://www.nytimes.com/wirecutter/reviews/our-favorite-ad-blockers-and-browser-extensions-to-protect-privacy/#cleaner-links-clearurls)
 *  ClearURLs is part of Mozilla's recommended extensions program
-
-## Permissions
-Reasoning for needed permissions you can find under [this wiki page](https://docs.clearurls.xyz/latest/permissions/).
 
 ## Copyright
 We use some third-party scripts in our add-on. The authors and licenses are listed below.

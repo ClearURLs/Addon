@@ -227,6 +227,18 @@
         "message": "It seems like this URL has already been reported.",
         "description": "Note: Currently not used."
     },
+    "donate_dialog_title": {
+        "message": "Please consider donating",
+        "description": "This string is used as title for the donation dialog."
+    },
+    "donate_dialog_message": {
+        "message": "Thank you for using ClearURLs. Your support is a great encouragement for the continued development of this add-on. If you like ClearURLs, please consider making a donation.",
+        "description": "This string is used as message in the donation dialog."
+    },
+    "donate_dialog_close": {
+        "message": "Close donation dialog",
+        "description": "This string is used as label for the donation dialog close button."
+    },
     "donate_button": {
         "message": "A donation for the ClearURLs creator.",
         "description": "This string is used to refer to a donation page."

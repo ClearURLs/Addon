@@ -28,6 +28,34 @@ var localDataHash;
 var os;
 
 /**
+ * Return only the provider names defined directly on the rules object.
+ * Object.prototype is extended with helper methods elsewhere in the add-on.
+ */
+function getProviderKeys(obj) {
+    return Object.keys(obj);
+}
+
+function getOrDefault(obj, key, defaultValue) {
+    if (Object.prototype.hasOwnProperty.call(obj, key) && obj[key] !== undefined) {
+        return obj[key];
+    }
+
+    return defaultValue;
+}
+
+/**
+ * Build a URL from its separate query and fragment components.
+ */
+function buildURLFromParts(domain, fields, fragments, hasQuery, hasHash) {
+    let url = domain;
+
+    if (hasQuery) url += "?" + fields;
+    if (hasHash) url += "#" + fragments;
+
+    return url;
+}
+
+/**
  * Helper function which remove the tracking fields
  * for each provider given as parameter.
  *
@@ -59,20 +87,18 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     * Expand the url by provider redirections. So no tracking on
     * url redirections form sites to sites.
     */
-    let re = provider.getRedirection(url);
-    if (re !== null) {
-        url = decodeURL(re);
-
+    const redirectUrl = provider.getRedirection(url);
+    if (redirectUrl !== null) {
         //Log the action
         if (!quiet) {
-            pushToLog(pureUrl, url, translate('log_redirect'));
+            pushToLog(pureUrl, redirectUrl, translate('log_redirect'));
             increaseTotalCounter(1);
             increaseBadged(false, request)
         }
 
         return {
             "redirect": true,
-            "url": url
+            "url": redirectUrl
         }
     }
 
@@ -105,44 +131,77 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
     });
 
     urlObject = new URL(url);
-    fields = urlObject.searchParams;
+    // Keep escaped query segments alongside the standard API's decoded names.
+    fields = urlObject.search.slice(1);
+    // Empty components have delimiters even when their getters return an empty string.
+    let hasQuery = fields !== "" || urlObject.href.split("#", 1)[0].endsWith("?");
+    const preserveEmptyHash = urlObject.hash === "" && urlObject.href.endsWith("#");
+    const rawFields = fields.split("&");
+    const originalFieldNames = Array.from(urlObject.searchParams.keys());
+    const remainingFieldNames = new Set(originalFieldNames);
     fragments = extractFragments(urlObject);
     domain = urlWithoutParamsAndHash(urlObject).toString();
 
     /**
      * Only test for matches, if there are fields or fragments that can be cleaned.
      */
-    if (fields.toString() !== "" || fragments.toString() !== "") {
+    if (originalFieldNames.length > 0 || fragments.size > 0) {
         rules.forEach(rule => {
+            const fieldPattern = new RegExp("^"+rule+"$", "i");
             const beforeFields = fields.toString();
+            const beforeHasQuery = hasQuery;
             const beforeFragments = fragments.toString();
+            const beforeHasHash = fragments.size > 0 || preserveEmptyHash;
             let localChange = false;
 
-            for (const field of fields.keys()) {
-                if (new RegExp("^"+rule+"$", "gi").test(field)) {
-                    fields.delete(field);
-                    changes = true;
-                    localChange = true;
+            const beforeFieldCount = remainingFieldNames.size;
+            if (beforeFieldCount) {
+                for (const field of remainingFieldNames) {
+                    if (fieldPattern.test(field)) {
+                        remainingFieldNames.delete(field);
+                        changes = true;
+                        localChange = true;
+                    }
                 }
             }
+            if (remainingFieldNames.size !== beforeFieldCount) {
+                let fieldIndex = 0;
+                // URLSearchParams skips empty segments; only non-empty entries consume a name.
+                const retainedFields = rawFields.filter(field => field === "" ||
+                    remainingFieldNames.has(originalFieldNames[fieldIndex++]));
+                fields = retainedFields.join("&");
+                hasQuery = retainedFields.length > 0;
+            }
 
-            for (const fragment of fragments.keys()) {
-                if (new RegExp("^"+rule+"$", "gi").test(fragment)) {
-                    fragments.delete(fragment);
-                    changes = true;
-                    localChange = true;
+            const fragmentsChanged = fragments.deleteMatching((fragment, value) => {
+                if (fieldPattern.test(fragment)) return true;
+                // Preserve bare anchors and literal fragment query markers during decoded matching.
+                if (value === null || fragment.startsWith("?")) return false;
+
+                let decodedFragment;
+                try {
+                    decodedFragment = decodeURIComponent(fragment);
+                } catch (error) {
+                    return false;
                 }
+
+                // Do not apply raw encoded rules to an already decoded nested encoding.
+                if (/%[0-9a-f]{2}/i.test(decodedFragment)) return false;
+                // Catalog rules may use the raw %3F spelling for a decoded leading '?'.
+                return fieldPattern.test(decodedFragment) ||
+                    fieldPattern.test(decodedFragment.replace(/^\?/, "%3F"));
+            });
+            if (fragmentsChanged) {
+                changes = true;
+                localChange = true;
             }
 
             //Log the action
             if (localChange && storage.loggingStatus) {
-                let tempURL = domain;
-                let tempBeforeURL = domain;
-
-                if (fields.toString() !== "") tempURL += "?" + fields.toString();
-                if (fragments.toString() !== "") tempURL += "#" + fragments.toString();
-                if (beforeFields.toString() !== "") tempBeforeURL += "?" + beforeFields.toString();
-                if (beforeFragments.toString() !== "") tempBeforeURL += "#" + beforeFragments.toString();
+                const tempURL = buildURLFromParts(domain, fields, fragments.toString(), hasQuery,
+                    fragments.size > 0 || preserveEmptyHash);
+                const tempBeforeURL = buildURLFromParts(domain, beforeFields, beforeFragments,
+                    beforeHasQuery, beforeHasHash);
 
                 if (!quiet) pushToLog(tempBeforeURL, tempURL, rule);
 
@@ -150,19 +209,15 @@ function removeFieldsFormURL(provider, pureUrl, quiet = false, request = null) {
             }
         });
 
-        let finalURL = domain;
-
-        if (fields.toString() !== "") finalURL += "?" + urlSearchParamsToString(fields);
-        if (fragments.toString() !== "") finalURL += "#" + fragments.toString();
-
-        url = finalURL.replace(new RegExp("\\?&"), "?").replace(new RegExp("#&"), "#");
+        url = buildURLFromParts(domain, fields, fragments.toString(), hasQuery,
+            fragments.size > 0 || preserveEmptyHash);
     }
 
 
 
     return {
         "changes": changes,
-        "url": url
+        "url": changes ? url : pureUrl
     }
 }
 
@@ -173,9 +228,7 @@ function start() {
      * @param {object} obj
      */
     function getKeys(obj) {
-        for (const key in obj) {
-            prvKeys.push(key);
-        }
+        prvKeys = getProviderKeys(obj);
     }
 
     /**
@@ -187,43 +240,42 @@ function start() {
 
         for (let p = 0; p < prvKeys.length; p++) {
             //Create new provider
-            providers.push(new Provider(prvKeys[p], data.providers[prvKeys[p]].getOrDefault('completeProvider', false),
-                data.providers[prvKeys[p]].getOrDefault('forceRedirection', false)));
+            providers.push(new Provider(prvKeys[p], getOrDefault(data.providers[prvKeys[p]], 'completeProvider', false),
+                getOrDefault(data.providers[prvKeys[p]], 'forceRedirection', false)));
 
             //Add URL Pattern
-            providers[p].setURLPattern(data.providers[prvKeys[p]].getOrDefault('urlPattern', ''));
+            providers[p].setURLPattern(getOrDefault(data.providers[prvKeys[p]], 'urlPattern', ''));
 
-            let rules = data.providers[prvKeys[p]].getOrDefault('rules', []);
+            let rules = getOrDefault(data.providers[prvKeys[p]], 'rules', []);
             //Add rules to provider
             for (let r = 0; r < rules.length; r++) {
                 providers[p].addRule(rules[r]);
             }
 
-            let rawRules = data.providers[prvKeys[p]].getOrDefault('rawRules', []);
+            let rawRules = getOrDefault(data.providers[prvKeys[p]], 'rawRules', []);
             //Add raw rules to provider
             for (let raw = 0; raw < rawRules.length; raw++) {
                 providers[p].addRawRule(rawRules[raw]);
             }
 
-            let referralMarketingRules = data.providers[prvKeys[p]].getOrDefault('referralMarketing', []);
+            let referralMarketingRules = getOrDefault(data.providers[prvKeys[p]], 'referralMarketing', []);
             //Add referral marketing rules to provider
             for (let referralMarketing = 0; referralMarketing < referralMarketingRules.length; referralMarketing++) {
                 providers[p].addReferralMarketing(referralMarketingRules[referralMarketing]);
             }
 
-            let exceptions = data.providers[prvKeys[p]].getOrDefault('exceptions', []);
+            let exceptions = getOrDefault(data.providers[prvKeys[p]], 'exceptions', []);
             //Add exceptions to provider
             for (let e = 0; e < exceptions.length; e++) {
                 providers[p].addException(exceptions[e]);
             }
 
-            let redirections = data.providers[prvKeys[p]].getOrDefault('redirections', []);
-            //Add redirections to provider
-            for (let re = 0; re < redirections.length; re++) {
-                providers[p].addRedirection(redirections[re]);
-            }
+            providers[p].setRedirections(
+                getOrDefault(data.providers[prvKeys[p]], 'redirections', []),
+                getOrDefault(data.providers[prvKeys[p]], 'redirectRules', [])
+            );
 
-            let methods = data.providers[prvKeys[p]].getOrDefault('methods', []);
+            let methods = getOrDefault(data.providers[prvKeys[p]], 'methods', []);
             //Add HTTP methods list to provider
             for (let re = 0; re < methods.length; re++) {
                 providers[p].addMethod(methods[re]);
@@ -329,6 +381,42 @@ function start() {
 
     // ##################################################################
 
+    /** Compile explicit redirects first so they shadow identical legacy patterns. */
+    function compileRedirections(legacyRules, explicitRules) {
+        const compiled = [];
+        const legacyPatternsToSkip = new Set();
+        const explicitIds = new Set();
+
+        if (Array.isArray(explicitRules)) {
+            for (const rule of explicitRules) {
+                const redirect = compileDeclaredRedirect(rule);
+                if (!redirect || explicitIds.has(redirect.id)) continue;
+
+                explicitIds.add(redirect.id);
+                legacyPatternsToSkip.add(redirect.pattern);
+                compiled.push(redirect);
+            }
+        }
+        if (Array.isArray(legacyRules)) {
+            for (const pattern of legacyRules) {
+                if (typeof pattern !== "string" || !pattern || legacyPatternsToSkip.has(pattern)) continue;
+
+                let expression;
+                try {
+                    expression = new RegExp(pattern, "i");
+                } catch (error) {
+                    continue;
+                }
+                legacyPatternsToSkip.add(pattern);
+                compiled.push({
+                    expression,
+                    resolve: ([target]) => target ? decodeRedirectTarget(target) : null
+                });
+            }
+        }
+        return compiled;
+    }
+
     /*
     * ##################################################################
     * # Supertyp Provider                                              #
@@ -345,18 +433,17 @@ function start() {
     function Provider(_name, _completeProvider = false, _forceRedirection = false, _isActive = true) {
         let name = _name;
         let urlPattern;
-        let enabled_rules = {};
-        let disabled_rules = {};
-        let enabled_exceptions = {};
-        let disabled_exceptions = {};
+        let enabled_rules = Object.create(null);
+        let disabled_rules = Object.create(null);
+        let enabled_exceptions = Object.create(null);
+        let disabled_exceptions = Object.create(null);
         let canceling = _completeProvider;
-        let enabled_redirections = {};
-        let disabled_redirections = {};
+        let redirections = [];
         let active = _isActive;
-        let enabled_rawRules = {};
-        let disabled_rawRules = {};
-        let enabled_referralMarketing = {};
-        let disabled_referralMarketing = {};
+        let enabled_rawRules = Object.create(null);
+        let disabled_rawRules = Object.create(null);
+        let enabled_referralMarketing = Object.create(null);
+        let disabled_referralMarketing = Object.create(null);
         let methods = [];
 
         if (_completeProvider) {
@@ -446,7 +533,7 @@ function start() {
          */
         this.getRules = function () {
             if (!storage.referralMarketing) {
-                return Object.keys(Object.assign(enabled_rules, enabled_referralMarketing));
+                return Object.keys(Object.assign(Object.create(null), enabled_rules, enabled_referralMarketing));
             }
 
             return Object.keys(enabled_rules);
@@ -541,7 +628,7 @@ function start() {
             //Add the site blocked alert to every exception
             if (url === siteBlockedAlert) return true;
 
-            for (const exception in enabled_exceptions) {
+            for (const exception of Object.keys(enabled_exceptions)) {
                 if (result) break;
 
                 let exception_regex = new RegExp(exception, "i");
@@ -551,48 +638,25 @@ function start() {
             return result;
         };
 
-        /**
-         * Add a redirection to the redirections array
-         * and replace old with new redirection.
-         *
-         * @param {String} redirection   RegExp as string
-         * @param {Boolean} isActive     Is this redirection active?
-         */
-        this.addRedirection = function (redirection, isActive = true) {
-            if (isActive) {
-                enabled_redirections[redirection] = true;
-
-                if (disabled_redirections[redirection] !== undefined) {
-                    delete disabled_redirections[redirection];
-                }
-            } else {
-                disabled_redirections[redirection] = true;
-
-                if (enabled_redirections[redirection] !== undefined) {
-                    delete enabled_redirections[redirection];
-                }
-            }
+        this.setRedirections = function (legacyRules, explicitRules) {
+            redirections = compileRedirections(legacyRules, explicitRules);
         };
 
         /**
-         * Return all redirection.
+         * Return the decoded target of the first matching redirection.
          *
-         * @return url
+         * @return {string|null}
          */
         this.getRedirection = function (url) {
-            let re = null;
+            for (const { expression, resolve } of redirections) {
+                const match = expression.exec(url);
+                if (!match) continue;
 
-            for (const redirection in enabled_redirections) {
-                let result = (url.match(new RegExp(redirection, "i")));
-
-                if (result && result.length > 0 && redirection) {
-                    re = (new RegExp(redirection, "i")).exec(url)[1];
-
-                    break;
-                }
+                const redirectUrl = resolve(match.slice(1));
+                if (redirectUrl !== null) return redirectUrl;
             }
 
-            return re;
+            return null;
         };
     }
 

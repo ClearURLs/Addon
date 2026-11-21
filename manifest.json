@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "ClearURLs",
-  "version": "1.27.3",
+  "version": "1.28.0",
   "author": "Kevin Roebert",
   "description": "__MSG_extension_description__",
   "homepage_url": "https://docs.clearurls.xyz",
@@ -9,7 +9,8 @@
   "content_security_policy": "script-src 'self'; object-src 'none'",
   "browser_specific_settings": {
     "gecko": {
-      "id": "{74145f27-f039-47ce-a470-a662b129930a}"
+      "id": "{74145f27-f039-47ce-a470-a662b129930a}",
+      "strict_min_version": "98.0"
     }
   },
   "icons": {
@@ -59,6 +60,7 @@
       "browser-polyfill.js",
       "core_js/utils/Multimap.js",
       "core_js/utils/URLHashParams.js",
+      "core_js/utils/decodeRedirectTarget.js",
       "core_js/message_handler.js",
       "external_js/ip-range-check.js",
       "core_js/tools.js",
@@ -270,16 +272,16 @@
         "*://*.google.co.zw/*",
         "*://*.google.cat/*"
       ],
-      "include_globs": [ 
-        "http?://www.google.*/", 
+      "include_globs": [
+        "http?://www.google.*/",
         "http?://www.google.*/#hl=*",
-        "http?://www.google.*/search*", 
+        "http?://www.google.*/search*",
         "http?://www.google.*/webhp?hl=*",
-        "https://encrypted.google.*/", 
+        "https://encrypted.google.*/",
         "https://encrypted.google.*/#hl=*",
-        "https://encrypted.google.*/search*", 
+        "https://encrypted.google.*/search*",
         "https://encrypted.google.*/webhp?hl=*",
-        "http?://ipv6.google.com/", 
+        "http?://ipv6.google.com/",
         "http?://ipv6.google.com/search*"
        ],
       "js": [

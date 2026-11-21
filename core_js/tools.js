@@ -134,17 +134,10 @@ function extractFragments(url) {
  * @return {URL} the url without searchParams and hash
  */
 function urlWithoutParamsAndHash(url) {
-    let newURL = url.toString();
-
-    if (url.search) {
-        newURL = newURL.replace(url.search, "");
-    }
-
-    if (url.hash) {
-        newURL = newURL.replace(url.hash, "");
-    }
-
-    return new URL(newURL);
+    const newURL = new URL(url);
+    newURL.search = "";
+    newURL.hash = "";
+    return newURL;
 }
 
 /**
@@ -355,69 +348,34 @@ function getBrowser() {
     }
 }
 
-browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
-    if (changeInfo.url) {
-        setTabURL(tabId, changeInfo.url);
-    } else if (tab && tab.url) {
-        setTabURL(tabId, tab.url);
-    }
+if (typeof browser !== "undefined" && browser.tabs.onUpdated) {
+    browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+        if (changeInfo.url) {
+            setTabURL(tabId, changeInfo.url);
+        } else if (tab && tab.url) {
+            setTabURL(tabId, tab.url);
+        }
 
-    if (tab && tab.active) {
-        currentURL = tab.url || changeInfo.url || currentURL;
-    }
-});
-
-browser.tabs.onActivated.addListener((activeInfo) => {
-    browser.tabs.get(activeInfo.tabId).then((tab) => {
-        currentURL = tab.url || "";
-        setTabURL(tab.id, currentURL);
-    }).catch(handleError);
-});
-
-browser.tabs.onRemoved.addListener((tabId) => {
-    removeTabURL(tabId);
-});
-
-/**
- * Decodes an URL, also one that is encoded multiple times.
- *
- * @see https://stackoverflow.com/a/38265168
- *
- * @param url   the url, that should be decoded
- */
-function decodeURL(url) {
-    let rtn = decodeURIComponent(url);
-
-    while (isEncodedURI(rtn)) {
-        rtn = decodeURIComponent(rtn);
-    }
-
-    // Required (e.g., to fix https://github.com/ClearURLs/Addon/issues/71)
-    if (!rtn.startsWith('http')) {
-        rtn = 'http://' + rtn
-    }
-
-    return rtn;
+        if (tab && tab.active) {
+            currentURL = tab.url || changeInfo.url || currentURL;
+        }
+    });
 }
 
-/**
- * Returns true, iff the given URI is encoded
- * @see https://stackoverflow.com/a/38265168
- */
-function isEncodedURI(uri) {
-    return uri !== decodeURIComponent(uri || '')
+if (typeof browser !== "undefined" && browser.tabs.onActivated) {
+    browser.tabs.onActivated.addListener((activeInfo) => {
+        browser.tabs.get(activeInfo.tabId).then((tab) => {
+            currentURL = tab.url || "";
+            setTabURL(tab.id, currentURL);
+        }).catch(handleError);
+    });
 }
 
-/**
- * Gets the value of at `key` an object. If the resolved value is `undefined`, the `defaultValue` is returned in its place.
- *
- * @param {string} key the key of the object
- * @param {object} defaultValue the default value
- */
-Object.prototype.getOrDefault = function (key, defaultValue) {
-    return this[key] === undefined ? defaultValue : this[key];
-};
-
+if (typeof browser !== "undefined" && browser.tabs.onRemoved) {
+    browser.tabs.onRemoved.addListener((tabId) => {
+        removeTabURL(tabId);
+    });
+}
 function handleError(error) {
     console.error("[ClearURLs ERROR]:" + error);
 }

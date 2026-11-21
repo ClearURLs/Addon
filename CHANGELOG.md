@@ -9,12 +9,70 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add features from the milestone [%1](https://gitlab.com/KevinRoebert/ClearUrls/-/milestones/1)
 - Dedicated documentation page like [docs.drasyl.org](https://docs.drasyl.org)
 
-## [1.XX.0] - 2022-XX-XX
+## [1.XX.0] - 202X-XX-XX
 
 ### Compatibility note
-- Require Firefox >= 55
-- Require Chrome >= 37
+- Require Firefox >= 98
 
+## [1.28.0] - 2026-11-18
+
+### Compatibility note
+- Require Firefox >= 98
+
+### Added
+- Add a donation dialog to the add-on popup with links to Patreon, PayPal and Buy Me a Coffee
+- Add declarative `redirectRules` with capture templates, selected percent, form, Base64 and Base64URL preprocessing steps, and optional default schemes
+
+### Changed
+- Enable referral marketing by default when no preference has been saved, including after an upgrade.
+- Widen the add-on popup for better readability
+- Update and improve the Japanese localization. Thanks to [@Guest126](https://github.com/Guest126)
+    - [#245](https://github.com/ClearURLs/Addon/pull/245)
+- Correct spelling and grammar in the Ukrainian localization. Thanks to [@MortalEngineXXII](https://github.com/MortalEngineXXII)
+    - [#456](https://github.com/ClearURLs/Addon/pull/456)
+
+### Fixed
+- Preserve referral and affiliate parameters immediately after re-enabling referral marketing
+- Prevent a vertical scrollbar in the add-on popup when logging is enabled
+- Prevent DataTables i18n file loading errors on the log page and fall back to English when a translation cannot be loaded
+    - [#469](https://github.com/ClearURLs/Addon/issues/469)
+    - [#405](https://github.com/ClearURLs/Addon/issues/405)
+    - [#409](https://github.com/ClearURLs/Addon/issues/409)
+- Preserve original URLs when no cleaning rule changes them, avoiding re-encoding loops and unnecessary History API writes
+    - [#197](https://github.com/ClearURLs/Addon/issues/197)
+    - [#233](https://github.com/ClearURLs/Addon/issues/233)
+    - [#243](https://github.com/ClearURLs/Addon/issues/243)
+    - [#308](https://github.com/ClearURLs/Addon/issues/308)
+    - [#410](https://github.com/ClearURLs/Addon/issues/410)
+    - [#1167](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1167)
+    - [#1281](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1281)
+    - [#1320](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1320)
+    - [#267](https://gitlab.com/ClearURLs/rules/-/issues/267)
+    - [#274](https://gitlab.com/ClearURLs/rules/-/issues/274)
+- Prevent decoded legacy path delimiters from moving a redirect target into userinfo and changing its destination host
+- Reject malformed or unsupported-scheme redirect targets and raw controls exposed at any decoding layer, then try the remaining redirect rules
+- Handle supported legacy bare-query redirects containing non-UTF-8 bytes instead of failing URI decoding
+- Preserve encoded query names and values, legacy bytes and duplicates while removing tracking fields
+    - [#398](https://github.com/ClearURLs/Addon/issues/398)
+    - [#259](https://github.com/ClearURLs/Addon/issues/259)
+    - [#1297](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1297)
+    - [#257](https://gitlab.com/ClearURLs/rules/-/issues/257)
+- Preserve empty query and fragment delimiters during URL cleaning
+    - [#211](https://github.com/ClearURLs/Addon/issues/211)
+- Preserve fragment values, duplicates, ordering and empty separators during URL cleaning
+    - [#510](https://github.com/ClearURLs/Addon/issues/510)
+- Remove tracking parameters with percent-encoded fragment names while preserving anchors that match a rule only after decoding and literal `#?` query markers
+- Preserve the application-provided navigation state during History API URL cleaning
+    - [#196](https://github.com/ClearURLs/Addon/issues/196)
+    - [#311](https://github.com/ClearURLs/Addon/issues/311)
+- Skip delayed History API cleaning when the page has already navigated to another URL
+    - [#409](https://github.com/ClearURLs/Addon/issues/409)
+- Prevent inherited prototype methods from interfering with URL cleaning, including Google OAuth consent with the History API listener enabled
+    - [#223](https://github.com/ClearURLs/Addon/issues/223)
+    - [#272](https://github.com/ClearURLs/Addon/issues/272)
+    - [#535](https://github.com/ClearURLs/Addon/issues/535)
+    - [#545](https://github.com/ClearURLs/Addon/issues/545)
+    - [#548](https://github.com/ClearURLs/Addon/issues/548)
 
 ## [1.27.3] - 2025-02-05
 

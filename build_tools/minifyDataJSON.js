@@ -37,7 +37,7 @@ function build() {
     const data = JSON.parse(fileContent);
     let minifiedData = {"providers":{}};
 
-    for(let provider in data.providers) {
+    for (const provider of Object.keys(data.providers)) {
         minifiedData.providers[provider] = {};
         let self = minifiedData.providers[provider];
 
@@ -69,8 +69,12 @@ function build() {
             self.exceptions = data.providers[provider].exceptions;
         }
 
-        if(data.providers[provider].redirections.length !== 0) {
+        if(data.providers[provider].redirections && data.providers[provider].redirections.length !== 0) {
             self.redirections = data.providers[provider].redirections;
+        }
+
+        if(data.providers[provider].redirectRules && data.providers[provider].redirectRules.length !== 0) {
+            self.redirectRules = data.providers[provider].redirectRules;
         }
     }
 
