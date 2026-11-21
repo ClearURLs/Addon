@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add a donation dialog to the add-on popup with links to Patreon, PayPal and Buy Me a Coffee
+- Add declarative `redirectRules` with capture templates, selected percent, form, Base64 and Base64URL preprocessing steps, and optional default schemes
 
 ### Changed
 - Enable referral marketing by default when no preference has been saved, including after an upgrade.
@@ -48,8 +49,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [#1320](https://gitlab.com/ClearURLs/ClearUrls/-/issues/1320)
     - [#267](https://gitlab.com/ClearURLs/rules/-/issues/267)
     - [#274](https://gitlab.com/ClearURLs/rules/-/issues/274)
-- Keep legacy redirect decoding compatible with 1.27.3 and support explicit decoding with `redirectRules`
-- Skip invalid redirect targets and check the remaining redirect rules
+- Prevent decoded legacy path delimiters from moving a redirect target into userinfo and changing its destination host
+- Reject malformed or unsupported-scheme redirect targets and raw controls exposed at any decoding layer, then try the remaining redirect rules
+- Handle supported legacy bare-query redirects containing non-UTF-8 bytes instead of failing URI decoding
 - Preserve encoded query names and values, legacy bytes and duplicates while removing tracking fields
     - [#398](https://github.com/ClearURLs/Addon/issues/398)
     - [#259](https://github.com/ClearURLs/Addon/issues/259)
