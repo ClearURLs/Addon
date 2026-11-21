@@ -1,7 +1,6 @@
 {
   "repository": "https://gitlab.com/ClearURLs/core.git",
-  "sourceCommit": null,
-  "sourceBaseCommit": "2b12f0f9e16d61b30a27d41497f516cc2a45b495",
+  "sourceCommit": "d951926fcc2d4579e71658409f141b93cc623bfb",
   "typescript": "5.9.3",
   "sources": {
     "src/utils/Multimap.ts": "7ee786aaa0924b2bec54e7773d43081b31cffd3abaadd74590afdd2efad50fbe",
